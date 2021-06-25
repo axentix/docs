@@ -1,0 +1,52 @@
+<header>
+  <div class="navbar-fixed">
+    <nav class="navbar primary light-shadow-2">
+      <a href="{{ .Site.BaseURL }}" class="navbar-logo hide-sm-down centered">
+        <img src="/img/axentix.svg" alt="Axentix Logo" />
+      </a>
+      <button
+        data-target="main-sidenav"
+        aria-label="Menu button"
+        class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600"
+      >
+        <i class="fas fa-bars"></i> Menu
+      </button>
+      <button data-target="main-sidenav" class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-menu hide-sm-down">
+        <a class="navbar-link font-w600" href="{{ .Site.BaseURL }}"><i class="fas fa-home"></i> Home</a>
+
+        <a class="navbar-link font-w600" href="{{ .Site.BaseURL }}"><i class="fas fa-book"></i> Documentation</a>
+      </div>
+      <div class="navbar-menu ml-auto">
+        <form class="search">
+          <input
+            class="form-control rounded-4 shadow-1 white"
+            type="text"
+            name="search-input"
+            id="search-input"
+            placeholder="Search..."
+          />
+        </form>
+        <a
+          class="navbar-link font-w600"
+          id="github"
+          href="https://github.com/axentix/axentix"
+          target="_blank"
+          rel="noopener"
+          aria-label="Github"
+          ><i class="fab fa-github"></i><span class="hide-xs"> GITHUB</span></a
+        >
+        <a
+          class="navbar-link font-w600"
+          id="twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          ><i class="fab fa-twitter"><span class="hide"> TWITTER</span></i></a
+        >
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{- .Page.Params.Title | default .Site.Title -}}&nbsp;- Axentix</title>
+        <meta name="description" content="{{ .Page.Params.description }}" />
+        <meta property="og:description" content="{{ .Page.Params.description }}" />
+        {{- partial "head.html" -}}
+        {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
+        {{ $axentix := resources.Get "axentix/axentix.min.css" }}
+        {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
+        {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
+        {{ $style := slice $docs $base | resources.Concat "styles.css" }}
+        <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
+        <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
+    </head>
+    <body class="layout with-sidenav fixed-sidenav under-navbar">
+        {{- partial "header.html" . -}}
+        {{- partial "sidenav.html" . -}}
+        <main>
+            <div class="main-content container">
+            {{- block "main" . }}
+                {{.Content}}
+            {{- end }}
+            </div>
+        </main>
+        {{- partial "footer.html" . -}}
+
+        {{ $axentix := resources.Get "axentix/axentix.min.js" }}
+        {{ $docs := resources.Get "js/docs.js" }}
+        <script src="{{$axentix.RelPermalink}}" defer></script>
+        <script src="{{$docs.RelPermalink}}" defer></script>
+    </body>
+</html>

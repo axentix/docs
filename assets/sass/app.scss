@@ -1,0 +1,157 @@
+// Imports
+@import './axentix-utils/variables';
+@import './axentix-utils/mixins';
+@import './axentix-utils/functions';
+// @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+html,
+body {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+#twitter {
+  padding: 0 1rem;
+}
+
+@include responsive('xs') {
+  #github {
+    padding: 0 1rem;
+  }
+}
+
+.neumorphism-link {
+  display: flex !important;
+
+  .neumorphism-logo {
+    align-self: center;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+div.code-toolbar {
+  .disable-copy-btn {
+    ~ .toolbar {
+      display: none;
+    }
+  }
+}
+
+main {
+  .title {
+    font-size: 4rem;
+    align-items: flex-end;
+
+    img {
+      width: 7rem;
+      margin-right: 0.25rem;
+    }
+  }
+
+  pre.language-shell {
+    overflow: hidden;
+    max-width: 13rem;
+    text-align: center;
+  }
+}
+
+[data-ea-type='image'].loaded.horizontal .ea-callout,
+[data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-callout,
+.ea-type-image.horizontal .ea-callout {
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+
+#discord-footer {
+  font-size: 1.5rem;
+}
+
+.npm-github {
+  align-items: flex-end;
+
+  @media screen and (max-width: 360px) {
+    flex-direction: column;
+    align-items: baseline;
+
+    .language-shell {
+      margin-bottom: 1rem !important;
+    }
+  }
+}
+
+@include responsive('xs') {
+  .get-started {
+    width: 100%;
+  }
+}
+
+#top {
+  min-height: 41rem;
+}
+
+.top {
+  width: 50%;
+
+  @include responsive('sm-down') {
+    width: auto;
+  }
+}
+
+.side-geometric {
+  position: absolute;
+  right: -25rem;
+  top: -27rem;
+  height: 35rem;
+  width: 64rem;
+  background-color: #354d59;
+  border-radius: 34px;
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+
+  @include responsive('md') {
+    width: 60rem;
+  }
+
+  &.two {
+    height: 33rem;
+    width: 57rem;
+    background-color: #242f35;
+
+    @include responsive('md') {
+      width: 53rem;
+    }
+  }
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #282c34;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #c678dd;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e06c75;
+}
+
+.token.punctuation {
+  color: #56b6c2;
+}
+
+@import './home/devices';
+// @import './home/components';
+// @import './home/grix';
+// @import './home/colors';
+// @import './home/neu';

@@ -1,0 +1,24 @@
+$device-silver: #e2e3e4;
+$device-silver-dark: darken($device-silver, 10%);
+$device-silver-panel: #0d0d0d;
+$device-spacegray: #83878a;
+$device-spacegray-dark: darken($device-spacegray, 5%);
+$device-spacegray-panel: #0d0d0d;
+
+.device {
+  position: relative;
+  z-index: 2;
+
+  .device-frame {
+    z-index: 2;
+  }
+
+  .device-content {
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+  }
+}
+@import './devices/iphone';
+@import './devices/macbook';

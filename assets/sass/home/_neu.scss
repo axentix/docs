@@ -1,0 +1,79 @@
+#neumorph {
+  .form-switch .slider {
+    --form-switch-active-color: #fe7b00; /** replace by your color */
+  }
+
+  #song-image {
+    height: 180px;
+    width: 180px;
+  }
+
+  .fa-play,
+  .fa-forward {
+    margin-left: 2px;
+  }
+
+  .fa-backward {
+    margin-left: -1px;
+  }
+
+  .progress {
+    width: 68%;
+  }
+
+  .progress-thumb {
+    position: absolute;
+    left: 65%;
+    top: 0;
+    transform: translate(-50%, -4px);
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 1rem;
+  }
+
+  @include responsive('lg-up') {
+    .neumorph-text {
+      max-width: 60%;
+    }
+  }
+
+  @include responsive('sm-down') {
+    .neu-content {
+      flex-direction: column-reverse;
+      & > div {
+        margin-top: 1rem !important;
+        padding-top: 0 !important;
+      }
+    }
+
+    .neumorph-text {
+      text-align: center;
+      margin-left: 0 !important;
+    }
+
+    .neu-btn {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .neu-light {
+    .progress-thumb {
+      background-color: getColor('grey', 'light', 1);
+    }
+
+    .song-time {
+      color: getColor('grey', 'light', 1);
+    }
+  }
+
+  .neu-dark {
+    .progress-thumb {
+      background-color: getColor('grey', 'dark', 1);
+    }
+
+    .song-time {
+      color: getColor('grey', 'light', 2);
+    }
+  }
+}

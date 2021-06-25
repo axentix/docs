@@ -1,0 +1,59 @@
+.components-grix {
+  grid-template-columns: 1fr 1fr auto 1fr;
+
+  @include responsive('xs') {
+    margin-left: -18rem;
+    margin-top: 3rem;
+  }
+}
+
+div[class^='component-col-'] {
+  padding: 1rem;
+  width: 25rem;
+}
+
+.perspective {
+  transform: perspective(1400px) rotateY(-5deg) rotateX(20deg) rotateZ(15deg) translateX(-50px);
+  height: 39rem;
+}
+
+.component-col-1 {
+  #hidden-sentence {
+    opacity: 0;
+    transition-timing-function: ease;
+    transition-duration: 0.3s;
+    transition-property: opacity, margin;
+
+    &.visible {
+      opacity: 1;
+      margin-right: 0 !important;
+    }
+  }
+
+  .fa-heart {
+    font-size: 1.5rem;
+  }
+}
+
+.component-col-2 {
+  margin-top: -2rem;
+}
+
+.component-col-3 {
+  margin-top: -6rem;
+  width: fit-content !important;
+
+  .stats-card {
+    .fas {
+      font-size: 3.5rem;
+    }
+  }
+
+  .social-links {
+    font-size: 2rem;
+  }
+}
+
+.component-col-4 {
+  margin-top: -10rem;
+}

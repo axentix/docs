@@ -1,0 +1,444 @@
+// Imports
+@import './axentix-utils/variables';
+@import './axentix-utils/mixins';
+@import './axentix-utils/functions';
+// @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+html,
+body {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+#twitter {
+  padding: 0 1rem;
+}
+
+@include responsive('xs') {
+  #github {
+    padding: 0 1rem;
+  }
+}
+
+main {
+  padding: 0.5rem 1.5rem;
+
+  @include responsive('xs') {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@include responsive('lg-up') {
+  .layout.with-sidenav.fixed-sidenav main {
+    padding-left: $sidenav-large-width + 1.5rem !important;
+  }
+}
+
+@include responsive('md') {
+  .layout.with-sidenav.fixed-sidenav main {
+    padding-left: $sidenav-width + 1.5rem !important;
+  }
+}
+
+.docs-head {
+  border-bottom: 1px solid rgb(207, 201, 201);
+  margin-bottom: 1rem;
+
+  @include responsive('sm-down') {
+    flex-direction: column;
+
+    #ads-docs {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.container.custom-container {
+  margin-left: 0px !important;
+
+  @include responsive('md-down') {
+    width: 100%;
+  }
+}
+
+// Search
+.search {
+  position: relative;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  .form-control {
+    border: none !important;
+
+    @include responsive('xs') {
+      max-width: 10rem;
+    }
+  }
+}
+
+.algolia-autocomplete {
+  width: 100% !important;
+
+  [class^='ds-dataset-'] {
+    .algolia-docsearch-suggestion--text {
+      padding: 2px !important; // need it to see all the underlines
+      line-height: 1.25rem;
+      .algolia-docsearch-suggestion--highlight {
+        box-shadow: inset 0 -2px 0 0 rgba(33, 150, 243, 0.8);
+        transform: translateY(2px);
+        line-height: 1.25rem;
+      }
+    }
+
+    .algolia-docsearch-suggestion--highlight {
+      background: rgba(33, 150, 243, 0.1);
+      padding: 0;
+    }
+    .algolia-docsearch-suggestion--highlight-title {
+      line-height: 1.25rem;
+    }
+  }
+  .algolia-docsearch-suggestion--category-header {
+    line-height: 1.25rem;
+    margin-top: 1rem;
+  }
+  .algolia-docsearch-suggestion--title {
+    line-height: 1.25rem;
+  }
+  .algolia-docsearch-suggestion--content {
+    padding: 5px !important;
+  }
+
+  @include responsive('sm-down') {
+    // general menu
+    .ds-dropdown-menu {
+      width: 150% !important;
+      min-width: 0 !important;
+    }
+  }
+
+  // hide the left column ( repeat the same title )
+  .algolia-docsearch-suggestion--subcategory-column {
+    display: none !important;
+  }
+  // make the right container take the full width
+  .algolia-docsearch-suggestion--content {
+    width: 100% !important;
+    padding: 0 !important;
+
+    &:before {
+      display: none !important;
+    }
+  }
+}
+
+// Format width
+.content {
+  width: 80%;
+
+  @include responsive('sm-down') {
+    width: 100%;
+  }
+}
+
+.main-content {
+  max-width: 85rem;
+  width: 100%;
+}
+
+.main-scrollspy {
+  display: flex;
+  flex-direction: column;
+  transition: margin-top 0.3s ease;
+  position: fixed;
+  right: 0.25rem;
+
+  .scrollspy-sponsor {
+    order: 99;
+
+    &:not(.coffee-link) {
+      max-width: 130px;
+    }
+  }
+
+  @include responsive('sm-down') {
+    display: none;
+  }
+
+  a:not(.coffee-link) {
+    transition: color ease 0.3s, border-color ease 0.3s;
+    border-color: getColor('transparent');
+
+    &.active,
+    &:hover {
+      color: getColor('airforce', 'dark', 4) !important;
+      border-color: getColor('primary');
+    }
+  }
+}
+
+// Subtitle
+.subtitle {
+  font-weight: 400;
+
+  &::before {
+    content: '';
+    height: 5rem;
+    margin-top: -5rem;
+    display: block;
+  }
+
+  .subtitle-anchor {
+    visibility: hidden;
+    color: getColor('blue', 'light', 2);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: getColor('blue', 'dark', 1);
+    }
+  }
+
+  &:hover .subtitle-anchor {
+    visibility: visible;
+  }
+}
+
+h1::before {
+  content: '';
+  height: 5rem;
+  margin-top: -5rem;
+  display: block;
+}
+
+h2.subtitle:not(:first-child) {
+  margin-top: 3.5rem;
+}
+
+h4.subtitle {
+  margin-top: 2rem;
+}
+
+.table {
+  &.method-event tr td:nth-child(2),
+  &.option tr td:nth-child(3) {
+    min-width: 20rem;
+    line-height: 1.375;
+  }
+}
+
+#discord-footer {
+  font-size: 1.5rem;
+}
+
+// TIPS
+.tips {
+  margin-top: 4rem;
+  position: relative;
+
+  .tips-icon {
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    font-size: 3rem;
+    transform: rotate(25deg);
+  }
+}
+
+// COPY BTN
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #282c34;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #c678dd;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e06c75;
+}
+
+.token.punctuation {
+  color: #56b6c2;
+}
+
+div.code-toolbar {
+  .disable-copy-btn {
+    ~ .toolbar {
+      display: none;
+    }
+  }
+
+  pre {
+    &.code-max-height {
+      max-height: 44rem;
+
+      ~ .toolbar {
+        margin-right: 1.25rem;
+
+        @media (pointer: coarse) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:not(.disable-copy-btn) {
+      padding: 1.825rem 1.25rem 1.25rem;
+    }
+  }
+
+  > .toolbar {
+    opacity: 1;
+
+    button {
+      padding: 0.25rem 0.5rem;
+      font-weight: 500;
+      background-color: rgba(224, 224, 224, 0.2);
+      transition: background-color 0.2s ease;
+      outline: none;
+
+      &:hover {
+        color: #bbb;
+        background-color: rgba(224, 224, 224, 0.3);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// COLORS
+.color-page {
+  div.code-toolbar {
+    max-width: 90vw;
+  }
+
+  .example-color {
+    font-size: 1.5rem;
+    height: 7rem;
+    max-width: 90vw;
+    border-radius: 5px;
+    line-height: 7rem;
+    text-align: center;
+  }
+
+  @include responsive('md-up') {
+    div.code-toolbar,
+    .example-color {
+      max-width: 34vw;
+    }
+  }
+
+  .palette-container div {
+    display: flex;
+    padding: 1rem;
+  }
+
+  .special-palette {
+    div {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// GRIX
+.grix-page {
+  .example {
+    padding: 1rem;
+    background-color: getColor('grey', 'light', 4);
+    border-radius: 10px;
+
+    .grix {
+      .grix div {
+        border: 1px solid #fff;
+      }
+
+      div {
+        background-color: getColor('airforce', 'dark', 2);
+        color: txtColor(getColor('airforce', 'dark', 2));
+        padding: 1rem;
+        text-align: center;
+
+        @include responsive('xs') {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+
+  #gutter-table {
+    margin-bottom: 1rem;
+  }
+}
+
+// BUTTONS
+.buttons-page {
+  .button-container {
+    button {
+      margin: 0 1rem 0 0;
+    }
+  }
+  .buttons-container {
+    button {
+      margin-top: 1rem;
+    }
+  }
+}
+
+// SHADOWS
+.shadows-page {
+  .language-markup {
+    margin-top: 2rem;
+  }
+
+  .grix div.shadow-example {
+    padding: 1rem;
+    text-align: center;
+    &.text-example {
+      font-size: 3rem;
+      font-weight: 800;
+      @include responsive('md-down') {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// FOOTER
+.footer-page .example-footer {
+  .footer {
+    padding: 0 0.5rem !important;
+  }
+
+  .large-footer {
+    padding: 0 !important;
+  }
+}
+
+// Collapsible
+.example-collapsible {
+  margin: 0.5rem 0;
+  min-height: 0.1rem;
+
+  .collapsible div {
+    padding: 1rem;
+  }
+}
+
+// Utilities
+#rounded-full-div {
+  height: 58px;
+  width: 58px;
+}

@@ -1,0 +1,184 @@
+.device-iphone-x {
+  @include responsive('sm-down') {
+    margin-left: auto !important;
+    margin-right: auto;
+  }
+
+  height: fit-content;
+  width: fit-content;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.3));
+
+  &.top-part-iphone {
+    top: 3rem;
+    right: 8rem;
+  }
+
+  &.neu-iphone {
+    @include responsive('xs') {
+      transform: scale(0.8);
+      margin-top: -3rem !important;
+    }
+    filter: unset !important;
+  }
+
+  .device-frame {
+    background: $device-silver-panel;
+    border-radius: 45px;
+    box-shadow: inset 0 0 4px 1px $device-silver-dark, inset 0 0 0 5px $device-silver;
+    height: 579px;
+    padding: 19px;
+    width: 285px;
+  }
+
+  .device-content {
+    border-radius: 27px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .device-stripe {
+    &::after,
+    &::before {
+      content: '';
+      border: solid rgba(#333, 0.25);
+      border-width: 0 7px;
+      height: 5px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 9;
+    }
+    &::after {
+      top: 57px;
+    }
+    &::before {
+      bottom: 57px;
+    }
+  }
+
+  .device-header {
+    background: $device-silver-panel;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 20px;
+    left: 50%;
+    margin-left: -68px;
+    position: absolute;
+    top: 19px;
+    width: 136px;
+
+    &::after,
+    &::before {
+      content: '';
+      height: 11px;
+      position: absolute;
+      top: -1px;
+      width: 10px;
+    }
+    &::after {
+      background: radial-gradient(
+        circle at bottom left,
+        transparent 0,
+        transparent 75%,
+        $device-silver-panel 75%,
+        $device-silver-panel 100%
+      );
+      left: -9px;
+    }
+    &::before {
+      background: radial-gradient(
+        circle at bottom right,
+        transparent 0,
+        transparent 75%,
+        $device-silver-panel 75%,
+        $device-silver-panel 100%
+      );
+      right: -9px;
+    }
+  }
+
+  .device-sensors {
+    &::after,
+    &::before {
+      content: '';
+      z-index: 3;
+      position: absolute;
+    }
+    &::after {
+      background: #444;
+      border-radius: 3px;
+      height: 4px;
+      left: 50%;
+      margin-left: -25px;
+      top: 21px;
+      width: 50px;
+    }
+    &::before {
+      background: #444;
+      border-radius: 50%;
+      height: 9px;
+      left: 50%;
+      margin-left: 40px;
+      top: 19px;
+      width: 9px;
+    }
+  }
+
+  .device-btns {
+    background: $device-silver-dark;
+    height: 21px;
+    left: -2px;
+    position: absolute;
+    top: 77px;
+    width: 2px;
+
+    &::after,
+    &::before {
+      background: $device-silver-dark;
+      content: '';
+      height: 62px;
+      left: 0;
+      position: absolute;
+      width: 3px;
+    }
+
+    &::after {
+      top: 60px;
+    }
+    &::before {
+      top: 140px;
+    }
+  }
+
+  .device-power {
+    background: $device-silver-dark;
+    height: 67px;
+    right: -2px;
+    position: absolute;
+    top: 133px;
+    width: 2px;
+  }
+
+  .axentix-banner {
+    border-radius: 26px 26px 0 0;
+    width: 100%;
+  }
+
+  .first-card {
+    margin-top: -25px;
+  }
+
+  .check-card {
+    overflow: visible;
+    margin: 0;
+  }
+
+  .fa-check {
+    height: fit-content;
+    margin-left: 0.7rem;
+  }
+
+  .footer {
+    border-radius: 30px 30px 26px;
+  }
+}

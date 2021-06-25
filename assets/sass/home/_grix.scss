@@ -1,0 +1,61 @@
+#grix {
+  .container {
+    @include responsive('md-down') {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.grix-code {
+  background: #282c34;
+  width: 40%;
+
+  @include responsive('md-down') {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    background: inherit;
+    border-radius: 0 !important;
+  }
+}
+
+.grix-side {
+  .grix-preview {
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  @include responsive('lg-up') {
+    margin-left: 2rem;
+    max-width: 60%;
+  }
+}
+
+.grix-box {
+  min-height: 6rem;
+  min-width: 6rem;
+  width: auto;
+  height: auto;
+  border-radius: 88px 12px 88px 12px / 8px 92px 8px 92px;
+  font-size: 1.75rem;
+
+  @include responsive('xl') {
+    min-height: 7rem;
+    min-width: 7rem;
+  }
+
+  @include responsive('xs') {
+    min-height: 4rem;
+    min-width: 4rem;
+  }
+
+  @media screen and (max-width: 460px) {
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+    font-size: 1.25rem;
+  }
+}

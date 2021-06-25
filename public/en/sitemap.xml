@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://useaxentix.com/</loc>
+    <lastmod>2021-06-21T10:19:36+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://useaxentix.com/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://useaxentix.com/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://useaxentix.com/v1.3.x/en/docs/plugins/</loc>
+  </url>
+  
+  <url>
+    <loc>https://useaxentix.com/v1.3.x/en/docs/sass/</loc>
+  </url>
+  
+  <url>
+    <loc>https://useaxentix.com/404.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://useaxentix.com/v1.3.x/en/docs/components/buttons/</loc>
+  </url>
+  
+  <url>
+    <loc>https://useaxentix.com/v1.3.x/en/docs/getting-started/</loc>
+  </url>
+  
+</urlset>

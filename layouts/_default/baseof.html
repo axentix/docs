@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Axentix - Front-end framework based on CSS Grid</title>
+        <meta name="description" content="{{ .Page.Params.description }}" />
+        <meta property="og:description" content="{{ .Page.Params.description }}" />
+        {{- partial "head.html" -}}
+        {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
+        {{ $axentix := resources.Get "axentix/axentix.min.css" }}
+        {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
+        {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
+        {{ $style := slice $app $base | resources.Concat "styles.css" | minify }}
+        <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
+        <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
+    </head>
+    <body class="layout">
+        {{- partial "home/header.html" . -}}
+        <main>
+        {{- block "main" . }}
+        
+        {{- end }}
+        
+        {{ range .Site.RegularPages }}
+            <li>
+                <a href="{{.Permalink}}">{{.Title}}</a>
+            </li>
+        {{ end }}
+        <div class="divider"></div>
+        {{- partial "home/footer.html" . -}}
+
+        {{ $prism := resources.Get "js/prism.js" }}
+        {{ $axentix := resources.Get "axentix/axentix.min.js" }}
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="{{$prism.RelPermalink}}" defer></script>
+        <script src="{{$axentix.RelPermalink}}" defer></script>
+
+    </body>
+</html>

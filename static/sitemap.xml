@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+    <loc>https://useaxentix.com/</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/getting-started</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/general/grix</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/general/layouts</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/general/colors</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/general/js-init</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/buttons</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/button-group</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/footer</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/navbar</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/sidenav</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/cards</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/dropdown</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/loading</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/pagination</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/toast</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/modal</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/collapsible</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/table</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/caroulix</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/fab</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/tabs</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/tooltip</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/lightbox</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/components/scrollspy</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/inputs</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/file</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/check</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/select</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/switches</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/forms/material</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/shadows</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/breakpoints</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/alignments</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/others</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/spacing</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/borders</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/sass</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/plugins</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/javascript</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/typography</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/rounded</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/display</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+<url>
+    <loc>https://useaxentix.com/docs/utilities/flexbox</loc>
+    <lastmod>2021-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+</url>
+
+</urlset>
