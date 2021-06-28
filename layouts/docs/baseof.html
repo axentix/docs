@@ -15,7 +15,9 @@
     </head>
     <body class="layout with-sidenav fixed-sidenav under-navbar">
         {{- partial "header.html" . -}}
-        {{- partial "sidenav.html" . -}}
+        <div id="main-sidenav" class="sidenav light-shadow-2 fixed white large">
+            {{- partial "sidenav.html" . -}}
+        </div>
         <main>
             <div class="main-content container">
             {{- block "main" . }}
@@ -25,9 +27,11 @@
         </main>
         {{- partial "footer.html" . -}}
 
+        {{ $prism := resources.Get "js/prism.js" }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" }}
         {{ $docs := resources.Get "js/docs.js" }}
         <script src="{{$axentix.RelPermalink}}" defer></script>
+        <script src="{{$prism.RelPermalink}}" defer></script>
         <script src="{{$docs.RelPermalink}}" defer></script>
     </body>
 </html>

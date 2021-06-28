@@ -102,10 +102,10 @@ menu:
   - name: Typography
     url: "/docs/utilities/typography"
 
-# module:
-#   mounts:
-#     source: "node_modules/axentix/dist/js/axentix.min.js"
-#     target: "assets/js/axentix.min.js"
+module:
+  mounts:
+  - source: assets
+    target: assets
 
 languages:
   en:

@@ -10,11 +10,15 @@
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
         {{ $style := slice $app $base | resources.Concat "styles.css" | minify }}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>
     <body class="layout">
         {{- partial "home/header.html" . -}}
+        <div id="main-sidenav" class="sidenav light-shadow-2 white large">
+            {{- partial "sidenav.html" . -}}
+        </div>
         <main>
         {{- block "main" . }}
         
@@ -25,14 +29,19 @@
                 <a href="{{.Permalink}}">{{.Title}}</a>
             </li>
         {{ end }}
-        <div class="divider"></div>
+        </main>
         {{- partial "home/footer.html" . -}}
 
         {{ $prism := resources.Get "js/prism.js" }}
+        {{ $home := resources.Get "js/home.js" }}
+        {{ $tilt := resources.Get "js/vanilla-tilt.min.js" }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" }}
+        <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/js/neu-axentix.min.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$prism.RelPermalink}}" defer></script>
         <script src="{{$axentix.RelPermalink}}" defer></script>
+        <script src="{{$tilt.RelPermalink}}" defer></script>
+        <script src="{{$home.RelPermalink}}" defer></script>
 
     </body>
 </html>

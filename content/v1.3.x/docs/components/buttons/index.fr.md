@@ -1,7 +1,6 @@
 ---
-title: "Buttons"
+title: "Boutons"
 type: "docs"
-# slug: /components/
 ---
 
 Page des boutons en français
