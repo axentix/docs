@@ -4,49 +4,31 @@
 </div>
 <div class="hide-md-up">
   <a href="{{ .Site.BaseURL }}" class="sidenav-link">Home</a>
-  <a href="{{ .Site.BaseURL }}" class="sidenav-link">Documentation</a>
+  <a href="{{ ref . "getting-started" }}" class="sidenav-link">Documentation</a>
   <div class="divider"></div>
 </div>
 
-<a href="{{ .Site.BaseURL }}" class="sidenav-link">
+<a href="{{ ref . "getting-started" }}" class="sidenav-link {{ if  eq "Getting started" $.Page.Title . }}active{{ end }}">
   Getting started
 </a>
-{{ $currentPage := . }}
-  <!-- {{ range .Site.Menus.main }}
-    {{ if .HasChildren }}
-      <a class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-        {{ .Pre }}
-        {{ .Name }}
-      </a>
-      <ul class="sub-menu">
-        {{ range .Children }}
-        <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-          {{ .Name }}
-        </a>
-        {{ end }}
-      </ul>
-        {{ else }}
-      <a href="{{ .URL }}">
-        {{ .Pre }}
-        {{ .Name }}
-      </a>
-    {{ end }}
-{{ end }} -->
+
 <a href="" class="collapsible-trigger sidenav-link" data-target="general-menu">General</a>
 <div>
   <div class="collapsible" id="general-menu">
-  {{ range .Site.Menus.general }}
-    <a class="sidenav-link {{ if $currentPage.HasMenuCurrent "general" . }}active{{ end }}" href="{{.URL}}">{{ .Name }}</a>
+  {{ range .Site.RegularPages }}
+    {{ if eq .Page.Params.sidenav "general"}}
+    <a class="sidenav-link {{ if eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
+    {{ end }}
   {{ end }}
   </div>
 </div>
 <a href="" class="collapsible-trigger sidenav-link" data-target="components-menu">Components</a>
 <div>
   <div class="collapsible" id="components-menu">
-  {{ range .Site.Menus.components }}
-{{ if $currentPage.HasMenuCurrent "components" . }}active{{ end }}
-
-    <a class="sidenav-link {{ if or ($.IsMenuCurrent "components" .) ($.HasMenuCurrent "main" .) }}active{{ end }}" href="{{.URL}}">{{ .Name }}</a>
+  {{ range .Site.RegularPages }}
+    {{ if eq .Page.Params.sidenav "components" }}
+    <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
+    {{ end }}
   {{ end }}
   </div>
 </div>
@@ -54,17 +36,21 @@
 <a href="" class="collapsible-trigger sidenav-link" data-target="forms-menu">Forms</a>
 <div>
   <div class="collapsible" id="forms-menu">
-  {{ range .Site.Menus.forms }}
-    <a class="sidenav-link {{if or ($currentPage.IsMenuCurrent "components" .) ($currentPage.HasMenuCurrent "components" .) }} active{{end}}" href="{{.URL}}">{{ .Name }}</a>
-  {{ end }}
+    {{ range .Site.RegularPages }}
+      {{ if eq .Page.Params.sidenav "forms" }}
+      <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
+      {{ end }}
+    {{ end }}
   </div>
 </div>
 
 <a href="" class="collapsible-trigger sidenav-link" data-target="utilities-menu">Utilities</a>
 <div>
   <div class="collapsible" id="utilities-menu">
-  {{ range .Site.Menus.utilities }}
-    <a class="sidenav-link {{ if $currentPage.HasMenuCurrent "utilities" . }}active{{ end }}" href="{{.URL}}">{{ .Name }}</a>
-  {{ end }}
+    {{ range .Site.RegularPages }}
+      {{ if eq .Page.Params.sidenav "utilities" }}
+      <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
+      {{ end }}
+    {{ end }}
   </div>
 </div>

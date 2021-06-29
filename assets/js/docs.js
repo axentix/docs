@@ -1,5 +1,9 @@
 let sidenavDoc = new Axentix.Sidenav('#main-sidenav');
-let collapsible = new Axentix('collapsible');
+
+setTimeout(() => {
+  let collapsible = new Axentix('collapsible');
+}, 50);
+
 let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
   auto: {
     enabled: true,

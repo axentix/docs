@@ -20,9 +20,31 @@
         </div>
         <main>
             <div class="main-content container">
-            {{- block "main" . }}
-                {{.Content}}
-            {{- end }}
+                <div class="docs-head d-flex">
+                    <div>
+                        <h1 id="title">{{.Title}}</h1>
+                        <p>{{.Page.Params.Subtitle}}</p>
+                    </div>
+          
+                    <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto" id="ads-docs"></div>
+                </div>
+                <div class="d-flex relative-pos">
+                    <div class="content">
+                    {{- block "main" . }}
+                        {{.Content}}
+                    {{- end }}
+                    </div>
+                    <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+                        <span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+                            Sponsors
+                        </span>
+          
+                        <!-- <img src="" class="scrollspy-sponsor responsive-media ml-2 my-2"> -->
+                        <a href="https://www.buymeacoffee.com/axentix" target="_blank" rel="noopener" class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+                            <span class="outline-text">Become a sponsor</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
         {{- partial "footer.html" . -}}

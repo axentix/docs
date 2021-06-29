@@ -11,101 +11,106 @@ params:
 # permalinks:
 #   components: /test/:slug/:title/
 
-menu:
-  general:
-  - name: Grix
-    url: "/docs/general/grix"
-  - name: Layouts
-    url: "/docs/general/layouts"
-  - name: Colors
-    url: "/docs/general/colors"
-  - name: JS Init
-    url: "/docs/general/js-init"
+# menu:
+#   general:
+#   - name: Grix
+#     url: "/docs/general/grix"
+#   - name: Layouts
+#     url: "/docs/general/layouts"
+#   - name: Colors
+#     url: "/docs/general/colors"
+#   - name: JS Init
+#     url: "/docs/general/js-init"
 
-  components:
-  - name: Alerts
-    url: "/docs/components/alerts"
-  - name: Buttons
-    url: "/docs/components/buttons"
-  - name: Button group
-    url: "/docs/components/button-group"
-  - name: Cards
-    url: "/docs/components/cards"
-  - name: Caroulix
-    url: "/docs/components/caroulix"
-  - name: Collapsible
-    url: "/docs/components/collapsible"
-  - name: Dropdown
-    url: "/docs/components/dropdown"
-  - name: FAB
-    url: "/docs/components/fab"
-  - name: Footer
-    url: "/docs/components/footer"
-  - name: Lightbox
-    url: "/docs/components/lightbox"
-  - name: Loading
-    url: "/docs/components/loading"
-  - name: Modal
-    url: "/docs/components/modal"
-  - name: Navbar
-    url: "/docs/components/navbar"
-  - name: Pagination
-    url: "/docs/components/pagination"
-  - name: Scrollspy
-    url: "/docs/components/scrollspy"
-  - name: Sidenav
-    url: "/docs/components/sidenav"
-  - name: Table
-    url: "/docs/components/table"
-  - name: Tabs
-    url: "/docs/components/tabs"
-  - name: Toast
-    url: "/docs/components/toast"
-  - name: Tooltip
-    url: "/docs/components/tootlip"
+#   components:
+#   - name: Alerts
+#     url: "/docs/components/alerts"
+#   - name: Buttons
+#     url: "/docs/components/buttons"
+#   - name: Button group
+#     url: "/docs/components/button-group"
+#   - name: Cards
+#     url: "/docs/components/cards"
+#   - name: Caroulix
+#     url: "/docs/components/caroulix"
+#   - name: Collapsible
+#     url: "/docs/components/collapsible"
+#   - name: Dropdown
+#     url: "/docs/components/dropdown"
+#   - name: FAB
+#     url: "/docs/components/fab"
+#   - name: Footer
+#     url: "/docs/components/footer"
+#   - name: Lightbox
+#     url: "/docs/components/lightbox"
+#   - name: Loading
+#     url: "/docs/components/loading"
+#   - name: Modal
+#     url: "/docs/components/modal"
+#   - name: Navbar
+#     url: "/docs/components/navbar"
+#   - name: Pagination
+#     url: "/docs/components/pagination"
+#   - name: Scrollspy
+#     url: "/docs/components/scrollspy"
+#   - name: Sidenav
+#     url: "/docs/components/sidenav"
+#   - name: Table
+#     url: "/docs/components/table"
+#   - name: Tabs
+#     url: "/docs/components/tabs"
+#   - name: Toast
+#     url: "/docs/components/toast"
+#   - name: Tooltip
+#     url: "/docs/components/tootlip"
 
-  forms:
-  - name: Checkbox / Radio
-    url: "/docs/forms/check"
-  - name: File
-    url: "/docs/forms/file"
-  - name: Inputs
-    url: "/docs/forms/inputs"
-  - name: Material forms
-    url: "/docs/forms/material"
-  - name: Select
-    url: "/docs/forms/select"
-  - name: Switches
-    url: "/docs/forms/switches"
+#   forms:
+#   - name: Checkbox / Radio
+#     url: "/docs/forms/check"
+#   - name: File
+#     url: "/docs/forms/file"
+#   - name: Inputs
+#     url: "/docs/forms/inputs"
+#   - name: Material forms
+#     url: "/docs/forms/material"
+#   - name: Select
+#     url: "/docs/forms/select"
+#   - name: Switches
+#     url: "/docs/forms/switches"
 
-  utilities:
-  - name: Alignments
-    url: "/docs/utilities/alignments"
-  - name: Borders
-    url: "/docs/utilities/borders"
-  - name: Breakpoints
-    url: "/docs/utilities/breakpoints"
-  - name: Display
-    url: "/docs/utilities/display"
-  - name: Flexbox
-    url: "/docs/utilities/flexbox"
-  - name: JavaScript
-    url: "/docs/utilities/javascript"
-  - name: Others
-    url: "/docs/utilities/others"
-  - name: Rounded
-    url: "/docs/utilities/rounded"
-  - name: Shadows
-    url: "/docs/utilities/shadows"
-  - name: Spacing
-    url: "/docs/utilities/spacing"
-  - name: Typography
-    url: "/docs/utilities/typography"
+#   utilities:
+#   - name: Alignments
+#     url: "/docs/utilities/alignments"
+#   - name: Borders
+#     url: "/docs/utilities/borders"
+#   - name: Breakpoints
+#     url: "/docs/utilities/breakpoints"
+#   - name: Display
+#     url: "/docs/utilities/display"
+#   - name: Flexbox
+#     url: "/docs/utilities/flexbox"
+#   - name: JavaScript
+#     url: "/docs/utilities/javascript"
+#   - name: Others
+#     url: "/docs/utilities/others"
+#   - name: Rounded
+#     url: "/docs/utilities/rounded"
+#   - name: Shadows
+#     url: "/docs/utilities/shadows"
+#   - name: Spacing
+#     url: "/docs/utilities/spacing"
+#   - name: Typography
+#     url: "/docs/utilities/typography"
 
-module:
-  mounts:
-  - source: assets
-    target: assets
+# module:
+#   mounts:
+#   - source: assets
+#     target: assets
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 languages:
   en:
