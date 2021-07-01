@@ -9,7 +9,7 @@
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
         {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
-        {{ $style := slice $docs $base | resources.Concat "styles.css" }}
+        {{ $style := slice $docs $base | resources.Concat "docs.css" }}
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>

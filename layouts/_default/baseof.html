@@ -9,7 +9,7 @@
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
-        {{ $style := slice $app $base | resources.Concat "styles.css" | minify }}
+        {{ $style := slice $app $base | resources.Concat "home.css" | minify }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>

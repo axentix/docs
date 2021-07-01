@@ -16,7 +16,7 @@
 <div>
   <div class="collapsible" id="general-menu">
   {{ range .Site.RegularPages }}
-    {{ if eq .Page.Params.sidenav "general"}}
+    {{ if eq .Page.Params.sidenav "general" }}
     <a class="sidenav-link {{ if eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
     {{ end }}
   {{ end }}
