@@ -52,8 +52,8 @@
         {{ $prism := resources.Get "js/prism.js" }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" }}
         {{ $docs := resources.Get "js/docs.js" }}
-        <script src="{{$axentix.RelPermalink}}" defer></script>
-        <script src="{{$prism.RelPermalink}}" defer></script>
-        <script src="{{$docs.RelPermalink}}" defer></script>
+        <script src="{{$axentix.RelPermalink}}"></script>
+        <script src="{{$prism.RelPermalink}}"></script>
+        <script src="{{$docs.RelPermalink}}"></script>
     </body>
 </html>

@@ -1,7 +1,250 @@
 ---
 title: 'Collapsible'
+description: "Axentix collapsible. The collapsible allows you to hide sub elements of a container, and toggle their visibility."
+subtitle: "The collapsible allows you to hide sub elements of a container, and toggle their visibility."
 type: 'docs'
 sidenav: components
 ---
 
-Here is the collapsible page content
+<h2 class="subtitle" id="on-any-content">On any content</h2>
+<p>
+  To use a collapsible, you must have a button or an element with the <code class="language-css">.collapsible-trigger</code> class and
+  a <code class="language-markup">data-target=""</code> attribute who point on the targeted collapsible id.<br />
+  The collapsible id must be the same as data-target.
+</p>
+
+<button data-target="example-collapsible" class="btn rounded-1 press primary collapsible-trigger mx-auto">
+  Toggle
+</button>
+<div class="example-collapsible">
+  <div class="collapsible" id="example-collapsible">
+    <div class="primary">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, soluta asperiores nobis, iusto tenetur illum sunt modi quisquam
+      blanditiis aspernatur sequi minus corporis quibusdam quam voluptatem! Cumque nemo debitis porro.
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <button data-target="example-collapsible" class="btn rounded-1 press primary collapsible-trigger mx-auto">
+    Toggle
+  </button>
+  <div class="collapsible" id="example-collapsible" data-ax="collapsible">
+    <div class="primary">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      Error, soluta asperiores nobis, iusto tenetur illum sunt modi quisquam
+      blanditiis aspernatur sequi minus corporis quibusdam quam voluptatem!
+      Cumque nemo debitis porro.
+    </div>
+  </div>
+</script>
+
+<div id="example-sidenav" class="sidenav shadow-1 primary">
+  <div class="sidenav-header">
+    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+    <img class="sidenav-logo dropshadow-1" src="/img/axentix-1000x1000.png" alt="Axentix Logo" />
+  </div>
+  <a href="#" class="sidenav-link">Link 1</a>
+  <a href="#" class="collapsible-trigger sidenav-link" data-target="sidenav-collapsible">Collapsible</a>
+  <div>
+    <div class="collapsible" id="sidenav-collapsible">
+      <a href="#" class="active sidenav-link">Sublink 1</a>
+      <a href="#" class="sidenav-link">Sublink 2</a>
+      <a href="#" class="sidenav-link">Sublink 3</a>
+      <a href="#" class="sidenav-link">Sublink 4</a>
+    </div>
+  </div>
+  <a href="#" class="sidenav-link">Link 2</a>
+</div>
+
+<h2 class="subtitle" id="in-sidenav">In sidenav</h2>
+<p>
+  Collapsibles are usefull to create an interactive menu into a sidenav. Try it into our demo sidenav below. <br />
+  Note that you need to wrap the collapsible element into a div to make it work, as in the example code below.
+</p>
+<button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">
+  Open sidenav
+</button>
+<script type="text/plain" class="language-markup">
+  <div id="example-sidenav" class="sidenav shadow-1 primary">
+    <div class="sidenav-header">
+      <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+      <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Axentix Logo" />
+    </div>
+    <a href="#" class="sidenav-link">Link 1</a>
+    <a href="#" class="collapsible-trigger sidenav-link" data-target="example-collapsible">Collapsible</a>
+    <div>
+      <div class="collapsible" id="example-collapsible" data-ax="collapsible">
+        <a href="#" class="active sidenav-link">Sublink 1</a>
+        <a href="#" class="sidenav-link">Sublink 2</a>
+        <a href="#" class="sidenav-link">Sublink 3</a>
+        <a href="#" class="sidenav-link">Sublink 4</a>
+      </div>
+    </div>
+    <a href="#" class="sidenav-link">Link 2</a>
+  </div>
+
+  <button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">
+    Open sidenav
+  </button>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>collapsible</strong> with this simple code. <br />
+  Just pass the id of your <strong>collapsible</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+let collapsible = new Axentix.Collapsible('#example-collapsible');
+
+// With options
+let collapsible = new Axentix.Collapsible('#example-collapsible', {
+  animationDuration: 300
+});
+</script>
+<strong>To know all the ways to initialize a JS component, please read the <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>300</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h6>Specials options for sidenav use</h6>
+<script type="text/plain" class="language-js">
+// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+let collapsible = new Axentix.Collapsible('#example-collapsible', {
+  animationDuration: 400,
+  sidenav: {
+    activeWhenOpen: false
+  }
+});
+</script>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>activeClass</td>
+        <td>true</td>
+        <td>
+          Adds <code class="language-css">.active</code> class to collapsible trigger and collapsible container when a child (sublink)
+          has <code class="language-markup">class="active"</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>activeWhenOpen</td>
+        <td>true</td>
+        <td>
+          Adds <code class="language-css">.active</code> class to collapsible trigger when the collapsible is open.<br />
+          Automatically removed when closed.
+        </td>
+      </tr>
+      <tr>
+        <td>autoClose</td>
+        <td>true</td>
+        <td>Closes other collapsible when this Collapsible instance is opened.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+let collapsible = new Axentix.Collapsible('#example-collapsible');
+
+// Syntax : collapsible.{method}
+collapsible.open();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open collapsible</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close collapsible</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all collapsible instances
+  document.addEventListener('ax.collapsible.open', function() {
+    // open event !
+  });
+
+  // Listen to only one collapsible instance
+  let collapsibleQuery = document.querySelector('#example-collapsible');
+  collapsibleQuery.addEventListener('ax.collapsible.open', function() {
+    // open event only on #example-collapsible
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.collapsible.setup</td>
+        <td>Event sent when the collapsible has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.collapsible.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.collapsible.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  let exampleSidenav = new Axentix.Sidenav('#example-sidenav');
+</script>

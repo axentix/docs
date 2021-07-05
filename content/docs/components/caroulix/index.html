@@ -1,7 +1,456 @@
 ---
 title: "Caroulix"
+description: "Axentix Caroulix. The caroulix is the Axentix carousel, it allows you to easily create a slide effect on images or any components."
+subtitle: "The Axentix carousel"
 type: "docs"
 sidenav: components
 ---
 
-Here is the caroulix page content
+<p>
+  The <strong>caroulix</strong> makes you able to display any type of element inside a <strong>touch-friendly carousel</strong>. <br>
+  You can custom any option to create the <strong>carousel</strong> you want.
+</p>
+
+<h2 class="subtitle" id="caroulix-example">Caroulix example</h2>
+
+<p>
+  This <strong>caroulix</strong> is using different options. <br>
+  First, the <strong>autoplay mode</strong>, which is calling the <code class="language-js">next()</code> method of the <strong>carousel</strong> with an interval.<br>
+  It is using the <strong>indicators</strong> option too. This option shows simple indicators at the bottom of the <strong>carousel</strong>.
+</p>
+
+<div class="container custom-container ml-0">
+  <div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
+    <div class="caroulix-arrow caroulix-prev">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="caroulix-arrow caroulix-next">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+<div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
+  <div class="caroulix-arrow caroulix-prev">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="caroulix-arrow caroulix-next">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+  </div>
+</div>
+</script>
+
+<h2 class="subtitle" id="using-caroulix-methods">Using caroulix methods</h2>
+
+<p>
+  This example shows you how to use the <strong>caroulix</strong> methods. <br>
+  Initializing an element with the <a target="_blank" href="{{ route('docs.general.js-init').'#data-init' }}" class="txt-blue">data init method</a>,
+  you have to get the instance before using its methods.
+</p>
+
+<div class="container custom-container">
+  <div class="caroulix" id="second-caroulix" data-ax="caroulix" data-caroulix-indicators-enabled="true" data-caroulix-indicators-is-flat="true">
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+    </div>
+    <div class="caroulix-item">
+      <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+    </div>
+  </div>
+
+  <div class="grix xs2 center my-4">
+    <button onclick="Axentix.getInstance('#second-caroulix').prev()" class="btn primary rounded-1 shadow-1">PREV</button>
+    <button onclick="Axentix.getInstance('#second-caroulix').next()" class="btn primary rounded-1 shadow-1">NEXT</button>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+<div class="caroulix" id="second-caroulix" data-ax="caroulix" data-caroulix-indicators-enabled="true" data-caroulix-indicators-is-flat="true">
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+  </div>
+</div>
+
+<button onclick="Axentix.getInstance('#second-caroulix').prev()" class="btn primary rounded-1 shadow-1">PREV</button>
+<button onclick="Axentix.getInstance('#second-caroulix').next()" class="btn primary rounded-1 shadow-1">NEXT</button>
+</script>
+
+<h2 class="subtitle" id="multiple-elements-caroulix">Multiple elements caroulix</h2>
+
+<div class="container custom-container">
+  <div class="caroulix" id="third-caroulix" data-ax="caroulix">
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header amaranth">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header amaranth">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header blue">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header blue">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header airforce">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header airforce">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup code-max-height">
+<div class="container custom-container">
+  <div class="caroulix" id="third-caroulix" data-ax="caroulix">
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header amaranth">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header amaranth">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header blue">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header blue">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header airforce">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header airforce">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>500</td>
+        <td>Animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>backToOpposite</td>
+        <td>true</td>
+        <td>Back to the opposite when reaching the end of the caroulix.</td>
+      </tr>
+      <tr>
+        <td>enableTouch</td>
+        <td>true</td>
+        <td>Enable touch / mouse swipe.</td>
+      </tr>
+      <tr>
+        <td>height</td>
+        <td>''</td>
+        <td>Fix the height to the precised height.</td>
+      </tr>
+      <tr>
+        <td>indicators</td>
+        <td>
+          <pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: false,
+                isFlat: false,
+                customClasses: ''
+              }
+            </code>
+          </pre>
+        </td>
+        <td>
+          Indicators is an object on what you can customize the Caroulix indicators. You can set
+          <code class="language-js">isFlat</code> and <code class="language-js">enabled</code> to
+          <code class="language-js">true</code> or <code class="language-js">false</code> if you want to enable the indicators, and if
+          you want them flat or not. <br />
+          The customClasses allows you to add your own classes to the indicators.
+        </td>
+      </tr>
+      <tr>
+        <td>autoplay</td>
+        <td>
+          <pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: true,
+                interval: 5000,
+                side: 'right'
+              }
+            </code>
+          </pre>
+        </td>
+        <td>
+          Using the autoplay option, you can enable the autoplay mode, which automatically switch between the different caroulix-item.
+          <br />
+          The interval in ms allows you to custom the delay between each switch. <br />
+          The side allows you to choose the animation direction. Accepted values are <code class="language-js">'right'</code> and
+          <code class="language-js">'left'</code>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+// NOTE: this is NOT to be used if data-ax="caroulix" is set in your HTML
+let caroulix = new Axentix.Caroulix('#example-caroulix');
+
+// Syntax : caroulix.{method}
+caroulix.next();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.goTo(number)</td>
+        <td>
+          Change the active caroulix-item to the number precised.
+        </td>
+      </tr>
+      <tr>
+        <td>.next(step, resetAutoplay)</td>
+        <td>
+          Goes to the next caroulix-item. <br />
+          The <code class="language-js">step</code> parameter is optional and allows you to define how much caroulix-items you want to
+          go through. <br>
+          The <code class="language-js">resetAutoplay</code> parameter reset the autoplay timer when the method is called (only if the autoplay option is enabled). <br>
+          The default <code class="language-js">step</code> value is 1. <br>
+          The default <code class="language-js">resetAutoplay</code> value is <code class="language-js">true</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>.prev(step, resetAutoplay)</td>
+        <td>
+          Goes to the previous caroulix-item. <br />
+          The <code class="language-js">step</code> parameter is optional and allows you to define how much caroulix-items you want to
+          go through. <br>
+          The <code class="language-js">resetAutoplay</code> parameter reset the autoplay timer when the method is called (only if the autoplay option is enabled). <br>
+          The default <code class="language-js">step</code> value is 1. <br>
+          The default <code class="language-js">resetAutoplay</code> value is <code class="language-js">true</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>.play()</td>
+        <td>Start the autoplay mode.</td>
+      </tr>
+      <tr>
+        <td>.stop()</td>
+        <td>Stop the autoplay mode.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all caroulix instances
+  document.addEventListener('ax.caroulix.slide', function() {
+    // slide event !
+  });
+
+  // Listen to only one caroulix instance
+  let caroulixQuery = document.querySelector('#example-caroulix');
+  caroulixQuery.addEventListener('ax.caroulix.slide', function() {
+    // slide event only on #example-caroulix
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.caroulix.setup</td>
+        <td>Event sent when the caroulix has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.caroulix.slide</td>
+        <td>
+          Event sent when the caroulix slides. <br />
+          This event has details data : <code class="language-js">{nextElement, currentElement}</code> <br />
+          <code class="language-js">nextElement</code> : the next element. <br />
+          <code class="language-js">currentElement</code> : the current element.
+        </td>
+      </tr>
+      <tr>
+        <td>ax.caroulix.next</td>
+        <td>
+          Event sent when the <code class="language-js">next()</code> method is called. <br />
+          This event has details data : <code class="language-js">{step}</code> <br />
+          <code class="language-js">step</code> : how much caroulix-items have been slided.
+        </td>
+      </tr>
+      <tr>
+        <td>ax.caroulix.prev</td>
+        <td>
+          Event sent when the <code class="language-js">prev()</code> method is called. <br />
+          This event has details data : <code class="language-js">{step}</code> <br />
+          <code class="language-js">step</code> : how much caroulix-items have been slided.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
