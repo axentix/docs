@@ -1,18 +1,9 @@
-baseURL: "https://useaxentix.com/"
+baseURL: "/"
 languageCode: "en-us"
 title: "Docs"
 disableKinds: ["taxonomy", "taxonomyTerm", "section", "RSS"]
 sectionPagesMenu: "main"
 defaultContentLanguage: "en"
-
-params:
-  versions:
-    - version: 1.3.x
-      url: /1.3.x/docs
-      dirpath: 1.3.x
-    - version: 1.2.x
-      url: /1.2.x/docs
-      dirpath: 1.2.x
 
 markup:
   goldmark:
@@ -23,6 +14,3 @@ languages:
   en:
     languageName: "English"
     weight: 1
-  fr:
-    languageName: "Français"
-    weight: 2
