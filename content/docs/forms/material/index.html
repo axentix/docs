@@ -1,0 +1,262 @@
+---
+title: 'Material forms'
+description: 'Axentix material forms. The material forms include a material form checkbox, radio and a material select.'
+subtitle: 'Material design forms. Build simple and modern forms using our material inputs.'
+type: 'docs'
+sidenav: forms
+---
+
+<p>
+  The <strong>material forms</strong> are useful to create a modern website. <br />
+  Use our <code class="language-css">.form-material</code> class on the form container to create a
+  <strong>material design form</strong>, with simple and nice animations. <br />
+  Note that you can <b>disable the custom design</b> on a specific element by adding the
+  <code class="language-css">.form-default</code> class on the corresponding form field. <br />
+  Note that you can change the animation direction of the border-bottom from right to left by adding the
+  <code class="language-css">.form-rtl</code> class on the corresponding <code class="language-css">.form-field</code>.
+  <br />
+  <b> These designs require JavaScript.</b>
+</p>
+
+<h2 class="subtitle" id="material-inputs">Material inputs</h2>
+
+<p>The <strong>material forms</strong> include a simple but modern design :</p>
+
+<form class="form-material">
+  <div class="grix xs1 sm2">
+    <div class="form-field">
+      <input type="text" id="name" class="form-control rounded-1" />
+      <label for="name">Name</label>
+    </div>
+    <div class="form-field">
+      <input type="email" id="email" class="form-control rounded-1" placeholder="contact@example.com" />
+      <label for="email">Email</label>
+    </div>
+    <div class="form-field col-sm2">
+      <input type="text" id="subject" class="form-control rounded-1" disabled placeholder="Disabled input" />
+      <label for="subject">Subject</label>
+    </div>
+    <div class="form-field col-sm2">
+      <input type="text" id="address" class="form-control rounded-1" readonly />
+      <label for="address">Address</label>
+      <span class="form-helper txt-center">You can click but not edit in readonly mode.</span>
+    </div>
+    <div class="form-field col-sm2">
+      <label for="textarea">A textarea</label>
+      <textarea id="textarea" class="form-control rounded-1"></textarea>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+    <form class="form-material">
+    <div class="grix xs1 sm2">
+      <div class="form-field">
+        <input type="text" id="name" class="form-control rounded-1" />
+        <label for="name">Name</label>
+      </div>
+      <div class="form-field">
+        <input type="email" id="email" class="form-control rounded-1" placeholder="contact@example.com" />
+        <label for="email">Email</label>
+      </div>
+      <div class="form-field col-sm2">
+        <input type="text" id="subject" class="form-control rounded-1" disabled placeholder="Disabled input" />
+        <label for="subject">Subject</label>
+      </div>
+      <div class="form-field col-sm2">
+        <input type="text" id="address" class="form-control rounded-1" readonly />
+        <label for="address">Address</label>
+        <span class="form-helper txt-center">You can click but not edit in readonly mode.</span>
+      </div>
+      <div class="form-field col-sm2">
+        <label for="textarea">A textarea</label>
+        <textarea id="textarea" class="form-control rounded-1"></textarea>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="material-checkbox-radio">Material checkbox / radio</h2>
+
+<p>The <strong>material forms</strong> provide a modern design for the checkboxes and radios :</p>
+
+<form class="form-material">
+  <div class="grix xs1 sm2">
+    <div class="form-field">
+      <strong class="mb-2">Material form radio</strong>
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Radio</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" checked name="yon" />
+        <span>Checked</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span class="full">Full option</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" disabled name="yon" />
+        <span>Disabled</span>
+      </label>
+    </div>
+    <div class="form-field">
+      <strong class="mb-2">Material form checkbox</strong>
+      <label class="form-check">
+        <input type="checkbox" />
+        <span>Checkbox</span>
+      </label>
+      <label class="form-check">
+        <input type="checkbox" checked />
+        <span>Checked</span>
+      </label>
+      <label class="form-check">
+        <input type="checkbox" disabled />
+        <span>Disabled checkbox</span>
+      </label>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+    <form class="form-material">
+    <div class="grix xs1 sm2">
+      <div class="form-field">
+        <label class="form-check">
+          <input type="radio" checked name="yon" />
+          <span>Radio</span>
+        </label>
+        <label class="form-check">
+          <input type="radio" name="yon" />
+          <span class="full">Full option</span>
+        </label>
+        <label class="form-check">
+          <input type="radio" disabled name="yon" />
+          <span>Disabled</span>
+        </label>
+      </div>
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" checked />
+          <span>Checkbox</span>
+        </label>
+        <label class="form-check">
+          <input type="checkbox" disabled />
+          <span>Disabled checkbox</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="material-input-prefix-and-suffix">Material input prefix & suffix</h2>
+
+<p>
+  To use <strong>material forms prefixes</strong> and/or <strong>material forms suffixes</strong>, you have to wrap your
+  input inside a <code class="language-css">.form-group</code> class element. <br />
+  Then, add anything inside this form-group. <br />
+  <em>You can add multiple prefixes and/or suffixes in a single <strong>material input</strong>.</em>
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="name">Name</label>
+    <div class="form-group rounded-1">
+      <span class="form-group-txt"><i class="fas fa-user"></i></span>
+      <input type="text" id="name" class="form-control" />
+      <span class="form-group-txt"><i class="fas fa-calendar"></i></span>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <div class="form-group rounded-1">
+        <span class="form-group-txt"><i class="fas fa-user"></i></span>
+        <input type="text" id="name" class="form-control" />
+        <span class="form-group-txt"><i class="fas fa-calendar"></i></span>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="material-select">Material select</h2>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="select">Select an option</label>
+    <select class="form-control rounded-1" id="select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+    <form class="form-material">
+    <div class="form-field">
+      <label for="select">Select an option</label>
+      <select class="form-control rounded-1" id="select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+  </form>
+</script>
+
+<h4 class="subtitle" id="multiple-select">Multiple select</h4>
+
+<p>
+  Since the multiple select is not available in a <strong>material design</strong>, you have to add the
+  <code class="language-css">.form-default</code> class to your <code class="language-css">.form-field</code> to make it
+  work.
+</p>
+
+<div class="tips rounded-2 light-shadow-4 grey light-4">
+  <i class="fas fa-lightbulb txt-yellow txt-light-1 tips-icon"></i>
+  <div class="px-3">
+    <h6 class="pt-3">Tips</h6>
+    <p class="mt-3">
+      You'll want to change the material color to make it match to your website design. <br />
+      The following code makes you able to change it :
+    </p>
+  </div>
+  <script type="text/plain" class="language-css">
+        .form-material .form-field:not(.form-default) {
+      --form-material-color: #e92626; /* replace with your color */
+    }
+  </script>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  Axentix.updateInputs()
+
+  // With custom range of fields
+  let fields = document.querySelectorAll('.form-material .form-field:not(.form-default) .form-control');
+
+  Axentix.updateInputs(fields)
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Axentix.updateInputs()</td>
+        <td>This method is scanning the HTML page to update all the inputs.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

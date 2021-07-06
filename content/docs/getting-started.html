@@ -1,0 +1,215 @@
+---
+title: 'Getting started'
+description: 'Axentix - Documentation. An open source Framework based on CSS-Grid using HTML, CSS and JS. Start learning and creating awesome websites.'
+subtitle: 'Download and start using Axentix'
+type: 'docs'
+---
+
+<h2 class="subtitle" id="download">Download</h2>
+
+<h5 class="subtitle" id="with-cdn">With CDN</h5>
+
+<p>CSS</p>
+<script type="text/plain" class="language-markup">
+  <!-- Axentix CSS minified version -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+</script>
+
+<p>JavaScript</p>
+<script type="text/plain" class="language-markup">
+  <!-- Axentix JS minified version -->
+  <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+</script>
+
+<p>If you want only grix system</p>
+
+<script type="text/plain" class="language-markup">
+  <!-- Grix system -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/grix.min.css">
+</script>
+
+<h5 class="subtitle mt-5" id="with-npm">With NPM</h5>
+
+<script type="text/plain" class="language-shell">
+  npm install axentix
+</script>
+
+<h5 class="subtitle mt-5" id="with-yarn">With Yarn</h5>
+
+<script type="text/plain" class="language-shell">
+  yarn add axentix
+</script>
+
+<h5 class="subtitle mt-5" id="by-downloading-files">By downloading files</h5>
+
+<div class="grix xs1 md2 gutter-md4">
+  <div>
+    <p>
+      Download css and js files minified and unminified versions. You don't need any other file, no jQuery required if
+      you want to use the js functionalities.
+    </p>
+  </div>
+  <div>
+    <p>
+      Download all repo including source files.<br />
+      Run <code class="language-shell">npm install</code> and you can develop with our integration tools.
+    </p>
+  </div>
+  <a
+    href="https://github.com/axentix/axentix/releases/download/{{ $version }}/axentix-v{{ $version }}.zip"
+    class="btn rounded-1 primary shadow-1 pos-row-xs2"
+  >
+    Axentix
+  </a>
+  <a href="https://github.com/axentix/axentix/archive/{{ $version }}.zip" class="btn rounded-1 secondary shadow-1">
+    Source
+  </a>
+</div>
+
+<h2 class="subtitle" id="starter-template">Starter template</h2>
+<p>
+  This template is the basic one. You can get more templates on the
+  <a class="txt-primary" target="_blank" href="{{ route('docs.general.layouts.example') }}">layouts' demo page</a>.
+</p>
+<script type="text/plain" class="language-markup code-max-height">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Starter template - Axentix</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css" />
+    </head>
+
+    <body class="layout">
+      <header>
+        <nav class="navbar shadow-1 primary">
+          <button class="btn rounded-1 white hide-md-up sidenav-trigger small mr-2" data-target="main-sidenav">
+            Menu
+          </button>
+          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+          <div class="navbar-menu ml-auto">
+            <a class="navbar-link active hide-sm-down" href="#">Link 1</a>
+            <a class="navbar-link hide-sm-down" href="#">Link 2</a>
+            <a class="navbar-link hide-sm-down" href="#">Link 3</a>
+            <div id="navbar-dropdown" data-ax="dropdown" class="dropdown" data-dropdown-prevent-viewport="true">
+              <a class="navbar-link dropdown-trigger" href="#">Dropdown</a>
+              <div class="dropdown-content white shadow-1 right-aligned">
+                <a class="dropdown-item" href="#">Item 1</a>
+                <a class="dropdown-item" href="#">Item 2</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="sidenav white shadow-1" id="main-sidenav" data-ax="sidenav">
+        <div class="sidenav-header">
+          <img src="https://useaxentix.com/img/axentix.svg" alt="" class="sidenav-logo" />
+        </div>
+
+        <a href="#" class="sidenav-link active">Link 1</a>
+        <a href="#" class="sidenav-link">Link 2</a>
+        <a href="#" class="sidenav-link">Link 3</a>
+      </div>
+
+      <main>
+        <h1 class="txt-center font-w300 mx-2">Hello from Axentix !</h1>
+
+        <div class="container mt-5">
+          <div class="card rounded-2 shadow-1">
+            <div class="card-header">Material form example</div>
+
+            <div class="card-content">
+              <form class="form-material">
+                <div class="grix xs1 sm2">
+                  <div class="form-field">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" id="firstname" />
+                  </div>
+                  <div class="form-field">
+                    <label for="firstname">Lastname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Toto" />
+                  </div>
+                </div>
+
+                <button type="button" class="btn rounded-1 press secondary mx-auto mt-4">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer primary">
+        Copyright © 2021 - Example
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+    </body>
+  </html>
+</script>
+
+<h2 class="subtitle" id="docs-font">Docs font</h2>
+
+<p>
+  You can add any font to your website. <br />
+  We decided to use
+  <a
+    class="txt-blue"
+    target="_blank"
+    rel="noopener"
+    href="https://fonts.google.com/specimen/Quicksand?preview.text_type=custom&sidebar.open=true&selection.family=Quicksand:wght@500"
+    >Quicksand</a
+  >. You can use any font on
+  <a class="txt-blue" target="_blank" rel="noopener" href="https://fonts.google.com/">google fonts</a>.
+  <br />
+  To import any font to your website, add the google fonts links to your website's
+  <code class="language-markup">&#60;head&#62;</code> and the corresponding
+  <code class="language-css">font-family</code> to your element.
+</p>
+
+<script type="text/plain" class="language-markup">
+  <!-- Head of your page -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+</script>
+
+<script type="text/plain" class="language-css">
+  /* CSS */
+  font-family: 'Quicksand', sans-serif;
+</script>
+
+<h2 class="subtitle" id="supported-browsers">Supported browsers</h2>
+
+<div class="responsive-table mb-4">
+  <table class="table striped">
+    <thead>
+      <tr>
+        <th>Browser</th>
+        <th>Version</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i class="fab fa-chrome"></i> Chrome</td>
+        <td>58+</td>
+      </tr>
+      <tr>
+        <td><i class="fab fa-firefox-browser"></i> Firefox</td>
+        <td>54+</td>
+      </tr>
+      <tr>
+        <td><i class="fab fa-safari"></i> Safari</td>
+        <td>10.1+</td>
+      </tr>
+      <tr>
+        <td><i class="fab fa-opera"></i> Opera</td>
+        <td>45+</td>
+      </tr>
+      <tr>
+        <td><i class="fab fa-edge"></i> Edge</td>
+        <td>79+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

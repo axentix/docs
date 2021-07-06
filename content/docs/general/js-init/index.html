@@ -1,0 +1,197 @@
+---
+title: 'JS Init'
+description: 'Axentix provides three JS initialization types. You can choose the way you prefer to initialize your Javascript components.'
+subtitle: 'Initialize our components with 4 different methods.'
+sidenav: general
+---
+
+<p>
+  For <a class="txt-primary" href="#auto-init">auto init</a> and
+  <a class="txt-primary" href="#per-component-type">per component</a> init methods, we provided a simple
+  <code class="language-css">.no-axentix-init</code> class to disable the basic initialization with the Axentix class
+  for the specified component.<br />
+  Using this class, you can use all components in your page, except the one you specified. You can now pass your
+  specific parameters to use it.
+</p>
+
+<h2 class="subtitle" id="data-init">Data init</h2>
+
+<p>
+  Using the <strong>data method</strong>, you are able to initialize any component
+  <strong>inside your HTML file</strong>.<br />
+  Every option will work normally : the <strong>camelCase option names are working in kebab-case</strong>, and the
+  nested object of options are working well too. <br />
+  Init syntax : <code class="language-css">data-ax-{componentName}</code> <br />
+  Option syntax : <code class="language-css">data-{componentName}-{option}</code>
+</p>
+
+<script type="text/plain" class="language-html">
+  <!-- Example with Collapsible -->
+  <div class="collapsible" id="example-collapsible" data-ax="collapsible">
+    <div class="p-3 primary">Data init</div>
+  </div>
+
+  <!-- Example with Collapsible & Data options -->
+  <div class="collapsible" id="example-collapsible" data-ax="collapsible" data-collapsible-animation-duration="500">
+    <div class="p-3 primary">Data init</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="auto-init">Auto init</h2>
+
+<p>
+  Detect automatically all Axentix components who need to be initialized, in only one line.<br />
+  Using this way, you don't have to initialize anything else,
+  <strong> but you can't pass options to your JS elements.</strong> <br />
+</p>
+<script type="text/plain" class="language-js">
+  new Axentix('all');
+</script>
+<p>We provide a way to call this method through your <strong>HTML</strong> file :</p>
+<script type="text/plain" class="language-markup">
+  <body data-axentix>
+  <!-- Your body content -->
+  </body>
+</script>
+
+<h2 class="subtitle" id="per-component-type">Per component type</h2>
+<p>Detect all elements of the specified component type, and initialize them all using the same passed options.</p>
+<script type="text/plain" class="language-js">
+  /*** Example with Collapsible ***/
+  let axentixCollapsible = new Axentix('collapsible');
+
+  // Accepts options
+  let axentixCollapsible = new Axentix('collapsible', {animationDuration: 200});
+</script>
+<h2 class="subtitle" id="per-element">Per element</h2>
+<p>This method initialize the element individually using the passed options.</p>
+<script type="text/plain" class="language-js">
+  /*** Example with Collapsible ***/
+  let axentixCollapsible = new Axentix.Collapsible('#example-collapsible');
+
+  // Accepts options
+  let axentixCollapsible = new Axentix.Collapsible('#example-collapsible', {animationDuration: 200});
+</script>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+<p>
+  Methods are useful to get the instances of the elements on your page. This way, you can interact with them using their
+  specific methods.
+</p>
+
+<script type="text/plain" class="language-js">
+  // Syntax : Axentix.{method}
+  let instances = Axentix.getAllInstance();
+
+  let collapsible = Axentix.getInstance('#example-collapsible');
+  collapsible.open();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Axentix.getAllInstances()</td>
+        <td>Get a table containing all instances of the JS elements on the page.</td>
+      </tr>
+      <tr>
+        <td>Axentix.getInstance(string)</td>
+        <td>
+          Get a specific instance using the id of the element. You will get all his properties.
+          <br />Example :
+          <code class="language-js">let instanceOfElem = Axentix.getInstance('#example-collapsible');</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.getInstanceByType(type)</td>
+        <td>
+          Get a specific instance using the type of the element. You will get all the instances of this element type.
+          <br />Example :
+          <code class="language-js">let instances = Axentix.getInstanceByType('Collapsible');</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.syncAll()</td>
+        <td>
+          This method synchronizes all components listeners.<br />
+          This is useful if you are adding elements dynamically like a
+          <code class="language-css">sidenav-trigger</code> after loading the page.
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.sync(string)</td>
+        <td>
+          This method synchronize the listeners of the specified component.
+          <br />Example :
+          <code class="language-js">Axentix.sync('#example-collapsible');</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.resetAll()</td>
+        <td>
+          This method resets all components. <br />
+          This is useful if you are changing a component dynamically, like a sidenav position.
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.reset(string)</td>
+        <td>
+          This method reset the specified component.
+          <br />Example :
+          <code class="language-js">Axentix.reset('#example-collapsible');</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Axentix.destroyAll()</td>
+        <td>This method destroys all components. <br /></td>
+      </tr>
+      <tr>
+        <td>Axentix.destroy(string)</td>
+        <td>
+          This method destroy the specified component.
+          <br />Example :
+          <code class="language-js">Axentix.destroy('#example-collapsible');</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  document.addEventListener('ax.component.sync', function() {
+    // sync event !
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.component.sync</td>
+        <td>Event sent when the <code class="language-js">sync()</code> method of the component is called.</td>
+      </tr>
+      <tr>
+        <td>ax.component.reset</td>
+        <td>Event sent when the <code class="language-js">reset()</code> method of the component is called.</td>
+      </tr>
+      <tr>
+        <td>ax.component.destroy</td>
+        <td>Event sent when the <code class="language-js">destroy()</code> method of the component is called.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

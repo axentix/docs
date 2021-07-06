@@ -1,0 +1,51 @@
+---
+title: 'Form File'
+description: 'Axentix file input. The file input allows you to create a field indide a form to make the user able to send a file through it.'
+type: 'docs'
+sidenav: forms
+---
+
+<h2 class="subtitle" id="file-input">File input</h2>
+<p>
+  The <strong>file input</strong> makes the user able to send a file inside a form.
+  <br />
+  Selecting <strong>multiple files</strong> inside your form will make their name appear inside the
+  <code class="language-css">.form-file-path</code> div separated with comas.
+</p>
+<div class="grix xs2">
+  <div class="form-file col-xs2 col-md1 mb-4">
+    <label for="img" class="btn primary rounded-1 shadow-1">Image</label>
+    <input type="file" name="img" id="img" multiple accept="image/png, image/jpeg" />
+    <div class="form-file-path"></div>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="form-file">
+    <label for="img" class="btn primary rounded-1 shadow-1">Image</label>
+    <input type="file" name="img" id="img" multiple accept="image/png, image/jpeg" />
+    <div class="form-file-path"></div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  Axentix.updateInputs()
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Axentix.updateInputs()</td>
+        <td>This method is scanning the HTML page to update all the file inputs & material forms.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

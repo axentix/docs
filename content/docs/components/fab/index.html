@@ -1,7 +1,226 @@
 ---
 title: 'FAB'
+description: 'Axentix FAB menu. The fab menu (floating action button) allows you to easily create a button that groups multiple actions.'
 type: 'docs'
 sidenav: components
+scripts:
+  - '<script>
+    var fab = new Axentix.Fab("#fab-example", {
+      hover: true,
+      direction: "top",
+      position: "bottom-right"
+    });
+  </script>'
 ---
 
-Here is the FAB page content
+<p>
+  Creating a <strong>FAB menu (Floating Action Button)</strong> is useful if you want to group some actions inside the
+  same button.
+</p>
+
+<p>
+  To create your <strong>FAB menu</strong>, you have to create a first <code class="language-css">.fab</code> div.
+  <br />
+  This <code class="language-css">.fab</code> must contain a <code class="language-css">.fab-trigger</code> which is
+  gonna trigger the <code class="language-css">.fab-menu</code>.
+</p>
+
+<div class="fab" id="fab-example">
+  <button class="btn shadow-1 circle large secondary fab-trigger">
+    <i class="fas fa-plus" aria-hidden="true"></i>
+  </button>
+
+  <div class="fab-menu">
+    <button class="btn shadow-1 circle orange dark-1 txt-white fab-item mb-3">
+      <i class="fas fa-pen" aria-hidden="true"></i>
+    </button>
+    <button class="btn shadow-1 circle red fab-item mb-3">
+      <i class="fas fa-paper-plane" aria-hidden="true"></i>
+    </button>
+    <button class="btn shadow-1 circle primary fab-item mb-3">
+      <i class="fas fa-download" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="fab" id="fab-example" data-ax="fab">
+
+    <!-- Here is the fab-trigger -->
+    <button class="btn shadow-1 circle large secondary fab-trigger">
+      <i class="fas fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <!-- Here is the fab-menu -->
+    <div class="fab-menu">
+      <button class="btn shadow-1 circle orange dark-1 txt-white fab-item mb-3">
+        <i class="fas fa-pen" aria-hidden="true"></i>
+      </button>
+      <button class="btn shadow-1 circle red fab-item mb-3">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+      </button>
+      <button class="btn shadow-1 circle primary fab-item mb-3">
+        <i class="fas fa-download" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>FAB menu</strong> with this simple code. <br />
+  Just pass the id of your <strong>FAB</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="fab" is set in your HTML
+  let fab = new Axentix.Fab('#fab-example');
+
+  // With options
+  let fab = new Axentix.Fab('#fab-example', {
+    hover: true,
+    direction: 'top',
+    position: 'bottom-right',
+    offsetY: '8%'
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>300</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>hover</td>
+        <td>true</td>
+        <td>
+          When <code class="language-js">'hover'</code> is set to true, the
+          <code class="language-css">.fab-trigger</code> will trigger the <code class="language-css">.fab-menu</code> on
+          hover instead of click.
+        </td>
+      </tr>
+      <tr>
+        <td>direction</td>
+        <td>top</td>
+        <td>
+          Set the appearance direction of the <code class="language-css">.fab-menu</code>.<br />Accepted values are
+          <code class="language-js">'top'</code> <code class="language-js">'bottom'</code>
+          <code class="language-js">'left'</code> and <code class="language-js">'right'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>bottom-right</td>
+        <td>
+          Change the position of the FAB. <br />Accepted values are <code class="language-js">'bottom-right'</code>
+          <code class="language-js">'bottom-left'</code> <code class="language-js">'top-right'</code> and
+          <code class="language-js">'top-left'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>offsetX</td>
+        <td>1rem</td>
+        <td>
+          Add a spacing on the X axis (if the position is set to <code class="language-js">'bottom-right'</code> the
+          offsetX will automatically add the offset on the right).
+        </td>
+      </tr>
+      <tr>
+        <td>offsetY</td>
+        <td>1.5rem</td>
+        <td>
+          Add a spacing on the Y axis (if the position is set to <code class="language-js">'bottom-right'</code> the
+          offsetX will automatically add the offset on the bottom).
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="fab" is set in your HTML
+  let fab = new Axentix.Fab('#fab-example');
+
+  // Syntax : fab.{method}
+  fab.open();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open fab</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close fab</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all fab instances
+  document.addEventListener('ax.fab.open', function() {
+    // open event !
+  });
+
+  // Listen to only one fab instance
+  let fabQuery = document.querySelector('#example-fab');
+  fabQuery.addEventListener('ax.fab.open', function() {
+    // open event only on #example-fab
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.fab.setup</td>
+        <td>Event sent when the FAB has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.fab.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.fab.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

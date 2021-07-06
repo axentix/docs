@@ -1,7 +1,221 @@
 ---
 title: 'Sidenav'
+description: 'Axentix sidenav. The sidenav allows you to easily create a responsive navigation menu on a side of your website.'
+subtitle: 'Make your menu responsive with a JS sidenav.'
 type: 'docs'
 sidenav: components
+scripts:
+  - '
+  <script>
+    let exampleSidenav = new Axentix.Sidenav("#example-sidenav", {
+      bodyScrolling: true,
+      animationDuration: 500
+    });
+  </script>'
 ---
 
-Here is the sidenav page content
+<div id="example-sidenav" class="sidenav shadow-1 white">
+  <div class="sidenav-header">
+    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+    <img class="sidenav-logo dropshadow-1" src="/img/axentix.svg" alt="Axentix Logo" />
+  </div>
+  <a href="#" class="sidenav-link active">Link 1</a>
+  <a href="#" class="sidenav-link">Link 2</a>
+  <a href="#" class="sidenav-link">Link 3</a>
+  <a href="#" class="sidenav-link">Link 4</a>
+  <div class="sidenav-footer cyan light-1">This is a footer</div>
+</div>
+
+<p>
+  <strong>Sidenav</strong> allows you to make responsive, <strong>mobile-first navigation menu</strong>. <br />
+  We used this method to transform a classical navbar into a easy navigation component in smaller screen resolution.<br />
+  <b>Please note that the sidenav must be placed outside of the header, nav, main or footer HTML element.</b>
+</p>
+<button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">Open sidenav</button>
+
+<p>
+  To use the <strong>sidenav</strong>, you must have a button or element with
+  <code class="language-css">.sidenav-trigger</code> class and a
+  <code class="language-markup">data-target=""</code> attribute who point to the targeted sidenav id.<br />
+  The <strong>sidenav id</strong> must be the same as <strong>data-target</strong>.
+</p>
+
+<script type="text/plain" class="language-markup">
+  <div class="sidenav shadow-1 white" id="example-sidenav" data-ax="sidenav">
+    <div class="sidenav-header">
+      <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+      <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
+    </div>
+    <a href="#" class="sidenav-link active">Link 1</a>
+    <a href="#" class="sidenav-link">Link 2</a>
+    <a href="#" class="sidenav-link">Link 3</a>
+    <a href="#" class="sidenav-link">Link 4</a>
+    <div class="sidenav-footer cyan light-1">
+      This is a footer
+    </div>
+  </div>
+
+  <button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger">Open sidenav</button>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+<p>
+  Once HTML was setup, you can activate <strong>sidenav</strong> with this simple code.<br />
+  Just pass the id of your <strong>sidenav</strong> you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="sidenav" is set in your HTML
+  let exampleSidenav = new Axentix.Sidenav('#example-sidenav');
+
+  // With options
+  let exampleSidenav = new Axentix.Sidenav('#example-sidenav', {
+    bodyScrolling: true,
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="fixed-sidenav">Fixed sidenav</h2>
+<p>
+  Fix your <strong>sidenav</strong> using the <code class="language-markup">.fixed</code> class. This makes it visible
+  on any screen larger than <code class="language-markup">.md</code> breakpoint. <br />
+  <b>
+    Note that you can't trigger a fixed sidenav on a screen larger than
+    <code class="language-markup">.md</code> breakpoint.
+  </b>
+</p>
+
+<h2 class="subtitle" id="large-sidenav">Large sidenav</h2>
+<p>
+  Add the <code class="language-css">.large</code> class to your <strong>sidenav container</strong> to get a larger
+  sidenav. Works in layouts !<br />
+  Both width sizes are configurable in the SCSS Variables file.
+</p>
+
+<h2 class="subtitle" id="right-aligned">Right aligned</h2>
+<p>
+  With the <code class="language-css">.right-aligned</code> class added to your <strong>sidenav container</strong>, you
+  can align your sidenav on the right side of your website.<br />
+  Works in layouts too !
+</p>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>overlay</td>
+        <td>true</td>
+        <td>Toggle overlay when sidenav is active.</td>
+      </tr>
+      <tr>
+        <td>bodyScrolling</td>
+        <td>false</td>
+        <td>Enable or disable bodyScrolling when the sidenav is active and over content.</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>300</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="sidenav" is set in your HTML
+  let exampleSidenav = new Axentix.Sidenav('#example-sidenav');
+
+  // Syntax : exampleSidenav.{method}
+  exampleSidenav.close();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open sidenav</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close sidenav</td>
+      </tr>
+      <tr>
+        <td>.overlay(boolean)</td>
+        <td>
+          Enable / disable overlay, works only if overlay option is enabled.<br />Example :
+          <code class="language-js">exampleSidenav.overlay(true);</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all sidenav instances
+  document.addEventListener('ax.sidenav.open', function() {
+    // open event !
+  });
+
+  // Listen to only one sidenav instance
+  let sidenavQuery = document.querySelector('#example-sidenav');
+  sidenavQuery.addEventListener('ax.sidenav.open', function() {
+    // open event only on #example-sidenav
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.sidenav.setup</td>
+        <td>Event sent when the sidenav has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.sidenav.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.sidenav.opened</td>
+        <td>Event sent when the sidenav has been opened.</td>
+      </tr>
+      <tr>
+        <td>ax.sidenav.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.sidenav.closed</td>
+        <td>Event sent when the sidenav has been closed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,15 +1,18 @@
 ---
 title: 'Collapsible'
-description: "Axentix collapsible. The collapsible allows you to hide sub elements of a container, and toggle their visibility."
-subtitle: "The collapsible allows you to hide sub elements of a container, and toggle their visibility."
+description: 'Axentix collapsible. The collapsible allows you to hide sub elements of a container, and toggle their visibility.'
+subtitle: 'The collapsible allows you to hide sub elements of a container, and toggle their visibility.'
 type: 'docs'
 sidenav: components
+scripts:
+  - '<script>let exampleSidenav = new Axentix.Sidenav("#example-sidenav");</script>'
 ---
 
 <h2 class="subtitle" id="on-any-content">On any content</h2>
 <p>
-  To use a collapsible, you must have a button or an element with the <code class="language-css">.collapsible-trigger</code> class and
-  a <code class="language-markup">data-target=""</code> attribute who point on the targeted collapsible id.<br />
+  To use a collapsible, you must have a button or an element with the
+  <code class="language-css">.collapsible-trigger</code> class and a
+  <code class="language-markup">data-target=""</code> attribute who point on the targeted collapsible id.<br />
   The collapsible id must be the same as data-target.
 </p>
 
@@ -19,8 +22,8 @@ sidenav: components
 <div class="example-collapsible">
   <div class="collapsible" id="example-collapsible">
     <div class="primary">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, soluta asperiores nobis, iusto tenetur illum sunt modi quisquam
-      blanditiis aspernatur sequi minus corporis quibusdam quam voluptatem! Cumque nemo debitis porro.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, soluta asperiores nobis, iusto tenetur illum sunt
+      modi quisquam blanditiis aspernatur sequi minus corporis quibusdam quam voluptatem! Cumque nemo debitis porro.
     </div>
   </div>
 </div>
@@ -62,9 +65,7 @@ sidenav: components
   Collapsibles are usefull to create an interactive menu into a sidenav. Try it into our demo sidenav below. <br />
   Note that you need to wrap the collapsible element into a div to make it work, as in the example code below.
 </p>
-<button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">
-  Open sidenav
-</button>
+<button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">Open sidenav</button>
 <script type="text/plain" class="language-markup">
   <div id="example-sidenav" class="sidenav shadow-1 primary">
     <div class="sidenav-header">
@@ -97,15 +98,18 @@ sidenav: components
 </p>
 
 <script type="text/plain" class="language-js">
-// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
-let collapsible = new Axentix.Collapsible('#example-collapsible');
+  // NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+  let collapsible = new Axentix.Collapsible('#example-collapsible');
 
-// With options
-let collapsible = new Axentix.Collapsible('#example-collapsible', {
-  animationDuration: 300
-});
+  // With options
+  let collapsible = new Axentix.Collapsible('#example-collapsible', {
+    animationDuration: 300
+  });
 </script>
-<strong>To know all the ways to initialize a JS component, please read the <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
 
 <h2 class="subtitle" id="options">Options</h2>
 
@@ -130,13 +134,13 @@ let collapsible = new Axentix.Collapsible('#example-collapsible', {
 
 <h6>Specials options for sidenav use</h6>
 <script type="text/plain" class="language-js">
-// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
-let collapsible = new Axentix.Collapsible('#example-collapsible', {
-  animationDuration: 400,
-  sidenav: {
-    activeWhenOpen: false
-  }
-});
+  // NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+  let collapsible = new Axentix.Collapsible('#example-collapsible', {
+    animationDuration: 400,
+    sidenav: {
+      activeWhenOpen: false
+    }
+  });
 </script>
 
 <div class="responsive-table">
@@ -153,8 +157,8 @@ let collapsible = new Axentix.Collapsible('#example-collapsible', {
         <td>activeClass</td>
         <td>true</td>
         <td>
-          Adds <code class="language-css">.active</code> class to collapsible trigger and collapsible container when a child (sublink)
-          has <code class="language-markup">class="active"</code>.
+          Adds <code class="language-css">.active</code> class to collapsible trigger and collapsible container when a
+          child (sublink) has <code class="language-markup">class="active"</code>.
         </td>
       </tr>
       <tr>
@@ -177,11 +181,11 @@ let collapsible = new Axentix.Collapsible('#example-collapsible', {
 <h2 class="subtitle" id="methods">Methods</h2>
 
 <script type="text/plain" class="language-js">
-// NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
-let collapsible = new Axentix.Collapsible('#example-collapsible');
+  // NOTE: this is NOT to be used if data-ax="collapsible" is set in your HTML
+  let collapsible = new Axentix.Collapsible('#example-collapsible');
 
-// Syntax : collapsible.{method}
-collapsible.open();
+  // Syntax : collapsible.{method}
+  collapsible.open();
 </script>
 
 <div class="responsive-table">
@@ -244,7 +248,3 @@ collapsible.open();
     </tbody>
   </table>
 </div>
-
-<script>
-  let exampleSidenav = new Axentix.Sidenav('#example-sidenav');
-</script>

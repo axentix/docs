@@ -1,7 +1,263 @@
 ---
 title: 'Toast'
+description: 'Axentix toast. The toasts allow you to send messages to the user with a modern alert, based on material design. You can custom them using our utilities classes.'
 type: 'docs'
 sidenav: components
+scripts:
+  - "
+  <script>
+    var toast = new Axentix.Toast('This is a toast', {
+      classes: 'secondary rounded-2 shadow-2'
+    });
+  
+    function showToast() {
+      toast.change('This is a toast', {
+        classes: 'secondary rounded-2 shadow-2',
+        isClosable: false
+      });
+      toast.show();
+    }
+  
+    function showClosableToast() {
+      toast.change('This is a closable toast', {
+        classes: 'secondary shadow-2 rounded-2',
+        isClosable: true
+      });
+      toast.show();
+    }
+  
+    function showChangedToast() {
+      toast.change('This is the new html content <br> This is at the second line.', {
+        classes: 'red shadow-3',
+        isClosable: false
+      });
+      toast.show();
+    }
+  </script>"
 ---
 
-Here is the toast page content
+<p>
+  Creating a toast can help you to send messages to your users through simple notifications. <br />
+  They are easily customisable using any of the axentix classes.
+</p>
+<button onclick="showToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+
+<script type="text/plain" class="language-markup">
+  <button onclick="toast.show()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+</script>
+
+<script type="text/plain" class="language-javascript">
+  let toast = new Axentix.Toast('This is a toast', {
+    classes: 'secondary rounded-2 shadow-2'
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="change-toast">Change toast</h2>
+
+<p>
+  A website using the toast feature always needs to use different Toasts, to show different informations. <br />
+  Using the <code class="language-js">change()</code> method, you can change the content and the classes of your toast.
+</p>
+
+<button onclick="showChangedToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+
+<script type="text/plain" class="language-javascript">
+  toast.change('This is the new html content <br> This is at the second line.', {
+    classes: 'red shadow-3'
+  });
+</script>
+
+<h2 class="subtitle" id="closable-toast">Closable toast</h2>
+
+<p>
+  Using the <code class="language-markup">isClosable</code> option, you can let your user close your toasts by clicking
+  on a cross.
+</p>
+
+<button onclick="showClosableToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+
+<script type="text/plain" class="language-javascript">
+  toast.change('This is a closable toast', {
+    classes: 'secondary shadow-2 rounded-2',
+    isClosable: true
+  });
+</script>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>400</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>4000</td>
+        <td>The display duration of the toast before disapearing in ms.</td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>''</td>
+        <td>Classes of the toast.</td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>right</td>
+        <td>
+          Position of the toast container. <br />Accepted values are <code class="language-js">'right'</code> or
+          <code class="language-js">'left'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>direction</td>
+        <td>top</td>
+        <td>
+          Animation direction of the toast. <br />Accepted values are <code class="language-js">'top'</code> or
+          <code class="language-js">'bottom'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>mobileDirection</td>
+        <td>bottom</td>
+        <td>
+          Animation direction of the toast on mobile view. <br />Accepted values are
+          <code class="language-js">'top'</code> or <code class="language-js">'bottom'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>isClosable</td>
+        <td>false</td>
+        <td>Create an icon to close the toast.</td>
+      </tr>
+      <tr>
+        <td>closableContent</td>
+        <td>'x'</td>
+        <td>The content to close the toast. You can write html to create a button or anything.</td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>
+          <pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: true,
+                border: '2px solid #E2E2E2'
+              }
+            </code>
+          </pre>
+        </td>
+        <td>Loading animation. You can disable it and custom the border used for it.</td>
+      </tr>
+      <tr>
+        <td>offset</td>
+        <td>
+          <pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                x: '5%',
+                y: '0%',
+                mobileX: '10%',
+                mobileY: '0%'
+              }
+            </code>
+          </pre>
+        </td>
+        <td>
+          Offsets between the sides of the screen and the toaster. Useful if you don't want a toast to be placed above
+          your navbar for example.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  let toast = new Axentix.Toast('This is a toast', {
+    direction: 'top',
+    position: 'right',
+    classes: 'blue rounded-2 shadow-2'
+  });
+
+  // Syntax : toast.{method}
+  toast.show();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.show()</td>
+        <td>Show the toast.</td>
+      </tr>
+      <tr>
+        <td>.change('content', options)</td>
+        <td>
+          Change the content of the Toast. <br />
+          The second parameter is optional, but can be useful when you want to change multiple options like the classes
+          and the position at the same time.
+          <br />
+          <a class="txt-primary" href="#change-toast">Here</a> is an example.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  document.addEventListener('ax.toast.show', function() {
+    // show event !
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.toast.show</td>
+        <td>Event sent when the <code class="language-js">show()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.toast.shown</td>
+        <td>Event sent when the toast has been shown.</td>
+      </tr>
+      <tr>
+        <td>ax.toast.hide</td>
+        <td>Event sent when the toast is being closed.</td>
+      </tr>
+      <tr>
+        <td>ax.toast.remove</td>
+        <td>Event sent when the toast has been closed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

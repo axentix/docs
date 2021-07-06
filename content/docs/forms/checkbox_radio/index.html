@@ -1,0 +1,140 @@
+---
+title: 'Checkbox / Radio'
+description: 'Axentix checkboxes and radio. The checkboxes and radio are useful to create a simple way to answer to a form.'
+type: 'docs'
+sidenav: forms
+---
+
+<h2 class="subtitle" id="basic-elements">Basic elements</h2>
+
+<p>
+  The basic checkboxes and radio are easy to use, to use them, you have to wrap them into a label with a
+  <code class="language-css">.form-check</code> class. <br />
+  The user can click on the text to check the box, that make it easier to use.
+</p>
+
+<form>
+  <div class="grix xs1 sm2">
+    <div class="form-field">
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Yes</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>No</span>
+      </label>
+    </div>
+    <div class="form-field">
+      <label class="form-check">
+        <input type="checkbox" checked />
+        <span>Checkbox</span>
+      </label>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form>
+    <div class="grix xs1 sm2">
+      <div class="form-field">
+        <label class="form-check">
+          <input type="radio" name="yon" />
+          <span>Yes</span>
+        </label>
+        <label class="form-check">
+          <input type="radio" name="yon" />
+          <span>No</span>
+        </label>
+      </div>
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" checked />
+          <span>Checkbox</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="disabled">Disabled</h2>
+
+<p>
+  To disable an element, you have to add the <code class="language-css">.disabled</code> class on the label already
+  containing the <code class="language-css">form-check</code> class, and the
+  <code class="language-css">disabled</code> attribute on the input element.
+</p>
+
+<form>
+  <div class="grix xs1 sm2">
+    <div class="form-field">
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Yes</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" disabled />
+        <span>No</span>
+      </label>
+    </div>
+    <div class="form-field">
+      <label class="form-check">
+        <input type="checkbox" checked disabled />
+        <span>Checkbox</span>
+      </label>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form>
+    <div class="grix xs1 sm2">
+      <div class="form-field">
+        <label class="form-check">
+          <input type="radio" name="yon" />
+          <span>Yes</span>
+        </label>
+        <label class="form-check">
+          <input type="radio" name="yon" disabled />
+          <span>No</span>
+        </label>
+      </div>
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" checked disabled />
+          <span>Checkbox</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="inline">Inline</h2>
+
+<form>
+  <div class="form-field inline">
+    <label class="form-check">
+      <input type="radio" name="yon" />
+      <span>Yes</span>
+    </label>
+    <label class="form-check">
+      <input type="radio" name="yon" disabled />
+      <span>No</span>
+    </label>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form>
+    <div class="form-field inline">
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Yes</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" disabled />
+        <span>No</span>
+      </label>
+    </div>
+  </form>
+</script>

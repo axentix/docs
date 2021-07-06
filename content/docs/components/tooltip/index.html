@@ -1,7 +1,240 @@
 ---
 title: 'Tooltip'
+description: 'Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the tooltip page content
+<p>
+  Adding some <strong>tooltips</strong> on your website could be useful add explanations on anything like text,
+  buttons... <br />
+  Creating a tooltip <strong>with no content</strong> will not be displayed.
+  <br />
+  Hover these next examples to see the tooltips appear :
+</p>
+<div class="grix xs2 md4 center mt-5">
+  <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">
+    Top
+  </button>
+  <button
+    id="tooltip4"
+    data-ax="tooltip"
+    data-tooltip-position="left"
+    data-tooltip-content="Tooltip 😉"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Left
+  </button>
+  <button
+    id="tooltip2"
+    data-ax="tooltip"
+    data-tooltip-position="right"
+    data-tooltip-content="Tooltip"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Right
+  </button>
+  <button
+    id="tooltip3"
+    data-ax="tooltip"
+    data-tooltip-position="bottom"
+    data-tooltip-content="Tooltip"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Bottom
+  </button>
+</div>
+
+<script type="text/plain" class="language-markup mt-5">
+  <div class="grix xs2 md4 center mt-5">
+    <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Top</button>
+    <button id="tooltip4" data-ax="tooltip" data-tooltip-position="left" data-tooltip-content="Tooltip 😉" class="btn airforce dark-3 rounded-1 shadow-1">Left</button>
+    <button id="tooltip2" data-ax="tooltip" data-tooltip-position="right" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Right</button>
+    <button id="tooltip3" data-ax="tooltip" data-tooltip-position="bottom" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Bottom</button>
+  </div>
+</script>
+
+<h2 class="subtitle" id="change-tooltip">Change tooltip</h2>
+
+<p>
+  You may have to change a <strong>tooltip</strong> appearance.<br />
+  You can change it using our <code class="language-js">change()</code> method.
+</p>
+
+<button
+  id="tooltip5"
+  data-ax="tooltip"
+  data-tooltip-position="right"
+  data-tooltip-classes="airforce light-2 light-shadow-2 p-2"
+  data-tooltip-content="This is the new content"
+  class="btn airforce dark-3 rounded-1 shadow-1"
+>
+  Right
+</button>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
+  let tooltip = new Axentix.Tooltip('#tooltip5', {
+      content: 'This is a tooltip',
+      position: 'right'
+  });
+
+  tooltip.change({
+    content: 'This is the new content'
+    classes: 'airforce light-2 light-shadow-2 p-2'
+  });
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>tooltip</strong> with this simple code. <br />
+  Just pass the id of your <strong>tooltip</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
+  let tooltip = new Axentix.Tooltip('#tooltip1');
+
+  // With options
+  let tooltip = new Axentix.Tooltip('#tooltip1', {
+    content: 'This is a tooltip',
+    classes: 'airforce light-2 light-shadow-2 p-2'
+    position: 'bottom',
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>content</td>
+        <td>''</td>
+        <td>This is the content of your tooltip.</td>
+      </tr>
+      <tr>
+        <td>animationDelay</td>
+        <td>0</td>
+        <td>Opening and closing animation delay in ms.</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>200</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>offset</td>
+        <td>'10px'</td>
+        <td>Offset between the tooltip and the element.</td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>'grey dark-4 light-shadow-2 p-2'</td>
+        <td>Classes to add style on your tooltip.</td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>'top'</td>
+        <td>
+          Tooltip position depending on your element. <br />Accepted values are <code class="language-js">'top'</code>,
+          <code class="language-js">'right'</code>, <code class="language-js">'bottom'</code> or
+          <code class="language-js">'left'</code>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
+  let tooltip = new Axentix.Tooltip('#tooltip1');
+
+  // Syntax : tooltip.{method}
+  tooltip.show();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.show()</td>
+        <td>Show the tooltip.</td>
+      </tr>
+      <tr>
+        <td>.hide()</td>
+        <td>Hide the tooltip.</td>
+      </tr>
+      <tr>
+        <td>.change()</td>
+        <td>Change the tooltip. You send an object with the options you want to change and their new values.</td>
+      </tr>
+      <tr>
+        <td>.updatePosition()</td>
+        <td>
+          Update the position of the tooltip. Useful when you move dynamically an element which contains a tooltip.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+    // Listen all tooltip instances
+  document.addEventListener('ax.tooltip.show', function() {
+    // show event !
+  });
+
+  // Listen only one tooltip instance
+  let tooltipQuery = document.querySelector('#tooltip');
+  tooltipQuery.addEventListener('ax.tooltip.show', function() {
+    // show event only on #tooltip
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.tooltip.setup</td>
+        <td>Event sent when the tooltip has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.tooltip.show</td>
+        <td>Event sent when the tooltip is shown.</td>
+      </tr>
+      <tr>
+        <td>ax.tooltip.hide</td>
+        <td>Event sent when the tooltip is hidden.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

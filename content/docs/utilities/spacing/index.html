@@ -1,0 +1,208 @@
+---
+title: 'Spacing'
+description: 'Axentix spacing. The spacing classes allow you to add margins and paddings on your elements.'
+subtitle: 'Use our different classes to space your elements.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="container-class">Container class</h2>
+<p>
+  The <code class="language-css">.container</code> class is creating a container, creating a responsive margin around it. <br />
+  Basic width is 75%, 85% on tablets, and 90% on smartphones.
+</p>
+
+<div class="grix xs1 sm2 gutter-xs4 container">
+  <div class="card shadow-1 rounded-3">
+    <div class="card-content">
+      <div class="card-header">Card header</div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+      </p>
+    </div>
+  </div>
+
+  <div class="card shadow-1 rounded-3">
+    <div class="card-content">
+      <div class="card-header">Card header</div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="grix xs1 sm2 gutter-xs4 container">
+    <div class="card shadow-1 rounded-3">
+      <div class="card-content">
+        <div class="card-header">Card header</div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+          possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+        </p>
+      </div>
+    </div>
+
+    <div class="card shadow-1 rounded-3">
+      <div class="card-content">
+        <div class="card-header">Card header</div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+          possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+        </p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="margins-and-paddings">Margins & paddings</h2>
+
+<p>
+  Spacings are paddings and margins that allow you to space your elements. <br />
+  They are working with the base space of a 1rem, <code class="language-css">$base-space: 1rem</code> used for every space variant.
+  <br />
+  You can custom the <code class="language-css">$base-space</code> variable by downloading the source files.
+</p>
+
+<div class="responsive-table grix xs1 md2">
+  <table class="table hover striped">
+    <thead>
+      <tr>
+        <th>Space number</th>
+        <th>Real space</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td><code class="language-css">0rem</code></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><code class="language-css">0.25rem</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code class="language-css">0.5rem</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code class="language-css">1rem</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code class="language-css">1.5rem</code></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><code class="language-css">2.5rem</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 class="subtitle" id="margins">Margins</h4>
+
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">m-0</code> to <code class="language-css">m-5</code></td>
+        <td>Set all the margins of the element to 0.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">mx-0</code> to <code class="language-css">mx-5</code></td>
+        <td>Set the left and right margins of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">my-0</code> to <code class="language-css">my-5</code></td>
+        <td>Set the top and bottom margins of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">mt-0</code> to <code class="language-css">mt-5</code></td>
+        <td>Set the top margin of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">mr-0</code> to <code class="language-css">mr-5</code></td>
+        <td>Set the right margin of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">mb-0</code> to <code class="language-css">mb-5</code></td>
+        <td>Set the bottom margin of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">ml-0</code> to <code class="language-css">ml-5</code></td>
+        <td>Set the left margin of the element.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4 class="subtitle" id="paddings">Paddings</h4>
+
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">p-0</code> to <code class="language-css">p-5</code></td>
+        <td>Set all the paddings of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">px-0</code> to <code class="language-css">px-5</code></td>
+        <td>Set the left and right paddings of the element.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">py-0</code> to <code class="language-css">py-5</code>
+        </td>
+        <td>Set the top and bottom paddings of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">pt-0</code> to <code class="language-css">pt-5</code></td>
+        <td>Set the top padding of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">pr-0</code> to <code class="language-css">pr-5</code></td>
+        <td>Set the right padding of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">pb-0</code> to <code class="language-css">pb-5</code></td>
+        <td>Set the bottom padding of the element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">pl-0</code> to <code class="language-css">pl-5</code></td>
+        <td>Set the left padding of the element.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="auto-spacing">Auto spacing</h2>
+
+<p>
+  You can add the <code class="language-css">auto</code> suffix to create an auto spacing. <br />
+  Examples :
+  <ul>
+    <li class="mb-1">
+      <code class="language-css">mt-auto</code> will add an automatic margin on the <b>top</b> of the element.
+    </li>
+    <li>
+      <code class="language-css">mx-auto</code> will add an automatic margin on the <b>left</b> and <b>right</b> of the element.
+    </li>
+  </ul>
+</p>

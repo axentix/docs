@@ -1,7 +1,308 @@
 ---
 title: 'Modal'
+description: 'Axentix modal. The modals allow you to create dialogs windows on your website.'
+suvtitle: 'Different types of modals.'
 type: 'docs'
 sidenav: components
+scripts:
+  - '
+  <script>
+    let exampleModal = new Axentix.Modal("#modal-example");
+    let exampleModal2 = new Axentix.Modal("#modal-example2");
+    let exampleModal3 = new Axentix.Modal("#modal-example3");
+  </script>'
 ---
 
-Here is the modal page content
+<h2 class="subtitle" id="basic-modal">Basic modal</h2>
+<p>
+  Modals are usefull to display content over your page. To create a modal, add the
+  <code class="language-css">.modal</code> class and an ID.
+  <br />
+  To trigger it, create a button or element with the <code class="language-css">.modal-trigger</code> class and a
+  <code class="language-css">data-target=""</code> pointing on the modal ID, and initialize the modal with JS. <br />
+  A basic modal comes out from its central position. <br />
+  Note that you can add a new modal trigger inside a modal to open a new modal over the last one. The new overlay will
+  be placed over the last modal too.
+</p>
+
+<button class="btn rounded-1 primary press modal-trigger mx-auto" data-target="modal-example">OPEN MODAL</button>
+
+<div class="modal shadow-1 white rounded-3" id="modal-example">
+  <div class="modal-header">
+    Header
+    <button data-target="modal-example" class="modal-trigger">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="modal-footer">Footer</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white rounded-3" id="modal-example" data-ax="modal">
+    <div class="modal-header">
+      Header
+      <button data-target="modal-example" class="modal-trigger">
+        <i class="fas fa-times"></i> <!-- Use font awesome -->
+      </button>
+    </div>
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+    <div class="modal-footer">
+      Footer
+    </div>
+  </div>
+
+  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+</script>
+
+<h2 class="subtitle" id="falling-modal">Falling modal</h2>
+<p>
+  A modal can be opened with a falling effect using the <code class="language-css">.falling</code> class on the modal
+  element.
+</p>
+
+<button class="btn primary rounded-1 press modal-trigger mx-auto" data-target="modal-example2">OPEN MODAL</button>
+
+<div class="modal shadow-1 white falling" id="modal-example2">
+  <div class="modal-header">Header</div>
+  <div class="divider"></div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero. <br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="divider"></div>
+  <div class="modal-footer">
+    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 small primary modal-trigger">
+      Close
+    </button>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white falling" id="modal-example" data-ax="modal">
+    <div class="modal-header">Header</div>
+
+    <div class="divider"></div>
+
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero. <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="modal-footer">
+      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 small primary modal-trigger">Close</button>
+    </div>
+  </div>
+
+  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+</script>
+
+<h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
+<p>
+  A modal can be opened with a bouncing effect using the <code class="language-css">.bouncing</code> class on the modal
+  element.
+</p>
+
+<button class="btn primary rounded-1 press modal-trigger mx-auto" data-target="modal-example3">OPEN MODAL</button>
+
+<div class="modal shadow-1 white rounded-3 bouncing" id="modal-example3">
+  <div class="modal-header">
+    Header
+    <button data-target="modal-example3" class="modal-trigger">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="modal-footer">Footer</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white rounded-3 bouncing" id="modal-example" data-ax="modal">
+    <div class="modal-header">
+      Header
+      <button data-target="modal-example" class="modal-trigger">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+    <div class="modal-footer">
+      Footer
+    </div>
+  </div>
+
+  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>modal</strong> with this simple code. <br />
+  Just pass the id of your <strong>modal</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="modal" is set in your HTML
+  let modal = new Axentix.Modal('#modal-example');
+
+  // With options
+  let modal = new Axentix.Modal('#modal-example', {
+    overlay: false,
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>overlay</td>
+        <td>true</td>
+        <td>Toggle overlay when modal is active.</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>400</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>bodyScrolling</td>
+        <td>false</td>
+        <td>Enable or disable bodyScrolling when the modal is active and over content.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="modal" is set in your HTML
+  let modal = new Axentix.Modal('#modal-example');
+
+  // Syntax : modal.{method}
+  modal.open();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open modal</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close modal</td>
+      </tr>
+      <tr>
+        <td>.overlay(boolean)</td>
+        <td>
+          Enable / disable overlay, works only if overlay option is enabled.<br />Example :
+          <code class="language-js">modal.overlay(true);</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all modal instances
+  document.addEventListener('ax.modal.open', function() {
+    // open event !
+  });
+
+  // Listen to only one modal instance
+  let modalQuery = document.querySelector('#example-modal');
+  modalQuery.addEventListener('ax.modal.open', function() {
+    // open event only on #example-modal
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.modal.setup</td>
+        <td>Event sent when the modal has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.opened</td>
+        <td>Event sent when the modal has been opened.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+
+      <tr>
+        <td>ax.modal.closed</td>
+        <td>Event sent when the modal has been closed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

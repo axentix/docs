@@ -55,5 +55,8 @@
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
         <script src="{{$docs.RelPermalink}}"></script>
+        {{ range .Page.Params.scripts }}
+				{{- . | safeHTML -}}
+        {{end}}
     </body>
 </html>

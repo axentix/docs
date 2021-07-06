@@ -1,0 +1,56 @@
+---
+title: 'Layouts'
+description: 'The axentix layouts allow you to start creating a website with a basic layout template. You can change the layout appearance by only changing the body classes.'
+subtitle: 'Use our layouts to make responsive pages easily.'
+sidenav: general
+---
+
+<h2 class="subtitle" id="multiple-layouts">Multiple layouts</h2>
+<p>
+  We provided multiple layouts to build wonderful pages with less code.<br />
+  To use layout, you must have the basic HTML syntax below, who contains a header, a main and a footer.
+</p>
+<p><b>For all layouts, we push footer at the bottom of the screen.</b></p>
+<div class="grix xs1 sm2 md3 center vcenter">
+  <a
+    href="{{ route('docs.general.layouts.example') }}"
+    target="_blank"
+    class="btn rounded-1 meadow dark-2 press vself-center"
+    >Open demo</a
+  >
+  <h6 class="col-md2 self-left">You can open demo to visualize the differents layouts and available options.</h6>
+</div>
+<script type="text/plain" class="language-markup">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Axentix Layout</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+    </head>
+
+    <body class="layout">
+      <header>
+        <nav class="navbar shadow-1 primary">
+          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+          <div class="navbar-menu ml-auto">
+            <a class="navbar-link" href="#">Link 1</a>
+            <a class="navbar-link" href="#">Link 2</a>
+            <a class="navbar-link" href="#">Link 3</a>
+            <a class="navbar-link" href="#">Link 4</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Code here the main content -->
+      </main>
+
+      <footer class="footer primary">
+        Copyright © 2021 - Example
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+    </body>
+  </html>
+</script>

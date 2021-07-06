@@ -1,0 +1,197 @@
+---
+title: 'Others'
+description: 'Here you can find the other utilities to custom your website.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="blockquote">Blockquote</h2>
+<blockquote class="blockquote">
+  This is a blockquote, Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis assumenda sapiente blanditiis
+  ratione iure amet quae, dolorum laudantium necessitatibus earum facilis quas placeat velit voluptas porro tenetur
+  praesentium? Saepe, maiores.
+</blockquote>
+
+<script type="text/plain" class="language-markup">
+  <blockquote class="blockquote">
+    This is a blockquote, Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis assumenda sapiente blanditiis ratione iure
+    amet quae, dolorum laudantium necessitatibus earum facilis quas placeat velit voluptas porro tenetur praesentium? Saepe, maiores.
+  </blockquote>
+</script>
+
+<h2 class="subtitle" id="truncate-class">Truncate class</h2>
+<p>The <code class="language-css">.truncate</code> makes your text able to truncate himself.</p>
+
+<div style="width: 15rem">
+  <div class="card shadow-1 primary">
+    <div class="card-content truncate">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eius necessitatibus consectetur aut culpa
+      veniam, sapiente minima non recusandae impedit magnam iure numquam quia, fugiat modi pariatur animi odit dicta.
+    </div>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div style="width: 15rem;">
+    <div class="card shadow-1 primary">
+      <div class="card-content truncate">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eius necessitatibus consectetur aut culpa veniam, sapiente
+        minima non recusandae impedit magnam iure numquam quia, fugiat modi pariatur animi odit dicta.
+      </div>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="divider-class">Divider class</h2>
+<p>
+  The <code class="language-css">.divider</code> class is creating a horizontal line, taking the full width of your
+  element. <br />
+  This is helpful to separate content.
+</p>
+
+<div class="grix xs2">
+  <div class="card shadow-1 secondary">
+    <div class="card-header">Header</div>
+    <div class="divider"></div>
+    <div class="card-content">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eius necessitatibus consectetur aut culpa
+      veniam, sapiente minima non recusandae impedit magnam iure numquam quia, fugiat modi pariatur animi odit dicta.
+      hello
+    </div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="card shadow-1 secondary">
+    <div class="card-header">Header</div>
+    <div class="divider"></div>
+    <div class="card-content">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eius necessitatibus consectetur aut culpa veniam, sapiente
+      minima non recusandae impedit magnam iure numquam quia, fugiat modi pariatur animi odit dicta. hello
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="responsive-medias">Responsive medias</h2>
+
+<p>
+  Using medias, you should want to make it fit your page. <br />
+  The <code class="language-css">.responsive-media</code> class works for the <strong>images and the videos</strong>.
+  <br />
+  This is helpful when you want a high definition image to be resized. See an example on the
+  <a class="txt-blue" href="{{ route('docs.components.lightbox') }}">lightbox page</a>.
+</p>
+
+<img src="https://picsum.photos/1920/1080" alt="random image" class="responsive-media" />
+
+<script type="text/plain" class="language-markup">
+  <!-- This is a 1920x1080 image, but it fits the container of the page -->
+  <img src="https://picsum.photos/1920/1080" alt="random image" class="responsive-media">
+</script>
+
+<h2 class="subtitle" id="cursors">Cursors</h2>
+
+<p>
+  The cursors classes allow you to modify the cursor appearance when you hover the element. <br />
+  The classes are <code class="language-css">.cursor-{cursorName}</code> where cursorName can be : <br />
+  <code class="language-css">default | pointer | not-allowed | grab | wait | zoom-in | zoom-out | none</code>
+  <br />
+  <br />
+  Example : <br />
+</p>
+
+<div class="p-5 primary light-shadow-4 cursor-pointer">
+  <code class="language-css">.cursor-pointer</code>
+</div>
+<p>
+  Adding the <code class="language-css">.cursor-pointer</code> class change the cursor to a pointer on all the element.
+</p>
+
+<h2 class="subtitle" id="overflow">Overflow</h2>
+
+<p>
+  The overflow classes allow you to modify the overflow of the element. <br />
+  The classes are <code class="language-css">.overflow-{propertyName}</code>,
+  <code class="language-css">.overflow-x-{propertyName}</code> and
+  <code class="language-css">.overflow-y-{propertyName}</code> <br />
+  where propertyName can be : <br />
+  <code class="language-css">hidden | scroll | auto | visible | initial | inherit</code>
+  <br /><br />
+  The <code class="language-css">.overflow-x-</code> and the <code class="language-css">.overflow-y-</code> prefixes are
+  applying the overflow property on the X and Y axes, while the simple
+  <code class="language-css">.overflow-</code> prefix apply the property for the X and Y axes.
+</p>
+
+<h2 class="subtitle" id="opacity">Opacity</h2>
+<p>
+  The opacity classes allow you to modify the opacity of the element. <br />
+  The classes are <code class="language-css">.opacity-{value}</code>, where value can be : <br />
+  <code class="language-css">0 | 10 | 20 | ... | 100</code>
+</p>
+
+<h2 class="subtitle" id="positions">Positions</h2>
+
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Class name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">.absolute-pos</code></td>
+        <td>Change the element position to absolute.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.fixed-pos</code></td>
+        <td>Change the element position to fixed.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.relative-pos</code></td>
+        <td>Change the element position to relative.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="z-index">Z-index</h2>
+<p>
+  The z-index classes allow you to modify the z-index of the element. <br />
+  The classes are <code class="language-css">.z-index-{value}</code>, where value can be : <br />
+  <code class="language-css">0 | 1 | 2 | ... | 10</code>
+</p>
+
+<h2 class="subtitle" id="others">Others</h2>
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Class name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">.w100</code></td>
+        <td>Make the element take all the width possible.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.h100</code></td>
+        <td>Make the element take all the height possible.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.lowercase</code></td>
+        <td>Put all the text in lowercase.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.uppercase</code></td>
+        <td>Put all the text in uppercase.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.capitalize</code></td>
+        <td>Put the first letter of all the words in uppercase.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

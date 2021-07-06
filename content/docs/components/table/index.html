@@ -1,7 +1,619 @@
 ---
 title: 'Table'
+description: 'Axentix tables. The tables allows you to display structured informations in a responsive table.'
+subtitle: 'Organize your data with our tables.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the table page content
+<div class="table-page">
+  We provided various options to simplify your data organization with table. <br />
+  Tables have a basic design, to easily format your table simply add the <code class="language-css">.table</code> class.
+
+  <h2 class="subtitle" id="responsive-method-1">Responsive - Method 1</h2>
+  We provided 2 methods to get a responsive table. This is the "classic" method. You simply need to wrap the
+  <code class="language-css">.table</code> class into a <code class="language-css">.responsive-table</code>
+  class.
+  <div class="responsive-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Car</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+          <td>France</td>
+          <td>Mustang</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+          <td>France</td>
+          <td>Renault</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+          <td>France</td>
+          <td>Ferrari</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Car</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+            <td>France</td>
+            <td>Mustang</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+            <td>France</td>
+            <td>Renault</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+            <td>France</td>
+            <td>Ferrari</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="responsive-method-2">Responsive - Method 2</h2>
+  This method turn your thead items at the left of the table.<br />
+  To make it, replace the <code class="language-css">.responsive-table</code> class by the
+  <code class="language-css">.responsive-table-2</code> class.
+  <div class="responsive-table-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Car</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+          <td>France</td>
+          <td>Mustang</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+          <td>France</td>
+          <td>Renault</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+          <td>France</td>
+          <td>Ferrari</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Car</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+            <td>France</td>
+            <td>Mustang</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+            <td>France</td>
+            <td>Renault</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+            <td>France</td>
+            <td>Ferrari</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="striped">Striped</h2>
+  Add the <code class="language-css">.striped</code> class to your table element to get a striped table.
+
+  <div class="responsive-table">
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="hoverable-rows">Hoverable rows</h2>
+  You can add a hover effect on each row with <code class="language-css">.hover</code> class.
+
+  <div class="responsive-table">
+    <table class="table hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="bordered-table">Bordered table</h2>
+  For fully bordered table, add the <code class="language-css">.bordered</code> class.
+
+  <div class="responsive-table">
+    <table class="table bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="no-borders">No borders</h2>
+  You wanna disable all borders ? Okay, add the <code class="language-css">.border-0</code> class.
+
+  <div class="responsive-table">
+    <table class="table border-0">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table border-0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="centered-table">Centered table</h2>
+  The <code class="language-css">.centered</code> class helps you to center the data in your table.
+
+  <div class="responsive-table">
+    <table class="table centered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table centered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+
+  <h2 class="subtitle" id="with-a-caption">With a caption</h2>
+  Simply add a <code class="language-markup">&lt;caption>&lt;/caption></code> into your table to automatically create a
+  caption and center it at the bottom of the table.
+
+  <div class="responsive-table">
+    <table class="table">
+      <caption>
+        This is a caption
+      </caption>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Paul</td>
+          <td>24</td>
+          <td>Paris</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Patrick</td>
+          <td>34</td>
+          <td>Nice</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Robert</td>
+          <td>62</td>
+          <td>Limoges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/plain" class="language-markup code-max-height">
+    <div class="responsive-table">
+      <table class="table">
+        <caption>
+          This is a caption
+        </caption>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Paul</td>
+            <td>24</td>
+            <td>Paris</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Patrick</td>
+            <td>34</td>
+            <td>Nice</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Robert</td>
+            <td>62</td>
+            <td>Limoges</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </script>
+</div>

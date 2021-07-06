@@ -1,7 +1,299 @@
 ---
 title: 'Dropdown'
+description: 'Axentix dropdown. The dropdown allows you to create a toggleable submenu.'
+subtitle: 'Create simple toggleable submenu.'
 type: 'docs'
 sidenav: components
+scripts:
+  - '<script>
+    let axentixDropdown = new Axentix("dropdown");
+    let animDropdown = new Axentix.Dropdown("#example-dropdown-anim", {
+      animationType: "fade"
+    });
+  </script>'
 ---
 
-Here is the dropdown page content
+<h2 class="subtitle">Basic dropdown</h2>
+<p>
+  The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
+  have to create an element with the <code class="language-markup">.dropdown-trigger</code> class inside of it.<br />
+  The dropdown is working with our
+  <a class="txt-primary" href="{{ route('docs.general.colors').'#color-palette' }}">color palette</a>.
+</p>
+
+<div class="dropdown" id="example-dropdown">
+  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+  <div class="dropdown-content white shadow-1 rounded-1">
+    <a class="dropdown-item" href="#">This is the first item</a>
+    <a class="dropdown-item" href="#">Item 2</a>
+    <a class="dropdown-item active" href="#">Item 3</a>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="dropdown" id="example-dropdown" data-ax="dropdown">
+    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+      Toggle
+    </button>
+    <div class="dropdown-content white shadow-1 rounded-1">
+      <a class="dropdown-item" href="#">This is the first item</a>
+      <a class="dropdown-item" href="#">Item 2</a>
+      <a class="dropdown-item active" href="#">Item 3</a>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="right-aligned-dropdown-content">Right aligned dropdown content</h2>
+<p>
+  To align your dropdown content with the right border of the dropdown trigger, you just have to add the
+  <code class="language-markup">.right-aligned</code> class on your <code class="language-css">.dropdown-content</code>.
+</p>
+
+<div class="d-flex">
+  <div class="dropdown ml-auto" id="example-dropdown2">
+    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+    <div class="dropdown-content white right-aligned shadow-1 rounded-1">
+      <a class="dropdown-item" href="#">Right aligned dropdown</a>
+      <a class="dropdown-item" href="#">Item 2</a>
+    </div>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="d-flex">
+    <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
+      <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+        Toggle
+      </button>
+      <div class="dropdown-content white right-aligned shadow-1 rounded-1">
+        <a class="dropdown-item" href="#">Right aligned dropdown</a>
+        <a class="dropdown-item" href="#">Item 2</a>
+      </div>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="constrain-width">Constrain width</h2>
+<p>
+  To constrain the width of the dropdown content to fit the dropdown trigger width, just add the
+  <code class="language-css">.constrain-width</code> class to your <code class="language-css">.dropdown-content</code>
+  element.
+</p>
+
+<div class="dropdown" id="example-dropdown3">
+  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+  <div class="dropdown-content white constrain-width shadow-1 rounded-1">
+    <a class="dropdown-item" href="#">Constrain width option</a>
+    <a class="dropdown-item" href="#">Item 2</a>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="dropdown" id="example-dropdown" data-ax="dropdown">
+    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+      Toggle
+    </button>
+    <div class="dropdown-content white constrain-width shadow-1 rounded-1">
+      <a class="dropdown-item" href="#">Constrain width option</a>
+      <a class="dropdown-item" href="#">Item 2</a>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="dropdown-inside-navbar">Dropdown inside a navbar</h2>
+<p>
+  A dropdown is easily usable inside a navbar, using a <code class="language-css">.navbar-link</code> as a dropdown
+  trigger.
+</p>
+
+<nav class="navbar shadow-1 primary">
+  <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+  <div class="navbar-menu ml-auto">
+    <a class="navbar-link" href="#">Link 1</a>
+    <a class="navbar-link" href="#">Link 2</a>
+    <div class="dropdown" id="nav-dropdown">
+      <div class="navbar-link secondary dropdown-trigger">Toggle</div>
+      <div class="dropdown-content right-aligned white shadow-1">
+        <a class="dropdown-item" href="#">Dropdown in navbar</a>
+        <a class="dropdown-item" href="#">Item 2</a>
+        <a class="dropdown-item active" href="#">Item 3</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script type="text/plain" class="language-markup">
+  <nav class="navbar shadow-1 primary">
+    <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto">
+      <a class="navbar-link" href="#">Link 1</a>
+      <a class="navbar-link" href="#">Link 2</a>
+      <div class="dropdown" id="example-dropdown" data-ax="dropdown">
+        <div class="navbar-link secondary dropdown-trigger">
+          Toggle
+        </div>
+        <div class="dropdown-content right-aligned white shadow-1">
+          <a class="dropdown-item" href="#">Dropdown in navbar</a>
+          <a class="dropdown-item" href="#">Item 2</a>
+          <a class="dropdown-item active" href="#">Item 3</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>dropdown</strong> with this simple code. <br />
+  Just pass the id of your <strong>dropdown</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="dropdown" is set in your HTML
+  let exampleDropdown = new Axentix.Dropdown('#example-dropdown');
+
+  // With options
+  let exampleDropdown = new Axentix.Dropdown('#example-dropdown', {
+    animationType: 'fade'
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
+<p>
+  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
+  animation of the dropdown content.
+  <br />
+  Note that this option is not working with the hover option.
+</p>
+
+<div class="dropdown no-axentix-init" id="example-dropdown-anim">
+  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+  <div class="dropdown-content white shadow-1 rounded-1">
+    <a class="dropdown-item" href="#">Fade animation</a>
+    <a class="dropdown-item" href="#">Item 2</a>
+  </div>
+</div>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>hover</td>
+        <td>false</td>
+        <td>Dropdown shown when hover event is triggered instead of click event.</td>
+      </tr>
+      <tr>
+        <td>animationType</td>
+        <td><code class="language-js">'none'</code></td>
+        <td>
+          Choose animation type when dropdown is opened or closed.<br />Accepted values are
+          <code class="language-js">'none'</code> or <code class="language-js">'fade'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>300</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>autoClose</td>
+        <td>true</td>
+        <td>Closes other dropdown when this Dropdown instance is opened.</td>
+      </tr>
+      <tr>
+        <td>preventViewport</td>
+        <td>false</td>
+        <td>Prevent dropdown content to exceed viewport size.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="dropdown" is set in your HTML
+  let exampleDropdown = new Axentix.Dropdown('#example-dropdown');
+
+  // Syntax : exampleDropdown.{method}
+  exampleDropdown.close();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open dropdown</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close dropdown</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all dropdown instances
+  document.addEventListener('ax.dropdown.open', function() {
+    // open event !
+  });
+
+  // Listen to only one dropdown instance
+  let dropdownQuery = document.querySelector('#example-dropdown');
+  dropdownQuery.addEventListener('ax.dropdown.open', function() {
+    // open event only on #example-dropdown
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.dropdown.setup</td>
+        <td>Event sent when the dropdown has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.dropdown.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.dropdown.opened</td>
+        <td>Event sent when the dropdown has been opened.</td>
+      </tr>
+      <tr>
+        <td>ax.dropdown.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.dropdown.closed</td>
+        <td>Event sent when the dropdown has been closed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

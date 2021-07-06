@@ -1,7 +1,168 @@
 ---
 title: 'Pagination'
+description: 'Axentix pagination. This component is useful to create a pagination between content of the same type, and to not load all the content at once on the same page.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the pagination page content
+<h2 class="subtitle" id="simple">Simple</h2>
+<p>
+  The <code class="language-css">.pagination</code> class create a pagination style on a
+  <code class="language-css">&lt;ul&gt;</code> <code class="language-css">&lt;li&gt;</code> structure and works with
+  icons. Use the <code class="language-css">.active</code> to show on what page you are and the
+  <code class="language-css">disabled</code> state to show an unusable button. <br />
+  All is working with our
+  <a class="txt-primary" href="{{ route('docs.general.colors').'#color-palette' }}">color palette</a>.
+</p>
+
+<ul class="pagination">
+  <li class="disabled">
+    <a href=""><i class="fas fa-step-backward"></i></a>
+  </li>
+  <li>
+    <a href=""><i class="fas fa-angle-left"></i></a>
+  </li>
+  <li><a href="">1</a></li>
+  <li class="active"><a href="">2</a></li>
+  <li><a href="">3</a></li>
+  <li>
+    <a href=""><i class="fas fa-angle-right"></i></a>
+  </li>
+  <li>
+    <a href=""><i class="fas fa-step-forward"></i></a>
+  </li>
+</ul>
+<script type="text/plain" class="language-markup">
+  <ul class="pagination">
+    <li class="disabled">
+      <a href=""><i class="fas fa-step-backward"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li><a href="">1</a></li>
+    <li class="active"><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li>
+      <a href=""><i class="fas fa-angle-right"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-step-forward"></i></a>
+    </li>
+  </ul>
+</script>
+
+<h2 class="subtitle" id="pagination-sizes">Pagination sizes</h2>
+<p>
+  You can change the pagination size, using the <code class="language-css">.small</code> and
+  <code class="language-css">.large</code> classes on the pagination element.
+</p>
+
+<div class="grix xs1">
+  <ul class="pagination small">
+    <li class="disabled">
+      <a href=""><i class="fas fa-step-backward"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li><a href="">1</a></li>
+    <li class="active"><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li>
+      <a href=""><i class="fas fa-angle-right"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-step-forward"></i></a>
+    </li>
+  </ul>
+  <ul class="pagination">
+    <li class="disabled">
+      <a href=""><i class="fas fa-step-backward"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li><a href="">1</a></li>
+    <li class="active"><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li>
+      <a href=""><i class="fas fa-angle-right"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-step-forward"></i></a>
+    </li>
+  </ul>
+  <ul class="pagination large">
+    <li class="disabled">
+      <a href=""><i class="fas fa-step-backward"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li><a href="">1</a></li>
+    <li class="active"><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li>
+      <a href=""><i class="fas fa-angle-right"></i></a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-step-forward"></i></a>
+    </li>
+  </ul>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="grix xs1">
+    <ul class="pagination small">
+      <li class="disabled">
+        <a href=""><i class="fas fa-step-backward"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-angle-left"></i></a>
+      </li>
+      <li><a href="">1</a></li>
+      <li class="active"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li>
+        <a href=""><i class="fas fa-angle-right"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-step-forward"></i></a>
+      </li>
+    </ul>
+    <ul class="pagination">
+      <li class="disabled">
+        <a href=""><i class="fas fa-step-backward"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-angle-left"></i></a>
+      </li>
+      <li><a href="">1</a></li>
+      <li class="active"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li>
+        <a href=""><i class="fas fa-angle-right"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-step-forward"></i></a>
+      </li>
+    </ul>
+    <ul class="pagination large">
+      <li class="disabled">
+        <a href=""><i class="fas fa-step-backward"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-angle-left"></i></a>
+      </li>
+      <li><a href="">1</a></li>
+      <li class="active"><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li>
+        <a href=""><i class="fas fa-angle-right"></i></a>
+      </li>
+      <li>
+        <a href=""><i class="fas fa-step-forward"></i></a>
+      </li>
+    </ul>
+  </div>
+</script>

@@ -1,0 +1,168 @@
+---
+title: 'Borders'
+description: 'Create custom borders using our color classes and the different border styles.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="border-sizes">Border sizes</h2>
+
+<p>
+  Use the border classes to custom the border of any element. They are working with the base size of a 1px,
+  <code class="language-css">$bd-base-width: 1px</code> used for every variant.
+  <br />
+  You can custom the <code class="language-css">$bd-base-width</code> variable by downloading the source files. <br />
+  All you have to specify is the class <code class="language-css">.bd-{space-number}</code> where the space number can
+  be :
+</p>
+
+<div class="responsive-table grix xs1 md2">
+  <table class="table hover striped">
+    <thead>
+      <tr>
+        <th>Space number</th>
+        <th>Real space</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td><code class="language-css">0px</code></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><code class="language-css">1px</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code class="language-css">1.5px</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code class="language-css">2px</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code class="language-css">4px</code></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><code class="language-css">6px</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="border-styles">Border styles</h2>
+
+<p>
+  The borders classes allow you to modify the border appearance. <br />
+  The classes are <code class="language-css">.bd-{borderStyle}</code> where borderStyle can be : <br />
+  <code class="language-css">
+    dashed | dotted | double | groove | hidden | none | inset | outset | ridge | solid | revert</code
+  >
+  <br />
+  <br />
+  Examples : <br />
+</p>
+
+<div class="grix xs1 md2 gutter-xs4">
+  <div class="card shadow-1 rounded-2 bd-blue bd-solid bd-3">
+    <div class="card-header">Card</div>
+    <div class="card-content">This is an example card with solid borders</div>
+  </div>
+
+  <div class="card shadow-1 rounded-2 bd-blue bd-dotted bd-3">
+    <div class="card-header">Card</div>
+    <div class="card-content">This is an example card with dotted borders</div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="grix xs1 md2 gutter-xs4">
+    <div class="card shadow-1 rounded-2 bd-blue bd-solid bd-3">
+      <div class="card-header">Card</div>
+      <div class="card-content">This is an example card with solid borders</div>
+    </div>
+
+    <div class="card shadow-1 rounded-2 bd-blue bd-dotted bd-3">
+      <div class="card-header">Card</div>
+      <div class="card-content">This is an example card with dotted borders</div>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="border-on-specific-sides">Borders on specific sides</h2>
+<p>You can specify the style for each border of an element. To make it, use the following classes :</p>
+
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Class name</th>
+        <th>Possible values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Top border</td>
+        <td><code class="language-markup">.bd-t-{value}</code></td>
+        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+      </tr>
+      <tr>
+        <td>Right border</td>
+        <td><code class="language-markup">.bd-r-{value}</code></td>
+        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+      </tr>
+      <tr>
+        <td>Bottom border</td>
+        <td><code class="language-markup">.bd-b-{value}</code></td>
+        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+      </tr>
+      <tr>
+        <td>Left border</td>
+        <td><code class="language-markup">.bd-l-{value}</code></td>
+        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>You can apply the border style classes on specific sides too.</p>
+
+<div class="grix xs1 md3 gutter-xs4">
+  <div class="card shadow-1 rounded-2 bd-blue bd-r-solid bd-l-solid bd-3">
+    <div class="card-header">Card</div>
+    <div class="card-content">This is an example card with specific borders</div>
+  </div>
+
+  <div class="card shadow-1 rounded-2 bd-amaranth bd-t-dotted bd-b-dotted bd-r-solid bd-l-solid bd-3">
+    <div class="card-header">Card</div>
+    <div class="card-content">This is an example card with specific borders</div>
+  </div>
+
+  <div class="card shadow-1 rounded-2 bd-viride bd-t-2 bd-r-3 bd-b-4 bd-l-5 bd-solid">
+    <div class="card-header">Card</div>
+    <div class="card-content">This is an example card with specific borders</div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="grix xs1 md3 gutter-xs4">
+    <div class="card shadow-1 rounded-2 bd-blue bd-r-solid bd-l-solid bd-3">
+      <div class="card-header">Card</div>
+      <div class="card-content">This is an example card with specific borders</div>
+    </div>
+
+    <div class="card shadow-1 rounded-2 bd-amaranth bd-t-dotted bd-b-dotted bd-r-solid bd-l-solid bd-3">
+      <div class="card-header">Card</div>
+      <div class="card-content">This is an example card with specific borders</div>
+    </div>
+
+    <div class="card shadow-1 rounded-2 bd-viride bd-t-2 bd-r-3 bd-b-4 bd-l-5 bd-solid">
+      <div class="card-header">Card</div>
+      <div class="card-content">This is an example card with specific borders</div>
+    </div>
+  </div>
+</script>

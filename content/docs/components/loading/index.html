@@ -1,7 +1,160 @@
 ---
 title: 'Loading'
+description: 'Axentix spinners and progress bars. Our loading components allows you to show to your website users that data is loading.'
+subtitle: 'Spinners and progress bars'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the loading page content
+<h2 class="subtitle" id="spinners">Spinners</h2>
+<p>
+  Spinners are useful to indicate your users that a content is loading. <br />
+  They are working with our color palette. To change a spinner color, just use our text-color classes
+  <code class="language-css">.txt-</code> followed by a color from the
+  <a class="txt-primary" href="{{ route('docs.general.colors').'#color-palette' }}">palette</a>. <br />
+  You can create spinners of different sizes by adding <code class="language-css">.small</code> or
+  <code class="language-css">.large</code> classes to the spinner container.
+</p>
+
+<div class="grix xs1 sm3">
+  <div class="spinner small txt-red">
+    <svg viewBox="25 25 50 50">
+      <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+    </svg>
+  </div>
+  <div class="spinner txt-viride">
+    <svg viewBox="25 25 50 50">
+      <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+    </svg>
+  </div>
+  <div class="spinner large txt-airforce">
+    <svg viewBox="25 25 50 50">
+      <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+    </svg>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+    <div class="grix xs1 sm3">
+    <div class="spinner small txt-red">
+      <svg viewBox="25 25 50 50">
+        <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+      </svg>
+    </div>
+    <div class="spinner txt-viride">
+      <svg viewBox="25 25 50 50">
+        <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+      </svg>
+    </div>
+    <div class="spinner large txt-airforce">
+      <svg viewBox="25 25 50 50">
+        <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+      </svg>
+    </div>
+  </div>
+</script>
+
+<h5 class="subtitle" id="rainbow-option-on-spinners">Rainbow option on spinners</h5>
+<p>
+  You can create a rainbow effect on your spinner. To create it, add the
+  <code class="language-css">.rainbow</code> class to the spinner container.
+</p>
+
+<div class="spinner rainbow">
+  <svg viewBox="25 25 50 50">
+    <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+  </svg>
+</div>
+<script type="text/plain" class="language-markup">
+    <div class="spinner rainbow">
+    <svg viewBox="25 25 50 50">
+      <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+    </svg>
+  </div>
+</script>
+
+<h5 class="subtitle" id="spinner-text">Spinner text</h5>
+
+<p>The <code class="language-css">.spinner-txt</code> class allows you to add a little text inside the spinner.</p>
+
+<div class="spinner large txt-blue">
+  <span class="spinner-txt">Text</span>
+  <svg viewBox="25 25 50 50">
+    <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+  </svg>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="spinner large txt-blue">
+    <span class="spinner-txt">Text</span>
+    <svg viewBox="25 25 50 50">
+      <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+    </svg>
+  </div>
+</script>
+
+<h2 class="subtitle" id="progress-bars">Progress bars</h2>
+<p>
+  Progress bars are useful to show a loading progression. <br />
+  They are working with our
+  <a class="txt-primary" href="{{ route('docs.general.colors').'#color-palette' }}">color palette</a>. <br />
+  You can create progress bars of different sizes by adding <code class="language-css">.small</code> or
+  <code class="language-css">.large</code> classes.
+  <br />
+  You can show the percentage text by writing it inside of the progress bar.
+</p>
+
+<div class="grix xs1 sm3 gutter-sm3">
+  <div class="progress rounded-2 small">
+    <div class="progress-bar primary" style="width: 25%"></div>
+  </div>
+  <div class="progress rounded-2">
+    <div class="progress-bar viride dark-1" style="width: 72%"></div>
+  </div>
+  <div class="progress rounded-2 large">
+    <div class="progress-bar error" style="width: 50%">50%</div>
+  </div>
+</div>
+<script type="text/plain" class="language-markup">
+    <div class="grix xs1 sm3 gutter-sm3">
+    <div class="progress rounded-2 small">
+      <div class="progress-bar primary" style="width: 25%;"></div>
+    </div>
+    <div class="progress rounded-2">
+      <div class="progress-bar viride dark-1" style="width: 72%;"></div>
+    </div>
+    <div class="progress rounded-2 large">
+      <div class="progress-bar error" style="width: 50%;">50%</div>
+    </div>
+  </div>
+</script>
+
+<h5 class="subtitle" id="indeterminate">Indeterminate</h5>
+<p>
+  Adding the <code class="language-css">.indeterminate</code> class on your progress container will create an infinite
+  effect on it.
+</p>
+
+<div class="progress rounded-2 indeterminate">
+  <div class="progress-bar magenta dark-1"></div>
+</div>
+<script type="text/plain" class="language-markup">
+  <div class="progress rounded-2 indeterminate">
+    <div class="progress-bar magenta dark-1"></div>
+  </div>
+</script>
+
+<h5 class="subtitle" id="rainbow-option-on-progress-bar">Rainbow option on progress bar</h5>
+<p>
+  You can create a rainbow effect on your indeterminate progress bar. To create it, add the
+  <code class="language-css">.rainbow</code> class to the progress bar div.
+</p>
+
+<div class="progress rounded-2 indeterminate">
+  <div class="progress-bar rainbow"></div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="progress rounded-2 indeterminate">
+    <div class="progress-bar rainbow"></div>
+  </div>
+</script>

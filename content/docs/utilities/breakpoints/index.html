@@ -1,0 +1,85 @@
+---
+title: 'Breakpoints'
+description: 'Axentix breakpoints. The breakpoints helps you to create a responsive website withour creating your own media queries.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="responsive-breakpoints">Responsive breakpoints</h2>
+<p>Use these breakpoints to make your website responsive.</p>
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Media queries</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>xs</td>
+        <td><code class="language-css">screen and (max-width: 599px)</code></td>
+      </tr>
+      <tr>
+        <td>sm</td>
+        <td><code class="language-css">screen and (min-width: 600px) and (max-width: 959px)</code></td>
+      </tr>
+      <tr>
+        <td>md</td>
+        <td><code class="language-css">screen and (min-width: 960px) and (max-width: 1279px)</code></td>
+      </tr>
+      <tr>
+        <td>lg</td>
+        <td><code class="language-css">screen and (min-width: 1280px) and (max-width: 1919px)</code></td>
+      </tr>
+      <tr>
+        <td>xl</td>
+        <td><code class="language-css">screen and (min-width: 1920px)</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+  The next breakpoints are using "down" and "up" suffixies.
+  <br />
+  All the breakpoints above the up ones are gonna be applied to all uppers breakpoints.
+  <br />
+  All the breakpoints under the down ones are gonna be applied to all lowers breakpoints.
+</p>
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Media queries</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>sm-down</td>
+        <td><code class="language-css">screen and (max-width: 959px)</code></td>
+      </tr>
+      <tr>
+        <td>md-down</td>
+        <td><code class="language-css">screen and (max-width: 1279px)</code></td>
+      </tr>
+      <tr>
+        <td>lg-down</td>
+        <td><code class="language-css">screen and (max-width: 1919px)</code></td>
+      </tr>
+      <tr>
+        <td>sm-up</td>
+        <td><code class="language-css">screen and (min-width: 600px)</code></td>
+      </tr>
+      <tr>
+        <td>md-up</td>
+        <td><code class="language-css">screen and (min-width: 960px)</code></td>
+      </tr>
+      <tr>
+        <td>lg-up</td>
+        <td><code class="language-css">screen and (min-width: 1280px)</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

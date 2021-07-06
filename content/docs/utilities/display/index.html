@@ -1,0 +1,74 @@
+---
+title: 'Display'
+description: 'Here you can find the display utilities to custom your website.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="hide-elements">Hide elements</h2>
+<p>
+  You can hide an element with the <code class="language-css">.hide</code> class. <br />
+  Just use our <a class="txt-primary" href="{{ route('docs.utilities.breakpoints') }}"> breakpoints</a> with the
+  <code class="language-css">.hide-</code>
+  prefix to make them depend on the screensize.
+</p>
+<div class="grix xs2">
+  <div class="p-3 hide-sm-down primary">I'm invisible on sm screen and below</div>
+  <div class="p-3 hide-lg-up secondary">I'm invisible lg screen and above</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="p-3 hide-sm-down primary">
+    I'm invisible on sm screen and below
+  </div>
+  <div class="p-3 hide-lg-up secondary">
+    I'm invisible lg screen and above
+  </div>
+</script>
+
+<h2 class="subtitle">Display classes</h2>
+
+<div class="responsive-table">
+  <table class="table hover">
+    <thead>
+      <tr>
+        <th>Class name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">.d-block</code></td>
+        <td>display: block.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-flex</code></td>
+        <td>display: flex.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-grid</code></td>
+        <td>display: grid.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-table</code></td>
+        <td>display: table.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-inline</code></td>
+        <td>display: inline.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-inline-block</code></td>
+        <td>display: inline-block.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-inline-flex</code></td>
+        <td>display: inline-flex.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.d-inline-table</code></td>
+        <td>display: inline-table.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

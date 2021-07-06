@@ -1,7 +1,113 @@
 ---
 title: 'Navbar'
+description: 'Axentix navbar. Navbars are menus placed at the top of the pages, they are useful to link the main pages of a website.'
+subtitle: 'The axentix navbar allows you to easily create a navigation menu at the top of your page.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the navbar page content
+<div class="navbar-page">
+  <h2 class="subtitle" id="simple-navbar">Simple navbar</h2>
+  <p>
+    To use a simple navbar, add the <code class="language-css">.navbar</code> class into your nav. <br />
+    You can create groups of links by wrapping your links inside a <code class="language-css">.navbar-menu</code> div.
+    <br />
+    The <code class="language-css">.navbar-brand</code> class is useful to show your company/website name. <br />
+    Use the <code class="language-css">.ml-auto</code> class to put your menu on the right side of the navbar. <br />
+    This last class is one of the
+    <a class="txt-primary" href="{{ route('docs.utilities.others').'#margins' }}">margins</a> class, which help you to
+    move your content.
+  </p>
+  <div class="example-nav">
+    <nav class="navbar shadow-1 primary">
+      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <div class="navbar-menu ml-auto">
+        <a class="navbar-link active" href="#">Link</a>
+        <a class="navbar-link" href="#">Link</a>
+        <a class="navbar-link" href="#">Link</a>
+      </div>
+    </nav>
+  </div>
+  <script type="text/plain" class="language-markup">
+    <nav class="navbar shadow-1 primary">
+      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <div class="navbar-menu ml-auto">
+        <a class="navbar-link active" href="#">Link</a>
+        <a class="navbar-link" href="#">Link</a>
+        <a class="navbar-link" href="#">Link</a>
+      </div>
+    </nav>
+  </script>
+
+  <h2 class="subtitle" id="logo-navbar">Logo navbar</h2>
+  <p>
+    To use a logo navbar, add the <code class="language-css">.navbar-logo</code> to the &lt;a&gt; who contain your img.
+    Note that the <code class="language-css">.centered</code> class can center any element inside of your navbar.
+  </p>
+  <div class="example-nav">
+    <nav class="navbar shadow-1 primary">
+      <a href="#" class="navbar-logo centered">
+        <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
+      </a>
+      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <div class="navbar-menu ml-auto">
+        <a class="navbar-link" href="#">Link 1</a>
+        <a class="navbar-link" href="#">Link 2</a>
+      </div>
+    </nav>
+  </div>
+  <script type="text/plain" class="language-markup">
+    <nav class="navbar shadow-1 primary">
+       <a href="#" class="navbar-logo centered">
+         <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
+       </a>
+       <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+       <div class="navbar-menu ml-auto">
+         <a class="navbar-link" href="#">Link 1</a>
+         <a class="navbar-link" href="#">Link 2</a>
+       </div>
+     </nav>
+  </script>
+
+  <h2 class="subtitle" id="navbar-fixed">Navbar fixed</h2>
+  <p>
+    To get a fixed navbar, simply wrap your navbar inside a <code class="language-css">.navbar-fixed</code> container.
+    <script type="text/plain" class="language-markup">
+      <div class="navbar-fixed">
+        <nav class="navbar shadow-1 primary">
+          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+          <div class="navbar-menu ml-auto">
+            <a class="navbar-link active" href="#">Link</a>
+            <a class="navbar-link" href="#">Link</a>
+            <a class="navbar-link" href="#">Link</a>
+          </div>
+        </nav>
+      </div>
+    </script>
+  </p>
+
+  <h2 class="subtitle" id="customizable-navbar">Customizable navbar</h2>
+  <p>Axentix navbar is personnalisable. Use different classes to change the content adjustment and style.</p>
+  <div class="example-nav center">
+    <nav class="navbar airforce dark-1">
+      <div class="navbar-menu">
+        <a class="navbar-link" href="#">Link 1</a>
+        <a class="navbar-link" href="#">Link 2</a>
+      </div>
+      <a href="#" class="navbar-logo ml-auto">
+        <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
+      </a>
+    </nav>
+  </div>
+  <script type="text/plain" class="language-markup">
+    <nav class="navbar airforce dark-1">
+      <div class="navbar-menu">
+        <a class="navbar-link" href="#">Link 1</a>
+        <a class="navbar-link" href="#">Link 2</a>
+      </div>
+      <a href="#" class="navbar-logo ml-auto">
+        <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
+      </a>
+    </nav>
+  </script>
+</div>

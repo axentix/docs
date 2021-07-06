@@ -54,3 +54,9 @@
     {{ end }}
   </div>
 </div>
+
+{{ range .Site.RegularPages }}
+  {{ if eq .Page.Params.sidenav "others" }}
+  <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,122 @@
+---
+title: 'JavaScript'
+description: 'The javascript utilities are a set of functions we are using to develop axentix. You can use them to develop easier.'
+subtitle: 'Useful JavaScript utilities'
+type: 'docs'
+sidenav: utilities
+---
+
+<p>
+  The javascript utilities are a set of javascript functionalities that we are using to develop Axentix. <br />
+  We decided to provide them publicly to help you while developing with Axentix.
+</p>
+
+<h2 class="subtitle" id="axentix-extend">Axentix.extend()</h2>
+
+<p>
+  The <code class="language-js">Axentix.extend()</code> function allows you to overwrite an object by another one.
+  <br />
+  Here is an example :
+</p>
+
+<script type="text/plain" class="language-js">
+  let defaultOption = {
+    test: true,
+    message: 'Okay'
+  };
+
+  let customOption = {
+    message: 'Success !'
+  };
+
+  let options = Axentix.extend(defaultOption, customOption);
+  /*  Result :
+   *  {
+   *    test: true,
+   *    message: 'Success !'
+   *  }
+   */
+</script>
+
+<h2 class="subtitle" id="axentix-create-event">Axentix.createEvent()</h2>
+
+<p>
+  You can create your own events with the
+  <code class="language-js">Axentix.createEvent()</code> function. The Axentix events are automatically
+  <b>prefixed by ax</b>.
+</p>
+<script type="text/plain" class="language-js">
+  Axentix.createEvent(element, 'event.name');
+
+  document.addEventListener('ax.event.name', function() {
+    // handle event
+  });
+
+  // With data
+  Axentix.createEvent(element, 'event.name', {
+    test: true,
+    message: 'Hello'
+  });
+
+  document.addEventListener('ax.event.name', function(e) {
+    // handle event with data
+    let message = e.details.message; // message
+  });
+</script>
+
+<h2 class="subtitle" id="axentix-wrap">Axentix.wrap()</h2>
+
+<p>
+  The <code class="language-js">Axentix.wrap()</code> function allows you to wrap multiple elements inside another one.
+  <br />
+  The default tag is a <code class="language-html">&lt;div&gt;</code>.
+</p>
+<script type="text/plain" class="language-html">
+  <!-- Before -->
+  <div class="elems">1</div>
+  <div class="elems">2</div>
+  <div class="elems">3</div>
+
+  <!-- After -->
+  <div>
+    <div class="elems">1</div>
+    <div class="elems">2</div>
+    <div class="elems">3</div>
+  </div>
+</script>
+
+<script type="text/plain" class="language-js">
+  let elems = document.querySelectorAll('.elems');
+  let container = Axentix.wrap(elems); // by default => automatically inside a div
+</script>
+
+<p>
+  If you want to change the default tag to a specific one, you can specify it as second parameter of the
+  <code class="language-js">Axentix.wrap(elems, tagName)</code> function.
+</p>
+<script type="text/plain" class="language-html">
+  <!-- Before -->
+  <li class="elems">1</li>
+  <li class="elems">2</li>
+  <li class="elems">3</li>
+
+  <!-- After -->
+  <ul>
+    <li class="elems">1</li>
+    <li class="elems">2</li>
+    <li class="elems">3</li>
+  </ul>
+</script>
+
+<script type="text/plain" class="language-js">
+  // but you can specify another element
+  let ul = document.createElement('ul');
+  let container = Axentix.wrap(elems, ul);
+</script>
+
+<h2 class="subtitle" id="axentix-unwrap">Axentix.unwrap()</h2>
+
+<p>
+  The <code class="language-js">Axentix.unwrap()</code> function allows you to unwrap any element. <br />
+  This means you can pop out an element who was wrapped in another one.
+</p>

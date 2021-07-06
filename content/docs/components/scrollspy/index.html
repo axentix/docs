@@ -1,7 +1,143 @@
 ---
 title: 'Scrollspy'
+description: 'Axentix scrollspy. The scrollspy is a js component that knows where you are on the page, depending on the element you specfied.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the scrollspy page content
+<p>
+  The <strong>Scrollspy</strong> component allow you to know where you are on the page. <br />
+  Just send it the HTML element which is tracked and the class which is added when an element is active. <br />
+  You can see the <strong>example</strong> of what you can do <strong>on the right of the screen</strong> of any page of
+  the docs. <br />
+  <br />
+  <strong>Every selected element need to have an id to make the scrollspy link work.</strong>
+</p>
+
+<h2 class="subtitle" id="basic-scrollspy">Basic scrollspy</h2>
+
+<p>Using the basic version, you have to put the link yourself inside the scrollspy element.</p>
+
+<script type="text/plain" class="language-markup">
+  <div class="scrollspy" id="scrollspy-example">
+    <a href="#something">something</a>
+    <a href="#something-else">something else</a>
+  </div>
+</script>
+
+<script type="text/plain" class="language-javascript">
+  // NOTE: this is NOT to be used if data-ax="scrollspy" is set in your HTML
+  let scrollSpy = new Axentix.ScrollSpy('#scrollspy-example');
+</script>
+
+<h2 class="subtitle" id="auto-scrollspy-option">Auto scrollspy option</h2>
+
+<p>
+  The auto option <strong>automatically creates the links</strong> inside the scrollspy div.<br />
+  The links will be <strong>generated</strong> with the elements selected with "<strong>selector</strong>". <br />
+  This example is based on this <strong>documentation scrollspy</strong>.
+</p>
+
+<script type="text/plain" class="language-markup">
+  <div class="scrollspy" id="scrollspy-auto"></div>
+</script>
+
+<script type="text/plain" class="language-javascript">
+  // NOTE: this is NOT to be used if data-ax="scrollspy" is set in your HTML
+  // This example is based on this documentation scrollspy.
+  let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
+    auto: {
+      enabled: true,
+      classes: 'txt-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
+      selector: 'h1,h2'
+    }
+  });
+</script>
+
+<h2 class="subtitle" id="Options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>offset</td>
+        <td>200</td>
+        <td>Offset between the top of the page and the targeted zone.</td>
+      </tr>
+      <tr>
+        <td>linkSelector</td>
+        <td>'a'</td>
+        <td>The element selector. You can pass specific classes to select specific elements.</td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>'active'</td>
+        <td>
+          The classes which will be added to the corresponding element when you have scrolled to the targeted zone.
+        </td>
+      </tr>
+      <tr>
+        <td>auto</td>
+        <td>
+          { <br />
+          &nbsp;enabled: false,<br />
+          &nbsp;classes: '',<br />
+          &nbsp;selector: ''<br />
+          }
+        </td>
+        <td>
+          Set the auto mode to automatically detect all the elements corresponding to the <strong>selectors</strong>,
+          and add the base <strong>classes</strong> to the links.<br />
+          <code class="language-markup">&#60;a&#62;</code> <em> tags are automatically created.</em> <br />
+          Example :
+          <code class="language-javascript">
+            { enabled: true, classes: 'txt-grey mt-2 font-w500', selector: 'h2' }
+          </code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all scrollspy instances
+  document.addEventListener('ax.scrollspy.setup', function() {
+    // setup event !
+  });
+
+  // Listen to only one scrollspy instance
+  let scrollspyQuery = document.querySelector('#example-scrollspy');
+  scrollspyQuery.addEventListener('ax.scrollspy.open', function() {
+    // setup event only on #example-scrollspy
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.scrollspy.setup</td>
+        <td>Event sent when the scrollspy has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.scrollspy.update</td>
+        <td>Event sent when the scrollspy has been updated.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

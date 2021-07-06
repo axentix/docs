@@ -1,7 +1,193 @@
 ---
 title: 'Lightbox'
+description: 'Axentix lightbox. The lightbox allows you to create a clickable image which will zoom and create an overlay as a material box.'
 type: 'docs'
 sidenav: components
 ---
 
-Here is the lightbox page content
+<p>
+  We created our version of the <strong>lightbox plugin</strong>, also called <strong>material box</strong>. <br />
+  This allows you to create <b>clickable images</b> which will be <b>smoothly enlarged</b>. <br />
+  You can escape the enlarged view by <b>clicking</b> on the image or the overlay, pressing the <b>Escape key</b> or by
+  <b>scrolling</b>. <br />
+  <i>Note that you can set the <b>width and height attributes</b> on the img to resize it, all will work normally.</i>
+</p>
+
+<img
+  data-ax="lightbox"
+  id="example-lightbox"
+  class="lightbox responsive-media"
+  src="https://picsum.photos/1000/300?random=1"
+  alt="picsum"
+/>
+
+<script type="text/plain" class="language-markup">
+  <img data-ax="lightbox" id="example-lightbox" class="lightbox responsive-media" src="https://picsum.photos/1000/300?random=1" alt="picsum" />
+</script>
+
+<h2 class="subtitle" id="with-caption">With caption</h2>
+
+<p>
+  The <strong>material box</strong> component can add a caption to a <strong>lightbox</strong> to describe the image.
+  <br />
+  Here you can add <strong>HTML</strong> inside the caption to create whatever you want.
+</p>
+
+<img
+  data-ax="lightbox"
+  data-lightbox-caption="This is a caption"
+  id="example-lightbox2"
+  class="lightbox responsive-media"
+  src="https://picsum.photos/1920/1080?random=2"
+  alt="picsum2"
+/>
+
+<script type="text/plain" class="language-markup">
+  <img data-ax="lightbox" data-lightbox-caption="This is a caption" id="example-lightbox2" class="lightbox responsive-media" src="https://picsum.photos/1920/1080?random=2" alt="picsum2" />
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>lightbox</strong> with this simple code. <br />
+  Just pass the id of your <strong>lightbox</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="lightbox" is set in your HTML
+  let lightbox = new Axentix.Lightbox('#example-lightbox');
+
+  // With options
+  let lightbox = new Axentix.Lightbox('#example-lightbox', {
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="txt-primary" href="{{ route('docs.general.js-init') }}">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="Options">Options</h2>
+
+<div class="responsive-table">
+  <table class="table hover option">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>400</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>overlayColor</td>
+        <td>'grey dark-4'</td>
+        <td>
+          Set the background color of the overlay. Choose your color on the
+          <a class="txt-blue" href="{{ route('docs.general.colors').'#color-palette' }}">color</a> page.
+        </td>
+      </tr>
+      <tr>
+        <td>offset</td>
+        <td>150</td>
+        <td>Offset between the border of the page and the image.</td>
+      </tr>
+      <tr>
+        <td>mobileOffset</td>
+        <td>80</td>
+        <td>Offset between the border of the page and the image on mobile (width <= 960px).</td>
+      </tr>
+      <tr>
+        <td>caption</td>
+        <td>''</td>
+        <td>The caption is the HTML content you want to add as a caption.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="Methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="lightbox" is set in your HTML
+  let lightbox = new Axentix.Lightbox('#example-lightbox', {
+    animationDuration: 500
+  });
+
+  // Syntax : lightbox.{method}
+  lightbox.open();
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>open()</td>
+        <td>Open the lightbox.</td>
+      </tr>
+      <tr>
+        <td>close()</td>
+        <td>Close the lightbox.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+    // Listen to all lightbox instances
+  document.addEventListener('ax.lightbox.open', function() {
+    // open event !
+  });
+
+  // Listen to only one lightbox instance
+  let lightboxQuery = document.querySelector('#example-lightbox');
+  lightboxQuery.addEventListener('ax.lightbox.open', function() {
+    // open event only on #example-lightbox
+  });
+</script>
+
+<div class="responsive-table">
+  <table class="table hover method-event">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.lightbox.setup</td>
+        <td>Event sent when the lightbox has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.open</td>
+        <td>Event sent when the lightbox opening starts.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.opened</td>
+        <td>Event sent when the lightbox opening ends.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.close</td>
+        <td>Event sent when the lightbox closing starts.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.closed</td>
+        <td>Event sent when the lightbox closing ends.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
