@@ -4,6 +4,9 @@ title: "Docs"
 disableKinds: ["taxonomy", "taxonomyTerm", "section", "RSS"]
 sectionPagesMenu: "main"
 defaultContentLanguage: "en"
+params:
+  env: "dev"
+  version: 1.3.2
 
 markup:
   goldmark:

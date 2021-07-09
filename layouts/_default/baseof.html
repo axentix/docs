@@ -7,9 +7,9 @@
         {{- partial "head.html" -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
-        {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
-        {{ $style := slice $app $base | resources.Concat "home.css" | minify }}
+        {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
+        {{ $style := slice $base $app | resources.Concat "home.css" | minify }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
@@ -23,7 +23,10 @@
         {{- block "main" . }}
         
         {{- end }}
-        
+        {{ range .Site.Pages }}
+            {{ .Page.Permalink }} <br>
+        {{ end }}
+        <div class="divider"></div>
         {{ range .Site.RegularPages }}
             <li>
                 <a href="{{.Permalink}}">{{.Title}}</a>
@@ -43,5 +46,18 @@
         <script src="{{$tilt.RelPermalink}}"></script>
         <script src="{{$home.RelPermalink}}"></script>
 
+        {{ if eq .Site.Params.env "prod" }}
+        <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+            dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-149763613-1');
+        </script>
+        {{ end }}
     </body>
 </html>

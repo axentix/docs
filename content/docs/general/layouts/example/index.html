@@ -1,1 +1,326 @@
-Let's see how to build this page
+---
+title: 'Layouts example'
+description: 'Test'
+subtitle: 'test too'
+scripts:
+  - <script src="{{ mix('js/prism.js') }}"></script>
+prodscripts:
+  - <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
+  - "<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-149763613-1');
+  </script>"
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Axentix Layout</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('css/prism.css') }}" />
+    <link rel="stylesheet" href="{{ mix('axentix/axentix.min.css') }}" />
+    <link rel="stylesheet" href="{{ mix('css/layout-example.css') }}" />
+  </head>
+
+  <body class="layout">
+    <header>
+      <nav id="basic-navbar" class="navbar light-shadow-2 primary">
+        <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+        <div class="navbar-menu ml-auto">
+          <a class="navbar-link" href="#">Link 1</a>
+          <a class="navbar-link" href="#">Link 2</a>
+          <a class="navbar-link" href="#">Link 3</a>
+        </div>
+      </nav>
+      <div id="fixed-navbar" class="navbar-fixed">
+        <nav class="navbar light-shadow-2 primary">
+          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+          <div class="navbar-menu ml-auto">
+            <a class="navbar-link" href="#">Link 1</a>
+            <a class="navbar-link" href="#">Link 2</a>
+            <a class="navbar-link" href="#">Link 3</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div id="example-sidenav" data-ax="sidenav" class="sidenav light-shadow-2 large fixed white">
+      <div class="sidenav-header">
+        <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+        <img class="sidenav-logo dropshadow-1" src="/img/axentix.svg" />
+      </div>
+      <a href="#" class="sidenav-link active">Link 1</a>
+      <a href="#" class="sidenav-link">Link 2</a>
+      <a href="#" class="sidenav-link">Link 3</a>
+    </div>
+
+    <main>
+      <div class="container txt-center">
+        <h2>Play with buttons and see differents options</h2>
+        <a href="{{ route('docs.general.layouts') }}" class="btn shadow-1 rounded-1 small primary mx-auto my-3"
+          ><i class="fas fa-arrow-circle-left"></i> Back to axentix</a
+        >
+        <div class="grix xs1 sm2 md4 center">
+          <button id="basic" class="btn shadow-1 rounded-1 viride dark-2">Basic layout</button>
+          <button id="with-sidenav" class="btn shadow-1 rounded-1 viride dark-2">With sidenav</button>
+          <button id="sidenav-fixed" class="btn shadow-1 rounded-1 viride dark-2">Sidenav fixed</button>
+          <button id="under-navbar" class="btn shadow-1 rounded-1 viride dark-2">Under navbar</button>
+          <button
+            id="btn-open-sidenav"
+            data-target="example-sidenav"
+            class="col-xs1 col-sm2 col-md4 btn press amaranth rounded-1 dark-1 sidenav-trigger hide-md-up"
+          >
+            Open sidenav
+          </button>
+        </div>
+      </div>
+
+      <div class="example txt-center basic-layout">
+        <p>
+          In this basic layout, we have simply header, main and footer. Footer was pushed at the bottom of screen automatically, like
+          other layouts.
+        </p>
+
+        <div class="code">
+          <script type="text/plain" class="language-markup code-max-height">
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Axentix Layout</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+              </head>
+
+              <body class="layout">
+                <header>
+                  <nav class="navbar shadow-1 primary">
+                    <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+                    <div class="navbar-menu ml-auto">
+                      <a class="navbar-link" href="#">Link 1</a>
+                      <a class="navbar-link" href="#">Link 2</a>
+                      <a class="navbar-link" href="#">Link 3</a>
+                      <a class="navbar-link" href="#">Link 4</a>
+                    </div>
+                  </nav>
+                </header>
+
+                <main>
+                  <!-- Code here the main content -->
+                </main>
+
+                <footer class="footer primary">
+                  Copyright © 2021 - Example
+                </footer>
+                <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+              </body>
+            </html>
+          </script>
+        </div>
+      </div>
+      <div class="example txt-center with-sidenav">
+        <p>Include sidenav in layouts. In sm-down breakpoint the sidenav will disappear.<br />Add with-sidenav class to body.</p>
+
+        <div class="code">
+          <script type="text/plain" class="language-markup code-max-height">
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Axentix Layout - With sidenav</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+              </head>
+
+              <body class="layout with-sidenav">
+                <header>
+                  <nav class="navbar shadow-1 primary">
+                    <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+                    <div class="navbar-menu ml-auto">
+                      <a class="navbar-link" href="#">Link 1</a>
+                      <a class="navbar-link" href="#">Link 2</a>
+                      <a class="navbar-link" href="#">Link 3</a>
+                      <a class="navbar-link" href="#">Link 4</a>
+                    </div>
+                  </nav>
+                </header>
+
+                <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+                  <div class="sidenav-header">
+                    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+                    <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
+                  </div>
+                  <a href="#" class="sidenav-link active">Link 1</a>
+                  <a href="#" class="sidenav-link">Link 2</a>
+                  <a href="#" class="sidenav-link">Link 3</a>
+                  <a href="#" class="sidenav-link">Link 4</a>
+                </div>
+
+                <main>
+                  <!-- Code here the main content -->
+                  <button data-target="example-sidenav"
+                    class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
+                      Open sidenav
+                  </button>
+                </main>
+
+                <footer class="footer primary">
+                  Copyright © 2021 - Example
+                </footer>
+                <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+              </body>
+            </html>
+          </script>
+        </div>
+      </div>
+      <div class="example txt-center fixed-sidenav">
+        <p>
+          If you want the sidenav to remain fixed, simply add fixed-sidenav class to the body.
+        </p>
+
+        <div class="code">
+          <script type="text/plain" class="language-markup code-max-height">
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Axentix Layout - Fixed sidenav</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+              </head>
+
+              <body class="layout with-sidenav fixed-sidenav">
+                <header>
+                  <nav class="navbar shadow-1 primary">
+                    <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+                    <div class="navbar-menu ml-auto">
+                      <a class="navbar-link" href="#">Link 1</a>
+                      <a class="navbar-link" href="#">Link 2</a>
+                      <a class="navbar-link" href="#">Link 3</a>
+                      <a class="navbar-link" href="#">Link 4</a>
+                    </div>
+                  </nav>
+                </header>
+
+                <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+                  <div class="sidenav-header">
+                    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+                    <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
+                  </div>
+                  <a href="#" class="sidenav-link active">Link 1</a>
+                  <a href="#" class="sidenav-link">Link 2</a>
+                  <a href="#" class="sidenav-link">Link 3</a>
+                  <a href="#" class="sidenav-link">Link 4</a>
+                </div>
+
+                <main>
+                  <!-- Code here the main content -->
+                  <button data-target="example-sidenav"
+                    class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
+                      Open sidenav
+                  </button>
+                </main>
+
+                <footer class="footer primary">
+                  Copyright © 2021 - Example
+                </footer>
+                <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+              </body>
+            </html>
+          </script>
+        </div>
+      </div>
+      <div class="example txt-center under-navbar">
+        <p>
+          If you use navbar fixed, and you want a sidenav under a navbar, add under-navbar class to the body.<br />
+          Axentix documentation uses this layout.
+        </p>
+
+        <div class="code">
+          <script type="text/plain" class="language-markup code-max-height">
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>Axentix Layout - Under navbar</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+              </head>
+
+              <body class="layout with-sidenav fixed-sidenav under-navbar">
+                <header>
+                  <div class="navbar-fixed">
+                    <nav class="navbar shadow-1 primary">
+                      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+                      <div class="navbar-menu ml-auto">
+                        <a class="navbar-link" href="#">Link 1</a>
+                        <a class="navbar-link" href="#">Link 2</a>
+                        <a class="navbar-link" href="#">Link 3</a>
+                        <a class="navbar-link" href="#">Link 4</a>
+                      </div>
+                    </nav>
+                  </div>
+                </header>
+
+                <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+                  <div class="sidenav-header">
+                    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
+                    <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
+                  </div>
+                  <a href="#" class="sidenav-link active">Link 1</a>
+                  <a href="#" class="sidenav-link">Link 2</a>
+                  <a href="#" class="sidenav-link">Link 3</a>
+                  <a href="#" class="sidenav-link">Link 4</a>
+                </div>
+
+                <main>
+                  <!-- Code here the main content -->
+                  <button data-target="example-sidenav"
+                    class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
+                      Open sidenav
+                  </button>
+                </main>
+
+                <footer class="footer primary">
+                  Copyright © 2021 - Example
+                </footer>
+                <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+              </body>
+            </html>
+          </script>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer primary fx-center">
+      Copyright © 2021 - Example
+    </footer>
+
+    <script src="{{ mix('js/prism.js') }}"></script>
+    {{ if eq .Site.Params.env "prod" }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-149763613-1');
+    </script>
+    {{ end }}
+    <script src="{{ mix('axentix/axentix.min.js') }}"></script>
+    <script src="/js/layout-example.js"></script>
+  </body>
+</html>
