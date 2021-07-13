@@ -162,7 +162,7 @@ main {
   }
 
   @include responsive('sm-down') {
-    display: none;
+    display: none !important;
   }
 
   a:not(.coffee-link) {

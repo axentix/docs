@@ -12,6 +12,10 @@
         {{ $style := slice $base $docs | resources.Concat "docs.css" }}
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
+        {{ if eq .Title "Layouts" }}
+            {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options }}
+            <link rel="stylesheet" href="{{ $layout.RelPermalink }}"/>
+        {{ end }}
     </head>
     <body class="layout with-sidenav fixed-sidenav under-navbar">
         {{- partial "header.html" . -}}

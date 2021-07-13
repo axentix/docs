@@ -11,39 +11,67 @@ url: '/docs/general/layouts'
   We provided multiple layouts to build wonderful pages with less code.<br />
   To use layout, you must have the basic HTML syntax below, who contains a header, a main and a footer.
 </p>
-<p><strong>For all layouts, we push footer at the bottom of the screen.</strong></p>
+<p><strong>For all layouts, the footer is placed at the bottom of the screen.</strong></p>
 
-<script type="text/plain" class="language-markup">
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Axentix Layout</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
-    </head>
+<div class="device device-macbook-pro device-spacegray">
+  <div class="device-frame">
+    <div class="color-website grey light-4 h100 d-flex fx-col relative-pos">
+      <div class="navbar lh-normal z-index-2 txt-white">
+        <div class="navbar-brand font-w600">John DOE</div>
 
-    <body class="layout">
-      <header>
-        <nav class="navbar shadow-1 primary">
-          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-          <div class="navbar-menu ml-auto">
-            <a class="navbar-link" href="#">Link 1</a>
-            <a class="navbar-link" href="#">Link 2</a>
-            <a class="navbar-link" href="#">Link 3</a>
-            <a class="navbar-link" href="#">Link 4</a>
+        <div class="navbar-menu ml-auto">
+          <span class="py-1 bd-3 bd-b-solid" data-colors="bd">About</span>
+          <span class="py-1">Experiences</span>
+          <span class="py-1">Contact</span>
+        </div>
+      </div>
+
+      <div class="color-bg"></div>
+
+      <div class="color-container mt-5 mx-auto">
+        <div class="color-card card white light-shadow-2 rounded-1">
+          <div class="card-content">
+            <div class="d-flex">
+              <img src="/img/person.jpg" alt="Person" class="responsive-media rounded-full bd-solid bd-4 mx-4" data-colors="bd">
+
+              <div class="d-flex fx-col w100 pb-3 bd-1 bd-b-solid bd-grey bd-light-3 color-head">
+                <div class="color-hello" data-colors="bg,bd">Hello</div>
+
+                <span class="color-card-title font-w600">I'm John DOE</span>
+
+                <span class="color-card-job">Web Developer</span>
+              </div>
+            </div>
+
+            <p class="color-text mt-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero in molestias,
+              dignissimos praesentium esse laudantium iure autem!
+              Quaerat quae itaque iste beatae quo, in unde eligendi expedita neque similique ex!
+            </p>
           </div>
-        </nav>
-      </header>
 
-      <main>
-        <!-- Code here the main content -->
-      </main>
+          <div class="card-footer d-flex fx-center py-3" data-colors="bg">
+            <a target="_blank" href="https://twitter.com/UseAxentix" rel="noopener" class="p-1 rounded-full" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a target="_blank" href="https://discord.useaxentix.com/" rel="noopener" class="p-1 rounded-full ml-2" aria-label="Discord">
+              <i class="fab fa-discord"></i>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/company/axentix/" rel="noopener" class="p-1 rounded-full ml-2" aria-label="Linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
-      <footer class="footer primary">
-        Copyright © 2021 - Example
-      </footer>
-      <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
-    </body>
-  </html>
-</script>
+      <div class="footer fx-center txt-grey txt-dark-3 mt-auto">
+        All rights reserved
+      </div>
+    </div>
+  </div>
+  <div class="device-stripe"></div>
+  <div class="device-header"></div>
+  <div class="device-sensors"></div>
+  <div class="device-btns"></div>
+  <div class="device-power"></div>
+</div>
