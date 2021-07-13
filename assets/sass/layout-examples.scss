@@ -2,4 +2,340 @@
 @import './axentix-utils/mixins';
 
 @import './home/devices';
-@import './home/colors';
+
+.device-macbook-pro {
+  .device-frame {
+    @include responsive('lg') {
+      padding: 29px 19px 39px 19px;
+      width: 614px;
+      height: 428px;
+    }
+
+    @include responsive('md') {
+      padding: 16px 12px 25px 12px;
+      width: 456px;
+      height: 318px;
+    }
+
+    @include responsive('sm') {
+      padding: 16px 12px 25px 12px;
+      width: 456px;
+      height: 318px;
+    }
+
+    @include responsive('xs') {
+      padding: 12px 12px 16px 12px;
+      width: 224px;
+      height: 156px;
+      border-radius: 12px;
+    }
+
+    &::after {
+      content: '';
+
+      @include responsive('lg') {
+        height: 26px;
+        width: 610px;
+      }
+
+      @include responsive('md') {
+        height: 14.5px;
+        width: 452px;
+        bottom: 5px;
+      }
+
+      @include responsive('sm') {
+        height: 14.5px;
+        width: 452px;
+        bottom: 5px;
+      }
+
+      @include responsive('xs') {
+        // height: 7px;
+        // width: 222px;
+        // bottom: 4px;
+        content: unset;
+      }
+    }
+    &::before {
+      content: 'Axentix';
+
+      @include responsive('lg') {
+        font-size: 12px;
+        height: 16px;
+      }
+
+      @include responsive('md') {
+        font-size: 10px;
+        height: 9px;
+      }
+
+      @include responsive('sm') {
+        font-size: 10px;
+        height: 9px;
+      }
+
+      @include responsive('xs') {
+        font-size: 8px;
+        height: 7px;
+      }
+    }
+  }
+
+  .device-power {
+    @include responsive('lg') {
+      margin-top: -7px;
+      height: 9px;
+      width: 740px;
+    }
+
+    @include responsive('md') {
+      margin-top: -5px;
+      width: 550px;
+      height: 7px;
+    }
+
+    @include responsive('sm') {
+      margin-top: -5px;
+      width: 550px;
+      height: 7px;
+    }
+
+    @include responsive('xs') {
+      margin-top: -4px;
+      height: 5px;
+      width: 270px;
+    }
+
+    &::after {
+      @include responsive('lg') {
+        height: 7px;
+        width: 120px;
+      }
+
+      @include responsive('md') {
+        height: 5px;
+        width: 89px;
+      }
+
+      @include responsive('sm') {
+        height: 5px;
+        width: 89px;
+      }
+
+      @include responsive('xs') {
+        height: 4px;
+        width: 44px;
+      }
+    }
+    &::before {
+      @include responsive('lg') {
+        width: 740px;
+        top: 7px;
+      }
+
+      @include responsive('md') {
+        width: 550px;
+        top: 5px;
+      }
+
+      @include responsive('sm') {
+        width: 550px;
+        top: 5px;
+      }
+      @include responsive('xs') {
+        width: 270px;
+        top: 3px;
+        height: 8px;
+      }
+    }
+  }
+}
+
+// page
+
+.layout-website {
+  min-height: unset !important;
+
+  .navbar {
+    height: 3rem;
+
+    .navbar-brand {
+      font-size: 1.3rem;
+    }
+
+    .navbar-menu span {
+      margin-right: 0.25rem;
+      margin-left: 0.25rem;
+    }
+
+    @include responsive('lg') {
+      font-size: 0.9rem;
+
+      .navbar-brand {
+        font-size: 1.1rem;
+      }
+    }
+
+    @include responsive('md') {
+      font-size: 0.7rem;
+
+      .navbar-brand {
+        font-size: 0.9rem;
+      }
+    }
+
+    @include responsive('sm') {
+      font-size: 0.7rem;
+
+      .navbar-brand {
+        font-size: 0.9rem;
+      }
+    }
+
+    @include responsive('xs') {
+      font-size: 0.4rem;
+      padding: 0 0.25rem;
+
+      .navbar-brand {
+        font-size: 0.5rem;
+      }
+
+      .navbar-menu span {
+        margin-right: 0.125rem;
+        margin-left: 0.125rem;
+        padding-bottom: 0.125rem !important;
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    @include responsive('lg') {
+      font-size: 0.8rem;
+      min-height: 2.25rem;
+    }
+
+    @include responsive('md') {
+      font-size: 0.6rem;
+      min-height: 1.75rem;
+    }
+
+    @include responsive('sm') {
+      font-size: 0.6rem;
+      min-height: 1.75rem;
+    }
+
+    @include responsive('xs') {
+      font-size: 0.2rem;
+      min-height: 1rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  .layout-bg {
+    background-image: url('/img/mountains.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .layout-container {
+    width: 65%;
+
+    @include responsive('xl') {
+      width: 70%;
+    }
+
+    @include responsive('lg') {
+      width: 100%;
+      transform: scale(0.7) translateY(-6rem);
+    }
+
+    @include responsive('md') {
+      width: 130%;
+      transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
+    }
+
+    @include responsive('sm') {
+      width: 130%;
+      transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
+    }
+
+    @include responsive('xs') {
+      width: 270%;
+      transform: scale(0.25) translateY(-42rem) translateX(-42.75rem);
+    }
+  }
+
+  .layout-card {
+    img {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    .layout-text {
+      font-size: 0.9rem;
+    }
+
+    .layout-hello {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      position: relative;
+      width: fit-content;
+      border-color: #2196f3;
+
+      &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        top: 100%;
+        left: 5px;
+        display: block;
+        position: absolute;
+        border-style: solid;
+        border-width: 0 0 8px 8px;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-right-color: inherit;
+        border-left-color: inherit;
+      }
+    }
+
+    .layout-head {
+      height: fit-content;
+    }
+
+    .layout-card-title {
+      margin-top: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .card-footer {
+      a {
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
