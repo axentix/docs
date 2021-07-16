@@ -150,192 +150,84 @@
       }
     }
   }
+  iframe {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
 }
 
 // page
 
-.layout-website {
-  min-height: unset !important;
+// .layout-website {
+//   min-height: unset !important;
+//   overflow-x: hidden;
+//   overflow-y: scroll;
 
-  .navbar {
-    height: 3rem;
+//   .navbar {
+//     height: 2.75rem;
+//     line-height: 2.75rem !important;
+//     font-size: 0.9rem !important;
 
-    .navbar-brand {
-      font-size: 1.3rem;
-    }
+//     .navbar-brand {
+//       font-size: 1.2rem !important;
+//     }
+//   }
 
-    .navbar-menu span {
-      margin-right: 0.25rem;
-      margin-left: 0.25rem;
-    }
+//   .layout-main {
+//     padding-top: 2%;
+//     padding-left: 5% !important;
+//     padding-right: 5% !important;
+//   }
 
-    @include responsive('lg') {
-      font-size: 0.9rem;
+//   .sidenav {
+//     position: absolute !important;
+//     display: flex !important;
+//     top: 0 !important;
+//     left: -21%;
+//     width: 21% !important;
+//     font-size: 0.9rem;
 
-      .navbar-brand {
-        font-size: 1.1rem;
-      }
-    }
+//     .sidenav-link {
+//       height: 2.5rem;
+//       line-height: 2.5rem;
+//     }
+//   }
 
-    @include responsive('md') {
-      font-size: 0.7rem;
+//   .footer {
+//     width: auto;
+//   }
 
-      .navbar-brand {
-        font-size: 0.9rem;
-      }
-    }
+//   &.with-sidenav {
+//     .navbar {
+//       height: 2.75rem;
+//       line-height: 2.75rem !important;
+//     }
 
-    @include responsive('sm') {
-      font-size: 0.7rem;
+//     .sidenav {
+//       top: 2.75rem !important;
+//       left: 0;
+//     }
 
-      .navbar-brand {
-        font-size: 0.9rem;
-      }
-    }
+//     .layout-main {
+//       padding-left: 23% !important;
+//     }
 
-    @include responsive('xs') {
-      font-size: 0.4rem;
-      padding: 0 0.25rem;
+//     .footer {
+//       margin-left: 21%;
+//     }
 
-      .navbar-brand {
-        font-size: 0.5rem;
-      }
+//     &.fixed-sidenav {
+//       .navbar {
+//         margin-left: 21%;
+//       }
 
-      .navbar-menu span {
-        margin-right: 0.125rem;
-        margin-left: 0.125rem;
-        padding-bottom: 0.125rem !important;
-      }
-    }
-  }
+//       .sidenav {
+//         top: 0 !important;
+//       }
 
-  .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-
-    @include responsive('lg') {
-      font-size: 0.8rem;
-      min-height: 2.25rem;
-    }
-
-    @include responsive('md') {
-      font-size: 0.6rem;
-      min-height: 1.75rem;
-    }
-
-    @include responsive('sm') {
-      font-size: 0.6rem;
-      min-height: 1.75rem;
-    }
-
-    @include responsive('xs') {
-      font-size: 0.2rem;
-      min-height: 1rem;
-      padding-bottom: 0.25rem;
-    }
-  }
-
-  .layout-bg {
-    background-image: url('/img/mountains.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 65%;
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  }
-
-  .layout-container {
-    width: 65%;
-
-    @include responsive('xl') {
-      width: 70%;
-    }
-
-    @include responsive('lg') {
-      width: 100%;
-      transform: scale(0.7) translateY(-6rem);
-    }
-
-    @include responsive('md') {
-      width: 130%;
-      transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
-    }
-
-    @include responsive('sm') {
-      width: 130%;
-      transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
-    }
-
-    @include responsive('xs') {
-      width: 270%;
-      transform: scale(0.25) translateY(-42rem) translateX(-42.75rem);
-    }
-  }
-
-  .layout-card {
-    img {
-      width: 8rem;
-      height: 8rem;
-    }
-
-    .layout-text {
-      font-size: 0.9rem;
-    }
-
-    .layout-hello {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.8rem;
-      position: relative;
-      width: fit-content;
-      border-color: #2196f3;
-
-      &::before {
-        content: '';
-        width: 0;
-        height: 0;
-        top: 100%;
-        left: 5px;
-        display: block;
-        position: absolute;
-        border-style: solid;
-        border-width: 0 0 8px 8px;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        border-right-color: inherit;
-        border-left-color: inherit;
-      }
-    }
-
-    .layout-head {
-      height: fit-content;
-    }
-
-    .layout-card-title {
-      margin-top: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .card-footer {
-      a {
-        width: 2rem;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-}
+//       &.under-navbar {
+//       }
+//     }
+//   }
+// }
