@@ -20,16 +20,22 @@
       </nav>
     </header>
 
-    <main>
-      <!-- Code here the main content -->
+    <main class="grey light-4">
+      <div class="container">
+        <div class="card white shadow-1 rounded-1">
+          <div class="card-header">Card header</div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+          <div class="card-footer">Card footer</div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer primary">Copyright © 2021 - Example</footer>
     <script src="https://cdn.jsdelivr.net/npm/axentix@1.3.2/dist/js/axentix.min.js"></script>
     <script>
-      window.changeLayout = (type) => {
-        console.log(type);
-
+      changeLayout = (type) => {
         document.querySelector('body').className = 'layout ' + type;
       };
     </script>
