@@ -6,8 +6,38 @@ sidenav: general
 scripts:
   - "<script>
       let tabQuery = document.querySelector('#tab');
+      let shownItems = [0];
+      let images = [document.querySelector('.example-image')];
+      const frame = document.querySelector('.device-frame');
+      const paths = ['basic', 'with-sidenav', 'fixed-sidenav', 'under-navbar'];
+
+      const addElement = (i) => {
+        shownItems.push(i);
+        let img = document.createElement('img');
+        img.src = '/img/layouts/' + paths[i] + '.gif';
+        img.className = 'responsive-media hide';
+        frame.appendChild(img);
+        images.push(img);
+        showElement(i);
+      };
+
+      const showElement = (i) => {
+        images.map((img) => {
+          if (i === images.indexOf(img)) {
+            if (img.classList.contains('hide')) img.classList.remove('hide');
+          } else {
+            if (!img.classList.contains('hide')) img.classList.add('hide');
+          }
+        })
+      };
+
       tabQuery.addEventListener('ax.tab.select', (e) => {
-        console.log('open', e.detail);
+        const index = e.detail.currentIndex;
+        if (shownItems.indexOf(index) !== -1) {
+          showElement(index);
+          return;
+        }
+        addElement(index);
       });
   </script>"
 ---
@@ -24,7 +54,7 @@ scripts:
 
 <div class="device device-macbook-pro device-spacegray my-5">
   <div class="device-frame">
-    <!-- <img src="GIF_PATH" alt=""> -->
+    <img src="/img/layouts/basic.gif" class="responsive-media example-image" alt="layout">
   </div>
   <div class="device-stripe"></div>
   <div class="device-header"></div>
