@@ -5,7 +5,7 @@ subtitle: 'Use our layouts to make responsive pages easily.'
 sidenav: general
 scripts:
   - "<script>
-      let tabQuery = document.querySelector('#tab');
+      const tabQuery = document.querySelector('#tab');
       let shownItems = [0];
       let images = [document.querySelector('.example-image')];
       const frame = document.querySelector('.device-frame');
@@ -54,7 +54,7 @@ scripts:
 
 <div class="device device-macbook-pro device-spacegray my-5">
   <div class="device-frame">
-    <img src="/img/layouts/basic.gif" class="responsive-media example-image" alt="layout">
+    <img src="/img/layouts/basic.gif" class="responsive-media example-image" alt="layout" />
   </div>
   <div class="device-stripe"></div>
   <div class="device-header"></div>
