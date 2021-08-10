@@ -6,11 +6,11 @@ sectionPagesMenu: "main"
 defaultContentLanguage: "en"
 params:
   env: "dev"
-  latest: 1.3.2
+  latest: 2.0.x
   version: 1.3.x
   versions:
+    - 2.0.x
     - 1.3.x
-    - 0.5.x
 
 markup:
   goldmark:
