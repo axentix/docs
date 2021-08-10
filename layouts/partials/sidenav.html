@@ -8,7 +8,7 @@
     {{ $url := .Site.BaseURL }}
     <div class="dropdown-content white constrain-width light-shadow-2">
       {{ range .Site.Params.versions }}
-        <a href='{{ replace $url ".com" (printf "%s/%s" $.Site.BaseURL ".com" ) }}' class="txt-center py-3">{{ . }}</a>
+        <a href='{{ (printf "%s/%s%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "") ) }}' class="txt-center py-3">{{ . }}</a>
       {{ end }}
     </div>
   </div>
