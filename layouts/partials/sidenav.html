@@ -1,6 +1,17 @@
 <div class="sidenav-header hide-md-up">
   <button data-target="main-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
   <img class="sidenav-logo" src="/img/axentix.svg" alt="Axentix Logo" />
+  <div class="dropdown" id="dropdown" data-ax="dropdown" >
+    <div class="dropdown-trigger d-flex py-2 px-4 mt-2 bd-1 bd-b-solid bd-grey bd-light-2">
+      {{ .Site.Params.version }} <i class="fas fa-sort-down txt-grey txt-dark-4 ml-2"></i>
+    </div>
+    {{ $url := .Site.BaseURL }}
+    <div class="dropdown-content white constrain-width light-shadow-2">
+      {{ range .Site.Params.versions }}
+        <a href='{{ replace $url ".com" (printf "%s/%s" $.Site.BaseURL ".com" ) }}' class="txt-center py-3">{{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
 </div>
 <div class="hide-md-up">
   <a href="{{ .Site.BaseURL }}" class="sidenav-link">Home</a>
@@ -60,3 +71,8 @@
   <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
   {{ end }}
 {{ end }}
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer txt-center grey dark-5">
+  <i class="fab fa-discord"></i> &nbsp;
+  Join us
+</a>

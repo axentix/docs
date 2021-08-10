@@ -12,20 +12,20 @@ type: 'docs'
 <p>CSS</p>
 <script type="text/plain" class="language-markup">
   <!-- Axentix CSS minified version -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
 </script>
 
 <p>JavaScript</p>
 <script type="text/plain" class="language-markup">
   <!-- Axentix JS minified version -->
-  <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+  <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
 </script>
 
 <p>If you want only grix system</p>
 
 <script type="text/plain" class="language-markup">
   <!-- Grix system -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/grix.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/grix.min.css">
 </script>
 
 <h5 class="subtitle mt-5" id="with-npm">With NPM</h5>
@@ -56,12 +56,12 @@ type: 'docs'
     </p>
   </div>
   <a
-    href="https://github.com/axentix/axentix/releases/download/{{ $version }}/axentix-v{{ $version }}.zip"
+    href="https://github.com/axentix/axentix/releases/download/{{< version >}}/axentix-v{{< version >}}.zip"
     class="btn rounded-1 primary shadow-1 pos-row-xs2"
   >
     Axentix
   </a>
-  <a href="https://github.com/axentix/axentix/archive/{{ $version }}.zip" class="btn rounded-1 secondary shadow-1">
+  <a href="https://github.com/axentix/axentix/archive/{{< version >}}.zip" class="btn rounded-1 secondary shadow-1">
     Source
   </a>
 </div>
@@ -78,7 +78,7 @@ type: 'docs'
       <title>Starter template - Axentix</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css" />
     </head>
 
     <body class="layout">
@@ -144,7 +144,7 @@ type: 'docs'
         Copyright © 2021 - Example
       </footer>
 
-      <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+      <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
     </body>
   </html>
 </script>

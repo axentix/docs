@@ -6,34 +6,36 @@ sidenav: general
 scripts:
   - "<script>
       const tabQuery = document.querySelector('#tab');
-      let shownItems = [0];
-      let images = [document.querySelector('.example-image')];
       const frame = document.querySelector('.device-frame');
-      const paths = ['basic', 'with-sidenav', 'fixed-sidenav', 'under-navbar'];
+      let items = [
+        { path: '/img/layouts/basic.gif', img: document.querySelector('.example-image') },
+        { path: '/img/layouts/with-sidenav.gif', img: null },
+        { path: '/img/layouts/fixed-sidenav.gif', img: null },
+        { path: '/img/layouts/under-navbar.gif', img: null }
+      ];
 
       const addElement = (i) => {
-        shownItems.push(i);
         let img = document.createElement('img');
-        img.src = '/img/layouts/' + paths[i] + '.gif';
+        img.src = items[i].path;
         img.className = 'responsive-media hide';
+        items[i].img = img;
         frame.appendChild(img);
-        images.push(img);
         showElement(i);
       };
 
       const showElement = (i) => {
-        images.map((img) => {
-          if (i === images.indexOf(img)) {
-            if (img.classList.contains('hide')) img.classList.remove('hide');
-          } else {
-            if (!img.classList.contains('hide')) img.classList.add('hide');
+        items.map((img, index) => {
+          if (index === i) {
+            items[index].img.classList.remove('hide');
+          } else if (items[index].img) {
+            items[index].img.classList.add('hide');
           }
-        })
+        });
       };
 
       tabQuery.addEventListener('ax.tab.select', (e) => {
         const index = e.detail.currentIndex;
-        if (shownItems.indexOf(index) !== -1) {
+        if (items[index].img) {
           showElement(index);
           return;
         }
@@ -87,7 +89,7 @@ scripts:
           <title>Axentix Layout</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
         <body class="layout">
@@ -110,7 +112,7 @@ scripts:
           <footer class="footer primary">
             Copyright © 2021 - Example
           </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+          <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
       </html>
     </script>
@@ -124,7 +126,7 @@ scripts:
           <title>Axentix Layout - With sidenav</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
         <body class="layout with-sidenav">
@@ -162,7 +164,7 @@ scripts:
           <footer class="footer primary">
             Copyright © 2021 - Example
           </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+          <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
       </html>
     </script>
@@ -176,7 +178,7 @@ scripts:
           <title>Axentix Layout - Fixed sidenav</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
         <body class="layout with-sidenav fixed-sidenav">
@@ -214,7 +216,7 @@ scripts:
           <footer class="footer primary">
             Copyright © 2021 - Example
           </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+          <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
       </html>
     </script>
@@ -228,7 +230,7 @@ scripts:
           <title>Axentix Layout - Under navbar</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/css/axentix.min.css">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
         <body class="layout with-sidenav fixed-sidenav under-navbar">
@@ -268,7 +270,7 @@ scripts:
           <footer class="footer primary">
             Copyright © 2021 - Example
           </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@{VERSION}/dist/js/axentix.min.js">&lt;/script>
+          <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
       </html>
     </script>
