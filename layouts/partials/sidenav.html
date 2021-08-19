@@ -2,11 +2,11 @@
   <button data-target="main-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="/img/axentix.svg" alt="Axentix Logo" />
   <div class="dropdown" id="dropdown" data-ax="dropdown" >
-    <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2">
+    <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
       {{ .Site.Params.version }} <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
     </div>
     {{ $url := .Site.BaseURL }}
-    <div class="dropdown-content white constrain-width light-shadow-2">
+    <div class="version-selector dropdown-content white constrain-width light-shadow-2">
       {{ range .Site.Params.versions }}
         <a href='{{ (printf "%s/%s/%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "") ) }}' class="txt-center py-3 {{ if  eq . $.Site.Params.version }}font-w600{{ end }}">
           {{ if  eq . $.Site.Params.latest }} Latest {{end}} {{ . }}

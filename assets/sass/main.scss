@@ -7,3 +7,13 @@
 .docs-logo {
   height: 4rem !important;
 }
+
+.version-selector {
+  a {
+    transition: background-color 0.4s ease;
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
+}
