@@ -38,8 +38,8 @@ jobs:
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          destination_dir: ${{ steps.dest-dir.outputs.DIR }}
+          branch: gh-pages
+          folder: ./public
+          target-folder: ${{ steps.dest-dir.outputs.DIR }}
