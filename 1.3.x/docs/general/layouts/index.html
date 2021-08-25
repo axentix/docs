@@ -164,7 +164,7 @@ To use layout, you must have the basic HTML syntax below, who contains a header,
 </p>
 <div class="device device-macbook-pro device-spacegray my-5">
 <div class=device-frame>
-<img src={{.Site.BaseURL}}/img/layouts/basic.gif class="responsive-media example-image" alt=layout>
+<img src="{{ .Site.BaseURL }}/img/layouts/basic.gif" class="responsive-media example-image" alt=layout>
 </div>
 <div class=device-stripe></div>
 <div class=device-header></div>
@@ -399,6 +399,6 @@ Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
 <script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
-<script>const tabQuery=document.querySelector('#tab'),frame=document.querySelector('.device-frame');let items=[{path:'{{.Site.BaseURL}}/img/layouts/basic.gif',img:document.querySelector('.example-image')},{path:'{{.Site.BaseURL}}/img/layouts/with-sidenav.gif',img:null},{path:'{{.Site.BaseURL}}/img/layouts/fixed-sidenav.gif',img:null},{path:'{{.Site.BaseURL}}/img/layouts/under-navbar.gif',img:null}];const addElement=b=>{let a=document.createElement('img');a.src=items[b].path,a.className='responsive-media hide',items[b].img=a,frame.appendChild(a),showElement(b)},showElement=a=>{items.map((c,b)=>{b===a?items[b].img.classList.remove('hide'):items[b].img&&items[b].img.classList.add('hide')})};tabQuery.addEventListener('ax.tab.select',b=>{const a=b.detail.currentIndex;if(items[a].img){showElement(a);return}addElement(a)})</script>
+<script>const tabQuery=document.querySelector('#tab'),frame=document.querySelector('.device-frame');let items=[{path:'{{ .Site.BaseURL }}/img/layouts/basic.gif',img:document.querySelector('.example-image')},{path:'{{ .Site.BaseURL }}/img/layouts/with-sidenav.gif',img:null},{path:'{{ .Site.BaseURL }}/img/layouts/fixed-sidenav.gif',img:null},{path:'{{ .Site.BaseURL }}/img/layouts/under-navbar.gif',img:null}];const addElement=b=>{let a=document.createElement('img');a.src=items[b].path,a.className='responsive-media hide',items[b].img=a,frame.appendChild(a),showElement(b)},showElement=a=>{items.map((c,b)=>{b===a?items[b].img.classList.remove('hide'):items[b].img&&items[b].img.classList.add('hide')})};tabQuery.addEventListener('ax.tab.select',b=>{const a=b.detail.currentIndex;if(items[a].img){showElement(a);return}addElement(a)})</script>
 </body>
 </html>
