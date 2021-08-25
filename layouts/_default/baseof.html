@@ -10,7 +10,7 @@
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
         {{ $style := slice $base $app | resources.Concat "home.css" | minify }}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/css/neu-axentix.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>
@@ -23,15 +23,6 @@
         {{- block "main" . }}
         
         {{- end }}
-        {{ range .Site.Pages }}
-            {{ .Page.Permalink }} <br>
-        {{ end }}
-        <div class="divider"></div>
-        {{ range .Site.RegularPages }}
-            <li>
-                <a href="{{.Permalink}}">{{.Title}}</a>
-            </li>
-        {{ end }}
         </main>
         {{- partial "home/footer.html" . -}}
 
@@ -39,7 +30,7 @@
         {{ $home := resources.Get "js/home.js" }}
         {{ $tilt := resources.Get "js/vanilla-tilt.min.js" }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" }}
-        <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.4.0/dist/js/neu-axentix.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
@@ -47,6 +38,7 @@
         <script src="{{$home.RelPermalink}}"></script>
 
         {{ if eq .Site.Params.env "prod" }}
+        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
         <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
         <script>
             window.dataLayer = window.dataLayer || [];
