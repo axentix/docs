@@ -1,0 +1,43 @@
+---
+name: deploy
+
+on:
+  push:
+    branch:
+      - 'v-*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: axentix-version
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: axentix/axentix
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.87.0'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+        env:
+          AX_ENV: production
+          AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
+
+      - name: Get destination directory
+        id: dest-dir
+        run: echo ::set-output name=DIR::${GITHUB_REF##*/:2}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          destination_dir: ${{ steps.get_version.outputs.DIR }}

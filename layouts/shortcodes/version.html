@@ -1,1 +1,1 @@
-{{ .Site.Params.version }}
+{{ getenv "AX_LATEST_VERSION" | default .Site.Params.current }}

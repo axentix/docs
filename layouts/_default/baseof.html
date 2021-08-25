@@ -4,6 +4,7 @@
         <title>Axentix - Front-end framework based on CSS Grid</title>
         <meta name="description" content="{{ .Page.Params.description }}" />
         <meta property="og:description" content="{{ .Page.Params.description }}" />
+        <meta property="og:title" content="Axentix - Front-end framework based on CSS Grid" />
         {{- partial "head.html" -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
@@ -14,16 +15,20 @@
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>
+
     <body class="layout">
         {{- partial "home/header.html" . -}}
+
         <div id="main-sidenav" class="sidenav light-shadow-2 white large">
             {{- partial "sidenav.html" . -}}
         </div>
+
         <main>
         {{- block "main" . }}
         
         {{- end }}
         </main>
+
         {{- partial "home/footer.html" . -}}
 
         {{ $prism := resources.Get "js/prism.js" }}
@@ -37,7 +42,8 @@
         <script src="{{$tilt.RelPermalink}}"></script>
         <script src="{{$home.RelPermalink}}"></script>
 
-        {{ if eq .Site.Params.env "prod" }}
+        {{ $env := getenv "AX_ENV" }}
+        {{ if eq $env "production" }}
         <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
         <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
         <script>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{- .Page.Params.Title | default .Site.Title -}}&nbsp;- Axentix</title>
+        <title>{{ .Page.Params.Title | default .Site.Title }} - Axentix</title>
         <meta name="description" content="{{ .Page.Params.description }}" />
         <meta property="og:description" content="{{ .Page.Params.description }}" />
+        <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
         {{- partial "head.html" -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
@@ -17,11 +18,14 @@
             <link rel="stylesheet" href="{{ $layout.RelPermalink }}"/>
         {{ end }}
     </head>
+
     <body class="layout with-sidenav fixed-sidenav under-navbar">
         {{- partial "header.html" . -}}
+
         <div id="main-sidenav" class="sidenav light-shadow-2 fixed white large">
             {{- partial "sidenav.html" . -}}
         </div>
+
         <main>
             <div class="main-content container">
                 <div class="docs-head d-flex">
@@ -32,6 +36,7 @@
           
                     <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto" id="ads-docs"></div>
                 </div>
+
                 <div class="d-flex relative-pos">
                     <div class="content">
                     {{- block "main" . }}
@@ -51,6 +56,7 @@
                 </div>
             </div>
         </main>
+
         {{- partial "footer.html" . -}}
 
         {{ $prism := resources.Get "js/prism.js" }}
@@ -59,7 +65,9 @@
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
         <script src="{{$docs.RelPermalink}}"></script>
-        {{ if eq .Site.Params.env "prod" }}
+
+        {{ $env := getenv "AX_ENV" }}
+        {{ if eq $env "production" }}
         <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
         <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
         <script>
@@ -76,6 +84,5 @@
         {{ range .Page.Params.scripts }}
             {{- . | safeHTML -}}
         {{end}}
-
     </body>
 </html>

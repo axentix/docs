@@ -22,7 +22,8 @@
 
       <a href="/docs/getting-started" class="get-started col-xs1 btn large rounded-1 shadow-1 airforce dark-4 mt-1 mb-2 relative-pos z-index-2">Get Started</a>
       <br>
-      <em class="txt-grey txt-dark-3">Latest version: {{ site.Params.latest }}</em>
+      {{ $latestVersion := getenv "AX_LATEST_VERSION" }}
+      <em class="txt-grey txt-dark-3">Latest version: {{ $latestVersion }}</em>
     </div>
   </div>
 
