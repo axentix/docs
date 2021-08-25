@@ -19,6 +19,13 @@ jobs:
         with:
           repository: axentix/axentix
 
+      - name: Get destination directory
+        id: dest-dir
+        run: |
+          BRANCH=${GITHUB_REF##*/}
+          echo ${BRANCH:2}
+          echo ::set-output name=DIR::${BRANCH:2}
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -26,14 +33,10 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.get_version.outputs.DIR }}
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
-
-      - name: Get destination directory
-        id: dest-dir
-        run: echo ::set-output name=DIR::${GITHUB_REF##*/:2}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
