@@ -1,4 +1,10 @@
-FROM klakegg/hugo:0.83.1-ext-alpine-onbuild as build
+FROM klakegg/hugo:0.87.0-ext-alpine as dev
+
+CMD [ "server", "-D" ]
+
+#############
+
+FROM klakegg/hugo:0.87.0-ext-alpine-onbuild as build
 
 #############
 
