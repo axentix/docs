@@ -23,7 +23,6 @@ jobs:
         id: dest-dir
         run: |
           BRANCH=${GITHUB_REF##*/}
-          echo ${BRANCH:2}
           echo ::set-output name=DIR::${BRANCH:2}
 
       - name: Setup Hugo
@@ -33,7 +32,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.get_version.outputs.DIR }}
+        run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
@@ -43,4 +42,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          destination_dir: ${{ steps.get_version.outputs.DIR }}
+          destination_dir: ${{ steps.dest-dir.outputs.DIR }}
