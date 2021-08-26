@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Get latest axentix version
         id: axentix-version
@@ -57,7 +57,6 @@ jobs:
         id: versions
         run: |
           BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' ',')
-          echo $BRANCHES
           echo ::set-output name=VERSIONS::${BRANCHES}
 
       - name: Deploy main docs
