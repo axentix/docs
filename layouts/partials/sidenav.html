@@ -15,10 +15,15 @@
     {{ $current := .Site.Params.current }}
     <div class="version-selector dropdown-content white constrain-width light-shadow-2">
       {{ range .Site.Params.versions }}
-        {{ $link := (printf "%s/%s" $.Site.BaseURL (replace $.Page.Permalink $.Site.BaseURL "")) }}
-        {{ if and (ne . $latestVersion) (eq $current $latestVersion) }}
-          {{ $link = (printf "%s/%s/%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "")) }}
-        {{end}}
+        {{ $link := (printf "%s%s" $.Site.BaseURL (replace $.Page.Permalink $.Site.BaseURL "")) }}
+
+        {{ if and (eq $current $latestVersion) (ne . $latestVersion) }}
+          {{ $link = (printf "%s%s/%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "")) }}
+        {{ else if ne . $latestVersion }}
+          {{ $link = (printf "%s%s%s" (replace $.Site.BaseURL $current "") . (replace (printf "/%s" $.Page.Permalink) $.Site.BaseURL "")) }}
+        {{ else if eq . $latestVersion }}
+          {{ $link = (printf "%s%s" (replace $.Site.BaseURL (printf "/%s" $current) "") (replace $.Page.Permalink $.Site.BaseURL "")) }}
+        {{ end }}
 
         <a href='{{ $link }}' class="txt-center py-3 {{ if  eq . $.Site.Params.current }}font-w600{{ end }}">
           {{ if  eq . $latestVersion }} Latest {{end}} {{ . }}
