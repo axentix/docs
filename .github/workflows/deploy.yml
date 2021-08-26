@@ -54,11 +54,8 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          BRANCHES=( $(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ') )
-          VERSIONS=$(printf ",%s" "${BRANCHES[@]}")
-          echo ${BRANCHES}
-          echo ${VERSIONS:1}
-          echo ::set-output name=VERSIONS::${VERSIONS:1}
+          BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' ',')
+          echo ::set-output name=VERSIONS::${BRANCHES}
 
       - name: Deploy main docs
         if: ${{ env.default_branch_ref == github.ref }}
