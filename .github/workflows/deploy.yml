@@ -13,6 +13,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Get latest axentix version
         id: axentix-version
@@ -55,7 +57,6 @@ jobs:
         id: versions
         run: |
           BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' ',')
-          echo $(git branch --list v-*)
           echo $BRANCHES
           echo ::set-output name=VERSIONS::${BRANCHES}
 
