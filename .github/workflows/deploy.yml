@@ -14,7 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - id: axentix-version
+      - name: Get latest axentix version
+        id: axentix-version
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: axentix/axentix
@@ -31,13 +32,38 @@ jobs:
           hugo-version: '0.87.0'
           extended: true
 
-      - name: Build
+      - name: Build main docs
+        if: ${{ format('refs/heads/{0}', ) == github.ref }}
         run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
-      - name: Deploy
+      - name: Build docs
+        if: ${{ format('refs/heads/{0}', ) != github.ref }}
+        run: hugo --minify --baseURL https://axentix.github.io/docs
+        env:
+          AX_ENV: production
+          AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
+
+      - name: Get versions
+        id: versions
+        run: |
+          BRANCHES=( $(git branch --list v-* | tr '*' ' ' | tr 'v-' ' ') )
+          VERSIONS=$(printf ",%s" "${BRANCHES[@]}")
+          echo ${VERSIONS:2}
+          echo ::set-output name=VERSIONS::${VERSIONS:2}
+
+      - name: Deploy main docs
+        if: ${{ format('refs/heads/{0}', ) == github.ref }}
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: ./public
+          clean-exlude: ${{ steps.versions.outputs.VERSIONS }}
+
+      - name: Deploy docs
+        if: ${{ format('refs/heads/{0}', ) != github.ref }}
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
