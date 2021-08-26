@@ -64,7 +64,7 @@ jobs:
         with:
           branch: gh-pages
           folder: ./public
-          clean-exlude: ${{ steps.versions.outputs.VERSIONS }}
+          clean-exclude: ${{ steps.versions.outputs.VERSIONS }}
 
       - name: Deploy docs
         if: ${{ env.default_branch_ref != github.ref }}
