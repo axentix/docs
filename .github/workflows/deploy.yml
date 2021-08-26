@@ -54,7 +54,7 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          BRANCHES=( $(git branch --list v-* | tr '*' ' ' | tr 'v-' ' ') )
+          BRANCHES=( $(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ') )
           VERSIONS=$(printf ",%s" "${BRANCHES[@]}")
           echo ::set-output name=VERSIONS::${VERSIONS:1}
 

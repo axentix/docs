@@ -18,7 +18,7 @@
         {{ $link := (printf "%s%s" $.Site.BaseURL (replace $.Page.Permalink $.Site.BaseURL "")) }}
 
         {{ if and (eq $current $latestVersion) (ne . $latestVersion) }}
-          {{ $link = (printf "%s%s/%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "")) }}
+          {{ $link = (printf "%s/%s%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "")) }}
         {{ else if ne . $latestVersion }}
           {{ $link = (printf "%s%s%s" (replace $.Site.BaseURL $current "") . (replace (printf "/%s" $.Page.Permalink) $.Site.BaseURL "")) }}
         {{ else if eq . $latestVersion }}
