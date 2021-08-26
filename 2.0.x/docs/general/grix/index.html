@@ -1,0 +1,478 @@
+<!doctype html><html>
+<head>
+<title>Grix - Axentix</title>
+<meta name=description content="Grix is the Axentix grid system based on CSS Grid. It allows you to easily place your elements inside rows and columns.">
+<meta property="og:description" content="Grix is the Axentix grid system based on CSS Grid. It allows you to easily place your elements inside rows and columns.">
+<meta property="og:title" content="Grix - Axentix"><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Axentix Team">
+<meta name=copyright content="axentix team">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axentix.github.io/docs/2.0.x">
+<meta property="og:image" content="https://axentix.github.io/docs/2.0.x/img/logoOG.jpg">
+<link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/2.0.x/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/2.0.x/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/2.0.x/favicon-16x16.png>
+<link rel=manifest href=https://axentix.github.io/docs/2.0.x/site.webmanifest>
+<link rel=mask-icon href=https://axentix.github.io/docs/2.0.x/safari-pinned-tab.svg color=#2196f3>
+<meta name=msapplication-TileColor content="#2d89ef">
+<meta name=theme-color content="#ffffff">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=/docs/2.0.x/axentix/axentix.min.css>
+<link rel=stylesheet href=/docs/2.0.x/docs.css>
+</head>
+<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
+<div class=navbar-fixed>
+<nav class="navbar primary light-shadow-2">
+<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
+<i class="fas fa-bars"></i> Menu
+</button>
+<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+<i class="fas fa-bars"></i>
+</button>
+<div class="navbar-menu hide-sm-down">
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x><i class="fas fa-home"></i> Home</a>
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
+</div>
+<div class="navbar-menu ml-auto">
+<form class=search>
+<input class="form-control rounded-4 shadow-1 white" type=text name=search-input id=search-input placeholder=Search...>
+</form>
+<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
+<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
+</div>
+</nav>
+</div>
+</header>
+<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
+<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
+<img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/2.0.x/img/axentix.svg alt="Axentix Logo">
+<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+2.0.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+</div>
+<div class="version-selector dropdown-content white constrain-width light-shadow-2">
+<a href=https://axentix.github.io/docs/2.0.x//docs/general/grix/ class="txt-center py-3 font-w600">
+2.0.x
+</a>
+<a href=https://axentix.github.io/docs/2.0.x//docs/general/grix/ class="txt-center py-3">
+Latest 1.3.x
+</a>
+</div>
+</div>
+</div>
+<div class=hide-md-up>
+<a href=https://axentix.github.io/docs/2.0.x class=sidenav-link>Home</a>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>Documentation</a>
+<div class=divider></div>
+</div>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>
+Getting started
+</a>
+<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
+<div>
+<div class=collapsible id=general-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/colors/>Colors</a>
+<a class="sidenav-link active" href=https://axentix.github.io/docs/2.0.x/docs/general/grix/>Grix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/js-init/>JS Init</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/layouts/>Layouts</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
+<div>
+<div class=collapsible id=components-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/alerts/>Alerts</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/button-group/>Button group</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/buttons/>Buttons</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/cards/>Cards</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/caroulix/>Caroulix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/collapsible/>Collapsible</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/dropdown/>Dropdown</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/fab/>FAB</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/footer/>Footer</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/lightbox/>Lightbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/loading/>Loading</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/modal/>Modal</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/navbar/>Navbar</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/pagination/>Pagination</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/scrollspy/>Scrollspy</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/sidenav/>Sidenav</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/table/>Table</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tabs/>Tabs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/toast/>Toast</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tooltip/>Tooltip</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
+<div>
+<div class=collapsible id=forms-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/checkbox_radio/>Checkbox / Radio</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/file/>Form File</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/inputs/>Inputs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/material/>Material forms</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/select/>Select</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/switches/>Switches</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
+<div>
+<div class=collapsible id=utilities-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/alignments/>Alignments</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/borders/>Borders</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/breakpoints/>Breakpoints</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/display/>Display</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/flexbox/>Flexbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/javascript/>JavaScript</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/others/>Others</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/rounded/>Rounded</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/shadows/>Shadows</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/spacing/>Spacing</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/typography/>Typography</a>
+</div>
+</div>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/plugins/>Plugins</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/sass/>Sass</a>
+<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
+<i class="fab fa-discord"></i> &nbsp;
+Join us
+</a>
+</div>
+<main>
+<div class="main-content container">
+<div class="docs-head d-flex">
+<div>
+<h1 id=title>Grix</h1>
+<p>Powerful and lightweight grid system based on CSS-Grid.</p>
+</div>
+<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
+</div>
+<div class="d-flex relative-pos">
+<div class=content>
+<div class=grix-page>
+<p>
+Grix uses a <strong>12 columns grid</strong> system which you can master easily.<br>
+For all examples below, you can resize your browser to visualize changing.
+</p>
+<h2 class=subtitle id=basic-grix-system>Basic grix system</h2>
+<p>
+The basic <strong>grix system</strong> can hold a maximum of <strong>12 columns</strong>. To use them, simly add
+some elements into a div with a class named <code class=language-css>.grix</code>. This
+<strong>grix</strong> class needs a <strong>breakpoint and a number</strong> to show
+<strong>the amount of columns</strong> you want.
+<br>
+You can overpass the amount of columns in your grix div, as in the exemple below we have 5
+<strong>columns</strong> into a xs4 <strong>grix</strong>, so the 5th is gone at the 2nd line.
+</p>
+<div class=example>
+<div class="grix xs4">
+<div>box 1</div>
+<div>box 2</div>
+<div>box 3</div>
+<div>box 4</div>
+<div>box 5</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs4">
+      <div>box 1</div>
+      <div>box 2</div>
+      <div>box 3</div>
+      <div>box 4</div>
+      <div>box 5</div>
+    </div>
+  </script>
+<h2 class=subtitle id=responsive>Responsive</h2>
+<p>
+Make <strong>grix responsive</strong> easily, use
+<a class=txt-primary href=#responsive-breakpoints>these breakpoints</a> to make it <strong>responsive</strong>.
+<br>
+Use these <strong>breakpoints as a prefix, followed by a number</strong>, from <strong>1 to 12</strong> to get the
+<strong>amount of columns</strong> from this breakpoint to the next one. <br>
+But grix is strong and <strong>if you only specify</strong> <code class=language-css>.xs2</code> for example,
+<strong>you will get 2 columns from the "xs" breakpoint to any screensize</strong>. <br>
+<i> Resize your browser to understand the example below.</i>
+</p>
+<div class=example>
+<div class="grix xs2 md3 lg4">
+<div>box 1</div>
+<div>box 2</div>
+<div>box 3</div>
+<div>box 4</div>
+<div>box 5</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs2 md3 lg4">
+      <div>box 1</div>
+      <div>box 2</div>
+      <div>box 3</div>
+      <div>box 4</div>
+      <div>box 5</div>
+    </div>
+  </script>
+<h2 class=subtitle id=col-and-rows>Col / Rows - Sizing & Responsive</h2>
+<p>
+Any column into a grix can take <strong>multiple rows or multiple columns</strong>. <br>
+Using the <code class=language-css>.row-</code> prefix followed by the same system of
+<strong>breakpoints</strong> seen before, you can make an <strong>item height be multiple rows</strong>. <br>
+Using the class <code class=language-css>.col-</code> will make a
+<strong>column width to be multiple columns</strong>, respecting the breakpoints precised into the column class.
+<br>
+<br>
+To understand this, look at the example below. <br>
+The "box 2" on a xs screen is taking 1 row and 3 columns; 3 rows for a small screen, and on a medium screen and
+higher is taking 2 columns and 2 rows. <br>
+At the same time, the last box is taking 4 columns at any time, because of the mention of
+<code class=language-css>.xs4</code> only, so it will take 4 columns for all higher breakpoints.
+</p>
+<div class=example>
+<div class="grix xs4">
+<div>box 1</div>
+<div class="col-xs3 col-md2 row-sm3 row-md2">box 2</div>
+<div>box 3</div>
+<div>box 4</div>
+<div class=col-xs4>box 5</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs4">
+      <div>box 1</div>
+      <div class="col-xs3 col-md2 row-sm3 row-md2">box 2</div>
+      <div>box 3</div>
+      <div>box 4</div>
+      <div class="col-xs4">box 5</div>
+    </div>
+  </script>
+<h2 class=subtitle id=nesting>Nesting</h2>
+<p>
+<strong>Grix can be used inside another one</strong>. <br>
+You can see on the example below <strong>two columns, each one containing a new grix</strong>. Try resizing your
+browser to see the effect of the responsive on this. The higher grix will put the right column under the left one
+because of the <code class=language-css>.xs1</code> breakpoint.
+</p>
+<div class=example>
+<div class="grix xs1 sm2">
+<div class="grix xs3">
+<div class=col-xs3>box 1</div>
+<div>box 2</div>
+<div>box 3</div>
+<div>box 4</div>
+</div>
+<div class="grix xs3">
+<div>box 1</div>
+<div>box 2</div>
+<div>box 3</div>
+</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs1 sm2">
+      <div class="grix xs3">
+        <div class="col-xs3">box 1</div>
+        <div>box 2</div>
+        <div>box 3</div>
+        <div>box 4</div>
+      </div>
+      <div class="grix xs3">
+        <div>box 1</div>
+        <div>box 2</div>
+        <div>box 3</div>
+      </div>
+    </div>
+  </script>
+<h2 class=subtitle id=positions>Positions</h2>
+<p>
+<strong>Positioning your columns</strong> inside the grix can be really helpful. <br>
+Using the <code class=language-css>.pos-</code> prefix,
+<strong>you can place any box at any place in your row</strong> if there is no places taken after this one on the
+same row. <br>
+For example, if you have 4 columns on a row, and you add a column at
+<code class=language-css>.pos-xs2</code>, this column will go on the next row and is gonna be placed at the 2nd
+place. <br><br>
+Commonly, <code class=language-css>.pos-xs1</code> is used to create a new row.
+</p>
+<div class=example>
+<div class="grix xs6">
+<div>box 1</div>
+<div class=pos-xs3>box 2</div>
+<div class=pos-xs1>box 3</div>
+<div class=pos-xs4>box 4</div>
+<div>box 5</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs6">
+      <div>box 1</div>
+      <div class="pos-xs3">box 2</div>
+      <div class="pos-xs1">box 3</div>
+      <div class="pos-xs4">box 4</div>
+      <div>box 5</div>
+    </div>
+  </script>
+<h2 class=subtitle id=row-positions>Row positions</h2>
+<p>
+The <code class=language-css>.pos-row-</code> prefix allows you to <strong>move any box to any row</strong> inside
+your grix. <br>
+As you can see in the example below, the BOX 2 has a <code class=language-css>.pos-row-sm1</code> class, which
+means that this box will be at the first row on "sm" screens, and because the grix has the
+<code class=language-css>.sm2</code> class and the BOX 2 the <code class=language-css>.col-sm2</code> class seen
+before, the BOX 2 will take the full width of the first row on "sm" screens ! <br>
+<b>Resize your browser to visualize changing</b>
+</p>
+<div class=example>
+<div class="grix xs1 sm2 md3 lg4">
+<div>box 1</div>
+<div class="pos-sm1 col-sm2 pos-row-sm1 pos-md2 col-md1">box 2</div>
+<div>box 3</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+    <div class="grix xs1 sm2 md3 lg4">
+      <div>box 1</div>
+      <div class="pos-sm1 col-sm2 pos-row-sm1 pos-md2 col-md1">box 2</div>
+      <div>box 3</div>
+    </div>
+  </script>
+<h2 class=subtitle id=gutters>Gutters</h2>
+<p>
+Gutters makes you able to <strong>separate the columns</strong> with a bigger <strong>gap</strong> than the
+original-one. <br>
+Again, using our breakpoints, you can change the gutter size <strong>depending on the screensize</strong>. <br>
+The basic gap is 0.25rem.
+</p>
+<div class=responsive-table id=gutter-table>
+<table class="table hover">
+<thead>
+<tr>
+<th>Class name</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=language-css>.gutter-xs0</code></td>
+<td>0rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs1</code></td>
+<td>0.5rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs2</code></td>
+<td>0.75rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs3</code></td>
+<td>1rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs4</code></td>
+<td>1.25rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs5</code></td>
+<td>1.5rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs6</code></td>
+<td>1.75rem</td>
+</tr>
+<tr>
+<td><code class=language-css>.gutter-xs7</code></td>
+<td>2rem</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=example>
+<div class="grix xs4 sm6 gutter-xs3">
+<div>box 1</div>
+<div>box 2</div>
+<div>box 3</div>
+<div>box 4</div>
+<div>box 5</div>
+<div>box 6</div>
+<div>box 7</div>
+<div>box 8</div>
+<div>box 9</div>
+<div>box 10</div>
+<div>box 11</div>
+<div>box 12</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+        <div class="grix xs4 sm6 gutter-xs3">
+      <div>box 1</div>
+      <div>box 2</div>
+      <div>box 3</div>
+      <div>box 4</div>
+      <div>box 5</div>
+      <div>box 6</div>
+      <div>box 7</div>
+      <div>box 8</div>
+      <div>box 9</div>
+      <div>box 10</div>
+      <div>box 11</div>
+      <div>box 12</div>
+    </div>
+  </script>
+</div>
+<h2 class=subtitle id=responsive-breakpoints>Responsive breakpoints</h2>
+<div class=responsive-table>
+<table class="table hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Media queries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xs</td>
+<td>Don't have media queries because it's the first element in grix.</td>
+</tr>
+<tr>
+<td>sm</td>
+<td><code class=language-css>screen and (min-width: 600px)</code></td>
+</tr>
+<tr>
+<td>md</td>
+<td><code class=language-css>screen and (min-width: 960px)</code></td>
+</tr>
+<tr>
+<td>lg</td>
+<td><code class=language-css>screen and (min-width: 1280px)</code></td>
+</tr>
+<tr>
+<td>xl</td>
+<td><code class=language-css>screen and (min-width: 1920px)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
+<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+Sponsors
+</span>
+<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+<span class=outline-text>Become a sponsor</span>
+</a>
+</div>
+</div>
+</div>
+</main><footer class="footer primary fx-center txt-center">
+Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+<script src=/docs/2.0.x/axentix/axentix.min.js></script>
+<script src=/docs/2.0.x/js/prism.js></script>
+<script src=/docs/2.0.x/js/docs.js></script>
+<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
+</body>
+</html>
