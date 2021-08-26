@@ -5,7 +5,7 @@
         <meta name="description" content="{{ .Page.Params.description }}" />
         <meta property="og:description" content="{{ .Page.Params.description }}" />
         <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
-        {{- partial "head.html" -}}
+        {{- partial "head.html" . -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
