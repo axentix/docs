@@ -39,14 +39,14 @@ jobs:
 
       - name: Build main docs
         if: ${{ env.default_branch_ref == github.ref }}
-        run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.dest-dir.outputs.DIR }}
+        run: hugo --minify --baseURL https://axentix.github.io/docs
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
       - name: Build docs
         if: ${{ env.default_branch_ref != github.ref }}
-        run: hugo --minify --baseURL https://axentix.github.io/docs
+        run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
