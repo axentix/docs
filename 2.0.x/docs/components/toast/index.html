@@ -1,0 +1,382 @@
+<!doctype html><html>
+<head>
+<title>Toast - Axentix</title>
+<meta name=description content="Axentix toast. The toasts allow you to send messages to the user with a modern alert, based on material design. You can custom them using our utilities classes.">
+<meta property="og:description" content="Axentix toast. The toasts allow you to send messages to the user with a modern alert, based on material design. You can custom them using our utilities classes.">
+<meta property="og:title" content="Toast - Axentix"><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Axentix Team">
+<meta name=copyright content="axentix team">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axentix.github.io/docs/2.0.x">
+<meta property="og:image" content="https://axentix.github.io/docs/2.0.x/img/logoOG.jpg">
+<link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/2.0.x/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/2.0.x/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/2.0.x/favicon-16x16.png>
+<link rel=manifest href=https://axentix.github.io/docs/2.0.x/site.webmanifest>
+<link rel=mask-icon href=https://axentix.github.io/docs/2.0.x/safari-pinned-tab.svg color=#2196f3>
+<meta name=msapplication-TileColor content="#2d89ef">
+<meta name=theme-color content="#ffffff">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=/docs/2.0.x/axentix/axentix.min.css>
+<link rel=stylesheet href=/docs/2.0.x/docs.css>
+</head>
+<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
+<div class=navbar-fixed>
+<nav class="navbar primary light-shadow-2">
+<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
+<i class="fas fa-bars"></i> Menu
+</button>
+<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+<i class="fas fa-bars"></i>
+</button>
+<div class="navbar-menu hide-sm-down">
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x><i class="fas fa-home"></i> Home</a>
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
+</div>
+<div class="navbar-menu ml-auto">
+<form class=search>
+<input class="form-control rounded-4 shadow-1 white" type=text name=search-input id=search-input placeholder=Search...>
+</form>
+<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
+<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
+</div>
+</nav>
+</div>
+</header>
+<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
+<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
+<img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/2.0.x/img/axentix.svg alt="Axentix Logo">
+<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+2.0.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+</div>
+<div class="version-selector dropdown-content white constrain-width light-shadow-2">
+<a href=https://axentix.github.io/docs/2.0.x//docs/components/toast/ class="txt-center py-3 font-w600">
+2.0.x
+</a>
+<a href=https://axentix.github.io/docs/docs/components/toast/ class="txt-center py-3">
+Latest 1.3.x
+</a>
+</div>
+</div>
+</div>
+<div class=hide-md-up>
+<a href=https://axentix.github.io/docs/2.0.x class=sidenav-link>Home</a>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>Documentation</a>
+<div class=divider></div>
+</div>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>
+Getting started
+</a>
+<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
+<div>
+<div class=collapsible id=general-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/colors/>Colors</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/grix/>Grix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/js-init/>JS Init</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/layouts/>Layouts</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
+<div>
+<div class=collapsible id=components-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/alerts/>Alerts</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/button-group/>Button group</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/buttons/>Buttons</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/cards/>Cards</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/caroulix/>Caroulix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/collapsible/>Collapsible</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/dropdown/>Dropdown</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/fab/>FAB</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/footer/>Footer</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/lightbox/>Lightbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/loading/>Loading</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/modal/>Modal</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/navbar/>Navbar</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/pagination/>Pagination</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/scrollspy/>Scrollspy</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/sidenav/>Sidenav</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/table/>Table</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tabs/>Tabs</a>
+<a class="sidenav-link active" href=https://axentix.github.io/docs/2.0.x/docs/components/toast/>Toast</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tooltip/>Tooltip</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
+<div>
+<div class=collapsible id=forms-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/checkbox_radio/>Checkbox / Radio</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/file/>Form File</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/inputs/>Inputs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/material/>Material forms</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/select/>Select</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/switches/>Switches</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
+<div>
+<div class=collapsible id=utilities-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/alignments/>Alignments</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/borders/>Borders</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/breakpoints/>Breakpoints</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/display/>Display</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/flexbox/>Flexbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/javascript/>JavaScript</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/others/>Others</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/rounded/>Rounded</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/shadows/>Shadows</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/spacing/>Spacing</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/typography/>Typography</a>
+</div>
+</div>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/plugins/>Plugins</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/sass/>Sass</a>
+<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
+<i class="fab fa-discord"></i> &nbsp;
+Join us
+</a>
+</div>
+<main>
+<div class="main-content container">
+<div class="docs-head d-flex">
+<div>
+<h1 id=title>Toast</h1>
+<p></p>
+</div>
+<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
+</div>
+<div class="d-flex relative-pos">
+<div class=content>
+<p>
+Creating a toast can help you to send messages to your users through simple notifications. <br>
+They are easily customisable using any of the axentix classes.
+</p>
+<button onclick=showToast() class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<script type=text/plain class=language-markup>
+  <button onclick="toast.show()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+</script>
+<script type=text/plain class=language-javascript>
+  let toast = new Axentix.Toast('This is a toast', {
+    classes: 'secondary rounded-2 shadow-2'
+  });
+</script>
+<strong>To know all the ways to initialize a JS component, please read the
+<a class=txt-primary href=https://axentix.github.io/docs/2.0.x/docs/general/js-init/>JS Init</a> page.</strong>
+<h2 class=subtitle id=change-toast>Change toast</h2>
+<p>
+A website using the toast feature always needs to use different Toasts, to show different informations. <br>
+Using the <code class=language-js>change()</code> method, you can change the content and the classes of your toast.
+</p>
+<button onclick=showChangedToast() class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<script type=text/plain class=language-javascript>
+  toast.change('This is the new html content <br> This is at the second line.', {
+    classes: 'red shadow-3'
+  });
+</script>
+<h2 class=subtitle id=closable-toast>Closable toast</h2>
+<p>
+Using the <code class=language-markup>isClosable</code> option, you can let your user close your toasts by clicking
+on a cross.
+</p>
+<button onclick=showClosableToast() class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<script type=text/plain class=language-javascript>
+  toast.change('This is a closable toast', {
+    classes: 'secondary shadow-2 rounded-2',
+    isClosable: true
+  });
+</script>
+<h2 class=subtitle id=options>Options</h2>
+<div class=responsive-table>
+<table class="table hover option">
+<thead>
+<tr>
+<th>Property</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animationDuration</td>
+<td>400</td>
+<td>Opening and closing animation duration in ms.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>4000</td>
+<td>The display duration of the toast before disapearing in ms.</td>
+</tr>
+<tr>
+<td>classes</td>
+<td>''</td>
+<td>Classes of the toast.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>right</td>
+<td>
+Position of the toast container. <br>Accepted values are <code class=language-js>'right'</code> or
+<code class=language-js>'left'</code>.
+</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>top</td>
+<td>
+Animation direction of the toast. <br>Accepted values are <code class=language-js>'top'</code> or
+<code class=language-js>'bottom'</code>.
+</td>
+</tr>
+<tr>
+<td>mobileDirection</td>
+<td>bottom</td>
+<td>
+Animation direction of the toast on mobile view. <br>Accepted values are
+<code class=language-js>'top'</code> or <code class=language-js>'bottom'</code>.
+</td>
+</tr>
+<tr>
+<td>isClosable</td>
+<td>false</td>
+<td>Create an icon to close the toast.</td>
+</tr>
+<tr>
+<td>closableContent</td>
+<td>'x'</td>
+<td>The content to close the toast. You can write html to create a button or anything.</td>
+</tr>
+<tr>
+<td>loading</td>
+<td>
+<pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: true,
+                border: '2px solid #E2E2E2'
+              }
+            </code>
+          </pre>
+</td>
+<td>Loading animation. You can disable it and custom the border used for it.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>
+<pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                x: '5%',
+                y: '0%',
+                mobileX: '10%',
+                mobileY: '0%'
+              }
+            </code>
+          </pre>
+</td>
+<td>
+Offsets between the sides of the screen and the toaster. Useful if you don't want a toast to be placed above
+your navbar for example.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=methods>Methods</h2>
+<script type=text/plain class=language-js>
+  let toast = new Axentix.Toast('This is a toast', {
+    direction: 'top',
+    position: 'right',
+    classes: 'blue rounded-2 shadow-2'
+  });
+
+  // Syntax : toast.{method}
+  toast.show();
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.show()</td>
+<td>Show the toast.</td>
+</tr>
+<tr>
+<td>.change('content', options)</td>
+<td>
+Change the content of the Toast. <br>
+The second parameter is optional, but can be useful when you want to change multiple options like the classes
+and the position at the same time.
+<br>
+<a class=txt-primary href=#change-toast>Here</a> is an example.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=events>Events</h2>
+<script type=text/plain class=language-js>
+  document.addEventListener('ax.toast.show', function() {
+    // show event !
+  });
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ax.toast.show</td>
+<td>Event sent when the <code class=language-js>show()</code> method is called.</td>
+</tr>
+<tr>
+<td>ax.toast.shown</td>
+<td>Event sent when the toast has been shown.</td>
+</tr>
+<tr>
+<td>ax.toast.hide</td>
+<td>Event sent when the toast is being closed.</td>
+</tr>
+<tr>
+<td>ax.toast.remove</td>
+<td>Event sent when the toast has been closed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
+<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+Sponsors
+</span>
+<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+<span class=outline-text>Become a sponsor</span>
+</a>
+</div>
+</div>
+</div>
+</main><footer class="footer primary fx-center txt-center">
+Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+<script src=/docs/2.0.x/axentix/axentix.min.js></script>
+<script src=/docs/2.0.x/js/prism.js></script>
+<script src=/docs/2.0.x/js/docs.js></script>
+<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
+<script>var toast=new Axentix.Toast('This is a toast',{classes:'secondary rounded-2 shadow-2'});function showToast(){toast.change('This is a toast',{classes:'secondary rounded-2 shadow-2',isClosable:!1}),toast.show()}function showClosableToast(){toast.change('This is a closable toast',{classes:'secondary shadow-2 rounded-2',isClosable:!0}),toast.show()}function showChangedToast(){toast.change('This is the new html content <br> This is at the second line.',{classes:'red shadow-3',isClosable:!1}),toast.show()}</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html><html>
+<head>
+<title>Flexbox - Axentix</title>
+<meta name=description content="The flexbox classes allow you to use flexbox using only axentix classes. Using flexbox and CSS Grid is a powerful combo.">
+<meta property="og:description" content="The flexbox classes allow you to use flexbox using only axentix classes. Using flexbox and CSS Grid is a powerful combo.">
+<meta property="og:title" content="Flexbox - Axentix"><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Axentix Team">
+<meta name=copyright content="axentix team">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axentix.github.io/docs/2.0.x">
+<meta property="og:image" content="https://axentix.github.io/docs/2.0.x/img/logoOG.jpg">
+<link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/2.0.x/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/2.0.x/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/2.0.x/favicon-16x16.png>
+<link rel=manifest href=https://axentix.github.io/docs/2.0.x/site.webmanifest>
+<link rel=mask-icon href=https://axentix.github.io/docs/2.0.x/safari-pinned-tab.svg color=#2196f3>
+<meta name=msapplication-TileColor content="#2d89ef">
+<meta name=theme-color content="#ffffff">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=/docs/2.0.x/axentix/axentix.min.css>
+<link rel=stylesheet href=/docs/2.0.x/docs.css>
+</head>
+<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
+<div class=navbar-fixed>
+<nav class="navbar primary light-shadow-2">
+<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
+<i class="fas fa-bars"></i> Menu
+</button>
+<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+<i class="fas fa-bars"></i>
+</button>
+<div class="navbar-menu hide-sm-down">
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x><i class="fas fa-home"></i> Home</a>
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/2.0.x/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
+</div>
+<div class="navbar-menu ml-auto">
+<form class=search>
+<input class="form-control rounded-4 shadow-1 white" type=text name=search-input id=search-input placeholder=Search...>
+</form>
+<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
+<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
+</div>
+</nav>
+</div>
+</header>
+<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
+<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
+<img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/2.0.x/img/axentix.svg alt="Axentix Logo">
+<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+2.0.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+</div>
+<div class="version-selector dropdown-content white constrain-width light-shadow-2">
+<a href=https://axentix.github.io/docs/2.0.x//docs/utilities/flexbox/ class="txt-center py-3 font-w600">
+2.0.x
+</a>
+<a href=https://axentix.github.io/docs/docs/utilities/flexbox/ class="txt-center py-3">
+Latest 1.3.x
+</a>
+</div>
+</div>
+</div>
+<div class=hide-md-up>
+<a href=https://axentix.github.io/docs/2.0.x class=sidenav-link>Home</a>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>Documentation</a>
+<div class=divider></div>
+</div>
+<a href=https://axentix.github.io/docs/2.0.x/docs/getting-started/ class=sidenav-link>
+Getting started
+</a>
+<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
+<div>
+<div class=collapsible id=general-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/colors/>Colors</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/grix/>Grix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/js-init/>JS Init</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/general/layouts/>Layouts</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
+<div>
+<div class=collapsible id=components-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/alerts/>Alerts</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/button-group/>Button group</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/buttons/>Buttons</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/cards/>Cards</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/caroulix/>Caroulix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/collapsible/>Collapsible</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/dropdown/>Dropdown</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/fab/>FAB</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/footer/>Footer</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/lightbox/>Lightbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/loading/>Loading</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/modal/>Modal</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/navbar/>Navbar</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/pagination/>Pagination</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/scrollspy/>Scrollspy</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/sidenav/>Sidenav</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/table/>Table</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tabs/>Tabs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/toast/>Toast</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/components/tooltip/>Tooltip</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
+<div>
+<div class=collapsible id=forms-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/checkbox_radio/>Checkbox / Radio</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/file/>Form File</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/inputs/>Inputs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/material/>Material forms</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/select/>Select</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/forms/switches/>Switches</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
+<div>
+<div class=collapsible id=utilities-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/alignments/>Alignments</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/borders/>Borders</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/breakpoints/>Breakpoints</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/display/>Display</a>
+<a class="sidenav-link active" href=https://axentix.github.io/docs/2.0.x/docs/utilities/flexbox/>Flexbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/javascript/>JavaScript</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/others/>Others</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/rounded/>Rounded</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/shadows/>Shadows</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/spacing/>Spacing</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/utilities/typography/>Typography</a>
+</div>
+</div>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/plugins/>Plugins</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/2.0.x/docs/sass/>Sass</a>
+<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
+<i class="fab fa-discord"></i> &nbsp;
+Join us
+</a>
+</div>
+<main>
+<div class="main-content container">
+<div class="docs-head d-flex">
+<div>
+<h1 id=title>Flexbox</h1>
+<p></p>
+</div>
+<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
+</div>
+<div class="d-flex relative-pos">
+<div class=content>
+<h2 class=subtitle id=flexbox-specific-classes>Flexbox specific classes</h2>
+<div class=responsive-table>
+<table class="table hover">
+<thead>
+<tr>
+<th>Class name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=language-css>.d-flex</code></td>
+<td>Display: flex.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-col</code></td>
+<td>Flex-direction : column.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-col-reverse</code></td>
+<td>Flex-direction : column-reverse.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-row</code></td>
+<td>Flex-direction : row.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-row-reverse</code></td>
+<td>Flex-direction : row-reverse.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-grow</code></td>
+<td>Flex-grow : 1.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=flex-wrap>Flew wrap</h2>
+<div class=responsive-table>
+<table class="table hover">
+<thead>
+<tr>
+<th>Class name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class=language-css>.fx-wrap</code></td>
+<td>Flex-wrap: wrap.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-nowrap</code></td>
+<td>Flex-wrap: nowrap.</td>
+</tr>
+<tr>
+<td><code class=language-css>.fx-wrap-reverse</code></td>
+<td>Flex-wrap: wrap-reverse.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
+<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+Sponsors
+</span>
+<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+<span class=outline-text>Become a sponsor</span>
+</a>
+</div>
+</div>
+</div>
+</main><footer class="footer primary fx-center txt-center">
+Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+<script src=/docs/2.0.x/axentix/axentix.min.js></script>
+<script src=/docs/2.0.x/js/prism.js></script>
+<script src=/docs/2.0.x/js/docs.js></script>
+<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
+</body>
+</html>
