@@ -55,7 +55,7 @@ jobs:
         id: versions
         run: |
           BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' ',')
-          echo $(git branch --list origin/v-*)
+          echo $(git branch --list v-*)
           echo $BRANCHES
           echo ::set-output name=VERSIONS::${BRANCHES}
 
