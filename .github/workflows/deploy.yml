@@ -56,6 +56,8 @@ jobs:
         run: |
           BRANCHES=( $(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ') )
           VERSIONS=$(printf ",%s" "${BRANCHES[@]}")
+          echo ${BRANCHES}
+          echo ${VERSIONS:1}
           echo ::set-output name=VERSIONS::${VERSIONS:1}
 
       - name: Deploy main docs
