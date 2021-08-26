@@ -33,14 +33,14 @@ jobs:
           extended: true
 
       - name: Build main docs
-        if: ${{ format('refs/heads/{0}', ) == github.ref }}
+        if: ${{ github.event.repository.default_branch == github.ref }}
         run: hugo --minify --baseURL https://axentix.github.io/docs/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
       - name: Build docs
-        if: ${{ format('refs/heads/{0}', ) != github.ref }}
+        if: ${{ github.event.repository.default_branch != github.ref }}
         run: hugo --minify --baseURL https://axentix.github.io/docs
         env:
           AX_ENV: production
@@ -55,7 +55,7 @@ jobs:
           echo ::set-output name=VERSIONS::${VERSIONS:2}
 
       - name: Deploy main docs
-        if: ${{ format('refs/heads/{0}', ) == github.ref }}
+        if: ${{ github.event.repository.default_branch == github.ref }}
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
@@ -63,7 +63,7 @@ jobs:
           clean-exlude: ${{ steps.versions.outputs.VERSIONS }}
 
       - name: Deploy docs
-        if: ${{ format('refs/heads/{0}', ) != github.ref }}
+        if: ${{ github.event.repository.default_branch != github.ref }}
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
