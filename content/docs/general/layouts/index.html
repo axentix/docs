@@ -8,10 +8,10 @@ scripts:
       const tabQuery = document.querySelector('#tab');
       const frame = document.querySelector('.device-frame');
       let items = [
-        { path: '{{ .Site.BaseURL }}/img/layouts/basic.gif', img: document.querySelector('.example-image') },
-        { path: '{{ .Site.BaseURL }}/img/layouts/with-sidenav.gif', img: null },
-        { path: '{{ .Site.BaseURL }}/img/layouts/fixed-sidenav.gif', img: null },
-        { path: '{{ .Site.BaseURL }}/img/layouts/under-navbar.gif', img: null }
+        { path: `${baseURL}/img/layouts/basic.gif`, img: document.querySelector('.example-image') },
+        { path: `${baseURL}/img/layouts/with-sidenav.gif`, img: null },
+        { path: `${baseURL}/img/layouts/fixed-sidenav.gif`, img: null },
+        { path: `${baseURL}/img/layouts/under-navbar.gif`, img: null }
       ];
 
       const addElement = (i) => {
@@ -56,7 +56,7 @@ scripts:
 
 <div class="device device-macbook-pro device-spacegray my-5">
   <div class="device-frame">
-    <img src="{{ .Site.BaseURL }}/img/layouts/basic.gif" class="responsive-media example-image" alt="layout" />
+    <img src="{{< link url="/img/layouts/basic.gif" >}}" class="responsive-media example-image" alt="layout" />
   </div>
   <div class="device-stripe"></div>
   <div class="device-header"></div>

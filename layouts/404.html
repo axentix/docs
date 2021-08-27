@@ -1,3 +1,11 @@
 {{ define "main" }}
-<p>THAT IS A 404 NOT FOUND PAGE</p>
+
+<div class="h100 d-flex fx-center vcenter fx-col">
+  <img src="{{ .Site.BaseURL }}/img/404.svg" alt="404 page not found" class="responsive-media" width="500" />
+
+  <h1 class="font-s7 my-5">Page not found</h1>
+
+  <a href="{{ .Site.BaseURL }}" class="btn airforce dark-4 shadow-1 rounded-1">Back home</a>
+</div>
+
 {{ end }}
