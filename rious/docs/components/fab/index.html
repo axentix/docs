@@ -1,0 +1,375 @@
+<!doctype html><html>
+<head>
+<title>FAB - Axentix</title>
+<meta name=description content="Axentix FAB menu. The fab menu (floating action button) allows you to easily create a button that groups multiple actions.">
+<meta property="og:description" content="Axentix FAB menu. The fab menu (floating action button) allows you to easily create a button that groups multiple actions.">
+<meta property="og:title" content="FAB - Axentix"><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Axentix Team">
+<meta name=copyright content="axentix team">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axentix.github.io/docs/rious">
+<meta property="og:image" content="https://axentix.github.io/docs/rious/img/logoOG.jpg">
+<link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/rious/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/rious/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/rious/favicon-16x16.png>
+<link rel=manifest href=https://axentix.github.io/docs/rious/webmanifest.json>
+<link rel=mask-icon href=https://axentix.github.io/docs/rious/safari-pinned-tab.svg color=#2196f3>
+<meta name=msapplication-TileColor content="#2d89ef">
+<meta name=theme-color content="#ffffff">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link rel=stylesheet href=/docs/rious/axentix/axentix.min.css>
+<link rel=stylesheet href=/docs/rious/docs.css>
+</head>
+<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
+<div class=navbar-fixed>
+<nav class="navbar primary light-shadow-2">
+<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
+<i class="fas fa-bars"></i> Menu
+</button>
+<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+<i class="fas fa-bars"></i>
+</button>
+<div class="navbar-menu hide-sm-down">
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/rious><i class="fas fa-home"></i> Home</a>
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/rious/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
+</div>
+<div class="navbar-menu ml-auto">
+<form class=search>
+<input class="form-control rounded-4 shadow-1 white" type=text name=search-input id=search-input placeholder=Search...>
+</form>
+<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
+<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
+</div>
+</nav>
+</div>
+</header>
+<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
+<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
+<img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/rious/img/axentix.svg alt="Axentix Logo">
+<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+1.3.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+</div>
+<div class="version-selector dropdown-content white constrain-width light-shadow-2">
+<a href=https://axentix.github.io/docs/rious/2.0.x/docs/components/fab/ class="txt-center py-3">
+2.0.x
+</a>
+<a href=https://axentix.github.io/docs/rious/docs/components/fab/ class="txt-center py-3 font-w600">
+Latest 1.3.x
+</a>
+</div>
+</div>
+</div>
+<div class=hide-md-up>
+<a href=https://axentix.github.io/docs/rious class=sidenav-link>Home</a>
+<a href=https://axentix.github.io/docs/rious/docs/getting-started/ class=sidenav-link>Documentation</a>
+<div class=divider></div>
+</div>
+<a href=https://axentix.github.io/docs/rious/docs/getting-started/ class=sidenav-link>
+Getting started
+</a>
+<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
+<div>
+<div class=collapsible id=general-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/colors/>Colors</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/grix/>Grix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/js-init/>JS Init</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/layouts/>Layouts</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
+<div>
+<div class=collapsible id=components-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/alerts/>Alerts</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/button-group/>Button group</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/buttons/>Buttons</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/cards/>Cards</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/caroulix/>Caroulix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/collapsible/>Collapsible</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/dropdown/>Dropdown</a>
+<a class="sidenav-link active" href=https://axentix.github.io/docs/rious/docs/components/fab/>FAB</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/footer/>Footer</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/lightbox/>Lightbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/loading/>Loading</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/modal/>Modal</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/navbar/>Navbar</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/pagination/>Pagination</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/scrollspy/>Scrollspy</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/sidenav/>Sidenav</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/table/>Table</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/tabs/>Tabs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/toast/>Toast</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/tooltip/>Tooltip</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
+<div>
+<div class=collapsible id=forms-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/checkbox_radio/>Checkbox / Radio</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/file/>Form File</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/inputs/>Inputs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/material/>Material forms</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/select/>Select</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/switches/>Switches</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
+<div>
+<div class=collapsible id=utilities-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/alignments/>Alignments</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/borders/>Borders</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/breakpoints/>Breakpoints</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/display/>Display</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/flexbox/>Flexbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/javascript/>JavaScript</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/others/>Others</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/rounded/>Rounded</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/shadows/>Shadows</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/spacing/>Spacing</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/typography/>Typography</a>
+</div>
+</div>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/plugins/>Plugins</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/sass/>Sass</a>
+<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
+<i class="fab fa-discord"></i> &nbsp;
+Join us
+</a>
+</div>
+<main>
+<div class="main-content container">
+<div class="docs-head d-flex">
+<div>
+<h1 id=title>FAB</h1>
+<p></p>
+</div>
+<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
+</div>
+<div class="d-flex relative-pos">
+<div class=content>
+<p>
+Creating a <strong>FAB menu (Floating Action Button)</strong> is useful if you want to group some actions inside the
+same button.
+</p>
+<p>
+To create your <strong>FAB menu</strong>, you have to create a first <code class=language-css>.fab</code> div.
+<br>
+This <code class=language-css>.fab</code> must contain a <code class=language-css>.fab-trigger</code> which is
+gonna trigger the <code class=language-css>.fab-menu</code>.
+</p>
+<div class=fab id=fab-example>
+<button class="btn shadow-1 circle large secondary fab-trigger">
+<i class="fas fa-plus" aria-hidden=true></i>
+</button>
+<div class=fab-menu>
+<button class="btn shadow-1 circle orange dark-1 txt-white fab-item mb-3">
+<i class="fas fa-pen" aria-hidden=true></i>
+</button>
+<button class="btn shadow-1 circle red fab-item mb-3">
+<i class="fas fa-paper-plane" aria-hidden=true></i>
+</button>
+<button class="btn shadow-1 circle primary fab-item mb-3">
+<i class="fas fa-download" aria-hidden=true></i>
+</button>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+  <div class="fab" id="fab-example" data-ax="fab">
+
+    <!-- Here is the fab-trigger -->
+    <button class="btn shadow-1 circle large secondary fab-trigger">
+      <i class="fas fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <!-- Here is the fab-menu -->
+    <div class="fab-menu">
+      <button class="btn shadow-1 circle orange dark-1 txt-white fab-item mb-3">
+        <i class="fas fa-pen" aria-hidden="true"></i>
+      </button>
+      <button class="btn shadow-1 circle red fab-item mb-3">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+      </button>
+      <button class="btn shadow-1 circle primary fab-item mb-3">
+        <i class="fas fa-download" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</script>
+<h2 class=subtitle id=javascript-initialization>Javascript initialization</h2>
+<p>
+Once HTML was setup, you can activate the <strong>FAB menu</strong> with this simple code. <br>
+Just pass the id of your <strong>FAB</strong> that you want to activate.
+</p>
+<script type=text/plain class=language-js>
+  // NOTE: this is NOT to be used if data-ax="fab" is set in your HTML
+  let fab = new Axentix.Fab('#fab-example');
+
+  // With options
+  let fab = new Axentix.Fab('#fab-example', {
+    hover: true,
+    direction: 'top',
+    position: 'bottom-right',
+    offsetY: '8%'
+  });
+</script>
+<strong>To know all the ways to initialize a JS component, please read the
+<a class=txt-primary href=https://axentix.github.io/docs/rious/docs/general/js-init/>JS Init</a> page.</strong>
+<h2 class=subtitle id=options>Options</h2>
+<div class=responsive-table>
+<table class="table hover option">
+<thead>
+<tr>
+<th>Property</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animationDuration</td>
+<td>300</td>
+<td>Opening and closing animation duration in ms.</td>
+</tr>
+<tr>
+<td>hover</td>
+<td>true</td>
+<td>
+When <code class=language-js>'hover'</code> is set to true, the
+<code class=language-css>.fab-trigger</code> will trigger the <code class=language-css>.fab-menu</code> on
+hover instead of click.
+</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>top</td>
+<td>
+Set the appearance direction of the <code class=language-css>.fab-menu</code>.<br>Accepted values are
+<code class=language-js>'top'</code> <code class=language-js>'bottom'</code>
+<code class=language-js>'left'</code> and <code class=language-js>'right'</code>.
+</td>
+</tr>
+<tr>
+<td>position</td>
+<td>bottom-right</td>
+<td>
+Change the position of the FAB. <br>Accepted values are <code class=language-js>'bottom-right'</code>
+<code class=language-js>'bottom-left'</code> <code class=language-js>'top-right'</code> and
+<code class=language-js>'top-left'</code>.
+</td>
+</tr>
+<tr>
+<td>offsetX</td>
+<td>1rem</td>
+<td>
+Add a spacing on the X axis (if the position is set to <code class=language-js>'bottom-right'</code> the
+offsetX will automatically add the offset on the right).
+</td>
+</tr>
+<tr>
+<td>offsetY</td>
+<td>1.5rem</td>
+<td>
+Add a spacing on the Y axis (if the position is set to <code class=language-js>'bottom-right'</code> the
+offsetX will automatically add the offset on the bottom).
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=methods>Methods</h2>
+<script type=text/plain class=language-js>
+  // NOTE: this is NOT to be used if data-ax="fab" is set in your HTML
+  let fab = new Axentix.Fab('#fab-example');
+
+  // Syntax : fab.{method}
+  fab.open();
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.open()</td>
+<td>Open fab</td>
+</tr>
+<tr>
+<td>.close()</td>
+<td>Close fab</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=events>Events</h2>
+<script type=text/plain class=language-js>
+  // Listen to all fab instances
+  document.addEventListener('ax.fab.open', function() {
+    // open event !
+  });
+
+  // Listen to only one fab instance
+  let fabQuery = document.querySelector('#example-fab');
+  fabQuery.addEventListener('ax.fab.open', function() {
+    // open event only on #example-fab
+  });
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ax.fab.setup</td>
+<td>Event sent when the FAB has been setup.</td>
+</tr>
+<tr>
+<td>ax.fab.open</td>
+<td>Event sent when the <code class=language-js>open()</code> method is called.</td>
+</tr>
+<tr>
+<td>ax.fab.close</td>
+<td>Event sent when the <code class=language-js>close()</code> method is called.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
+<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+Sponsors
+</span>
+<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+<span class=outline-text>Become a sponsor</span>
+</a>
+</div>
+</div>
+</div>
+</main><footer class="footer primary fx-center txt-center">
+Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+<script src=/docs/rious/axentix/axentix.min.js></script>
+<script src=/docs/rious/js/prism.js></script>
+<script src=/docs/rious/js/docs.js></script>
+<script>const baseURL="https://axentix.github.io/docs/rious"</script>
+<script type=text/javascript src=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js></script>
+<script type=text/javascript>docsearch({apiKey:'5e298e3bd3c5556f2267e83a5e5a9377',indexName:'useaxentix',inputSelector:'#search-input',debug:!1})</script>
+<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
+<script>var fab=new Axentix.Fab("#fab-example",{hover:!0,direction:"top",position:"bottom-right"})</script>
+</body>
+</html>

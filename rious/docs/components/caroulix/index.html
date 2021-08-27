@@ -1,0 +1,608 @@
+<!doctype html><html>
+<head>
+<title>Caroulix - Axentix</title>
+<meta name=description content="Axentix Caroulix. The caroulix is the Axentix carousel, it allows you to easily create a slide effect on images or any components.">
+<meta property="og:description" content="Axentix Caroulix. The caroulix is the Axentix carousel, it allows you to easily create a slide effect on images or any components.">
+<meta property="og:title" content="Caroulix - Axentix"><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Axentix Team">
+<meta name=copyright content="axentix team">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://axentix.github.io/docs/rious">
+<meta property="og:image" content="https://axentix.github.io/docs/rious/img/logoOG.jpg">
+<link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/rious/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/rious/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/rious/favicon-16x16.png>
+<link rel=manifest href=https://axentix.github.io/docs/rious/webmanifest.json>
+<link rel=mask-icon href=https://axentix.github.io/docs/rious/safari-pinned-tab.svg color=#2196f3>
+<meta name=msapplication-TileColor content="#2d89ef">
+<meta name=theme-color content="#ffffff">
+<link rel=preconnect href=https://fonts.gstatic.com>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
+<link rel=stylesheet href=/docs/rious/axentix/axentix.min.css>
+<link rel=stylesheet href=/docs/rious/docs.css>
+</head>
+<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
+<div class=navbar-fixed>
+<nav class="navbar primary light-shadow-2">
+<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
+<i class="fas fa-bars"></i> Menu
+</button>
+<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
+<i class="fas fa-bars"></i>
+</button>
+<div class="navbar-menu hide-sm-down">
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/rious><i class="fas fa-home"></i> Home</a>
+<a class="navbar-link font-w600" href=https://axentix.github.io/docs/rious/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
+</div>
+<div class="navbar-menu ml-auto">
+<form class=search>
+<input class="form-control rounded-4 shadow-1 white" type=text name=search-input id=search-input placeholder=Search...>
+</form>
+<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
+<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
+</div>
+</nav>
+</div>
+</header>
+<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
+<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
+<img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/rious/img/axentix.svg alt="Axentix Logo">
+<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+1.3.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+</div>
+<div class="version-selector dropdown-content white constrain-width light-shadow-2">
+<a href=https://axentix.github.io/docs/rious/2.0.x/docs/components/caroulix/ class="txt-center py-3">
+2.0.x
+</a>
+<a href=https://axentix.github.io/docs/rious/docs/components/caroulix/ class="txt-center py-3 font-w600">
+Latest 1.3.x
+</a>
+</div>
+</div>
+</div>
+<div class=hide-md-up>
+<a href=https://axentix.github.io/docs/rious class=sidenav-link>Home</a>
+<a href=https://axentix.github.io/docs/rious/docs/getting-started/ class=sidenav-link>Documentation</a>
+<div class=divider></div>
+</div>
+<a href=https://axentix.github.io/docs/rious/docs/getting-started/ class=sidenav-link>
+Getting started
+</a>
+<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
+<div>
+<div class=collapsible id=general-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/colors/>Colors</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/grix/>Grix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/js-init/>JS Init</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/general/layouts/>Layouts</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
+<div>
+<div class=collapsible id=components-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/alerts/>Alerts</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/button-group/>Button group</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/buttons/>Buttons</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/cards/>Cards</a>
+<a class="sidenav-link active" href=https://axentix.github.io/docs/rious/docs/components/caroulix/>Caroulix</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/collapsible/>Collapsible</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/dropdown/>Dropdown</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/fab/>FAB</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/footer/>Footer</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/lightbox/>Lightbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/loading/>Loading</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/modal/>Modal</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/navbar/>Navbar</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/pagination/>Pagination</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/scrollspy/>Scrollspy</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/sidenav/>Sidenav</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/table/>Table</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/tabs/>Tabs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/toast/>Toast</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/components/tooltip/>Tooltip</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
+<div>
+<div class=collapsible id=forms-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/checkbox_radio/>Checkbox / Radio</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/file/>Form File</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/inputs/>Inputs</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/material/>Material forms</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/select/>Select</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/forms/switches/>Switches</a>
+</div>
+</div>
+<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
+<div>
+<div class=collapsible id=utilities-menu>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/alignments/>Alignments</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/borders/>Borders</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/breakpoints/>Breakpoints</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/display/>Display</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/flexbox/>Flexbox</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/javascript/>JavaScript</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/others/>Others</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/rounded/>Rounded</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/shadows/>Shadows</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/spacing/>Spacing</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/utilities/typography/>Typography</a>
+</div>
+</div>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/plugins/>Plugins</a>
+<a class=sidenav-link href=https://axentix.github.io/docs/rious/docs/sass/>Sass</a>
+<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
+<i class="fab fa-discord"></i> &nbsp;
+Join us
+</a>
+</div>
+<main>
+<div class="main-content container">
+<div class="docs-head d-flex">
+<div>
+<h1 id=title>Caroulix</h1>
+<p>The Axentix carousel</p>
+</div>
+<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
+</div>
+<div class="d-flex relative-pos">
+<div class=content>
+<p>
+The <strong>caroulix</strong> makes you able to display any type of element inside a <strong>touch-friendly carousel</strong>. <br>
+You can custom any option to create the <strong>carousel</strong> you want.
+</p>
+<h2 class=subtitle id=caroulix-example>Caroulix example</h2>
+<p>
+This <strong>caroulix</strong> is using different options. <br>
+First, the <strong>autoplay mode</strong>, which is calling the <code class=language-js>next()</code> method of the <strong>carousel</strong> with an interval.<br>
+It is using the <strong>indicators</strong> option too. This option shows simple indicators at the bottom of the <strong>carousel</strong>.
+</p>
+<div class="container custom-container ml-0">
+<div class=caroulix id=example-caroulix data-ax=caroulix data-ax-caroulix-autoplay-enabled=true data-caroulix-indicators-enabled=true>
+<div class="caroulix-arrow caroulix-prev">
+<i class="fas fa-chevron-left"></i>
+</div>
+<div class="caroulix-arrow caroulix-next">
+<i class="fas fa-chevron-right"></i>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=1" alt=img1>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=2" alt=img2>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=3" alt=img3>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=4" alt=img4>
+</div>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+<div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
+  <div class="caroulix-arrow caroulix-prev">
+    <i class="fas fa-chevron-left"></i>
+  </div>
+  <div class="caroulix-arrow caroulix-next">
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+  </div>
+</div>
+</script>
+<h2 class=subtitle id=using-caroulix-methods>Using caroulix methods</h2>
+<p>
+This example shows you how to use the <strong>caroulix</strong> methods. <br>
+Initializing an element with the <a target=_blank href=https://axentix.github.io/docs/rious/docs/general/js-init/#data-init class=txt-blue>data init method</a>,
+you have to get the instance before using its methods.
+</p>
+<div class="container custom-container">
+<div class=caroulix id=second-caroulix data-ax=caroulix data-caroulix-indicators-enabled=true data-caroulix-indicators-is-flat=true>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=1" alt=img1>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=2" alt=img2>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=3" alt=img3>
+</div>
+<div class=caroulix-item>
+<img src="https://picsum.photos/800/450?random=4" alt=img4>
+</div>
+</div>
+<div class="grix xs2 center my-4">
+<button onclick="Axentix.getInstance('#second-caroulix').prev()" class="btn primary rounded-1 shadow-1">PREV</button>
+<button onclick="Axentix.getInstance('#second-caroulix').next()" class="btn primary rounded-1 shadow-1">NEXT</button>
+</div>
+</div>
+<script type=text/plain class=language-markup>
+<div class="caroulix" id="second-caroulix" data-ax="caroulix" data-caroulix-indicators-enabled="true" data-caroulix-indicators-is-flat="true">
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=1" alt="img1" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=2" alt="img2" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=3" alt="img3" />
+  </div>
+  <div class="caroulix-item">
+    <img src="https://picsum.photos/800/450?random=4" alt="img4" />
+  </div>
+</div>
+
+<button onclick="Axentix.getInstance('#second-caroulix').prev()" class="btn primary rounded-1 shadow-1">PREV</button>
+<button onclick="Axentix.getInstance('#second-caroulix').next()" class="btn primary rounded-1 shadow-1">NEXT</button>
+</script>
+<h2 class=subtitle id=multiple-elements-caroulix>Multiple elements caroulix</h2>
+<div class="container custom-container">
+<div class=caroulix id=third-caroulix data-ax=caroulix>
+<div class=caroulix-item>
+<div class="grix xs1 sm2">
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+<div class="card-header amaranth">Card header 1</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+<div class="card-header amaranth">Card header 2</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class=caroulix-item>
+<div class="grix xs1 sm2">
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+<div class="card-header blue">Card header 1</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+<div class="card-header blue">Card header 2</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class=caroulix-item>
+<div class="grix xs1 sm2">
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+<div class="card-header airforce">Card header 1</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+<div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+<div class="card-header airforce">Card header 2</div>
+<div class=card-content>
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type=text/plain class="language-markup code-max-height">
+<div class="container custom-container">
+  <div class="caroulix" id="third-caroulix" data-ax="caroulix">
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header amaranth">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header amaranth">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header blue">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header blue">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="caroulix-item">
+      <div class="grix xs1 sm2">
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4">
+          <div class="card-header airforce">Card header 1</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+        <div class="card shadow-1 hoverable-1 rounded-3 my-4 mx-4 hide-xs">
+          <div class="card-header airforce">Card header 2</div>
+          <div class="card-content">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+              possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<h2 class=subtitle id=options>Options</h2>
+<div class=responsive-table>
+<table class="table hover option">
+<thead>
+<tr>
+<th>Property</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animationDuration</td>
+<td>500</td>
+<td>Animation duration in ms.</td>
+</tr>
+<tr>
+<td>backToOpposite</td>
+<td>true</td>
+<td>Back to the opposite when reaching the end of the caroulix.</td>
+</tr>
+<tr>
+<td>enableTouch</td>
+<td>true</td>
+<td>Enable touch / mouse swipe.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>''</td>
+<td>Fix the height to the precised height.</td>
+</tr>
+<tr>
+<td>indicators</td>
+<td>
+<pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: false,
+                isFlat: false,
+                customClasses: ''
+              }
+            </code>
+          </pre>
+</td>
+<td>
+Indicators is an object on what you can customize the Caroulix indicators. You can set
+<code class=language-js>isFlat</code> and <code class=language-js>enabled</code> to
+<code class=language-js>true</code> or <code class=language-js>false</code> if you want to enable the indicators, and if
+you want them flat or not. <br>
+The customClasses allows you to add your own classes to the indicators.
+</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>
+<pre class="language-javascript disable-copy-btn">
+            <code>
+              {
+                enabled: true,
+                interval: 5000,
+                side: 'right'
+              }
+            </code>
+          </pre>
+</td>
+<td>
+Using the autoplay option, you can enable the autoplay mode, which automatically switch between the different caroulix-item.
+<br>
+The interval in ms allows you to custom the delay between each switch. <br>
+The side allows you to choose the animation direction. Accepted values are <code class=language-js>'right'</code> and
+<code class=language-js>'left'</code>.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=methods>Methods</h2>
+<script type=text/plain class=language-js>
+// NOTE: this is NOT to be used if data-ax="caroulix" is set in your HTML
+let caroulix = new Axentix.Caroulix('#example-caroulix');
+
+// Syntax : caroulix.{method}
+caroulix.next();
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.goTo(number)</td>
+<td>
+Change the active caroulix-item to the number precised.
+</td>
+</tr>
+<tr>
+<td>.next(step, resetAutoplay)</td>
+<td>
+Goes to the next caroulix-item. <br>
+The <code class=language-js>step</code> parameter is optional and allows you to define how much caroulix-items you want to
+go through. <br>
+The <code class=language-js>resetAutoplay</code> parameter reset the autoplay timer when the method is called (only if the autoplay option is enabled). <br>
+The default <code class=language-js>step</code> value is 1. <br>
+The default <code class=language-js>resetAutoplay</code> value is <code class=language-js>true</code>.
+</td>
+</tr>
+<tr>
+<td>.prev(step, resetAutoplay)</td>
+<td>
+Goes to the previous caroulix-item. <br>
+The <code class=language-js>step</code> parameter is optional and allows you to define how much caroulix-items you want to
+go through. <br>
+The <code class=language-js>resetAutoplay</code> parameter reset the autoplay timer when the method is called (only if the autoplay option is enabled). <br>
+The default <code class=language-js>step</code> value is 1. <br>
+The default <code class=language-js>resetAutoplay</code> value is <code class=language-js>true</code>.
+</td>
+</tr>
+<tr>
+<td>.play()</td>
+<td>Start the autoplay mode.</td>
+</tr>
+<tr>
+<td>.stop()</td>
+<td>Stop the autoplay mode.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 class=subtitle id=events>Events</h2>
+<script type=text/plain class=language-js>
+  // Listen to all caroulix instances
+  document.addEventListener('ax.caroulix.slide', function() {
+    // slide event !
+  });
+
+  // Listen to only one caroulix instance
+  let caroulixQuery = document.querySelector('#example-caroulix');
+  caroulixQuery.addEventListener('ax.caroulix.slide', function() {
+    // slide event only on #example-caroulix
+  });
+</script>
+<div class=responsive-table>
+<table class="table hover method-event">
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ax.caroulix.setup</td>
+<td>Event sent when the caroulix has been setup.</td>
+</tr>
+<tr>
+<td>ax.caroulix.slide</td>
+<td>
+Event sent when the caroulix slides. <br>
+This event has details data : <code class=language-js>{nextElement, currentElement}</code> <br>
+<code class=language-js>nextElement</code> : the next element. <br>
+<code class=language-js>currentElement</code> : the current element.
+</td>
+</tr>
+<tr>
+<td>ax.caroulix.next</td>
+<td>
+Event sent when the <code class=language-js>next()</code> method is called. <br>
+This event has details data : <code class=language-js>{step}</code> <br>
+<code class=language-js>step</code> : how much caroulix-items have been slided.
+</td>
+</tr>
+<tr>
+<td>ax.caroulix.prev</td>
+<td>
+Event sent when the <code class=language-js>prev()</code> method is called. <br>
+This event has details data : <code class=language-js>{step}</code> <br>
+<code class=language-js>step</code> : how much caroulix-items have been slided.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
+<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
+Sponsors
+</span>
+<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
+<span class=outline-text>Become a sponsor</span>
+</a>
+</div>
+</div>
+</div>
+</main><footer class="footer primary fx-center txt-center">
+Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+<script src=/docs/rious/axentix/axentix.min.js></script>
+<script src=/docs/rious/js/prism.js></script>
+<script src=/docs/rious/js/docs.js></script>
+<script>const baseURL="https://axentix.github.io/docs/rious"</script>
+<script type=text/javascript src=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js></script>
+<script type=text/javascript>docsearch({apiKey:'5e298e3bd3c5556f2267e83a5e5a9377',indexName:'useaxentix',inputSelector:'#search-input',debug:!1})</script>
+<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
+</body>
+</html>
