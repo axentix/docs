@@ -8,4 +8,4 @@ build:
 .PHONY: dev
 dev:
 	docker build . -t axentix/docs:dev --target dev
-	docker run --rm -it -v $$PWD:/src -p 1313:1313 axentix/docs:dev
+	docker run --rm -it -v $$PWD:/src -e AX_LATEST_VERSION=1.3.3 -p 1313:1313 axentix/docs:dev
