@@ -1,3 +1,0 @@
-Sitemap: https://useaxentix.com/sitemap.xml
-User-agent: *
-Disallow:
