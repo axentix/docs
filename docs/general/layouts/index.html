@@ -13,7 +13,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://axentix.github.io/docs/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://axentix.github.io/docs/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=https://axentix.github.io/docs/favicon-16x16.png>
-<link rel=manifest href=https://axentix.github.io/docs/site.webmanifest>
+<link rel=manifest href=https://axentix.github.io/docs/webmanifest.json>
 <link rel=mask-icon href=https://axentix.github.io/docs/safari-pinned-tab.svg color=#2196f3>
 <meta name=msapplication-TileColor content="#2d89ef">
 <meta name=theme-color content="#ffffff">
@@ -22,6 +22,7 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
 <link rel=stylesheet href=/docs/axentix/axentix.min.css>
 <link rel=stylesheet href=/docs/docs.css>
 <link rel=stylesheet href=/docs/css/style.css>
@@ -52,7 +53,7 @@
 <div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
 <button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
 <img class="docs-logo sidenav-logo" src=https://axentix.github.io/docs/img/axentix.svg alt="Axentix Logo">
-<div class=dropdown id=dropdown data-ax=dropdown>
+<div class="dropdown hide" id=dropdown data-ax=dropdown>
 <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
 1.3.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
 </div>
@@ -164,7 +165,7 @@ To use layout, you must have the basic HTML syntax below, who contains a header,
 </p>
 <div class="device device-macbook-pro device-spacegray my-5">
 <div class=device-frame>
-<img src="{{ .Site.BaseURL }}/img/layouts/basic.gif" class="responsive-media example-image" alt=layout>
+<img src=https://axentix.github.io/docs//img/layouts/basic.gif class="responsive-media example-image" alt=layout>
 </div>
 <div class=device-stripe></div>
 <div class=device-header></div>
@@ -396,9 +397,12 @@ Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
 <script src=/docs/axentix/axentix.min.js></script>
 <script src=/docs/js/prism.js></script>
 <script src=/docs/js/docs.js></script>
+<script>const baseURL="https://axentix.github.io/docs"</script>
+<script type=text/javascript src=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js></script>
+<script type=text/javascript>docsearch({apiKey:'5e298e3bd3c5556f2267e83a5e5a9377',indexName:'useaxentix',inputSelector:'#search-input',debug:!1})</script>
 <script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
-<script>const tabQuery=document.querySelector('#tab'),frame=document.querySelector('.device-frame');let items=[{path:'{{ .Site.BaseURL }}/img/layouts/basic.gif',img:document.querySelector('.example-image')},{path:'{{ .Site.BaseURL }}/img/layouts/with-sidenav.gif',img:null},{path:'{{ .Site.BaseURL }}/img/layouts/fixed-sidenav.gif',img:null},{path:'{{ .Site.BaseURL }}/img/layouts/under-navbar.gif',img:null}];const addElement=b=>{let a=document.createElement('img');a.src=items[b].path,a.className='responsive-media hide',items[b].img=a,frame.appendChild(a),showElement(b)},showElement=a=>{items.map((c,b)=>{b===a?items[b].img.classList.remove('hide'):items[b].img&&items[b].img.classList.add('hide')})};tabQuery.addEventListener('ax.tab.select',b=>{const a=b.detail.currentIndex;if(items[a].img){showElement(a);return}addElement(a)})</script>
+<script>const tabQuery=document.querySelector('#tab'),frame=document.querySelector('.device-frame');let items=[{path:`${baseURL}/img/layouts/basic.gif`,img:document.querySelector('.example-image')},{path:`${baseURL}/img/layouts/with-sidenav.gif`,img:null},{path:`${baseURL}/img/layouts/fixed-sidenav.gif`,img:null},{path:`${baseURL}/img/layouts/under-navbar.gif`,img:null}];const addElement=b=>{let a=document.createElement('img');a.src=items[b].path,a.className='responsive-media hide',items[b].img=a,frame.appendChild(a),showElement(b)},showElement=a=>{items.map((c,b)=>{b===a?items[b].img.classList.remove('hide'):items[b].img&&items[b].img.classList.add('hide')})};tabQuery.addEventListener('ax.tab.select',b=>{const a=b.detail.currentIndex;if(items[a].img){showElement(a);return}addElement(a)})</script>
 </body>
 </html>

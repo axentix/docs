@@ -1,2 +1,0 @@
-Sitemap: https://axentix.github.io/docs/rious/sitemap.xml
-User-agent: *

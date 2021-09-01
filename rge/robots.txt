@@ -1,2 +1,0 @@
-Sitemap: https://axentix.github.io/docs/rge/sitemap.xml
-User-agent: *
