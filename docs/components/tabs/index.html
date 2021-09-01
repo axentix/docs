@@ -164,18 +164,18 @@ These links <b>refer to the IDs</b> of your tab contents.
 <div class="tab shadow-1" id=example-tab>
 <ul class=tab-menu>
 <li class=tab-link>
-<a href=#tab1>Tab 1</a>
+<a href=#example-tab1>Tab 1</a>
 </li>
 <li class=tab-link>
-<a href=#tab2>Tab 2</a>
+<a href=#example-tab2>Tab 2</a>
 </li>
 <li class=tab-link>
-<a href=#tab3>This is a bigger tab name</a>
+<a href=#example-tab3>This is a bigger tab name</a>
 </li>
 </ul>
-<div id=tab1 class=p-3>Content 1</div>
-<div id=tab2 class=p-3>Content 2</div>
-<div id=tab3 class=p-3>This is the 3rd content</div>
+<div id=example-tab1 class=p-3>Content 1</div>
+<div id=example-tab2 class=p-3>Content 2</div>
+<div id=example-tab3 class=p-3>This is the 3rd content</div>
 </div>
 <script type=text/plain class=language-markup>
   <div class="tab shadow-1" id="example-tab" data-ax="tab">
@@ -209,12 +209,14 @@ Here, the second tab-link is active, and all the tabs take the full width.
 <div class="tab shadow-1 full-width" id=example-active-tab>
 <ul class=tab-menu>
 <li class=tab-link>
-<a href=#tab1>Tab 1</a>
+<a href=#active-tab1>Tab 1</a>
 </li>
 <li class="tab-link active">
-<a href=#tab2>I'm the first active tab</a>
+<a href=#active-tab2>I'm the first active tab</a>
 </li>
 </ul>
+<div id=active-tab1 class=p-3>Content 1</div>
+<div id=active-tab2 class=p-3>Content 2</div>
 </div>
 <script type=text/plain class=language-markup>
   <div class="tab shadow-1 full-width" id="example-tab" data-ax="tab">
@@ -226,6 +228,9 @@ Here, the second tab-link is active, and all the tabs take the full width.
         <a href="#tab2">I'm the first active tab</a>
       </li>
     </ul>
+
+    <div id="tab1" class="p-3">Content 1</div>
+    <div id="tab2" class="p-3">Content 2</div>
   </div>
 </script>
 <h2 class=subtitle id=arrow-option>Arrow option</h2>
@@ -238,7 +243,7 @@ Then, you have to add the <code class=language-css>.tab-prev</code> and
 <code class=language-css>.tab-next</code> arrows inside your <code class=language-css>.tab-arrow</code>.
 </p>
 <div style=max-width:500px>
-<div class="tab shadow-1 mt-4" id=example-tab2>
+<div class="tab shadow-1 mt-4 no-axentix-init" id=example-tab-2 data-ax=tab>
 <div class=tab-arrow>
 <div class="tab-prev shadow-1 white">
 <a href><i class="fas fa-chevron-left"></i></a>
