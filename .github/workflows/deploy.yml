@@ -3,8 +3,8 @@ name: deploy
 
 on:
   push:
-    branch:
-      - 'v-*'
+    branches:
+      - 'v-[0-9]+.[0-9]+.x'
 
 jobs:
   deploy:
