@@ -1,2 +1,2 @@
-Sitemap: https://axentix.github.io/docs/sitemap.xml
+Sitemap: https://useaxentix.com/sitemap.xml
 User-agent: *
