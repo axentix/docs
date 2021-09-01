@@ -2,9 +2,9 @@
 name: deploy
 
 on:
-  push:
+  pull_request:
     branch:
-      - 'v-*'
+      - 'v-**'
 
 jobs:
   deploy:
