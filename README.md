@@ -6,8 +6,6 @@
 
 <h3 align="center">Axentix - Documentation</h3>
 
-![home gif](https://useaxentix.com/img/gif-home.gif)
-
 ## About this repository
 
 This repository is the official open source Axentix documentation.  
