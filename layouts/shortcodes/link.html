@@ -1,1 +1,1 @@
-{{ $url := .Get "url" }} {{ printf "%s/%s" .Site.BaseURL $url }}
+{{ printf "%s/%s" .Site.BaseURL (.Get "url") }}
