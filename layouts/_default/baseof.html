@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang }}">
     <head>
         <title>Axentix - Front-end framework based on CSS Grid</title>
         {{ $description := "Axentix is an open source Framework based on CSS Grid using HTML, CSS and JS. The easy layout control and grid system makes it one of the most easy to learn framework." }}
@@ -8,10 +8,10 @@
         <meta property="og:title" content="Axentix - Front-end framework based on CSS Grid" />
         {{- partial "head.html" . -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
-        {{ $axentix := resources.Get "axentix/axentix.min.css" }}
+        {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
-        {{ $style := slice $base $app | resources.Concat "home.css" | minify }}
+        {{ $style := slice $base $app | resources.Concat "home.css" | minify | fingerprint }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
@@ -32,10 +32,10 @@
 
         {{- partial "home/footer.html" . -}}
 
-        {{ $prism := resources.Get "js/prism.js" }}
-        {{ $home := resources.Get "js/home.js" }}
-        {{ $tilt := resources.Get "js/vanilla-tilt.min.js" }}
-        {{ $axentix := resources.Get "axentix/axentix.min.js" }}
+        {{ $prism := resources.Get "js/prism.js" | fingerprint }}
+        {{ $home := resources.Get "js/home.js" | fingerprint }}
+        {{ $tilt := resources.Get "js/vanilla-tilt.min.js" | fingerprint }}
+        {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }}
         <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$axentix.RelPermalink}}"></script>
