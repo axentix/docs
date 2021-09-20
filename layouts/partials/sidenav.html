@@ -92,7 +92,11 @@
   {{ end }}
 {{ end }}
 
+<a href="{{ ref . "migration" }}" class="sidenav-link {{ if  eq "Migration guide" $.Page.Title . }}active{{ end }}">
+  Migrate from v1
+</a>
+
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
-  <i aria-hidden="true" class="fab fa-discord"></i> &nbsp;
+  <i class="fab fa-discord" aria-hidden="true"></i> &nbsp;
   Join us
 </a>

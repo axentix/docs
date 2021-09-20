@@ -1,0 +1,266 @@
+---
+title: 'Migration guide'
+description: 'Axentix - Migration guide.'
+subtitle: 'Migration guide from v1 to v2'
+type: 'docs'
+aliases:
+  - /docs/
+---
+
+<p>
+  This page contains all informations about the breaking changes between the v1 and the v2. <br>
+  Follow this guide to migrate your site based on v1.
+</p>
+
+<h2 class="subtitle" id="layouts">
+  Layouts
+</h2>
+
+<p>
+  Layouts classes changed to <strong>more understandable classes</strong> and to <strong>reduce the code size</strong>.
+</p>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old classes</th>
+        <th>New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-sidenav</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav .fixed-sidenav</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-sidenav-fixed</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav .fixed-sidenav .under-navbar</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-under-navbar</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="colors">
+  Colors
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old classes</th>
+        <th>New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.txt-{color}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-{color}</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-dark-{value}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-dark-{value}</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-light-{value}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-light-{value}</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="card">
+  Card
+</h2>
+
+<p>
+  The default <code class="language-css">word-break</code> value has been removed.
+</p>
+
+<h2 class="subtitle" id="footer">
+  Footer
+</h2>
+
+<p>
+  The <code class="language-css">.footer-large</code> class has been removed. <br>
+  To get a large footer, use the css variable <code class="language-css">--ax-footer-min-height</code> or just add content inside of it.
+</p>
+
+<h2 class="subtitle" id="sidenav">
+  Sidenav
+</h2>
+
+<p>
+  The <code class="language-css">.sidenav-large</code> class has been removed. <br>
+  To get a large sidenav, use the css variable <code class="language-css">--ax-sidenav-width</code>.
+</p>
+
+<h2 class="subtitle" id="lightbox">
+  Lightbox
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old option</th>
+        <th>New option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">overlayColor</code>
+        </td>
+        <td>
+          <code class="language-css">overlayClass</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="loading">
+  Loading
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old classes</th>
+        <th>New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.spinner-txt</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner-text</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="forms">
+  Forms
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old classes</th>
+        <th>New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.form-group-txt</code>
+        </td>
+        <td>
+          <code class="language-css">.form-group-text</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="utilities">
+  Utilities
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old class</th>
+        <th>New class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.txt-left</code>
+        </td>
+        <td>
+          <code class="language-css">.text-left</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-center</code>
+        </td>
+        <td>
+          <code class="language-css">.text-center</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-right</code>
+        </td>
+        <td>
+          <code class="language-css">.text-right</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="scss">
+  Scss
+</h2>
+
+<div class="responsive-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Old function/class</th>
+        <th>New function/class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">txtColor()</code>
+        </td>
+        <td>
+          <code class="language-css">textColor()</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
