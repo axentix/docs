@@ -2,9 +2,10 @@
   <button data-target="main-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix Logo" />
 
+  {{ $currentBranch := getenv "AX_CURRENT_BRANCH" | default .Site.Params.current }}
   <div class="dropdown" id="dropdown" data-ax="dropdown" >
     <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-      {{ .Site.Params.current }} <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+      {{ $currentBranch }} <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
     </div>
 
     {{ $url := .Site.BaseURL }}
@@ -12,20 +13,19 @@
     {{ $lts = split $lts "." }}
 
     {{ $latestVersion := printf "%s.%s.x" (index $lts 0) (index $lts 1) }}
-    {{ $current := .Site.Params.current }}
     <div class="version-selector dropdown-content white constrain-width light-shadow-2">
       {{ range .Site.Params.versions }}
         {{ $link := (printf "%s%s" $.Site.BaseURL (replace $.Page.Permalink $.Site.BaseURL "")) }}
 
-        {{ if and (eq $current $latestVersion) (ne . $latestVersion) }}
+        {{ if and (eq $currentBranch $latestVersion) (ne . $latestVersion) }}
           {{ $link = (printf "%s/%s%s" $.Site.BaseURL . (replace $.Page.Permalink $.Site.BaseURL "")) }}
         {{ else if ne . $latestVersion }}
-          {{ $link = (printf "%s%s%s" (replace $.Site.BaseURL $current "") . (replace $.Page.Permalink $.Site.BaseURL "")) }}
+          {{ $link = (printf "%s%s%s" (replace $.Site.BaseURL $currentBranch "") . (replace $.Page.Permalink $.Site.BaseURL "")) }}
         {{ else if eq . $latestVersion }}
-          {{ $link = (printf "%s%s" (replace $.Site.BaseURL (printf "/%s" $current) "") (replace $.Page.Permalink $.Site.BaseURL "")) }}
+          {{ $link = (printf "%s%s" (replace $.Site.BaseURL (printf "/%s" $currentBranch) "") (replace $.Page.Permalink $.Site.BaseURL "")) }}
         {{ end }}
 
-        <a href='{{ $link }}' class="txt-center py-3 {{ if  eq . $.Site.Params.current }}font-w600{{ end }}">
+        <a href='{{ $link }}' class="txt-center py-3 {{ if  eq . $currentBranch }}font-w600{{ end }}">
           {{ if  eq . $latestVersion }} Latest {{end}} {{ . }}
         </a>
       {{ end }}
