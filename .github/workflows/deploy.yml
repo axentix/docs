@@ -44,6 +44,7 @@ jobs:
         run: hugo --minify --baseURL https://useaxentix.com
         env:
           AX_ENV: production
+          AX_CURRENT_BRANCH: ${{ steps.dest-dir.outputs.DIR }}
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
       - name: Build docs
@@ -51,6 +52,7 @@ jobs:
         run: hugo --minify --baseURL https://useaxentix.com/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
+          AX_CURRENT_BRANCH: ${{ steps.dest-dir.outputs.DIR }}
           AX_LATEST_VERSION: ${{ steps.axentix-version.outputs.release }}
 
       - name: Get versions
