@@ -59,6 +59,9 @@ jobs:
         id: versions
         run: |
           BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' '\n')
+          BRANCHES="${BRANCHES//'%'/'%25'}"
+          BRANCHES="${BRANCHES//$'\n'/'%0A'}"
+          BRANCHES="${BRANCHES//$'\r'/'%0D'}"
           echo ::set-output name=VERSIONS::${BRANCHES}
 
       - name: Deploy main docs
@@ -67,8 +70,7 @@ jobs:
         with:
           branch: gh-pages
           folder: ./public
-          clean-exclude: > 
-            ${{ steps.versions.outputs.VERSIONS }}
+          clean-exclude: "${{ steps.versions.outputs.VERSIONS }}"
 
       - name: Deploy docs
         if: ${{ env.default_branch_ref != github.ref }}
