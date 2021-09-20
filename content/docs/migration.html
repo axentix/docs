@@ -7,7 +7,9 @@ type: 'docs'
 
 <p>
   This page contains all informations about the breaking changes between the v1 and the v2. <br>
-  Follow this guide to migrate your site based on v1.
+  Follow this guide to <strong>migrate your site</strong> based on v1. <br>
+  All these changes have been made to get more consistency in the class naming, <strong>following this rule</strong> : <br>
+  <code class="language-css">.{componentName}-{class}</code>
 </p>
 
 <h2 class="subtitle" id="layouts">
@@ -118,7 +120,7 @@ type: 'docs'
 </h2>
 
 <p>
-  The <code class="language-css">.sidenav-large</code> class has been removed. <br>
+  The <code class="language-css">.sidenav-large</code> and <code class="language-css">.sidenav-trigger</code> classes have been removed. <br>
   To get a large sidenav, use the css variable <code class="language-css">--ax-sidenav-width</code>.
 </p>
 
@@ -176,6 +178,10 @@ type: 'docs'
   Modal
 </h2>
 
+<p>
+  The <code class="language-css">.modal-trigger</code> class has been removed.
+</p>
+
 <div class="responsive-table">
   <table class="table" aria-label="Class comparison">
     <thead>
@@ -205,7 +211,7 @@ type: 'docs'
   </table>
 </div>
 
-<h2 class="subtitle" id="modal">
+<h2 class="subtitle" id="navbar">
   Navbar
 </h2>
 
@@ -282,6 +288,71 @@ type: 'docs'
         </td>
         <td>
           <code class="language-css">.tab-full-width</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="table">
+  Table
+</h2>
+
+<div class="responsive-table">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.responsive-table</code>
+        </td>
+        <td>
+          <code class="language-css">.table-responsive</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.responsive-table-2</code>
+        </td>
+        <td>
+          <code class="language-css">.table-responsive-2</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.striped</code>
+        </td>
+        <td>
+          <code class="language-css">.table-striped</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.bordered</code>
+        </td>
+        <td>
+          <code class="language-css">.table-bordered</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.border-0</code>
+        </td>
+        <td>
+          <code class="language-css">.table-no-border</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.centered</code>
+        </td>
+        <td>
+          <code class="language-css">.table-centered</code>
         </td>
       </tr>
     </tbody>
