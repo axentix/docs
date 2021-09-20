@@ -58,20 +58,21 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' ',')
+          BRANCHES=$(git branch -r --list origin/v-* | tr '*' ' ' | tr 'origin/v-' ' ' | xargs | tr ' ' '\n')
           echo ::set-output name=VERSIONS::${BRANCHES}
 
       - name: Deploy main docs
         if: ${{ env.default_branch_ref == github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4
         with:
           branch: gh-pages
           folder: ./public
-          clean-exclude: ${{ steps.versions.outputs.VERSIONS }}
+          clean-exclude: > 
+            ${{ steps.versions.outputs.VERSIONS }}
 
       - name: Deploy docs
         if: ${{ env.default_branch_ref != github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4
         with:
           branch: gh-pages
           folder: ./public
