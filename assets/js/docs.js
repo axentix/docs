@@ -1,15 +1,15 @@
 let sidenavDoc = new Axentix.Sidenav('#main-sidenav');
 
 setTimeout(() => {
-  let collapsible = new Axentix('collapsible');
+  new Axentix.Axentix('collapsible');
 }, 50);
 
 let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
   auto: {
     enabled: true,
-    classes: 'txt-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
-    selector: 'h1,h2'
-  }
+    classes: 'text-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
+    selector: 'h1,h2',
+  },
 });
 
 const content = document.querySelector('.content');
@@ -36,7 +36,7 @@ function updateDocs() {
 
 function addAnchors() {
   const subtitles = Array.from(document.querySelectorAll('.subtitle'));
-  subtitles.map(subtitle => {
+  subtitles.map((subtitle) => {
     const a = document.createElement('a');
     a.className = 'ml-2 subtitle-anchor';
     a.href = `#${subtitle.id}`;
