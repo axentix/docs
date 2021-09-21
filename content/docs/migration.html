@@ -12,6 +12,43 @@ type: 'docs'
   <code class="language-css">.{componentName}-{class}</code>
 </p>
 
+<h2 class="subtitle" id="js-init">
+  JS init
+</h2>
+
+<p>
+  The way to init Axentix components with the <strong>auto init</strong> & <strong>per component type</strong> methods have been changed.
+</p>
+
+<div class="responsive-table">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old way</th>
+        <th scope="col">New way</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-js">new Axentix('all')</code>
+        </td>
+        <td>
+          <code class="language-js">new Axentix.Axentix('all')</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-js">let collapsible = new Axentix('collapsible')</code>
+        </td>
+        <td>
+          <code class="language-js">let collapsible = new Axentix.Axentix('collapsible')</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2 class="subtitle" id="layouts">
   Layouts
 </h2>
@@ -98,6 +135,95 @@ type: 'docs'
   </table>
 </div>
 
+<h2 class="subtitle" id="buttons">
+  Buttons
+</h2>
+
+<div class="responsive-table">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.small</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.large</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.press</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-press</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.circle</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-circle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline-text</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline-invert</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-invert</code>
+        </td>
+      </tr>
+       <tr>
+        <td>
+          <code class="language-css">.outline-invert</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-invert</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.opening</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-opening</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2 class="subtitle" id="card">
   Card
 </h2>
@@ -105,6 +231,39 @@ type: 'docs'
 <p>
   The default <code class="language-css">word-break</code> value has been removed.
 </p>
+
+<h2 class="subtitle" id="dropdown">
+  Dropdown
+</h2>
+
+<div class="responsive-table">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.right-aligned</code>
+        </td>
+        <td>
+          <code class="language-css">.dropdown-right</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.constrain-width</code>
+        </td>
+        <td>
+          <code class="language-css">.dropdown-constrain-width</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <h2 class="subtitle" id="footer">
   Footer
@@ -123,6 +282,27 @@ type: 'docs'
   The <code class="language-css">.sidenav-large</code> and <code class="language-css">.sidenav-trigger</code> classes have been removed. <br>
   To get a large sidenav, use the css variable <code class="language-css">--ax-sidenav-width</code>.
 </p>
+
+<div class="responsive-table">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.fixed</code>
+        </td>
+        <td>
+          <code class="language-css">.sidenav-fixed</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <h2 class="subtitle" id="lightbox">
   Lightbox
@@ -168,6 +348,62 @@ type: 'docs'
         </td>
         <td>
           <code class="language-css">.spinner-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .small</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .large</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .rainbow</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-rainbow</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .small</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .large</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .rainbow</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-rainbow</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .indeterminate</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-indeterminate</code>
         </td>
       </tr>
     </tbody>
