@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
-    <head>
-        <title>{{ .Page.Params.Title | default .Site.Title }} - Axentix</title>
-        <meta name="description" content="{{ .Page.Params.description }}" />
-        <meta property="og:description" content="{{ .Page.Params.description }}" />
-        <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
-        {{- partial "head.html" . -}}
-        {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
-        {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
-        {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
-        {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
-        {{ $style := slice $base $docs | resources.Concat "docs.css" | fingerprint }}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-        <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
-        <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
-        {{ if eq .Title "Layouts" }}
-            {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint }}
-            <link rel="stylesheet" href="{{ $layout.RelPermalink }}"/>
-        {{ end }}
-    </head>
+  <head>
+    <title>{{ .Page.Params.Title | default .Site.Title }} - Axentix</title>
+    <meta name="description" content="{{ .Page.Params.description }}" />
+    <meta property="og:description" content="{{ .Page.Params.description }}" />
+    <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
+    {{- partial "head.html" . -}} 
+    {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }} 
+    {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }} 
+    {{ $base := resources.Get "sass/main.scss" | toCSS $options }} 
+    {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} 
+    {{ $style := slice $base $docs | resources.Concat "docs.css" | fingerprint }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+    <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+    {{ if eq .Title "Layouts" }} 
+    {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint }}
+    <link rel="stylesheet" href="{{ $layout.RelPermalink }}" />
+    {{ end }}
+  </head>
 
-    <body class="layout with-sidenav fixed-sidenav under-navbar">
-        {{- partial "header.html" . -}}
+  <body class="layout-under-navbar">
+    {{- partial "header.html" . -}}
 
-        <div id="main-sidenav" class="sidenav light-shadow-2 fixed white large">
-            {{- partial "sidenav.html" . -}}
+    <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white">
+        {{- partial "sidenav.html" . -}}
+    </div>
+
+    <main>
+      <div class="main-content container">
+        <div class="docs-head d-flex">
+          <div>
+            <h1 id="title">{{.Title}}</h1>
+            <p>{{.Page.Params.Subtitle}}</p>
+          </div>
+
+          <div
+            data-ea-publisher="useaxentix-com"
+            data-ea-type="image"
+            class="flat horizontal ml-auto"
+            id="ads-docs"
+          ></div>
         </div>
 
-        <main>
-            <div class="main-content container">
-                <div class="docs-head d-flex">
-                    <div>
-                        <h1 id="title">{{.Title}}</h1>
-                        <p>{{.Page.Params.Subtitle}}</p>
-                    </div>
-          
-                    <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto" id="ads-docs"></div>
-                </div>
+        <div class="d-flex relative-pos">
+          <div class="content">{{- block "main" . }} {{.Content}} {{- end }}</div>
+          <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2 text-grey"> Sponsors </span>
 
-                <div class="d-flex relative-pos">
-                    <div class="content">
-                    {{- block "main" . }}
-                        {{.Content}}
-                    {{- end }}
-                    </div>
-                    <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
-                        <span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey">
-                            Sponsors
-                        </span>
-          
-                        <!-- <img src="" class="scrollspy-sponsor responsive-media ml-2 my-2"> -->
-                        <a href="https://www.buymeacoffee.com/axentix" target="_blank" rel="noopener" class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
-                            <span class="outline-text">Become a sponsor</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </main>
+            <!-- <img src="" class="scrollspy-sponsor responsive-media ml-2 my-2"> -->
+            <a
+              href="https://www.buymeacoffee.com/axentix"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-small text-grey btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+            >
+              <span class="btn-outline-text">Become a sponsor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
 
-        {{- partial "footer.html" . -}}
+    {{- partial "footer.html" . -}} {{ $prism := resources.Get "js/prism.js" | fingerprint }} {{ $axentix :=
+    resources.Get "axentix/axentix.min.js" | fingerprint }} {{ $docs := resources.Get "js/docs.js" | fingerprint }}
+    <script src="{{$axentix.RelPermalink}}"></script>
+    <script src="{{$prism.RelPermalink}}"></script>
+    <script src="{{$docs.RelPermalink}}"></script>
+    <script>
+      const baseURL = '{{ .Site.BaseURL }}';
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript">
+      docsearch({
+        apiKey: '5e298e3bd3c5556f2267e83a5e5a9377',
+        indexName: 'useaxentix',
+        inputSelector: '#search-input',
+        debug: false,
+      });
+    </script>
 
-        {{ $prism := resources.Get "js/prism.js" | fingerprint }}
-        {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }}
-        {{ $docs := resources.Get "js/docs.js" | fingerprint }}
-        <script src="{{$axentix.RelPermalink}}"></script>
-        <script src="{{$prism.RelPermalink}}"></script>
-        <script src="{{$docs.RelPermalink}}"></script>
-        <script>const baseURL = "{{ .Site.BaseURL }}"</script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-        <script type="text/javascript">
-        docsearch({
-            apiKey: '5e298e3bd3c5556f2267e83a5e5a9377',
-            indexName: 'useaxentix',
-            inputSelector: '#search-input',
-            debug: false
-        });
-        </script>
+    {{ $env := getenv "AX_ENV" }} {{ if eq $env "production" }}
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-        {{ $env := getenv "AX_ENV" }}
-        {{ if eq $env "production" }}
-        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
-        <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-            function gtag() {
-            dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-149763613-1');
-        </script>
-        {{ end }}
-        {{ range .Page.Params.scripts }}
-            {{- . | safeHTML -}}
-        {{end}}
-    </body>
+      gtag('config', 'UA-149763613-1');
+    </script>
+    {{ end }} {{ range .Page.Params.scripts }} {{- . | safeHTML -}} {{end}}
+  </body>
 </html>

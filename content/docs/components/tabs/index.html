@@ -6,7 +6,7 @@ sidenav: components
 scripts:
   - '
   <script>
-    let axentixTabs = new Axentix("tab");
+    let axentixTabs = new Axentix.Axentix("tab");
   </script>'
 ---
 
@@ -64,12 +64,12 @@ scripts:
   You can add the <code class="language-css">.active</code> class to your tab link to make it the opened tab when the
   page is loaded.
   <br />
-  The <code class="language-css">.full-width</code> class on the tab make all the
+  The <code class="language-css">.tab-full-width</code> class on the tab make all the
   <code class="language-css">.tab-link</code> take the full width of the tab. <br />
   Here, the second tab-link is active, and all the tabs take the full width.
 </p>
 
-<div class="tab shadow-1 full-width" id="example-active-tab">
+<div class="tab shadow-1 tab-full-width" id="example-active-tab">
   <ul class="tab-menu">
     <li class="tab-link">
       <a href="#active-tab1">Tab 1</a>
@@ -84,7 +84,7 @@ scripts:
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="tab shadow-1 full-width" id="example-tab" data-ax="tab">
+  <div class="tab shadow-1 tab-full-width" id="example-tab" data-ax="tab">
     <ul class="tab-menu">
       <li class="tab-link">
         <a href="#tab1">Tab 1</a>
@@ -114,7 +114,7 @@ scripts:
   <div class="tab shadow-1 mt-4 no-axentix-init" id="example-tab-2" data-ax="tab">
     <div class="tab-arrow">
       <div class="tab-prev shadow-1 white">
-        <a href=""><i class="fas fa-chevron-left"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-chevron-left"></i></a>
       </div>
       <ul class="tab-menu">
         <li class="tab-link">
@@ -140,7 +140,7 @@ scripts:
         </li>
       </ul>
       <div class="tab-next shadow-1 white">
-        <a href=""><i class="fas fa-chevron-right"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-chevron-right"></i></a>
       </div>
     </div>
 
@@ -160,7 +160,7 @@ scripts:
     <div class="tab-arrow">
       <!-- Here is the prev arrow -->
       <div class="tab-prev shadow-1 white">
-        <a href=""><i class="fas fa-chevron-left"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-chevron-left"></i></a>
       </div>
       <ul class="tab-menu">
         <li class="tab-link">
@@ -187,7 +187,7 @@ scripts:
       </ul>
       <!-- Here is the next arrow -->
       <div class="tab-next shadow-1 white">
-        <a href=""><i class="fas fa-chevron-right"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-chevron-right"></i></a>
       </div>
     </div>
 
@@ -202,7 +202,7 @@ scripts:
 </script>
 
 <div class="tips rounded-2 light-shadow-4 grey light-4">
-  <i class="fas fa-lightbulb txt-yellow txt-light-1 tips-icon"></i>
+  <i aria-hidden="true" class="fas fa-lightbulb text-yellow text-light-1 tips-icon"></i>
   <div class="px-3">
     <h6 class="pt-3">Tips</h6>
     <p class="mt-3">
@@ -235,13 +235,13 @@ scripts:
 </script>
 <strong
   >To know all the ways to initialize a JS component, please read the
-  <a class="txt-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
+  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
 >
 
 <h2 class="subtitle" id="Options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -273,7 +273,7 @@ scripts:
         <td>''</td>
         <td>
           If you are using the <code class="language-js">'slide'</code> animationType, you can add the
-          <a target="_blank" class="txt-primary" href="{{< ref "caroulix#options" >}}"
+          <a target="_blank" class="text-primary" href="{{< ref "caroulix#options" >}}"
             >caroulix options</a
           >
           here to modify the animation.
@@ -295,8 +295,8 @@ scripts:
   tab.select();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
     <thead>
       <tr>
         <th>Method</th>
@@ -350,8 +350,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

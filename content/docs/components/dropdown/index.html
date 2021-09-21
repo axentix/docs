@@ -6,7 +6,7 @@ type: 'docs'
 sidenav: components
 scripts:
   - '<script>
-    let axentixDropdown = new Axentix("dropdown");
+    let axentixDropdown = new Axentix.Axentix("dropdown");
     let animDropdown = new Axentix.Dropdown("#example-dropdown-anim", {
       animationType: "fade"
     });
@@ -18,7 +18,7 @@ scripts:
   The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
   have to create an element with the <code class="language-markup">.dropdown-trigger</code> class inside of it.<br />
   The dropdown is working with our
-  <a class="txt-primary" href="{{< ref "colors#color-palette" >}}">color palette</a>.
+  <a class="text-primary" href="{{< ref "colors#color-palette" >}}">color palette</a>.
 </p>
 
 <div class="dropdown" id="example-dropdown">
@@ -42,16 +42,16 @@ scripts:
   </div>
 </script>
 
-<h2 class="subtitle" id="right-aligned-dropdown-content">Right aligned dropdown content</h2>
+<h2 class="subtitle" id="right-dropdown-content">Right aligned dropdown content</h2>
 <p>
   To align your dropdown content with the right border of the dropdown trigger, you just have to add the
-  <code class="language-markup">.right-aligned</code> class on your <code class="language-css">.dropdown-content</code>.
+  <code class="language-markup">.dropdown-right</code> class on your <code class="language-css">.dropdown-content</code>.
 </p>
 
 <div class="d-flex">
   <div class="dropdown ml-auto" id="example-dropdown2">
     <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
-    <div class="dropdown-content white right-aligned shadow-1 rounded-1">
+    <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Right aligned dropdown</a>
       <a class="dropdown-item" href="#">Item 2</a>
     </div>
@@ -63,7 +63,7 @@ scripts:
       <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
         Toggle
       </button>
-      <div class="dropdown-content white right-aligned shadow-1 rounded-1">
+      <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
         <a class="dropdown-item" href="#">Right aligned dropdown</a>
         <a class="dropdown-item" href="#">Item 2</a>
       </div>
@@ -74,13 +74,13 @@ scripts:
 <h2 class="subtitle" id="constrain-width">Constrain width</h2>
 <p>
   To constrain the width of the dropdown content to fit the dropdown trigger width, just add the
-  <code class="language-css">.constrain-width</code> class to your <code class="language-css">.dropdown-content</code>
+  <code class="language-css">.dropdown-constrain-width</code> class to your <code class="language-css">.dropdown-content</code>
   element.
 </p>
 
 <div class="dropdown" id="example-dropdown3">
   <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
-  <div class="dropdown-content white constrain-width shadow-1 rounded-1">
+  <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Constrain width option</a>
     <a class="dropdown-item" href="#">Item 2</a>
   </div>
@@ -90,7 +90,7 @@ scripts:
     <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
       Toggle
     </button>
-    <div class="dropdown-content white constrain-width shadow-1 rounded-1">
+    <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Constrain width option</a>
       <a class="dropdown-item" href="#">Item 2</a>
     </div>
@@ -110,7 +110,7 @@ scripts:
     <a class="navbar-link" href="#">Link 2</a>
     <div class="dropdown" id="nav-dropdown">
       <div class="navbar-link secondary dropdown-trigger">Toggle</div>
-      <div class="dropdown-content right-aligned white shadow-1">
+      <div class="dropdown-content dropdown-right white shadow-1">
         <a class="dropdown-item" href="#">Dropdown in navbar</a>
         <a class="dropdown-item" href="#">Item 2</a>
         <a class="dropdown-item active" href="#">Item 3</a>
@@ -128,7 +128,7 @@ scripts:
         <div class="navbar-link secondary dropdown-trigger">
           Toggle
         </div>
-        <div class="dropdown-content right-aligned white shadow-1">
+        <div class="dropdown-content dropdown-right white shadow-1">
           <a class="dropdown-item" href="#">Dropdown in navbar</a>
           <a class="dropdown-item" href="#">Item 2</a>
           <a class="dropdown-item active" href="#">Item 3</a>
@@ -156,7 +156,7 @@ scripts:
 </script>
 <strong
   >To know all the ways to initialize a JS component, please read the
-  <a class="txt-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
+  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
 >
 
 <h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
@@ -177,8 +177,8 @@ scripts:
 
 <h2 class="subtitle" id="options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -221,7 +221,7 @@ scripts:
 
 <h2 class="subtitle" id="methods">Methods</h2>
 
-<script type="text/plain" class="language-js">
+<script type="text/plain" class="language-js" aria-label="Methods">
   // NOTE: this is NOT to be used if data-ax="dropdown" is set in your HTML
   let exampleDropdown = new Axentix.Dropdown('#example-dropdown');
 
@@ -229,8 +229,8 @@ scripts:
   exampleDropdown.close();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Method</th>
@@ -265,8 +265,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

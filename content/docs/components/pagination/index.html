@@ -12,157 +12,154 @@ sidenav: components
   icons. Use the <code class="language-css">.active</code> to show on what page you are and the
   <code class="language-css">disabled</code> state to show an unusable button. <br />
   All is working with our
-  <a class="txt-primary" href="{{< ref "colors#color-palette" >}}">color palette</a>.
+  <a class="text-primary" href="{{< ref "colors#color-palette" >}}">color palette</a>.
 </p>
 
 <ul class="pagination">
   <li class="disabled">
-    <a href=""><i class="fas fa-step-backward"></i></a>
+    <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
   </li>
   <li>
-    <a href=""><i class="fas fa-angle-left"></i></a>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
   </li>
   <li><a href="">1</a></li>
   <li class="active"><a href="">2</a></li>
   <li><a href="">3</a></li>
   <li>
-    <a href=""><i class="fas fa-angle-right"></i></a>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
   </li>
   <li>
-    <a href=""><i class="fas fa-step-forward"></i></a>
+    <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
   </li>
 </ul>
 <script type="text/plain" class="language-markup">
   <ul class="pagination">
     <li class="disabled">
-      <a href=""><i class="fas fa-step-backward"></i></a>
+      <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
     </li>
     <li>
-      <a href=""><i class="fas fa-angle-left"></i></a>
+      <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
     </li>
     <li><a href="">1</a></li>
     <li class="active"><a href="">2</a></li>
     <li><a href="">3</a></li>
     <li>
-      <a href=""><i class="fas fa-angle-right"></i></a>
+      <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
     </li>
     <li>
-      <a href=""><i class="fas fa-step-forward"></i></a>
+      <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
     </li>
   </ul>
 </script>
 
 <h2 class="subtitle" id="pagination-sizes">Pagination sizes</h2>
 <p>
-  You can change the pagination size, using the <code class="language-css">.small</code> and
-  <code class="language-css">.large</code> classes on the pagination element.
+  You can change the pagination size, using the <code class="language-css">.pagination-small</code> and
+  <code class="language-css">.pagination-large</code> classes on the pagination element.
 </p>
 
-<div class="grix xs1">
-  <ul class="pagination small">
-    <li class="disabled">
-      <a href=""><i class="fas fa-step-backward"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-angle-left"></i></a>
-    </li>
-    <li><a href="">1</a></li>
-    <li class="active"><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li>
-      <a href=""><i class="fas fa-angle-right"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-step-forward"></i></a>
-    </li>
-  </ul>
-  <ul class="pagination">
-    <li class="disabled">
-      <a href=""><i class="fas fa-step-backward"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-angle-left"></i></a>
-    </li>
-    <li><a href="">1</a></li>
-    <li class="active"><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li>
-      <a href=""><i class="fas fa-angle-right"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-step-forward"></i></a>
-    </li>
-  </ul>
-  <ul class="pagination large">
-    <li class="disabled">
-      <a href=""><i class="fas fa-step-backward"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-angle-left"></i></a>
-    </li>
-    <li><a href="">1</a></li>
-    <li class="active"><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li>
-      <a href=""><i class="fas fa-angle-right"></i></a>
-    </li>
-    <li>
-      <a href=""><i class="fas fa-step-forward"></i></a>
-    </li>
-  </ul>
-</div>
-<script type="text/plain" class="language-markup">
-  <div class="grix xs1">
-    <ul class="pagination small">
+<ul class="pagination pagination-small">
+  <li class="disabled">
+    <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
+  </li>
+  <li><a href="">1</a></li>
+  <li class="active"><a href="">2</a></li>
+  <li><a href="">3</a></li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
+  </li>
+</ul>
+<ul class="pagination">
+  <li class="disabled">
+    <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
+  </li>
+  <li><a href="">1</a></li>
+  <li class="active"><a href="">2</a></li>
+  <li><a href="">3</a></li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
+  </li>
+</ul>
+<ul class="pagination pagination-large">
+  <li class="disabled">
+    <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
+  </li>
+  <li><a href="">1</a></li>
+  <li class="active"><a href="">2</a></li>
+  <li><a href="">3</a></li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
+  </li>
+  <li>
+    <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
+  </li>
+</ul>
+
+<script type="text/plain" class="language-markup code-max-height">
+    <ul class="pagination pagination-small">
       <li class="disabled">
-        <a href=""><i class="fas fa-step-backward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-angle-left"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
       </li>
       <li><a href="">1</a></li>
       <li class="active"><a href="">2</a></li>
       <li><a href="">3</a></li>
       <li>
-        <a href=""><i class="fas fa-angle-right"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-step-forward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
       </li>
     </ul>
     <ul class="pagination">
       <li class="disabled">
-        <a href=""><i class="fas fa-step-backward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-angle-left"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
       </li>
       <li><a href="">1</a></li>
       <li class="active"><a href="">2</a></li>
       <li><a href="">3</a></li>
       <li>
-        <a href=""><i class="fas fa-angle-right"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-step-forward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
       </li>
     </ul>
-    <ul class="pagination large">
+    <ul class="pagination pagination-large">
       <li class="disabled">
-        <a href=""><i class="fas fa-step-backward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-backward"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-angle-left"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-left"></i></a>
       </li>
       <li><a href="">1</a></li>
       <li class="active"><a href="">2</a></li>
       <li><a href="">3</a></li>
       <li>
-        <a href=""><i class="fas fa-angle-right"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-angle-right"></i></a>
       </li>
       <li>
-        <a href=""><i class="fas fa-step-forward"></i></a>
+        <a href=""><i aria-hidden="true" class="fas fa-step-forward"></i></a>
       </li>
     </ul>
-  </div>
 </script>

@@ -4,6 +4,10 @@
 @import './axentix-utils/functions';
 // @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+:root {
+  --ax-sidenav-width: 15rem;
+}
+
 html,
 body {
   font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
@@ -28,16 +32,16 @@ main {
   }
 }
 
-@include responsive('lg-up') {
-  .layout.with-sidenav.fixed-sidenav main {
-    padding-left: $sidenav-large-width + 1.5rem !important;
+@include responsive('md-up') {
+  .layout-under-navbar main {
+    padding-left: calc(var(--ax-sidenav-width) + 1.5rem);
   }
 }
 
-@include responsive('md') {
-  .layout.with-sidenav.fixed-sidenav main {
-    padding-left: $sidenav-width + 1.5rem !important;
-  }
+.sidenav .sidenav-trigger {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .docs-head {
@@ -366,7 +370,7 @@ div.code-toolbar {
 
       div {
         background-color: getColor('airforce', 'dark', 2);
-        color: txtColor(getColor('airforce', 'dark', 2));
+        color: textColor(getColor('airforce', 'dark', 2));
         padding: 1rem;
         text-align: center;
 

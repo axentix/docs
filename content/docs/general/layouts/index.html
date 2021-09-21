@@ -51,7 +51,7 @@ scripts:
 </p>
 <p>
   <strong>For all layouts, the footer is placed at the bottom of the screen.</strong><br />
-  <em class="txt-grey txt-dark-2">Try this example on Desktop for a better experience.</em>
+  <em class="text-grey text-dark-2">Try this example on Desktop for a better experience.</em>
 </p>
 
 <div class="device device-macbook-pro device-spacegray my-5">
@@ -110,7 +110,7 @@ scripts:
           </main>
 
           <footer class="footer primary">
-            Copyright © 2021 - Example
+            Copyright © {{< year >}} - Example
           </footer>
           <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
@@ -123,13 +123,13 @@ scripts:
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Axentix Layout - With sidenav</title>
+          <title>Axentix Layout - Sidenav</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
-        <body class="layout with-sidenav">
+        <body class="layout-sidenav">
           <header>
             <nav class="navbar shadow-1 primary">
               <a href="#" target="_blank" class="navbar-brand">Axentix</a>
@@ -142,9 +142,8 @@ scripts:
             </nav>
           </header>
 
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
             <div class="sidenav-header">
-              <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
               <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
             </div>
             <a href="#" class="sidenav-link active">Link 1</a>
@@ -162,7 +161,7 @@ scripts:
           </main>
 
           <footer class="footer primary">
-            Copyright © 2021 - Example
+            Copyright © {{< year >}} - Example
           </footer>
           <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
@@ -175,13 +174,13 @@ scripts:
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Axentix Layout - Fixed sidenav</title>
+          <title>Axentix Layout - Sidenav fixed</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
-        <body class="layout with-sidenav fixed-sidenav">
+        <body class="layout-sidenav-fixed">
           <header>
             <nav class="navbar shadow-1 primary">
               <a href="#" target="_blank" class="navbar-brand">Axentix</a>
@@ -194,9 +193,8 @@ scripts:
             </nav>
           </header>
 
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
             <div class="sidenav-header">
-              <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
               <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
             </div>
             <a href="#" class="sidenav-link active">Link 1</a>
@@ -214,7 +212,7 @@ scripts:
           </main>
 
           <footer class="footer primary">
-            Copyright © 2021 - Example
+            Copyright © {{< year >}} - Example
           </footer>
           <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>
@@ -233,7 +231,7 @@ scripts:
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/css/axentix.min.css">
         </head>
 
-        <body class="layout with-sidenav fixed-sidenav under-navbar">
+        <body class="layout-under-navbar">
           <header>
             <div class="navbar-fixed">
               <nav class="navbar shadow-1 primary">
@@ -248,9 +246,8 @@ scripts:
             </div>
           </header>
 
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed white">
+          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
             <div class="sidenav-header">
-              <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
               <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
             </div>
             <a href="#" class="sidenav-link active">Link 1</a>
@@ -268,7 +265,7 @@ scripts:
           </main>
 
           <footer class="footer primary">
-            Copyright © 2021 - Example
+            Copyright © {{< year >}} - Example
           </footer>
           <script src="https://cdn.jsdelivr.net/npm/axentix@{{< version >}}/dist/js/axentix.min.js">&lt;/script>
         </body>

@@ -25,14 +25,11 @@ scripts:
   be placed over the last modal too.
 </p>
 
-<button class="btn rounded-1 primary press modal-trigger mx-auto" data-target="modal-example">OPEN MODAL</button>
+<button class="btn rounded-1 primary btn-press modal-trigger mx-auto" data-target="modal-example">OPEN MODAL</button>
 
 <div class="modal shadow-1 white rounded-3" id="modal-example">
   <div class="modal-header">
     Header
-    <button data-target="modal-example" class="modal-trigger">
-      <i class="fas fa-times"></i>
-    </button>
   </div>
   <div class="modal-content">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
@@ -47,9 +44,6 @@ scripts:
   <div class="modal shadow-1 white rounded-3" id="modal-example" data-ax="modal">
     <div class="modal-header">
       Header
-      <button data-target="modal-example" class="modal-trigger">
-        <i class="fas fa-times"></i> <!-- Use font awesome -->
-      </button>
     </div>
     <div class="modal-content">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
@@ -62,18 +56,18 @@ scripts:
     </div>
   </div>
 
-  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="falling-modal">Falling modal</h2>
 <p>
-  A modal can be opened with a falling effect using the <code class="language-css">.falling</code> class on the modal
+  A modal can be opened with a falling effect using the <code class="language-css">.modal-falling</code> class on the modal
   element.
 </p>
 
-<button class="btn primary rounded-1 press modal-trigger mx-auto" data-target="modal-example2">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example2">OPEN MODAL</button>
 
-<div class="modal shadow-1 white falling" id="modal-example2">
+<div class="modal shadow-1 white modal-falling" id="modal-example2">
   <div class="modal-header">Header</div>
   <div class="divider"></div>
   <div class="modal-content">
@@ -88,14 +82,14 @@ scripts:
   </div>
   <div class="divider"></div>
   <div class="modal-footer">
-    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 small primary modal-trigger">
+    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">
       Close
     </button>
   </div>
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="modal shadow-1 white falling" id="modal-example" data-ax="modal">
+  <div class="modal shadow-1 white modal-falling" id="modal-example" data-ax="modal">
     <div class="modal-header">Header</div>
 
     <div class="divider"></div>
@@ -114,27 +108,24 @@ scripts:
     <div class="divider"></div>
 
     <div class="modal-footer">
-      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 small primary modal-trigger">Close</button>
+      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">Close</button>
     </div>
   </div>
 
-  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
 <p>
-  A modal can be opened with a bouncing effect using the <code class="language-css">.bouncing</code> class on the modal
+  A modal can be opened with a bouncing effect using the <code class="language-css">.modal-bouncing</code> class on the modal
   element.
 </p>
 
-<button class="btn primary rounded-1 press modal-trigger mx-auto" data-target="modal-example3">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example3">OPEN MODAL</button>
 
-<div class="modal shadow-1 white rounded-3 bouncing" id="modal-example3">
+<div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example3">
   <div class="modal-header">
     Header
-    <button data-target="modal-example3" class="modal-trigger">
-      <i class="fas fa-times"></i>
-    </button>
   </div>
   <div class="modal-content">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
@@ -146,12 +137,9 @@ scripts:
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="modal shadow-1 white rounded-3 bouncing" id="modal-example" data-ax="modal">
+  <div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example" data-ax="modal">
     <div class="modal-header">
       Header
-      <button data-target="modal-example" class="modal-trigger">
-        <i class="fas fa-times"></i>
-      </button>
     </div>
     <div class="modal-content">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
@@ -164,7 +152,7 @@ scripts:
     </div>
   </div>
 
-  <button class="btn rounded-1 primary press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
@@ -186,13 +174,13 @@ scripts:
 </script>
 <strong
   >To know all the ways to initialize a JS component, please read the
-  <a class="txt-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
+  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
 >
 
 <h2 class="subtitle" id="options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -230,8 +218,8 @@ scripts:
   modal.open();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
     <thead>
       <tr>
         <th>Method</th>
@@ -273,8 +261,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

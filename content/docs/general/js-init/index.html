@@ -6,8 +6,8 @@ sidenav: general
 ---
 
 <p>
-  For <a class="txt-primary" href="#auto-init">auto init</a> and
-  <a class="txt-primary" href="#per-component-type">per component</a> init methods, we provided a simple
+  For <a class="text-primary" href="#auto-init">auto init</a> and
+  <a class="text-primary" href="#per-component-type">per component</a> init methods, we provided a simple
   <code class="language-css">.no-axentix-init</code> class to disable the basic initialization with the Axentix class
   for the specified component.<br />
   Using this class, you can use all components in your page, except the one you specified. You can now pass your
@@ -45,7 +45,7 @@ sidenav: general
   <strong> but you can't pass options to your JS elements.</strong> <br />
 </p>
 <script type="text/plain" class="language-js">
-  new Axentix('all');
+  new Axentix.Axentix('all');
 </script>
 <p>We provide a way to call this method through your <strong>HTML</strong> file :</p>
 <script type="text/plain" class="language-markup">
@@ -58,10 +58,10 @@ sidenav: general
 <p>Detect all elements of the specified component type, and initialize them all using the same passed options.</p>
 <script type="text/plain" class="language-js">
   /*** Example with Collapsible ***/
-  let axentixCollapsible = new Axentix('collapsible');
+  let axentixCollapsible = new Axentix.Axentix('collapsible');
 
   // Accepts options
-  let axentixCollapsible = new Axentix('collapsible', {animationDuration: 200});
+  let axentixCollapsible = new Axentix.Axentix('collapsible', {animationDuration: 200});
 </script>
 <h2 class="subtitle" id="per-element">Per element</h2>
 <p>This method initialize the element individually using the passed options.</p>
@@ -87,8 +87,8 @@ sidenav: general
   collapsible.open();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
     <thead>
       <tr>
         <th>Method</th>
@@ -171,8 +171,8 @@ sidenav: general
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

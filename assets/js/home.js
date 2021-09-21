@@ -1,5 +1,5 @@
 var sidenav = new Axentix.Sidenav('#main-sidenav');
-var collapsible = new Axentix('collapsible');
+var collapsible = new Axentix.Axentix('collapsible');
 
 const HomeAxentix = (() => {
   let hiddenSentence,
@@ -22,7 +22,7 @@ const HomeAxentix = (() => {
     colors.map((color) => {
       const type = color.dataset.colors.split(',');
       type.map((colType) => {
-        if (colType === 'txt' || colType === 'bd') {
+        if (colType === 'text' || colType === 'bd') {
           color.classList.remove(`${colType}-${currentColor}`);
           color.classList.add(`${colType}-${selectedColor}`);
         } else if (colType === 'bg') {

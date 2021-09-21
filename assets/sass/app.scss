@@ -20,6 +20,12 @@ body {
   }
 }
 
+.sidenav .sidenav-trigger {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
 .neumorphism-link {
   display: flex !important;
 

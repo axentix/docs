@@ -48,7 +48,7 @@ sidenav: components
   let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
     auto: {
       enabled: true,
-      classes: 'txt-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
+      classes: 'text-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
       selector: 'h1,h2'
     }
   });
@@ -56,8 +56,8 @@ sidenav: components
 
 <h2 class="subtitle" id="Options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -98,7 +98,7 @@ sidenav: components
           <code class="language-markup">&#60;a&#62;</code> <em> tags are automatically created.</em> <br />
           Example :
           <code class="language-javascript">
-            { enabled: true, classes: 'txt-grey mt-2 font-w500', selector: 'h2' }
+            { enabled: true, classes: 'text-grey mt-2 font-w500', selector: 'h2' }
           </code>
         </td>
       </tr>
@@ -108,7 +108,7 @@ sidenav: components
 
 <h2 class="subtitle" id="events">Events</h2>
 
-<script type="text/plain" class="language-js">
+<script type="text/plain" class="language-js" aria-label="Events">
   // Listen to all scrollspy instances
   document.addEventListener('ax.scrollspy.setup', function() {
     // setup event !
@@ -121,8 +121,8 @@ sidenav: components
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Event</th>

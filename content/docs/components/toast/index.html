@@ -40,10 +40,10 @@ scripts:
   Creating a toast can help you to send messages to your users through simple notifications. <br />
   They are easily customisable using any of the axentix classes.
 </p>
-<button onclick="showToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<button onclick="showToast()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
 
 <script type="text/plain" class="language-markup">
-  <button onclick="toast.show()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+  <button onclick="toast.show()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
 </script>
 
 <script type="text/plain" class="language-javascript">
@@ -53,7 +53,7 @@ scripts:
 </script>
 <strong
   >To know all the ways to initialize a JS component, please read the
-  <a class="txt-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
+  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
 >
 
 <h2 class="subtitle" id="change-toast">Change toast</h2>
@@ -63,7 +63,7 @@ scripts:
   Using the <code class="language-js">change()</code> method, you can change the content and the classes of your toast.
 </p>
 
-<button onclick="showChangedToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<button onclick="showChangedToast()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
 
 <script type="text/plain" class="language-javascript">
   toast.change('This is the new html content <br> This is at the second line.', {
@@ -78,7 +78,7 @@ scripts:
   on a cross.
 </p>
 
-<button onclick="showClosableToast()" class="btn shadow-1 rounded-1 primary small">Show Toast</button>
+<button onclick="showClosableToast()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
 
 <script type="text/plain" class="language-javascript">
   toast.change('This is a closable toast', {
@@ -89,8 +89,8 @@ scripts:
 
 <h2 class="subtitle" id="options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -198,8 +198,8 @@ scripts:
   toast.show();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
     <thead>
       <tr>
         <th>Method</th>
@@ -218,7 +218,7 @@ scripts:
           The second parameter is optional, but can be useful when you want to change multiple options like the classes
           and the position at the same time.
           <br />
-          <a class="txt-primary" href="#change-toast">Here</a> is an example.
+          <a class="text-primary" href="#change-toast">Here</a> is an example.
         </td>
       </tr>
     </tbody>
@@ -233,8 +233,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

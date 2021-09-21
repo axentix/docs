@@ -11,7 +11,7 @@ sidenav: components
     To use a button, add a button with a class named <code class="language-css">.btn</code>. You can use on it any color in the color
     palette. <br />
     The normal button is the only variant that can be used with the
-    <a class="txt-primary" href="{{< ref "shadows#hoverable" >}}">hoverable</a> class. <br />
+    <a class="text-primary" href="{{< ref "shadows#hoverable" >}}">hoverable</a> class. <br />
     All buttons are working inside a <code class="language-markup">&lt;a&gt;</code>, a
     <code class="language-markup">&lt;button&gt;</code> and a <code class="language-markup">&lt;div&gt;</code>.
   </p>
@@ -26,69 +26,69 @@ sidenav: components
   <h2 class="subtitle" id="circle-buttons">Circle buttons</h2>
   <p>
     Commonly, a circle button is used with
-    <a class="txt-primary" href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank" rel="noopener">Font Awesome</a> to add
-    an icon in it. To use it, add the <code class="language-css">.circle</code> class to a button already having the class
+    <a class="text-primary" href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank" rel="noopener">Font Awesome</a> to add
+    an icon in it. To use it, add the <code class="language-css">.btn-circle</code> class to a button already having the class
     <code class="language-css">.btn</code>.
   </p>
-  <button class="btn shadow-1 circle blue"><i class="fas fa-thumbs-up"></i></button>
+  <button class="btn shadow-1 btn-circle blue"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   <script type="text/plain" class="language-markup">
-    <button class="btn shadow-1 circle blue"><i class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-circle blue"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   </script>
 
   <h2 class="subtitle" id="press-buttons">Press buttons</h2>
   <p>
     Press buttons are stylized buttons. To use them, use the same <code class="language-css">.btn</code> class as before, and add the
-    <code class="language-css">.press</code>
+    <code class="language-css">.btn-press</code>
     class to it. You can use it on a circle button.
   </p>
-  <button class="btn rounded-1 blue press">Normal button</button>
+  <button class="btn rounded-1 blue btn-press">Normal button</button>
   <script type="text/plain" class="language-markup">
-    <div class="btn rounded-1 blue press">Normal button</div>
+    <div class="btn rounded-1 blue btn-press">Normal button</div>
   </script>
-  <button class="btn circle blue press"><i class="fas fa-thumbs-up"></i></button>
+  <button class="btn btn-circle blue btn-press"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   <script type="text/plain" class="language-markup">
-    <button class="btn circle blue press"><i class="fas fa-thumbs-up"></i></button>
+    <button class="btn btn-circle blue btn-press"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   </script>
 
   <h2 class="subtitle" id="outline-buttons">Outline buttons</h2>
   <p>
     Outline buttons are different, they are transparent to get as background-color the background of your page.
     <br />
-    Two different designs are available, the normal one and the <code class="language-markup">.opening</code> one.<br />
-    The background-color which comes while you hover the button is the <code class="language-markup">.txt-color</code> class on the
+    Two different designs are available, the normal one and the <code class="language-markup">.btn-opening</code> one.<br />
+    The background-color which comes while you hover the button is the <code class="language-markup">.text-color</code> class on the
     button. <br />
-    <b>Note that the span inside the button needs to get the</b> <code class="language-markup">.outline-text</code>
+    <b>Note that the span inside the button needs to get the</b> <code class="language-markup">.btn-outline-text</code>
     <b> class to work.</b>
   </p>
 
   <div class="grix xs2">
-    <button class="btn shadow-1 rounded-1 outline txt-blue"><span class="outline-text">Outline</span></button>
-    <button class="btn shadow-1 rounded-1 outline opening txt-blue"><span class="outline-text">Opening</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline text-blue"><span class="btn-outline-text">Outline</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline btn-opening text-blue"><span class="btn-outline-text">Opening</span></button>
   </div>
 
   <script type="text/plain" class="language-markup">
-    <button class="btn shadow-1 rounded-1 outline txt-blue"><span class="outline-text">Outline</span></button>
-    <button class="btn shadow-1 rounded-1 outline opening txt-blue"><span class="outline-text">Opening</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline text-blue"><span class="btn-outline-text">Outline</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline btn-opening text-blue"><span class="btn-outline-text">Opening</span></button>
   </script>
 
   <h4 class="subtitle" id="invert-outline-buttons">Invert outline buttons</h4>
   <p>
     Outline buttons are using a white text color when hovered. To make the text black on hover, simply add the
-    <code class="language-css">.outline-invert</code> class on the span containing the text. <br />
+    <code class="language-css">.btn-outline-invert</code> class on the span containing the text. <br />
     This is useful for outline buttons using a light color.
   </p>
   <div class="grix xs2">
-    <button class="btn shadow-1 rounded-1 outline txt-airforce txt-light-2"><span class="outline-text outline-invert">Outline</span></button>
-    <button class="btn shadow-1 rounded-1 outline opening txt-airforce txt-light-2"><span class="outline-text outline-invert">Opening</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline text-airforce text-light-2"><span class="btn-outline-text btn-outline-invert">Outline</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline btn-opening text-airforce text-light-2"><span class="btn-outline-text btn-outline-invert">Opening</span></button>
   </div>
   <script type="text/plain" class="language-markup">
-    <button class="btn shadow-1 rounded-1 outline txt-blue txt-light-3"><span class="outline-text outline-invert">Outline</span></button>
-    <button class="btn shadow-1 rounded-1 outline opening txt-airforce txt-light-2"><span class="outline-text outline-invert">Opening</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline text-blue text-light-3"><span class="btn-outline-text btn-outline-invert">Outline</span></button>
+    <button class="btn shadow-1 rounded-1 btn-outline btn-opening text-airforce text-light-2"><span class="btn-outline-text btn-outline-invert">Opening</span></button>
   </script>
 
   <h2 class="subtitle" id="rounded-buttons">Rounded buttons</h2>
   <p>
-    Buttons can be rounded using the <a class="txt-primary" href="{{< ref "rounded" >}}">rounded</a> classes. <br />
+    Buttons can be rounded using the <a class="text-primary" href="{{< ref "rounded" >}}">rounded</a> classes. <br />
   </p>
 
   <button class="btn shadow-1 primary rounded-4">Rounded 4</button>
@@ -99,36 +99,36 @@ sidenav: components
 
   <h2 class="subtitle" id="buttons-sizes">Button sizes</h2>
   <p>
-    All buttons have 3 different sizes we have preset. The basic <code class="language-css">.btn</code> class is the normal button. You
-    can use <code class="language-css">.small</code>, and <code class="language-css">.large</code> classes too.
+    All buttons can be set to 3 different sizes. The basic <code class="language-css">.btn</code> class is the normal button. You
+    can use <code class="language-css">.btn-small</code>, and <code class="language-css">.btn-large</code> classes too.
     <br />
-    Note that <code class="language-css">.push</code>, <code class="language-css">.press</code> and
-    <code class="language-css">.outline</code> classes work fine with all sizes, so you can use any of them.
+    Note that <code class="language-css">.btn-press</code> and
+    <code class="language-css">.btn-outline</code> classes work fine with all sizes, so you can use any of them.
   </p>
 
   <h4 class="subtitle" id="normal">Normal</h4>
 
   <div class="grix xs1 sm3">
-    <button class="btn shadow-1 rounded-1 small primary uppercase">button</button>
-    <button class="btn shadow-1 rounded-1 primary uppercase">button</button>
-    <button class="btn shadow-1 rounded-1 large primary uppercase">button</button>
+    <button class="btn shadow-1 rounded-1 btn-small primary">Button</button>
+    <button class="btn shadow-1 rounded-1 primary">Button</button>
+    <button class="btn shadow-1 rounded-1 btn-large primary">Button</button>
   </div>
   <script type="text/plain" class="language-markup">
-    <button class="btn shadow-1 rounded-1 small primary uppercase">button</button>
-    <button class="btn shadow-1 rounded-1 primary uppercase">button</button>
-    <button class="btn shadow-1 rounded-1 large primary uppercase">button</button>
+    <button class="btn shadow-1 rounded-1 btn-small primary">Button</button>
+    <button class="btn shadow-1 rounded-1 primary">Button</button>
+    <button class="btn shadow-1 rounded-1 btn-large primary">Button</button>
   </script>
 
   <h4 class="subtitle" id="circle">Circle</h4>
   <div class="grix xs1 sm3">
-    <button class="btn shadow-1 small circle primary"><i class="fas fa-thumbs-up"></i></button>
-    <button class="btn shadow-1 circle primary"><i class="fas fa-thumbs-up"></i></button>
-    <button class="btn shadow-1 large circle primary"><i class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-small btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-large btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   </div>
   <script type="text/plain" class="language-markup">
-    <button class="btn shadow-1 small circle primary"><i class="fas fa-thumbs-up"></i></button>
-    <button class="btn shadow-1 circle primary"><i class="fas fa-thumbs-up"></i></button>
-    <button class="btn shadow-1 large circle primary"><i class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-small btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
+    <button class="btn shadow-1 btn-large btn-circle primary"><i aria-hidden="true" class="fas fa-thumbs-up"></i></button>
   </script>
 
   <h2 class="subtitle" id="disabled-buttons">Disabled buttons</h2>
@@ -137,11 +137,11 @@ sidenav: components
     disabled, even if you let all precedent classes on it.
   </p>
   <div class="d-flex vcenter button-container">
-    <button class="btn rounded-1 red small disabled">Disabled button</button>
-    <button class="btn shadow-1 circle blue press" disabled><i class="fas fa-thumbs-down"></i></button>
+    <button class="btn rounded-1 red btn-small disabled">Disabled button</button>
+    <button class="btn shadow-1 btn-circle blue btn-press" disabled><i aria-hidden="true" class="fas fa-thumbs-down"></i></button>
   </div>
   <script type="text/plain" class="language-markup">
-    <button class="btn rounded-1 red small disabled">Disabled button</button>
-    <button class="btn shadow-1 circle blue press" disabled><i class="fas fa-thumbs-down"></i></i></button>
+    <button class="btn rounded-1 red btn-small disabled">Disabled button</button>
+    <button class="btn shadow-1 btn-circle blue btn-press" disabled><i aria-hidden="true" class="fas fa-thumbs-down"></i></i></button>
   </script>
 </div>
