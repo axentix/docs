@@ -11,7 +11,7 @@ sidenav: forms
 <p>
   To create a normal switch, you need to create a <code class="language-css">.form-switch</code> label, which contains
   an input <code class="language-js">type="checkbox"</code> and a span. <br />
-  This last span is the slider, and have to get the <code class="language-css">.slider</code> class. <br />
+  This last span is the slider, and have to get the <code class="language-css">.form-slider</code> class. <br />
   You can add the <code class="language-js">checked</code> attribute to the input to check the switch.
 </p>
 
@@ -20,7 +20,7 @@ sidenav: forms
     <label class="form-switch mt-2">
       Off
       <input type="checkbox" checked />
-      <span class="slider"></span>
+      <span class="form-slider"></span>
       On
     </label>
   </div>
@@ -32,7 +32,7 @@ sidenav: forms
       <label class="form-switch mt-2">
         Off
         <input type="checkbox" />
-        <span class="slider"></span>
+        <span class="form-slider"></span>
         On
       </label>
     </div>
@@ -44,8 +44,8 @@ sidenav: forms
 <p>
   You can use the form-slider-thin switches if you want an other switch design.
   <br />
-  To use them, simply add the <code class="language-css">.thin</code> class to the
-  <code class="language-css">.slider</code> span.
+  To use them, simply add the <code class="language-css">.form-slider-thin</code> class to the
+  <code class="language-css">.form-slider</code> span.
 </p>
 
 <form class="form-material mb-4">
@@ -53,7 +53,7 @@ sidenav: forms
     <label class="form-switch mt-2">
       Off
       <input type="checkbox" checked />
-      <span class="form-slider thin"></span>
+      <span class="form-slider form-slider-thin"></span>
       On
     </label>
   </div>
@@ -65,7 +65,7 @@ sidenav: forms
       <label class="form-switch mt-2">
         Off
         <input type="checkbox" checked />
-        <span class="form-slider thin"></span>
+        <span class="form-slider form-slider-thin"></span>
         On
       </label>
     </div>
@@ -76,8 +76,8 @@ sidenav: forms
 
 <p>
   All switches have 3 different sizes we have preset. To use these sizes, simply add the
-  <code class="language-css">.small</code> or <code class="language-css">.large</code> class on the
-  <code class="language-css">.slider</code> span.
+  <code class="language-css">.form-slider-small</code> or <code class="language-css">.form-slider-large</code> class on
+  the <code class="language-css">.form-slider</code> span.
 </p>
 
 <form class="form-material mb-4">
@@ -86,21 +86,21 @@ sidenav: forms
       <label class="form-switch pos-row-sm1">
         Off
         <input type="checkbox" />
-        <span class="form-slider small"></span>
+        <span class="form-slider form-slider-small"></span>
         On
       </label>
 
       <label class="form-switch pos-row-xs2 pos-row-sm1">
         Off
         <input type="checkbox" checked />
-        <span class="slider"></span>
+        <span class="form-slider"></span>
         On
       </label>
 
       <label class="form-switch pos-row-xs3 pos-row-sm1">
         Off
         <input type="checkbox" />
-        <span class="form-slider large"></span>
+        <span class="form-slider form-slider-large"></span>
         On
       </label>
 
@@ -114,14 +114,14 @@ sidenav: forms
       <label class="form-switch">
         Off
         <input type="checkbox" />
-        <span class="form-slider thin"></span>
+        <span class="form-slider form-slider-thin"></span>
         On
       </label>
 
       <label class="form-switch">
         Off
         <input type="checkbox" checked />
-        <span class="form-slider form-slider-thin large"></span>
+        <span class="form-slider form-slider-thin form-slider-large"></span>
         On
       </label>
     </div>
@@ -132,24 +132,23 @@ sidenav: forms
   <form class="form-material">
     <div class="form-field form-default">
       <div class="grix xs2 sm3">
-
         <!-- Normal switches -->
         <label class="form-switch">
           Off
           <input type="checkbox" />
-          <span class="form-slider small"></span>
+          <span class="form-slider form-slider-small"></span>
           On
         </label>
         <label class="form-switch">
           Off
           <input type="checkbox" checked />
-          <span class="slider"></span>
+          <span class="form-slider"></span>
           On
         </label>
         <label class="form-switch">
           Off
           <input type="checkbox" />
-          <span class="form-slider large"></span>
+          <span class="form-slider form-slider-large"></span>
           On
         </label>
 
@@ -157,19 +156,19 @@ sidenav: forms
         <label class="form-switch">
           Off
           <input type="checkbox" checked />
-          <span class="form-slider form-slider-thin small"></span>
+          <span class="form-slider form-slider-thin form-slider-small"></span>
           On
         </label>
         <label class="form-switch">
           Off
           <input type="checkbox" />
-          <span class="form-slider thin"></span>
+          <span class="form-slider form-slider-thin"></span>
           On
         </label>
         <label class="form-switch">
           Off
           <input type="checkbox" checked />
-          <span class="form-slider form-slider-thin large"></span>
+          <span class="form-slider form-slider-thin form-slider-large"></span>
           On
         </label>
       </div>

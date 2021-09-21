@@ -18,30 +18,26 @@ sidenav: components
   </script>
 
   <h2 class="subtitle" id="large-footer">Large footer</h2>
-  <p>
-    To use a large footer, add the <code class="language-css">.large</code> class to your footer who already contains
-    the <code class="language-css">.footer</code> class. <br /><br />
-    Here is an example of large footer we can create.
-  </p>
+  <p>To create a large footer, use the flexbox <a class="text-primary" href="{{< ref "flexbox" >}}">utility classes.</a></p>
   <div class="example-footer">
-    <footer class="large-footer primary">
+    <footer class="d-flex fx-col blue">
       <div class="container">
         <div class="grix xs3">
-          <div class="footer-content">
+          <div>
             <h6>Left side of the footer</h6>
             <p>
               This is my phone number<br />
               01 23 45 67 89
             </p>
           </div>
-          <div class="footer-content text-center">
+          <div class="text-center">
             <h6>Middle of the footer</h6>
             <p>
               Welcome<br />
               I'm under "Welcome"
             </p>
           </div>
-          <div class="footer-content text-right">
+          <div class="text-right">
             <h6>Right side of the footer</h6>
             <p>
               This is my address<br />
@@ -50,28 +46,28 @@ sidenav: components
           </div>
         </div>
       </div>
-      <div class="footer fx-center">Copyright © {{< year >}} - Example</div>
+      <div class="footer fx-center blue dark-1">Copyright © {{< year >}} - Example</div>
     </footer>
   </div>
   <script type="text/plain" class="language-markup">
-    <footer class="large-footer primary">
+    <footer class="d-flex fx-col blue">
       <div class="container">
         <div class="grix xs3">
-          <div class="footer-content">
+          <div>
             <h6>Left side of the footer</h6>
             <p>
               This is my phone number<br />
               01 23 45 67 89
             </p>
           </div>
-          <div class="footer-content text-center">
+          <div class="text-center">
             <h6>Middle of the footer</h6>
             <p>
               Welcome<br />
               I'm under "Welcome"
             </p>
           </div>
-          <div class="footer-content text-right">
+          <div class="text-right">
             <h6>Right side of the footer</h6>
             <p>
               This is my address<br />
@@ -80,7 +76,7 @@ sidenav: components
           </div>
         </div>
       </div>
-      <div class="footer fx-center">Copyright © {{< year >}} - Example</div>
+      <div class="footer fx-center blue dark-1">Copyright © {{< year >}} - Example</div>
     </footer>
   </script>
 </div>

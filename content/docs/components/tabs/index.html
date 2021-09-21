@@ -6,7 +6,7 @@ sidenav: components
 scripts:
   - '
   <script>
-    let axentixTabs = new Axentix("tab");
+    let axentixTabs = new Axentix.Axentix("tab");
   </script>'
 ---
 
@@ -64,12 +64,12 @@ scripts:
   You can add the <code class="language-css">.active</code> class to your tab link to make it the opened tab when the
   page is loaded.
   <br />
-  The <code class="language-css">.full-width</code> class on the tab make all the
+  The <code class="language-css">.tab-full-width</code> class on the tab make all the
   <code class="language-css">.tab-link</code> take the full width of the tab. <br />
   Here, the second tab-link is active, and all the tabs take the full width.
 </p>
 
-<div class="tab shadow-1 full-width" id="example-active-tab">
+<div class="tab shadow-1 tab-full-width" id="example-active-tab">
   <ul class="tab-menu">
     <li class="tab-link">
       <a href="#active-tab1">Tab 1</a>
@@ -84,7 +84,7 @@ scripts:
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="tab shadow-1 full-width" id="example-tab" data-ax="tab">
+  <div class="tab shadow-1 tab-full-width" id="example-tab" data-ax="tab">
     <ul class="tab-menu">
       <li class="tab-link">
         <a href="#tab1">Tab 1</a>
@@ -240,8 +240,8 @@ scripts:
 
 <h2 class="subtitle" id="Options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option">
     <thead>
       <tr>
         <th>Property</th>
@@ -295,8 +295,8 @@ scripts:
   tab.select();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Method</th>
@@ -350,8 +350,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Event</th>

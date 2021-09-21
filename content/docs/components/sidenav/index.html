@@ -16,7 +16,6 @@ scripts:
 
 <div id="example-sidenav" class="sidenav shadow-1 white">
   <div class="sidenav-header">
-    <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
     <img class="sidenav-logo dropshadow-1" src="{{< link url="img/axentix.svg" >}}" alt="Axentix Logo" />
   </div>
   <a href="#" class="sidenav-link active">Link 1</a>
@@ -31,7 +30,7 @@ scripts:
   We used this method to transform a classical navbar into a easy navigation component in smaller screen resolution.<br />
   <b>Please note that the sidenav must be placed outside of the header, nav, main or footer HTML element.</b>
 </p>
-<button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger mx-auto">Open sidenav</button>
+<button data-target="example-sidenav" class="btn rounded-1 btn-press primary sidenav-trigger mx-auto">Open sidenav</button>
 
 <p>
   To use the <strong>sidenav</strong>, you must have a button or element with
@@ -43,7 +42,6 @@ scripts:
 <script type="text/plain" class="language-markup">
   <div class="sidenav shadow-1 white" id="example-sidenav" data-ax="sidenav">
     <div class="sidenav-header">
-      <button data-target="example-sidenav" class="sidenav-trigger"><i class="fas fa-times"></i></button>
       <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
     </div>
     <a href="#" class="sidenav-link active">Link 1</a>
@@ -55,7 +53,7 @@ scripts:
     </div>
   </div>
 
-  <button data-target="example-sidenav" class="btn rounded-1 press primary sidenav-trigger">Open sidenav</button>
+  <button data-target="example-sidenav" class="btn rounded-1 btn-press primary sidenav-trigger">Open sidenav</button>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
@@ -81,7 +79,7 @@ scripts:
 
 <h2 class="subtitle" id="fixed-sidenav">Fixed sidenav</h2>
 <p>
-  Fix your <strong>sidenav</strong> using the <code class="language-markup">.fixed</code> class. This makes it visible
+  Fix your <strong>sidenav</strong> using the <code class="language-markup">.sidenav-fixed</code> class. This makes it visible
   on any screen larger than <code class="language-markup">.md</code> breakpoint. <br />
   <b>
     Note that you can't trigger a fixed sidenav on a screen larger than
@@ -89,24 +87,17 @@ scripts:
   </b>
 </p>
 
-<h2 class="subtitle" id="large-sidenav">Large sidenav</h2>
+<h2 class="subtitle" id="sidenav-right">Sidenav right</h2>
 <p>
-  Add the <code class="language-css">.large</code> class to your <strong>sidenav container</strong> to get a larger
-  sidenav. Works in layouts !<br />
-  Both width sizes are configurable in the SCSS Variables file.
-</p>
-
-<h2 class="subtitle" id="right-aligned">Right aligned</h2>
-<p>
-  With the <code class="language-css">.right-aligned</code> class added to your <strong>sidenav container</strong>, you
+  With the <code class="language-css">.sidenav-right</code> class added to your <strong>sidenav container</strong>, you
   can align your sidenav on the right side of your website.<br />
   Works in layouts too !
 </p>
 
 <h2 class="subtitle" id="options">Options</h2>
 
-<div class="responsive-table">
-  <table class="table hover option">
+<div class="table-responsive">
+  <table class="table table-hover option">
     <thead>
       <tr>
         <th>Property</th>
@@ -144,8 +135,8 @@ scripts:
   exampleSidenav.close();
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Method</th>
@@ -187,8 +178,8 @@ scripts:
   });
 </script>
 
-<div class="responsive-table">
-  <table class="table hover method-event">
+<div class="table-responsive">
+  <table class="table table-hover method-event">
     <thead>
       <tr>
         <th>Event</th>
