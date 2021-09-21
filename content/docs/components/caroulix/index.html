@@ -22,10 +22,10 @@ sidenav: components
 <div class="container custom-container ml-0">
   <div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
     <div class="caroulix-arrow caroulix-prev">
-      <i class="fas fa-chevron-left"></i>
+      <i aria-hidden="true" class="fas fa-chevron-left"></i>
     </div>
     <div class="caroulix-arrow caroulix-next">
-      <i class="fas fa-chevron-right"></i>
+      <i aria-hidden="true" class="fas fa-chevron-right"></i>
     </div>
     <div class="caroulix-item">
       <img src="https://picsum.photos/800/450?random=1" alt="img1" />
@@ -45,10 +45,10 @@ sidenav: components
 <script type="text/plain" class="language-markup">
 <div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
   <div class="caroulix-arrow caroulix-prev">
-    <i class="fas fa-chevron-left"></i>
+    <i aria-hidden="true" class="fas fa-chevron-left"></i>
   </div>
   <div class="caroulix-arrow caroulix-next">
-    <i class="fas fa-chevron-right"></i>
+    <i aria-hidden="true" class="fas fa-chevron-right"></i>
   </div>
   <div class="caroulix-item">
     <img src="https://picsum.photos/800/450?random=1" alt="img1" />
@@ -264,7 +264,7 @@ sidenav: components
 <h2 class="subtitle" id="options">Options</h2>
 
 <div class="table-responsive">
-  <table class="table table-hover option">
+  <table class="table table-hover option" aria-label="Options">
     <thead>
       <tr>
         <th>Property</th>
@@ -350,7 +350,7 @@ caroulix.next();
 </script>
 
 <div class="table-responsive">
-  <table class="table table-hover method-event">
+  <table class="table table-hover method-event" aria-label="Methods">
     <thead>
       <tr>
         <th>Method</th>
@@ -414,7 +414,7 @@ caroulix.next();
 </script>
 
 <div class="table-responsive">
-  <table class="table table-hover method-event">
+  <table class="table table-hover method-event" aria-label="Events">
     <thead>
       <tr>
         <th>Event</th>

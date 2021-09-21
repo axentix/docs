@@ -1,11 +1,11 @@
 <div class="sidenav-header">
-  <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle btn-small transparent hide-md-up"><i class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle btn-small transparent hide-md-up"><i aria-hidden="true" class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix Logo" />
 
   {{ $currentBranch := getenv "AX_CURRENT_BRANCH" | default .Site.Params.current }}
   <div class="dropdown" id="dropdown" data-ax="dropdown" >
     <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-      {{ $currentBranch }} <i class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
+      {{ $currentBranch }} <i aria-hidden="true" class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
     </div>
 
     {{ $url := .Site.BaseURL }}
@@ -93,6 +93,6 @@
 {{ end }}
 
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
-  <i class="fab fa-discord"></i> &nbsp;
+  <i aria-hidden="true" class="fab fa-discord"></i> &nbsp;
   Join us
 </a>

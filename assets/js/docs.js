@@ -1,7 +1,11 @@
 let sidenavDoc = new Axentix.Sidenav('#main-sidenav');
 
 setTimeout(() => {
-  new Axentix.Axentix('collapsible');
+  try {
+    new Axentix.Axentix('collapsible');
+  } catch (error) {
+    console.error(error);
+  }
 }, 50);
 
 let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
