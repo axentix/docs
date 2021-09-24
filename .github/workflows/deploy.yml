@@ -21,6 +21,7 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@master
         with:
           repository: axentix/axentix
+          excludes: prerelease, draft
 
       - name: Get destination directory
         id: dest-dir
