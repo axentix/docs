@@ -2,7 +2,6 @@
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
-// @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 html,
 body {
@@ -11,8 +10,6 @@ body {
 }
 
 .navbar-fixed .topbar {
-  // background: linear-gradient(90deg, rgba(63,63,63,1) 0%, rgba(79,79,79,1) 50%, rgba(63,63,63,1) 100%);
-  // background: linear-gradient(90deg, rgba(80,22,167,1) 0%, rgba(97,29,199,1) 50%, rgba(80,22,167,1) 100%);
   background: linear-gradient(90deg, rgba(53,77,89,1) 0%, rgba(82,115,131,1) 50%, rgba(53,77,89,1) 100%);
   color: #fff;
 }
