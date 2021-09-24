@@ -33,7 +33,7 @@
         >Get Started</a
       >
       <br />
-      {{ $latestVersion := getenv "AX_LATEST_VERSION" }}
+      {{ $latestVersion := (.Site.Params.current | default (getenv "AX_LATEST_VERSION")) }}
       <em class="text-grey text-dark-3">Latest version: {{ $latestVersion }}</em>
     </div>
   </div>
