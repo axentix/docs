@@ -217,22 +217,6 @@ sidenav: forms
   work.
 </p>
 
-<div class="tips rounded-2 light-shadow-4 grey light-4">
-  <i aria-hidden="true" class="fas fa-lightbulb text-yellow text-light-1 tips-icon"></i>
-  <div class="px-3">
-    <h6 class="pt-3">Tips</h6>
-    <p class="mt-3">
-      You'll want to change the material color to make it match to your website design. <br />
-      The following code makes you able to change it :
-    </p>
-  </div>
-  <script type="text/plain" class="language-css">
-        .form-material .form-field:not(.form-default) {
-      --form-material-color: #e92626; /* replace with your color */
-    }
-  </script>
-</div>
-
 <h2 class="subtitle" id="methods">Methods</h2>
 
 <script type="text/plain" class="language-js">
@@ -256,6 +240,76 @@ sidenav: forms
       <tr>
         <td>Axentix.updateInputs()</td>
         <td>This method is scanning the HTML page to update all the inputs.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+        
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-color</code>
+        </td>
+        <td>#4D9F85</td>
+        <td>
+          Global material color.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-transition-duration</code>
+        </td>
+        <td>0.3s</td>
+        <td>
+          Material form transition duration.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-label-color</code>
+        </td>
+        <td>#7C7C7C</td>
+        <td>
+          Material form label color.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-border</code>
+        </td>
+        <td>1px solid #c7c7c7</td>
+        <td>
+          Material form border.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-disabled-border</code>
+        </td>
+        <td>1px dashed #c7c7c7</td>
+        <td>
+          Material form disabled border.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-material-active-border</code>
+        </td>
+        <td>1px solid #4D9F85</td>
+        <td>
+          Material form active border.
+        </td>
       </tr>
     </tbody>
   </table>
