@@ -6,45 +6,77 @@ type: "docs"
 sidenav: components
 ---
 
+<h2 class="subtitle" id="basic-alerts">Basic alerts</h2>
+
 <p>
-  The Axentix alert is a simple component made using only our utilities classes. You can create dynamic and modern alerts using the
+  The Axentix <strong>alert</strong> is a simple component made using only our <strong>utilities classes</strong>. You can create dynamic and modern alerts using the
   <a class="txt-primary" href="{{< ref "toast" >}}">toasts</a>.<br />
-  Creating simple alerts is easy using our utilities classes. Here are some examples you can use :
+  Creating <strong>simple alerts</strong> is easy using our utilities classes. Here are some examples you can use :
 </p>
 
-<div class="p-3 my-2 rounded-2 primary">This is an informative alert</div>
-<div class="p-3 my-2 rounded-2 success">This is a success alert</div>
-<div class="p-3 my-2 rounded-2 error">This is an error alert</div>
+<div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3">This is an informative alert</div>
+<div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4">This is a success alert</div>
+<div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4">This is a warning alert</div>
+<div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4">This is an error alert</div>
 
 <script type="text/plain" class="language-markup">
-  <div class="p-3 my-2 rounded-2 primary">This is an informative alert</div>
-  <div class="p-3 my-2 rounded-2 success">This is a success alert</div>
-  <div class="p-3 my-2 rounded-2 error">This is an error alert</div>
+  <div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3">This is an informative alert</div>
+  <div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4">This is a success alert</div>
+  <div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4">This is a warning alert</div>
+  <div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4">This is an error alert</div>
 </script>
 
-<h2 class="subtitle" id="custom-alerts">Custom alerts</h2>
+<h2 class="subtitle" id="bordered-alerts">Bordered alerts</h2>
 <p>
-  You can create more detailed alerts using other classes. Here are more examples :
+  You can create more <strong>detailed alerts</strong> using border classes. Here are more examples :
 </p>
 
-<div class="p-3 rounded-2 primary">
-  <h4 class="font-w500">This a big header</h4>
-  <div class="divider"></div>
-  <p>This is the alert text under a divider.</p>
-</div>
+<div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3 bd-solid bd-blue bd-light-1 bd-1">This is an informative alert</div>
+<div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4 bd-solid bd-green bd-dark-1 bd-1">This is a success alert</div>
+<div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">This is a warning alert</div>
+<div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4 bd-solid bd-red bd-1">This is an error alert</div>
 
-<div class="my-4 p-4 success shadow-1 hoverable-1">
-  This is a hoverable alert with a bigger padding, try to hover me.
+<script type="text/plain" class="language-markup">
+  <div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3 bd-solid bd-blue bd-light-1 bd-1">This is an informative alert</div>
+  <div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4 bd-solid bd-green bd-dark-1 bd-1">This is a success alert</div>
+  <div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">This is a warning alert</div>
+  <div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4 bd-solid bd-red bd-1">This is an error alert</div>
+</script>
+
+<h2 class="subtitle" id="alerts-with-icons">Alerts with icons</h2>
+
+<p>
+  You can use icons to make your <strong>alerts</strong> more understandable for your users. <br>
+  To get icons, you can use <strong>Font Awesome</strong> or <strong>MDI</strong> icons.
+</p>
+
+<div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3 bd-solid bd-blue bd-light-1 bd-1">
+  <i class="fas fa-info-circle mr-2" aria-hidden="true"></i> This is an informative alert
+</div>
+<div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4 bd-solid bd-green bd-dark-1 bd-1">
+  <i class="fas fa-check mr-2" aria-hidden="true"></i> This is a success alert
+</div>
+<div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">
+  <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i> This is a warning alert
+</div>
+<div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4 bd-solid bd-red bd-1">
+  <i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i> This is an error alert
 </div>
 
 <script type="text/plain" class="language-markup">
-    <div class="p-3 rounded-2 primary">
-    <h4 class="font-w500">This a big header</h4>
-    <div class="divider"></div>
-    <p>This is the alert text under a divider.</p>
+  <div class="p-3 my-2 rounded-1 blue light-4 txt-blue txt-dark-3 bd-solid bd-blue bd-light-1 bd-1">
+    <i class="fas fa-info-circle mr-2" aria-hidden="true"></i> This is an informative alert
   </div>
 
-  <div class="my-4 p-4 success light-shadow-2 light-hoverable-2">
-    This is a hoverable alert with a bigger padding, try to hover me.
+  <div class="p-3 my-2 rounded-1 green light-4 txt-green txt-dark-4 bd-solid bd-green bd-dark-1 bd-1">
+    <i class="fas fa-check mr-2" aria-hidden="true"></i> This is a success alert
+  </div>
+
+  <div class="p-3 my-2 rounded-1 yellow light-4 txt-yellow txt-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">
+    <i class="fas fa-exclamation-triangle mr-2" aria-hidden="true"></i> This is a warning alert
+  </div>
+
+  <div class="p-3 my-2 rounded-1 red light-4 txt-red txt-dark-4 bd-solid bd-red bd-1">
+    <i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i> This is an error alert
   </div>
 </script>
