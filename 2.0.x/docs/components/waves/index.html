@@ -1,9 +1,9 @@
 <!doctype html><html lang=en>
 <head>
-<title>Layouts - Axentix</title>
-<meta name=description content="The axentix layouts allow you to start creating a website with a basic layout template. You can change the layout appearance by only changing the body classes.">
-<meta property="og:description" content="The axentix layouts allow you to start creating a website with a basic layout template. You can change the layout appearance by only changing the body classes.">
-<meta property="og:title" content="Layouts - Axentix"><meta charset=utf-8>
+<title>Waves (ripple) - Axentix</title>
+<meta name=description content="Axentix waves. Also knwon as ripple effect, the waves allow you to create an animation when clicking on an element of the page. You can custom the waves color at any time by specifying it.">
+<meta property="og:description" content="Axentix waves. Also knwon as ripple effect, the waves allow you to create an animation when clicking on an element of the page. You can custom the waves color at any time by specifying it.">
+<meta property="og:title" content="Waves (ripple) - Axentix"><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=author content="Axentix Team">
 <meta name=copyright content="axentix team">
@@ -24,7 +24,6 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
 <link rel=stylesheet href=/2.0.x/axentix/axentix.min.a102e2d87fa9a21d15f994a456abd89e8f32cedf5e38b742d00d8f0b6c81730f.css>
 <link rel=stylesheet href=/2.0.x/docs.16974c25ab6178f1918b81e42019f568bbbd937baef1afa6d927a2e6a95a2468.css>
-<link rel=stylesheet href=/2.0.x/css/style.c0965a2213217069fc4df574880ef80efc7869d89985377557937198ad5e89e5.css>
 </head>
 <body class=layout-under-navbar><header>
 <div class=navbar-fixed>
@@ -57,10 +56,10 @@
 2.0.x <i aria-hidden=true class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
 </div>
 <div class="version-selector dropdown-content white dropdown-constrain-width light-shadow-2">
-<a href=https://useaxentix.com/2.0.x/docs/general/layouts/ class="text-center py-3 font-w600">
+<a href=https://useaxentix.com/2.0.x/docs/components/waves/ class="text-center py-3 font-w600">
 2.0.x
 </a>
-<a href=https://useaxentix.com/docs/general/layouts/ class="text-center py-3">
+<a href=https://useaxentix.com/docs/components/waves/ class="text-center py-3">
 Latest 1.3.x
 </a>
 </div>
@@ -80,7 +79,7 @@ Getting started
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/general/colors/>Colors</a>
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/general/grix/>Grix</a>
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/general/js-init/>JS Init</a>
-<a class="sidenav-link active" href=https://useaxentix.com/2.0.x/docs/general/layouts/>Layouts</a>
+<a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/general/layouts/>Layouts</a>
 </div>
 </div>
 <a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
@@ -106,7 +105,7 @@ Getting started
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/components/tabs/>Tabs</a>
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/components/toast/>Toast</a>
 <a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/components/tooltip/>Tooltip</a>
-<a class=sidenav-link href=https://useaxentix.com/2.0.x/docs/components/waves/>Waves (ripple)</a>
+<a class="sidenav-link active" href=https://useaxentix.com/2.0.x/docs/components/waves/>Waves (ripple)</a>
 </div>
 </div>
 <a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
@@ -150,235 +149,69 @@ Join us
 <div class="main-content container">
 <div class="docs-head d-flex">
 <div>
-<h1 id=title>Layouts</h1>
-<p>Use our layouts to make responsive pages easily.</p>
+<h1 id=title>Waves (ripple)</h1>
+<p></p>
 </div>
 <div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
 </div>
 <div class="d-flex relative-pos">
 <div class=content>
-<h2 class=subtitle id=multiple-layouts>Multiple layouts</h2>
+<h2 class=subtitle id=basic-waves>Basic waves</h2>
 <p>
-We provided multiple layouts to build wonderful pages with less code.<br>
-To use layout, you must have the basic HTML syntax below, who contains a header, a main and a footer.
+Also known as <strong>ripple effect</strong>, <strong>waves</strong> are used to add a <strong>smooth animation</strong> to any element when clicking on it. <br>
+Adding <strong>waves</strong> to an element only require to add the <code class=language-markup>ax-waves</code> attribute to it.
+<br>
+Click on the next examples to see the <strong>waves</strong> effect :
 </p>
+<button ax-waves class="btn primary rounded-1">Click me</button>
+<script type=text/plain class="language-markup mt-5">
+  <button ax-waves class="btn primary rounded-1">Click me</button>
+</script>
+<h2 class=subtitle id=waves-on-images>Waves on images</h2>
 <p>
-<strong>For all layouts, the footer is placed at the bottom of the screen.</strong><br>
-<em class="text-grey text-dark-2">Try this example on Desktop for a better experience.</em>
+<strong>Waves</strong> are working on <code class=language-markup>img</code> and <code class=language-markup>video</code> elements too. <br>
+The only difference is functional, the <strong>waves element</strong> will be append to the body and not inside of the element.
 </p>
-<div class="device device-macbook-pro device-spacegray my-5">
-<div class=device-frame>
-<img src=https://useaxentix.com/2.0.x//img/layouts/basic.gif class="responsive-media example-image" alt=layout>
-</div>
-<div class=device-stripe></div>
-<div class=device-header></div>
-<div class=device-sensors></div>
-<div class=device-btns></div>
-<div class=device-power></div>
-</div>
-<div class="tab shadow-1 full-width" id=tab data-ax=tab>
-<ul class=tab-menu>
-<li class="tab-link active">
-<a href=#tab1>Basic layout</a>
-</li>
-<li class=tab-link>
-<a href=#tab2>With sidenav</a>
-</li>
-<li class=tab-link>
-<a href=#tab3>Sidenav fixed</a>
-</li>
-<li class=tab-link>
-<a href=#tab4>Under navbar</a>
-</li>
-</ul>
-<div id=tab1 class="example basic">
-<script type=text/plain class="language-markup code-max-height">
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Axentix Layout</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.css">
-        </head>
-
-        <body class="layout">
-          <header>
-            <nav class="navbar shadow-1 primary">
-              <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-              <div class="navbar-menu ml-auto">
-                <a class="navbar-link" href="#">Link 1</a>
-                <a class="navbar-link" href="#">Link 2</a>
-                <a class="navbar-link" href="#">Link 3</a>
-                <a class="navbar-link" href="#">Link 4</a>
-              </div>
-            </nav>
-          </header>
-
-          <main>
-            <!-- Code here the main content -->
-          </main>
-
-          <footer class="footer primary">
-            Copyright © 2021 - Example
-          </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.js">&lt;/script>
-        </body>
-      </html>
-    </script>
-</div>
-<div id=tab2 class=example>
-<script type=text/plain class="language-markup code-max-height">
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Axentix Layout - Sidenav</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.css">
-        </head>
-
-        <body class="layout-sidenav">
-          <header>
-            <nav class="navbar shadow-1 primary">
-              <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-              <div class="navbar-menu ml-auto">
-                <a class="navbar-link" href="#">Link 1</a>
-                <a class="navbar-link" href="#">Link 2</a>
-                <a class="navbar-link" href="#">Link 3</a>
-                <a class="navbar-link" href="#">Link 4</a>
-              </div>
-            </nav>
-          </header>
-
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
-            <div class="sidenav-header">
-              <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
-            </div>
-            <a href="#" class="sidenav-link active">Link 1</a>
-            <a href="#" class="sidenav-link">Link 2</a>
-            <a href="#" class="sidenav-link">Link 3</a>
-            <a href="#" class="sidenav-link">Link 4</a>
-          </div>
-
-          <main>
-            <!-- Code here the main content -->
-            <button data-target="example-sidenav"
-              class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
-                Open sidenav
-            </button>
-          </main>
-
-          <footer class="footer primary">
-            Copyright © 2021 - Example
-          </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.js">&lt;/script>
-        </body>
-      </html>
-    </script>
-</div>
-<div id=tab3 class=example>
-<script type=text/plain class="language-markup code-max-height">
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Axentix Layout - Sidenav fixed</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.css">
-        </head>
-
-        <body class="layout-sidenav-fixed">
-          <header>
-            <nav class="navbar shadow-1 primary">
-              <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-              <div class="navbar-menu ml-auto">
-                <a class="navbar-link" href="#">Link 1</a>
-                <a class="navbar-link" href="#">Link 2</a>
-                <a class="navbar-link" href="#">Link 3</a>
-                <a class="navbar-link" href="#">Link 4</a>
-              </div>
-            </nav>
-          </header>
-
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
-            <div class="sidenav-header">
-              <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
-            </div>
-            <a href="#" class="sidenav-link active">Link 1</a>
-            <a href="#" class="sidenav-link">Link 2</a>
-            <a href="#" class="sidenav-link">Link 3</a>
-            <a href="#" class="sidenav-link">Link 4</a>
-          </div>
-
-          <main>
-            <!-- Code here the main content -->
-            <button data-target="example-sidenav"
-              class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
-                Open sidenav
-            </button>
-          </main>
-
-          <footer class="footer primary">
-            Copyright © 2021 - Example
-          </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.js">&lt;/script>
-        </body>
-      </html>
-    </script>
-</div>
-<div id=tab4 class=example>
-<script type=text/plain class="language-markup code-max-height">
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Axentix Layout - Under navbar</title>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.css">
-        </head>
-
-        <body class="layout-under-navbar">
-          <header>
-            <div class="navbar-fixed">
-              <nav class="navbar shadow-1 primary">
-                <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-                <div class="navbar-menu ml-auto">
-                  <a class="navbar-link" href="#">Link 1</a>
-                  <a class="navbar-link" href="#">Link 2</a>
-                  <a class="navbar-link" href="#">Link 3</a>
-                  <a class="navbar-link" href="#">Link 4</a>
-                </div>
-              </nav>
-            </div>
-          </header>
-
-          <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
-            <div class="sidenav-header">
-              <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
-            </div>
-            <a href="#" class="sidenav-link active">Link 1</a>
-            <a href="#" class="sidenav-link">Link 2</a>
-            <a href="#" class="sidenav-link">Link 3</a>
-            <a href="#" class="sidenav-link">Link 4</a>
-          </div>
-
-          <main>
-            <!-- Code here the main content -->
-            <button data-target="example-sidenav"
-              class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
-                Open sidenav
-            </button>
-          </main>
-
-          <footer class="footer primary">
-            Copyright © 2021 - Example
-          </footer>
-          <script src="https://cdn.jsdelivr.net/npm/axentix@2.0.0-beta.2/dist/axentix.min.js">&lt;/script>
-        </body>
-      </html>
-    </script>
-</div>
+<img ax-waves src="https://picsum.photos/800/450?random=1" alt=img1 class=responsive-media>
+<script type=text/plain class="language-markup mt-5">
+  <img ax-waves src="https://picsum.photos/800/450?random=1" alt="img1" class="responsive-media" />
+</script>
+<h2 class=subtitle id=waves-colors>Waves colors</h2>
+<p>
+Customize the <strong>waves color</strong> by specifying it to the <code class=language-markup>ax-waves</code> attribute. <br>
+This is useful to match your <strong>website design</strong> or to get <strong>dark waves</strong> for light elements.
+</p>
+<button ax-waves class="btn blue rounded-1 my-2">Basic waves</button>
+<button ax-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1 my-2">Dark waves</button>
+<button ax-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1 my-2">Red waves</button>
+<script type=text/plain class="language-markup mt-5">
+  <button ax-waves class="btn blue rounded-1">Basic waves</button>
+  <button ax-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1">Dark waves</button>
+  <button ax-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1">Red waves</button>
+</script>
+<h2 class=subtitle id=styling>Styling</h2>
+<div class=responsive-table>
+<table class="table table-hover" aria-label="styling table">
+<thead>
+<tr>
+<th scope=col>CSS Variable</th>
+<th scope=col>Default value</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code class=language-css>--ax-waves-color</code>
+</td>
+<td>rgba(255, 255, 255, 0.1)</td>
+<td>
+Global <strong>default waves color</strong>. <br>
+Accepts all css color values (rgba, hex, rgb).
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
@@ -401,6 +234,5 @@ Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
 <script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
-<script>const tabQuery=document.querySelector('#tab'),frame=document.querySelector('.device-frame');let items=[{path:`${baseURL}/img/layouts/basic.gif`,img:document.querySelector('.example-image')},{path:`${baseURL}/img/layouts/with-sidenav.gif`,img:null},{path:`${baseURL}/img/layouts/fixed-sidenav.gif`,img:null},{path:`${baseURL}/img/layouts/under-navbar.gif`,img:null}];const addElement=b=>{let a=document.createElement('img');a.src=items[b].path,a.className='responsive-media hide',items[b].img=a,frame.appendChild(a),showElement(b)},showElement=a=>{items.map((c,b)=>{b===a?items[b].img.classList.remove('hide'):items[b].img&&items[b].img.classList.add('hide')})};tabQuery.addEventListener('ax.tab.select',b=>{const a=b.detail.currentIndex;if(items[a].img){showElement(a);return}addElement(a)})</script>
 </body>
 </html>
