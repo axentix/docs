@@ -1,0 +1,77 @@
+---
+title: 'Waves (ripple)'
+description: 'Axentix waves. Also knwon as ripple effect, the waves allow you to create an animation when clicking on an element of the page. You can custom the waves color at any time by specifying it.'
+type: 'docs'
+sidenav: components
+---
+
+<h2 class="subtitle" id="basic-waves">Basic waves</h2>
+
+<p>
+  Also known as <strong>ripple effect</strong>, <strong>waves</strong> are used to add a <strong>smooth animation</strong> to any element when clicking on it. <br>
+  Adding <strong>waves</strong> to an element only require to add the <code class="language-markup">ax-waves</code> attribute to it.
+  <br />
+  Click on the next examples to see the <strong>waves</strong> effect :
+</p>
+
+<button ax-waves class="btn primary rounded-1">Click me</button>
+
+<script type="text/plain" class="language-markup mt-5">
+  <button ax-waves class="btn primary rounded-1">Click me</button>
+</script>
+
+<h2 class="subtitle" id="waves-on-images">Waves on images</h2>
+
+<p>
+  <strong>Waves</strong> are working on <code class="language-markup">img</code> and <code class="language-markup">video</code> elements too. <br>
+  The only difference is functional, the <strong>waves element</strong> will be append to the body and not inside of the element.
+</p>
+
+<img ax-waves src="https://picsum.photos/800/450?random=1" alt="img1" class="responsive-media" />
+
+<script type="text/plain" class="language-markup mt-5">
+  <img ax-waves src="https://picsum.photos/800/450?random=1" alt="img1" class="responsive-media" />
+</script>
+
+<h2 class="subtitle" id="waves-colors">Waves colors</h2>
+
+<p>
+  Customize the <strong>waves color</strong> by specifying it to the <code class="language-markup">ax-waves</code> attribute. <br>
+  This is useful to match your <strong>website design</strong> or to get <strong>dark waves</strong> for light elements.
+</p>
+
+<button ax-waves class="btn blue rounded-1 my-2">Basic waves</button>
+<button ax-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1 my-2">Dark waves</button>
+<button ax-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1 my-2">Red waves</button>
+
+<script type="text/plain" class="language-markup mt-5">
+  <button ax-waves class="btn blue rounded-1">Basic waves</button>
+  <button ax-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1">Dark waves</button>
+  <button ax-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1">Red waves</button>
+</script>
+  
+<h2 class="subtitle" id="styling">Styling</h2>
+  
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-waves-color</code>
+        </td>
+        <td>rgba(255, 255, 255, 0.1)</td>
+        <td>
+          Global <strong>default waves color</strong>. <br>
+          Accepts all css color values (rgba, hex, rgb).
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
