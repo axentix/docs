@@ -5,17 +5,16 @@
     <meta name="description" content="{{ .Page.Params.description }}" />
     <meta property="og:description" content="{{ .Page.Params.description }}" />
     <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
-    {{- partial "head.html" . -}} 
-    {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }} 
-    {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }} 
-    {{ $base := resources.Get "sass/main.scss" | toCSS $options }} 
-    {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} 
-    {{ $style := slice $base $docs | resources.Concat "docs.css" | fingerprint }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+    {{- partial "head.html" . -}} {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }} {{
+    $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }} {{ $base := resources.Get "sass/main.scss" |
+    toCSS $options }} {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} {{ $style := slice $base $docs |
+    resources.Concat "docs.css" | fingerprint }}
+    <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-    {{ if eq .Title "Layouts" }} 
-    {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint }}
+    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint
+    }}
     <link rel="stylesheet" href="{{ $layout.RelPermalink }}" />
     {{ end }}
   </head>
@@ -23,9 +22,7 @@
   <body class="layout-under-navbar">
     {{- partial "header.html" . -}}
 
-    <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white">
-        {{- partial "sidenav.html" . -}}
-    </div>
+    <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white">{{- partial "sidenav.html" . -}}</div>
 
     <main>
       <div class="main-content container">
@@ -70,12 +67,13 @@
     <script>
       const baseURL = '{{ .Site.BaseURL }}';
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
     <script type="text/javascript">
       docsearch({
-        apiKey: '5e298e3bd3c5556f2267e83a5e5a9377',
+        apiKey: 'e79b510a1eb0bf058cf36749c2aa8198',
+        appId: 'M9XK4LRAZA',
         indexName: 'useaxentix',
-        inputSelector: '#search-input',
+        container: '#search-input',
         debug: false,
       });
     </script>
