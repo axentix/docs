@@ -450,3 +450,12 @@ div.code-toolbar {
 }
 
 // Try it block
+.try-it {
+  border-radius: 5px;
+  border: #e2e2e2 solid thin;
+  overflow: hidden;
+
+  form {
+    padding: 0 1rem;
+  }
+}
