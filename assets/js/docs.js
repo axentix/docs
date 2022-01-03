@@ -57,6 +57,8 @@ function addAnchors() {
 }
 
 function updateCode() {
+  if (!tryItCodeOverlay.classList.contains('hide')) return;
+
   const tryItExample = tryIt.querySelector('.try-it-example');
   const htmlCode = tryIt.querySelector('.language-markup');
 

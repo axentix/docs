@@ -11,18 +11,19 @@ scripts:
       const glassCard = glassContainer.querySelector('.card');
 
       formBg.addEventListener('input', () => {
-        glassContainer.classList.toggle('with-img')
+        glassContainer.classList.toggle('with-img');
       });
 
       formShadow.addEventListener('input', () => {
-        glassCard.classList.toggle('shadow-1')
+        glassCard.classList.toggle('shadow-1');
+        updateCode();
       });
   </script>"
 ---
 
 <p class="font-w600 font-s2">
-  <i class="fas fa-flask text-meadow text-dark-2"></i> <strong>Glassmorphism</strong> is a trend feature which is not supported on all browsers,
-  check the
+  <i class="fas fa-flask text-meadow text-dark-2"></i> <strong>Glassmorphism</strong> is a trend feature which is not
+  supported on all browsers, check the
   <a class="text-blue" rel="noopener" target="_blank" href="https://caniuse.com/?search=backdrop-filter"
     >browser list</a
   >
@@ -30,7 +31,8 @@ scripts:
 </p>
 
 <p>
-  To create a <strong>glassmorphism</strong> element, just add the <code class="language-css">.glassmorphism</code> class to any element.
+  To create a <strong>glassmorphism</strong> element, just add the
+  <code class="language-css">.glassmorphism</code> class to any element.
 </p>
 
 <div class="try-it">
@@ -54,7 +56,7 @@ scripts:
     </div>
   </form>
 
-  <div class="glass-example-container py-5 relative-pos">
+  <div class="glass-example-container py-5 relative-pos try-it-example">
     <div class="card glassmorphism text-white mx-auto">
       <div class="card-header text-center font-s9">$10<span class="text-grey text-light-3 font-s3">/ month</span></div>
       <div class="card-content pt-0">
@@ -68,6 +70,11 @@ scripts:
         <button class="btn meadow dark-3 rounded-2 w100 light-shadow-1">Buy now</button>
       </div>
     </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height"><code class="language-markup"></code></pre>
   </div>
 </div>
 
