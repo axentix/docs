@@ -1,10 +1,10 @@
-FROM klakegg/hugo:0.88.0-ext-alpine as dev
+FROM klakegg/hugo:0.91.2-ext-alpine as dev
 
 CMD [ "server", "-D" ]
 
 #############
 
-FROM klakegg/hugo:0.88.0-ext-alpine-onbuild as build
+FROM klakegg/hugo:0.91.2-ext-alpine-onbuild as build
 
 #############
 
