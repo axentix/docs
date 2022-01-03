@@ -37,7 +37,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.88.1'
+          hugo-version: '0.91.2'
           extended: true
 
       - name: Build main docs
@@ -67,7 +67,7 @@ jobs:
 
       - name: Deploy main docs
         if: ${{ env.default_branch_ref == github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
           branch: gh-pages
           folder: ./public
@@ -75,7 +75,7 @@ jobs:
 
       - name: Deploy docs
         if: ${{ env.default_branch_ref != github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
           branch: gh-pages
           folder: ./public
