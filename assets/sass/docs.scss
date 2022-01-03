@@ -408,16 +408,6 @@ div.code-toolbar {
   left: 1.5rem;
 }
 
-.glass-example-img {
-  position: relative;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: fit-content;
-  min-width: 350px;
-}
-
 .glass-example-container {
   background: linear-gradient(to right, #e96443, #904e95);
 
@@ -426,7 +416,20 @@ div.code-toolbar {
     background-repeat: no-repeat;
     background-size: cover;
   }
+}
 
+.clay-example-container {
+  background: linear-gradient(to left, #00c9ff, #92fe9d);
+
+  &.with-img {
+    background: url('https://picsum.photos/id/49/900/500');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.glass-example-container,
+.clay-example-container {
   .card {
     max-width: 45%;
 

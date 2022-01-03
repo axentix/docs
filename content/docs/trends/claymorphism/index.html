@@ -1,26 +1,26 @@
 ---
-title: 'Glassmorphism'
+title: 'Claymorphism'
 description: ''
 subtitle: ''
 sidenav: trends
 scripts:
   - "<script>
-      const formShadow = document.querySelector('#form-shadow');
+      const formGlass = document.querySelector('#form-glass');
       const formBg = document.querySelector('#form-bg');
-      const glassContainer = document.querySelector('.glass-example-container');
+      const glassContainer = document.querySelector('.clay-example-container');
       const glassCard = glassContainer.querySelector('.card');
 
       formBg.addEventListener('input', () => {
-        glassContainer.classList.toggle('with-img')
+        glassContainer.classList.toggle('with-img');
       });
 
-      formShadow.addEventListener('input', () => {
-        glassCard.classList.toggle('shadow-1')
+      formGlass.addEventListener('input', () => {
+        glassCard.classList.toggle('glassmorphism');
       });
   </script>"
 ---
 
-<p>blabla, simply add .glassmorphism class</p>
+<p>blabla, simply add .claymorphism class</p>
 
 <div class="try-it">
   <form class="form-material mb-2">
@@ -36,20 +36,20 @@ scripts:
 
       <div class="form-field">
         <label class="form-check">
-          <input type="checkbox" id="form-shadow" />
-          <span>Shadow</span>
+          <input type="checkbox" id="form-glass" />
+          <span>With glassmorphism</span>
         </label>
       </div>
     </div>
   </form>
 
-  <div class="glass-example-container py-5 relative-pos">
-    <div class="card glassmorphism text-white mx-auto">
-      <div class="card-header text-center font-s9">$10<span class="text-grey text-light-3 font-s3">/ month</span></div>
+  <div class="clay-example-container py-5 relative-pos">
+    <div class="card claymorphism mx-auto">
+      <div class="card-header text-center font-s9">$10<span class="text-grey text-dark-1 font-s3">/ month</span></div>
       <div class="card-content pt-0">
         <ul class="font-s3 lh-5">
           <li>✓ Pick a background</li>
-          <li>✓ Add the .glassmorphism class</li>
+          <li>✓ Add the .claymorphism class</li>
           <li>✓ That's all !</li>
         </ul>
       </div>
@@ -74,17 +74,37 @@ scripts:
     <tbody>
       <tr>
         <td>
-          <code class="language-css">--ax-glass-background</code>
+          <code class="language-css">--ax-clay-background</code>
         </td>
-        <td><code class="language-css">rgba(255, 255, 255, 0.25)</code></td>
+        <td><code class="language-css">rgba(255, 255, 255, 1)</code></td>
         <td>Background color.</td>
       </tr>
       <tr>
         <td>
-          <code class="language-css">--ax-glas-blur</code>
+          <code class="language-css">--ax-clay-blur</code>
         </td>
         <td><code class="language-css">5px</code></td>
         <td>Intensity of blur effect.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-shadow-color</code>
+        </td>
+        <td><code class="language-css">145, 192, 255</code></td>
+        <td>Color of shadow.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-shadow</code>
+        </td>
+        <td>
+          <script type="text/plain" class="language-css disable-copy-btn">
+            35px 35px 68px 0px rgba(var(--ax-clay-shadow-color), 0.5),
+            inset -8px -8px 16px 0px rgba(var(--ax-clay-shadow-color), 0.6),
+            inset 0px 11px 28px 0px rgb(255, 255, 255)
+          </script>
+        </td>
+        <td>Claymorphism shadow.</td>
       </tr>
     </tbody>
   </table>
