@@ -1,0 +1,132 @@
+---
+title: 'Validation'
+description: 'Axentix form validation. The form validation allows you to get reactive forms depending on the user input before submit.'
+type: 'docs'
+sidenav: forms
+---
+
+<h2 class="subtitle" id="basic-validation">Basic validation</h2>
+
+<p>
+  To use the basic <strong>form validation</strong>, add the <code class="language-markup">ax-form-validate="auto"</code> attribute to the
+  <code class="language-css">form-control</code> element. <br />
+  This will enable the <strong>validation</strong> depending on the rules applied to the inputn like <code class="language-markup">required</code> or
+  <code class="language-markup">type="email"</code>...
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input ax-form-validate="auto" required type="email" id="email" class="form-control" placeholder="example@email.com" />
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input ax-form-validate="auto" required type="email" id="email" class="form-control" placeholder="example@email.com" />
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="custom-helper-messages">Custom helper messages</h2>
+
+<p>
+  Create <strong>custom validation helper messages</strong> by adding two spans in your <code class="language-markup">form-field</code> element. <br />
+  This makes you able to create custom separate messages depending on the input <strong>validation</strong> state. <br />
+  Don't forget to add the <code class="language-markup">ax-form-validate</code> attribute on the
+  <code class="language-markup">form-control</code> element.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input ax-form-validate required type="email" id="email" class="form-control" placeholder="example@email.com" />
+    <span class="form-helper-valid">Valid helper text</span>
+    <span class="form-helper-invalid">Invalid helper text</span>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input ax-form-validate required type="email" id="email" class="form-control" placeholder="example@email.com" />
+      <span class="form-helper-valid">Valid helper text</span>
+      <span class="form-helper-invalid">Invalid helper text</span>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="lazy-validation">Lazy validation</h2>
+
+<p>
+  Setting the <strong>validation</strong> to <strong>lazy</strong> will change the watching event from <em>input</em> to <em>change</em>. <br>
+  This will make the <strong>validation messages</strong> not be updated at every character typed. <br>
+  To use it, add the <code class="language-markup">lazy</code> value to the 
+  <code class="language-markup">ax-form-validate</code> attribute.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input ax-form-validate="lazy" required type="email" id="email" class="form-control" placeholder="example@email.com" />
+    <span class="form-helper-valid">Valid helper text</span>
+    <span class="form-helper-invalid">Invalid helper text</span>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input ax-form-validate="lazy" required type="email" id="email" class="form-control" placeholder="example@email.com" />
+      <span class="form-helper-valid">Valid helper text</span>
+      <span class="form-helper-invalid">Invalid helper text</span>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="helper-text">Auto & Lazy validation</h2>
+<p>
+ To use both auto and <strong>lazy validation</strong>, just write the two values separated with a comma : <br>
+<code class="language-markup">ax-form-validate="auto,lazy"</code>
+</p>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-helper-color</code>
+        </td>
+        <td>#747474</td>
+        <td>Form helper default color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-valid-color</code>
+        </td>
+        <td>#12AD12</td>
+        <td>Default valid form color when validation is enabled.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-form-invalid-color</code>
+        </td>
+        <td>#DF2C29</td>
+        <td>Default invalid form color when validation is enabled.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
