@@ -16,12 +16,14 @@ scripts:
 
       formGlass.addEventListener('input', () => {
         glassCard.classList.toggle('glassmorphism');
+        updateCode();
       });
   </script>"
 ---
 
 <p>
-  To create a <strong>claymorphism</strong> element, just add the <code class="language-css">.claymorphism</code> class to any element. <br>
+  To create a <strong>claymorphism</strong> element, just add the <code class="language-css">.claymorphism</code> class
+  to any element. <br />
 </p>
 
 <div class="try-it">
@@ -45,7 +47,7 @@ scripts:
     </div>
   </form>
 
-  <div class="clay-example-container py-5 relative-pos">
+  <div class="clay-example-container py-5 relative-pos try-it-example">
     <div class="card claymorphism mx-auto">
       <div class="card-header text-center font-s9">$10<span class="text-grey text-dark-1 font-s3">/ month</span></div>
       <div class="card-content pt-0">
@@ -60,20 +62,26 @@ scripts:
       </div>
     </div>
   </div>
+
+  <div class="code">
+    <div class="code-overlay">Show code</div>
+    <pre class="language-markup code-max-height"><code class="language-markup"></code></pre>
+  </div>
 </div>
 
 <h2 class="subtitle">Glassmorphism & Claymorphism</h2>
 
 <p class="font-w600 font-s2">
-  <i class="fas fa-flask text-meadow text-dark-2"></i> <strong>Glassmorphism</strong> is a trend feature which is not supported on all browsers,
-  check the
+  <i class="fas fa-flask text-meadow text-dark-2"></i> <strong>Glassmorphism</strong> is a trend feature which is not
+  supported on all browsers, check the
   <a class="text-blue" rel="noopener" target="_blank" href="https://caniuse.com/?search=backdrop-filter"
     >browser list</a
   >
-  to know if it fits your needs. <br>
+  to know if it fits your needs. <br />
 </p>
 <p>
-  You can use the <code class="language-css">.glassmorphism</code> class as well on a claymorphism element to combine the 2 effects.
+  You can use the <code class="language-css">.glassmorphism</code> class as well on a claymorphism element to combine
+  the 2 effects.
 </p>
 
 <h2 class="subtitle" id="styling">Styling</h2>

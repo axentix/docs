@@ -399,15 +399,6 @@ div.code-toolbar {
 }
 
 // Glassmorphism / Claymorphism
-.example-ball {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  background: radial-gradient(circle at 65% 15%, #95cdf9, #0a6bb8);
-  top: 2rem;
-  left: 1.5rem;
-}
-
 .glass-example-container {
   background: linear-gradient(to right, #e96443, #904e95);
 
@@ -460,5 +451,30 @@ div.code-toolbar {
 
   form {
     padding: 0 1rem;
+  }
+
+  .code {
+    position: relative;
+
+    .code-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(68, 68, 68, 0.9);
+      z-index: 20;
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    pre[class*='language-'] {
+      border-radius: 0;
+      margin: 0;
+    }
   }
 }
