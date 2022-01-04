@@ -17,9 +17,16 @@ let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
 });
 
 const content = document.querySelector('.content');
+const tryIt = document.querySelector('.try-it');
+const tryItCodeOverlay = document.querySelector('.try-it .code-overlay');
 
 document.addEventListener('DOMContentLoaded', updateDocs);
 document.addEventListener('DOMContentLoaded', addAnchors);
+
+if (tryItCodeOverlay) {
+  tryItCodeOverlay.addEventListener('click', handleShowCode);
+}
+
 window.addEventListener('resize', updateDocs);
 
 function updateDocs() {
@@ -47,4 +54,22 @@ function addAnchors() {
     a.innerHTML = '#';
     subtitle.appendChild(a);
   });
+}
+
+function updateCode() {
+  if (!tryItCodeOverlay.classList.contains('hide')) return;
+
+  const tryItExample = tryIt.querySelector('.try-it-example');
+  const htmlCode = tryIt.querySelector('.language-markup');
+
+  if (htmlCode) {
+    const code = Prism.plugins.NormalizeWhitespace.normalize(tryItExample.innerHTML);
+    const html = Prism.highlight(code, Prism.languages.html, 'html').trim();
+    htmlCode.innerHTML = html;
+  }
+}
+
+function handleShowCode() {
+  tryItCodeOverlay.classList.add('hide');
+  updateCode();
 }

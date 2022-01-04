@@ -397,3 +397,84 @@ div.code-toolbar {
   height: 58px;
   width: 58px;
 }
+
+// Glassmorphism / Claymorphism
+.glass-example-container {
+  background: linear-gradient(to right, #e96443, #904e95);
+
+  &.with-img {
+    background: url('https://picsum.photos/id/767/900/500');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.clay-example-container {
+  background: linear-gradient(to left, #00c9ff, #92fe9d);
+
+  &.with-img {
+    background: url('https://picsum.photos/id/49/900/500');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.glass-example-container,
+.clay-example-container {
+  .card {
+    max-width: 45%;
+
+    @include responsive('md') {
+      max-width: 70%;
+    }
+
+    @include responsive('sm') {
+      max-width: 80%;
+    }
+
+    @include responsive('xs') {
+      max-width: 90%;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+}
+
+// Try it block
+.try-it {
+  border-radius: 5px;
+  border: #e2e2e2 solid thin;
+  overflow: hidden;
+
+  form {
+    padding: 0 1rem;
+  }
+
+  .code {
+    position: relative;
+
+    .code-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(68, 68, 68, 0.9);
+      z-index: 20;
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    pre[class*='language-'] {
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+}

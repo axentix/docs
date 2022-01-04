@@ -1,0 +1,109 @@
+---
+title: 'Glassmorphism'
+description: 'The glassmorphism trend Axentix implementation. Create your glassmorphism design using a simple css class.'
+subtitle: 'Glassmorphism is a design trend which consists on creating blurred transparent cards over different colored elements.'
+sidenav: trends
+scripts:
+  - "<script>
+      const formShadow = document.querySelector('#form-shadow');
+      const formBg = document.querySelector('#form-bg');
+      const glassContainer = document.querySelector('.glass-example-container');
+      const glassCard = glassContainer.querySelector('.card');
+
+      formBg.addEventListener('input', () => {
+        glassContainer.classList.toggle('with-img');
+      });
+
+      formShadow.addEventListener('input', () => {
+        glassCard.classList.toggle('shadow-1');
+        updateCode();
+      });
+  </script>"
+---
+
+<p class="font-w600 font-s2">
+  <i class="fas fa-flask text-meadow text-dark-2" aria-hidden="true"></i> <strong>Glassmorphism</strong> is a trend
+  feature which is not supported on all browsers, check the
+  <a class="text-blue" rel="noopener" target="_blank" href="https://caniuse.com/?search=backdrop-filter"
+    >browser list</a
+  >
+  to know if it fits your needs.
+</p>
+
+<p>
+  To create a <strong>glassmorphism</strong> element, just add the
+  <code class="language-css">.glassmorphism</code> class to any element.
+</p>
+
+<div class="try-it">
+  <form class="form-material mb-2">
+    <div class="grix xs1 sm2 lg3">
+      <div class="form-field form-default">
+        <label class="form-switch mt-2">
+          Gradient
+          <input type="checkbox" id="form-bg" />
+          <span class="form-slider form-slider-thin"></span>
+          Image
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" id="form-shadow" />
+          <span>Shadow</span>
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="glass-example-container py-5 relative-pos try-it-example">
+    <div class="card glassmorphism text-white mx-auto">
+      <div class="card-header text-center font-s9">$10<span class="text-grey text-light-3 font-s3">/ month</span></div>
+      <div class="card-content pt-0">
+        <ul class="font-s3 lh-5">
+          <li>✓ Pick a background</li>
+          <li>✓ Add the .glassmorphism class</li>
+          <li>✓ That's all !</li>
+        </ul>
+      </div>
+      <div class="card-footer pt-0">
+        <button class="btn meadow dark-3 rounded-2 w100 light-shadow-1">Buy now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-glass-background</code>
+        </td>
+        <td><code class="language-css">rgba(255, 255, 255, 0.25)</code></td>
+        <td>Background color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-glass-blur</code>
+        </td>
+        <td><code class="language-css">5px</code></td>
+        <td>Blur effect intensity.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

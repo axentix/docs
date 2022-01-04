@@ -1,0 +1,135 @@
+---
+title: 'Claymorphism'
+description: 'The claymorphism trend Axentix implementation. Create your claymorphism elements using a simple css class.'
+subtitle: 'Claymorphism is a design trend which consists on creating clay like elements and create relief.'
+sidenav: trends
+scripts:
+  - "<script>
+      const formGlass = document.querySelector('#form-glass');
+      const formBg = document.querySelector('#form-bg');
+      const glassContainer = document.querySelector('.clay-example-container');
+      const glassCard = glassContainer.querySelector('.card');
+
+      formBg.addEventListener('input', () => {
+        glassContainer.classList.toggle('with-img');
+      });
+
+      formGlass.addEventListener('input', () => {
+        glassCard.classList.toggle('glassmorphism');
+        updateCode();
+      });
+  </script>"
+---
+
+<p>
+  To create a <strong>claymorphism</strong> element, just add the <code class="language-css">.claymorphism</code> class
+  to any element. <br />
+</p>
+
+<div class="try-it">
+  <form class="form-material mb-2">
+    <div class="grix xs1 sm2 lg3">
+      <div class="form-field form-default">
+        <label class="form-switch mt-2">
+          Gradient
+          <input type="checkbox" id="form-bg" />
+          <span class="form-slider form-slider-thin"></span>
+          Image
+        </label>
+      </div>
+
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" id="form-glass" />
+          <span>With glassmorphism</span>
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="clay-example-container py-5 relative-pos try-it-example">
+    <div class="card claymorphism mx-auto">
+      <div class="card-header text-center font-s9">$10<span class="text-grey text-dark-1 font-s3">/ month</span></div>
+      <div class="card-content pt-0">
+        <ul class="font-s3 lh-5">
+          <li>✓ Pick a background</li>
+          <li>✓ Add the .claymorphism class</li>
+          <li>✓ That's all !</li>
+        </ul>
+      </div>
+      <div class="card-footer pt-0">
+        <button class="btn meadow dark-3 rounded-2 w100 light-shadow-1">Buy now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
+<h2 class="subtitle">Glassmorphism & Claymorphism</h2>
+
+<p class="font-w600 font-s2">
+  <i class="fas fa-flask text-meadow text-dark-2" aria-hidden="true"></i> <strong>Glassmorphism</strong> is a trend
+  feature which is not supported on all browsers, check the
+  <a class="text-blue" rel="noopener" target="_blank" href="https://caniuse.com/?search=backdrop-filter"
+    >browser list</a
+  >
+  to know if it fits your needs. <br />
+</p>
+<p>
+  You can use the <code class="language-css">.glassmorphism</code> class as well on a claymorphism element to combine
+  the 2 effects.
+</p>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-background</code>
+        </td>
+        <td><code class="language-css">rgba(255, 255, 255, 1)</code></td>
+        <td>Background color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-blur</code>
+        </td>
+        <td><code class="language-css">5px</code></td>
+        <td>Blur effect intensity.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-shadow-color</code>
+        </td>
+        <td><code class="language-css">145, 192, 255</code></td>
+        <td>Shadow color (RGB).</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-clay-shadow</code>
+        </td>
+        <td>
+          <script type="text/plain" class="language-css disable-copy-btn">
+            35px 35px 68px 0px rgba(var(--ax-clay-shadow-color), 0.5),
+            inset -8px -8px 16px 0px rgba(var(--ax-clay-shadow-color), 0.6),
+            inset 0px 11px 28px 0px rgb(255, 255, 255)
+          </script>
+        </td>
+        <td>Claymorphism shadow.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
