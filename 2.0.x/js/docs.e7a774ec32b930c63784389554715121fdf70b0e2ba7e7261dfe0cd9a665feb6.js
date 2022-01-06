@@ -64,7 +64,7 @@ function updateCode() {
 
   if (htmlCode) {
     const code = Prism.plugins.NormalizeWhitespace.normalize(tryItExample.innerHTML);
-    const html = Prism.highlight(code, Prism.languages.html, 'html').trim();
+    const html = Prism.highlight(code, Prism.languages.html, 'html');
     htmlCode.innerHTML = html;
   }
 }
