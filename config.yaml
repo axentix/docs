@@ -11,6 +11,9 @@ params:
     - 2.0.x
     - 1.3.x
 
+minify:
+  disableHTML: true
+
 markup:
   goldmark:
     renderer:
