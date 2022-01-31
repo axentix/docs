@@ -1182,14 +1182,14 @@
 
 <script type="text/plain" class="language-js">
     // Listen all tab instances
-  document.addEventListener('ax.tab.open', function() {
-    // open event !
+  document.addEventListener('ax.tab.select', function() {
+    // select event !
   });
 
   // Listen only one tab instance
   let tabQuery = document.querySelector('#example-tab');
-  tabQuery.addEventListener('ax.tab.open', function() {
-    // open event only on #example-tab
+  tabQuery.addEventListener('ax.tab.select', function() {
+    // select event only on #example-tab
   });
 </script>
 
@@ -1208,7 +1208,11 @@
       </tr>
       <tr>
         <td>ax.tab.select</td>
-        <td>Event sent when the <code class="language-js">select()</code> method is called.</td>
+        <td>
+          Event sent when the <code class="language-js">select()</code> method is called. <br>
+          This event has details data : <code class="language-js">{index}</code> <br />
+          <code class="language-js">index</code> : index of the selected tab-item.
+        </td>
       </tr>
       <tr>
         <td>ax.tab.next</td>
@@ -1229,6 +1233,20 @@
     </tbody>
   </table>
 </div>
+
+<h3 class="subtitle" id="event-details">Event details</h3>
+
+<p>
+  Some events bring details, you can access them with <code class="language-js">e.details</code>.
+</p>
+
+<script type="text/plain" class="language-js">
+  let tabQuery = document.querySelector('#example-tab');
+
+  tabQuery.addEventListener('ax.tab.select', function() {
+    console.log(e.details);
+  });
+</script>
 
 <h2 class="subtitle" id="styling">Styling</h2>
         
@@ -1254,6 +1272,7 @@
     </tbody>
   </table>
 </div>
+
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2 text-grey"> Sponsors </span>

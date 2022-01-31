@@ -1318,6 +1318,20 @@ caroulix.next();
   </table>
 </div>
 
+<h3 class="subtitle" id="event-details">Event details</h3>
+
+<p>
+  Some events bring details, you can access them with <code class="language-js">e.details</code>.
+</p>
+
+<script type="text/plain" class="language-js">
+  let caroulixQuery = document.querySelector('#example-caroulix');
+
+  caroulixQuery.addEventListener('ax.caroulix.slide', function(e) {
+    console.log(e.details);
+  });
+</script>
+
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2 text-grey"> Sponsors </span>
