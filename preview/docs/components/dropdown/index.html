@@ -25,7 +25,7 @@
     
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
-    <link rel="stylesheet" href="/preview/axentix/axentix.min.3a686883b0218a1408f48219d2de6efb87c9c2b304cb5b1d6a9b1a0f8f03ad82.css" />
+    <link rel="stylesheet" href="/preview/axentix/axentix.min.c9af232cbe135427f87b4b25c92973d9ecfee65c84c504d3ffbf705ca5a88a0f.css" />
     <link rel="stylesheet" href="/preview/docs.0dfe6bfe9d4199356615ae6d726d7610d12e386a292617af45559b1ffd89de31.css" />
     
   </head>
@@ -76,7 +76,7 @@
 
   
   <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
-    <div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
       preview <i aria-hidden="true" class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
     </div>
 
@@ -872,13 +872,13 @@
 <h2 class="subtitle">Basic dropdown</h2>
 <p>
   The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
-  have to create an element with the <code class="language-markup">.dropdown-trigger</code> class inside of it.<br />
+  have to add a <code class="language-markup">.data-target</code> refering to the dropdown element inside of it.<br />
   The dropdown is working with our
   <a class="text-primary" href="https://useaxentix.com/preview/docs/general/colors/#color-palette">color palette</a>.
 </p>
 
-<div class="dropdown" id="example-dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown" data-ax="dropdown">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">Toggle</button>
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">This is the first item</a>
     <a class="dropdown-item" href="#">Item 2</a>
@@ -887,7 +887,7 @@
 </div>
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
     <div class="dropdown-content white shadow-1 rounded-1">
@@ -905,8 +905,8 @@
 </p>
 
 <div class="d-flex">
-  <div class="dropdown ml-auto" id="example-dropdown2">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+  <div class="dropdown ml-auto" id="example-dropdown2" data-ax="dropdown">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown2">Toggle</button>
     <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Right aligned dropdown</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -916,7 +916,7 @@
 <script type="text/plain" class="language-markup">
   <div class="d-flex">
     <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
-      <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+      <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
         Toggle
       </button>
       <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
@@ -934,8 +934,8 @@
   element.
 </p>
 
-<div class="dropdown" id="example-dropdown3">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown3" data-ax="dropdown">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown3">Toggle</button>
   <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Constrain width option</a>
     <a class="dropdown-item" href="#">Item 2</a>
@@ -943,7 +943,7 @@
 </div>
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
     <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
@@ -964,8 +964,8 @@
   <div class="navbar-menu ml-auto">
     <a class="navbar-link" href="#">Link 1</a>
     <a class="navbar-link" href="#">Link 2</a>
-    <div class="dropdown" id="nav-dropdown">
-      <div class="navbar-link secondary dropdown-trigger">Toggle</div>
+    <div class="dropdown" id="nav-dropdown" data-ax="dropdown">
+      <div class="navbar-link secondary" data-target="nav-dropdown">Toggle</div>
       <div class="dropdown-content dropdown-right white shadow-1">
         <a class="dropdown-item" href="#">Dropdown in navbar</a>
         <a class="dropdown-item" href="#">Item 2</a>
@@ -981,7 +981,7 @@
       <a class="navbar-link" href="#">Link 1</a>
       <a class="navbar-link" href="#">Link 2</a>
       <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-        <div class="navbar-link secondary dropdown-trigger">
+        <div class="navbar-link secondary" data-target="example-dropdown">
           Toggle
         </div>
         <div class="dropdown-content dropdown-right white shadow-1">
@@ -1023,8 +1023,8 @@
   Note that this option is not working with the hover option.
 </p>
 
-<div class="dropdown no-axentix-init" id="example-dropdown-anim">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Fade animation</a>
     <a class="dropdown-item" href="#">Item 2</a>
@@ -1216,7 +1216,7 @@
   Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
 </footer>
   
-    <script src="/preview/axentix/axentix.min.8db1a647c4e007e624f7913bf8d2b076e81ec01ed0181cc1855d958508c2b985.js"></script>
+    <script src="/preview/axentix/axentix.min.200178a5c147343e4475201ece1af91c154b7cf9a0377538590d07ec8cede7f7.js"></script>
     <script src="/preview/js/prism.4b8c3fa644e58e441fb3da4012a0f814a9640aba1b02efa8882f1324c0164dae.js"></script>
     <script src="/preview/js/docs.e7a774ec32b930c63784389554715121fdf70b0e2ba7e7261dfe0cd9a665feb6.js"></script>
     <script>
@@ -1246,6 +1246,6 @@
 
       gtag('config', 'UA-149763613-1');
     </script>
-     <script> let axentixDropdown = new Axentix.Axentix("dropdown"); let animDropdown = new Axentix.Dropdown("#example-dropdown-anim", { animationType: "fade" }); </script>
+     
   </body>
 </html>
