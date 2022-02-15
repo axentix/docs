@@ -4,25 +4,18 @@ description: 'Axentix dropdown. The dropdown allows you to create a toggleable s
 subtitle: 'Create simple toggleable submenu.'
 type: 'docs'
 sidenav: components
-scripts:
-  - '<script>
-    let axentixDropdown = new Axentix.Axentix("dropdown");
-    let animDropdown = new Axentix.Dropdown("#example-dropdown-anim", {
-      animationType: "fade"
-    });
-  </script>'
 ---
 
 <h2 class="subtitle">Basic dropdown</h2>
 <p>
   The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
-  have to create an element with the <code class="language-markup">.dropdown-trigger</code> class inside of it.<br />
+  have to add a <code class="language-markup">.data-target</code> refering to the dropdown element inside of it.<br />
   The dropdown is working with our
   <a class="text-primary" href="{{< ref "colors#color-palette" >}}">color palette</a>.
 </p>
 
-<div class="dropdown" id="example-dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown" data-ax="dropdown">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">Toggle</button>
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">This is the first item</a>
     <a class="dropdown-item" href="#">Item 2</a>
@@ -31,7 +24,7 @@ scripts:
 </div>
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
     <div class="dropdown-content white shadow-1 rounded-1">
@@ -49,8 +42,8 @@ scripts:
 </p>
 
 <div class="d-flex">
-  <div class="dropdown ml-auto" id="example-dropdown2">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+  <div class="dropdown ml-auto" id="example-dropdown2" data-ax="dropdown">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown2">Toggle</button>
     <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Right aligned dropdown</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -60,7 +53,7 @@ scripts:
 <script type="text/plain" class="language-markup">
   <div class="d-flex">
     <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
-      <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+      <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
         Toggle
       </button>
       <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
@@ -78,8 +71,8 @@ scripts:
   element.
 </p>
 
-<div class="dropdown" id="example-dropdown3">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown3" data-ax="dropdown">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown3">Toggle</button>
   <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Constrain width option</a>
     <a class="dropdown-item" href="#">Item 2</a>
@@ -87,7 +80,7 @@ scripts:
 </div>
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">
+    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
     <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
@@ -108,8 +101,8 @@ scripts:
   <div class="navbar-menu ml-auto">
     <a class="navbar-link" href="#">Link 1</a>
     <a class="navbar-link" href="#">Link 2</a>
-    <div class="dropdown" id="nav-dropdown">
-      <div class="navbar-link secondary dropdown-trigger">Toggle</div>
+    <div class="dropdown" id="nav-dropdown" data-ax="dropdown">
+      <div class="navbar-link secondary" data-target="nav-dropdown">Toggle</div>
       <div class="dropdown-content dropdown-right white shadow-1">
         <a class="dropdown-item" href="#">Dropdown in navbar</a>
         <a class="dropdown-item" href="#">Item 2</a>
@@ -125,7 +118,7 @@ scripts:
       <a class="navbar-link" href="#">Link 1</a>
       <a class="navbar-link" href="#">Link 2</a>
       <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-        <div class="navbar-link secondary dropdown-trigger">
+        <div class="navbar-link secondary" data-target="example-dropdown">
           Toggle
         </div>
         <div class="dropdown-content dropdown-right white shadow-1">
@@ -167,8 +160,8 @@ scripts:
   Note that this option is not working with the hover option.
 </p>
 
-<div class="dropdown no-axentix-init" id="example-dropdown-anim">
-  <button type="button" class="btn shadow-1 rounded-1 primary dropdown-trigger">Toggle</button>
+<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
+  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Fade animation</a>
     <a class="dropdown-item" href="#">Item 2</a>
