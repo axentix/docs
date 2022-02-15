@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - 'v-[0-9]+.[0-9]+.x'
+      - preview
 
 jobs:
   deploy:
@@ -27,7 +28,7 @@ jobs:
         id: dest-dir
         run: |
           BRANCH=${GITHUB_REF##*/}
-          echo ::set-output name=DIR::${BRANCH:2}
+          echo ::set-output name=DIR::${BRANCH}
 
       - name: Get default branch
         run: |
