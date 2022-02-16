@@ -4,6 +4,10 @@
 @import './axentix-utils/functions';
 // @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+:root {
+  --ax-sidenav-width: 15rem;
+}
+
 html,
 body {
   font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
@@ -20,7 +24,7 @@ body {
   }
 }
 
-.sidenav .sidenav-trigger {
+.sidenav .sidenav-cross {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;

@@ -21,8 +21,8 @@ scripts:
 <p>
   To create your <strong>FAB menu</strong>, you have to create a first <code class="language-css">.fab</code> div.
   <br />
-  This <code class="language-css">.fab</code> must contain a <code class="language-css">.fab-trigger</code> which is
-  gonna trigger the <code class="language-css">.fab-menu</code>.
+  This <code class="language-css">.fab</code> must contain an element with a <code class="language-css">data-target</code> 
+  <strong>referring to the fab id</strong> which is going to trigger the <code class="language-css">.fab-menu</code>.
 </p>
 
 <div class="fab" id="fab-example">
@@ -112,7 +112,7 @@ scripts:
         <td>true</td>
         <td>
           When <code class="language-js">'hover'</code> is set to true, the
-          <code class="language-css">.fab-trigger</code> will trigger the <code class="language-css">.fab-menu</code> on
+          <code class="language-css">data-target</code> element will trigger the <code class="language-css">.fab-menu</code> on
           hover instead of click.
         </td>
       </tr>

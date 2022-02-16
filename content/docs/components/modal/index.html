@@ -15,17 +15,17 @@ scripts:
 
 <h2 class="subtitle" id="basic-modal">Basic modal</h2>
 <p>
-  Modals are usefull to display content over your page. To create a modal, add the
-  <code class="language-css">.modal</code> class and an ID.
+  Modals are usefull to display content over your page. <br>
+  To create a modal, add the <code class="language-css">.modal</code> class <strong>and an ID</strong>.
   <br />
-  To trigger it, create a button or element with the <code class="language-css">.modal-trigger</code> class and a
-  <code class="language-css">data-target=""</code> pointing on the modal ID, and initialize the modal with JS. <br />
-  A basic modal comes out from its central position. <br />
-  Note that you can add a new modal trigger inside a modal to open a new modal over the last one. The new overlay will
-  be placed over the last modal too.
+  To trigger it, create a button or element with the <code class="language-css">data-target=""</code> <strong>pointing on the modal ID</strong>,
+  and initialize the modal with JS. <br />
+  A basic modal <strong>comes out from its central position</strong>. <br />
+  Note that you can add a new element with <code class="language-css">data-target=""</code> inside a modal to <strong>open a second one</strong> over it. <br>
+  <em>The new overlay will be placed over the last modal too.</em>
 </p>
 
-<button class="btn rounded-1 primary btn-press modal-trigger mx-auto" data-target="modal-example">OPEN MODAL</button>
+<button class="btn rounded-1 primary btn-press mx-auto" data-target="modal-example">OPEN MODAL</button>
 
 <div class="modal shadow-1 white rounded-3" id="modal-example">
   <div class="modal-header">
@@ -56,7 +56,7 @@ scripts:
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="falling-modal">Falling modal</h2>
@@ -65,7 +65,7 @@ scripts:
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example2">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example2">OPEN MODAL</button>
 
 <div class="modal shadow-1 white modal-falling" id="modal-example2">
   <div class="modal-header">Header</div>
@@ -82,7 +82,7 @@ scripts:
   </div>
   <div class="divider"></div>
   <div class="modal-footer">
-    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">
+    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary">
       Close
     </button>
   </div>
@@ -108,11 +108,11 @@ scripts:
     <div class="divider"></div>
 
     <div class="modal-footer">
-      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">Close</button>
+      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary">Close</button>
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
@@ -121,7 +121,7 @@ scripts:
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example3">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example3">OPEN MODAL</button>
 
 <div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example3">
   <div class="modal-header">
@@ -152,7 +152,7 @@ scripts:
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>

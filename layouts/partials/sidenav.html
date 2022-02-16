@@ -1,5 +1,5 @@
 <div class="sidenav-header">
-  <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle btn-small transparent hide-md-up"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix Logo" />
 
   {{ $currentBranch := getenv "AX_CURRENT_BRANCH" | default .Site.Params.current }}
@@ -43,7 +43,7 @@
   Getting started
 </a>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="general-menu">General</a>
+<a href="" class="sidenav-link" data-target="general-menu">General</a>
 <div>
   <div class="collapsible" id="general-menu">
   {{ range .Site.RegularPages }}
@@ -53,7 +53,7 @@
   {{ end }}
   </div>
 </div>
-<a href="" class="collapsible-trigger sidenav-link" data-target="components-menu">Components</a>
+<a href="" class="sidenav-link" data-target="components-menu">Components</a>
 <div>
   <div class="collapsible" id="components-menu">
   {{ range .Site.RegularPages }}
@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="forms-menu">Forms</a>
+<a href="" class="sidenav-link" data-target="forms-menu">Forms</a>
 <div>
   <div class="collapsible" id="forms-menu">
     {{ range .Site.RegularPages }}
@@ -75,7 +75,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="trends-menu">Trends</a>
+<a href="" class="sidenav-link" data-target="trends-menu">Trends</a>
 <div>
   <div class="collapsible" id="trends-menu">
     <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="utilities-menu">Utilities</a>
+<a href="" class="sidenav-link" data-target="utilities-menu">Utilities</a>
 <div>
   <div class="collapsible" id="utilities-menu">
     {{ range .Site.RegularPages }}
