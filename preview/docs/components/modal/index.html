@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="/preview/axentix/axentix.min.c9af232cbe135427f87b4b25c92973d9ecfee65c84c504d3ffbf705ca5a88a0f.css" />
-    <link rel="stylesheet" href="/preview/docs.0dfe6bfe9d4199356615ae6d726d7610d12e386a292617af45559b1ffd89de31.css" />
+    <link rel="stylesheet" href="/preview/docs.f9c5ae0e77104f0ab8c6353be2c2d256d2da3fc59b70787729f529f1af095f83.css" />
     
   </head>
 
@@ -36,11 +36,11 @@
       <button
         data-target="main-sidenav"
         aria-label="Menu button"
-        class="sidenav-trigger btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
+        class="btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
       >
         <i aria-hidden="true" class="fas fa-bars"></i> Menu
       </button>
-      <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle transparent text-white hide-sm-up font-w600">
+      <button data-target="main-sidenav" class="btn btn-circle transparent text-white hide-sm-up font-w600">
         <i aria-hidden="true" class="fas fa-bars"></i>
       </button>
       <div class="navbar-menu hide-sm-down">
@@ -71,7 +71,7 @@
   </div>
 </header>
 <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white"><div class="sidenav-header">
-  <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle btn-small transparent hide-md-up"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
@@ -121,7 +121,7 @@
   Getting started
 </a>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="general-menu">General</a>
+<a href="" class="sidenav-link" data-target="general-menu">General</a>
 <div>
   <div class="collapsible" id="general-menu">
   
@@ -233,7 +233,7 @@
   
   </div>
 </div>
-<a href="" class="collapsible-trigger sidenav-link" data-target="components-menu">Components</a>
+<a href="" class="sidenav-link" data-target="components-menu">Components</a>
 <div>
   <div class="collapsible" id="components-menu">
   
@@ -380,7 +380,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="forms-menu">Forms</a>
+<a href="" class="sidenav-link" data-target="forms-menu">Forms</a>
 <div>
   <div class="collapsible" id="forms-menu">
     
@@ -499,7 +499,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="trends-menu">Trends</a>
+<a href="" class="sidenav-link" data-target="trends-menu">Trends</a>
 <div>
   <div class="collapsible" id="trends-menu">
     <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
@@ -609,7 +609,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="utilities-menu">Utilities</a>
+<a href="" class="sidenav-link" data-target="utilities-menu">Utilities</a>
 <div>
   <div class="collapsible" id="utilities-menu">
     
@@ -871,17 +871,17 @@
   
 <h2 class="subtitle" id="basic-modal">Basic modal</h2>
 <p>
-  Modals are usefull to display content over your page. To create a modal, add the
-  <code class="language-css">.modal</code> class and an ID.
+  Modals are usefull to display content over your page. <br>
+  To create a modal, add the <code class="language-css">.modal</code> class <strong>and an ID</strong>.
   <br />
-  To trigger it, create a button or element with the <code class="language-css">.modal-trigger</code> class and a
-  <code class="language-css">data-target=""</code> pointing on the modal ID, and initialize the modal with JS. <br />
-  A basic modal comes out from its central position. <br />
-  Note that you can add a new modal trigger inside a modal to open a new modal over the last one. The new overlay will
-  be placed over the last modal too.
+  To trigger it, create a button or element with the <code class="language-css">data-target=""</code> <strong>pointing on the modal ID</strong>,
+  and initialize the modal with JS. <br />
+  A basic modal <strong>comes out from its central position</strong>. <br />
+  Note that you can add a new element with <code class="language-css">data-target=""</code> inside a modal to <strong>open a second one</strong> over it. <br>
+  <em>The new overlay will be placed over the last modal too.</em>
 </p>
 
-<button class="btn rounded-1 primary btn-press modal-trigger mx-auto" data-target="modal-example">OPEN MODAL</button>
+<button class="btn rounded-1 primary btn-press mx-auto" data-target="modal-example">OPEN MODAL</button>
 
 <div class="modal shadow-1 white rounded-3" id="modal-example">
   <div class="modal-header">
@@ -912,7 +912,7 @@
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="falling-modal">Falling modal</h2>
@@ -921,7 +921,7 @@
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example2">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example2">OPEN MODAL</button>
 
 <div class="modal shadow-1 white modal-falling" id="modal-example2">
   <div class="modal-header">Header</div>
@@ -938,7 +938,7 @@
   </div>
   <div class="divider"></div>
   <div class="modal-footer">
-    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">
+    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary">
       Close
     </button>
   </div>
@@ -964,11 +964,11 @@
     <div class="divider"></div>
 
     <div class="modal-footer">
-      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary modal-trigger">Close</button>
+      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary">Close</button>
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
@@ -977,7 +977,7 @@
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press modal-trigger mx-auto" data-target="modal-example3">OPEN MODAL</button>
+<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example3">OPEN MODAL</button>
 
 <div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example3">
   <div class="modal-header">
@@ -1008,7 +1008,7 @@
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press modal-trigger" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>

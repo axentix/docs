@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="/preview/axentix/axentix.min.c9af232cbe135427f87b4b25c92973d9ecfee65c84c504d3ffbf705ca5a88a0f.css" />
-    <link rel="stylesheet" href="/preview/docs.0dfe6bfe9d4199356615ae6d726d7610d12e386a292617af45559b1ffd89de31.css" />
+    <link rel="stylesheet" href="/preview/docs.f9c5ae0e77104f0ab8c6353be2c2d256d2da3fc59b70787729f529f1af095f83.css" />
     
   </head>
 
@@ -36,11 +36,11 @@
       <button
         data-target="main-sidenav"
         aria-label="Menu button"
-        class="sidenav-trigger btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
+        class="btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
       >
         <i aria-hidden="true" class="fas fa-bars"></i> Menu
       </button>
-      <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle transparent text-white hide-sm-up font-w600">
+      <button data-target="main-sidenav" class="btn btn-circle transparent text-white hide-sm-up font-w600">
         <i aria-hidden="true" class="fas fa-bars"></i>
       </button>
       <div class="navbar-menu hide-sm-down">
@@ -71,7 +71,7 @@
   </div>
 </header>
 <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white"><div class="sidenav-header">
-  <button data-target="main-sidenav" class="sidenav-trigger btn btn-circle btn-small transparent hide-md-up"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
   <img class="docs-logo sidenav-logo" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
@@ -121,7 +121,7 @@
   Getting started
 </a>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="general-menu">General</a>
+<a href="" class="sidenav-link" data-target="general-menu">General</a>
 <div>
   <div class="collapsible" id="general-menu">
   
@@ -233,7 +233,7 @@
   
   </div>
 </div>
-<a href="" class="collapsible-trigger sidenav-link" data-target="components-menu">Components</a>
+<a href="" class="sidenav-link" data-target="components-menu">Components</a>
 <div>
   <div class="collapsible" id="components-menu">
   
@@ -380,7 +380,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="forms-menu">Forms</a>
+<a href="" class="sidenav-link" data-target="forms-menu">Forms</a>
 <div>
   <div class="collapsible" id="forms-menu">
     
@@ -499,7 +499,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="trends-menu">Trends</a>
+<a href="" class="sidenav-link" data-target="trends-menu">Trends</a>
 <div>
   <div class="collapsible" id="trends-menu">
     <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
@@ -609,7 +609,7 @@
   </div>
 </div>
 
-<a href="" class="collapsible-trigger sidenav-link" data-target="utilities-menu">Utilities</a>
+<a href="" class="sidenav-link" data-target="utilities-menu">Utilities</a>
 <div>
   <div class="collapsible" id="utilities-menu">
     
@@ -984,8 +984,7 @@
         <td>Axentix.syncAll()</td>
         <td>
           This method synchronizes all components listeners.<br />
-          This is useful if you are adding elements dynamically like a
-          <code class="language-css">sidenav-trigger</code> after loading the page.
+          This is useful if you are adding elements dynamically after loading the page.
         </td>
       </tr>
       <tr>
