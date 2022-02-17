@@ -47,8 +47,8 @@ const HomeAxentix = (() => {
 
   const onScroll = () => {
     const navbar = navbarFixed.querySelector('.navbar');
-    if (window.scrollY > navbarFixed.offsetTop) navbar.classList.add('light-shadow-1');
-    else navbar.classList.remove('light-shadow-1');
+    if (window.scrollY > navbarFixed.offsetTop) navbar.classList.add('white', 'light-shadow-1');
+    else navbar.classList.remove('white', 'light-shadow-1');
   };
 
   const setup = () => {

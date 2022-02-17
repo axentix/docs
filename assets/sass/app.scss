@@ -61,6 +61,10 @@ main {
 }
 
 .navbar {
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
   .navbar-brand {
     align-items: flex-end;
 
@@ -229,6 +233,15 @@ pre[class*='language-'] {
 
 .icon-gradient path {
   fill: url(#svg-gradient) #ffd526;
+}
+
+.bg-shadow {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  top: -5rem;
+  right: -6rem;
+  filter: blur(5rem);
 }
 
 @import './home/devices';
