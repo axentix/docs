@@ -2,10 +2,10 @@
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
-// @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
   --ax-sidenav-width: 15rem;
+  --ax-navbar-height: 4.5rem;
 }
 
 html,
@@ -14,14 +14,8 @@ body {
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-#twitter {
-  padding: 0 1rem;
-}
-
-@include responsive('xs') {
-  #github {
-    padding: 0 1rem;
-  }
+.navbar-icons {
+  padding: 0 1rem !important;
 }
 
 .sidenav .sidenav-cross {
@@ -30,15 +24,15 @@ body {
   right: 0.5rem;
 }
 
-.neumorphism-link {
-  display: flex !important;
+// .neumorphism-link {
+//   display: flex !important;
 
-  .neumorphism-logo {
-    align-self: center;
-    width: 20px;
-    height: 20px;
-  }
-}
+//   .neumorphism-logo {
+//     align-self: center;
+//     width: 20px;
+//     height: 20px;
+//   }
+// }
 
 div.code-toolbar {
   .disable-copy-btn {
@@ -49,20 +43,30 @@ div.code-toolbar {
 }
 
 main {
-  .title {
-    font-size: 4rem;
-    align-items: flex-end;
+  // .title {
+  //   font-size: 4rem;
+  //   align-items: flex-end;
 
-    img {
-      width: 7rem;
-      margin-right: 0.25rem;
-    }
-  }
+  //   img {
+  //     width: 7rem;
+  //     margin-right: 0.25rem;
+  //   }
+  // }
 
   pre.language-shell {
     overflow: hidden;
     max-width: 15rem;
     text-align: center;
+  }
+}
+
+.navbar {
+  .navbar-brand {
+    align-items: flex-end;
+
+    .navbar-logo {
+      height: 3rem;
+    }
   }
 }
 
@@ -97,42 +101,97 @@ main {
 }
 
 #top {
-  min-height: 41rem;
-}
-
-.top {
-  width: 50%;
+  min-height: 50rem;
+  padding-top: 4rem;
 
   @include responsive('sm-down') {
-    width: auto;
-  }
-}
-
-.side-geometric {
-  position: absolute;
-  right: -25rem;
-  top: -27rem;
-  height: 35rem;
-  width: 64rem;
-  background-color: #354d59;
-  border-radius: 34px;
-  transform: rotate(30deg);
-  transform-origin: bottom left;
-
-  @include responsive('md') {
-    width: 60rem;
+    min-height: 35rem;
   }
 
-  &.two {
-    height: 33rem;
-    width: 57rem;
-    background-color: #242f35;
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    background: #e2e2e2;
+    border-radius: 30px;
+    padding: calc(1rem + 2px) 1.5rem;
+    border: 1px solid #cecece;
+    font-weight: 600;
+
+    .token.atrule,
+    .token.attr-value,
+    .token.class-name,
+    .token.function {
+      color: #000;
+    }
+  }
+
+  code[class*='language-'] {
+    color: #000;
+    font-family: quicksand, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-size: 1.075rem;
+  }
+
+  > div:not(.top-footer) {
+    max-width: 50%;
 
     @include responsive('md') {
-      width: 53rem;
+      max-width: 70%;
+    }
+
+    @include responsive('sm') {
+      max-width: 90%;
+    }
+
+    @include responsive('xs') {
+      max-width: 98%;
+    }
+  }
+
+  .top-footer {
+    > div {
+      height: 12rem;
+
+      .separator {
+        height: 8rem;
+        right: 0;
+      }
     }
   }
 }
+
+// .top {
+//   width: 50%;
+
+//   @include responsive('sm-down') {
+//     width: auto;
+//   }
+// }
+
+// .side-geometric {
+//   position: absolute;
+//   right: -25rem;
+//   top: -27rem;
+//   height: 35rem;
+//   width: 64rem;
+//   background-color: #354d59;
+//   border-radius: 34px;
+//   transform: rotate(30deg);
+//   transform-origin: bottom left;
+
+//   @include responsive('md') {
+//     width: 60rem;
+//   }
+
+//   &.two {
+//     height: 33rem;
+//     width: 57rem;
+//     background-color: #242f35;
+
+//     @include responsive('md') {
+//       width: 53rem;
+//     }
+//   }
+// }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
@@ -158,6 +217,18 @@ pre[class*='language-'] {
 
 .token.punctuation {
   color: #56b6c2;
+}
+
+.orange-gradient {
+  background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
+}
+
+.btn:hover {
+  filter: none;
+}
+
+.icon-gradient path {
+  fill: url(#svg-gradient) #ffd526;
 }
 
 @import './home/devices';

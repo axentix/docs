@@ -1,34 +1,49 @@
 <header>
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+      <stop stop-color="#ff7600"></stop>
+      <stop offset="1" stop-color="#ffd526"></stop>
+    </linearGradient>
+  </svg>
+
   <div class="navbar-fixed">
-    <nav class="navbar white light-shadow-1">
+    <nav class="navbar white">
       <button
         data-target="main-sidenav"
-        class="btn white hide-md-up"
+        class="btn white hide-md-up font-s5"
         aria-label="Menu button"
       >
-        <i aria-hidden="true" class="fas fa-bars"></i>
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
       </button>
-      <div class="navbar-menu hide-sm-down">
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="{{ .Site.BaseURL }}"><i aria-hidden="true" class="fas fa-home"></i> Home</a>
 
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="{{ ref . "getting-started" }}"><i aria-hidden="true" class="fas fa-book"></i> Documentation</a>
+      <div class="navbar-brand font-w600 font-s5 z-index-2 d-flex lh-normal">
+        <img src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />xentix
       </div>
-      <div class="navbar-menu ml-auto">
-        <a class="navbar-link neumorphism-link text-airforce text-dark-4 font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener"
-          ><img class="neumorphism-logo vself-center mr-1" src="{{ .Site.BaseURL }}/img/neu-logo.svg" alt="neumorphism neu-axentix logo"> Neumorphism</a
-        >
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" id="github" aria-label="Github"
-          ><i aria-hidden="true" class="fab fa-github"></i> <span class="hide-xs"> GITHUB</span></a
-        >
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600 text-airforce text-dark-4" href="{{ .Site.BaseURL }}">Home</a>
+
+        <a class="navbar-link font-w600 text-airforce text-dark-4" href="{{ ref . "getting-started" }}">Documentation</a>
+
+        <a class="navbar-link text-airforce text-dark-4 font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 text-airforce text-dark-4 navbar-icons" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" id="github" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
         <a
-          class="navbar-link text-airforce text-dark-4"
+          class="navbar-link text-airforce text-dark-4 navbar-icons"
           id="twitter"
           aria-label="Twitter"
           href="https://twitter.com/UseAxentix"
           target="_blank"
           rel="noopener"
-          ><i aria-hidden="true" class="fab fa-twitter"></i
-        ></a>
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
       </div>
     </nav>
   </div>
