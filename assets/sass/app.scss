@@ -45,8 +45,20 @@ main pre.language-shell {
   .navbar-brand {
     align-items: flex-end;
 
+    @include responsive('sm-up') {
+      font-size: 1.75rem;
+    }
+
     .navbar-logo {
       height: 3rem;
+
+      @include responsive('sm-down') {
+        margin-left: 0;
+      }
+
+      @include responsive('xs') {
+        height: 2.5rem;
+      }
     }
   }
 }
@@ -80,11 +92,21 @@ main pre.language-shell {
   fill: url(#svg-gradient) #ffd526;
 }
 
+// Small hack
+.top-bg-blur-wrapper {
+  height: 100rem;
+}
+
 .bg-blur {
   width: 20rem;
   height: 20rem;
   position: absolute;
   filter: blur(5rem);
+
+  @include responsive('sm-down') {
+    width: 15rem;
+    height: 15rem;
+  }
 
   &.bg-blur-top-right {
     top: -5rem;
@@ -94,6 +116,10 @@ main pre.language-shell {
   &.bg-blur-top-left {
     top: 32rem;
     left: -13rem;
+
+    @include responsive('xs') {
+      left: -15rem;
+    }
   }
 }
 
@@ -126,6 +152,24 @@ main pre.language-shell {
     font-family: quicksand, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif,
       apple color emoji, segoe ui emoji, segoe ui symbol;
     font-size: 1.075rem;
+  }
+
+  .top-wrap {
+    a {
+      margin-right: 1.5rem;
+    }
+
+    @include responsive('xs') {
+      flex-direction: column;
+      justify-content: center;
+      flex-direction: column-reverse;
+
+      a {
+        margin-top: 1rem;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
   }
 
   > div:not(.top-footer) {

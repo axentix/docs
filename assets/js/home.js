@@ -71,6 +71,7 @@ const HomeAxentix = (() => {
 
     navbarFixed = document.querySelector('.navbar-fixed');
     window.addEventListener('scroll', onScroll);
+    onScroll();
   };
 
   return {
