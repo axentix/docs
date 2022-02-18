@@ -1,0 +1,12 @@
+#community {
+  .wrapper {
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+  }
+
+  @include responsive('sm') {
+    .caroulix .card {
+      width: 75%;
+    }
+  }
+}

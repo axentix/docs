@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>
 
-    <body class="layout">
+    <body class="layout relative-pos">
         {{- partial "home/header.html" . -}}
 
         <div id="main-sidenav" class="sidenav light-shadow-2 white large">
@@ -43,6 +43,10 @@
         </main>
 
         {{- partial "home/footer.html" . -}}
+
+        <div class="overflow-hidden w100 bottom-bg-blur-wrapper absolute-pos">
+            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+        </div>
 
         {{ $prism := resources.Get "js/prism.js" | fingerprint }}
         {{ $home := resources.Get "js/home.js" | fingerprint }}

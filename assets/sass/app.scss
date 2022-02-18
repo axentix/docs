@@ -100,9 +100,21 @@ main pre.language-shell {
   fill: url(#svg-gradient) #ffd526;
 }
 
+.tertiary {
+  background-color: #000330;
+  color: #fff;
+}
+
 // Small hack
 .top-bg-blur-wrapper {
   height: 100rem;
+  pointer-events: none;
+}
+
+.bottom-bg-blur-wrapper {
+  height: 50rem;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .bg-blur {
@@ -111,7 +123,7 @@ main pre.language-shell {
   position: absolute;
   filter: blur(5rem);
 
-  animation: floating 6s ease-in-out infinite;
+  // animation: floating 6s ease-in-out infinite;
 
   @include responsive('sm-down') {
     width: 15rem;
@@ -130,6 +142,11 @@ main pre.language-shell {
     @include responsive('xs') {
       left: -15rem;
     }
+  }
+
+  &.bg-blur-bottom-left {
+    bottom: -9rem;
+    left: -9rem;
   }
 }
 
@@ -292,3 +309,4 @@ pre[class*='language-'] {
 @import './home/grix';
 @import './home/colors';
 @import './home/neu';
+@import './home/community';
