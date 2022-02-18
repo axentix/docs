@@ -1,4 +1,3 @@
-// Imports
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
@@ -14,25 +13,15 @@ body {
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-.navbar-icons {
-  padding: 0 1rem !important;
-}
+// .navbar-icons {
+//   padding: 0 1rem !important;
+// }
 
 .sidenav .sidenav-cross {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
 }
-
-// .neumorphism-link {
-//   display: flex !important;
-
-//   .neumorphism-logo {
-//     align-self: center;
-//     width: 20px;
-//     height: 20px;
-//   }
-// }
 
 div.code-toolbar {
   .disable-copy-btn {
@@ -42,22 +31,10 @@ div.code-toolbar {
   }
 }
 
-main {
-  // .title {
-  //   font-size: 4rem;
-  //   align-items: flex-end;
-
-  //   img {
-  //     width: 7rem;
-  //     margin-right: 0.25rem;
-  //   }
-  // }
-
-  pre.language-shell {
-    overflow: hidden;
-    max-width: 15rem;
-    text-align: center;
-  }
+main pre.language-shell {
+  overflow: hidden;
+  max-width: 15rem;
+  text-align: center;
 }
 
 .navbar {
@@ -83,19 +60,6 @@ main {
 
 #discord-footer {
   font-size: 1.5rem;
-}
-
-.npm-github {
-  align-items: flex-end;
-
-  @media screen and (max-width: 400px) {
-    flex-direction: column;
-    align-items: baseline;
-
-    .language-shell {
-      margin-bottom: 1rem !important;
-    }
-  }
 }
 
 @include responsive('xs') {

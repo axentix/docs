@@ -1,11 +1,11 @@
 <div class="sidenav-header">
-  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo" src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix Logo" />
 
   {{ $currentBranch := getenv "AX_CURRENT_BRANCH" | default .Site.Params.current }}
   <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
     <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-      {{ $currentBranch }} <i aria-hidden="true" class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
+      {{ $currentBranch }} <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
     </div>
 
     {{ $url := .Site.BaseURL }}
@@ -109,6 +109,6 @@
 </a>
 
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
-  <i class="fab fa-discord" aria-hidden="true"></i> &nbsp;
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
   Join us
 </a>
