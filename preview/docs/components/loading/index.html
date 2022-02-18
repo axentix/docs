@@ -20,8 +20,6 @@
 <meta name="theme-color" content="#ffffff" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
@@ -38,14 +36,14 @@
         aria-label="Menu button"
         class="btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
       >
-        <i aria-hidden="true" class="fas fa-bars"></i> Menu
+        <span class="iconify-inline" data-icon="mdi:menu"></span>  Menu
       </button>
       <button data-target="main-sidenav" class="btn btn-circle transparent text-white hide-sm-up font-w600">
-        <i aria-hidden="true" class="fas fa-bars"></i>
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
       </button>
       <div class="navbar-menu hide-sm-down">
-        <a class="navbar-link font-w600" href="https://useaxentix.com/preview"><i aria-hidden="true" class="fas fa-home"></i> Home</a>
-        <a class="navbar-link font-w600" href="https://useaxentix.com/preview/docs/getting-started/"><i aria-hidden="true" class="fas fa-book"></i> Documentation</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview"><span class="iconify-inline" data-icon="mdi:home"></span> Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview/docs/getting-started/"><span class="iconify-inline" data-icon="mdi:book"></span> Documentation</a>
       </div>
       <div class="navbar-menu ml-auto">
         <div id="search-input" class="my-auto"></div>
@@ -56,7 +54,8 @@
           target="_blank"
           rel="noopener"
           aria-label="Github"
-          ><i aria-hidden="true" class="fab fa-github"></i><span class="hide-xs"> GITHUB</span></a
+        ><span class="iconify-inline" data-icon="mdi:github"></span>
+          <span class="hide-xs"> GITHUB</span></a
         >
         <a
           class="navbar-link font-w600"
@@ -64,20 +63,20 @@
           href="https://twitter.com/UseAxentix"
           target="_blank"
           rel="noopener"
-          ><i aria-hidden="true" class="fab fa-twitter"><span class="hide"> TWITTER</span></i></a
+          ><span class="iconify-inline" data-icon="mdi:twitter"></span><span class="hide"> TWITTER</span></i></a
         >
       </div>
     </nav>
   </div>
 </header>
 <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white"><div class="sidenav-header">
-  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
   <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
     <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-      preview <i aria-hidden="true" class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
+      preview <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
     </div>
 
     
@@ -845,7 +844,7 @@
 </a>
 
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
-  <i class="fab fa-discord" aria-hidden="true"></i> &nbsp;
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
   Join us
 </a>
 </div>
@@ -1053,7 +1052,7 @@
 
             
             <a href="https://www.evolvewebhost.com" target="_blank" rel="noopener" class="scrollspy-sponsor ml-2 my-2">
-              <img src="https://useaxentix.com/preview/img/sponsors/evolve_hosting.png" class="responsive-media">
+              <img src="https://useaxentix.com/preview/img/sponsors/evolve_hosting.png" class="responsive-media" />
             </a>
             <a
               href="https://www.buymeacoffee.com/axentix"
@@ -1071,12 +1070,17 @@
 </footer>
   
     <script src="/preview/axentix/axentix.min.200178a5c147343e4475201ece1af91c154b7cf9a0377538590d07ec8cede7f7.js"></script>
-    <script src="/preview/js/prism.4b8c3fa644e58e441fb3da4012a0f814a9640aba1b02efa8882f1324c0164dae.js"></script>
+    <script src="/preview/js/prism.8c7a75416846abdaf741adfbefbd3a22e48bae7de42a029ab0fad37e0101cb40.js"></script>
     <script src="/preview/js/docs.e7a774ec32b930c63784389554715121fdf70b0e2ba7e7261dfe0cd9a665feb6.js"></script>
     <script>
       const baseURL = 'https:\/\/useaxentix.com\/preview';
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
       docsearch({
         apiKey: '5eae298506cf8352bb7462dc2ff37f9d',

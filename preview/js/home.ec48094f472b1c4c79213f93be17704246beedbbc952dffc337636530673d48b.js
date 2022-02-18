@@ -9,7 +9,8 @@ const HomeAxentix = (() => {
     currentColor = 'blue',
     neuSwitch,
     neuElems,
-    neuTheme = 'dark';
+    neuTheme = 'dark',
+    navbarFixed;
 
   const updateSentence = () => {
     sentenceCheckbox.checked ? hiddenSentence.classList.add('visible') : hiddenSentence.classList.remove('visible');
@@ -44,6 +45,12 @@ const HomeAxentix = (() => {
     });
   };
 
+  const onScroll = () => {
+    const navbar = navbarFixed.querySelector('.navbar');
+    if (window.scrollY > navbarFixed.offsetTop) navbar.classList.add('white', 'light-shadow-1');
+    else navbar.classList.remove('white', 'light-shadow-1');
+  };
+
   const setup = () => {
     hiddenSentence = document.querySelector('#hidden-sentence');
     sentenceCheckbox = document.querySelector('#sentence-checkbox');
@@ -61,6 +68,10 @@ const HomeAxentix = (() => {
     neuSwitch.addEventListener('change', switchNeuTheme);
 
     neuElems = Array.from(document.querySelectorAll('[data-neu]'));
+
+    navbarFixed = document.querySelector('.navbar-fixed');
+    window.addEventListener('scroll', onScroll);
+    onScroll();
   };
 
   return {

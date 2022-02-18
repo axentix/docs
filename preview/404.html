@@ -21,8 +21,6 @@
 <meta name="theme-color" content="#ffffff" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
         
         
@@ -30,51 +28,62 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="/preview/axentix/axentix.min.c9af232cbe135427f87b4b25c92973d9ecfee65c84c504d3ffbf705ca5a88a0f.css"/>
-        <link rel="stylesheet" href="/preview/home.min.ee66b3f55d1c75ec32d975a185a19f23811bbce981c887a578e8fcf5cc916688.css"/>
+        <link rel="stylesheet" href="/preview/home.min.edc0c58776abb0b20a7aeb0390cc6adac6c9df2eb71048336dfb4555e8fedb1e.css"/>
     </head>
 
     <body class="layout"><header>
   <div class="navbar-fixed">
-    <nav class="navbar white light-shadow-1">
+    <nav class="navbar">
       <button
         data-target="main-sidenav"
-        class="btn white hide-md-up"
+        class="btn transparent hide-md-up font-s5"
         aria-label="Menu button"
       >
-        <i aria-hidden="true" class="fas fa-bars"></i>
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
       </button>
-      <div class="navbar-menu hide-sm-down">
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="https://useaxentix.com/preview"><i aria-hidden="true" class="fas fa-home"></i> Home</a>
 
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="https://useaxentix.com/preview/docs/getting-started/"><i aria-hidden="true" class="fas fa-book"></i> Documentation</a>
+      <div class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />xentix
       </div>
-      <div class="navbar-menu ml-auto">
-        <a class="navbar-link neumorphism-link text-airforce text-dark-4 font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener"
-          ><img class="neumorphism-logo vself-center mr-1" src="https://useaxentix.com/preview/img/neu-logo.svg" alt="neumorphism neu-axentix logo"> Neumorphism</a
-        >
-        <a class="navbar-link font-w600 text-airforce text-dark-4" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" id="github" aria-label="Github"
-          ><i aria-hidden="true" class="fab fa-github"></i> <span class="hide-xs"> GITHUB</span></a
-        >
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview">Home</a>
+
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 navbar-icons px-1" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
         <a
-          class="navbar-link text-airforce text-dark-4"
-          id="twitter"
+          class="navbar-link navbar-icons px-1"
           aria-label="Twitter"
           href="https://twitter.com/UseAxentix"
           target="_blank"
           rel="noopener"
-          ><i aria-hidden="true" class="fab fa-twitter"></i
-        ></a>
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 navbar-icons px-1" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a>
       </div>
     </nav>
   </div>
 </header><div id="main-sidenav" class="sidenav light-shadow-2 white large"><div class="sidenav-header">
-  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><i aria-hidden="true" class="fas fa-times"></i></button>
+  <button data-target="main-sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
   <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
     <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-      preview <i aria-hidden="true" class="fas fa-sort-down text-grey text-dark-4 ml-4"></i>
+      preview <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
     </div>
 
     
@@ -842,10 +851,22 @@
 </a>
 
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
-  <i class="fab fa-discord" aria-hidden="true"></i> &nbsp;
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
   Join us
 </a>
 </div>
+
+        <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+        </svg>
+    
+        <div class="overflow-hidden w100 top-bg-blur-wrapper absolute-pos">
+            <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+            <div class="bg-blur bg-blur-top-left blue rounded-full z-index-2"></div>
+        </div>
 
         <main>
 
@@ -866,11 +887,12 @@
         
         
         <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="/preview/axentix/axentix.min.200178a5c147343e4475201ece1af91c154b7cf9a0377538590d07ec8cede7f7.js"></script>
-        <script src="/preview/js/prism.4b8c3fa644e58e441fb3da4012a0f814a9640aba1b02efa8882f1324c0164dae.js"></script>
+        <script src="/preview/js/prism.8c7a75416846abdaf741adfbefbd3a22e48bae7de42a029ab0fad37e0101cb40.js"></script>
         <script src="/preview/js/vanilla-tilt.min.dc20eff6f16fd55252b87ab273d0f3fd6f04a10d6c538eb12e484b72058e2155.js"></script>
-        <script src="/preview/js/home.b7df6ce6a9e37c27f740a6ffa29db0f0c88f961e4dcceefd2b3b96446f94ae70.js"></script>
+        <script src="/preview/js/home.ec48094f472b1c4c79213f93be17704246beedbbc952dffc337636530673d48b.js"></script>
 
         
         
