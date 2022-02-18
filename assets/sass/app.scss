@@ -82,6 +82,14 @@ main pre.language-shell {
 
 .orange-gradient {
   background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
+
+  &.text-gradient {
+    -o-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 .btn:hover {
@@ -192,7 +200,7 @@ main pre.language-shell {
   }
 
   > div:not(.top-footer) {
-    max-width: 50%;
+    max-width: 60%;
 
     @include responsive('md') {
       max-width: 70%;
