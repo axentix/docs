@@ -180,7 +180,6 @@ main pre.language-shell {
     }
 
     @include responsive('xs') {
-      flex-direction: column;
       justify-content: center;
       flex-direction: column-reverse;
 
