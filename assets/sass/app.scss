@@ -104,6 +104,35 @@ main {
   }
 }
 
+.orange-gradient {
+  background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
+}
+
+.btn:hover {
+  filter: none;
+}
+
+.icon-gradient path {
+  fill: url(#svg-gradient) #ffd526;
+}
+
+.bg-blur {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  filter: blur(5rem);
+
+  &.bg-blur-top-right {
+    top: -5rem;
+    right: -6rem;
+  }
+
+  &.bg-blur-top-left {
+    top: 32rem;
+    left: -13rem;
+  }
+}
+
 #top {
   min-height: 50rem;
   padding-top: 4rem;
@@ -221,27 +250,6 @@ pre[class*='language-'] {
 
 .token.punctuation {
   color: #56b6c2;
-}
-
-.orange-gradient {
-  background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
-}
-
-.btn:hover {
-  filter: none;
-}
-
-.icon-gradient path {
-  fill: url(#svg-gradient) #ffd526;
-}
-
-.bg-shadow {
-  width: 20rem;
-  height: 20rem;
-  position: absolute;
-  top: -5rem;
-  right: -6rem;
-  filter: blur(5rem);
 }
 
 @import './home/devices';
