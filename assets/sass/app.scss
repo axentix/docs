@@ -103,6 +103,8 @@ main pre.language-shell {
   position: absolute;
   filter: blur(5rem);
 
+  animation: floating 6s ease-in-out infinite;
+
   @include responsive('sm-down') {
     width: 15rem;
     height: 15rem;
@@ -123,12 +125,30 @@ main pre.language-shell {
   }
 }
 
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-60px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 #top {
   min-height: 50rem;
   padding-top: 4rem;
 
   @include responsive('sm-down') {
     min-height: 35rem;
+  }
+
+  @include responsive('xs') {
+    padding-top: 0;
   }
 
   :not(pre) > code[class*='language-'],
