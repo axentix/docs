@@ -1,11 +1,10 @@
-// Imports
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
-// @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
   --ax-sidenav-width: 15rem;
+  --ax-navbar-height: 4.5rem;
 }
 
 html,
@@ -14,30 +13,14 @@ body {
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-#twitter {
-  padding: 0 1rem;
-}
-
-@include responsive('xs') {
-  #github {
-    padding: 0 1rem;
-  }
-}
+// .navbar-icons {
+//   padding: 0 1rem !important;
+// }
 
 .sidenav .sidenav-cross {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-}
-
-.neumorphism-link {
-  display: flex !important;
-
-  .neumorphism-logo {
-    align-self: center;
-    width: 20px;
-    height: 20px;
-  }
 }
 
 div.code-toolbar {
@@ -48,21 +31,35 @@ div.code-toolbar {
   }
 }
 
-main {
-  .title {
-    font-size: 4rem;
+main pre.language-shell {
+  overflow: hidden;
+  max-width: 15rem;
+  text-align: center;
+}
+
+.navbar {
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
+  .navbar-brand {
     align-items: flex-end;
 
-    img {
-      width: 7rem;
-      margin-right: 0.25rem;
+    @include responsive('sm-up') {
+      font-size: 1.75rem;
     }
-  }
 
-  pre.language-shell {
-    overflow: hidden;
-    max-width: 15rem;
-    text-align: center;
+    .navbar-logo {
+      height: 3rem;
+
+      @include responsive('sm-down') {
+        margin-left: 0;
+      }
+
+      @include responsive('xs') {
+        height: 2.5rem;
+      }
+    }
   }
 }
 
@@ -77,62 +74,184 @@ main {
   font-size: 1.5rem;
 }
 
-.npm-github {
-  align-items: flex-end;
-
-  @media screen and (max-width: 400px) {
-    flex-direction: column;
-    align-items: baseline;
-
-    .language-shell {
-      margin-bottom: 1rem !important;
-    }
-  }
-}
-
 @include responsive('xs') {
   .get-started {
     width: 100%;
   }
 }
 
-#top {
-  min-height: 41rem;
+.orange-gradient {
+  background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
 }
 
-.top {
-  width: 50%;
+.btn:hover {
+  filter: none;
+}
+
+.icon-gradient path {
+  fill: url(#svg-gradient) #ffd526;
+}
+
+// Small hack
+.top-bg-blur-wrapper {
+  height: 100rem;
+}
+
+.bg-blur {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  filter: blur(5rem);
+
+  animation: floating 6s ease-in-out infinite;
 
   @include responsive('sm-down') {
-    width: auto;
-  }
-}
-
-.side-geometric {
-  position: absolute;
-  right: -25rem;
-  top: -27rem;
-  height: 35rem;
-  width: 64rem;
-  background-color: #354d59;
-  border-radius: 34px;
-  transform: rotate(30deg);
-  transform-origin: bottom left;
-
-  @include responsive('md') {
-    width: 60rem;
+    width: 15rem;
+    height: 15rem;
   }
 
-  &.two {
-    height: 33rem;
-    width: 57rem;
-    background-color: #242f35;
+  &.bg-blur-top-right {
+    top: -5rem;
+    right: -6rem;
+  }
 
-    @include responsive('md') {
-      width: 53rem;
+  &.bg-blur-top-left {
+    top: 32rem;
+    left: -13rem;
+
+    @include responsive('xs') {
+      left: -15rem;
     }
   }
 }
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-60px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+#top {
+  min-height: 50rem;
+  padding-top: 4rem;
+
+  @include responsive('sm-down') {
+    min-height: 35rem;
+  }
+
+  @include responsive('xs') {
+    padding-top: 0;
+  }
+
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    background: #e2e2e2;
+    border-radius: 30px;
+    padding: calc(1rem + 2px) 1.5rem;
+    border: 1px solid #cecece;
+    font-weight: 600;
+
+    .token.atrule,
+    .token.attr-value,
+    .token.class-name,
+    .token.function {
+      color: #000;
+    }
+  }
+
+  code[class*='language-'] {
+    color: #000;
+    font-family: quicksand, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-size: 1.075rem;
+  }
+
+  .top-wrap {
+    a {
+      margin-right: 1.5rem;
+    }
+
+    @include responsive('xs') {
+      justify-content: center;
+      flex-direction: column-reverse;
+
+      a {
+        margin-top: 1rem;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  > div:not(.top-footer) {
+    max-width: 50%;
+
+    @include responsive('md') {
+      max-width: 70%;
+    }
+
+    @include responsive('sm') {
+      max-width: 90%;
+    }
+
+    @include responsive('xs') {
+      max-width: 98%;
+    }
+  }
+
+  .top-footer {
+    > div {
+      height: 12rem;
+
+      .separator {
+        height: 8rem;
+        right: 0;
+      }
+    }
+  }
+}
+
+// .top {
+//   width: 50%;
+
+//   @include responsive('sm-down') {
+//     width: auto;
+//   }
+// }
+
+// .side-geometric {
+//   position: absolute;
+//   right: -25rem;
+//   top: -27rem;
+//   height: 35rem;
+//   width: 64rem;
+//   background-color: #354d59;
+//   border-radius: 34px;
+//   transform: rotate(30deg);
+//   transform-origin: bottom left;
+
+//   @include responsive('md') {
+//     width: 60rem;
+//   }
+
+//   &.two {
+//     height: 33rem;
+//     width: 57rem;
+//     background-color: #242f35;
+
+//     @include responsive('md') {
+//       width: 53rem;
+//     }
+//   }
+// }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
