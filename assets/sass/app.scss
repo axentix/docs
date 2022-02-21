@@ -230,6 +230,8 @@ main pre.language-shell {
   }
 
   .top-footer {
+    z-index: -1;
+
     > div {
       height: 12rem;
 

@@ -35,7 +35,7 @@
     
         <div class="overflow-hidden w100 top-bg-blur-wrapper absolute-pos">
             <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
-            <div class="bg-blur bg-blur-top-left blue rounded-full z-index-2"></div>
+            <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
         </div>
 
         <main>
@@ -52,14 +52,12 @@
 
         {{ $prism := resources.Get "js/prism.js" | fingerprint }}
         {{ $home := resources.Get "js/home.js" | fingerprint }}
-        {{ $tilt := resources.Get "js/vanilla-tilt.min.js" | fingerprint }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }}
         <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
-        <script src="{{$tilt.RelPermalink}}"></script>
         <script src="{{$home.RelPermalink}}"></script>
 
         {{ $env := getenv "AX_ENV" }}
