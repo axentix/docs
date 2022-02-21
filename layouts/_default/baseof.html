@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
     <head>
-        <title>Axentix - Front-end framework based on CSS Grid</title>
-        {{ $description := "Axentix is an open source Framework based on CSS Grid using HTML, CSS and JS. The easy layout control and grid system makes it one of the most easy to learn framework." }}
+        <title>Axentix - Modern framework to build websites faster</title>
+        {{ $description := "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer." }}
         <meta name="description" content="{{ .Page.Params.description | default $description }}" />
         <meta property="og:description" content="{{ .Page.Params.description | default $description }}" />
-        <meta property="og:title" content="Axentix - Front-end framework based on CSS Grid" />
+        <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
         {{- partial "head.html" . -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
-        {{ $style := slice $base $app | resources.Concat "home.css" | minify | fingerprint }}
+
+        {{ $postCssOptions := dict "use" "autoprefixer" }}
+        {{ $style := slice $base $app | resources.Concat "home.css" | resources.PostCSS $postCssOptions | minify | fingerprint }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>

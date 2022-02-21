@@ -5,15 +5,19 @@
     <meta name="description" content="{{ .Page.Params.description }}" />
     <meta property="og:description" content="{{ .Page.Params.description }}" />
     <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
-    {{- partial "head.html" . -}} {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }} {{
-    $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }} {{ $base := resources.Get "sass/main.scss" |
-    toCSS $options }} {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} {{ $style := slice $base $docs |
-    resources.Concat "docs.css" | fingerprint }}
+    {{- partial "head.html" . -}} 
+      {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
+      {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
+      {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
+      {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
+
+      {{ $postCssOptions := dict "use" "autoprefixer" }}
+      {{ $style := slice $base $docs | resources.Concat "docs.css" | resources.PostCSS $postCssOptions | fingerprint }}
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint
+    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | resources.PostCSS | fingerprint
     }}
     <link rel="stylesheet" href="{{ $layout.RelPermalink }}" />
     {{ end }}

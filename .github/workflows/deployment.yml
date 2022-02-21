@@ -35,15 +35,17 @@ jobs:
           DEFAULT_BRANCH=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
           echo "default_branch_ref=refs/heads/$DEFAULT_BRANCH" >> $GITHUB_ENV
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+      - name: Install node
+        uses: actions/setup-node@v2
         with:
-          hugo-version: '0.91.2'
-          extended: true
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build main docs
         if: ${{ env.default_branch_ref == github.ref }}
-        run: hugo --minify --baseURL https://useaxentix.com
+        run: npm run build -- --minify --baseURL https://useaxentix.com
         env:
           AX_ENV: production
           AX_CURRENT_BRANCH: ${{ steps.dest-dir.outputs.DIR }}
@@ -51,7 +53,7 @@ jobs:
 
       - name: Build docs
         if: ${{ env.default_branch_ref != github.ref }}
-        run: hugo --minify --baseURL https://useaxentix.com/${{ steps.dest-dir.outputs.DIR }}
+        run: npm run build -- --minify --baseURL https://useaxentix.com/${{ steps.dest-dir.outputs.DIR }}
         env:
           AX_ENV: production
           AX_CURRENT_BRANCH: ${{ steps.dest-dir.outputs.DIR }}
