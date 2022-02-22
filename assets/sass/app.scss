@@ -115,6 +115,7 @@ main pre.language-shell {
 }
 
 .bg-blur {
+  transform: translate3d(0, 0, 0);
   width: 20rem;
   height: 20rem;
   position: absolute;
