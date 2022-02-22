@@ -139,8 +139,8 @@ main pre.language-shell {
   }
 
   &.bg-blur-top-left {
-    top: 32rem;
-    left: -13rem;
+    top: 30rem;
+    left: -15rem;
 
     @include responsive('xs') {
       left: -15rem;
