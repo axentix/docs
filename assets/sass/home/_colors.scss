@@ -18,166 +18,107 @@
   transition-timing-function: ease;
 }
 
-.color-website {
-  .navbar {
-    height: 3rem;
+// .color-website {
+//   .color-container {
+//     width: 65%;
 
-    .navbar-brand {
-      font-size: 1.3rem;
-    }
+//     @include responsive('lg') {
+//       width: 70%;
+//     }
 
-    .navbar-menu span {
-      margin-right: 0.25rem;
-      margin-left: 0.25rem;
-    }
+//     @include responsive('md') {
+//       width: 100%;
+//       transform: scale(0.7) translateY(-6rem);
+//     }
 
-    @include responsive('md') {
-      font-size: 0.9rem;
+//     @include responsive('sm') {
+//       width: 130%;
+//       transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
+//     }
 
-      .navbar-brand {
-        font-size: 1.1rem;
-      }
-    }
+//     @include responsive('xs') {
+//       width: 270%;
+//       transform: scale(0.25) translateY(-42rem) translateX(-42.75rem);
+//     }
+//   }
+// }
 
-    @include responsive('sm') {
-      font-size: 0.7rem;
+#colors {
+  padding: 5rem 0;
 
-      .navbar-brand {
-        font-size: 0.9rem;
-      }
-    }
-
-    @include responsive('xs') {
-      font-size: 0.4rem;
-      padding: 0 0.25rem;
-
-      .navbar-brand {
-        font-size: 0.5rem;
-      }
-
-      .navbar-menu span {
-        margin-right: 0.125rem;
-        margin-left: 0.125rem;
-        padding-bottom: 0.125rem !important;
-      }
+  .container {
+    @include responsive('md-down') {
+      flex-direction: column;
     }
   }
+}
 
-  .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.color-components {
+  position: relative;
+  --ax-form-switch-active-color: rgb(33, 150, 243);
 
-    @include responsive('md') {
-      font-size: 0.8rem;
-      min-height: 2.25rem;
-    }
+  .progress {
+    width: 60%;
+  }
+}
 
-    @include responsive('sm') {
-      font-size: 0.6rem;
-      min-height: 1.75rem;
-    }
+.color-card {
+  transform: scale(0.7);
+  align-self: inherit;
+  margin-top: -2rem;
 
-    @include responsive('xs') {
-      font-size: 0.2rem;
-      min-height: 1rem;
-      padding-bottom: 0.25rem;
-    }
+  @include responsive('lg-up') {
+    width: 80%;
   }
 
-  .color-bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 65%;
+  img {
+    width: 8rem;
+    height: 8rem;
+  }
 
-    &::after {
+  .color-text {
+    font-size: 0.9rem;
+  }
+
+  .color-hello {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    position: relative;
+    width: fit-content;
+
+    &::before {
       content: '';
+      width: 0;
+      height: 0;
+      top: 100%;
+      left: 5px;
+      display: block;
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
+      border-style: solid;
+      border-width: 0 0 8px 8px;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-right-color: inherit;
+      border-left-color: inherit;
     }
   }
 
-  .color-container {
-    width: 65%;
-
-    @include responsive('lg') {
-      width: 70%;
-    }
-
-    @include responsive('md') {
-      width: 100%;
-      transform: scale(0.7) translateY(-6rem);
-    }
-
-    @include responsive('sm') {
-      width: 130%;
-      transform: scale(0.55) translateY(-12rem) translateX(-7.5rem);
-    }
-
-    @include responsive('xs') {
-      width: 270%;
-      transform: scale(0.25) translateY(-42rem) translateX(-42.75rem);
-    }
+  .color-head {
+    height: fit-content;
   }
 
-  .color-card {
-    img {
-      width: 8rem;
-      height: 8rem;
-    }
+  .color-card-title {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
 
-    .color-text {
-      font-size: 0.9rem;
-    }
-
-    .color-hello {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.8rem;
-      position: relative;
-      width: fit-content;
-
-      &::before {
-        content: '';
-        width: 0;
-        height: 0;
-        top: 100%;
-        left: 5px;
-        display: block;
-        position: absolute;
-        border-style: solid;
-        border-width: 0 0 8px 8px;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        border-right-color: inherit;
-        border-left-color: inherit;
-      }
-    }
-
-    .color-head {
-      height: fit-content;
-    }
-
-    .color-card-title {
-      margin-top: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .card-footer {
-      a {
-        width: 2rem;
-        height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+  .card-footer {
+    a {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

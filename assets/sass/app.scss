@@ -83,14 +83,14 @@ main pre.language-shell {
 .orange-gradient {
   background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
 
+  &.btn:hover {
+    filter: none;
+  }
+
   &.text-gradient {
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-}
-
-.btn:hover {
-  filter: none;
 }
 
 .icon-gradient path {
