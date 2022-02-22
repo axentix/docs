@@ -1,4 +1,6 @@
 #neumorph {
+  padding-bottom: 5rem;
+
   .form-switch .form-slider {
     --ax-form-switch-active-color: #fe7b00;
   }
@@ -29,6 +31,15 @@
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 1rem;
+  }
+
+  .neumorph-text {
+    margin-top: 8rem;
+    text-align: right;
+  }
+
+  .neu-btn {
+    margin-left: auto;
   }
 
   @include responsive('lg-up') {
