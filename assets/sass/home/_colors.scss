@@ -13,7 +13,7 @@
 }
 
 [data-colors] {
-  transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color, filter;
   transition-duration: 0.2s;
   transition-timing-function: ease;
 }
