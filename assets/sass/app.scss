@@ -115,7 +115,12 @@ main pre.language-shell {
 }
 
 .bg-blur {
-  transform: translate3d(0, 0, 0);
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
   width: 20rem;
   height: 20rem;
   position: absolute;
