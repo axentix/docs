@@ -1,0 +1,75 @@
+$totalReviews: 6;
+$cardWidth: 300px;
+$animationDuration: 40s;
+
+.reviews-wrapper {
+  padding: 4rem 0;
+  width: 75%;
+
+  @include responsive('md-down') {
+    width: 85%;
+  }
+
+  @include responsive('xs') {
+    width: 98%;
+  }
+
+  &::before,
+  &::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 20rem;
+    z-index: 2;
+
+    @include responsive('sm') {
+      width: 10rem;
+    }
+
+    @include responsive('xs') {
+      width: 6rem;
+    }
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .reviews-slides {
+    width: calc(#{$cardWidth} * #{$totalReviews * 2});
+    animation: reviews-animation #{$animationDuration} linear infinite;
+    will-change: transform;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    .card {
+      width: #{$cardWidth};
+      height: 12rem;
+      background-image: linear-gradient(90deg, rgba(0, 3, 38, 1) 0%, rgba(5, 89, 153, 1) 100%);
+    }
+
+    .bd-orange {
+      height: 5rem;
+    }
+  }
+}
+
+@keyframes reviews-animation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-#{$cardWidth} * #{$totalReviews}));
+  }
+}
