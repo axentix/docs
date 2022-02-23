@@ -34,7 +34,7 @@
 }
 
 .color-switcher {
-  margin-top: 4rem;
+  margin-top: 2rem;
   width: fit-content;
   flex-wrap: wrap;
 
@@ -66,9 +66,22 @@
   transform: scale(0.7);
   align-self: inherit;
   margin-top: -2rem;
+  overflow: visible;
+
+  .card-footer {
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
 
   @include responsive('lg-up') {
     width: 80%;
+  }
+
+  .color-spinner {
+    background-color: #00001c;
+    position: absolute;
+    bottom: -1rem;
+    left: -2rem;
   }
 
   img {
