@@ -32,13 +32,29 @@
     left: -15rem;
 
     @include responsive('xs') {
-      left: -15rem;
+      top: 40rem;
+      left: -18rem;
     }
   }
 
   &.bg-blur-bottom-left {
     bottom: -9rem;
     left: -9rem;
+  }
+
+  &.bg-blur-review {
+    bottom: 65rem;
+    z-index: 3;
+    right: -14rem;
+  }
+
+  &.bg-blur-colors {
+    top: 47%;
+    left: -14rem;
+
+    @include responsive('xs') {
+      top: 51%;
+    }
   }
 }
 
