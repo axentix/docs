@@ -10,6 +10,8 @@
     </h2>
 
     <div class="d-flex vcenter">
+      {{ $env := getenv "AX_ENV" }}
+      {{ if eq $env "production" }}
       <a
         class="github-button"
         href="https://github.com/axentix/axentix"
@@ -20,6 +22,7 @@
       >
         Star
       </a>
+      {{ end }}
 
       {{ $latestVersion := (.Site.Params.current | default (getenv "AX_LATEST_VERSION")) }}
       <em class="text-grey text-dark-3 ml-3">Latest version: {{ $latestVersion }}</em>
