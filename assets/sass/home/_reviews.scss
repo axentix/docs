@@ -1,6 +1,6 @@
 $totalReviews: 6;
 $cardWidth: 300px;
-$animationDuration: 40s;
+$animationDuration: 50s;
 
 .reviews-wrapper {
   padding: 4rem 0;
@@ -16,7 +16,6 @@ $animationDuration: 40s;
 
   &::before,
   &::after {
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
     background: linear-gradient(
       to right,
       hsl(0, 0%, 100%) 0%,
@@ -74,7 +73,6 @@ $animationDuration: 40s;
 
     .card {
       width: #{$cardWidth};
-      height: 12rem;
       background-image: linear-gradient(90deg, rgba(0, 3, 38, 1) 0%, rgba(5, 89, 153, 1) 100%);
     }
 
