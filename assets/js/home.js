@@ -59,9 +59,11 @@ const HomeAxentix = (() => {
 
   const setup = () => {
     hiddenSentence = document.querySelector('#hidden-sentence');
-    sentenceCheckbox = document.querySelector('#sentence-checkbox');
+    if (hiddenSentence) {
+      sentenceCheckbox = document.querySelector('#sentence-checkbox');
 
-    sentenceCheckbox.addEventListener('change', updateSentence);
+      sentenceCheckbox.addEventListener('change', updateSentence);
+    }
 
     colors = Array.from(document.querySelectorAll('[data-colors]'));
     btnColors = Array.from(document.querySelectorAll('[data-color-btn]'));

@@ -33,9 +33,10 @@
         </linearGradient>
         </svg>
     
-        <div class="overflow-hidden w100 top-bg-blur-wrapper absolute-pos">
+        <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
             <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
             <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
         </div>
 
         <main>
@@ -45,10 +46,6 @@
         </main>
 
         {{- partial "home/footer.html" . -}}
-
-        <div class="overflow-hidden w100 bottom-bg-blur-wrapper absolute-pos">
-            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
-        </div>
 
         {{ $prism := resources.Get "js/prism.js" | fingerprint }}
         {{ $home := resources.Get "js/home.js" | fingerprint }}

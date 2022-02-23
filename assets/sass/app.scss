@@ -102,71 +102,6 @@ main pre.language-shell {
   color: #fff;
 }
 
-// Small hack
-.top-bg-blur-wrapper {
-  height: 100rem;
-  pointer-events: none;
-}
-
-.bottom-bg-blur-wrapper {
-  height: 50rem;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.bg-blur {
-  @media not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) {
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  width: 20rem;
-  height: 20rem;
-  position: absolute;
-  filter: blur(5rem);
-
-  // animation: floating 6s ease-in-out infinite;
-
-  @include responsive('sm-down') {
-    width: 15rem;
-    height: 15rem;
-  }
-
-  &.bg-blur-top-right {
-    top: -5rem;
-    right: -6rem;
-  }
-
-  &.bg-blur-top-left {
-    top: 30rem;
-    left: -15rem;
-
-    @include responsive('xs') {
-      left: -15rem;
-    }
-  }
-
-  &.bg-blur-bottom-left {
-    bottom: -9rem;
-    left: -9rem;
-  }
-}
-
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-60px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 #top {
   min-height: 50rem;
   padding-top: 4rem;
@@ -316,3 +251,4 @@ pre[class*='language-'] {
 @import './home/colors';
 @import './home/neu';
 @import './home/community';
+@import './home/blur_effect';
