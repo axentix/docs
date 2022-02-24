@@ -26,8 +26,14 @@
 #colors {
   padding: 5rem 0;
 
-  .container:not(.color-switcher) {
-    @include responsive('md-down') {
+  @include responsive('md-down') {
+    padding: 0;
+
+    h2 {
+      text-align: center;
+    }
+
+    .container:not(.color-switcher) {
       flex-direction: column;
     }
   }
@@ -68,6 +74,11 @@
   margin-top: -2rem;
   overflow: visible;
 
+  @include responsive('xs') {
+    transform: scale(0.8);
+    margin-top: -1rem;
+  }
+
   .card-footer {
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
@@ -87,6 +98,15 @@
   img {
     width: 8rem;
     height: 8rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+    @include responsive('xs') {
+      width: 5rem;
+      height: 5rem;
+      margin-left: 0;
+      margin-right: 0.75rem;
+    }
   }
 
   .color-text {
