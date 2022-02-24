@@ -1,4 +1,4 @@
-<section class="overflow-hidden relative-pos text-center d-flex fx-col" id="top">
+<section class="text-center d-flex fx-col" id="top">
   <div class="container pt-4 d-flex fx-col vcenter">
     <h1 class="font-w600 font-s9 relative-pos z-index-2">
       Build <span class="orange-gradient text-gradient">modern</span> websites faster with Axentix.
@@ -10,8 +10,7 @@
     </h2>
 
     <div class="d-flex vcenter">
-      {{ $env := getenv "AX_ENV" }}
-      {{ if eq $env "production" }}
+      {{ $env := getenv "AX_ENV" }} {{ if eq $env "production" }}
       <a
         class="github-button"
         href="https://github.com/axentix/axentix"
@@ -22,9 +21,7 @@
       >
         Star
       </a>
-      {{ end }}
-
-      {{ $latestVersion := (.Site.Params.current | default (getenv "AX_LATEST_VERSION")) }}
+      {{ end }} {{ $latestVersion := (.Site.Params.current | default (getenv "AX_LATEST_VERSION")) }}
       <em class="text-grey text-dark-3 ml-3">Latest version: {{ $latestVersion }}</em>
     </div>
 
