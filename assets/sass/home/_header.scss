@@ -1,0 +1,38 @@
+.navbar {
+  color: getColor('airforce', 'dark', 4);
+
+  .navbar-link:hover {
+    color: var(--ax-hover-text-color);
+    background-color: inherit;
+  }
+
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+
+  .navbar-brand {
+    align-items: flex-end;
+
+    @include responsive('sm-up') {
+      font-size: 1.75rem;
+    }
+
+    .navbar-logo {
+      height: 3rem;
+
+      @include responsive('sm-down') {
+        margin-left: 0;
+      }
+
+      @include responsive('xs') {
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .navbar-menu {
+    .navbar-link {
+      transition: color 0.2s ease;
+    }
+  }
+}

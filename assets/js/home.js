@@ -11,11 +11,14 @@ const HomeAxentix = (() => {
     neuSwitch,
     neuElems,
     neuTheme = 'dark',
-    navbarFixed;
+    navbarFixed,
+    theme = 'light';
 
   const updateSentence = () => {
     sentenceCheckbox.checked ? hiddenSentence.classList.add('visible') : hiddenSentence.classList.remove('visible');
   };
+
+  const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   /** Colors */
   const updateColors = (e) => {
@@ -42,7 +45,7 @@ const HomeAxentix = (() => {
     colorComponent.style.setProperty('--ax-form-switch-active-color', colorCode);
   };
 
-  /** Neu */
+  /** Neu **/
   const switchNeuTheme = () => {
     neuElems.map((elem) => {
       elem.classList.remove(`neu-${neuTheme}`);
@@ -52,9 +55,12 @@ const HomeAxentix = (() => {
   };
 
   const onScroll = () => {
+    const colorClass = isDarkMode() ? 'dark-secondary-bg' : 'white';
     const navbar = navbarFixed.querySelector('.navbar');
-    if (window.scrollY > navbarFixed.offsetTop + 20) navbar.classList.add('white', 'light-shadow-1');
-    else navbar.classList.remove('white', 'light-shadow-1');
+    if (navbar.classList.contains('dark-secondary-bg') && !isDarkMode()) navbar.classList.remove('dark-secondary-bg');
+
+    if (window.scrollY > navbarFixed.offsetTop + 20) navbar.classList.add('light-shadow-1', colorClass);
+    else navbar.classList.remove('light-shadow-1', 'dark-secondary-bg', 'white');
   };
 
   const setup = () => {
@@ -81,6 +87,8 @@ const HomeAxentix = (() => {
     navbarFixed = document.querySelector('.navbar-fixed');
     window.addEventListener('scroll', onScroll);
     onScroll();
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => onScroll());
   };
 
   return {

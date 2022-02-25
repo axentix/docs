@@ -12,3 +12,21 @@
     }
   }
 }
+
+@mixin colorScheme($name) {
+  @media (prefers-color-scheme: #{$name}) {
+    @content;
+  }
+}
+
+@mixin theme($name) {
+  body.#{$name} {
+    @content;
+  }
+
+  @include colorScheme($name) {
+    body {
+      @content;
+    }
+  }
+}
