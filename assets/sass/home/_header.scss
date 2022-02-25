@@ -33,6 +33,10 @@
   .navbar-menu {
     .navbar-link {
       transition: color 0.2s ease;
+
+      [data-icon='fa-regular:moon'] {
+        display: none;
+      }
     }
   }
 }

@@ -16,8 +16,20 @@ $darkSecondaryBg: #1e1f33;
   .navbar {
     color: #fff;
 
-    .navbar-link:hover {
-      color: var(--ax-primary);
+    .navbar-menu {
+      .navbar-link {
+        &:hover {
+          color: var(--ax-primary);
+        }
+
+        [data-icon='fa-regular:moon'] {
+          display: inline;
+        }
+
+        [data-icon='ic:round-wb-sunny'] {
+          display: none;
+        }
+      }
     }
   }
 
