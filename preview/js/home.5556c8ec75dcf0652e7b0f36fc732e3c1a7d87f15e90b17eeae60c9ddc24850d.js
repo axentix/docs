@@ -12,29 +12,38 @@ const HomeAxentix = (() => {
     neuElems,
     neuTheme = 'dark',
     navbarFixed,
-    theme,
-    darkBtn;
+    themeMode = 'system',
+    theme;
 
   const updateSentence = () => {
     sentenceCheckbox.checked ? hiddenSentence.classList.add('visible') : hiddenSentence.classList.remove('visible');
   };
 
-  const isDarkMode = () =>
-    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ||
-    document.documentElement.classList.contains('dark');
+  const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  const toggleDarkMode = (forceTheme) => {
-    if (isDarkMode() || forceTheme === 'light') {
+  const toggleDarkMode = (forceTheme = 'system') => {
+    themeMode = forceTheme;
+
+    if (forceTheme === 'system') {
+      forceTheme = isDarkMode() ? 'dark' : 'light';
+      localStorage.removeItem('ax-theme');
+    }
+
+    console.log(forceTheme, isDarkMode());
+
+    if (forceTheme === 'light') {
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
       theme = 'light';
     } else {
+      document.documentElement.classList.remove('light');
       document.documentElement.classList.add('dark');
       theme = 'dark';
     }
 
     onScroll();
 
-    localStorage.setItem('ax-theme', theme);
+    if (themeMode !== 'system') localStorage.setItem('ax-theme', theme);
   };
 
   /** Colors */
@@ -72,9 +81,11 @@ const HomeAxentix = (() => {
   };
 
   const onScroll = () => {
-    const colorClass = isDarkMode() ? 'dark-secondary-bg' : 'white';
+    const colorClass = (theme && theme === 'dark') || (!theme && isDarkMode()) ? 'dark-secondary-bg' : 'white';
     const navbar = navbarFixed.querySelector('.navbar');
-    if (navbar.classList.contains('dark-secondary-bg') && !isDarkMode()) navbar.classList.remove('dark-secondary-bg');
+
+    if ((navbar.classList.contains('dark-secondary-bg') && theme && theme === 'light') || !isDarkMode())
+      navbar.classList.remove('dark-secondary-bg');
 
     if (window.scrollY > navbarFixed.offsetTop + 20) navbar.classList.add('light-shadow-1', colorClass);
     else navbar.classList.remove('light-shadow-1', 'dark-secondary-bg', 'white');
@@ -105,13 +116,17 @@ const HomeAxentix = (() => {
     window.addEventListener('scroll', onScroll);
     onScroll();
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => onScroll());
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', () => themeMode === 'system' && toggleDarkMode('system'));
 
-    darkBtn = document.querySelector('#toggle-dark');
-    darkBtn.addEventListener('click', toggleDarkMode);
+    document.querySelector('#toggle-light').addEventListener('click', () => toggleDarkMode('light'));
+    document.querySelector('#toggle-dark').addEventListener('click', () => toggleDarkMode('dark'));
+    document.querySelector('#toggle-system').addEventListener('click', () => toggleDarkMode('system'));
 
     const localTheme = localStorage.getItem('ax-theme');
     if (localTheme) toggleDarkMode(localTheme);
+    else toggleDarkMode('system');
   };
 
   return {
