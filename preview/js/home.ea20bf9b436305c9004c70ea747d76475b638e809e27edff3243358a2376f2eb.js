@@ -12,13 +12,30 @@ const HomeAxentix = (() => {
     neuElems,
     neuTheme = 'dark',
     navbarFixed,
-    theme = 'light';
+    theme,
+    darkBtn;
 
   const updateSentence = () => {
     sentenceCheckbox.checked ? hiddenSentence.classList.add('visible') : hiddenSentence.classList.remove('visible');
   };
 
-  const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDarkMode = () =>
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+    document.documentElement.classList.contains('dark');
+
+  const toggleDarkMode = (forceTheme) => {
+    if (isDarkMode() || forceTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+      theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      theme = 'dark';
+    }
+
+    onScroll();
+
+    localStorage.setItem('ax-theme', theme);
+  };
 
   /** Colors */
   const updateColors = (e) => {
@@ -89,6 +106,12 @@ const HomeAxentix = (() => {
     onScroll();
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => onScroll());
+
+    darkBtn = document.querySelector('#toggle-dark');
+    darkBtn.addEventListener('click', toggleDarkMode);
+
+    const localTheme = localStorage.getItem('ax-theme');
+    if (localTheme) toggleDarkMode(localTheme);
   };
 
   return {
