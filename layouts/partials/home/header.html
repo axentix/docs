@@ -41,10 +41,18 @@
           <span class="iconify-inline" data-icon="mdi:discord"></span>
         </a>
 
-        <span class="navbar-link font-w600 px-1 ml-3" id="toggle-dark" aria-label="Toggle dark mode">
-          <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
-          <span class="iconify-inline" data-icon="fa-regular:moon"></span>
-        </span>
+        <div class="dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
       </div>
     </nav>
   </div>

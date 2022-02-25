@@ -26,12 +26,12 @@
   }
 
   @include colorScheme($name) {
-    html {
+    html:not(.light) {
       color-scheme: #{$name};
-    }
 
-    body {
-      @content;
+      body {
+        @content;
+      }
     }
   }
 }

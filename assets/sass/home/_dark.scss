@@ -31,6 +31,15 @@ $darkSecondaryBg: #1e1f33;
         }
       }
     }
+
+    .dropdown .dropdown-content {
+      background-color: #000330;
+      border: 1px solid #538fcd;
+
+      .dropdown-item:hover {
+        background-color: var(--ax-hover-background-dark);
+      }
+    }
   }
 
   #top {
