@@ -7,7 +7,8 @@
   "author": "Axel SIMONET, Vincent LEVEQUE",
   "scripts": {
     "build": "hugo",
-    "dev": "hugo server -D"
+    "dev": "hugo server -D",
+    "dev:local": "npm run dev -- --bind 0.0.0.0 --baseUrl"
   },
   "repository": {
     "type": "git",
