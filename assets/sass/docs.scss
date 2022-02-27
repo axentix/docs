@@ -38,10 +38,19 @@ main {
   }
 }
 
-.sidenav .sidenav-cross {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+.sidenav {
+  .version-selector {
+    background-color: #fff;
+    color: inherit;
+  }
+
+  .sidenav-cross {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    color: inherit;
+  }
 }
 
 .docs-head {
