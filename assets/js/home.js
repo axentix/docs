@@ -13,13 +13,26 @@ const HomeAxentix = (() => {
     neuTheme = 'dark',
     navbarFixed,
     themeMode = 'system',
-    theme;
+    theme,
+    themeLightBtn,
+    themeDarkBtn,
+    themeSystemBtn;
 
   const updateSentence = () => {
     sentenceCheckbox.checked ? hiddenSentence.classList.add('visible') : hiddenSentence.classList.remove('visible');
   };
 
   const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const updateActiveDropdown = () => {
+    themeSystemBtn.classList.remove('active');
+    themeDarkBtn.classList.remove('active');
+    themeLightBtn.classList.remove('active');
+
+    if (themeMode === 'system') themeSystemBtn.classList.add('active');
+    else if (themeMode === 'light') themeLightBtn.classList.add('active');
+    else themeDarkBtn.classList.add('active');
+  };
 
   const toggleDarkMode = (forceTheme = 'system') => {
     themeMode = forceTheme;
@@ -28,8 +41,6 @@ const HomeAxentix = (() => {
       forceTheme = isDarkMode() ? 'dark' : 'light';
       localStorage.removeItem('ax-theme');
     }
-
-    console.log(forceTheme, isDarkMode());
 
     if (forceTheme === 'light') {
       document.documentElement.classList.remove('dark');
@@ -42,6 +53,8 @@ const HomeAxentix = (() => {
     }
 
     onScroll();
+
+    updateActiveDropdown();
 
     if (themeMode !== 'system') localStorage.setItem('ax-theme', theme);
   };
@@ -120,9 +133,14 @@ const HomeAxentix = (() => {
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', () => themeMode === 'system' && toggleDarkMode('system'));
 
-    document.querySelector('#toggle-light').addEventListener('click', () => toggleDarkMode('light'));
-    document.querySelector('#toggle-dark').addEventListener('click', () => toggleDarkMode('dark'));
-    document.querySelector('#toggle-system').addEventListener('click', () => toggleDarkMode('system'));
+    themeLightBtn = document.querySelector('#toggle-light');
+    themeLightBtn.addEventListener('click', () => toggleDarkMode('light'));
+
+    themeDarkBtn = document.querySelector('#toggle-dark');
+    themeDarkBtn.addEventListener('click', () => toggleDarkMode('dark'));
+
+    themeSystemBtn = document.querySelector('#toggle-system');
+    themeSystemBtn.addEventListener('click', () => toggleDarkMode('system'));
 
     const localTheme = localStorage.getItem('ax-theme');
     if (localTheme) toggleDarkMode(localTheme);

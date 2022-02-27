@@ -31,13 +31,42 @@ $darkSecondaryBg: #1e1f33;
         }
       }
     }
+  }
 
+  .navbar,
+  .sidenav {
     .dropdown .dropdown-content {
       background-color: #000330;
       border: 1px solid #538fcd;
 
-      .dropdown-item:hover {
+      .dropdown-item {
+        &:hover,
+        &.active {
+          background-color: var(--ax-hover-background-dark);
+        }
+      }
+    }
+  }
+
+  .sidenav {
+    background-color: #{$darkSecondaryBg};
+    color: #fff;
+
+    .divider {
+      border-color: getColor('grey', 'dark', 1);
+    }
+
+    .sidenav-link {
+      &:hover,
+      &.active {
         background-color: var(--ax-hover-background-dark);
+      }
+    }
+
+    .collapsible .sidenav-link {
+      &:hover,
+      &.active {
+        background-color: var(--ax-hover-collapsible-background-dark);
       }
     }
   }

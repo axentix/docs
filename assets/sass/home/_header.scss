@@ -1,6 +1,11 @@
 .navbar {
   color: getColor('airforce', 'dark', 4);
 
+  .btn {
+    background-color: transparent;
+    color: inherit;
+  }
+
   .navbar-link:hover {
     color: var(--ax-hover-text-color);
     background-color: inherit;

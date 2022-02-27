@@ -1,5 +1,5 @@
 <div class="sidenav-header">
-  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small transparent hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo" src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix Logo" />
 
   {{ $currentBranch := getenv "AX_CURRENT_BRANCH" | default .Site.Params.current }}
@@ -13,7 +13,7 @@
     {{ $lts = split $lts "." }}
 
     {{ $latestVersion := printf "%s.%s.x" (index $lts 0) (index $lts 1) }}
-    <div class="version-selector dropdown-content white dropdown-constrain-width light-shadow-2">
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
       {{ range .Site.Params.versions }}
         {{ $link := (printf "%s%s" $.Site.BaseURL (replace $.Page.Permalink $.Site.BaseURL "")) }}
 
@@ -25,7 +25,7 @@
           {{ $link = (printf "%s%s" (replace $.Site.BaseURL (printf "/%s" $currentBranch) "") (replace $.Page.Permalink $.Site.BaseURL "")) }}
         {{ end }}
 
-        <a href='{{ $link }}' class="text-center py-3 {{ if  eq . $currentBranch }}font-w600{{ end }}">
+        <a href='{{ $link }}' class="text-center dropdown-item py-3 {{ if  eq . $currentBranch }}font-w600{{ end }}">
           {{ if  eq . $latestVersion }} Latest {{end}} {{ . }}
         </a>
       {{ end }}
