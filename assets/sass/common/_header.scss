@@ -2,7 +2,7 @@
   --ax-navbar-height: 4.5rem;
 }
 
-.navbar {
+#main-navbar {
   color: getColor('airforce', 'dark', 4);
 
   .btn {
@@ -49,7 +49,7 @@
     }
   }
 
-  .dropdown .dropdown-content {
+  .site-dropdown .dropdown-content {
     background-color: #fff;
   }
 }

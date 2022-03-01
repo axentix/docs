@@ -8,7 +8,7 @@ $darkSecondaryBg: #1e1f33;
   color: #fff;
   background-color: #040520;
 
-  .navbar {
+  #main-navbar {
     color: #fff;
 
     .navbar-menu {
@@ -28,9 +28,9 @@ $darkSecondaryBg: #1e1f33;
     }
   }
 
-  .navbar,
-  .sidenav {
-    .dropdown .dropdown-content {
+  #main-navbar,
+  #main-sidenav {
+    .site-dropdown .dropdown-content {
       background-color: #000330;
       border: 1px solid #538fcd;
 
@@ -43,7 +43,7 @@ $darkSecondaryBg: #1e1f33;
     }
   }
 
-  .sidenav {
+  #main-sidenav {
     background-color: #{$darkSecondaryBg};
     color: #fff;
 

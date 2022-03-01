@@ -2,12 +2,12 @@ $darkSecondaryBg: #1e1f33;
 
 @include theme(dark) {
   @include responsive('md-up') {
-    .sidenav {
+    #main-sidenav {
       background-color: inherit;
     }
   }
 
-  .sidenav {
+  #main-sidenav {
     border-right: 1px solid getColor('grey');
   }
 
