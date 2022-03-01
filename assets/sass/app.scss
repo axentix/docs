@@ -4,13 +4,12 @@
 
 :root {
   --ax-sidenav-width: 15rem;
-  --ax-navbar-height: 4.5rem;
 }
 
 html,
 body {
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 body {
@@ -108,7 +107,9 @@ pre[class*='language-'] {
   color: #56b6c2;
 }
 
-@import './home/header';
+@import './common/header';
+@import './common/dark';
+@import './common/blur_effect';
 @import './home/top';
 @import './home/sponsors';
 @import './home/devices';

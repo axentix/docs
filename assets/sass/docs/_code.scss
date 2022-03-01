@@ -1,0 +1,70 @@
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #282c34;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #c678dd;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e06c75;
+}
+
+.token.punctuation {
+  color: #56b6c2;
+}
+
+div.code-toolbar {
+  .disable-copy-btn {
+    ~ .toolbar {
+      display: none;
+    }
+  }
+
+  pre {
+    &.code-max-height {
+      max-height: 44rem;
+
+      ~ .toolbar {
+        margin-right: 1.25rem;
+
+        @media (pointer: coarse) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:not(.disable-copy-btn) {
+      padding: 1.825rem 1.25rem 1.25rem;
+    }
+  }
+
+  > .toolbar {
+    opacity: 1;
+    z-index: 8;
+
+    button {
+      padding: 0.25rem 0.5rem !important;
+      font-weight: 500;
+      background-color: rgba(224, 224, 224, 0.2);
+      transition: background-color 0.2s ease;
+      outline: none;
+
+      &:hover {
+        color: #bbb !important;
+        background-color: rgba(224, 224, 224, 0.3);
+        cursor: pointer;
+      }
+    }
+  }
+}
