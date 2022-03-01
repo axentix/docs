@@ -8,19 +8,19 @@ sidenav: components
 
 <div class="navbar-page">
   <h2 class="subtitle" id="simple-navbar">Simple navbar</h2>
+
   <p>
-    To use a simple navbar, add the <code class="language-css">.navbar</code> class into your nav. <br />
-    You can create groups of links by wrapping your links inside a <code class="language-css">.navbar-menu</code> div.
+    To use a <strong>simple navbar</strong>, add the <code class="language-css">.navbar</code> class to your nav tag. <br />
+    You can create groups of links by wrapping your links inside a <code class="language-css">.navbar-menu</code> element.
     <br />
     The <code class="language-css">.navbar-brand</code> class is useful to show your company/website name. <br />
     Use the <code class="language-css">.ml-auto</code> class to put your menu on the right side of the navbar. <br />
-    This last class is one of the
-    <a class="text-primary" href="{{< ref "others#margins" >}}">margins</a> class, which help you to
-    move your content.
+    Use different <a class="text-primary" href="{{< ref "spacing#margins-and-paddings" >}}">margins</a> classes to <strong>place your navbar content</strong>.
   </p>
+
   <div class="example-nav">
     <nav class="navbar shadow-1 primary">
-      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <a href="#" class="navbar-brand">Axentix</a>
       <div class="navbar-menu ml-auto">
         <a class="navbar-link active" href="#">Link</a>
         <a class="navbar-link" href="#">Link</a>
@@ -28,9 +28,10 @@ sidenav: components
       </div>
     </nav>
   </div>
+
   <script type="text/plain" class="language-markup">
     <nav class="navbar shadow-1 primary">
-      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <a href="#" class="navbar-brand">Axentix</a>
       <div class="navbar-menu ml-auto">
         <a class="navbar-link active" href="#">Link</a>
         <a class="navbar-link" href="#">Link</a>
@@ -39,29 +40,82 @@ sidenav: components
     </nav>
   </script>
 
+<h2 class="subtitle" id="navbar-hover-variant">Navbar hover variant</h2>
+
+<p>
+  Use the <a class="text-primary" href="{{< ref "hover" >}}">hover</a> utility classes on your navbar to get a hover style variant.
+</p>
+
+<div class="example-nav">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-3">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</div>
+
+<div class="example-nav mt-2">
+  <nav class="navbar shadow-1 grey dark-4">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <!-- Dark menu text hover variant -->
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-3">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+
+  <!-- Dark menu background hover variant -->
+  <nav class="navbar shadow-1 airforce dark-3">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark text-grey text-light-3">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</script>
+
   <h2 class="subtitle" id="logo-navbar">Logo navbar</h2>
+
   <p>
     To use a logo navbar, add the <code class="language-css">.navbar-logo</code> to the &lt;a&gt; who contain your img.
     Note that the <code class="language-css">.navbar-centered</code> class can center any element inside of your navbar.
   </p>
+
   <div class="example-nav">
     <nav class="navbar shadow-1 primary">
       <a href="#" class="navbar-logo navbar-centered">
         <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
       </a>
-      <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+      <a href="#" class="navbar-brand">Axentix</a>
       <div class="navbar-menu ml-auto">
         <a class="navbar-link" href="#">Link 1</a>
         <a class="navbar-link" href="#">Link 2</a>
       </div>
     </nav>
   </div>
+
   <script type="text/plain" class="language-markup">
     <nav class="navbar shadow-1 primary">
        <a href="#" class="navbar-logo navbar-centered">
          <img src="https://axelsimonet.fr/assets/img/logoA.svg" alt="Xelzs" />
        </a>
-       <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+       <a href="#" class="navbar-brand">Axentix</a>
        <div class="navbar-menu ml-auto">
          <a class="navbar-link" href="#">Link 1</a>
          <a class="navbar-link" href="#">Link 2</a>
@@ -70,12 +124,13 @@ sidenav: components
   </script>
 
   <h2 class="subtitle" id="navbar-fixed">Navbar fixed</h2>
+
   <p>
     To get a fixed navbar, simply wrap your navbar inside a <code class="language-css">.navbar-fixed</code> container.
     <script type="text/plain" class="language-markup">
       <div class="navbar-fixed">
         <nav class="navbar shadow-1 primary">
-          <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+          <a href="#" class="navbar-brand">Axentix</a>
           <div class="navbar-menu ml-auto">
             <a class="navbar-link active" href="#">Link</a>
             <a class="navbar-link" href="#">Link</a>
@@ -87,7 +142,9 @@ sidenav: components
   </p>
 
   <h2 class="subtitle" id="customizable-navbar">Customizable navbar</h2>
+
   <p>Axentix navbar is personnalisable. Use different classes to change the content adjustment and style.</p>
+
   <div class="example-nav center">
     <nav class="navbar airforce dark-1">
       <div class="navbar-menu">
@@ -99,6 +156,7 @@ sidenav: components
       </a>
     </nav>
   </div>
+  
   <script type="text/plain" class="language-markup">
     <nav class="navbar airforce dark-1">
       <div class="navbar-menu">
