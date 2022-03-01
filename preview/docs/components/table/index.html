@@ -31,54 +31,68 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="/preview/axentix/axentix.min.f75baa6e6358adbcef9cf6708f3d926a511e744f0ed2d7aa9b7e6f180d6e09a0.css" />
-    <link rel="stylesheet" href="/preview/docs.9c1e0b34449e04632b7e860cfc4937bb03bf019af0b5bad7b449acfe45d177cb.css" />
+    <link rel="stylesheet" href="/preview/docs.8ba6bdcd64afc334ab721c12b2f30098cdcfe6fe5e0d46d340c490512555e2c2.css" />
     
   </head>
 
-  <body class="layout-under-navbar"><header>
+  <body class="layout-under-navbar relative-pos"><header>
   <div class="navbar-fixed">
-    <nav class="navbar primary light-shadow-2">
+    <nav class="navbar lh-normal">
       <button
         data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
         aria-label="Menu button"
-        class="btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
       >
-        <span class="iconify-inline" data-icon="mdi:menu"></span>  Menu
-      </button>
-      <button data-target="main-sidenav" class="btn btn-circle transparent text-white hide-sm-up font-w600">
         <span class="iconify-inline" data-icon="mdi:menu"></span> 
       </button>
-      <div class="navbar-menu hide-sm-down">
-        <a class="navbar-link font-w600" href="https://useaxentix.com/preview"><span class="iconify-inline" data-icon="mdi:home"></span> Home</a>
-        <a class="navbar-link font-w600" href="https://useaxentix.com/preview/docs/getting-started/"><span class="iconify-inline" data-icon="mdi:book"></span> Documentation</a>
+
+      <div class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />xentix
       </div>
-      <div class="navbar-menu ml-auto">
-        <div id="search-input" class="my-auto"></div>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview">Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/preview/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
         <a
-          class="navbar-link font-w600"
-          id="github"
-          href="https://github.com/axentix/axentix"
-          target="_blank"
-          rel="noopener"
-          aria-label="Github"
-        ><span class="iconify-inline" data-icon="mdi:github"></span>
-          <span class="hide-xs"> GITHUB</span></a
-        >
-        <a
-          class="navbar-link font-w600"
-          id="twitter"
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
           href="https://twitter.com/UseAxentix"
           target="_blank"
           rel="noopener"
-          ><span class="iconify-inline" data-icon="mdi:twitter"></span><span class="hide"> TWITTER</span></i></a
-        >
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
 </header>
-<div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white"><div class="sidenav-header">
+<div id="main-sidenav" class="sidenav sidenav-fixed"><div class="sidenav-header">
   <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
-  <img class="docs-logo sidenav-logo" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
   <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
@@ -117,301 +131,137 @@
   </div>
 </div>
 
-<div class="hide-md-up">
-  <a href="https://useaxentix.com/preview" class="sidenav-link">Home</a>
-  <a href="https://useaxentix.com/preview/docs/getting-started/" class="sidenav-link">Documentation</a>
-  <div class="divider"></div>
-</div>
-
-<a href="https://useaxentix.com/preview/docs/getting-started/" class="sidenav-link ">
-  Getting started
-</a>
-
-<span class="sidenav-link" data-target="general-menu">General</span>
-<div>
-  <div class="collapsible" id="general-menu">
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/colors/">Colors</a>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/grix/">Grix</a>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/js-init/">JS Init</a>
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/layouts/">Layouts</a>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/preview" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/preview/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
   </div>
-</div>
-<span class="sidenav-link" data-target="components-menu">Components</span>
-<div>
-  <div class="collapsible" id="components-menu">
   
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/alerts/">Alerts</a>
-    
+  <a href="https://useaxentix.com/preview/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
   
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
     
-  
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/button-group/">Button group</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/buttons/">Buttons</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/cards/">Cards</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/caroulix/">Caroulix</a>
+      
     
-  
+      
     
-  
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/colors/">Colors</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/collapsible/">Collapsible</a>
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/dropdown/">Dropdown</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/fab/">FAB</a>
+      
     
-  
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/grix/">Grix</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/footer/">Footer</a>
+      
     
-  
+      
     
-  
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/js-init/">JS Init</a>
+      
     
-  
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/general/layouts/">Layouts</a>
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/lightbox/">Lightbox</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/loading/">Loading</a>
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/modal/">Modal</a>
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/navbar/">Navbar</a>
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/pagination/">Pagination</a>
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-  
+      
     
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/scrollspy/">Scrollspy</a>
+      
     
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/sidenav/">Sidenav</a>
-    
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link active" href="https://useaxentix.com/preview/docs/components/table/">Table</a>
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/tabs/">Tabs</a>
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/toast/">Toast</a>
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/tooltip/">Tooltip</a>
-    
-  
-    
-  
-    
-  
-    
-    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/waves/">Waves (ripple)</a>
-    
-  
+    </div>
   </div>
-</div>
-
-<span class="sidenav-link" data-target="forms-menu">Forms</span>
-<div>
-  <div class="collapsible" id="forms-menu">
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/alerts/">Alerts</a>
       
     
       
@@ -421,29 +271,19 @@
       
     
       
-    
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/button-group/">Button group</a>
       
     
       
-    
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/buttons/">Buttons</a>
       
     
       
-    
-      
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/file/">Form File</a>
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/cards/">Cards</a>
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/inputs/">Inputs</a>
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/caroulix/">Caroulix</a>
       
     
       
@@ -451,13 +291,25 @@
       
     
       
-    
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/collapsible/">Collapsible</a>
       
     
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/material/">Material forms</a>
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/footer/">Footer</a>
       
     
       
@@ -479,7 +331,29 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/select/">Select</a>
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/pagination/">Pagination</a>
       
     
       
@@ -489,7 +363,7 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/switches/">Switches</a>
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/scrollspy/">Scrollspy</a>
       
     
       
@@ -497,378 +371,525 @@
       
     
       
-    
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/sidenav/">Sidenav</a>
       
     
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/validation/">Validation</a>
+    
+      
+      <a class="sidenav-link active" href="https://useaxentix.com/preview/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/tooltip/">Tooltip</a>
       
     
       
     
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
   </div>
-</div>
-
-<span class="sidenav-link" data-target="trends-menu">Trends</span>
-<div>
-  <div class="collapsible" id="trends-menu">
-    <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
-    
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/trends/claymorphism/">Claymorphism</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/file/">Form File</a>
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/trends/glassmorphism/">Glassmorphism</a>
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/inputs/">Inputs</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/material/">Material forms</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/select/">Select</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/switches/">Switches</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/forms/validation/">Validation</a>
+        
       
-    
+        
       
-    
-      
-    
+    </div>
   </div>
-</div>
-
-<span class="sidenav-link" data-target="utilities-menu">Utilities</span>
-<div>
-  <div class="collapsible" id="utilities-menu">
-    
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/alignments/">Alignments</a>
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/borders/">Borders</a>
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/breakpoints/">Breakpoints</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/trends/claymorphism/">Claymorphism</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/display/">Display</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/flexbox/">Flexbox</a>
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/trends/glassmorphism/">Glassmorphism</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/hover/">Hover</a>
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/javascript/">JavaScript</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/others/">Others</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/rounded/">Rounded</a>
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/shadows/">Shadows</a>
+        
       
-    
+        
       
-    
-      
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/spacing/">Spacing</a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/typography/">Typography</a>
-      
-    
-      
-    
-      
-    
+    </div>
   </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/preview/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
 </div>
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <a class="sidenav-link " href="https://useaxentix.com/preview/docs/plugins/">Plugins</a>
-  
-
-  
-
-  
-  <a class="sidenav-link " href="https://useaxentix.com/preview/docs/sass/">Sass</a>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-<a href="https://useaxentix.com/preview/docs/migration/" class="sidenav-link ">
-  Migrate from v1
-</a>
 
 <a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
   <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
   Join us
 </a>
 </div>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
 
     <main>
       <div class="main-content container">
@@ -1528,7 +1549,7 @@
 
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
-            <span class="scrollspy-sponsor ml-2 mt-5 mb-2 text-grey"> Sponsors </span>
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
 
             
             <a href="https://www.evolvewebhost.com" target="_blank" rel="noopener" class="scrollspy-sponsor ml-2 my-2">
@@ -1538,20 +1559,22 @@
               href="https://www.buymeacoffee.com/axentix"
               target="_blank"
               rel="noopener"
-              class="btn btn-small text-grey btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+              class="btn btn-small btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
             >
               <span class="btn-outline-text">Become a sponsor</span>
             </a>
           </div>
         </div>
       </div>
-    </main><footer class="footer primary fx-center text-center">
-  Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
-</footer>
-  
+    </main><footer class="footer fx-center text-center">Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE</footer>
+ 
+     
+    
+    
+    
     <script src="/preview/axentix/axentix.min.409edb5025e3ce7c188e9d367432816715fdbba19119cd77a26744dd0dbfa161.js"></script>
     <script src="/preview/js/prism.8c7a75416846abdaf741adfbefbd3a22e48bae7de42a029ab0fad37e0101cb40.js"></script>
-    <script src="/preview/js/docs.e7a774ec32b930c63784389554715121fdf70b0e2ba7e7261dfe0cd9a665feb6.js"></script>
+    <script src="/preview/js/docs.min.59a680e5ea3c09dd3799206d94d996fb0070757bf70df8f43fde07023669e7aa.js"></script>
     <script>
       const baseURL = 'https:\/\/useaxentix.com\/preview';
     </script>
