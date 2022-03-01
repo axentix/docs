@@ -31,13 +31,13 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="/preview/axentix/axentix.min.f75baa6e6358adbcef9cf6708f3d926a511e744f0ed2d7aa9b7e6f180d6e09a0.css" />
-    <link rel="stylesheet" href="/preview/docs.94bb1ce0d2ca1b9b4f1044025bd9c118e17e32335da4d558d016ff96691738bf.css" />
+    <link rel="stylesheet" href="/preview/docs.276ad1eca6be9882e93667b491938ba5f7bd0fa1a03027180c87dc0d4412c3e1.css" />
     
   </head>
 
   <body class="layout-under-navbar relative-pos"><header>
   <div class="navbar-fixed">
-    <nav class="navbar lh-normal">
+    <nav class="navbar lh-normal" id="main-navbar">
       <button
         data-target="main-sidenav"
         class="btn hide-md-up font-s5"
@@ -74,7 +74,7 @@
           <span class="iconify-inline" data-icon="mdi:twitter"></span> 
         </a>
 
-        <div class="dropdown" id="toggle-dropdown" data-ax="dropdown">
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
           <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
             <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
             <span class="iconify-inline" data-icon="fa-regular:moon"></span>
@@ -95,7 +95,7 @@
   <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
-  <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
     <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
       preview <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
     </div>
@@ -920,7 +920,7 @@
   These links <b>refer to the IDs</b> of your tab contents.
 </p>
 
-<div class="tab shadow-1" id="example-tab">
+<div class="tab shadow-1 white" id="example-tab">
   <ul class="tab-menu">
     <li class="tab-link">
       <a href="#example-tab1">Tab 1</a>
@@ -938,7 +938,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="tab shadow-1" id="example-tab" data-ax="tab">
+  <div class="tab shadow-1 white" id="example-tab" data-ax="tab">
     <ul class="tab-menu">
       <li class="tab-link">
         <a href="#tab1">Tab 1</a>
@@ -969,7 +969,7 @@
   Here, the second tab-link is active, and all the tabs take the full width.
 </p>
 
-<div class="tab shadow-1 tab-full-width" id="example-active-tab">
+<div class="tab shadow-1 tab-full-width white" id="example-active-tab">
   <ul class="tab-menu">
     <li class="tab-link">
       <a href="#active-tab1">Tab 1</a>
@@ -984,7 +984,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="tab shadow-1 tab-full-width" id="example-tab" data-ax="tab">
+  <div class="tab shadow-1 tab-full-width white" id="example-tab" data-ax="tab">
     <ul class="tab-menu">
       <li class="tab-link">
         <a href="#tab1">Tab 1</a>
@@ -1011,7 +1011,7 @@
 </p>
 
 <div style="max-width: 500px">
-  <div class="tab shadow-1 mt-4 no-axentix-init" id="example-tab-2" data-ax="tab">
+  <div class="tab shadow-1 mt-4 no-axentix-init white" id="example-tab-2" data-ax="tab">
     <div class="tab-arrow">
       <div class="tab-prev shadow-1 white">
         <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
@@ -1055,7 +1055,7 @@
 </div>
 
 <script type="text/plain" class="language-markup code-max-height">
-  <div class="tab shadow-1 mt-4" id="example-tab" data-ax="tab">
+  <div class="tab shadow-1 mt-4 white" id="example-tab" data-ax="tab">
     <!-- Here is the tab-arrow div -->
     <div class="tab-arrow">
       <!-- Here is the prev arrow -->

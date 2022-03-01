@@ -31,13 +31,13 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="/preview/axentix/axentix.min.f75baa6e6358adbcef9cf6708f3d926a511e744f0ed2d7aa9b7e6f180d6e09a0.css" />
-    <link rel="stylesheet" href="/preview/docs.94bb1ce0d2ca1b9b4f1044025bd9c118e17e32335da4d558d016ff96691738bf.css" />
+    <link rel="stylesheet" href="/preview/docs.276ad1eca6be9882e93667b491938ba5f7bd0fa1a03027180c87dc0d4412c3e1.css" />
     
   </head>
 
   <body class="layout-under-navbar relative-pos"><header>
   <div class="navbar-fixed">
-    <nav class="navbar lh-normal">
+    <nav class="navbar lh-normal" id="main-navbar">
       <button
         data-target="main-sidenav"
         class="btn hide-md-up font-s5"
@@ -74,7 +74,7 @@
           <span class="iconify-inline" data-icon="mdi:twitter"></span> 
         </a>
 
-        <div class="dropdown" id="toggle-dropdown" data-ax="dropdown">
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
           <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
             <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
             <span class="iconify-inline" data-icon="fa-regular:moon"></span>
@@ -95,7 +95,7 @@
   <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/preview/img/axentix.svg" alt="Axentix Logo" />
 
   
-  <div class="dropdown" id="selector-dropdown" data-ax="dropdown" >
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
     <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
       preview <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
     </div>
@@ -914,7 +914,7 @@
 <p>Axentix basic cards are made to be used inside a grix. They are usefull to display text.</p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card shadow-1">
+  <div class="card shadow-1 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -928,7 +928,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card shadow-1">
+  <div class="card shadow-1 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -948,7 +948,7 @@
 </p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2">
+  <div class="card light-shadow-2 white">
     <div class="card-image">
       <img src="https://picsum.photos/800/600?random=1" alt="logo" />
     </div>
@@ -967,7 +967,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2">
+  <div class="card light-shadow-2 white">
     <div class="card-image">
       <img src="https://picsum.photos/800/600?random=1" alt="logo" />
     </div>
@@ -986,7 +986,7 @@
 <h2 class="subtitle" id="horizontal-cards">Horizontal cards</h2>
 <p>Create horizontal cards using flexbox !</p>
 
-<div class="card shadow-1 fx-row">
+<div class="card shadow-1 fx-row white">
   <div class="primary d-flex vcenter fx-center p-4">
     <h4>Content</h4>
   </div>
@@ -999,8 +999,8 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card shadow-1 fx-row">
-    <div class="primary d-flex vcenter fx-center  p-4">
+  <div class="card shadow-1 fx-row white">
+    <div class="primary d-flex vcenter fx-center p-4">
       <h4>Content</h4>
     </div>
     <div class="d-flex fx-col fx-grow">
@@ -1019,7 +1019,7 @@
   Axentix cards can be rounded using the <a class="text-primary" href="https://useaxentix.com/preview/docs/utilities/rounded/">rounded</a> classes.
 </p>
 <div class="grix xs1 sm2 lg3 gutter-xs1">
-  <div class="card shadow-1 rounded-3">
+  <div class="card shadow-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -1034,7 +1034,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card shadow-1 rounded-3">
+  <div class="card shadow-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -1054,7 +1054,7 @@
 </p>
 
 <div class="grix xs1 sm2 lg3 gutter-xs1">
-  <div class="card shadow-1 hoverable-1 rounded-3">
+  <div class="card shadow-1 hoverable-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -1067,7 +1067,7 @@
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card shadow-1 hoverable-1 rounded-3">
+  <div class="card shadow-1 hoverable-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
