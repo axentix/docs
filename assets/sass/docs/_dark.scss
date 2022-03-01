@@ -38,4 +38,16 @@ $darkSecondaryBg: #1e1f33;
       border: none;
     }
   }
+
+  .grix-page {
+    .example {
+      background-color: #{$darkSecondaryBg};
+
+      .grix {
+        .grix div {
+          border: 1px solid getColor('grey', 'light', 2);
+        }
+      }
+    }
+  }
 }
