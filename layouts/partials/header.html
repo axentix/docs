@@ -1,40 +1,54 @@
 <header>
   <div class="navbar-fixed">
-    <nav class="navbar primary light-shadow-2">
+    <nav class="navbar lh-normal">
       <button
         data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
         aria-label="Menu button"
-        class="btn rounded-1 transparent text-white hide-md-up hide-xs font-w600"
       >
-        <span class="iconify-inline" data-icon="mdi:menu"></span>  Menu
-      </button>
-      <button data-target="main-sidenav" class="btn btn-circle transparent text-white hide-sm-up font-w600">
         <span class="iconify-inline" data-icon="mdi:menu"></span> 
       </button>
-      <div class="navbar-menu hide-sm-down">
-        <a class="navbar-link font-w600" href="{{ .Site.BaseURL }}"><span class="iconify-inline" data-icon="mdi:home"></span> Home</a>
-        <a class="navbar-link font-w600" href="{{ ref . "getting-started" }}"><span class="iconify-inline" data-icon="mdi:book"></span> Documentation</a>
+
+      <div class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="{{ .Site.BaseURL }}/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />xentix
       </div>
-      <div class="navbar-menu ml-auto">
-        <div id="search-input" class="my-auto"></div>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="{{ .Site.BaseURL }}">Home</a>
+        <a class="navbar-link font-w600" href="{{ ref . "getting-started" }}">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
         <a
-          class="navbar-link font-w600"
-          id="github"
-          href="https://github.com/axentix/axentix"
-          target="_blank"
-          rel="noopener"
-          aria-label="Github"
-        ><span class="iconify-inline" data-icon="mdi:github"></span>
-          <span class="hide-xs"> GITHUB</span></a
-        >
-        <a
-          class="navbar-link font-w600"
-          id="twitter"
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
           href="https://twitter.com/UseAxentix"
           target="_blank"
           rel="noopener"
-          ><span class="iconify-inline" data-icon="mdi:twitter"></span><span class="hide"> TWITTER</span></i></a
-        >
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
       </div>
     </nav>
   </div>

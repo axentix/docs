@@ -1,0 +1,28 @@
+.grix-page {
+  .example {
+    padding: 1rem;
+    background-color: getColor('grey', 'light', 4);
+    border-radius: 10px;
+
+    .grix {
+      .grix div {
+        border: 1px solid #fff;
+      }
+
+      div {
+        background-color: getColor('airforce', 'dark', 2);
+        color: textColor(getColor('airforce', 'dark', 2));
+        padding: 1rem;
+        text-align: center;
+
+        @include responsive('xs') {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+
+  #gutter-table {
+    margin-bottom: 1rem;
+  }
+}

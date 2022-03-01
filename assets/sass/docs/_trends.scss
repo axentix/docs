@@ -1,0 +1,43 @@
+.glass-example-container {
+  background: linear-gradient(to right, #e96443, #904e95);
+
+  &.with-img {
+    background: url('https://picsum.photos/id/767/900/500');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.clay-example-container {
+  background: linear-gradient(to left, #00c9ff, #92fe9d);
+
+  &.with-img {
+    background: url('https://picsum.photos/id/49/900/500');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.glass-example-container,
+.clay-example-container {
+  .card {
+    max-width: 45%;
+
+    @include responsive('md') {
+      max-width: 70%;
+    }
+
+    @include responsive('sm') {
+      max-width: 80%;
+    }
+
+    @include responsive('xs') {
+      max-width: 90%;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+}

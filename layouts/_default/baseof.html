@@ -50,14 +50,16 @@
         {{- partial "home/footer.html" . -}}
 
         {{ $prism := resources.Get "js/prism.js" | fingerprint }}
-        {{ $home := resources.Get "js/home.js" | fingerprint }}
+        {{ $common := resources.Get "js/common.js" }}
+        {{ $home := resources.Get "js/home.js" }}
+        {{ $js := slice $common $home | resources.Concat "js/home.js" | minify | fingerprint  }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }}
         <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
-        <script src="{{$home.RelPermalink}}"></script>
+        <script src="{{$js.RelPermalink}}"></script>
 
         {{ $env := getenv "AX_ENV" }}
         {{ if eq $env "production" }}
