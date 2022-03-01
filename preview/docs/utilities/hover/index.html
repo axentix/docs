@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dropdown - Axentix</title>
-    <meta name="description" content="Axentix dropdown. The dropdown allows you to create a toggleable submenu." />
-    <meta property="og:description" content="Axentix dropdown. The dropdown allows you to create a toggleable submenu." />
-    <meta property="og:title" content="Dropdown - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hover - Axentix</title>
+    <meta name="description" content="Axentix hover utilities. The hover classes allow you to custom your elements style on hover." />
+    <meta property="og:description" content="Axentix hover utilities. The hover classes allow you to custom your elements style on hover." />
+    <meta property="og:title" content="Hover - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -99,7 +99,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.0.x/docs/components/dropdown/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.0.x/docs/utilities/hover/' class="text-center dropdown-item py-3 ">
            2.0.x
         </a>
       
@@ -109,7 +109,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/components/dropdown/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/docs/utilities/hover/' class="text-center dropdown-item py-3 ">
            Latest  1.3.x
         </a>
       
@@ -284,7 +284,7 @@
     
   
     
-    <a class="sidenav-link active" href="https://useaxentix.com/preview/docs/components/dropdown/">Dropdown</a>
+    <a class="sidenav-link " href="https://useaxentix.com/preview/docs/components/dropdown/">Dropdown</a>
     
   
     
@@ -680,7 +680,7 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/preview/docs/utilities/hover/">Hover</a>
+      <a class="sidenav-link active" href="https://useaxentix.com/preview/docs/utilities/hover/">Hover</a>
       
     
       
@@ -874,8 +874,8 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Dropdown</h1>
-            <p>Create simple toggleable submenu.</p>
+            <h1 id="title">Hover</h1>
+            <p>Use our different classes to change your component hover effect.</p>
           </div>
 
           <div
@@ -889,330 +889,89 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle">Basic dropdown</h2>
-<p>
-  The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
-  have to add a <code class="language-markup">.data-target</code> refering to the dropdown element inside of it.<br />
-  The dropdown is working with our
-  <a class="text-primary" href="https://useaxentix.com/preview/docs/general/colors/#color-palette">color palette</a>.
-</p>
+<p>The default hover effect is light and is made for the majority of the color palette. <br /></p>
 
-<div class="dropdown" id="example-dropdown" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">Toggle</button>
-  <div class="dropdown-content white shadow-1 rounded-1">
-    <a class="dropdown-item" href="#">This is the first item</a>
-    <a class="dropdown-item" href="#">Item 2</a>
-    <a class="dropdown-item active" href="#">Item 3</a>
-  </div>
+<h2 class="subtitle" id="background-hover">Background hover</h2>
+
+<p>Use the <code class="language-markup">.hover-bg-dark</code> class to get the appropriate hover effect on a dark menu.</p>
+
+<div class="example-nav">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
 </div>
+
 <script type="text/plain" class="language-markup">
-  <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
-      Toggle
-    </button>
-    <div class="dropdown-content white shadow-1 rounded-1">
-      <a class="dropdown-item" href="#">This is the first item</a>
-      <a class="dropdown-item" href="#">Item 2</a>
-      <a class="dropdown-item active" href="#">Item 3</a>
-    </div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="right-dropdown-content">Right aligned dropdown content</h2>
-<p>
-  To align your dropdown content with the right border of the dropdown trigger, you just have to add the
-  <code class="language-markup">.dropdown-right</code> class on your <code class="language-css">.dropdown-content</code>.
-</p>
-
-<div class="d-flex">
-  <div class="dropdown ml-auto" id="example-dropdown2" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown2">Toggle</button>
-    <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
-      <a class="dropdown-item" href="#">Right aligned dropdown</a>
-      <a class="dropdown-item" href="#">Item 2</a>
-    </div>
-  </div>
-</div>
-<script type="text/plain" class="language-markup">
-  <div class="d-flex">
-    <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
-      <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
-        Toggle
-      </button>
-      <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
-        <a class="dropdown-item" href="#">Right aligned dropdown</a>
-        <a class="dropdown-item" href="#">Item 2</a>
-      </div>
-    </div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="constrain-width">Constrain width</h2>
-<p>
-  To constrain the width of the dropdown content to fit the dropdown trigger width, just add the
-  <code class="language-css">.dropdown-constrain-width</code> class to your <code class="language-css">.dropdown-content</code>
-  element.
-</p>
-
-<div class="dropdown" id="example-dropdown3" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown3">Toggle</button>
-  <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
-    <a class="dropdown-item" href="#">Constrain width option</a>
-    <a class="dropdown-item" href="#">Item 2</a>
-  </div>
-</div>
-<script type="text/plain" class="language-markup">
-  <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
-      Toggle
-    </button>
-    <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
-      <a class="dropdown-item" href="#">Constrain width option</a>
-      <a class="dropdown-item" href="#">Item 2</a>
-    </div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="dropdown-inside-navbar">Dropdown inside a navbar</h2>
-<p>
-  A dropdown is easily usable inside a navbar, using a <code class="language-css">.navbar-link</code> as a dropdown
-  trigger.
-</p>
-
-<nav class="navbar shadow-1 primary">
-  <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-  <div class="navbar-menu ml-auto">
-    <a class="navbar-link" href="#">Link 1</a>
-    <a class="navbar-link" href="#">Link 2</a>
-    <div class="dropdown" id="nav-dropdown" data-ax="dropdown">
-      <div class="navbar-link secondary" data-target="nav-dropdown">Toggle</div>
-      <div class="dropdown-content dropdown-right white shadow-1">
-        <a class="dropdown-item" href="#">Dropdown in navbar</a>
-        <a class="dropdown-item" href="#">Item 2</a>
-        <a class="dropdown-item active" href="#">Item 3</a>
-      </div>
-    </div>
-  </div>
-</nav>
-<script type="text/plain" class="language-markup">
-  <nav class="navbar shadow-1 primary">
-    <a href="#" target="_blank" class="navbar-brand">Axentix</a>
-    <div class="navbar-menu ml-auto">
-      <a class="navbar-link" href="#">Link 1</a>
-      <a class="navbar-link" href="#">Link 2</a>
-      <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-        <div class="navbar-link secondary" data-target="example-dropdown">
-          Toggle
-        </div>
-        <div class="dropdown-content dropdown-right white shadow-1">
-          <a class="dropdown-item" href="#">Dropdown in navbar</a>
-          <a class="dropdown-item" href="#">Item 2</a>
-          <a class="dropdown-item active" href="#">Item 3</a>
-        </div>
-      </div>
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
     </div>
   </nav>
 </script>
 
-<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+<h2 class="subtitle" id="text-hover">Text hover</h2>
 
 <p>
-  Once HTML was setup, you can activate the <strong>dropdown</strong> with this simple code. <br />
-  Just pass the id of your <strong>dropdown</strong> that you want to activate.
+  Use the <code class="language-markup">.hover-text-dark</code> class to get the appropriate hover effect on a dark menu. <br />
+  <em>You have to manually set a default text color like <code class="language-markup">text-grey text-light-2</code> in this example.</em>
 </p>
 
-<script type="text/plain" class="language-js">
-  // NOTE: this is NOT to be used if data-ax="dropdown" is set in your HTML
-  let exampleDropdown = new Axentix.Dropdown('#example-dropdown');
-
-  // With options
-  let exampleDropdown = new Axentix.Dropdown('#example-dropdown', {
-    animationType: 'fade'
-  });
-</script>
-<strong
-  >To know all the ways to initialize a JS component, please read the
-  <a class="text-primary" href="https://useaxentix.com/preview/docs/general/js-init/">JS Init</a> page.</strong
->
-
-<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
-<p>
-  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
-  animation of the dropdown content.
-  <br />
-  Note that this option is not working with the hover option.
-</p>
-
-<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
-  <div class="dropdown-content white shadow-1 rounded-1">
-    <a class="dropdown-item" href="#">Fade animation</a>
-    <a class="dropdown-item" href="#">Item 2</a>
-  </div>
+<div class="example-nav">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
 </div>
 
-<h2 class="subtitle" id="options">Options</h2>
+<script type="text/plain" class="language-markup">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</script>
+
+<h2 class="subtitle" id="hover-class-list">Hover class list</h2>
 
 <div class="table-responsive">
-  <table class="table table-hover option" aria-label="Options">
+  <table class="table table-hover">
     <thead>
       <tr>
-        <th>Property</th>
-        <th>Default value</th>
+        <th>Class name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>hover</td>
-        <td>false</td>
-        <td>Dropdown shown when hover event is triggered instead of click event.</td>
+        <td><code class="language-css">.hover-bg</code></td>
+        <td>Set the hover background color for a light colored element.</td>
       </tr>
       <tr>
-        <td>animationType</td>
-        <td><code class="language-js">'none'</code></td>
-        <td>
-          Choose animation type when dropdown is opened or closed.<br />Accepted values are
-          <code class="language-js">'none'</code> or <code class="language-js">'fade'</code>.
-        </td>
+        <td><code class="language-css">.hover-bg-dark</code></td>
+        <td>Set the hover background color for a dark colored element.</td>
       </tr>
       <tr>
-        <td>animationDuration</td>
-        <td>300</td>
-        <td>Opening and closing animation duration in ms.</td>
+        <td><code class="language-css">.hover-text</code></td>
+        <td>Set the hover text color for a light colored element.</td>
       </tr>
       <tr>
-        <td>autoClose</td>
-        <td>true</td>
-        <td>Closes other dropdown when this Dropdown instance is opened.</td>
-      </tr>
-      <tr>
-        <td>closeOnClick</td>
-        <td>true</td>
-        <td>Closes the dropdown by clicking outside of it.</td>
-      </tr>
-      <tr>
-        <td>preventViewport</td>
-        <td>false</td>
-        <td>Prevent dropdown content to exceed viewport size.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2 class="subtitle" id="methods">Methods</h2>
-
-<script type="text/plain" class="language-js" aria-label="Methods">
-  // NOTE: this is NOT to be used if data-ax="dropdown" is set in your HTML
-  let exampleDropdown = new Axentix.Dropdown('#example-dropdown');
-
-  // Syntax : exampleDropdown.{method}
-  exampleDropdown.close();
-</script>
-
-<div class="table-responsive">
-  <table class="table table-hover method-event">
-    <thead>
-      <tr>
-        <th>Method</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>.open()</td>
-        <td>Open dropdown</td>
-      </tr>
-      <tr>
-        <td>.close()</td>
-        <td>Close dropdown</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2 class="subtitle" id="events">Events</h2>
-
-<script type="text/plain" class="language-js">
-  // Listen to all dropdown instances
-  document.addEventListener('ax.dropdown.open', function() {
-    // open event !
-  });
-
-  // Listen to only one dropdown instance
-  let dropdownQuery = document.querySelector('#example-dropdown');
-  dropdownQuery.addEventListener('ax.dropdown.open', function() {
-    // open event only on #example-dropdown
-  });
-</script>
-
-<div class="table-responsive">
-  <table class="table table-hover method-event" aria-label="Events">
-    <thead>
-      <tr>
-        <th>Event</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>ax.dropdown.setup</td>
-        <td>Event sent when the dropdown has been setup.</td>
-      </tr>
-      <tr>
-        <td>ax.dropdown.open</td>
-        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
-      </tr>
-      <tr>
-        <td>ax.dropdown.opened</td>
-        <td>Event sent when the dropdown has been opened.</td>
-      </tr>
-      <tr>
-        <td>ax.dropdown.close</td>
-        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
-      </tr>
-      <tr>
-        <td>ax.dropdown.closed</td>
-        <td>Event sent when the dropdown has been closed.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2 class="subtitle" id="styling">Styling</h2>
-  
-<div class="responsive-table">
-  <table class="table table-hover" aria-label="styling table">
-    <thead>
-      <tr>
-        <th scope="col">CSS Variable</th>
-        <th scope="col">Default value</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <code class="language-css">--ax-dropdown-z-index</code>
-        </td>
-        <td>10</td>
-        <td>
-          Dropdown z-index.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-dropdown-z-index-navbar</code>
-        </td>
-        <td>20</td>
-        <td>Dropdown z-index inside a navbar.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-dropdown-z-index-sidenav</code>
-        </td>
-        <td>30</td>
-        <td>Dropdown z-index inside a sidenav.</td>
+        <td><code class="language-css">.hover-text-dark</code></td>
+        <td>Set the hover text color for a dark colored element.</td>
       </tr>
     </tbody>
   </table>
