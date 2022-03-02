@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cards - Axentix</title>
-    <meta name="description" content="Axentix cards. Cards are useful to display content on a website. We recommend using a grix to easily display cards." />
-    <meta property="og:description" content="Axentix cards. Cards are useful to display content on a website. We recommend using a grix to easily display cards." />
-    <meta property="og:title" content="Cards - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Migration guide - Axentix</title>
+    <meta name="description" content="Axentix - Migration guide." />
+    <meta property="og:description" content="Axentix - Migration guide." />
+    <meta property="og:title" content="Migration guide - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -113,7 +113,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/components/cards/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/docs/migration/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.0.x
         </a>
       
@@ -123,7 +123,7 @@
           
         
 
-        <a href='https://useaxentix.com/1.3.x/docs/components/cards/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/1.3.x/docs/migration/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -279,7 +279,7 @@
       
     
       
-      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
       
     
       
@@ -875,7 +875,7 @@
     
   
   
-  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link ">
+  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link active">
     Migrate from v1
   </a>
 </div>
@@ -895,8 +895,8 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Cards</h1>
-            <p>Different types of cards.</p>
+            <h1 id="title">Migration guide</h1>
+            <p>Migration guide from v1 to v2</p>
           </div>
 
           <div
@@ -910,173 +910,718 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle" id="simple-cards">Simple cards</h2>
-<p>Axentix basic cards are made to be used inside a grix. They are usefull to display text.</p>
-
-<div class="grix xs1 sm2 lg3">
-  <div class="card shadow-1 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
-        quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
-        est nam soluta!
-      </p>
-    </div>
-    <div class="card-footer">Card footer</div>
-  </div>
-</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="card shadow-1 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
-      </p>
-    </div>
-    <div class="card-footer">Card footer</div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="img-cards">Img cards</h2>
 <p>
-  Axentix IMG cards are made to be used inside a grix. They are usefull to easily display images. <br />
-  You can create special cards using our <code class="language-markup">.card-header</code>,
-  <code class="language-markup">.card-content</code>, and <code class="language-markup">.card-footer</code> classes.
+  This page contains all informations about the breaking changes between the v1 and the v2. <br />
+  Follow this guide to <strong>migrate your site</strong> based on v1. <br />
+  All these changes have been made to get more consistency in the class naming, <strong>following this rule</strong> :
+  <br />
+  <code class="language-css">.{componentName}-{class}</code>
 </p>
 
-<div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2 white">
-    <div class="card-image">
-      <img src="https://picsum.photos/800/600?random=1" alt="logo" />
-    </div>
+<h2 class="subtitle" id="js-init">JS init</h2>
 
-    <div class="card-header">Card Image</div>
-
-    <div class="divider"></div>
-
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
-</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2 white">
-    <div class="card-image">
-      <img src="https://picsum.photos/800/600?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="horizontal-cards">Horizontal cards</h2>
-<p>Create horizontal cards using flexbox !</p>
-
-<div class="card shadow-1 fx-row white">
-  <div class="primary d-flex vcenter fx-center p-4">
-    <h4>Content</h4>
-  </div>
-  <div class="d-flex fx-col fx-grow">
-    <div class="card-header">Header</div>
-    <div class="card-content">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-  </div>
-</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="card shadow-1 fx-row white">
-    <div class="primary d-flex vcenter fx-center p-4">
-      <h4>Content</h4>
-    </div>
-    <div class="d-flex fx-col fx-grow">
-      <div class="card-header">Header</div>
-      <div class="card-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="rounded-cards">Rounded cards</h2>
 <p>
-  Axentix cards can be rounded using the <a class="text-primary" href="https://useaxentix.com/docs/utilities/rounded/">rounded</a> classes.
-</p>
-<div class="grix xs1 sm2 lg3 gutter-xs1">
-  <div class="card shadow-1 rounded-3 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
-        quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
-        est nam soluta!
-      </p>
-    </div>
-    <div class="divider"></div>
-    <div class="card-footer">Card footer</div>
-  </div>
-</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="card shadow-1 rounded-3 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
-      </p>
-    </div>
-    <div class="divider"></div>
-    <div class="card-footer">Card footer</div>
-  </div>
-</script>
-
-<h2 class="subtitle" id="hoverable-cards">Hoverable cards</h2>
-<p>
-  Use the <a class="text-primary" href="https://useaxentix.com/docs/utilities/shadows/#hoverable">hoverable</a> classes to create a great
-  effect when hovered.
+  The way to init Axentix components with the <strong>auto init</strong> & <strong>per component type</strong> methods have been changed.
 </p>
 
-<div class="grix xs1 sm2 lg3 gutter-xs1">
-  <div class="card shadow-1 hoverable-1 rounded-3 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
-        quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est
-        nam soluta!
-      </p>
-    </div>
-  </div>
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old way</th>
+        <th scope="col">New way</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-js">new Axentix('all')</code>
+        </td>
+        <td>
+          <code class="language-js">new Axentix.Axentix('all')</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-js">let collapsible = new Axentix('collapsible')</code>
+        </td>
+        <td>
+          <code class="language-js">let collapsible = new Axentix.Axentix('collapsible')</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<script type="text/plain" class="language-markup">
-  <div class="card shadow-1 hoverable-1 rounded-3 white">
-    <div class="card-header">Card header</div>
-    <div class="card-content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
-      </p>
-    </div>
-  </div>
-</script>
+<h2 class="subtitle" id="layouts">Layouts</h2>
+
+<p>Layouts classes changed to <strong>more understandable classes</strong> and to <strong>reduce the code size</strong>.</p>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-sidenav</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav .fixed-sidenav</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-sidenav-fixed</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.layout .with-sidenav .fixed-sidenav .under-navbar</code>
+        </td>
+        <td>
+          <code class="language-css">.layout-under-navbar</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="colors">Colors</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.txt-{color}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-{color}</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-dark-{value}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-dark-{value}</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-light-{value}</code>
+        </td>
+        <td>
+          <code class="language-css">.text-light-{value}</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="buttons">Buttons</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.small</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.large</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.press</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-press</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.circle</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-circle</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline-text</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline-invert</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-invert</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.outline-invert</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-outline-invert</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.opening</code>
+        </td>
+        <td>
+          <code class="language-css">.btn-opening</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="card">Card</h2>
+
+<p>The default <code class="language-css">word-break</code> value has been removed.</p>
+
+<h2 class="subtitle" id="dropdown">Dropdown</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.right-aligned</code>
+        </td>
+        <td>
+          <code class="language-css">.dropdown-right</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.constrain-width</code>
+        </td>
+        <td>
+          <code class="language-css">.dropdown-constrain-width</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="footer">Footer</h2>
+
+<p>
+  The <code class="language-css">.footer-large</code> and <code class="language-css">.footer-content</code> classes have been removed.
+  <br />
+  To get a large footer, use the css variable <code class="language-css">--ax-footer-min-height</code> or just add content inside of it.
+</p>
+
+<h2 class="subtitle" id="sidenav">Sidenav</h2>
+
+<p>
+  The <code class="language-css">.sidenav-large</code> and <code class="language-css">.sidenav-trigger</code> classes have been removed.
+  <br />
+  To get a large sidenav, use the css variable <code class="language-css">--ax-sidenav-width</code>.
+</p>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.fixed</code>
+        </td>
+        <td>
+          <code class="language-css">.sidenav-fixed</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="lightbox">Lightbox</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old option</th>
+        <th scope="col">New option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">overlayColor</code>
+        </td>
+        <td>
+          <code class="language-css">overlayClass</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="loading">Loading</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.spinner-txt</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner-text</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .small</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .large</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.spinner .rainbow</code>
+        </td>
+        <td>
+          <code class="language-css">.spinner .spinner-rainbow</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .small</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .large</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-large</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .rainbow</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-rainbow</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.progress .indeterminate</code>
+        </td>
+        <td>
+          <code class="language-css">.progress .progress-indeterminate</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="modal">Modal</h2>
+
+<p>The <code class="language-css">.modal-trigger</code> class has been removed.</p>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.falling</code>
+        </td>
+        <td>
+          <code class="language-css">.modal-falling</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.bouncing</code>
+        </td>
+        <td>
+          <code class="language-css">.modal-bouncing</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="navbar">Navbar</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.centered</code>
+        </td>
+        <td>
+          <code class="language-css">.navbar-centered</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="pagination">Pagination</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.small</code>
+        </td>
+        <td>
+          <code class="language-css">.pagination-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.large</code>
+        </td>
+        <td>
+          <code class="language-css">.pagination-large</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="tabs">Tabs</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.full-width</code>
+        </td>
+        <td>
+          <code class="language-css">.tab-full-width</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="table">Table</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.responsive-table</code>
+        </td>
+        <td>
+          <code class="language-css">.table-responsive</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.responsive-table-2</code>
+        </td>
+        <td>
+          <code class="language-css">.table-responsive-2</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.hover</code>
+        </td>
+        <td>
+          <code class="language-css">.table-hover</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.striped</code>
+        </td>
+        <td>
+          <code class="language-css">.table-striped</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.bordered</code>
+        </td>
+        <td>
+          <code class="language-css">.table-bordered</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.border-0</code>
+        </td>
+        <td>
+          <code class="language-css">.table-no-border</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.centered</code>
+        </td>
+        <td>
+          <code class="language-css">.table-centered</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="forms">Forms</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old classes</th>
+        <th scope="col">New classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.inline</code>
+        </td>
+        <td>
+          <code class="language-css">.form-inline</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.form-group-txt</code>
+        </td>
+        <td>
+          <code class="language-css">.form-group-item</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.slider</code>
+        </td>
+        <td>
+          <code class="language-css">.form-slider</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.slider .thin</code>
+        </td>
+        <td>
+          <code class="language-css">.form-slider .form-slider-thin</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.slider .small</code>
+        </td>
+        <td>
+          <code class="language-css">.form-slider .form-slider-small</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.form-slider .large</code>
+        </td>
+        <td>
+          <code class="language-css">.form-slider .form-slider-large</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="utilities">Utilities</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old class</th>
+        <th scope="col">New class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.txt-left</code>
+        </td>
+        <td>
+          <code class="language-css">.text-left</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-center</code>
+        </td>
+        <td>
+          <code class="language-css">.text-center</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.txt-right</code>
+        </td>
+        <td>
+          <code class="language-css">.text-right</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="javascript">Javascript methods</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old method</th>
+        <th scope="col">New method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-js">Axentix.updateInputs()</code>
+        </td>
+        <td>
+          <code class="language-js">Axentix.Forms.updateInputs()</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="scss">Scss</h2>
+
+<div class="table-responsive">
+  <table class="table" aria-label="Class comparison">
+    <thead>
+      <tr>
+        <th scope="col">Old function</th>
+        <th scope="col">New function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">txtColor()</code>
+        </td>
+        <td>
+          <code class="language-css">textColor()</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">

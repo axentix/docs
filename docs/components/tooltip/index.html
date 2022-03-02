@@ -1,182 +1,956 @@
-<!doctype html><html lang=en>
-<head>
-<title>Tooltip - Axentix</title>
-<meta name=description content="Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes.">
-<meta property="og:description" content="Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes.">
-<meta property="og:title" content="Tooltip - Axentix"><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=author content="Axentix Team">
-<meta name=copyright content="axentix team">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://useaxentix.com">
-<meta property="og:image" content="https://useaxentix.com/img/logoOG.jpg">
-<link rel=apple-touch-icon sizes=180x180 href=https://useaxentix.com/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=https://useaxentix.com/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=https://useaxentix.com/favicon-16x16.png>
-<link rel=manifest href=https://useaxentix.com/webmanifest.json>
-<link rel=mask-icon href=https://useaxentix.com/safari-pinned-tab.svg color=#2196f3>
-<meta name=msapplication-TileColor content="#2d89ef">
-<meta name=theme-color content="#ffffff">
-<link rel=preconnect href=https://fonts.gstatic.com>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
-<link rel=preconnect href=https://M9XK4LRAZA-dsn.algolia.net crossorigin>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@alpha>
-<link rel=stylesheet href=/axentix/axentix.min.fb1bb8b8f6ffd86e54a4eca43d15665def53ee3e9cdef912dd4d6aed728a9477.css>
-<link rel=stylesheet href=/docs.19962acb99ef559fd05cbfa939b64911a20097ed8dcfa77d550eda2c451f6c25.css>
-</head>
-<body class="layout with-sidenav fixed-sidenav under-navbar"><header>
-<div class=navbar-fixed>
-<div class="topbar d-flex fx-center vcenter fixed-pos w100 px-2">
-<a class=txt-center href=https://useaxentix.com/2.0.x/docs/getting-started>The v2 beta of Axentix is out. Click here to try it.</a>
-</div>
-<nav class="navbar primary light-shadow-2">
-<button data-target=main-sidenav aria-label="Menu button" class="sidenav-trigger btn rounded-1 small transparent txt-white hide-md-up hide-xs font-w600">
-<i class="fas fa-bars"></i> Menu
-</button>
-<button data-target=main-sidenav class="sidenav-trigger btn circle transparent txt-white hide-sm-up font-w600">
-<i class="fas fa-bars"></i>
-</button>
-<div class="navbar-menu hide-sm-down">
-<a class="navbar-link font-w600" href=https://useaxentix.com><i class="fas fa-home"></i> Home</a>
-<a class="navbar-link font-w600" href=https://useaxentix.com/docs/getting-started/><i class="fas fa-book"></i> Documentation</a>
-</div>
-<div class="navbar-menu ml-auto">
-<div id=search-input class=my-auto></div>
-<a class="navbar-link font-w600" id=github href=https://github.com/axentix/axentix target=_blank rel=noopener aria-label=Github><i class="fab fa-github"></i><span class=hide-xs> GITHUB</span></a>
-<a class="navbar-link font-w600" id=twitter href=https://twitter.com/UseAxentix target=_blank rel=noopener><i class="fab fa-twitter"><span class=hide> TWITTER</span></i></a>
-</div>
-</nav>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tooltip - Axentix</title>
+    <meta name="description" content="Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes." />
+    <meta property="og:description" content="Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes." />
+    <meta property="og:title" content="Tooltip - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com" />
+<meta property="og:image" content="https://useaxentix.com/img/logoOG.jpg" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png" />
+<link rel="manifest" href="https://useaxentix.com/webmanifest.json" />
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+      
+      
+      
+
+      
+      
+    <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
+    <link rel="stylesheet" href="/axentix/axentix.min.f75baa6e6358adbcef9cf6708f3d926a511e744f0ed2d7aa9b7e6f180d6e09a0.css" />
+    <link rel="stylesheet" href="/docs.4ac6e74221d683249b6d576b071cc54aacfa3f8f65ccadda0144b2c7d19b0cd5.css" />
+    
+  </head>
+
+  <body class="layout-under-navbar relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <div class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />xentix
+      </div>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com">Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
-<div id=main-sidenav class="sidenav light-shadow-2 fixed white large"><div class=sidenav-header>
-<button data-target=main-sidenav class=sidenav-trigger><i class="fas fa-times"></i></button>
-<img class="docs-logo sidenav-logo" src=https://useaxentix.com/img/axentix.svg alt="Axentix Logo">
-<div class=dropdown id=dropdown data-ax=dropdown>
-<div class="dropdown-trigger d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
-1.3.x <i class="fas fa-sort-down txt-grey txt-dark-4 ml-4"></i>
+<div id="main-sidenav" class="sidenav sidenav-fixed"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.0.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/docs/components/tooltip/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.0.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/1.3.x/docs/components/tooltip/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
 </div>
-<div class="version-selector dropdown-content white constrain-width light-shadow-2">
-<a href=https://useaxentix.com/2.0.x/docs/components/tooltip/ class="txt-center py-3">
-2.0.x
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/material/">Material forms</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
 </a>
-<a href=https://useaxentix.com/docs/components/tooltip/ class="txt-center py-3 font-w600">
-Latest 1.3.x
-</a>
 </div>
-</div>
-</div>
-<div class=hide-md-up>
-<a href=https://useaxentix.com class=sidenav-link>Home</a>
-<a href=https://useaxentix.com/docs/getting-started/ class=sidenav-link>Documentation</a>
-<div class=divider></div>
-</div>
-<a href=https://useaxentix.com/docs/getting-started/ class=sidenav-link>
-Getting started
-</a>
-<a href class="collapsible-trigger sidenav-link" data-target=general-menu>General</a>
-<div>
-<div class=collapsible id=general-menu>
-<a class=sidenav-link href=https://useaxentix.com/docs/general/colors/>Colors</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/general/grix/>Grix</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/general/js-init/>JS Init</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/general/layouts/>Layouts</a>
-</div>
-</div>
-<a href class="collapsible-trigger sidenav-link" data-target=components-menu>Components</a>
-<div>
-<div class=collapsible id=components-menu>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/alerts/>Alerts</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/button-group/>Button group</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/buttons/>Buttons</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/cards/>Cards</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/caroulix/>Caroulix</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/collapsible/>Collapsible</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/dropdown/>Dropdown</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/fab/>FAB</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/footer/>Footer</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/lightbox/>Lightbox</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/loading/>Loading</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/modal/>Modal</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/navbar/>Navbar</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/pagination/>Pagination</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/scrollspy/>Scrollspy</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/sidenav/>Sidenav</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/table/>Table</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/tabs/>Tabs</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/components/toast/>Toast</a>
-<a class="sidenav-link active" href=https://useaxentix.com/docs/components/tooltip/>Tooltip</a>
-</div>
-</div>
-<a href class="collapsible-trigger sidenav-link" data-target=forms-menu>Forms</a>
-<div>
-<div class=collapsible id=forms-menu>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/checkbox_radio/>Checkbox / Radio</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/file/>Form File</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/inputs/>Inputs</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/material/>Material forms</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/select/>Select</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/forms/switches/>Switches</a>
-</div>
-</div>
-<a href class="collapsible-trigger sidenav-link" data-target=utilities-menu>Utilities</a>
-<div>
-<div class=collapsible id=utilities-menu>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/alignments/>Alignments</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/borders/>Borders</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/breakpoints/>Breakpoints</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/display/>Display</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/flexbox/>Flexbox</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/javascript/>JavaScript</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/others/>Others</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/rounded/>Rounded</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/shadows/>Shadows</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/spacing/>Spacing</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/utilities/typography/>Typography</a>
-</div>
-</div>
-<a class=sidenav-link href=https://useaxentix.com/docs/plugins/>Plugins</a>
-<a class=sidenav-link href=https://useaxentix.com/docs/sass/>Sass</a>
-<a id=discord-footer href=https://discord.useaxentix.com/ target=_blank rel=noopener class="sidenav-footer txt-center grey dark-5">
-<i class="fab fa-discord"></i> &nbsp;
-Join us
-</a>
-</div>
-<main>
-<div class="main-content container">
-<div class="docs-head d-flex">
-<div>
-<h1 id=title>Tooltip</h1>
-<p></p>
-</div>
-<div data-ea-publisher=useaxentix-com data-ea-type=image class="flat horizontal ml-auto" id=ads-docs></div>
-</div>
-<div class="d-flex relative-pos">
-<div class=content>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
+
+    <main>
+      <div class="main-content container">
+        <div class="docs-head d-flex">
+          <div>
+            <h1 id="title">Tooltip</h1>
+            <p></p>
+          </div>
+
+          <div
+            data-ea-publisher="useaxentix-com"
+            data-ea-type="image"
+            class="flat horizontal ml-auto"
+            id="ads-docs"
+          ></div>
+        </div>
+
+        <div class="d-flex relative-pos">
+          <div class="content">
+  
 <p>
-Adding some <strong>tooltips</strong> on your website could be useful add explanations on anything like text,
-buttons... <br>
-Creating a tooltip <strong>with no content</strong> will not be displayed.
-<br>
-Hover these next examples to see the tooltips appear :
+  Adding some <strong>tooltips</strong> on your website could be useful add explanations on anything like text,
+  buttons... <br />
+  Creating a tooltip <strong>with no content</strong> will not be displayed.
+  <br />
+  Hover these next examples to see the tooltips appear :
 </p>
 <div class="grix xs2 md4 center mt-5">
-<button id=tooltip1 data-ax=tooltip data-tooltip-content=Tooltip class="btn airforce dark-3 rounded-1 shadow-1">
-Top
-</button>
-<button id=tooltip4 data-ax=tooltip data-tooltip-position=left data-tooltip-content="Tooltip 😉" class="btn airforce dark-3 rounded-1 shadow-1">
-Left
-</button>
-<button id=tooltip2 data-ax=tooltip data-tooltip-position=right data-tooltip-content=Tooltip class="btn airforce dark-3 rounded-1 shadow-1">
-Right
-</button>
-<button id=tooltip3 data-ax=tooltip data-tooltip-position=bottom data-tooltip-content=Tooltip class="btn airforce dark-3 rounded-1 shadow-1">
-Bottom
-</button>
+  <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">
+    Top
+  </button>
+  <button
+    id="tooltip4"
+    data-ax="tooltip"
+    data-tooltip-position="left"
+    data-tooltip-content="Tooltip 😉"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Left
+  </button>
+  <button
+    id="tooltip2"
+    data-ax="tooltip"
+    data-tooltip-position="right"
+    data-tooltip-content="Tooltip"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Right
+  </button>
+  <button
+    id="tooltip3"
+    data-ax="tooltip"
+    data-tooltip-position="bottom"
+    data-tooltip-content="Tooltip"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Bottom
+  </button>
 </div>
-<script type=text/plain class="language-markup mt-5">
+
+<script type="text/plain" class="language-markup mt-5">
   <div class="grix xs2 md4 center mt-5">
     <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Top</button>
     <button id="tooltip4" data-ax="tooltip" data-tooltip-position="left" data-tooltip-content="Tooltip 😉" class="btn airforce dark-3 rounded-1 shadow-1">Left</button>
@@ -184,15 +958,26 @@ Bottom
     <button id="tooltip3" data-ax="tooltip" data-tooltip-position="bottom" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Bottom</button>
   </div>
 </script>
-<h2 class=subtitle id=change-tooltip>Change tooltip</h2>
+
+<h2 class="subtitle" id="change-tooltip">Change tooltip</h2>
+
 <p>
-You may have to change a <strong>tooltip</strong> appearance.<br>
-You can change it using our <code class=language-js>change()</code> method.
+  You may have to change a <strong>tooltip</strong> appearance.<br />
+  You can change it using our <code class="language-js">change()</code> method.
 </p>
-<button id=tooltip5 data-ax=tooltip data-tooltip-position=right data-tooltip-classes="airforce light-2 light-shadow-2 p-2" data-tooltip-content="This is the new content" class="btn airforce dark-3 rounded-1 shadow-1">
-Right
+
+<button
+  id="tooltip5"
+  data-ax="tooltip"
+  data-tooltip-position="right"
+  data-tooltip-classes="airforce light-2 light-shadow-2 p-2"
+  data-tooltip-content="This is the new content"
+  class="btn airforce dark-3 rounded-1 shadow-1"
+>
+  Right
 </button>
-<script type=text/plain class=language-js>
+
+<script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
   let tooltip = new Axentix.Tooltip('#tooltip5', {
       content: 'This is a tooltip',
@@ -204,12 +989,15 @@ Right
     classes: 'airforce light-2 light-shadow-2 p-2'
   });
 </script>
-<h2 class=subtitle id=javascript-initialization>Javascript initialization</h2>
+
+<h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
+
 <p>
-Once HTML was setup, you can activate the <strong>tooltip</strong> with this simple code. <br>
-Just pass the id of your <strong>tooltip</strong> that you want to activate.
+  Once HTML was setup, you can activate the <strong>tooltip</strong> with this simple code. <br />
+  Just pass the id of your <strong>tooltip</strong> that you want to activate.
 </p>
-<script type=text/plain class=language-js>
+
+<script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
   let tooltip = new Axentix.Tooltip('#tooltip1');
 
@@ -220,96 +1008,105 @@ Just pass the id of your <strong>tooltip</strong> that you want to activate.
     position: 'bottom',
   });
 </script>
-<strong>To know all the ways to initialize a JS component, please read the
-<a class=txt-primary href=https://useaxentix.com/docs/general/js-init/>JS Init</a> page.</strong>
-<h2 class=subtitle id=options>Options</h2>
-<div class=responsive-table>
-<table class="table hover option">
-<thead>
-<tr>
-<th>Property</th>
-<th>Default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>content</td>
-<td>''</td>
-<td>This is the content of your tooltip.</td>
-</tr>
-<tr>
-<td>animationDelay</td>
-<td>0</td>
-<td>Opening and closing animation delay in ms.</td>
-</tr>
-<tr>
-<td>animationDuration</td>
-<td>200</td>
-<td>Opening and closing animation duration in ms.</td>
-</tr>
-<tr>
-<td>offset</td>
-<td>'10px'</td>
-<td>Offset between the tooltip and the element.</td>
-</tr>
-<tr>
-<td>classes</td>
-<td>'grey dark-4 light-shadow-2 p-2'</td>
-<td>Classes to add style on your tooltip.</td>
-</tr>
-<tr>
-<td>position</td>
-<td>'top'</td>
-<td>
-Tooltip position depending on your element. <br>Accepted values are <code class=language-js>'top'</code>,
-<code class=language-js>'right'</code>, <code class=language-js>'bottom'</code> or
-<code class=language-js>'left'</code>.
-</td>
-</tr>
-</tbody>
-</table>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="https://useaxentix.com/docs/general/js-init/">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>content</td>
+        <td>''</td>
+        <td>This is the content of your tooltip.</td>
+      </tr>
+      <tr>
+        <td>animationDelay</td>
+        <td>0</td>
+        <td>Opening and closing animation delay in ms.</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>200</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>offset</td>
+        <td>'10px'</td>
+        <td>Offset between the tooltip and the element.</td>
+      </tr>
+      <tr>
+        <td>classes</td>
+        <td>'grey dark-4 light-shadow-2 p-2'</td>
+        <td>Classes to add style on your tooltip.</td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>'top'</td>
+        <td>
+          Tooltip position depending on your element. <br />Accepted values are <code class="language-js">'top'</code>,
+          <code class="language-js">'right'</code>, <code class="language-js">'bottom'</code> or
+          <code class="language-js">'left'</code>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<h2 class=subtitle id=methods>Methods</h2>
-<script type=text/plain class=language-js>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
   let tooltip = new Axentix.Tooltip('#tooltip1');
 
   // Syntax : tooltip.{method}
   tooltip.show();
 </script>
-<div class=responsive-table>
-<table class="table hover method-event">
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.show()</td>
-<td>Show the tooltip.</td>
-</tr>
-<tr>
-<td>.hide()</td>
-<td>Hide the tooltip.</td>
-</tr>
-<tr>
-<td>.change()</td>
-<td>Change the tooltip. You send an object with the options you want to change and their new values.</td>
-</tr>
-<tr>
-<td>.updatePosition()</td>
-<td>
-Update the position of the tooltip. Useful when you move dynamically an element which contains a tooltip.
-</td>
-</tr>
-</tbody>
-</table>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.show()</td>
+        <td>Show the tooltip.</td>
+      </tr>
+      <tr>
+        <td>.hide()</td>
+        <td>Hide the tooltip.</td>
+      </tr>
+      <tr>
+        <td>.change()</td>
+        <td>Change the tooltip. You send an object with the options you want to change and their new values.</td>
+      </tr>
+      <tr>
+        <td>.updatePosition()</td>
+        <td>
+          Update the position of the tooltip. Useful when you move dynamically an element which contains a tooltip.
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<h2 class=subtitle id=events>Events</h2>
-<script type=text/plain class=language-js>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
     // Listen all tooltip instances
   document.addEventListener('ax.tooltip.show', function() {
     // show event !
@@ -321,53 +1118,117 @@ Update the position of the tooltip. Useful when you move dynamically an element 
     // show event only on #tooltip
   });
 </script>
-<div class=responsive-table>
-<table class="table hover method-event">
-<thead>
-<tr>
-<th>Event</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ax.tooltip.setup</td>
-<td>Event sent when the tooltip has been setup.</td>
-</tr>
-<tr>
-<td>ax.tooltip.show</td>
-<td>Event sent when the tooltip is shown.</td>
-</tr>
-<tr>
-<td>ax.tooltip.hide</td>
-<td>Event sent when the tooltip is hidden.</td>
-</tr>
-</tbody>
-</table>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.tooltip.setup</td>
+        <td>Event sent when the tooltip has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.tooltip.show</td>
+        <td>Event sent when the tooltip is shown.</td>
+      </tr>
+      <tr>
+        <td>ax.tooltip.hide</td>
+        <td>Event sent when the tooltip is hidden.</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+  
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-tooltip-z-index</code>
+        </td>
+        <td>999</td>
+        <td>
+          Tooltip z-index.
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<div class="scrollspy main-scrollspy d-flex pl-3" id=scrollspy-auto>
-<span class="scrollspy-sponsor ml-2 mt-5 mb-2 txt-grey"> Sponsors </span>
-<a href=https://www.evolvewebhost.com target=_blank rel=noopener class="scrollspy-sponsor ml-2 my-2">
-<img src=https://useaxentix.com/img/sponsors/evolve_hosting.png class=responsive-media>
-</a>
-<a href=https://www.buymeacoffee.com/axentix target=_blank rel=noopener class="btn small txt-grey outline rounded-3 mt-2 coffee-link scrollspy-sponsor">
-<span class=outline-text>Become a sponsor</span>
-</a>
+
 </div>
-</div>
-</div>
-</main><footer class="footer primary fx-center txt-center">
-Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
-</footer>
-<script src=/axentix/axentix.min.8b1fc1971589ff541c2a33b0c7f087a3dad2b68f50901196230d89199cb60c72.js></script>
-<script src=/js/prism.d8e06e95e0e61f45ca19c23760992b91da5ef20829e955bb4350ce231ba3bf2a.js></script>
-<script src=/js/docs.907f72fc37f5b95a4517ae5b714e852cd4e98cc680bf7504dd9e5bd9886864a9.js></script>
-<script>const baseURL='https://useaxentix.com'</script>
-<script type=text/javascript src=https://cdn.jsdelivr.net/npm/@docsearch/js@alpha></script>
-<script type=text/javascript>docsearch({apiKey:'e79b510a1eb0bf058cf36749c2aa8198',appId:'M9XK4LRAZA',indexName:'useaxentix',container:'#search-input',debug:!1})</script>
-<script async src=https://media.ethicalads.io/media/client/ethicalads.min.js></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-149763613-1')</script>
-</body>
+          <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
+
+            
+            <a href="https://www.evolvewebhost.com" target="_blank" rel="noopener" class="scrollspy-sponsor ml-2 my-2">
+              <img src="https://useaxentix.com/img/sponsors/evolve_hosting.png" alt="evolve hosting" class="responsive-media" />
+            </a>
+            <a
+              href="https://www.buymeacoffee.com/axentix"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-small btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+            >
+              <span class="btn-outline-text">Become a sponsor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main><footer class="footer fx-center text-center">Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE</footer>
+ 
+     
+    
+    
+    
+    <script src="/axentix/axentix.min.56807bd0436750f9baeaa17d201066125f2349074a749d540da8ba4991ba9833.js"></script>
+    <script src="/js/prism.8c7a75416846abdaf741adfbefbd3a22e48bae7de42a029ab0fad37e0101cb40.js"></script>
+    <script src="/js/docs.min.59a680e5ea3c09dd3799206d94d996fb0070757bf70df8f43fde07023669e7aa.js"></script>
+    <script>
+      const baseURL = 'https:\/\/useaxentix.com';
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      docsearch({
+        apiKey: '5eae298506cf8352bb7462dc2ff37f9d',
+        appId: 'M9XK4LRAZA',
+        indexName: 'useaxentix-v2.0.x',
+        container: '#search-input',
+        debug: false,
+      });
+    </script>
+
+     
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-149763613-1');
+    </script>
+     
+  </body>
 </html>
