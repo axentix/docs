@@ -7,7 +7,8 @@ const AxentixTheme = (() => {
     theme,
     themeLightBtn,
     themeDarkBtn,
-    themeSystemBtn;
+    themeSystemBtn,
+    ethicaldAds;
 
   const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -33,10 +34,14 @@ const AxentixTheme = (() => {
       document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
       theme = 'light';
+
+      if (ethicaldAds) ethicaldAds.classList.remove('dark');
     } else {
       document.documentElement.classList.remove('light');
       document.documentElement.classList.add('dark');
       theme = 'dark';
+
+      if (ethicaldAds) ethicaldAds.classList.add('dark');
     }
 
     onScroll();
@@ -61,6 +66,7 @@ const AxentixTheme = (() => {
     navbarFixed = document.querySelector('.navbar-fixed');
     window.addEventListener('scroll', onScroll);
     onScroll();
+    ethicaldAds = document.querySelector('[data-ea-publisher="useaxentix-com"]');
 
     window
       .matchMedia('(prefers-color-scheme: dark)')
