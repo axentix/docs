@@ -1,0 +1,68 @@
+$darkSecondaryBg: #1e1f33;
+
+.dark-secondary-bg {
+  background-color: #{$darkSecondaryBg};
+}
+
+@include theme(dark) {
+  color: #fff;
+  background-color: #040520;
+
+  #main-navbar {
+    color: #fff;
+
+    .navbar-menu {
+      .navbar-link {
+        &:hover {
+          color: var(--ax-primary);
+        }
+
+        [data-icon='fa-regular:moon'] {
+          display: inline;
+        }
+
+        [data-icon='ic:round-wb-sunny'] {
+          display: none;
+        }
+      }
+    }
+  }
+
+  #main-navbar,
+  #main-sidenav {
+    .site-dropdown .dropdown-content {
+      background-color: #000330;
+      border: 1px solid #538fcd;
+
+      .dropdown-item {
+        &:hover,
+        &.active {
+          background-color: var(--ax-hover-background-dark);
+        }
+      }
+    }
+  }
+
+  #main-sidenav {
+    background-color: #{$darkSecondaryBg};
+    color: #fff;
+
+    .divider {
+      border-color: getColor('grey', 'dark', 1);
+    }
+
+    .sidenav-link {
+      &:hover,
+      &.active {
+        background-color: var(--ax-hover-background-dark);
+      }
+    }
+
+    .collapsible .sidenav-link {
+      &:hover,
+      &.active {
+        background-color: var(--ax-hover-collapsible-background-dark);
+      }
+    }
+  }
+}

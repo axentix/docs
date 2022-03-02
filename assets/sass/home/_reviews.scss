@@ -1,0 +1,93 @@
+$totalReviews: 6;
+$cardWidth: 300px;
+$animationDuration: 50s;
+
+.reviews-wrapper {
+  padding: 4rem 0;
+  width: 75%;
+
+  @include responsive('md-down') {
+    width: 85%;
+  }
+
+  @include responsive('xs') {
+    width: 98%;
+  }
+
+  &::before,
+  &::after {
+    background: linear-gradient(
+      to right,
+      hsl(0, 0%, 100%) 0%,
+      hsla(0, 0%, 100%, 0.987) 8.1%,
+      hsla(0, 0%, 100%, 0.951) 15.5%,
+      hsla(0, 0%, 100%, 0.896) 22.5%,
+      hsla(0, 0%, 100%, 0.825) 29%,
+      hsla(0, 0%, 100%, 0.741) 35.3%,
+      hsla(0, 0%, 100%, 0.648) 41.2%,
+      hsla(0, 0%, 100%, 0.55) 47.1%,
+      hsla(0, 0%, 100%, 0.45) 52.9%,
+      hsla(0, 0%, 100%, 0.352) 58.8%,
+      hsla(0, 0%, 100%, 0.259) 64.7%,
+      hsla(0, 0%, 100%, 0.175) 71%,
+      hsla(0, 0%, 100%, 0.104) 77.5%,
+      hsla(0, 0%, 100%, 0.049) 84.5%,
+      hsla(0, 0%, 100%, 0.013) 91.9%,
+      hsla(0, 0%, 100%, 0) 100%
+    );
+
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 20rem;
+    z-index: 2;
+
+    @include responsive('sm') {
+      width: 10rem;
+    }
+
+    @include responsive('xs') {
+      width: 6rem;
+    }
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .reviews-slides {
+    width: calc(#{$cardWidth} * #{$totalReviews * 2});
+    animation: reviews-animation #{$animationDuration} linear infinite;
+    will-change: transform;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    .card {
+      width: #{$cardWidth};
+      background-image: linear-gradient(130deg, rgba(0, 3, 38, 1) 0%, rgba(5, 89, 153, 1) 100%);
+    }
+
+    .bd-orange {
+      height: 5rem;
+    }
+  }
+}
+
+@keyframes reviews-animation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-#{$cardWidth} * #{$totalReviews}));
+  }
+}

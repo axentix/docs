@@ -21,24 +21,24 @@ scripts:
 <p>
   To create your <strong>FAB menu</strong>, you have to create a first <code class="language-css">.fab</code> div.
   <br />
-  This <code class="language-css">.fab</code> must contain a <code class="language-css">.fab-trigger</code> which is
-  gonna trigger the <code class="language-css">.fab-menu</code>.
+  This <code class="language-css">.fab</code> must contain an element with a <code class="language-css">data-target</code> 
+  <strong>referring to the fab id</strong> which is going to trigger the <code class="language-css">.fab-menu</code>.
 </p>
 
 <div class="fab" id="fab-example">
-  <button class="btn shadow-1 btn-circle btn-large secondary fab-trigger">
-    <i aria-hidden="true" class="fas fa-plus"></i>
+  <button class="btn shadow-1 btn-circle btn-large secondary" data-target="fab-example">
+    <span class="iconify-inline" data-icon="mdi:plus"></span>
   </button>
 
   <div class="fab-menu">
     <button class="btn shadow-1 btn-circle orange dark-1 text-white fab-item mb-3">
-      <i aria-hidden="true" class="fas fa-pen"></i>
+      <span class="iconify-inline" data-icon="mdi:pencil"></span>
     </button>
     <button class="btn shadow-1 btn-circle red fab-item mb-3">
-      <i aria-hidden="true" class="fas fa-paper-plane"></i>
+      <span class="iconify-inline" data-icon="mdi:send"></span>
     </button>
     <button class="btn shadow-1 btn-circle primary fab-item mb-3">
-      <i aria-hidden="true" class="fas fa-download"></i>
+      <span class="iconify-inline" data-icon="mdi:download"></span>
     </button>
   </div>
 </div>
@@ -47,20 +47,20 @@ scripts:
   <div class="fab" id="fab-example" data-ax="fab">
 
     <!-- Here is the fab-trigger -->
-    <button class="btn shadow-1 btn-circle btn-large secondary fab-trigger">
-      <i aria-hidden="true" class="fas fa-plus"></i>
+    <button class="btn shadow-1 btn-circle btn-large secondary" data-target="fab-example">
+      <span class="iconify-inline" data-icon="mdi:plus"></span>
     </button>
 
     <!-- Here is the fab-menu -->
     <div class="fab-menu">
       <button class="btn shadow-1 btn-circle orange dark-1 text-white fab-item mb-3">
-        <i aria-hidden="true" class="fas fa-pen"></i>
+        <span class="iconify-inline" data-icon="mdi:pencil"></span>
       </button>
       <button class="btn shadow-1 btn-circle red fab-item mb-3">
-        <i aria-hidden="true" class="fas fa-paper-plane"></i>
+        <span class="iconify-inline" data-icon="mdi:send"></span>
       </button>
       <button class="btn shadow-1 btn-circle primary fab-item mb-3">
-        <i aria-hidden="true" class="fas fa-download"></i>
+        <span class="iconify-inline" data-icon="mdi:download"></span>
       </button>
     </div>
   </div>
@@ -112,7 +112,7 @@ scripts:
         <td>true</td>
         <td>
           When <code class="language-js">'hover'</code> is set to true, the
-          <code class="language-css">.fab-trigger</code> will trigger the <code class="language-css">.fab-menu</code> on
+          <code class="language-css">data-target</code> element will trigger the <code class="language-css">.fab-menu</code> on
           hover instead of click.
         </td>
       </tr>

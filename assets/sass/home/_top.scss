@@ -1,0 +1,94 @@
+#top {
+  min-height: 50rem;
+  padding-top: 4rem;
+
+  @include responsive('sm-down') {
+    min-height: 35rem;
+  }
+
+  @include responsive('xs') {
+    padding-top: 0;
+  }
+
+  h2,
+  em {
+    color: getColor('grey', 'dark', 3);
+  }
+
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    background: #e2e2e2;
+    border-radius: 30px;
+    padding: calc(1rem + 2px) 1.5rem;
+    border: 1px solid #cecece;
+    font-weight: 600;
+
+    .token.atrule,
+    .token.attr-value,
+    .token.class-name,
+    .token.function {
+      color: #000;
+    }
+  }
+
+  code[class*='language-'] {
+    color: #000;
+    font-family: quicksand, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif,
+      apple color emoji, segoe ui emoji, segoe ui symbol;
+    font-size: 1.075rem;
+  }
+
+  .top-wrap {
+    a {
+      margin-right: 1.5rem;
+    }
+
+    @include responsive('xs') {
+      justify-content: center;
+      flex-direction: column-reverse;
+
+      a {
+        margin-top: 1rem;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  > div:not(.top-footer) {
+    max-width: 60%;
+
+    @include responsive('md') {
+      max-width: 70%;
+    }
+
+    @include responsive('sm') {
+      max-width: 90%;
+    }
+
+    @include responsive('xs') {
+      max-width: 98%;
+    }
+  }
+}
+
+.top-footer {
+  background-color: #f7f7f7;
+  color: #000;
+  z-index: -1;
+
+  > div {
+    height: 12rem;
+
+    .separator {
+      height: 8rem;
+      right: 0;
+    }
+  }
+}
+
+@include responsive('xs') {
+  .get-started {
+    width: 100%;
+  }
+}

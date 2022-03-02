@@ -26,13 +26,13 @@ aliases:
 <h5 class="subtitle mt-5" id="with-npm">With NPM</h5>
 
 <script type="text/plain" class="language-shell">
-  npm install axentix@next
+  npm install axentix
 </script>
 
 <h5 class="subtitle mt-5" id="with-yarn">With Yarn</h5>
 
 <script type="text/plain" class="language-shell">
-  yarn add axentix@next
+  yarn add axentix
 </script>
 
 <h5 class="subtitle mt-5" id="by-downloading-files">By downloading files</h5>
@@ -52,11 +52,12 @@ aliases:
   </div>
   <a
     href="https://github.com/axentix/axentix/releases/download/{{< version >}}/axentix-{{< version >}}.zip"
+    data-waves
     class="btn rounded-1 primary shadow-1 pos-row-xs2"
   >
     Axentix
   </a>
-  <a href="https://github.com/axentix/axentix/archive/{{< version >}}.zip" class="btn rounded-1 secondary shadow-1">
+  <a href="https://github.com/axentix/axentix/archive/{{< version >}}.zip" data-waves class="btn rounded-1 secondary shadow-1">
     Source
   </a>
 </div>
@@ -79,7 +80,7 @@ aliases:
     <body class="layout">
       <header>
         <nav class="navbar shadow-1 primary">
-          <button class="btn rounded-1 white hide-md-up sidenav-trigger btn-small mr-2" data-target="main-sidenav">
+          <button class="btn rounded-1 white hide-md-up btn-small mr-2" data-target="main-sidenav">
             Menu
           </button>
           <a href="#" target="_blank" class="navbar-brand">Axentix</a>
@@ -88,7 +89,7 @@ aliases:
             <a class="navbar-link hide-sm-down" href="#">Link 2</a>
             <a class="navbar-link hide-sm-down" href="#">Link 3</a>
             <div id="navbar-dropdown" data-ax="dropdown" class="dropdown" data-dropdown-prevent-viewport="true">
-              <a class="navbar-link dropdown-trigger" href="#">Dropdown</a>
+              <a class="navbar-link" href="#" data-target="navbar-dropdown">Dropdown</a>
               <div class="dropdown-content white shadow-1 dropdown-right">
                 <a class="dropdown-item" href="#">Item 1</a>
                 <a class="dropdown-item" href="#">Item 2</a>
@@ -186,23 +187,23 @@ aliases:
     </thead>
     <tbody>
       <tr>
-        <td><i aria-hidden="true" class="fab fa-chrome"></i> Chrome</td>
+        <td><span class="iconify-inline" data-icon="mdi:google-chrome"></span> Chrome</td>
         <td>58+</td>
       </tr>
       <tr>
-        <td><i aria-hidden="true" class="fab fa-firefox-browser"></i> Firefox</td>
+        <td><span class="iconify-inline" data-icon="mdi:firefox"></span> Firefox</td>
         <td>54+</td>
       </tr>
       <tr>
-        <td><i aria-hidden="true" class="fab fa-safari"></i> Safari</td>
+        <td><span class="iconify-inline" data-icon="mdi:apple-safari"></span> Safari</td>
         <td>10.1+</td>
       </tr>
       <tr>
-        <td><i aria-hidden="true" class="fab fa-opera"></i> Opera</td>
+        <td><span class="iconify-inline" data-icon="mdi:opera"></span> Opera</td>
         <td>45+</td>
       </tr>
       <tr>
-        <td><i aria-hidden="true" class="fab fa-edge"></i> Edge</td>
+        <td><span class="iconify-inline" data-icon="mdi:microsoft-edge"></span> Edge</td>
         <td>79+</td>
       </tr>
     </tbody>

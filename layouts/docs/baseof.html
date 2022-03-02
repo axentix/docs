@@ -5,24 +5,33 @@
     <meta name="description" content="{{ .Page.Params.description }}" />
     <meta property="og:description" content="{{ .Page.Params.description }}" />
     <meta property="og:title" content="{{ .Page.Params.Title | default .Site.Title }} - Axentix" />
-    {{- partial "head.html" . -}} {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }} {{
-    $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }} {{ $base := resources.Get "sass/main.scss" |
-    toCSS $options }} {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} {{ $style := slice $base $docs |
-    resources.Concat "docs.css" | fingerprint }}
+    {{- partial "head.html" . -}} 
+      {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
+      {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
+      {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
+      {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
+
+      {{ $postCssOptions := dict "use" "autoprefixer" }}
+      {{ $style := slice $base $docs | resources.Concat "docs.css" | resources.PostCSS $postCssOptions | fingerprint }}
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint
+    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | resources.PostCSS | fingerprint
     }}
     <link rel="stylesheet" href="{{ $layout.RelPermalink }}" />
     {{ end }}
   </head>
 
-  <body class="layout-under-navbar">
+  <body class="layout-under-navbar relative-pos">
     {{- partial "header.html" . -}}
 
-    <div id="main-sidenav" class="sidenav light-shadow-2 sidenav-fixed white">{{- partial "sidenav.html" . -}}</div>
+    <div id="main-sidenav" class="sidenav sidenav-fixed">{{- partial "sidenav.html" . -}}</div>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
 
     <main>
       <div class="main-content container">
@@ -43,17 +52,17 @@
         <div class="d-flex relative-pos">
           <div class="content">{{- block "main" . }} {{.Content}} {{- end }}</div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
-            <span class="scrollspy-sponsor ml-2 mt-5 mb-2 text-grey"> Sponsors </span>
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
 
             <!-- <img src="" class="scrollspy-sponsor responsive-media ml-2 my-2"> -->
             <a href="https://www.evolvewebhost.com" target="_blank" rel="noopener" class="scrollspy-sponsor ml-2 my-2">
-              <img src="{{ .Site.BaseURL }}/img/sponsors/evolve_hosting.png" class="responsive-media">
+              <img src="{{ .Site.BaseURL }}/img/sponsors/evolve_hosting.png" alt="evolve hosting" class="responsive-media" />
             </a>
             <a
               href="https://www.buymeacoffee.com/axentix"
               target="_blank"
               rel="noopener"
-              class="btn btn-small text-grey btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+              class="btn btn-small btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
             >
               <span class="btn-outline-text">Become a sponsor</span>
             </a>
@@ -62,15 +71,24 @@
       </div>
     </main>
 
-    {{- partial "footer.html" . -}} {{ $prism := resources.Get "js/prism.js" | fingerprint }} {{ $axentix :=
-    resources.Get "axentix/axentix.min.js" | fingerprint }} {{ $docs := resources.Get "js/docs.js" | fingerprint }}
+    {{- partial "footer.html" . -}} 
+    {{ $prism := resources.Get "js/prism.js" | fingerprint }} 
+    {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }} 
+    {{ $common := resources.Get "js/common.js" }}
+    {{ $docs := resources.Get "js/docs.js" }}
+    {{ $js := slice $common $docs | resources.Concat "js/docs.js" | minify | fingerprint  }}
     <script src="{{$axentix.RelPermalink}}"></script>
     <script src="{{$prism.RelPermalink}}"></script>
-    <script src="{{$docs.RelPermalink}}"></script>
+    <script src="{{$js.RelPermalink}}"></script>
     <script>
       const baseURL = '{{ .Site.BaseURL }}';
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
       docsearch({
         apiKey: '5eae298506cf8352bb7462dc2ff37f9d',

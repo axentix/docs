@@ -1,0 +1,153 @@
+---
+title: 'Hover'
+description: 'Axentix hover utilities. The hover classes allow you to custom your elements style on hover.'
+subtitle: 'Use our different classes to change your component hover effect.'
+type: 'docs'
+sidenav: utilities
+---
+
+<p>The default hover effect is light and is made for the majority of the color palette. <br /></p>
+
+<h2 class="subtitle" id="background-hover">Background hover</h2>
+
+<p>Use the <code class="language-markup">.hover-bg-dark</code> class to get the appropriate hover effect on a dark menu.</p>
+
+<div class="example-nav">
+  <nav class="navbar shadow-1 airforce dark-2" aria-label="example nav 1">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-bg-dark">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</script>
+
+<h2 class="subtitle" id="text-hover">Text hover</h2>
+
+<p>
+  Use the <code class="language-markup">.hover-text-dark</code> class to get the appropriate hover effect on a dark menu. <br />
+  <em>You have to manually set a default text color like <code class="language-markup">text-grey text-light-2</code> in this example.</em>
+</p>
+
+<div class="example-nav">
+  <nav class="navbar shadow-1 airforce dark-2" aria-label="example nav 2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <nav class="navbar shadow-1 airforce dark-2">
+    <a href="#" class="navbar-brand">Axentix</a>
+    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
+      <a class="navbar-link active" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+      <a class="navbar-link" href="#">Link</a>
+    </div>
+  </nav>
+</script>
+
+<h2 class="subtitle" id="hover-class-list">Hover class list</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover" aria-label="hover class list">
+    <thead>
+      <tr>
+        <th>Class name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">.hover-bg</code></td>
+        <td>Set the hover background color for a light colored element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.hover-bg-dark</code></td>
+        <td>Set the hover background color for a dark colored element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.hover-text</code></td>
+        <td>Set the hover text color for a light colored element.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.hover-text-dark</code></td>
+        <td>Set the hover text color for a dark colored element.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-background</code>
+        </td>
+        <td>rgba(0, 0, 0, 0.07)</td>
+        <td>Hover background color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-background-dark</code>
+        </td>
+        <td>rgba(255, 255, 255, 0.1)</td>
+        <td>Hover background color for dark elements.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-collapsible-background</code>
+        </td>
+        <td>rgba(0, 0, 0, 0.04)</td>
+        <td>Disabled form background color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-collapsible-background-dark</code>
+        </td>
+        <td>rgba(255, 255, 255, 0.06)</td>
+        <td>Disabled form text color.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-text-color</code>
+        </td>
+        <td>#000</td>
+        <td>Text color on hover.</td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-hover-text-color-dark</code>
+        </td>
+        <td>#fff</td>
+        <td>Text color on hover for dark elements.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

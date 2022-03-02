@@ -1,0 +1,88 @@
+$darkSecondaryBg: #1e1f33;
+
+@include theme(dark) {
+  .top-footer {
+    color: #fff;
+    background-color: #{$darkSecondaryBg};
+  }
+
+  #top {
+    h2,
+    em {
+      color: getColor('grey', 'light', 2);
+    }
+
+    :not(pre) > code[class*='language-'],
+    pre[class*='language-'] {
+      background: #{$darkSecondaryBg};
+      border-color: #{$darkSecondaryBg};
+
+      .token.atrule,
+      .token.attr-value,
+      .token.class-name,
+      .token.function {
+        color: #fff;
+      }
+    }
+
+    code[class*='language-'] {
+      color: #fff;
+    }
+  }
+
+  #sponsors {
+    a {
+      background-color: #fccc2e;
+      color: #000;
+    }
+
+    .grix {
+      color: getColor('grey', 'light', 2);
+    }
+  }
+
+  .grix-side {
+    .grix-preview {
+      background-color: #{$darkSecondaryBg};
+    }
+  }
+
+  #community {
+    .card {
+      border: 2px solid #538fcd;
+    }
+  }
+
+  .reviews-wrapper {
+    &::before,
+    &::after {
+      background: linear-gradient(
+        to right,
+        hsl(238, 78%, 7%) 0%,
+        hsla(238, 78%, 7%, 0.987) 8.1%,
+        hsla(238, 78%, 7%, 0.951) 15.5%,
+        hsla(238, 78%, 7%, 0.896) 22.5%,
+        hsla(238, 78%, 7%, 0.825) 29%,
+        hsla(238, 78%, 7%, 0.741) 35.3%,
+        hsla(238, 78%, 7%, 0.648) 41.2%,
+        hsla(238, 78%, 7%, 0.55) 47.1%,
+        hsla(238, 78%, 7%, 0.45) 52.9%,
+        hsla(238, 78%, 7%, 0.352) 58.8%,
+        hsla(238, 78%, 7%, 0.259) 64.7%,
+        hsla(238, 78%, 7%, 0.175) 71%,
+        hsla(238, 78%, 7%, 0.104) 77.5%,
+        hsla(238, 78%, 7%, 0.049) 84.5%,
+        hsla(238, 78%, 7%, 0.013) 91.9%,
+        hsla(238, 78%, 7%, 0) 100%
+      );
+    }
+  }
+
+  .device-iphone-x .device-frame {
+    box-shadow: inset 0 0 4px 1px #000000, inset 0 0 0 5px #e2e3e4;
+  }
+
+  .footer .btn {
+    color: #000;
+  }
+}

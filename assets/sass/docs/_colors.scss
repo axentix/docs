@@ -1,0 +1,35 @@
+.color-page {
+  div.code-toolbar {
+    max-width: 90vw;
+  }
+
+  .example-color {
+    font-size: 1.5rem;
+    height: 7rem;
+    max-width: 90vw;
+    border-radius: 5px;
+    line-height: 7rem;
+    text-align: center;
+  }
+
+  @include responsive('md-up') {
+    div.code-toolbar,
+    .example-color {
+      max-width: 34vw;
+    }
+  }
+
+  .palette-container div {
+    display: flex;
+    padding: 1rem;
+  }
+
+  .special-palette {
+    div {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

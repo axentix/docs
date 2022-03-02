@@ -1,17 +1,7 @@
-let sidenavDoc = new Axentix.Sidenav('#main-sidenav');
-
-setTimeout(() => {
-  try {
-    new Axentix.Axentix('collapsible');
-  } catch (error) {
-    console.error(error);
-  }
-}, 50);
-
 let scrollSpy = new Axentix.ScrollSpy('#scrollspy-auto', {
   auto: {
     enabled: true,
-    classes: 'text-grey mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
+    classes: 'mt-2 font-w500 pl-2 bd-l-solid bd-l-3',
     selector: 'h1,h2',
   },
 });
@@ -30,19 +20,7 @@ if (tryItCodeOverlay) {
 window.addEventListener('resize', updateDocs);
 
 function updateDocs() {
-  // Sidenav
-  if (sidenavDoc.el.classList.contains('large') && window.innerWidth <= 1279) {
-    sidenavDoc.el.classList.remove('large');
-    sidenavDoc.reset();
-  } else if (!sidenavDoc.el.classList.contains('large') && window.innerWidth > 1279) {
-    sidenavDoc.el.classList.add('large');
-    sidenavDoc.reset();
-  }
-
-  // Scrollspy
-  const right = content.getBoundingClientRect().right;
-
-  scrollSpy.el.style.left = right + 'px';
+  scrollSpy.el.style.left = content.getBoundingClientRect().right + 'px';
 }
 
 function addAnchors() {

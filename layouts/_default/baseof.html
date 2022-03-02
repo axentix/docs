@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
     <head>
-        <title>Axentix - Front-end framework based on CSS Grid</title>
-        {{ $description := "Axentix is an open source Framework based on CSS Grid using HTML, CSS and JS. The easy layout control and grid system makes it one of the most easy to learn framework." }}
+        <title>Axentix - Modern framework to build websites faster</title>
+        {{ $description := "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer." }}
         <meta name="description" content="{{ .Page.Params.description | default $description }}" />
         <meta property="og:description" content="{{ .Page.Params.description | default $description }}" />
-        <meta property="og:title" content="Axentix - Front-end framework based on CSS Grid" />
+        <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
         {{- partial "head.html" . -}}
         {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
         {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
         {{ $base := resources.Get "sass/main.scss" | toCSS $options }}
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
-        {{ $style := slice $base $app | resources.Concat "home.css" | minify | fingerprint }}
+
+        {{ $postCssOptions := dict "use" "autoprefixer" }}
+        {{ $style := slice $base $app | resources.Concat "home.css" | resources.PostCSS $postCssOptions | minify | fingerprint }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>
     </head>
 
-    <body class="layout">
+    <body class="layout relative-pos">
         {{- partial "home/header.html" . -}}
 
-        <div id="main-sidenav" class="sidenav light-shadow-2 white large">
+        <div id="main-sidenav" class="sidenav light-shadow-2">
             {{- partial "sidenav.html" . -}}
+        </div>
+
+        <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+        </svg>
+    
+        <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+            <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+            <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+            <div class="bg-blur bg-blur-colors orange rounded-full"></div>
+            <div class="bg-blur bg-blur-review blue rounded-full"></div>
         </div>
 
         <main>
@@ -33,15 +50,16 @@
         {{- partial "home/footer.html" . -}}
 
         {{ $prism := resources.Get "js/prism.js" | fingerprint }}
-        {{ $home := resources.Get "js/home.js" | fingerprint }}
-        {{ $tilt := resources.Get "js/vanilla-tilt.min.js" | fingerprint }}
+        {{ $common := resources.Get "js/common.js" }}
+        {{ $home := resources.Get "js/home.js" }}
+        {{ $js := slice $common $home | resources.Concat "js/home.js" | minify | fingerprint  }}
         {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }}
         <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="{{$axentix.RelPermalink}}"></script>
         <script src="{{$prism.RelPermalink}}"></script>
-        <script src="{{$tilt.RelPermalink}}"></script>
-        <script src="{{$home.RelPermalink}}"></script>
+        <script src="{{$js.RelPermalink}}"></script>
 
         {{ $env := getenv "AX_ENV" }}
         {{ if eq $env "production" }}

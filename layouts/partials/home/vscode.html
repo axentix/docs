@@ -1,44 +1,36 @@
-<section class="overflow-hidden grey light-4">
+<section class="overflow-hidden py-5">
   <div class="container">
     <div class="grix xs1 lg2 gutter-lg7 py-5">
-      <div>
-        <h2 class="text-center mx-2 my-5 d-flex fx-center vcenter">
-          <img src="{{ .Site.BaseURL }}/img/vscode.svg" width="80" height="80" class="my-auto" alt="vscode-icon" />
-          <span class="ml-2">VSCode extension</span>
-        </h2>
-        <p class="mb-4 font-s3 lh-4 text-center">
-          We provide a <strong>VSCode snippets extension</strong> to make you able to <strong>code faster</strong> !
-          <br />
-          <br />
-          <a
-            href="https://github.com/Vincentdm31"
-            rel="noopener"
-            target="_blank"
-            class="text-grey text-dark-4 font-w600"
-          >
-            <i aria-hidden="true" class="font-s4 fab fa-github"></i> @vincentdm31
-          </a>
-          has contributed to develop this extension.
-
-          <a
-            class="btn primary rounded-1 light-shadow-1 mx-auto d-flex my-5"
-            rel="noopener"
-            target="_blank"
-            href="https://marketplace.visualstudio.com/items?itemName=axentix.axentix-snippet"
-          >
-            Try it out <i aria-hidden="true" class="fas fa-chevron-circle-right ml-2 my-auto"></i>
-          </a>
-        </p>
-      </div>
-      <div class="d-flex fx-center vcenter my-2">
+      <div class="d-flex fx-center vcenter my-2 pos-row-xs2 pos-row-lg1">
         <img
           src="{{ .Site.BaseURL }}/img/snippets.gif"
           data-ax="lightbox"
           data-lightbox-caption="VSCode snippet extension"
           id="lightbox"
-          class="lightbox responsive-media d-flex mx-auto"
+          class="lightbox responsive-media d-flex mx-auto rounded-2 light-shadow-2"
           alt="vscode-icon"
         />
+      </div>
+
+      <div class="vscode-text">
+        <h2 class="text-center mx-2 my-5 d-flex vcenter">
+          <span class="iconify-inline mr-2 font-s12 icon-gradient" data-icon="mdi:microsoft-visual-studio-code"></span>
+          <span class="ml-2">VSCode extension</span>
+        </h2>
+
+        <p class="mb-4 font-s3 lh-4">
+          Code an entire component by typing its name <br />
+          We provide a <strong>VSCode snippets extension</strong> to make you able to <strong>code faster</strong>
+
+          <a
+            class="btn orange-gradient font-w600 text-white rounded-4 light-hoverable-1 d-flex my-5 vcenter"
+            rel="noopener"
+            target="_blank"
+            href="https://marketplace.visualstudio.com/items?itemName=axentix.axentix-snippet"
+          >
+            <span class="iconify-inline font-s4 mr-2 hide-md-down" data-icon="mdi:chevron-left-circle"></span> Try it out
+          </a>
+        </p>
       </div>
     </div>
   </div>

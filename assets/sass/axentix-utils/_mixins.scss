@@ -12,3 +12,26 @@
     }
   }
 }
+
+@mixin colorScheme($name) {
+  @media (prefers-color-scheme: #{$name}) {
+    @content;
+  }
+}
+
+@mixin theme($name) {
+  html.#{$name} {
+    color-scheme: #{$name};
+    @content;
+  }
+
+  @include colorScheme($name) {
+    html:not(.light) {
+      color-scheme: #{$name};
+
+      body {
+        @content;
+      }
+    }
+  }
+}

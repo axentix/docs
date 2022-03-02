@@ -6,141 +6,142 @@ type: 'docs'
 sidenav: components
 ---
 
-<div class="cards-page">
-  <h2 class="subtitle" id="simple-cards">Simple cards</h2>
-  <p>Axentix basic cards are made to be used inside a grix. They are usefull to display text.</p>
+<h2 class="subtitle" id="simple-cards">Simple cards</h2>
+<p>Axentix basic cards are made to be used inside a grix. They are usefull to display text.</p>
 
-  <div class="grix xs1 sm2 lg3">
-    <div class="card shadow-1">
-      <div class="card-header">Card header</div>
-      <div class="card-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
-          quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
-          est nam soluta!
-        </p>
-      </div>
-      <div class="card-footer">Card footer</div>
+<div class="grix xs1 sm2 lg3">
+  <div class="card shadow-1 white">
+    <div class="card-header">Card header</div>
+    <div class="card-content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
+        quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
+        est nam soluta!
+      </p>
+    </div>
+    <div class="card-footer">Card footer</div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="card shadow-1 white">
+    <div class="card-header">Card header</div>
+    <div class="card-content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+      </p>
+    </div>
+    <div class="card-footer">Card footer</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="img-cards">Img cards</h2>
+<p>
+  Axentix IMG cards are made to be used inside a grix. They are usefull to easily display images. <br />
+  You can create special cards using our <code class="language-markup">.card-header</code>,
+  <code class="language-markup">.card-content</code>, and <code class="language-markup">.card-footer</code> classes.
+</p>
+
+<div class="grix xs1 sm2 lg3">
+  <div class="card light-shadow-2 white">
+    <div class="card-image">
+      <img src="https://picsum.photos/800/600?random=1" alt="logo" />
+    </div>
+
+    <div class="card-header">Card Image</div>
+
+    <div class="divider"></div>
+
+    <div class="card-content">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
+      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
+    </div>
+
+    <div class="card-footer">Card Footer</div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="card light-shadow-2 white">
+    <div class="card-image">
+      <img src="https://picsum.photos/800/600?random=1" alt="logo" />
+    </div>
+
+    <div class="card-header">Card Image</div>
+    <div class="divider"></div>
+    <div class="card-content">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
+      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
+    </div>
+
+    <div class="card-footer">Card Footer</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="horizontal-cards">Horizontal cards</h2>
+<p>Create horizontal cards using flexbox !</p>
+
+<div class="card shadow-1 fx-row white">
+  <div class="primary d-flex vcenter fx-center p-4">
+    <h4>Content</h4>
+  </div>
+  <div class="d-flex fx-col fx-grow">
+    <div class="card-header">Header</div>
+    <div class="card-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     </div>
   </div>
+</div>
 
-  <script type="text/plain" class="language-markup">
-    <div class="card shadow-1">
-      <div class="card-header">Card header</div>
-      <div class="card-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-          possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
-        </p>
-      </div>
-      <div class="card-footer">Card footer</div>
-    </div>
-  </script>
-
-  <h2 class="subtitle" id="img-cards">Img cards</h2>
-  <p>
-    Axentix IMG cards are made to be used inside a grix. They are usefull to easily display images. <br />
-    You can create special cards using our <code class="language-markup">.card-header</code>,
-    <code class="language-markup">.card-content</code>, and <code class="language-markup">.card-footer</code> classes.
-  </p>
-
-  <div class="grix xs1 sm2 lg3">
-    <div class="card airforce light-1 shadow-1">
-      <div class="card-image">
-        <img src="https://picsum.photos/800/600?random=1" alt="logo" />
-      </div>
-      <div class="card-header">Card Header</div>
-      <div class="divider"></div>
-      <div class="card-content">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-        numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-      </div>
-      <div class="divider"></div>
-      <div class="card-footer">Card Footer</div>
-    </div>
-  </div>
-
-  <script type="text/plain" class="language-markup">
-    <div class="card airforce light-1 shadow-1">
-      <div class="card-image">
-        <img src="https://picsum.photos/800/600?random=1" alt="logo" />
-      </div>
-      <div class="card-header">Card Header</div>
-      <div class="divider"></div>
-      <div class="card-content">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel numquam rem
-        doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-      </div>
-      <div class="divider"></div>
-      <div class="card-footer">Card Footer</div>
-    </div>
-  </script>
-
-  <h2 class="subtitle" id="horizontal-cards">Horizontal cards</h2>
-  <p>Create horizontal cards using flexbox !</p>
-
-  <div class="card shadow-1 fx-row">
-    <div class="primary d-flex vcenter fx-center px-4">
+<script type="text/plain" class="language-markup">
+  <div class="card shadow-1 fx-row white">
+    <div class="primary d-flex vcenter fx-center p-4">
       <h4>Content</h4>
     </div>
-    <div class="flex fx-col fx-grow">
+    <div class="d-flex fx-col fx-grow">
       <div class="card-header">Header</div>
       <div class="card-content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
       </div>
     </div>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup">
-    <div class="card shadow-1 fx-row">
-      <div class="primary d-flex vcenter fx-center px-4">
-        <h4>Content</h4>
-      </div>
-      <div class="flex fx-col fx-grow">
-        <div class="card-header">Header</div>
-        <div class="card-content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
-        </div>
-      </div>
+<h2 class="subtitle" id="rounded-cards">Rounded cards</h2>
+<p>
+  Axentix cards can be rounded using the <a class="text-primary" href="{{< ref "rounded" >}}">rounded</a> classes.
+</p>
+<div class="grix xs1 sm2 lg3 gutter-xs1">
+  <div class="card shadow-1 rounded-3 white">
+    <div class="card-header">Card header</div>
+    <div class="card-content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
+        quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
+        est nam soluta!
+      </p>
     </div>
-  </script>
-
-  <h2 class="subtitle" id="rounded-cards">Rounded cards</h2>
-  <p>
-    Axentix cards can be rounded using the
-    <a class="text-primary" href="{{< ref "others#rounded" >}}">rounded</a> classes.
-  </p>
-  <div class="grix xs1 sm2 lg3 gutter-xs1">
-    <div class="card shadow-1 rounded-3">
-      <div class="card-header">Card header</div>
-      <div class="card-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio
-          quidem, nesciunt id possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci
-          est nam soluta!
-        </p>
-      </div>
-      <div class="divider"></div>
-      <div class="card-footer">Card footer</div>
-    </div>
+    <div class="divider"></div>
+    <div class="card-footer">Card footer</div>
   </div>
-
-  <script type="text/plain" class="language-markup">
-    <div class="card shadow-1 rounded-3">
-      <div class="card-header">Card header</div>
-      <div class="card-content">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
-          possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
-        </p>
-      </div>
-      <div class="divider"></div>
-      <div class="card-footer">Card footer</div>
-    </div>
-  </script>
 </div>
+
+<script type="text/plain" class="language-markup">
+  <div class="card shadow-1 rounded-3 white">
+    <div class="card-header">Card header</div>
+    <div class="card-content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis excepturi natus impedit distinctio quidem, nesciunt id
+        possimus quia, tempore fuga doloribus reiciendis facilis voluptate accusantium! Adipisci est nam soluta!
+      </p>
+    </div>
+    <div class="divider"></div>
+    <div class="card-footer">Card footer</div>
+  </div>
+</script>
 
 <h2 class="subtitle" id="hoverable-cards">Hoverable cards</h2>
 <p>
@@ -149,7 +150,7 @@ sidenav: components
 </p>
 
 <div class="grix xs1 sm2 lg3 gutter-xs1">
-  <div class="card shadow-1 hoverable-1 rounded-3">
+  <div class="card shadow-1 hoverable-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>
@@ -162,7 +163,7 @@ sidenav: components
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card shadow-1 hoverable-1 rounded-3">
+  <div class="card shadow-1 hoverable-1 rounded-3 white">
     <div class="card-header">Card header</div>
     <div class="card-content">
       <p>

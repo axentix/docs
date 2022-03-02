@@ -11,12 +11,11 @@ scripts:
 <h2 class="subtitle" id="on-any-content">On any content</h2>
 <p>
   To use a collapsible, you must have a button or an element with the
-  <code class="language-css">.collapsible-trigger</code> class and a
   <code class="language-markup">data-target=""</code> attribute who point on the targeted collapsible id.<br />
   The collapsible id must be the same as data-target.
 </p>
 
-<button data-target="example-collapsible" class="btn rounded-1 btn-press primary collapsible-trigger mx-auto">
+<button data-target="example-collapsible" class="btn rounded-1 btn-press primary mx-auto">
   Toggle
 </button>
 <div class="example-collapsible">
@@ -29,7 +28,7 @@ scripts:
 </div>
 
 <script type="text/plain" class="language-markup">
-  <button data-target="example-collapsible" class="btn rounded-1 btn-press primary collapsible-trigger mx-auto">
+  <button data-target="example-collapsible" class="btn rounded-1 btn-press primary mx-auto">
     Toggle
   </button>
   <div class="collapsible" id="example-collapsible" data-ax="collapsible">
@@ -47,7 +46,7 @@ scripts:
     <img class="sidenav-logo dropshadow-1" src="{{< link url="img/axentix.svg" >}}" alt="Axentix Logo" />
   </div>
   <a href="#" class="sidenav-link">Link 1</a>
-  <a href="#" class="collapsible-trigger sidenav-link" data-target="sidenav-collapsible">Collapsible</a>
+  <a href="#" class="sidenav-link" data-target="sidenav-collapsible">Collapsible</a>
   <div>
     <div class="collapsible" id="sidenav-collapsible">
       <a href="#" class="active sidenav-link">Sublink 1</a>
@@ -64,14 +63,14 @@ scripts:
   Collapsibles are usefull to create an interactive menu into a sidenav. Try it into our demo sidenav below. <br />
   Note that you need to wrap the collapsible element into a div to make it work, as in the example code below.
 </p>
-<button data-target="example-sidenav" class="btn rounded-1 btn-press primary sidenav-trigger mx-auto">Open sidenav</button>
+<button data-target="example-sidenav" class="btn rounded-1 btn-press primary mx-auto">Open sidenav</button>
 <script type="text/plain" class="language-markup">
   <div id="example-sidenav" class="sidenav shadow-1 primary">
     <div class="sidenav-header">
       <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Axentix Logo" />
     </div>
     <a href="#" class="sidenav-link">Link 1</a>
-    <a href="#" class="collapsible-trigger sidenav-link" data-target="example-collapsible">Collapsible</a>
+    <a href="#" class="sidenav-link" data-target="example-collapsible">Collapsible</a>
     <div>
       <div class="collapsible" id="example-collapsible" data-ax="collapsible">
         <a href="#" class="active sidenav-link">Sublink 1</a>
@@ -83,7 +82,7 @@ scripts:
     <a href="#" class="sidenav-link">Link 2</a>
   </div>
 
-  <button data-target="example-sidenav" class="btn rounded-1 btn-press primary sidenav-trigger mx-auto">
+  <button data-target="example-sidenav" class="btn rounded-1 btn-press primary mx-auto">
     Open sidenav
   </button>
 </script>

@@ -1,0 +1,30 @@
+{
+  "name": "@axentix/docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Axentix documentation.",
+  "homepage": "https://useaxentix.com",
+  "author": "Axel SIMONET, Vincent LEVEQUE",
+  "scripts": {
+    "build": "hugo",
+    "dev": "hugo server -D",
+    "dev:local": "npm run dev -- --bind 0.0.0.0 --baseUrl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axentix/docs.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axentix/docs/issues"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "hugo-bin": "^0.80.2",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0"
+  }
+}

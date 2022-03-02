@@ -1,27 +1,21 @@
-// Imports
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
-// @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
-  --ax-sidenav-width: 15rem;
+  --ax-sidenav-width: 18rem;
+}
+
+@include responsive('md-down') {
+  :root {
+    --ax-sidenav-width: 15rem;
+  }
 }
 
 html,
 body {
   font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-#twitter {
-  padding: 0 1rem;
-}
-
-@include responsive('xs') {
-  #github {
-    padding: 0 1rem;
-  }
 }
 
 main {
@@ -38,10 +32,35 @@ main {
   }
 }
 
-.sidenav .sidenav-trigger {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+#main-sidenav {
+  border-right: 1px solid getColor('grey', 'light', 3);
+  background-color: #fff;
+  color: #000;
+
+  .sidenav-content {
+    padding-right: 1.5rem;
+  }
+
+  @include responsive('sm-down') {
+    border-right: 0;
+
+    .sidenav-content {
+      padding-right: 0;
+    }
+  }
+
+  .version-selector {
+    background-color: #fff;
+    color: inherit;
+  }
+
+  .sidenav-cross {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    color: inherit;
+  }
 }
 
 .docs-head {
@@ -78,12 +97,19 @@ main {
   --docsearch-searchbox-background: #fff;
   --docsearch-searchbox-shadow: none;
   transition: color 0.2s ease;
+  border: 1px solid getColor('grey', 'light', 2);
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 750px) {
   .DocSearch-Button {
     --docsearch-searchbox-background: transparent;
-    --docsearch-text-color: #fff;
+    --docsearch-text-color: #000;
+    border: none;
+  }
+
+  .DocSearch-Search-Icon {
+    stroke-width: 2;
   }
 }
 
@@ -107,6 +133,7 @@ main {
   transition: margin-top 0.3s ease;
   position: fixed;
   right: 0.25rem;
+  color: getColor('grey');
 
   .scrollspy-sponsor {
     order: 99;
@@ -199,282 +226,22 @@ h4.subtitle {
   }
 }
 
-// COPY BTN
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
-  background: #282c34;
+.navbar:not(#main-navbar) {
+  z-index: 9;
 }
 
-.token.property,
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #c678dd;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #e06c75;
-}
-
-.token.punctuation {
-  color: #56b6c2;
-}
-
-div.code-toolbar {
-  .disable-copy-btn {
-    ~ .toolbar {
-      display: none;
-    }
-  }
-
-  pre {
-    &.code-max-height {
-      max-height: 44rem;
-
-      ~ .toolbar {
-        margin-right: 1.25rem;
-
-        @media (pointer: coarse) {
-          margin-right: 0;
-        }
-      }
-    }
-
-    &:not(.disable-copy-btn) {
-      padding: 1.825rem 1.25rem 1.25rem;
-    }
-  }
-
-  > .toolbar {
-    opacity: 1;
-
-    button {
-      padding: 0.25rem 0.5rem;
-      font-weight: 500;
-      background-color: rgba(224, 224, 224, 0.2);
-      transition: background-color 0.2s ease;
-      outline: none;
-
-      &:hover {
-        color: #bbb;
-        background-color: rgba(224, 224, 224, 0.3);
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-// COLORS
-.color-page {
-  div.code-toolbar {
-    max-width: 90vw;
-  }
-
-  .example-color {
-    font-size: 1.5rem;
-    height: 7rem;
-    max-width: 90vw;
-    border-radius: 5px;
-    line-height: 7rem;
-    text-align: center;
-  }
-
-  @include responsive('md-up') {
-    div.code-toolbar,
-    .example-color {
-      max-width: 34vw;
-    }
-  }
-
-  .palette-container div {
-    display: flex;
-    padding: 1rem;
-  }
-
-  .special-palette {
-    div {
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-// GRIX
-.grix-page {
-  .example {
-    padding: 1rem;
-    background-color: getColor('grey', 'light', 4);
-    border-radius: 10px;
-
-    .grix {
-      .grix div {
-        border: 1px solid #fff;
-      }
-
-      div {
-        background-color: getColor('airforce', 'dark', 2);
-        color: textColor(getColor('airforce', 'dark', 2));
-        padding: 1rem;
-        text-align: center;
-
-        @include responsive('xs') {
-          padding: 0.5rem;
-        }
-      }
-    }
-  }
-
-  #gutter-table {
-    margin-bottom: 1rem;
-  }
-}
-
-// BUTTONS
-.buttons-page {
-  .button-container {
-    button {
-      margin: 0 1rem 0 0;
-    }
-  }
-  .buttons-container {
-    button {
-      margin-top: 1rem;
-    }
-  }
-}
-
-// SHADOWS
-.shadows-page {
-  .language-markup {
-    margin-top: 2rem;
-  }
-
-  .grix div.shadow-example {
-    padding: 1rem;
-    text-align: center;
-    &.text-example {
-      font-size: 3rem;
-      font-weight: 800;
-      @include responsive('md-down') {
-        font-size: 2rem;
-        font-weight: 700;
-      }
-    }
-  }
-}
-
-// FOOTER
-.footer-page .example-footer {
-  .footer {
-    padding: 0 0.5rem !important;
-  }
-
-  .large-footer {
-    padding: 0 !important;
-  }
-}
-
-// Collapsible
-.example-collapsible {
-  margin: 0.5rem 0;
-  min-height: 0.1rem;
-
-  .collapsible div {
-    padding: 1rem;
-  }
-}
-
-// Utilities
-#rounded-full-div {
-  height: 58px;
-  width: 58px;
-}
-
-// Glassmorphism / Claymorphism
-.glass-example-container {
-  background: linear-gradient(to right, #e96443, #904e95);
-
-  &.with-img {
-    background: url('https://picsum.photos/id/767/900/500');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-}
-
-.clay-example-container {
-  background: linear-gradient(to left, #00c9ff, #92fe9d);
-
-  &.with-img {
-    background: url('https://picsum.photos/id/49/900/500');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-}
-
-.glass-example-container,
-.clay-example-container {
-  .card {
-    max-width: 45%;
-
-    @include responsive('md') {
-      max-width: 70%;
-    }
-
-    @include responsive('sm') {
-      max-width: 80%;
-    }
-
-    @include responsive('xs') {
-      max-width: 90%;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-  }
-}
-
-// Try it block
-.try-it {
-  border-radius: 5px;
-  border: #e2e2e2 solid thin;
-  overflow: hidden;
-
-  form {
-    padding: 0 1rem;
-  }
-
-  .code {
-    position: relative;
-
-    .code-overlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(68, 68, 68, 0.9);
-      z-index: 20;
-      color: #fff;
-      font-size: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    pre[class*='language-'] {
-      border-radius: 0;
-      margin: 0;
-    }
-  }
-}
+@import './common/header';
+@import './common/dark';
+@import './common/blur_effect';
+@import './docs/dark';
+@import './docs/blur_effect';
+@import './docs/code';
+@import './docs/try-it';
+@import './docs/buttons';
+@import './docs/collapsibles';
+@import './docs/colors';
+@import './docs/footers';
+@import './docs/grix';
+@import './docs/shadows';
+@import './docs/trends';
+@import './docs/utilities';

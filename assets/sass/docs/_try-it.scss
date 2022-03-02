@@ -1,0 +1,34 @@
+.try-it {
+  border-radius: 5px;
+  border: #e2e2e2 solid thin;
+  overflow: hidden;
+
+  form {
+    padding: 0 1rem;
+  }
+
+  .code {
+    position: relative;
+
+    .code-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(68, 68, 68, 0.9);
+      z-index: 20;
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    pre[class*='language-'] {
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+}

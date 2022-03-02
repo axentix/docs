@@ -1,0 +1,57 @@
+$darkSecondaryBg: #1e1f33;
+
+@include theme(dark) {
+  @include responsive('md-up') {
+    #main-sidenav {
+      background-color: inherit;
+    }
+  }
+
+  #main-sidenav {
+    border-right: 1px solid getColor('grey');
+  }
+
+  .main-scrollspy {
+    color: getColor('grey', 'light', 1);
+
+    a:not(.coffee-link) {
+      &.active,
+      &:hover {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .DocSearch-Button {
+    --docsearch-searchbox-background: #{$darkSecondaryBg};
+    --docsearch-muted-color: #fff;
+    --docsearch-key-gradient: linear-gradient(-225deg, #525252, #181818);
+    --docsearch-text-color: #fff;
+    --docsearch-key-shadow: inset 0 -2px 0 0 #515168, inset 0 0 1px 1px #4b4646, 0 1px 2px 1px rgb(38 39 44 / 40%);
+    --docsearch-searchbox-focus-background: #{$darkSecondaryBg};
+    border: 1px solid getColor('grey');
+  }
+
+  @media (max-width: 750px) {
+    .DocSearch-Button {
+      --docsearch-searchbox-background: transparent;
+      border: none;
+    }
+  }
+
+  .grix-page {
+    .example {
+      background-color: #{$darkSecondaryBg};
+
+      .grix {
+        .grix div {
+          border: 1px solid getColor('grey', 'light', 2);
+        }
+      }
+    }
+  }
+
+  .color-page .transparent {
+    color: #fff;
+  }
+}

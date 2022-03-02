@@ -1,10 +1,8 @@
-var sidenav = new Axentix.Sidenav('#main-sidenav');
-var collapsible = new Axentix.Axentix('collapsible');
-
 const HomeAxentix = (() => {
   let hiddenSentence,
     sentenceCheckbox,
     colors,
+    colorComponent,
     btnColors,
     currentColor = 'blue',
     neuSwitch,
@@ -17,6 +15,7 @@ const HomeAxentix = (() => {
 
   /** Colors */
   const updateColors = (e) => {
+    if (e) updateColorComponentVars(window.getComputedStyle(e.target).backgroundColor);
     const selectedColor = e ? e.target.dataset.colorBtn : currentColor;
 
     colors.map((color) => {
@@ -35,7 +34,11 @@ const HomeAxentix = (() => {
     currentColor = selectedColor;
   };
 
-  /** Neu */
+  const updateColorComponentVars = (colorCode) => {
+    colorComponent.style.setProperty('--ax-form-switch-active-color', colorCode);
+  };
+
+  /** Neu **/
   const switchNeuTheme = () => {
     neuElems.map((elem) => {
       elem.classList.remove(`neu-${neuTheme}`);
@@ -46,12 +49,15 @@ const HomeAxentix = (() => {
 
   const setup = () => {
     hiddenSentence = document.querySelector('#hidden-sentence');
-    sentenceCheckbox = document.querySelector('#sentence-checkbox');
+    if (hiddenSentence) {
+      sentenceCheckbox = document.querySelector('#sentence-checkbox');
 
-    sentenceCheckbox.addEventListener('change', updateSentence);
+      sentenceCheckbox.addEventListener('change', updateSentence);
+    }
 
     colors = Array.from(document.querySelectorAll('[data-colors]'));
     btnColors = Array.from(document.querySelectorAll('[data-color-btn]'));
+    colorComponent = document.querySelector('.color-components');
 
     updateColors();
 

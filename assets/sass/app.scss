@@ -1,8 +1,10 @@
-// Imports
 @import './axentix-utils/variables';
 @import './axentix-utils/mixins';
 @import './axentix-utils/functions';
-// @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+:root {
+  --ax-sidenav-width: 15rem;
+}
 
 html,
 body {
@@ -10,29 +12,25 @@ body {
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-#twitter {
-  padding: 0 1rem;
+body {
+  z-index: -1;
 }
 
-@include responsive('xs') {
-  #github {
-    padding: 0 1rem;
+.sidenav {
+  background-color: #fff;
+  color: #000;
+
+  .version-selector {
+    background-color: #fff;
+    color: inherit;
   }
-}
 
-.sidenav .sidenav-trigger {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-}
-
-.neumorphism-link {
-  display: flex !important;
-
-  .neumorphism-logo {
-    align-self: center;
-    width: 20px;
-    height: 20px;
+  .sidenav-cross {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    color: inherit;
   }
 }
 
@@ -44,22 +42,10 @@ div.code-toolbar {
   }
 }
 
-main {
-  .title {
-    font-size: 4rem;
-    align-items: flex-end;
-
-    img {
-      width: 7rem;
-      margin-right: 0.25rem;
-    }
-  }
-
-  pre.language-shell {
-    overflow: hidden;
-    max-width: 15rem;
-    text-align: center;
-  }
+main pre.language-shell {
+  overflow: hidden;
+  max-width: 15rem;
+  text-align: center;
 }
 
 [data-ea-type='image'].loaded.horizontal .ea-callout,
@@ -73,61 +59,26 @@ main {
   font-size: 1.5rem;
 }
 
-.npm-github {
-  align-items: flex-end;
+.orange-gradient {
+  background: linear-gradient(0deg, rgba(255, 118, 0, 1) 0%, rgba(255, 213, 38, 1) 100%);
 
-  @media screen and (max-width: 400px) {
-    flex-direction: column;
-    align-items: baseline;
+  &.btn:hover {
+    filter: none;
+  }
 
-    .language-shell {
-      margin-bottom: 1rem !important;
-    }
+  &.text-gradient {
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-@include responsive('xs') {
-  .get-started {
-    width: 100%;
-  }
+.icon-gradient path {
+  fill: url(#svg-gradient) #ffd526;
 }
 
-#top {
-  min-height: 41rem;
-}
-
-.top {
-  width: 50%;
-
-  @include responsive('sm-down') {
-    width: auto;
-  }
-}
-
-.side-geometric {
-  position: absolute;
-  right: -25rem;
-  top: -27rem;
-  height: 35rem;
-  width: 64rem;
-  background-color: #354d59;
-  border-radius: 34px;
-  transform: rotate(30deg);
-  transform-origin: bottom left;
-
-  @include responsive('md') {
-    width: 60rem;
-  }
-
-  &.two {
-    height: 33rem;
-    width: 57rem;
-    background-color: #242f35;
-
-    @include responsive('md') {
-      width: 53rem;
-    }
-  }
+.tertiary {
+  background-color: #000330;
+  color: #fff;
 }
 
 :not(pre) > code[class*='language-'],
@@ -156,8 +107,18 @@ pre[class*='language-'] {
   color: #56b6c2;
 }
 
+@import './common/header';
+@import './common/dark';
+@import './common/blur_effect';
+@import './home/top';
+@import './home/sponsors';
 @import './home/devices';
 @import './home/components';
 @import './home/grix';
+@import './home/vscode';
 @import './home/colors';
 @import './home/neu';
+@import './home/reviews';
+@import './home/community';
+@import './home/blur_effect';
+@import './home/dark';
