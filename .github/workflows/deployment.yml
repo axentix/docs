@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - 'v-[0-9]+.[0-9]+.x'
-      - preview
 
 jobs:
   deploy:
@@ -13,7 +12,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -28,7 +27,7 @@ jobs:
         id: dest-dir
         run: |
           BRANCH=${GITHUB_REF##*/}
-          echo ::set-output name=DIR::${BRANCH}
+          echo ::set-output name=DIR::${BRANCH:2}
 
       - name: Get default branch
         run: |
@@ -36,7 +35,7 @@ jobs:
           echo "default_branch_ref=refs/heads/$DEFAULT_BRANCH" >> $GITHUB_ENV
 
       - name: Install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -70,7 +69,7 @@ jobs:
 
       - name: Deploy main docs
         if: ${{ env.default_branch_ref == github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.8
+        uses: JamesIves/github-pages-deploy-action@4.2.5
         with:
           branch: gh-pages
           folder: ./public
@@ -78,7 +77,7 @@ jobs:
 
       - name: Deploy docs
         if: ${{ env.default_branch_ref != github.ref }}
-        uses: JamesIves/github-pages-deploy-action@4.1.8
+        uses: JamesIves/github-pages-deploy-action@4.2.5
         with:
           branch: gh-pages
           folder: ./public
