@@ -14,7 +14,7 @@
       {{ $postCssOptions := dict "use" "autoprefixer" }}
       {{ $style := slice $base $docs | resources.Concat "docs.css" | resources.PostCSS $postCssOptions | fingerprint }}
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | resources.PostCSS | fingerprint
@@ -83,7 +83,7 @@
     <script>
       const baseURL = '{{ .Site.BaseURL }}';
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
       integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
@@ -93,7 +93,7 @@
       docsearch({
         apiKey: '5eae298506cf8352bb7462dc2ff37f9d',
         appId: 'M9XK4LRAZA',
-        indexName: 'useaxentix-v2.0.x',
+        indexName: 'useaxentix',
         container: '#search-input',
         debug: false,
       });

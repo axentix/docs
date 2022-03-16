@@ -22,9 +22,9 @@
     "buildTags": "extended"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "hugo-bin": "^0.80.2",
-    "postcss": "^8.4.7",
+    "autoprefixer": "^10.4.4",
+    "hugo-bin": "^0.82.2",
+    "postcss": "^8.4.12",
     "postcss-cli": "^9.1.0"
   }
 }
