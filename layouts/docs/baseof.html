@@ -10,7 +10,7 @@
     toCSS $options }} {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }} {{ $style := slice $base $docs |
     resources.Concat "docs.css" | fingerprint }}
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | fingerprint
@@ -70,12 +70,12 @@
     <script>
       const baseURL = '{{ .Site.BaseURL }}';
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
     <script type="text/javascript">
       docsearch({
         apiKey: 'e79b510a1eb0bf058cf36749c2aa8198',
         appId: 'M9XK4LRAZA',
-        indexName: 'useaxentix',
+        indexName: 'useaxentix-v1.3.x',
         container: '#search-input',
         debug: false,
       });
