@@ -48,6 +48,8 @@ const AxentixTheme = (() => {
 
     updateActiveDropdown();
 
+    Axentix.Forms.updateInputs();
+
     if (themeMode !== 'system') localStorage.setItem('ax-theme', theme);
   };
 
