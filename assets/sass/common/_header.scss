@@ -49,6 +49,10 @@
     }
   }
 
+  .brand-name::first-letter {
+    font-size: 0;
+  }
+
   .site-dropdown .dropdown-content {
     background-color: #fff;
   }
