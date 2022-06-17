@@ -68,6 +68,7 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link {{ if  eq "Material forms" $.Page.Title . }}active{{ end }}" href="{{ ref . "Material" }}">Material forms</a>
       {{ range .Site.RegularPages }}
         {{ if eq .Page.Params.sidenav "forms" }}
         <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
