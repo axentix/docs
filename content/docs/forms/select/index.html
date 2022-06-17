@@ -5,11 +5,119 @@ type: 'docs'
 sidenav: forms
 ---
 
+<h2 class="subtitle" id="custom-material-select">Custom material select</h2>
+
+<p>
+  Create a custom <strong>material design select</strong> using the <code class="language-css">.form-custom-select</code> class on the
+  <code class="language-markup">&#60;select&#62;</code> tag.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <select class="form-control form-custom-select white shadow-1" data-ax="select" id="custom-select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <label for="custom-select">Select an option</label>
+      <select
+        class="form-control form-custom-select white shadow-1"
+        data-ax="select"
+        id="custom-select"
+      >
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="simple-material-select">Simple material select</h2>
+
+<p>
+  Create a select by adding the <code class="language-css">.form-control</code> class on it. <br />
+  The <code class="language-css">.disabled</code> class or attribute works on the select too.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="select">Select an option</label>
+    <select class="form-control rounded-1" id="select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+    <form class="form-material">
+    <div class="form-field">
+      <label for="select">Select an option</label>
+      <select class="form-control rounded-1" id="select">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="multiple-select">Multiple select</h2>
+
+<p>
+  Use the <code class="language-markup">multiple</code> attribute on the <code class="language-markup">&#60;select&#62;</code> tag to get
+  enable the possibility to select multiple options of your <strong>material select</strong>.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <label for="custom-select-multiple">Select different options</label>
+    <select class="form-control form-custom-select white shadow-1" data-ax="select" id="custom-select-multiple" multiple>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <select
+        class="form-control form-custom-select white shadow-1"
+        data-ax="select"
+        id="custom-select-multiple"
+        multiple
+      >
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </form>
+</script>
+
 <h2 class="subtitle" id="basic-select">Basic select</h2>
 
 <p>
-  Create a basic select by adding the <code class="language-css">.form-control</code> class on it. <br />
-  The <code class="language-css">.disabled</code> class or attribute works on the select too.
+  Without the <code class="language-css">material-form</code> class set, the <strong>select</strong>
+  design becomes classic and gets a shadow once focused.
 </p>
 
 <form>
@@ -52,7 +160,7 @@ sidenav: forms
   </form>
 </script>
 
-<h2 class="subtitle" id="multiple-select">Multiple select</h2>
+<h2 class="subtitle" id="basic-multiple-select">Basic multiple select</h2>
 
 <p>
   Creating a multiple select is really simple, you just have to add the
@@ -88,3 +196,29 @@ sidenav: forms
     </div>
   </form>
 </script>
+
+<h2 class="subtitle" id="custom-select-options">Custom select options</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>inputClasses</td>
+        <td>Set the input classes</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods-and-styling">Common methods & styling</h2>
+
+<p>
+  For all the common methods and styling properties, please refer to the
+  <a class="text-primary font-w600" href="{{< ref "Material#methods" >}}">Material forms</a> page.
+</p>
