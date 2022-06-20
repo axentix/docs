@@ -256,6 +256,8 @@
     
       
     
+      
+    
     </div>
   </div>
   <span class="sidenav-link" data-target="components-menu">Components</span>
@@ -389,6 +391,8 @@
       
     
       
+    
+      
       <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/toast/">Toast</a>
       
     
@@ -410,6 +414,7 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link active" href="https://useaxentix.com/2.1.x/docs/forms/material/">Material forms</a>
       
         
       
@@ -474,8 +479,6 @@
         
       
         
-        <a class="sidenav-link active" href="https://useaxentix.com/2.1.x/docs/forms/material/">Material forms</a>
-        
       
         
       
@@ -511,6 +514,10 @@
       
         
       
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/textarea/">Textarea</a>
         
       
         
@@ -575,6 +582,8 @@
       
         
         <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
         
       
         
@@ -761,6 +770,8 @@
         
       
         
+      
+        
         <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/typography/">Typography</a>
         
       
@@ -876,6 +887,8 @@
   
     
   
+    
+  
   
   <a href="https://useaxentix.com/2.1.x/docs/migration/" class="sidenav-link ">
     Migrate from v1
@@ -914,8 +927,10 @@
   
 <p>
   The <strong>material forms</strong> are useful to create a modern website. <br />
-  Use our <code class="language-css">.form-material</code> class on the form container to create a
+  <br />
+  Use our <code class="language-markup">&#60;form class="form-material"&#62;</code> class on the form container to create a
   <strong>material design form</strong>, with simple and nice animations. <br />
+  <br />
   Note that you can <strong>disable the custom design</strong> on a specific element by adding the
   <code class="language-css">.form-default</code> class on the corresponding form field. <br />
   Note that you can change the animation direction of the border-bottom from right to left by adding the
@@ -924,336 +939,15 @@
   <em> These designs require JavaScript.</em>
 </p>
 
-<h2 class="subtitle" id="material-input">Material input</h2>
+<h2 class="subtitle" id="forms-using">Forms using</h2>
 
 <p>
-  The default <strong>material forms</strong> is a simple but modern <strong>underlined input design</strong>.
+  To set an input field, wrap your label and input inside a div with a
+  <code class="language-css">.form-field</code> class.
+  <br />
+  To design your inputs, simply add the <code class="language-css">.form-control</code> class on it. <br />
+  Readonly and disabled inputs are designed too.
 </p>
-
-<form class="form-material">
-  <div class="form-field">
-    <input type="text" id="name" class="form-control" />
-    <label for="name">Name</label>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field">
-      <input type="text" id="name" class="form-control" />
-      <label for="name">Name</label>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="material-textarea">Material textarea</h2>
-
-<p>
-  The default <strong>material forms</strong> is a simple but modern <strong>underlined input design</strong>.
-</p>
-
-<form class="form-material">
-  <div class="form-field">
-    <label for="textarea">Textarea</label>
-    <textarea type="text" id="textarea" class="form-control" /></textarea>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field">
-      <label for="textarea">Textarea</label>
-      <textarea type="text" id="textarea" class="form-control" /></textarea>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="material-design-variant">Material design variant</h2>
-
-<p>
-  Use the <strong>material design variant</strong> with the <code class="language-css">.form-material-bordered</code> class to get a <strong>bordered input design</strong>.
-</p>
-
-<form class="form-material form-material-bordered">
-  <div class="form-field">
-    <input type="text" id="Firstname" class="form-control rounded-1" />
-    <label for="Firstname">Firstname</label>
-  </div>
-
-  <div class="form-field">
-    <label for="textarea">Textarea</label>
-    <textarea type="text" id="textarea" class="form-control rounded-1" /></textarea>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material form-material-bordered">
-    <div class="form-field">
-      <input type="text" id="Firstname" class="form-control rounded-1" />
-      <label for="Firstname">Firstname</label>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="material-checkbox-radio">Material checkbox / radio</h2>
-
-<p>The <strong>material forms</strong> provide a modern design for the checkboxes and radios :</p>
-
-<form class="form-material">
-  <div class="grix xs1 sm2">
-    <div class="form-field">
-      <strong class="mb-2">Material form radio</strong>
-      <label class="form-check">
-        <input type="radio" name="yon" />
-        <span>Radio</span>
-      </label>
-      <label class="form-check">
-        <input type="radio" checked name="yon" />
-        <span>Checked</span>
-      </label>
-      <label class="form-check">
-        <input type="radio" name="yon" />
-        <span class="full">Full option</span>
-      </label>
-      <label class="form-check">
-        <input type="radio" disabled name="yon" />
-        <span>Disabled</span>
-      </label>
-    </div>
-    <div class="form-field">
-      <strong class="mb-2">Material form checkbox</strong>
-      <label class="form-check">
-        <input type="checkbox" />
-        <span>Checkbox</span>
-      </label>
-      <label class="form-check">
-        <input type="checkbox" checked />
-        <span>Checked</span>
-      </label>
-      <label class="form-check">
-        <input type="checkbox" disabled />
-        <span>Disabled checkbox</span>
-      </label>
-    </div>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-    <form class="form-material">
-    <div class="grix xs1 sm2">
-      <div class="form-field">
-        <label class="form-check">
-          <input type="radio" checked name="yon" />
-          <span>Radio</span>
-        </label>
-        <label class="form-check">
-          <input type="radio" name="yon" />
-          <span class="full">Full option</span>
-        </label>
-        <label class="form-check">
-          <input type="radio" disabled name="yon" />
-          <span>Disabled</span>
-        </label>
-      </div>
-      <div class="form-field">
-        <label class="form-check">
-          <input type="checkbox" checked />
-          <span>Checkbox</span>
-        </label>
-        <label class="form-check">
-          <input type="checkbox" disabled />
-          <span>Disabled checkbox</span>
-        </label>
-      </div>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="material-input-prefix-and-suffix">Material input prefix & suffix</h2>
-
-<p>
-  To use <strong>material forms prefixes</strong> and/or <strong>material forms suffixes</strong>, you have to wrap your
-  input inside a <code class="language-css">.form-group</code> class element. <br />
-  Then, add anything inside this form-group as a <code class="language-css">.form-group-item</code>.<br />
-  <em>You can add multiple prefixes and/or suffixes in a single <strong>material input</strong>.</em>
-</p>
-
-<form class="form-material">
-  <div class="form-field">
-    <label for="name">Name</label>
-    <div class="form-group rounded-1">
-      <span class="form-group-item"><span class="iconify-inline" data-icon="mdi:user"></span></span>
-      <input type="text" id="name" class="form-control" />
-      <span class="form-group-item"><span class="iconify-inline" data-icon="mdi:calendar"></span></span>
-    </div>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field">
-      <label for="name">Name</label>
-      <div class="form-group rounded-1">
-        <span class="form-group-item"><span class="iconify-inline" data-icon="mdi:user"></span></span>
-        <input type="text" id="name" class="form-control" />
-        <span class="form-group-item"><span class="iconify-inline" data-icon="mdi:calendar"></span></span>
-      </div>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="material-select">Material select</h2>
-
-<form class="form-material">
-  <div class="form-field">
-    <label for="select">Select an option</label>
-    <select class="form-control rounded-1" id="select">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-    </select>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-    <form class="form-material">
-    <div class="form-field">
-      <label for="select">Select an option</label>
-      <select class="form-control rounded-1" id="select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="custom-material-select">Custom material select</h2>
-
-<p>
-  Create a custom <strong>material design select</strong> using the <code class="language-css">.form-custom-select</code> class on the
-  <code class="language-markup">&#60;select&#62;</code> tag.
-</p>
-
-<form class="form-material">
-  <div class="form-field">
-    <select
-      class="form-control form-custom-select white shadow-1"
-      data-ax="select"
-      id="custom-select"
-    >
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field">
-      <label for="custom-select">Select an option</label>
-      <select
-        class="form-control form-custom-select white shadow-1"
-        data-ax="select"
-        id="custom-select"
-      >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-  </form>
-</script>
-
-<h3 class="subtitle font-s5" id="multiple-select">Multiple select</h3>
-
-<p>
-  Use the <code class="language-markup">multiple</code> attribute on the <code class="language-markup">&#60;select&#62;</code> tag to get
-  enable the possibility to select multiple options of your <strong>material select</strong>.
-</p>
-
-<form class="form-material">
-  <div class="form-field">
-    <label for="custom-select-multiple">Select different options</label>
-    <select
-      class="form-control form-custom-select white shadow-1"
-      data-ax="select"
-      id="custom-select-multiple"
-      multiple
-    >
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field">
-      <select
-        class="form-control form-custom-select white shadow-1"
-        data-ax="select"
-        id="custom-select-multiple"
-        multiple
-      >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-  </form>
-</script>
-
-<h3 class="subtitle font-s5" id="custom-select-options">Custom select options</h3>
-
-<div class="table-responsive">
-  <table class="table table-hover method-event" aria-label="Methods">
-    <thead>
-      <tr>
-        <th>Option</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>inputClasses</td>
-        <td>Set the input classes</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h2 class="subtitle" id="disables-material-forms">Disabled material forms</h2>
-
-<p>
-  To get a <strong>disabled input</strong>, just add the <code class="language-markup">disabled</code> attribute to your <code class="language-markup">&#60;input&#62;</code> tag. 
-</p>
-
-<form class="form-material">
-  <div class="form-field col-sm2">
-    <input disabled type="text" id="subject" class="form-control rounded-1" placeholder="Disabled input" />
-    <label for="subject">Subject</label>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form class="form-material">
-    <div class="form-field col-sm2">
-      <input disabled type="text" id="subject" class="form-control rounded-1" placeholder="Disabled input" />
-      <label for="subject">Subject</label>
-    </div>
-  </form>
-</script>
 
 <h2 class="subtitle" id="methods">Methods</h2>
 

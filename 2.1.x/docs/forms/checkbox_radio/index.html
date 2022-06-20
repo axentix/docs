@@ -256,6 +256,8 @@
     
       
     
+      
+    
     </div>
   </div>
   <span class="sidenav-link" data-target="components-menu">Components</span>
@@ -389,6 +391,8 @@
       
     
       
+    
+      
       <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/toast/">Toast</a>
       
     
@@ -410,6 +414,7 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/material/">Material forms</a>
       
         
       
@@ -474,8 +479,6 @@
         
       
         
-        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/material/">Material forms</a>
-        
       
         
       
@@ -511,6 +514,10 @@
       
         
       
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/textarea/">Textarea</a>
         
       
         
@@ -575,6 +582,8 @@
       
         
         <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
         
       
         
@@ -761,6 +770,8 @@
         
       
         
+      
+        
         <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/typography/">Typography</a>
         
       
@@ -876,6 +887,8 @@
   
     
   
+    
+  
   
   <a href="https://useaxentix.com/2.1.x/docs/migration/" class="sidenav-link ">
     Migrate from v1
@@ -912,7 +925,190 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle" id="basic-elements">Basic elements</h2>
+<h2 class="subtitle" id="material-checkboxes">Material checkboxes</h2>
+
+<p>
+  The <strong>material forms</strong> provide a modern design for checkboxes. <br />
+  Use the <code class="language-markup">type="checkbox"</code> on the input inside the
+  <code class="language-markup">class="form-check"</code>
+  wrapping label.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <strong class="mb-2">Material form checkbox</strong>
+    <label class="form-check">
+      <input type="checkbox" />
+      <span>Checkbox</span>
+    </label>
+    <label class="form-check">
+      <input type="checkbox" checked />
+      <span>Checked</span>
+    </label>
+    <label class="form-check">
+      <input type="checkbox" disabled />
+      <span>Disabled checkbox</span>
+    </label>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <strong class="mb-2">Material form checkbox</strong>
+      <label class="form-check">
+        <input type="checkbox" />
+        <span>Checkbox</span>
+      </label>
+      <label class="form-check">
+        <input type="checkbox" checked />
+        <span>Checked</span>
+      </label>
+      <label class="form-check">
+        <input type="checkbox" disabled />
+        <span>Disabled checkbox</span>
+      </label>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="material-radios">Material radios</h2>
+
+<p>
+  The <strong>material forms</strong> provide a modern design for radios. <br />
+  Use the <code class="language-markup">type="radio"</code> on the input inside the
+  <code class="language-markup">class="form-check"</code>
+  wrapping label.
+</p>
+
+<form class="form-material">
+  <div class="form-field">
+    <strong class="mb-2">Material form radio</strong>
+    <label class="form-check">
+      <input type="radio" name="yon" />
+      <span>Radio</span>
+    </label>
+    <label class="form-check">
+      <input type="radio" checked name="yon" />
+      <span>Checked</span>
+    </label>
+    <label class="form-check">
+      <input type="radio" name="yon" />
+      <span class="full">Full option</span>
+    </label>
+    <label class="form-check">
+      <input type="radio" disabled name="yon" />
+      <span>Disabled</span>
+    </label>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field">
+      <strong class="mb-2">Material form radio</strong>
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Radio</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" checked name="yon" />
+        <span>Checked</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span class="full">Full option</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" disabled name="yon" />
+        <span>Disabled</span>
+      </label>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="disabled">Disabled</h2>
+
+<p>
+  To disable an element, you have to add the <code class="language-css">.disabled</code> class on the label already containing the
+  <code class="language-css">form-check</code> class, and the <code class="language-css">disabled</code> attribute on the input element.
+</p>
+
+<form class="form-material">
+  <div class="grix xs1 sm2">
+    <div class="form-field">
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Yes</span>
+      </label>
+      <label class="form-check">
+        <input type="radio" name="yon" disabled />
+        <span>No</span>
+      </label>
+    </div>
+    <div class="form-field">
+      <label class="form-check">
+        <input type="checkbox" checked disabled />
+        <span>Checkbox</span>
+      </label>
+    </div>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="grix xs1 sm2">
+      <div class="form-field">
+        <label class="form-check">
+          <input type="radio" name="yon" />
+          <span>Yes</span>
+        </label>
+        <label class="form-check">
+          <input type="radio" name="yon" disabled />
+          <span>No</span>
+        </label>
+      </div>
+      <div class="form-field">
+        <label class="form-check">
+          <input type="checkbox" checked disabled />
+          <span>Checkbox</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="inline">Inline</h2>
+
+<form class="form-material">
+  <div class="form-field form-inline">
+    <label class="form-check">
+      <input type="radio" name="yon" />
+      <span>Yes</span>
+    </label>
+    <label class="form-check ml-2">
+      <input type="radio" name="yon" disabled />
+      <span>No</span>
+    </label>
+  </div>
+</form>
+
+<script type="text/plain" class="language-markup">
+  <form class="form-material">
+    <div class="form-field form-inline">
+      <label class="form-check">
+        <input type="radio" name="yon" />
+        <span>Yes</span>
+      </label>
+      <label class="form-check ml-2">
+        <input type="radio" name="yon" disabled />
+        <span>No</span>
+      </label>
+    </div>
+  </form>
+</script>
+
+<h2 class="subtitle" id="basic-elements">Basic checkbox / radio</h2>
 
 <p>
   The basic checkboxes and radio are easy to use, to use them, you have to wrap them into a label with a
@@ -964,90 +1160,8 @@
   </form>
 </script>
 
-<h2 class="subtitle" id="disabled">Disabled</h2>
-
-<p>
-  To disable an element, you have to add the <code class="language-css">.disabled</code> class on the label already
-  containing the <code class="language-css">form-check</code> class, and the
-  <code class="language-css">disabled</code> attribute on the input element.
-</p>
-
-<form>
-  <div class="grix xs1 sm2">
-    <div class="form-field">
-      <label class="form-check">
-        <input type="radio" name="yon" />
-        <span>Yes</span>
-      </label>
-      <label class="form-check">
-        <input type="radio" name="yon" disabled />
-        <span>No</span>
-      </label>
-    </div>
-    <div class="form-field">
-      <label class="form-check">
-        <input type="checkbox" checked disabled />
-        <span>Checkbox</span>
-      </label>
-    </div>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form>
-    <div class="grix xs1 sm2">
-      <div class="form-field">
-        <label class="form-check">
-          <input type="radio" name="yon" />
-          <span>Yes</span>
-        </label>
-        <label class="form-check">
-          <input type="radio" name="yon" disabled />
-          <span>No</span>
-        </label>
-      </div>
-      <div class="form-field">
-        <label class="form-check">
-          <input type="checkbox" checked disabled />
-          <span>Checkbox</span>
-        </label>
-      </div>
-    </div>
-  </form>
-</script>
-
-<h2 class="subtitle" id="inline">Inline</h2>
-
-<form>
-  <div class="form-field form-inline">
-    <label class="form-check">
-      <input type="radio" name="yon" />
-      <span>Yes</span>
-    </label>
-    <label class="form-check">
-      <input type="radio" name="yon" disabled />
-      <span>No</span>
-    </label>
-  </div>
-</form>
-
-<script type="text/plain" class="language-markup">
-  <form>
-    <div class="form-field form-inline">
-      <label class="form-check">
-        <input type="radio" name="yon" />
-        <span>Yes</span>
-      </label>
-      <label class="form-check">
-        <input type="radio" name="yon" disabled />
-        <span>No</span>
-      </label>
-    </div>
-  </form>
-</script>
-
 <h2 class="subtitle" id="styling">Styling</h2>
-        
+
 <div class="responsive-table">
   <table class="table table-hover" aria-label="styling table">
     <thead>
@@ -1063,14 +1177,18 @@
           <code class="language-css">--ax-form-check-disabled-color</code>
         </td>
         <td>#afafaf</td>
-        <td>
-          Disabled checkbox color.
-        </td>
+        <td>Disabled checkbox color.</td>
       </tr>
     </tbody>
   </table>
 </div>
 
+<h2 class="subtitle" id="methods-and-styling">Common methods & styling</h2>
+
+<p>
+  For all the common methods and styling properties, please refer to the
+  <a class="text-primary font-w600" href="https://useaxentix.com/2.1.x/docs/forms/material/#methods">Material forms</a> page.
+</p>
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
