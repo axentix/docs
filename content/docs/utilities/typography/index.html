@@ -123,3 +123,45 @@ From 1 to 12...
     </li>
   </ul>
 </p>
+
+<h2 class="subtitle" id="font-weight">Font weight</h2>
+
+<p>
+  The word break classes help you to change the sentence cut behavior. <br />
+  The classes are <code class="language-css">.wb-{x}</code> where the weight value can be :
+  <br />
+  <code class="language-css">100 | 200 | 300 | ... | 900</code>
+</p>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Class name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-css">.wb-normal</code></td>
+        <td>Normal word-break behaviour.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.wb-break-all</code></td>
+        <td>Allows word-break on all characters.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.wb-keep-all</code></td>
+        <td>Same as the word-break normal but not for Chinese, Japan and Korean.</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.wb-break-word</code></td>
+        <td>Same as word-break normal combined with <code class="language-css">overflow-wrap: anywhere</code> .</td>
+      </tr>
+      <tr>
+        <td><code class="language-css">.wb-unset</code></td>
+        <td>Unset the property.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

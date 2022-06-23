@@ -1,0 +1,23 @@
+---
+title: 'Theme switcher'
+description: 'Axentix theme switcher. The theme switcher allows to handle theme changing like dark mode.'
+type: 'docs'
+sidenav: components
+---
+
+<h2 class="subtitle" id="global-website-theme">Global website theme</h2>
+
+<p>
+  To handle theme switching, use the <code class="language-javascript">Theme</code> class. <br />
+  By default, the <strong>dark theme</strong> is available.
+</p>
+
+<h2 class="subtitle" id="mixin">Mixin</h2>
+
+<script type="text/plain" class="language-css">
+  @include theme('dark') {
+    element {
+      background-color: var(getColor('grey', 'dark', 3));
+    }
+  }
+</script>
