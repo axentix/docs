@@ -20,18 +20,11 @@
 }
 
 @mixin theme($name) {
-  html.#{$name} {
+  html.theme-#{$name} {
     color-scheme: #{$name};
-    @content;
-  }
 
-  @include colorScheme($name) {
-    html:not(.light) {
-      color-scheme: #{$name};
-
-      body {
-        @content;
-      }
+    body {
+      @content;
     }
   }
 }
