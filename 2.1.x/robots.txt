@@ -1,2 +1,0 @@
-Sitemap: https://useaxentix.com/2.1.x/sitemap.xml
-User-agent: *
