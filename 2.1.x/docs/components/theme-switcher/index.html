@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Alerts - Axentix</title>
-    <meta name="description" content="An alert is a simple component which allows you to display messages anywhere on your website." />
-    <meta property="og:description" content="An alert is a simple component which allows you to display messages anywhere on your website." />
-    <meta property="og:title" content="Alerts - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Theme switcher - Axentix</title>
+    <meta name="description" content="Axentix theme switcher. The theme switcher allows to handle theme changing like dark mode." />
+    <meta property="og:description" content="Axentix theme switcher. The theme switcher allows to handle theme changing like dark mode." />
+    <meta property="og:title" content="Theme switcher - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -115,7 +115,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/components/alerts/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/docs/components/theme-switcher/' class="text-center dropdown-item py-3 ">
            Latest  2.0.x
         </a>
       
@@ -125,7 +125,7 @@
           
         
 
-        <a href='https://useaxentix.com/1.3.x/docs/components/alerts/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/1.3.x/docs/components/theme-switcher/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -269,7 +269,7 @@
     <div class="collapsible" id="components-menu">
     
       
-      <a class="sidenav-link active" href="https://useaxentix.com/2.1.x/docs/components/alerts/">Alerts</a>
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/alerts/">Alerts</a>
       
     
       
@@ -401,7 +401,7 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/theme-switcher/">Theme switcher</a>
+      <a class="sidenav-link active" href="https://useaxentix.com/2.1.x/docs/components/theme-switcher/">Theme switcher</a>
       
     
       
@@ -938,8 +938,8 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Alerts</h1>
-            <p>An alert is a simple component which allows you to display messages to your users.</p>
+            <h1 id="title">Theme switcher</h1>
+            <p></p>
           </div>
 
           <div
@@ -953,80 +953,23 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle" id="basic-alerts">Basic alerts</h2>
+<h2 class="subtitle" id="global-website-theme">Global website theme</h2>
 
 <p>
-  The Axentix <strong>alert</strong> is a simple component made using only our <strong>utilities classes</strong>. You can create dynamic and modern alerts using the
-  <a class="text-primary" href="https://useaxentix.com/2.1.x/docs/components/toast/">toasts</a>.<br />
-  Creating <strong>simple alerts</strong> is easy using our utilities classes. Here are some examples you can use :
+  To handle theme switching, use the <code class="language-javascript">Theme</code> class. <br />
+  By default, the <strong>dark theme</strong> is available.
 </p>
 
-<div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3">This is an informative alert</div>
-<div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4">This is a success alert</div>
-<div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4">This is a warning alert</div>
-<div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4">This is an error alert</div>
+<h2 class="subtitle" id="mixin">Mixin</h2>
 
-<script type="text/plain" class="language-markup">
-  <div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3">This is an informative alert</div>
-  <div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4">This is a success alert</div>
-  <div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4">This is a warning alert</div>
-  <div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4">This is an error alert</div>
+<script type="text/plain" class="language-css">
+  @include theme('dark') {
+    element {
+      background-color: var(getColor('grey', 'dark', 3));
+    }
+  }
 </script>
 
-<h2 class="subtitle" id="bordered-alerts">Bordered alerts</h2>
-<p>
-  You can create more <strong>detailed alerts</strong> using border classes. Here are more examples :
-</p>
-
-<div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3 bd-solid bd-blue bd-light-1 bd-1">This is an informative alert</div>
-<div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4 bd-solid bd-green bd-dark-1 bd-1">This is a success alert</div>
-<div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">This is a warning alert</div>
-<div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4 bd-solid bd-red bd-1">This is an error alert</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3 bd-solid bd-blue bd-light-1 bd-1">This is an informative alert</div>
-  <div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4 bd-solid bd-green bd-dark-1 bd-1">This is a success alert</div>
-  <div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">This is a warning alert</div>
-  <div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4 bd-solid bd-red bd-1">This is an error alert</div>
-</script>
-
-<h2 class="subtitle" id="alerts-with-icons">Alerts with icons</h2>
-
-<p>
-  You can use icons to make your <strong>alerts</strong> more understandable for your users. <br>
-  To get icons, you can use the icon provider of your choice. We are using <a href="https://iconify.design/" class="text-primary" target="_blank" rel="noopener">Iconify</a>.
-</p>
-
-<div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3 bd-solid bd-blue bd-light-1 bd-1">
-  <span class="iconify-inline" data-icon="mdi:information"></span> This is an informative alert
-</div>
-<div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4 bd-solid bd-green bd-dark-1 bd-1">
-  <span class="iconify-inline" data-icon="mdi:check-bold"></span> This is a success alert
-</div>
-<div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">
-  <span class="iconify-inline" data-icon="mdi:alert"></span> This is a warning alert
-</div>
-<div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4 bd-solid bd-red bd-1">
-  <span class="iconify-inline" data-icon="mdi:alert-octagon"></span> This is an error alert
-</div>
-
-<script type="text/plain" class="language-markup">
-  <div class="p-3 my-2 rounded-1 blue light-4 text-blue text-dark-3 bd-solid bd-blue bd-light-1 bd-1">
-    <span class="iconify-inline" data-icon="mdi:information"></span> This is an informative alert
-  </div>
-
-  <div class="p-3 my-2 rounded-1 green light-4 text-green text-dark-4 bd-solid bd-green bd-dark-1 bd-1">
-    <span class="iconify-inline" data-icon="mdi:check-bold"></span> This is a success alert
-  </div>
-
-  <div class="p-3 my-2 rounded-1 yellow light-4 text-yellow text-dark-4 bd-solid bd-yellow bd-dark-1 bd-1">
-    <span class="iconify-inline" data-icon="mdi:alert"></span> This is a warning alert
-  </div>
-  
-  <div class="p-3 my-2 rounded-1 red light-4 text-red text-dark-4 bd-solid bd-red bd-1">
-    <span class="iconify-inline" data-icon="mdi:alert-octagon"></span> This is an error alert
-  </div>
-</script>
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
