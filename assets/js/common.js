@@ -27,7 +27,7 @@ const DocTheme = (() => {
   };
 
   const onScroll = () => {
-    const theme = Axentix.Theme.theme;
+    const theme = Axentix.Theme.theme.replace('theme-', '');
 
     const colorClass = (theme && theme === 'dark') || (!theme && Axentix.isDarkMode()) ? 'dark-secondary-bg' : 'white';
     const navbar = navbarFixed.querySelector('.navbar');
