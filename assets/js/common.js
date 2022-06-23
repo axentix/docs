@@ -1,63 +1,38 @@
 const sidenav = new Axentix.Sidenav('#main-sidenav');
 const collapsible = new Axentix.Axentix('collapsible');
 
-const AxentixTheme = (() => {
-  let navbarFixed,
-    themeMode = 'system',
-    theme,
-    themeLightBtn,
-    themeDarkBtn,
-    themeSystemBtn,
-    ethicaldAds;
-
-  const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const DocTheme = (() => {
+  let navbarFixed, themeLightBtn, themeDarkBtn, themeSystemBtn, ethicaldAds;
 
   const updateActiveDropdown = () => {
     themeSystemBtn.classList.remove('active');
     themeDarkBtn.classList.remove('active');
     themeLightBtn.classList.remove('active');
 
-    if (themeMode === 'system') themeSystemBtn.classList.add('active');
-    else if (themeMode === 'light') themeLightBtn.classList.add('active');
+    if (Axentix.Theme.themeMode === 'system') themeSystemBtn.classList.add('active');
+    else if (Axentix.Theme.themeMode === 'light') themeLightBtn.classList.add('active');
     else themeDarkBtn.classList.add('active');
   };
 
-  const toggleDarkMode = (forceTheme = 'system') => {
-    themeMode = forceTheme;
-
-    if (forceTheme === 'system') {
-      forceTheme = isDarkMode() ? 'dark' : 'light';
-      localStorage.removeItem('ax-theme');
-    }
-
-    if (forceTheme === 'light') {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-      theme = 'light';
-
-      if (ethicaldAds) ethicaldAds.classList.remove('dark');
-    } else {
-      document.documentElement.classList.remove('light');
-      document.documentElement.classList.add('dark');
-      theme = 'dark';
-
-      if (ethicaldAds) ethicaldAds.classList.add('dark');
+  const onThemeChange = () => {
+    if (ethicaldAds && Axentix.Theme.theme === 'light') {
+      ethicaldAds.classList.remove('dark');
+    } else if (ethicaldAds && Axentix.Theme.theme === 'dark') {
+      ethicaldAds.classList.add('dark');
     }
 
     onScroll();
 
     updateActiveDropdown();
-
-    Axentix.Forms.updateInputs();
-
-    if (themeMode !== 'system') localStorage.setItem('ax-theme', theme);
   };
 
   const onScroll = () => {
-    const colorClass = (theme && theme === 'dark') || (!theme && isDarkMode()) ? 'dark-secondary-bg' : 'white';
+    const theme = Axentix.Theme.theme;
+
+    const colorClass = (theme && theme === 'dark') || (!theme && Axentix.isDarkMode()) ? 'dark-secondary-bg' : 'white';
     const navbar = navbarFixed.querySelector('.navbar');
 
-    if ((navbar.classList.contains('dark-secondary-bg') && theme && theme === 'light') || !isDarkMode())
+    if ((navbar.classList.contains('dark-secondary-bg') && theme && theme === 'light') || !Axentix.isDarkMode())
       navbar.classList.remove('dark-secondary-bg');
 
     if (window.scrollY > navbarFixed.offsetTop + 20) navbar.classList.add('light-shadow-1', colorClass);
@@ -65,27 +40,25 @@ const AxentixTheme = (() => {
   };
 
   const setup = () => {
+    Axentix.Theme.enable();
+
     navbarFixed = document.querySelector('.navbar-fixed');
     window.addEventListener('scroll', onScroll);
     onScroll();
     ethicaldAds = document.querySelector('[data-ea-publisher="useaxentix-com"]');
 
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', () => themeMode === 'system' && toggleDarkMode('system'));
+    document.addEventListener('ax.theme.change', onThemeChange);
 
     themeLightBtn = document.querySelector('#toggle-light');
-    themeLightBtn.addEventListener('click', () => toggleDarkMode('light'));
+    themeLightBtn.addEventListener('click', () => Axentix.Theme.toggle('light'));
 
     themeDarkBtn = document.querySelector('#toggle-dark');
-    themeDarkBtn.addEventListener('click', () => toggleDarkMode('dark'));
+    themeDarkBtn.addEventListener('click', () => Axentix.Theme.toggle('dark'));
 
     themeSystemBtn = document.querySelector('#toggle-system');
-    themeSystemBtn.addEventListener('click', () => toggleDarkMode('system'));
+    themeSystemBtn.addEventListener('click', () => Axentix.Theme.toggle('system'));
 
-    const localTheme = localStorage.getItem('ax-theme');
-    if (localTheme) toggleDarkMode(localTheme);
-    else toggleDarkMode('system');
+    onThemeChange();
   };
 
   return {
@@ -93,4 +66,4 @@ const AxentixTheme = (() => {
   };
 })();
 
-document.addEventListener('DOMContentLoaded', AxentixTheme.setup);
+document.addEventListener('DOMContentLoaded', DocTheme.setup);
