@@ -15,9 +15,11 @@ const DocTheme = (() => {
   };
 
   const onThemeChange = () => {
-    if (ethicaldAds && Axentix.Theme.theme === 'light') {
+    const theme = Axentix.Theme.theme.replace('theme-', '');
+
+    if (ethicaldAds && theme === 'light') {
       ethicaldAds.classList.remove('dark');
-    } else if (ethicaldAds && Axentix.Theme.theme === 'dark') {
+    } else if (ethicaldAds && theme === 'dark') {
       ethicaldAds.classList.add('dark');
     }
 
