@@ -8,16 +8,81 @@ sidenav: components
 <h2 class="subtitle" id="global-website-theme">Global website theme</h2>
 
 <p>
-  To handle theme switching, use the <code class="language-javascript">Theme</code> class. <br />
-  By default, the <strong>dark theme</strong> is available.
+  The <strong>theme switcher</strong> is a component allowing you to change the global theme of your website easily. <br>
+  By default, Axentix handles the <strong>dark theme</strong>. <br> <br>
+  Three themes are already working : 
+  <ul>
+    <li>Light (default)</li>
+    <li>Dark</li>
+    <li>System (automatically choosing between dark and light depending on the system preferences)</li>
+  </ul>
+
 </p>
 
-<h2 class="subtitle" id="mixin">Mixin</h2>
+<h2 class="subtitle" id="theme-switching">Theme switching</h2>
 
-<script type="text/plain" class="language-css">
-  @include theme('dark') {
-    element {
-      background-color: var(getColor('grey', 'dark', 3));
-    }
-  }
+<p>
+  To handle theme switching, use the <code class="language-javascript">Theme</code> class. <br />
+</p>
+
+<script type="text/plain" class="language-javascript">
+  // Toggle theme
+  Axentix.Theme.toggle('dark');
+
+  // sets the <html> class "theme-dark" ...
 </script>
+
+<script type="text/plain" class="language-javascript">
+  // Get the current theme
+  const theme = Axentix.Theme.theme;
+</script>
+
+<h2 class="subtitle" id="mixins">Mixins</h2>
+
+<p>
+  Use the <a class="text-blue font-w600" href="{{< ref "sass#theme-mixin" >}}">theme mixin</a> to set css depending on the actual theme.
+</p>
+
+<h2 class="subtitle" id="Methods">Methods</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Axentix.Theme.toggle('dark')</td>
+        <td>Toggles the theme with the name as parameter.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  document.addEventListener('ax.theme.change', function() {
+    // theme change event
+  });
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.theme.change</td>
+        <td>Event sent when the theme has been changed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

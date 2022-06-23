@@ -10,10 +10,15 @@ sidenav: others
 <p>
   If you downloaded Axentix source files, or want to <strong>customize default variables</strong>, you should edit the
   /src/core/_variables.scss file.<br />
-  You can create your own color palette and Axentix will <strong>automatically generate</strong> all the <strong>color variants</strong> and
-  text colors associated.<br />
+  You can create your own color palette and Axentix will <strong>automatically generate</strong> all the
+  <strong>color variants</strong> and text colors associated.<br />
   To see all our variables, just go to the github
-  <a class="text-primary" href="https://github.com/axentix/axentix/blob/v2/src/core/_variables.scss" target="_blank" rel="noopener">
+  <a
+    class="text-primary"
+    href="https://github.com/axentix/axentix/blob/v2/src/core/_variables.scss"
+    target="_blank"
+    rel="noopener"
+  >
     _variables.scss
   </a>
   file.
@@ -24,8 +29,8 @@ sidenav: others
 <h3 class="subtitle font-s5 mt-5" id="the-textcolor-function">The textColor() function</h3>
 
 <p>
-  The <code class="language-css">textColor()</code> function return the appropriate text color depending on the background color. <br />To
-  use it, give it a background color, and it will return you black or white. <br />
+  The <code class="language-css">textColor()</code> function return the appropriate text color depending on the
+  background color. <br />To use it, give it a background color, and it will return you black or white. <br />
 </p>
 
 <script type="text/plain" class="language-css">
@@ -37,7 +42,8 @@ sidenav: others
 
 <h3 class="subtitle font-s5 mt-5" id="the-getcolor-function">The getColor() function</h3>
 <p>
-  The <code class="language-css">getColor()</code> function accepts 3 parameters to get any color of the color palette.<br />
+  The <code class="language-css">getColor()</code> function accepts 3 parameters to get any color of the color
+  palette.<br />
   The first one is the color name, the second one is the color variant and third the number of the variant you want.
 </p>
 
@@ -74,6 +80,18 @@ sidenav: others
   @include responsive('sm-up') {
     element {
       display: block;
+    }
+  }
+</script>
+
+<h3 class="subtitle font-s5 mt-5" id="theme-mixin">Theme mixin</h3>
+
+<p>Use this mixin to set css depending on the actual theme.</p>
+
+<script type="text/plain" class="language-css">
+  @include theme('dark') {
+    element {
+      background-color: var(getColor('grey', 'dark', 3));
     }
   }
 </script>
