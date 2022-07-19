@@ -1,6 +1,6 @@
 const tryIt = document.querySelector('.try-it');
 const tryItCodeOverlay = document.querySelector('.try-it .code-overlay');
-const loadInitalContent = tryIt.classList.contains('try-it-load-initial');
+const loadInitalContent = tryIt && tryIt.classList.contains('try-it-load-initial');
 
 let initialContent,
   isTryItInit = true;

@@ -6,6 +6,27 @@ type: 'docs'
 sidenav: components
 ---
 
+<div class="try-it try-it-load-initial overflow-visible">
+  <div class="try-it-example p-3">
+    <div class="dropdown" id="tryit-dropdown" data-ax="dropdown" data-dropdown-animation-type="fade">
+      <button type="button" class="btn rounded-1 primary" data-target="tryit-dropdown" data-waves>
+        Options
+      </button>
+    
+      <div class="dropdown-content white shadow-1 rounded-1">
+        <a class="dropdown-item" href="#">Account setting</a>
+        <a class="dropdown-item" href="#">Support</a>
+        <a class="dropdown-item" href="#">License</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
 <h2 class="subtitle">Basic dropdown</h2>
 <p>
   The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
@@ -15,18 +36,21 @@ sidenav: components
 </p>
 
 <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">Toggle</button>
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">Toggle</button>
+
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">This is the first item</a>
     <a class="dropdown-item" href="#">Item 2</a>
     <a class="dropdown-item active" href="#">Item 3</a>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
+
     <div class="dropdown-content white shadow-1 rounded-1">
       <a class="dropdown-item" href="#">This is the first item</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -43,19 +67,22 @@ sidenav: components
 
 <div class="d-flex">
   <div class="dropdown ml-auto" id="example-dropdown2" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown2">Toggle</button>
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown2">Toggle</button>
+
     <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Right aligned dropdown</a>
       <a class="dropdown-item" href="#">Item 2</a>
     </div>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="d-flex">
     <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
-      <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+      <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
         Toggle
       </button>
+
       <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
         <a class="dropdown-item" href="#">Right aligned dropdown</a>
         <a class="dropdown-item" href="#">Item 2</a>
@@ -72,17 +99,20 @@ sidenav: components
 </p>
 
 <div class="dropdown" id="example-dropdown3" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown3">Toggle</button>
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown3">Toggle</button>
+
   <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Constrain width option</a>
     <a class="dropdown-item" href="#">Item 2</a>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
+
     <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Constrain width option</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -98,27 +128,29 @@ sidenav: components
 
 <nav class="navbar shadow-1 primary">
   <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+
   <div class="navbar-menu ml-auto">
-    <a class="navbar-link" href="#">Link 1</a>
-    <a class="navbar-link" href="#">Link 2</a>
     <div class="dropdown" id="nav-dropdown" data-ax="dropdown">
-      <div class="navbar-link secondary" data-target="nav-dropdown">Toggle</div>
+      <div class="navbar-link active" data-target="nav-dropdown">Toggle dropdown</div>
       <div class="dropdown-content dropdown-right white shadow-1">
         <a class="dropdown-item" href="#">Dropdown in navbar</a>
         <a class="dropdown-item" href="#">Item 2</a>
         <a class="dropdown-item active" href="#">Item 3</a>
       </div>
     </div>
+
+    <a class="navbar-link" href="#">Link 2</a>
+    <a class="navbar-link" href="#">Link 3</a>
   </div>
 </nav>
+
 <script type="text/plain" class="language-markup">
   <nav class="navbar shadow-1 primary">
     <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+
     <div class="navbar-menu ml-auto">
-      <a class="navbar-link" href="#">Link 1</a>
-      <a class="navbar-link" href="#">Link 2</a>
       <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-        <div class="navbar-link secondary" data-target="example-dropdown">
+        <div class="navbar-link active" data-target="nav-dropdown">
           Toggle
         </div>
         <div class="dropdown-content dropdown-right white shadow-1">
@@ -127,8 +159,41 @@ sidenav: components
           <a class="dropdown-item active" href="#">Item 3</a>
         </div>
       </div>
+
+      <a class="navbar-link" href="#">Link 2</a>
+      <a class="navbar-link" href="#">Link 3</a>
     </div>
   </nav>
+</script>
+
+<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
+<p>
+  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
+  animation of the dropdown content.
+  <br />
+  Note that this option is not working with the hover option.
+</p>
+
+<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
+
+  <div class="dropdown-content white shadow-1 rounded-1">
+    <a class="dropdown-item" href="#">Fade animation</a>
+    <a class="dropdown-item" href="#">Item 2</a>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="dropdown" id="example-dropdown" data-ax="dropdown" data-dropdown-animation-type="fade">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
+      Toggle
+    </button>
+  
+    <div class="dropdown-content white shadow-1 rounded-1">
+      <a class="dropdown-item" href="#">Fade animation</a>
+      <a class="dropdown-item" href="#">Item 2</a>
+    </div>
+  </div>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
@@ -147,26 +212,10 @@ sidenav: components
     animationType: 'fade'
   });
 </script>
-<strong
-  >To know all the ways to initialize a JS component, please read the
-  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.</strong
->
-
-<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
-<p>
-  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
-  animation of the dropdown content.
-  <br />
-  Note that this option is not working with the hover option.
-</p>
-
-<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
-  <div class="dropdown-content white shadow-1 rounded-1">
-    <a class="dropdown-item" href="#">Fade animation</a>
-    <a class="dropdown-item" href="#">Item 2</a>
-  </div>
-</div>
+<strong>
+  To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="{{< ref "js-init" >}}">JS Init</a> page.
+</strong>
 
 <h2 class="subtitle" id="options">Options</h2>
 
