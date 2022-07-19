@@ -6,14 +6,157 @@ type: 'docs'
 sidenav: components
 ---
 
-<div class="table-page">
-  We provided various options to simplify your data organization with table. <br />
-  Tables have a basic design, to easily format your table simply add the <code class="language-css">.table</code> class.
+<div class="try-it mb-4">
+  <div class="try-it-example p-3">
+    <div class="card white light-shadow-2 p-3 rounded-2">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="d-flex vcenter">
+                  <img
+                    src="https://xsgames.co/randomusers/assets/avatars/male/2.jpg"
+                    alt="Grover Fermaint"
+                    width="50"
+                    height="50"
+                    class="rounded-2 mr-2"
+                  />
+                  <p>
+                    <strong>Grover Fermaint</strong><br />
+                    <span class="text-grey">grover@example.com</span>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <strong>CEO</strong><br />
+                <span class="text-grey">Management</span>
+              </td>
+              <td>
+                <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">
+                  Active
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex vcenter">
+                  <img
+                    src="https://xsgames.co/randomusers/assets/avatars/female/46.jpg"
+                    alt="Rea Budgett"
+                    width="50"
+                    height="50"
+                    class="rounded-2 mr-2"
+                  />
+                  <p>
+                    <strong>Rea Budgett</strong><br />
+                    <span class="text-grey">rea@example.com</span>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <strong>Technical Lead</strong><br />
+                <span class="text-grey">Development</span>
+              </td>
+              <td>
+                <div class="p-2 rounded-4 font-s1 font-w600 blue light-4 text-blue text-dark-3 d-inline-block">
+                  Vacation
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="d-flex vcenter">
+                  <img
+                    src="https://xsgames.co/randomusers/assets/avatars/male/56.jpg"
+                    alt="Hunter Krohmer"
+                    width="50"
+                    height="50"
+                    class="rounded-2 mr-2"
+                  />
+                  <p>
+                    <strong>Hunter Krohmer</strong><br />
+                    <span class="text-grey">hunter@example.com</span>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <strong>Sales Manager</strong><br />
+                <span class="text-grey">Sales</span>
+              </td>
+              <td>
+                <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">
+                  Active
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-  <h2 class="subtitle" id="responsive-method-1">Responsive - Method 1</h2>
-  We provided 2 methods to get a responsive table. This is the "classic" method. You simply need to wrap the
-  <code class="language-css">.table</code> class into a <code class="language-css">.table-responsive</code>
-  class.
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
+We provided various options to simplify your data organization with table. <br />
+Tables have a basic design, to easily format your table simply add the <code class="language-css">.table</code> class.
+
+<h2 class="subtitle" id="responsive-method-1">Responsive - Method 1</h2>
+We provided 2 methods to get a responsive table. This is the "classic" method. You simply need to wrap the
+<code class="language-css">.table</code> class into a <code class="language-css">.table-responsive</code>
+class.
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Car</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+        <td>France</td>
+        <td>Mustang</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+        <td>France</td>
+        <td>Renault</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+        <td>France</td>
+        <td>Ferrari</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -54,53 +197,53 @@ sidenav: components
       </tbody>
     </table>
   </div>
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Car</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-            <td>France</td>
-            <td>Mustang</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-            <td>France</td>
-            <td>Renault</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-            <td>France</td>
-            <td>Ferrari</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+</script>
 
-  <h2 class="subtitle" id="responsive-method-2">Responsive - Method 2</h2>
-  This method turn your thead items at the left of the table.<br />
-  To make it, replace the <code class="language-css">.table-responsive</code> class by the
-  <code class="language-css">.table-responsive-2</code> class.
+<h2 class="subtitle" id="responsive-method-2">Responsive - Method 2</h2>
+This method turn your thead items at the left of the table.<br />
+To make it, replace the <code class="language-css">.table-responsive</code> class by the
+<code class="language-css">.table-responsive-2</code> class.
+<div class="table-responsive-2">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Car</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+        <td>France</td>
+        <td>Mustang</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+        <td>France</td>
+        <td>Renault</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+        <td>France</td>
+        <td>Ferrari</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive-2">
     <table class="table">
       <thead>
@@ -141,52 +284,45 @@ sidenav: components
       </tbody>
     </table>
   </div>
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive-2">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Car</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-            <td>France</td>
-            <td>Mustang</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-            <td>France</td>
-            <td>Renault</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-            <td>France</td>
-            <td>Ferrari</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+</script>
 
-  <h2 class="subtitle" id="striped">Striped</h2>
-  Add the <code class="language-css">.table-striped</code> class to your table element to get a striped table.
+<h2 class="subtitle" id="striped">Striped</h2>
+Add the <code class="language-css">.table-striped</code> class to your table element to get a striped table.
 
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
@@ -219,45 +355,45 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="hoverable-rows">Hoverable rows</h2>
+You can add a hover effect on each row with <code class="language-css">.table-hover</code> class.
 
-  <h2 class="subtitle" id="hoverable-rows">Hoverable rows</h2>
-  You can add a hover effect on each row with <code class="language-css">.table-hover</code> class.
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -290,45 +426,45 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="bordered-table">Bordered table</h2>
+For fully bordered table, add the <code class="language-css">.table-bordered</code> class.
 
-  <h2 class="subtitle" id="bordered-table">Bordered table</h2>
-  For fully bordered table, add the <code class="language-css">.table-bordered</code> class.
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table table-bordered">
       <thead>
@@ -361,45 +497,45 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="no-borders">No borders</h2>
+You wanna disable all borders ? Okay, add the <code class="language-css">.table-no-border</code> class.
 
-  <h2 class="subtitle" id="no-borders">No borders</h2>
-  You wanna disable all borders ? Okay, add the <code class="language-css">.table-no-border</code> class.
+<div class="table-responsive">
+  <table class="table table-no-border">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table table-no-border">
       <thead>
@@ -432,45 +568,45 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table table-no-border">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="centered-table">Centered table</h2>
+The <code class="language-css">.table-centered</code> class helps you to center the data in your table.
 
-  <h2 class="subtitle" id="centered-table">Centered table</h2>
-  The <code class="language-css">.table-centered</code> class helps you to center the data in your table.
+<div class="table-responsive">
+  <table class="table table-centered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table table-centered">
       <thead>
@@ -503,46 +639,49 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table table-centered">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="with-a-caption">With a caption</h2>
+Simply add a <code class="language-markup">&lt;caption>&lt;/caption></code> into your table to automatically create a
+caption and center it at the bottom of the table.
 
-  <h2 class="subtitle" id="with-a-caption">With a caption</h2>
-  Simply add a <code class="language-markup">&lt;caption>&lt;/caption></code> into your table to automatically create a
-  caption and center it at the bottom of the table.
+<div class="table-responsive">
+  <table class="table">
+    <caption>
+      This is a caption
+    </caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Paul</td>
+        <td>24</td>
+        <td>Paris</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Patrick</td>
+        <td>34</td>
+        <td>Nice</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Robert</td>
+        <td>62</td>
+        <td>Limoges</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<script type="text/plain" class="language-markup code-max-height">
   <div class="table-responsive">
     <table class="table">
       <caption>
@@ -578,67 +717,27 @@ sidenav: components
       </tbody>
     </table>
   </div>
+</script>
 
-  <script type="text/plain" class="language-markup code-max-height">
-    <div class="table-responsive">
-      <table class="table">
-        <caption>
-          This is a caption
-        </caption>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Paul</td>
-            <td>24</td>
-            <td>Paris</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Patrick</td>
-            <td>34</td>
-            <td>Nice</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Robert</td>
-            <td>62</td>
-            <td>Limoges</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </script>
+<h2 class="subtitle" id="styling">Styling</h2>
 
-  <h2 class="subtitle" id="styling">Styling</h2>
-          
-  <div class="responsive-table">
-    <table class="table table-hover" aria-label="styling table">
-      <thead>
-        <tr>
-          <th scope="col">CSS Variable</th>
-          <th scope="col">Default value</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <code class="language-css">--ax-table-border</code>
-          </td>
-          <td>1px solid #d2d2d2</td>
-          <td>
-            Table border property.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-table-border</code>
+        </td>
+        <td>1px solid #d2d2d2</td>
+        <td>Table border property.</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
