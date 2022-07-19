@@ -73,7 +73,9 @@
     {{ $axentix := resources.Get "axentix/axentix.min.js" | fingerprint }} 
     {{ $common := resources.Get "js/common.js" }}
     {{ $docs := resources.Get "js/docs.js" }}
-    {{ $js := slice $common $docs | resources.Concat "js/docs.js" | minify | fingerprint  }}
+    {{ $tryIt := resources.Get "js/try-it.js" | minify | fingerprint }}
+    {{ $js := slice $common $docs | resources.Concat "js/docs.js" | minify | fingerprint }}
+    <script src="{{$tryIt.RelPermalink}}"></script>
     <script src="{{$axentix.RelPermalink}}"></script>
     <script src="{{$prism.RelPermalink}}"></script>
     <script src="{{$js.RelPermalink}}"></script>
