@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <link rel="stylesheet" href="/axentix/axentix.min.dc5c6a05d040faad85c429adef8ea0e20db3317dc2df4a570c62a9387a63fa0b.css" />
-    <link rel="stylesheet" href="/docs.86cdde82e473711adbccaa476e14bf426fe9dff6d41d0d2f7f5a1f311d111d65.css" />
+    <link rel="stylesheet" href="/docs.e71c0a1261ddedc01e451d4796b553e28216717616c2edb4232b6180e4c2ce32.css" />
     
   </head>
 
@@ -963,6 +963,27 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
+<div class="try-it try-it-load-initial overflow-visible">
+  <div class="try-it-example p-3">
+    <div class="dropdown" id="tryit-dropdown" data-ax="dropdown" data-dropdown-animation-type="fade">
+      <button type="button" class="btn rounded-1 primary" data-target="tryit-dropdown" data-waves>
+        Options
+      </button>
+    
+      <div class="dropdown-content white shadow-1 rounded-1">
+        <a class="dropdown-item" href="#">Account setting</a>
+        <a class="dropdown-item" href="#">Support</a>
+        <a class="dropdown-item" href="#">License</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
 <h2 class="subtitle">Basic dropdown</h2>
 <p>
   The dropdown is working with a <code class="language-markup">.dropdown</code> class on an element. To trigger it, you
@@ -972,18 +993,21 @@
 </p>
 
 <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">Toggle</button>
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">Toggle</button>
+
   <div class="dropdown-content white shadow-1 rounded-1">
     <a class="dropdown-item" href="#">This is the first item</a>
     <a class="dropdown-item" href="#">Item 2</a>
     <a class="dropdown-item active" href="#">Item 3</a>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
+
     <div class="dropdown-content white shadow-1 rounded-1">
       <a class="dropdown-item" href="#">This is the first item</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -1000,19 +1024,22 @@
 
 <div class="d-flex">
   <div class="dropdown ml-auto" id="example-dropdown2" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown2">Toggle</button>
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown2">Toggle</button>
+
     <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Right aligned dropdown</a>
       <a class="dropdown-item" href="#">Item 2</a>
     </div>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="d-flex">
     <div class="dropdown ml-auto" id="example-dropdown" data-ax="dropdown">
-      <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+      <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
         Toggle
       </button>
+
       <div class="dropdown-content white dropdown-right shadow-1 rounded-1">
         <a class="dropdown-item" href="#">Right aligned dropdown</a>
         <a class="dropdown-item" href="#">Item 2</a>
@@ -1029,17 +1056,20 @@
 </p>
 
 <div class="dropdown" id="example-dropdown3" data-ax="dropdown">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown3">Toggle</button>
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown3">Toggle</button>
+
   <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
     <a class="dropdown-item" href="#">Constrain width option</a>
     <a class="dropdown-item" href="#">Item 2</a>
   </div>
 </div>
+
 <script type="text/plain" class="language-markup">
   <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-    <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
       Toggle
     </button>
+
     <div class="dropdown-content white dropdown-constrain-width shadow-1 rounded-1">
       <a class="dropdown-item" href="#">Constrain width option</a>
       <a class="dropdown-item" href="#">Item 2</a>
@@ -1055,27 +1085,29 @@
 
 <nav class="navbar shadow-1 primary">
   <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+
   <div class="navbar-menu ml-auto">
-    <a class="navbar-link" href="#">Link 1</a>
-    <a class="navbar-link" href="#">Link 2</a>
     <div class="dropdown" id="nav-dropdown" data-ax="dropdown">
-      <div class="navbar-link secondary" data-target="nav-dropdown">Toggle</div>
+      <div class="navbar-link active" data-target="nav-dropdown">Toggle dropdown</div>
       <div class="dropdown-content dropdown-right white shadow-1">
         <a class="dropdown-item" href="#">Dropdown in navbar</a>
         <a class="dropdown-item" href="#">Item 2</a>
         <a class="dropdown-item active" href="#">Item 3</a>
       </div>
     </div>
+
+    <a class="navbar-link" href="#">Link 2</a>
+    <a class="navbar-link" href="#">Link 3</a>
   </div>
 </nav>
+
 <script type="text/plain" class="language-markup">
   <nav class="navbar shadow-1 primary">
     <a href="#" target="_blank" class="navbar-brand">Axentix</a>
+
     <div class="navbar-menu ml-auto">
-      <a class="navbar-link" href="#">Link 1</a>
-      <a class="navbar-link" href="#">Link 2</a>
       <div class="dropdown" id="example-dropdown" data-ax="dropdown">
-        <div class="navbar-link secondary" data-target="example-dropdown">
+        <div class="navbar-link active" data-target="nav-dropdown">
           Toggle
         </div>
         <div class="dropdown-content dropdown-right white shadow-1">
@@ -1084,8 +1116,41 @@
           <a class="dropdown-item active" href="#">Item 3</a>
         </div>
       </div>
+
+      <a class="navbar-link" href="#">Link 2</a>
+      <a class="navbar-link" href="#">Link 3</a>
     </div>
   </nav>
+</script>
+
+<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
+<p>
+  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
+  animation of the dropdown content.
+  <br />
+  Note that this option is not working with the hover option.
+</p>
+
+<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
+  <button type="button" class="btn rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
+
+  <div class="dropdown-content white shadow-1 rounded-1">
+    <a class="dropdown-item" href="#">Fade animation</a>
+    <a class="dropdown-item" href="#">Item 2</a>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="dropdown" id="example-dropdown" data-ax="dropdown" data-dropdown-animation-type="fade">
+    <button type="button" class="btn rounded-1 primary" data-target="example-dropdown">
+      Toggle
+    </button>
+  
+    <div class="dropdown-content white shadow-1 rounded-1">
+      <a class="dropdown-item" href="#">Fade animation</a>
+      <a class="dropdown-item" href="#">Item 2</a>
+    </div>
+  </div>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
@@ -1104,26 +1169,10 @@
     animationType: 'fade'
   });
 </script>
-<strong
-  >To know all the ways to initialize a JS component, please read the
-  <a class="text-primary" href="https://useaxentix.com/docs/general/js-init/">JS Init</a> page.</strong
->
-
-<h2 class="subtitle" id="animated-dropdown">Animated dropdown</h2>
-<p>
-  The animationType option is activable through the JS initialization. the 'fade' one is creating a smooth fade in
-  animation of the dropdown content.
-  <br />
-  Note that this option is not working with the hover option.
-</p>
-
-<div class="dropdown" id="example-dropdown-anim" data-ax="dropdown" data-dropdown-animation-type="fade">
-  <button type="button" class="btn shadow-1 rounded-1 primary" data-target="example-dropdown-anim">Toggle</button>
-  <div class="dropdown-content white shadow-1 rounded-1">
-    <a class="dropdown-item" href="#">Fade animation</a>
-    <a class="dropdown-item" href="#">Item 2</a>
-  </div>
-</div>
+<strong>
+  To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="https://useaxentix.com/docs/general/js-init/">JS Init</a> page.
+</strong>
 
 <h2 class="subtitle" id="options">Options</h2>
 
@@ -1315,7 +1364,7 @@
     
     
     
-    <script src="/js/try-it.min.7d9013246e21ef790c1069db8f1d0ace8b1b88943970f0c935a844796af9f59b.js"></script>
+    <script src="/js/try-it.min.4ec3f31a1d52f676b203889928e94428f32532c96dd7916e1d919006af6bd0ff.js"></script>
     <script src="/axentix/axentix.min.ee20451e7c58edb3e6d1eeccf976613691910327f5fc3f62f1c6c2650dce401e.js"></script>
     <script src="/js/prism.8c7a75416846abdaf741adfbefbd3a22e48bae7de42a029ab0fad37e0101cb40.js"></script>
     <script src="/js/docs.min.fc7d7d18176f69e367b10e37019a174a52a6a73202d8ea9c12b99e502b1d872e.js"></script>
