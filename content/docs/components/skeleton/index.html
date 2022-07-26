@@ -4,7 +4,54 @@ description: 'Axentix skeleton loading. Skeleton loading is useful to show somet
 subtitle: 'Skeleton loading.'
 type: 'docs'
 sidenav: components
+scripts:
+  - "<script>
+      const formSkeleton = document.querySelector('#form-skeleton');
+      const skeletons = document.querySelectorAll('.try-it-example .skeleton');
+
+      formSkeleton.addEventListener('input', () => {
+        skeletons.forEach(el => {
+          el.classList.toggle('skeleton-gradient');
+        });
+        updateCode();
+      });
+  </script>"
 ---
+
+<div class="try-it try-it-load-initial">
+  <form class="form-material mb-2">
+    <div class="grix xs1 sm2 lg3">
+      <div class="form-field form-default">
+        <label class="form-switch mt-2">
+          Normal
+          <input type="checkbox" id="form-skeleton" />
+          <span class="form-slider form-slider-thin"></span>
+          Gradient
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="try-it-example p-3 container">
+    <div class="card white shadow-1 mx-auto" style="max-width: 400px">
+      <div class="card-content">
+        <div class="d-flex mb-4">
+          <div class="skeleton rounded-full overflow-hidden pt-4 pb-5 pl-4 pr-5"></div>
+          <div class="skeleton rounded-2 overflow-hidden mt-auto pt-1 pb-2 ml-auto" style="width: 65%"></div>
+        </div>
+
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
 
 <h2 class="subtitle" id="skeleton">Skeleton</h2>
 
@@ -14,37 +61,11 @@ sidenav: components
 </p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton p-5 light-shadow-2"></div>
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton p-5 light-shadow-2"></div>
 </script>
 
 <h2 class="subtitle" id="gradient-skeleton">Gradient skeleton</h2>
@@ -55,37 +76,11 @@ sidenav: components
 </p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton skeleton-gradient">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton skeleton-gradient p-5 light-shadow-2"></div>
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton skeleton-gradient">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton skeleton-gradient p-5 light-shadow-2"></div>
 </script>
 
 <h2 class="subtitle" id="styling">Styling</h2>
