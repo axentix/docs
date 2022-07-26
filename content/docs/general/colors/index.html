@@ -11,21 +11,21 @@ sidenav: general
     <strong>Axentix colors</strong> are made to <strong>automatically</strong> match with the best text-color between
     black and white to help you getting your site the <strong>best accessibility</strong> possible. So when you choose a
     background color, the <strong>text will automatically be black or white</strong>, but you can change it an any time
-    with our <strong>text-colors classes</strong>, or with your own CSS code.
+    with our <strong>text-color classes</strong>, or with your own CSS code.
   </p>
 
   <div class="grix xs1 md2">
     <div>
+      <button class="btn blue rounded-1">Blue</button>
       <script type="text/plain" class="language-markup">
-        <div class="blue">Some text</div>
+        <button class="btn blue rounded-1">Blue</button>
       </script>
-      <div class="example-color blue">Some text</div>
     </div>
     <div>
+      <button class="btn airforce rounded-1">Airforce</button>
       <script type="text/plain" class="language-markup">
-        <div class="airforce">Some text</div>
+        <button class="btn airforce rounded-1">Airforce</button>
       </script>
-      <div class="example-color airforce">Some text</div>
     </div>
   </div>
 
@@ -36,16 +36,16 @@ sidenav: general
   </p>
   <div class="grix xs1 md2">
     <div>
+      <button class="btn blue text-black rounded-1">Blue but black text</button>
       <script type="text/plain" class="language-markup">
-        <div class="blue text-yellow">Some text</div>
+        <button class="btn blue text-black rounded-1">Blue but black text</button>
       </script>
-      <div class="example-color blue text-yellow">Some text</div>
     </div>
     <div>
+      <button class="btn airforce text-white rounded-1">Airforce but white text</button>
       <script type="text/plain" class="language-markup">
-        <div class="airforce text-white">Some text</div>
+        <button class="btn airforce text-white rounded-1">Airforce but white text</button>
       </script>
-      <div class="example-color airforce text-white">Some text</div>
     </div>
   </div>
 
@@ -56,20 +56,11 @@ sidenav: general
     Use the different border classes to create a custom border on the
     <a class="text-blue font-w600" href="{{< ref "borders" >}}">borders page</a>.
   </p>
-  <div class="grix xs1 md2">
-    <div>
-      <script type="text/plain" class="language-markup">
-        <div class="blue bd-5 bd-solid bd-yellow">Some text</div>
-      </script>
-      <div class="example-color blue bd-5 bd-solid bd-yellow">Some text</div>
-    </div>
-    <div>
-      <script type="text/plain" class="language-markup">
-        <div class="airforce bd-5 bd-solid bd-red">Some text</div>
-      </script>
-      <div class="example-color airforce bd-5 bd-solid bd-red">Some text</div>
-    </div>
-  </div>
+
+  <button class="btn transparent text-blue bd-blue bd-b-solid bd-2">Blue bordered</button>
+  <script type="text/plain" class="language-markup">
+    <button class="btn transparent text-blue bd-blue bd-b-solid bd-2">Blue bordered</button>
+  </script>
 
   <h2 class="subtitle" id="dark-and-light">Dark and Light</h2>
   <p>
@@ -80,22 +71,13 @@ sidenav: general
     <br />
     You can light and dark a text too, you just have to precise
     <code class="language-css">.text-dark-X</code> or <code class="language-css">.text-light-X</code> X as the number from
-    1 to 4 to light, and 1 to 5 to dark your color.
+    1 to 4 to lighten, and 1 to 5 to darken your color.
   </p>
-  <div class="grix xs1 md2">
-    <div>
-      <script type="text/plain" class="language-markup">
-        <div class="blue light-3 text-grey text-dark-4">Some text</div>
-      </script>
-      <div class="example-color blue light-3 text-grey text-dark-4">Some text</div>
-    </div>
-    <div>
-      <script type="text/plain" class="language-markup">
-        <div class="airforce dark-2 text-yellow text-light-2">Some text</div>
-      </script>
-      <div class="example-color airforce dark-2 text-yellow text-light-2">Some text</div>
-    </div>
-  </div>
+
+  <div class="btn blue light-3 text-grey text-dark-4 rounded-1">Light blue with dark grey text</div>
+  <script type="text/plain" class="language-markup">
+    <div class="btn blue light-3 text-grey text-dark-4 rounded-1">Light blue with dark grey text</div>
+  </script>
 
   <h2 class="subtitle" id="color-palette">Color palette</h2>
   <p>
