@@ -31,7 +31,7 @@
       
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
-    <link rel="stylesheet" href="/axentix/axentix.min.dc5c6a05d040faad85c429adef8ea0e20db3317dc2df4a570c62a9387a63fa0b.css" />
+    <link rel="stylesheet" href="/axentix/axentix.min.f7dcdccaa813b38c4c117d2803089510a68cf3a3bf02b9dc30dd4c3cc02c11b4.css" />
     <link rel="stylesheet" href="/docs.e71c0a1261ddedc01e451d4796b553e28216717616c2edb4232b6180e4c2ce32.css" />
     
   </head>
@@ -963,6 +963,41 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
+<div class="try-it try-it-load-initial">
+  <form class="form-material mb-2">
+    <div class="grix xs1 sm2 lg3">
+      <div class="form-field form-default">
+        <label class="form-switch mt-2">
+          Normal
+          <input type="checkbox" id="form-skeleton" />
+          <span class="form-slider form-slider-thin"></span>
+          Gradient
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <div class="try-it-example p-3 container">
+    <div class="card white shadow-1 mx-auto" style="max-width: 400px">
+      <div class="card-content">
+        <div class="d-flex mb-4">
+          <div class="skeleton rounded-full overflow-hidden pt-4 pb-5 pl-4 pr-5"></div>
+          <div class="skeleton rounded-2 overflow-hidden mt-auto pt-1 pb-2 ml-auto" style="width: 65%"></div>
+        </div>
+
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+        <div class="skeleton overflow-hidden rounded-2 mt-3 pt-1 pb-2 w100"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
 <h2 class="subtitle" id="skeleton">Skeleton</h2>
 
 <p>
@@ -971,37 +1006,11 @@
 </p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton p-5 light-shadow-2"></div>
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton p-5 light-shadow-2"></div>
 </script>
 
 <h2 class="subtitle" id="gradient-skeleton">Gradient skeleton</h2>
@@ -1012,37 +1021,11 @@
 </p>
 
 <div class="grix xs1 sm2 lg3">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton skeleton-gradient">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton skeleton-gradient p-5 light-shadow-2"></div>
 </div>
 
 <script type="text/plain" class="language-markup">
-  <div class="card light-shadow-2 white">
-    <div class="card-image skeleton skeleton-gradient">
-      <img src="https://picsum.photos/400/300?random=1" alt="logo" />
-    </div>
-
-    <div class="card-header">Card Image</div>
-    <div class="divider"></div>
-    <div class="card-content">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi suscipit harum repellat architecto unde vel
-      numquam rem doloribus maiores deserunt tenetur labore, aut, adipisci sit, sequi nihil voluptas commodi? Velit?
-    </div>
-
-    <div class="card-footer">Card Footer</div>
-  </div>
+  <div class="skeleton skeleton-gradient p-5 light-shadow-2"></div>
 </script>
 
 <h2 class="subtitle" id="styling">Styling</h2>
@@ -1105,7 +1088,7 @@
     
     
     <script src="/js/try-it.min.4ec3f31a1d52f676b203889928e94428f32532c96dd7916e1d919006af6bd0ff.js"></script>
-    <script src="/axentix/axentix.min.ee20451e7c58edb3e6d1eeccf976613691910327f5fc3f62f1c6c2650dce401e.js"></script>
+    <script src="/axentix/axentix.min.71d894a536560abc5ac16572e3426ef09972871c067df661e455a128387eecfa.js"></script>
     <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
     <script src="/js/docs.min.fc7d7d18176f69e367b10e37019a174a52a6a73202d8ea9c12b99e502b1d872e.js"></script>
     <script>
@@ -1140,6 +1123,7 @@
 
       gtag('config', 'UA-149763613-1');
     </script>
-     
+     <script> const formSkeleton = document.querySelector('#form-skeleton'); const skeletons = document.querySelectorAll('.try-it-example .skeleton');
+formSkeleton.addEventListener('input', () => { skeletons.forEach(el => { el.classList.toggle('skeleton-gradient'); }); updateCode(); }); </script>
   </body>
 </html>
