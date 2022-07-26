@@ -13,6 +13,47 @@ scripts:
   </script>'
 ---
 
+<div class="try-it try-it-load-initial">
+  <div class="try-it-example p-3 d-flex">
+    <button class="btn blue mx-auto rounded-1" data-target="modal">Open</button>
+
+    <div class="modal modal-bouncing white rounded-2 shadow-1" id="modal" data-ax="modal" style="max-width: 400px;">
+      <div class="modal-header text-center pb-1 pt-4">
+        Welcome back <strong>dear</strong>
+      </div>
+
+      <div class="modal-content">
+        <form class="form-material form-material-bordered">
+          <div class="form-field">
+            <input type="text" id="pseudo" class="form-control rounded-4" />
+            <label for="pseudo">Pseudo</label>
+          </div>
+          <div class="form-field">
+            <input type="password" id="password" class="form-control rounded-4" />
+            <label for="password">Password</label>
+          </div>
+          <div class="form-field">
+            <label class="form-check">
+              <input type="checkbox" value="check" class="rounded-1" />
+              <span>Remember me</span>
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer d-flex pt-2">
+        <button class="btn btn-small red light-4 text-red rounded-2 ml-auto mr-2" data-target="modal">Cancel</button>
+        <button class="btn btn-small blue rounded-2">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
 <h2 class="subtitle" id="basic-modal">Basic modal</h2>
 <p>
   Modals are usefull to display content over your page. <br>
@@ -25,7 +66,7 @@ scripts:
   <em>The new overlay will be placed over the last modal too.</em>
 </p>
 
-<button class="btn rounded-1 primary btn-press mx-auto" data-target="modal-example">OPEN MODAL</button>
+<button class="btn rounded-1 primary" data-target="modal-example">Open</button>
 
 <div class="modal shadow-1 white rounded-3" id="modal-example">
   <div class="modal-header">
@@ -55,8 +96,8 @@ scripts:
       Footer
     </div>
   </div>
-
-  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
+  
+  <button class="btn rounded-1 primary" data-target="modal-example">Open</button>
 </script>
 
 <h2 class="subtitle" id="falling-modal">Falling modal</h2>
@@ -65,7 +106,7 @@ scripts:
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example2">OPEN MODAL</button>
+<button class="btn primary rounded-1" data-target="modal-example2">Open</button>
 
 <div class="modal shadow-1 white modal-falling" id="modal-example2">
   <div class="modal-header">Header</div>
@@ -112,7 +153,7 @@ scripts:
     </div>
   </div>
 
-  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
+  <button class="btn primary rounded-1" data-target="modal-example">Open</button>
 </script>
 
 <h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
@@ -121,7 +162,7 @@ scripts:
   element.
 </p>
 
-<button class="btn primary rounded-1 btn-press mx-auto" data-target="modal-example3">OPEN MODAL</button>
+<button class="btn primary rounded-1" data-target="modal-example3">Open</button>
 
 <div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example3">
   <div class="modal-header">
@@ -151,8 +192,8 @@ scripts:
       Footer
     </div>
   </div>
-
-  <button class="btn rounded-1 primary btn-press" data-target="modal-example">OPEN MODAL</button>
+  
+  <button class="btn primary rounded-1" data-target="modal-example">Open</button>
 </script>
 
 <h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
