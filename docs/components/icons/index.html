@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hover - Axentix</title>
-    <meta name="description" content="Axentix hover utilities. The hover classes allow you to custom your elements style on hover." />
-    <meta property="og:description" content="Axentix hover utilities. The hover classes allow you to custom your elements style on hover." />
-    <meta property="og:title" content="Hover - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Icons - Axentix</title>
+    <meta name="description" content="Axentix icons. Icons are useful to illustrate a text meaning. Commonly used in forms and menus." />
+    <meta property="og:description" content="Axentix icons. Icons are useful to illustrate a text meaning. Commonly used in forms and menus." />
+    <meta property="og:title" content="Icons - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -115,7 +115,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/utilities/hover/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/docs/components/icons/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.1.x
         </a>
       
@@ -125,7 +125,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.0.x/docs/utilities/hover/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.0.x/docs/components/icons/' class="text-center dropdown-item py-3 ">
            2.0.x
         </a>
       
@@ -135,7 +135,7 @@
           
         
 
-        <a href='https://useaxentix.com/1.3.x/docs/utilities/hover/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/1.3.x/docs/components/icons/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -343,7 +343,7 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/docs/components/icons/">Icons</a>
+      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/icons/">Icons</a>
       
     
       
@@ -746,7 +746,7 @@
         
       
         
-        <a class="sidenav-link active" href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
         
       
         
@@ -962,8 +962,8 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Hover</h1>
-            <p>Use our different classes to change your component hover effect.</p>
+            <h1 id="title">Icons</h1>
+            <p>Icons are useful to illustrate a text meaning. Commonly used in forms and menus.</p>
           </div>
 
           <div
@@ -977,151 +977,61 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<p>The default hover effect is light and is made for the majority of the color palette. <br /></p>
-
-<h2 class="subtitle" id="background-hover">Background hover</h2>
-
-<p>Use the <code class="language-markup">.hover-bg-dark</code> class to get the appropriate hover effect on a dark menu.</p>
-
-<div class="example-nav">
-  <nav class="navbar shadow-1 airforce dark-2" aria-label="example nav 1">
-    <a href="#" class="navbar-brand">Axentix</a>
-    <div class="navbar-menu ml-auto hover-bg-dark">
-      <a class="navbar-link active" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-    </div>
-  </nav>
-</div>
-
-<script type="text/plain" class="language-markup">
-  <nav class="navbar shadow-1 airforce dark-2">
-    <a href="#" class="navbar-brand">Axentix</a>
-    <div class="navbar-menu ml-auto hover-bg-dark">
-      <a class="navbar-link active" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-    </div>
-  </nav>
-</script>
-
-<h2 class="subtitle" id="text-hover">Text hover</h2>
+<h2 class="subtitle" id="icons-use">Icons use</h2>
 
 <p>
-  Use the <code class="language-markup">.hover-text-dark</code> class to get the appropriate hover effect on a dark menu. <br />
-  <em>You have to manually set a default text color like <code class="language-markup">text-grey text-light-2</code> in this example.</em>
+  We recommend to use the
+  <a class="text-primary font-w600" href="https://iconify.design/" target="_blank" rel="noopener">Iconify</a> library to create icons.
+  <br />
+  This library contains all the common icon libraries and allows you to get any of them using the right syntax. <br />
+  <br />
+
+  Select the icon you want to use and use the <code class="language-css">class="iconify-inline"</code> class the
+  <code class="language-markup">data-icon="library:iconName"</code> syntax. <br />
+  This documentation uses the
+  <a class="text-primary font-w600" target="_blank" rel="noopener" href="https://icon-sets.iconify.design/mdi/"
+    >Material Design Icons (MDI) icon set</a
+  >.
 </p>
 
-<div class="example-nav">
-  <nav class="navbar shadow-1 airforce dark-2" aria-label="example nav 2">
-    <a href="#" class="navbar-brand">Axentix</a>
-    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
-      <a class="navbar-link active" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-    </div>
-  </nav>
-</div>
-
+<button class="btn btn-circle blue shadow-1"><span class="iconify-inline" data-icon="mdi:thumb-up"></span></button>
 <script type="text/plain" class="language-markup">
-  <nav class="navbar shadow-1 airforce dark-2">
-    <a href="#" class="navbar-brand">Axentix</a>
-    <div class="navbar-menu ml-auto hover-text-dark text-grey text-light-2">
-      <a class="navbar-link active" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-      <a class="navbar-link" href="#">Link</a>
-    </div>
-  </nav>
+  <button class="btn btn-circle blue shadow-1">
+    <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  </button>
 </script>
 
-<h2 class="subtitle" id="hover-class-list">Hover class list</h2>
+<h2 class="subtitle" id="icons-color">Icons color</h2>
 
-<div class="table-responsive">
-  <table class="table table-hover" aria-label="hover class list">
-    <thead>
-      <tr>
-        <th>Class name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code class="language-css">.hover-bg</code></td>
-        <td>Set the hover background color for a light colored element.</td>
-      </tr>
-      <tr>
-        <td><code class="language-css">.hover-bg-dark</code></td>
-        <td>Set the hover background color for a dark colored element.</td>
-      </tr>
-      <tr>
-        <td><code class="language-css">.hover-text</code></td>
-        <td>Set the hover text color for a light colored element.</td>
-      </tr>
-      <tr>
-        <td><code class="language-css">.hover-text-dark</code></td>
-        <td>Set the hover text color for a dark colored element.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<p>
+  Icons color can be set using the <a target="_blank" href="https://useaxentix.com/docs/general/colors/#text-colors" class="text-blue">text colors</a> classes.
+</p>
 
-<h2 class="subtitle" id="styling">Styling</h2>
+<span class="iconify-inline text-blue" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline text-red" data-icon="mdi:thumb-up"></span>
 
-<div class="responsive-table">
-  <table class="table table-hover" aria-label="styling table">
-    <thead>
-      <tr>
-        <th scope="col">CSS Variable</th>
-        <th scope="col">Default value</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-background</code>
-        </td>
-        <td>rgba(0, 0, 0, 0.07)</td>
-        <td>Hover background color.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-background-dark</code>
-        </td>
-        <td>rgba(255, 255, 255, 0.1)</td>
-        <td>Hover background color for dark elements.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-collapsible-background</code>
-        </td>
-        <td>rgba(0, 0, 0, 0.04)</td>
-        <td>Hover background color for sidenav collapsibles.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-collapsible-background-dark</code>
-        </td>
-        <td>rgba(255, 255, 255, 0.06)</td>
-        <td>Hover background color for dark sidenav collapsibles.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-text-color</code>
-        </td>
-        <td>#000</td>
-        <td>Text color on hover.</td>
-      </tr>
-      <tr>
-        <td>
-          <code class="language-css">--ax-hover-text-color-dark</code>
-        </td>
-        <td>#fff</td>
-        <td>Text color on hover for dark elements.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<script type="text/plain" class="language-markup">
+  <span class="iconify-inline text-blue" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline text-red" data-icon="mdi:thumb-up"></span>
+</script>
+
+<h2 class="subtitle" id="icons-size">Icons size</h2>
+
+<p>
+  Icons size can be set using the <a target="_blank" href="https://useaxentix.com/docs/utilities/typography/#font-size-classes" class="text-blue">font size</a> classes.
+</p>
+
+<span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline font-s4" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline font-s7" data-icon="mdi:thumb-up"></span>
+
+<script type="text/plain" class="language-markup">
+  <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline font-s4" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline font-s7" data-icon="mdi:thumb-up"></span>
+</script>
 
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
