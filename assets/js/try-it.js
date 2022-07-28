@@ -9,13 +9,13 @@ if (tryItCodeOverlay) tryItCodeOverlay.addEventListener('click', handleShowCode)
 
 if (loadInitalContent) {
   initialContent = tryIt.querySelector('.try-it-example').innerHTML;
+  initialContent = initialContent.replace(' type="text/plain"', '');
 }
 
 function updateCode() {
   if (!tryItCodeOverlay.classList.contains('hide')) return;
 
-  const tryItExample =
-    loadInitalContent && isTryItInit ? initialContent : tryIt.querySelector('.try-it-example').innerHTML;
+  const tryItExample = loadInitalContent && isTryItInit ? initialContent : tryIt.querySelector('.try-it-example').innerHTML;
   const htmlCode = tryIt.querySelector('.language-markup');
 
   if (isTryItInit) isTryItInit = false;
