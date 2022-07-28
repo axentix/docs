@@ -1,0 +1,63 @@
+---
+title: 'Icons'
+description: 'Axentix icons. Icons are useful to illustrate a text meaning. Commonly used in forms and menus.'
+subtitle: 'Icons are useful to illustrate a text meaning. Commonly used in forms and menus.'
+type: 'docs'
+sidenav: components
+---
+
+<h2 class="subtitle" id="icons-use">Icons use</h2>
+
+<p>
+  We recommend to use the
+  <a class="text-primary font-w600" href="https://iconify.design/" target="_blank" rel="noopener">Iconify</a> library to create icons.
+  <br />
+  This library contains all the common icon libraries and allows you to get any of them using the right syntax. <br />
+  <br />
+
+  Select the icon you want to use and use the <code class="language-css">class="iconify-inline"</code> class the
+  <code class="language-markup">data-icon="library:iconName"</code> syntax. <br />
+  This documentation uses the
+  <a class="text-primary font-w600" target="_blank" rel="noopener" href="https://icon-sets.iconify.design/mdi/"
+    >Material Design Icons (MDI) icon set</a
+  >.
+</p>
+
+<button class="btn btn-circle blue shadow-1"><span class="iconify-inline" data-icon="mdi:thumb-up"></span></button>
+<script type="text/plain" class="language-markup">
+  <button class="btn btn-circle blue shadow-1">
+    <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  </button>
+</script>
+
+<h2 class="subtitle" id="icons-color">Icons color</h2>
+
+<p>
+  Icons color can be set using the <a target="_blank" href="{{< ref "colors#text-colors" >}}" class="text-blue">text colors</a> classes.
+</p>
+
+<span class="iconify-inline text-blue" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline text-red" data-icon="mdi:thumb-up"></span>
+
+<script type="text/plain" class="language-markup">
+  <span class="iconify-inline text-blue" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline text-red" data-icon="mdi:thumb-up"></span>
+</script>
+
+<h2 class="subtitle" id="icons-size">Icons size</h2>
+
+<p>
+  Icons size can be set using the <a target="_blank" href="{{< ref "typography#font-size-classes" >}}" class="text-blue">font size</a> classes.
+</p>
+
+<span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline font-s4" data-icon="mdi:thumb-up"></span>
+<span class="iconify-inline font-s7" data-icon="mdi:thumb-up"></span>
+
+<script type="text/plain" class="language-markup">
+  <span class="iconify-inline" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline font-s4" data-icon="mdi:thumb-up"></span>
+  <span class="iconify-inline font-s7" data-icon="mdi:thumb-up"></span>
+</script>
