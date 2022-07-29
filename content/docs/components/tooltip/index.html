@@ -1,57 +1,71 @@
 ---
 title: 'Tooltip'
+subtitle: 'Adding some tooltips on your website could be useful add explanations on anything like text, buttons...'
 description: 'Axentix tooltip. The tooltips allow you to display informations abount any element on your website. You can custom them using our utilities classes.'
 type: 'docs'
 sidenav: components
 ---
 
 <p>
-  Adding some <strong>tooltips</strong> on your website could be useful add explanations on anything like text,
-  buttons... <br />
   Creating a tooltip <strong>with no content</strong> will not be displayed.
   <br />
-  Hover these next examples to see the tooltips appear :
+  Hover this next example to see the tooltip appear :
 </p>
-<div class="grix xs2 md4 center mt-5">
-  <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">
-    Top
-  </button>
-  <button
-    id="tooltip4"
-    data-ax="tooltip"
-    data-tooltip-position="left"
-    data-tooltip-content="Tooltip 😉"
-    class="btn airforce dark-3 rounded-1 shadow-1"
-  >
-    Left
-  </button>
-  <button
-    id="tooltip2"
-    data-ax="tooltip"
-    data-tooltip-position="right"
-    data-tooltip-content="Tooltip"
-    class="btn airforce dark-3 rounded-1 shadow-1"
-  >
-    Right
-  </button>
-  <button
-    id="tooltip3"
-    data-ax="tooltip"
-    data-tooltip-position="bottom"
-    data-tooltip-content="Tooltip"
-    class="btn airforce dark-3 rounded-1 shadow-1"
-  >
-    Bottom
-  </button>
-</div>
 
-<script type="text/plain" class="language-markup mt-5">
-  <div class="grix xs2 md4 center mt-5">
-    <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Top</button>
-    <button id="tooltip4" data-ax="tooltip" data-tooltip-position="left" data-tooltip-content="Tooltip 😉" class="btn airforce dark-3 rounded-1 shadow-1">Left</button>
-    <button id="tooltip2" data-ax="tooltip" data-tooltip-position="right" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Right</button>
-    <button id="tooltip3" data-ax="tooltip" data-tooltip-position="bottom" data-tooltip-content="Tooltip" class="btn airforce dark-3 rounded-1 shadow-1">Bottom</button>
-  </div>
+<button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip content" class="btn airforce dark-3 rounded-1 shadow-1">
+  Hover me
+</button>
+
+<script type="text/plain" class="language-markup">
+  <button id="tooltip1" data-ax="tooltip" data-tooltip-content="Tooltip content" class="btn airforce dark-3 rounded-1 shadow-1">
+    Hover me
+  </button>
+</script>
+
+<h2 class="subtitle" id="tooltip-style">Tooltip position</h2>
+
+<p>
+  Set the tooltip position using the <code class="language-css">position</code> option. <br>
+</p>
+
+<button id="tooltip-position" data-ax="tooltip" data-tooltip-content="Right tooltip" data-tooltip-position="right" class="btn airforce dark-3 rounded-1 shadow-1">
+  Hover me
+</button>
+
+<script type="text/plain" class="language-markup">
+  <button id="tooltip-position" data-ax="tooltip" data-tooltip-content="Right tooltip" data-tooltip-position="right" class="btn airforce dark-3 rounded-1 shadow-1">
+    Hover me
+  </button>
+</script>
+
+<h2 class="subtitle" id="tooltip-style">Tooltip style</h2>
+
+<p>
+  Set the tooltip style using the <code class="language-css">classes</code> option. <br>
+</p>
+
+<button
+  id="tooltip-styled"
+  data-ax="tooltip"
+  data-tooltip-content="Styled tooltip"
+  data-tooltip-position="right"
+  data-tooltip-classes="blue dark-1 light-shadow-2 py-2 px-4 rounded-3"
+  class="btn airforce dark-3 rounded-1 shadow-1"
+>
+  Styled tooltip
+</button>
+
+<script type="text/plain" class="language-markup">
+  <button
+    id="tooltip-styled"
+    data-ax="tooltip"
+    data-tooltip-content="Styled tooltip"
+    data-tooltip-position="right"
+    data-tooltip-classes="blue dark-1 light-shadow-2 py-2 px-4 rounded-3"
+    class="btn airforce dark-3 rounded-1 shadow-1"
+  >
+    Styled tooltip
+  </button>
 </script>
 
 <h2 class="subtitle" id="change-tooltip">Change tooltip</h2>
@@ -65,7 +79,7 @@ sidenav: components
   id="tooltip5"
   data-ax="tooltip"
   data-tooltip-position="right"
-  data-tooltip-classes="airforce light-2 light-shadow-2 p-2"
+  data-tooltip-classes="white light-shadow-2 p-2 rounded-1 bd-1 bd-solid bd-grey bd-light-2"
   data-tooltip-content="This is the new content"
   class="btn airforce dark-3 rounded-1 shadow-1"
 >
@@ -74,14 +88,14 @@ sidenav: components
 
 <script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
-  let tooltip = new Axentix.Tooltip('#tooltip5', {
+  let tooltip = new Axentix.Tooltip('#tooltip', {
       content: 'This is a tooltip',
       position: 'right'
   });
 
   tooltip.change({
     content: 'This is the new content'
-    classes: 'airforce light-2 light-shadow-2 p-2'
+    classes: 'white light-shadow-2 p-2 rounded-1 bd-1 bd-solid bd-grey bd-light-2'
   });
 </script>
 
@@ -94,10 +108,10 @@ sidenav: components
 
 <script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
-  let tooltip = new Axentix.Tooltip('#tooltip1');
+  let tooltip = new Axentix.Tooltip('#tooltip');
 
   // With options
-  let tooltip = new Axentix.Tooltip('#tooltip1', {
+  let tooltip = new Axentix.Tooltip('#tooltip', {
     content: 'This is a tooltip',
     classes: 'airforce light-2 light-shadow-2 p-2'
     position: 'bottom',
@@ -162,7 +176,7 @@ sidenav: components
 
 <script type="text/plain" class="language-js">
   // NOTE: this is NOT to be used if data-ax="tooltip" is set in your HTML
-  let tooltip = new Axentix.Tooltip('#tooltip1');
+  let tooltip = new Axentix.Tooltip('#tooltip');
 
   // Syntax : tooltip.{method}
   tooltip.show();
