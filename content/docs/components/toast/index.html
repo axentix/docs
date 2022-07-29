@@ -8,11 +8,11 @@ scripts:
   <script>
     const toastContent = `
       <div class='d-flex fx-col'>
-        <div class='d-flex white p-2'>
+        <div class='d-flex vcenter white p-2'>
           <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
-          <span class='mt-auto'>Star !</span>
-          <div class='ml-auto font-s1 mt-auto'>1min ago</div>
-          <div class='mt-auto ml-2'>X</div>
+          <span>Star !</span>
+          <div class='ml-auto font-s1 text-grey text-dark-2 mr-1'>1min ago</div>
+          <span class='iconify-inline text-grey text-dark-2 font-s3 mr-1' data-icon='mdi:close-circle'></span>
         </div>
         <div class='d-flex fx-col grey light-4 p-3'>
           Axentix repository won 1 star on github !
@@ -68,11 +68,11 @@ scripts:
     <script type="text/plain">
       const toastContent = `
         <div class='d-flex fx-col'>
-          <div class='d-flex white p-2'>
+          <div class='d-flex vcenter white p-2'>
             <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
-            <span class='mt-auto'>Star !</span>
-            <div class='ml-auto font-s1 mt-auto'>1min ago</div>
-            <div class='mt-auto ml-2'>X</div>
+            <span>Star !</span>
+            <div class='ml-auto font-s1 text-grey text-dark-2 mr-1'>1min ago</div>
+            <span class='iconify-inline text-grey text-dark-2 font-s3 mr-1' data-icon='mdi:close-circle'></span>
           </div>
           <div class='d-flex fx-col grey light-4 p-3'>
             Axentix repository won 1 star on github !
@@ -81,14 +81,14 @@ scripts:
         </div>
       `;
 
-      const toast = new Axentix.Toast('This is a toast', {
+      const customToast = new Axentix.Toast(toastContent, {
         classes: 'white p-0 rounded-1',
         offset: {
           y: '5%',
         }
       });
 
-      const showCustomToast = () => toast.show();
+      const showCustomToast = () => customToast.show();
     </script>
   </div>
 
