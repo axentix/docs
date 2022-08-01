@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta name="generator" content="Hugo 0.101.0" />
+        <title>Axentix - Modern framework to build websites faster</title>
+        
+        <meta name="description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
+        <meta property="og:description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
+        <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/2.2.x" />
+<meta property="og:image" content="https://useaxentix.com/2.2.x/img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/2.2.x/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/2.2.x/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/2.2.x/favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com/2.2.x/webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com/2.2.x/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+        
+        
+        
+
+        
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+        <link rel="stylesheet" href="/2.2.x/axentix/axentix.min.226ea372c544c58555dd5f09612b3f36f54e89b601d3152656ff218a965742fd.css"/>
+        <link rel="stylesheet" href="/2.2.x/home.min.1f1c88239228bb7decc0404978290b5035f1f5f77fea0771db89d9c80e9a5a76.css"/>
+    </head>
+
+    <body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/2.2.x" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/2.2.x/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.2.x">Home</a>
+
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.2.x/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/2.2.x/img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.2.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/' class="text-center dropdown-item py-3 ">
+           Latest  2.1.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.0.x/' class="text-center dropdown-item py-3 ">
+           2.0.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/1.3.x/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/2.2.x" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/2.2.x/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/2.2.x/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/tabs/">Tabs</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/2.2.x/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+        <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+        </svg>
+    
+        <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+            <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+            <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+            <div class="bg-blur bg-blur-colors orange rounded-full"></div>
+            <div class="bg-blur bg-blur-review blue rounded-full"></div>
+        </div>
+
+        <main> 
+  <section class="text-center d-flex fx-col" id="top">
+  <div class="container pt-4 d-flex fx-col vcenter">
+    <h1 class="font-w600 font-s9 relative-pos z-index-2">
+      Build <span class="orange-gradient text-gradient">modern</span> websites faster with Axentix.
+    </h1>
+
+    <h2 class="font-w400 font-s6 mb-5">
+      The framework mixing fully <strong class="font-w400">customizable components</strong> &
+      <strong class="font-w400">utility-first classes</strong>, leaving the design choice to the developer.
+    </h2>
+
+    <div class="d-flex vcenter">
+       
+      <a
+        class="github-button"
+        href="https://github.com/axentix/axentix"
+        data-icon="octicon-star"
+        data-size="large"
+        data-show-count="true"
+        aria-label="Star axentix/axentix on GitHub"
+      >
+        Star
+      </a>
+       
+      <em class="ml-3">Latest version: 2.1.1</em>
+    </div>
+
+    <div class="d-flex vcenter mt-3 top-wrap w100 fx-center">
+      <a
+        href="docs/getting-started"
+        class="orange-gradient col-xs1 btn btn-large rounded-4 font-w600 text-white relative-pos z-index-2 light-hoverable-1"
+      >
+        Get started
+      </a>
+      <script type="text/plain" class="disable-copy-btn language-shell relative-pos z-index-2 my-0">
+        npm install axentix
+      </script>
+    </div>
+  </div>
+
+  <div class="d-flex mb-5 mx-auto mt-2">
+    <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal mx-auto" id="ads-home"></div>
+  </div>
+
+  <div class="grix xs1 sm3 hide-sm-down top-footer vcenter center mt-auto">
+    <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
+      <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:developer-board"></span>
+      One class layout control
+      <div class="bd-r-1 bd-r-solid bd-orange separator absolute-pos ml-auto"></div>
+    </div>
+
+    <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
+      <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:pound"></span>
+      Components + utility-classes
+      <div class="bd-r-1 bd-r-solid bd-orange separator absolute-pos ml-auto"></div>
+    </div>
+
+    <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
+      <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:code-braces"></span>
+      Easy to use
+    </div>
+  </div>
+</section>
+
+
+  <section class="my-4" id="sponsors">
+  
+  <div class="grix xs1 sm2 lg4 gutter-xs4 text-center my-5 mx-3">
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°1</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°2</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°3</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">...</span>
+  </div>
+  <div class="d-flex fx-center">
+    <a
+      href="https://www.buymeacoffee.com/axentix"
+      target="_blank"
+      rel="noopener"
+      class="d-flex vcenter rounded-2 light-shadow-1 font-w600 p-2 mb-3"
+    >
+      <img height="40" src="https://useaxentix.com/2.2.x/img/bmc-logo.svg" alt="bmc" />
+      <div class="pl-2">Become a sponsor</div>
+    </a>
+  </div>
+</section>
+
+
+  
+  
+  <section id="grix" class="py-5">
+  <h2 class="text-center mx-2 my-5">
+    Easy grid system : The
+    <a class="text-primary" href="https://useaxentix.com/2.2.x/docs/general/grix">Grix</a>
+  </h2>
+
+  <div class="d-flex container fx-center vcenter pt-3">
+    <div class="grix-code rounded-2 shadow-1">
+      <div class="d-flex mb-1 mt-3">
+        <div class="p-2 red light-1 rounded-full ml-3"></div>
+        <div class="p-2 yellow rounded-full ml-2"></div>
+        <div class="p-2 green rounded-full ml-2"></div>
+      </div>
+      <pre class="language-html disable-copy-btn my-0">
+        <code>
+          &lt;div class="grix xs5 gutter-xs3"&gt;
+            &lt;div class="row-xs2"&gt;
+              1
+            &lt;/div&gt;
+            &lt;div class="pos-row-xs2 pos-xs2"&gt;
+              2
+            &lt;/div&gt;
+            &lt;div class="col-xs3"&gt;
+              3
+            &lt;/div&gt;
+            &lt;div&gt;
+              4
+            &lt;/div&gt;
+            &lt;div&gt;
+              5
+            &lt;/div&gt;
+            &lt;div class="pos-xs5"&gt;
+              6
+            &lt;/div&gt;
+          &lt;/div&gt;
+        </code>
+      </pre>
+    </div>
+
+    <div class="d-flex fx-col grix-side">
+      <p class="mb-4 font-s3 lh-4">
+        <strong>CSS Grid</strong> is awesome and allows to create any wanted layout. <br />
+        We made it even <strong>more accessible</strong> for anyone, creating the most <strong>easy to use</strong> grid
+        called <strong>Grix</strong>. <br />
+        <br />
+        Add the <strong>grix</strong> class, you get a <strong>grid</strong>. <br />
+        Add the <strong>breakpoint</strong> and the <strong>amount of column</strong> wanted, like <strong>xs5</strong>,
+        you get 5 columns on <strong>xs and larger devices</strong>.
+      </p>
+
+      <div class="grix-preview p-3 rounded-2">
+        <div class="grix xs5 gutter-xs3">
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2 row-xs2">1</div>
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2 pos-row-xs2 pos-xs2">2</div>
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2 col-xs3">3</div>
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2">4</div>
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2">5</div>
+          <div class="grix-box airforce dark-2 d-flex fx-center vcenter light-shadow-2 pos-xs5">6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <section id="colors">
+  <div class="d-flex fx-center container">
+    <div>
+      <h2 class="mt-3 mb-5">
+        A color palette with more than 130
+        <a href="https://useaxentix.com/2.2.x/docs/general/colors" data-colors="text">colors</a>
+      </h2>
+
+      <p class="mb-5 font-s3 lh-4">
+        Our
+        <a href="https://useaxentix.com/2.2.x/docs/general/colors#color-palette" class="text-primary">
+          <strong>color palette</strong>
+        </a>
+        provides a large choice of colors, which makes you able <strong>personalize your website as you want</strong>.
+        <br /><br />
+        Using them as <strong>background colors</strong> automatically generates a <strong>text color</strong> to
+        respect the <strong>accessibility</strong> the most possible.
+      </p>
+    </div>
+
+    <div class="color-components d-flex fx-center vcenter fx-col">
+      <div class="d-flex">
+        <button class="btn rounded-2 mr-3" data-colors="bg">Button</button>
+        <form>
+          <div class="form-field">
+            <label class="form-switch mt-2">
+              <input type="checkbox" checked />
+              <span class="form-slider"></span>
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="progress rounded-2 mt-3"><div class="progress-bar" data-colors="bg" style="width: 60%"></div></div>
+
+      <div class="color-card card white shadow-1 rounded-3">
+        <div class="color-spinner shadow-2 rounded-2 bd-3 bd-solid p-2 z-index-2" data-colors="bd">
+          <div class="spinner spinner-large" data-colors="text">
+            <svg viewBox="25 25 50 50">
+              <circle class="spinner-path" cx="50" cy="50" r="20" fill="none" stroke-width="3" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="d-flex vcenter">
+            <img
+              src="https://useaxentix.com/2.2.x/img/person.jpg"
+              alt="Person"
+              class="responsive-media rounded-full bd-solid bd-4"
+              data-colors="bd"
+            />
+
+            <div class="d-flex fx-col w100 pb-3 bd-1 bd-b-solid bd-grey bd-light-3 color-head">
+              <div class="color-hello" data-colors="bg,bd">Hello</div>
+
+              <span class="color-card-title font-w600">I'm John DOE</span>
+
+              <span class="color-card-job">Web Developer</span>
+            </div>
+          </div>
+
+          <p class="color-text mt-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero in molestias, dignissimos praesentium esse
+            laudantium iure autem! Quaerat quae itaque iste beatae quo, in unde eligendi expedita neque similique ex!
+          </p>
+        </div>
+
+        <div class="card-footer d-flex fx-center py-3" data-colors="bg">
+          <a
+            target="_blank"
+            href="https://twitter.com/UseAxentix"
+            rel="noopener"
+            class="p-1 rounded-full"
+            aria-label="Twitter"
+          >
+            <span class="iconify-inline" data-icon="mdi:twitter"></span>
+          </a>
+          <a
+            target="_blank"
+            href="https://discord.useaxentix.com/"
+            rel="noopener"
+            class="p-1 rounded-full ml-2"
+            aria-label="Discord"
+          >
+            <span class="iconify-inline" data-icon="mdi:discord"></span>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/axentix/"
+            rel="noopener"
+            class="p-1 rounded-full ml-2"
+            aria-label="Linkedin"
+          >
+            <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex container fx-center color-switcher rounded-4 p-1">
+    <div class="mx-1 rounded-full blue cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="blue"></div>
+    <div class="mx-1 rounded-full cyan cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="cyan"></div>
+    <div
+      class="mx-1 rounded-full airforce cursor-pointer light-shadow-2 light-hoverable-1"
+      data-color-btn="airforce"
+    ></div>
+    <div class="mx-1 rounded-full viride cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="viride"></div>
+    <div class="mx-1 rounded-full meadow cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="meadow"></div>
+    <div class="mx-1 rounded-full green cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="green"></div>
+    <div class="mx-1 rounded-full yellow cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="yellow"></div>
+    <div class="mx-1 rounded-full orange cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="orange"></div>
+    <div class="mx-1 rounded-full red cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="red"></div>
+    <div
+      class="mx-1 rounded-full amaranth cursor-pointer light-shadow-2 light-hoverable-1"
+      data-color-btn="amaranth"
+    ></div>
+    <div
+      class="mx-1 rounded-full magenta cursor-pointer light-shadow-2 light-hoverable-1"
+      data-color-btn="magenta"
+    ></div>
+    <div class="mx-1 rounded-full mole cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="mole"></div>
+    <div class="mx-1 rounded-full grey cursor-pointer light-shadow-2 light-hoverable-1" data-color-btn="grey"></div>
+  </div>
+
+  <p class="text-grey text-center font-s3">
+    <em>Pick a color</em>
+  </p>
+</section>
+
+  
+  <section class="overflow-hidden py-5">
+  <div class="container">
+    <div class="grix xs1 lg2 gutter-lg7 py-5">
+      <div class="d-flex fx-center vcenter my-2 pos-row-xs2 pos-row-lg1">
+        <img
+          src="https://useaxentix.com/2.2.x/img/snippets.gif"
+          data-ax="lightbox"
+          data-lightbox-caption="VSCode snippet extension"
+          id="lightbox"
+          class="lightbox responsive-media d-flex mx-auto rounded-2 light-shadow-2"
+          alt="vscode-icon"
+        />
+      </div>
+
+      <div class="vscode-text">
+        <h2 class="text-center mx-2 my-5 d-flex vcenter">
+          <span class="iconify-inline mr-2 font-s12 icon-gradient" data-icon="mdi:microsoft-visual-studio-code"></span>
+          <span class="ml-2">VSCode extension</span>
+        </h2>
+
+        <p class="mb-4 font-s3 lh-4">
+          Code an entire component by typing its name <br />
+          We provide a <strong>VSCode snippets extension</strong> to make you able to <strong>code faster</strong>
+
+          <a
+            class="btn orange-gradient font-w600 text-white rounded-4 light-hoverable-1 d-flex my-5 vcenter"
+            rel="noopener"
+            target="_blank"
+            href="https://marketplace.visualstudio.com/items?itemName=axentix.axentix-snippet"
+          >
+            <span class="iconify-inline font-s4 mr-2 hide-md-down" data-icon="mdi:chevron-left-circle"></span> Try it out
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="neumorph">
+  <div class="d-flex fx-center container neu-content">
+    <div class="neumorph-text d-flex fx-col mr-5">
+      <h2>Neumorphism</h2>
+      <p class="font-s3 lh-4 mt-5">
+        We created <strong>the first framework</strong> based on <strong>neumorphism design</strong>. <br />
+        This is an <strong>extension of Axentix</strong> which allows you to use
+        <strong>neumorphic shadows</strong> anywhere. <br />
+        <br />
+        Two basic themes are provided, <strong>dark</strong> and <strong>light</strong>. <br />
+        You can generate any <strong>theme color</strong> using our
+        <a href="https://neu.useaxentix.com/builder" target="_blank" rel="noopener" class="text-primary">
+          <strong>builder</strong></a
+        >. <br />
+        Here is an example of what type of design you can create using <strong>Neu-Axentix</strong>. <br />
+      </p>
+      <a
+        class="neu-btn btn orange-gradient text-white rounded-4 light-hoverable-1 font-w600 mt-3"
+        target="_blank"
+        rel="noopener"
+        href="https://neu.useaxentix.com/"
+      >
+        Get started
+        <span class="iconify-inline font-s4 hide-sm-down" data-icon="mdi:chevron-right-circle"></span>
+      </a>
+    </div>
+
+    <div class="mt-5 pt-3">
+      <form class="form-material">
+        <div class="form-default form-field">
+          <label class="form-switch font-s4 mt-2 mx-auto">
+            <span class="iconify-inline mr-1" data-icon="fa-regular:lightbulb"></span>
+            <input type="checkbox" id="neu-switch" checked />
+            <span class="form-slider"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </label>
+        </div>
+      </form>
+      <div class="device device-iphone-x neu-iphone mt-3">
+        <div class="device-frame z-index-2">
+          <div class="device-content d-flex fx-col z-index-1 neu-dark neu-bg-lighten" data-neu>
+            <div class="d-flex w100 pt-5 px-4">
+              <button
+                class="btn btn-small btn-circle neu-flat neu-small d-flex vcenter fx-center"
+                aria-label="Fake back button"
+              >
+                <span class="iconify-inline font-s3" data-icon="mdi:chevron-left"></span>
+              </button>
+              <span class="text-center mx-auto w100 my-auto font-s1">Insane song app</span>
+              <button
+                class="btn btn-small btn-circle neu-flat neu-small text-orange text-dark-1 ml-auto d-flex fx-center vcenter"
+                aria-label="Fake back button"
+              >
+                <span class="iconify-inline font-s3" data-icon="mdi:headphones"></span>
+              </button>
+            </div>
+
+            <img
+              id="song-image"
+              class="responsive-media mx-auto mt-4 mb-3 rounded-full neu-bordered neu-large"
+              src="https://useaxentix.com/2.2.x/img/headphones.jpg"
+              alt="song-image"
+            />
+
+            <span class="text-center font-s3">Song name</span>
+            <span class="text-center font-s1 mt-1 text-grey">Ft prestige music</span>
+
+            <div class="d-flex mx-5 text-grey text-light-2 pb-1 mt-5 song-time">
+              <span class="font-s1">2:12</span>
+              <span class="ml-auto font-s1">3:08</span>
+            </div>
+            <div class="relative-pos">
+              <div class="progress rounded-2 progress-small mx-auto">
+                <div class="progress-bar orange dark-1" style="width: 70%"></div>
+              </div>
+
+              <div class="progress-thumb shadow-1"></div>
+            </div>
+
+            <div class="footer mt-auto mb-5 fx-center">
+              <button
+                data-neu-click="neu-pressed"
+                class="btn btn-circle btn-small mr-4 neu-convex neu-small d-flex fx-center vcenter"
+                aria-label="Fake previous"
+              >
+                <span class="iconify-inline font-s3" data-icon="mdi:skip-backward"></span>
+              </button>
+              <button
+                class="btn btn-circle large mx-1 neu-concave neu-small font-s3 text-orange text-dark-1 d-flex fx-center vcenter"
+                aria-label="Fake play"
+                data-neu-click="neu-bordered"
+              >
+                <span class="iconify-inline font-s6" data-icon="mdi:play"></span>
+              </button>
+              <button
+                data-neu-click="neu-pressed"
+                class="btn btn-circle btn-small ml-4 neu-convex neu-small d-flex fx-center vcenter"
+                aria-label="Fake next"
+              >
+                <span class="iconify-inline font-s3" data-icon="mdi:skip-forward"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="device-stripe"></div>
+        <div class="device-header z-index-3"></div>
+        <div class="device-sensors"></div>
+        <div class="device-btns"></div>
+        <div class="device-power"></div>
+        <div class="device-home"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="my-5" id="reviews">
+  <h2 class="text-center mx-2 my-5 font-w600">What they are saying about us</h2>
+
+  <div class="reviews-wrapper overflow-hidden relative-pos mx-auto">
+    <div class="grix xs12 reviews-slides vstretch">
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Really like this framework. Easy to work with and there's a lot of flexibility."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Evolve Hosting</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"My quest has ended in finding the optimal CSS framework. So let's spread the word about Axentix."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Lerche</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">
+              "Thanks so much for this css framework! I just finished to port an app from a competitor and I am really impressed! I will be
+              using Axentix for a long time, I hope."
+            </p>
+
+            <strong class="text-white mt-auto ml-auto">- Proofrock</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Wow, 5 minutes checking out the docs and I am seriously impressed! Well done team."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Dave</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Axentix has significantly improved since I last used it. Well done team."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Edwadjei</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">
+              "The framework is so easy to familiarise with, I am beginning web development but I find myself very easily on the docs. Thank
+              you for the work you've done !"
+            </p>
+
+            <strong class="text-white mt-auto ml-auto">- Hikudo</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Really like this framework. Easy to work with and there's a lot of flexibility."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Evolve Hosting</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"My quest has ended in finding the optimal CSS framework. So let's spread the word about Axentix."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Lerche</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">
+              "Thanks so much for this css framework! I just finished to port an app from a competitor and I am really impressed! I will be
+              using Axentix for a long time, I hope."
+            </p>
+
+            <strong class="text-white mt-auto ml-auto">- Proofrock</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Wow, 5 minutes checking out the docs and I am seriously impressed! Well done team."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Dave</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">"Axentix has significantly improved since I last used it. Well done team."</p>
+
+            <strong class="text-white mt-auto ml-auto">- Edwadjei</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+
+      <div class="d-flex">
+        <div class="card rounded-3 text-grey text-light-4">
+          <div class="card-content d-flex fx-col">
+            <p class="mb-2">
+              "The framework is so easy to familiarise with, I am beginning web development but I find myself very easily on the docs. Thank
+              you for the work you've done !"
+            </p>
+
+            <strong class="text-white mt-auto ml-auto">- Hikudo</strong>
+          </div>
+        </div>
+
+        <div class="bd-r-1 bd-r-solid bd-orange mx-3 my-auto"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="community">
+  <h2 class="text-center mx-2 my-5 font-w600">Join the community</h2>
+
+  <div class="wrapper mx-3">
+    <div class="caroulix hide-md-up" id="community-caroulix" data-ax="caroulix" data-caroulix-autoplay-enabled="true">
+      <div class="caroulix-item pb-2">
+        <div class="d-flex fx-center px-2">
+          <div class="card tertiary rounded-2 shadow-1">
+            <div class="card-content d-flex text-center fx-col">
+              <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:discord"></span>
+
+              <strong class="mt-4 font-s4 mb-3">Join the conversation on Discord</strong>
+
+              <span class="text-grey text-light-2 font-w600 mb-5">Ask questions and share your tips</span>
+
+              <a
+                href="https//discord.useaxentix.com/"
+                target="_blank"
+                rel="noopener"
+                class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+                >Join now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="caroulix-item pb-2">
+        <div class="d-flex fx-center px-2">
+          <div class="card tertiary rounded-2 shadow-1">
+            <div class="card-content d-flex text-center fx-col">
+              <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:twitter"></span>
+
+              <strong class="mt-4 font-s4 mb-3">Join the conversation on Twitter</strong>
+
+              <span class="text-grey text-light-2 font-w600 mb-5">For announcements and general informations</span>
+
+              <a
+                href="https://twitter.com/UseAxentix"
+                target="_blank"
+                rel="noopener"
+                class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+                >Join now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="caroulix-item pb-2">
+        <div class="d-flex fx-center px-2">
+          <div class="card tertiary rounded-2 shadow-1">
+            <div class="card-content d-flex text-center fx-col">
+              <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:github"></span>
+
+              <strong class="mt-4 font-s4 mb-3">Join the conversation on Github</strong>
+
+              <span class="text-grey text-light-2 font-w600 mb-5">For issues, feature requests and contribute</span>
+
+              <a
+                href="https://github.com/axentix/axentix"
+                target="_blank"
+                rel="noopener"
+                class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+                >Join now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grix sm3 gutter-sm5 vstretch center hide-sm-down">
+      <div class="card tertiary rounded-2 shadow-1">
+        <div class="card-content d-flex text-center fx-col">
+          <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:discord"></span>
+
+          <strong class="mt-4 font-s4 mb-3">Join the conversation on Discord</strong>
+
+          <span class="text-grey text-light-2 font-w600 mb-5">Ask questions and share your tips</span>
+
+          <a
+            href="https://discord.useaxentix.com/"
+            target="_blank"
+            rel="noopener"
+            class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+            >Join now</a
+          >
+        </div>
+      </div>
+
+      <div class="card tertiary rounded-2 shadow-1">
+        <div class="card-content d-flex text-center fx-col">
+          <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:twitter"></span>
+
+          <strong class="mt-4 font-s4 mb-3">Join the conversation on Twitter</strong>
+
+          <span class="text-grey text-light-2 font-w600 mb-5">For announcements and general informations</span>
+
+          <a
+            href="https://twitter.com/UseAxentix"
+            target="_blank"
+            rel="noopener"
+            class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+            >Join now</a
+          >
+        </div>
+      </div>
+
+      <div class="card tertiary rounded-2 shadow-1">
+        <div class="card-content d-flex text-center fx-col">
+          <span class="iconify-inline mx-auto font-s11 icon-gradient" data-icon="mdi:github"></span>
+
+          <strong class="mt-4 font-s4 mb-3">Join the conversation on Github</strong>
+
+          <span class="text-grey text-light-2 font-w600 mb-5">For issues, feature requests and contribute</span>
+
+          <a
+            href="https://github.com/axentix/axentix"
+            target="_blank"
+            rel="noopener"
+            class="btn w100 mx-auto mt-auto mb-4 orange-gradient rounded-4 text-white"
+            >Join now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE
+</footer>
+
+        
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="/2.2.x/axentix/axentix.min.c8232c93828bb60e925cf4f0d1979113a3a40c1db219a96658aeb0a44b001e3f.js"></script>
+        <script src="/2.2.x/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+        <script src="/2.2.x/js/home.min.987b928a229076e3ce9a99ebf7857eda205cc513c7c480f00c9dbc0d7f835c9a.js"></script>
+
+        
+        
+        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+        <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149763613-1'></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+            dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-149763613-1');
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lightbox - Axentix</title>
+    <meta name="description" content="Axentix lightbox. The lightbox allows you to create a clickable image which will zoom and create an overlay as a material box." />
+    <meta property="og:description" content="Axentix lightbox. The lightbox allows you to create a clickable image which will zoom and create an overlay as a material box." />
+    <meta property="og:title" content="Lightbox - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/2.2.x" />
+<meta property="og:image" content="https://useaxentix.com/2.2.x/img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/2.2.x/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/2.2.x/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/2.2.x/favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com/2.2.x/webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com/2.2.x/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+      
+      
+      
+
+      
+      
+    <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="stylesheet" href="/2.2.x/axentix/axentix.min.226ea372c544c58555dd5f09612b3f36f54e89b601d3152656ff218a965742fd.css" />
+    <link rel="stylesheet" href="/2.2.x/docs.4bf1621efcbd365b5ea69186975d3ce43ea8f35ddf26ef59ace37693ca816193.css" />
+    
+  </head>
+
+  <body class="layout-under-navbar relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/2.2.x" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/2.2.x/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.2.x">Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.2.x/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav sidenav-fixed"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/2.2.x/img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.2.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/docs/components/lightbox/' class="text-center dropdown-item py-3 ">
+           Latest  2.1.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.0.x/docs/components/lightbox/' class="text-center dropdown-item py-3 ">
+           2.0.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/1.3.x/docs/components/lightbox/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/2.2.x" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/2.2.x/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/2.2.x/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link active" href="https://useaxentix.com/2.2.x/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/tabs/">Tabs</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.2.x/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/2.2.x/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
+
+    <main>
+      <div class="main-content container">
+        <div class="docs-head d-flex">
+          <div>
+            <h1 id="title">Lightbox</h1>
+            <p></p>
+          </div>
+
+          <div
+            data-ea-publisher="useaxentix-com"
+            data-ea-type="image"
+            class="flat horizontal ml-auto z-index-1"
+            id="ads-docs"
+          ></div>
+        </div>
+
+        <div class="d-flex relative-pos">
+          <div class="content">
+  
+<p>
+  We created our version of the <strong>lightbox plugin</strong>, also called <strong>material box</strong>. <br />
+  This allows you to create <b>clickable images</b> which will be <b>smoothly enlarged</b>. <br />
+  You can escape the enlarged view by <b>clicking</b> on the image or the overlay, pressing the <b>Escape key</b> or by
+  <b>scrolling</b>. <br />
+  <i>Note that you can set the <b>width and height attributes</b> on the img to resize it, all will work normally.</i>
+</p>
+
+<img
+  data-ax="lightbox"
+  id="example-lightbox"
+  class="lightbox responsive-media"
+  src="https://picsum.photos/1000/300?random=1"
+  alt="picsum"
+/>
+
+<script type="text/plain" class="language-markup">
+  <img data-ax="lightbox" id="example-lightbox" class="lightbox responsive-media" src="https://picsum.photos/1000/300?random=1" alt="picsum" />
+</script>
+
+<h2 class="subtitle" id="with-caption">With caption</h2>
+
+<p>
+  The <strong>material box</strong> component can add a caption to a <strong>lightbox</strong> to describe the image.
+  <br />
+  Here you can add <strong>HTML</strong> inside the caption to create whatever you want.
+</p>
+
+<img
+  data-ax="lightbox"
+  data-lightbox-caption="This is a caption"
+  id="example-lightbox2"
+  class="lightbox responsive-media"
+  src="https://picsum.photos/1920/1080?random=2"
+  alt="picsum2"
+/>
+
+<script type="text/plain" class="language-markup">
+  <img data-ax="lightbox" data-lightbox-caption="This is a caption" id="example-lightbox2" class="lightbox responsive-media" src="https://picsum.photos/1920/1080?random=2" alt="picsum2" />
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>lightbox</strong> with this simple code. <br />
+  Just pass the id of your <strong>lightbox</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="lightbox" is set in your HTML
+  let lightbox = new Axentix.Lightbox('#example-lightbox');
+
+  // With options
+  let lightbox = new Axentix.Lightbox('#example-lightbox', {
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="https://useaxentix.com/2.2.x/docs/general/js-init/">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="Options">Options</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationDuration</td>
+        <td>400</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>overlayClass</td>
+        <td>'grey dark-4'</td>
+        <td>
+          Set the classes of the overlay. Choose your color on the
+          <a class="text-blue" href="https://useaxentix.com/2.2.x/docs/general/colors/#color-palette">color</a> page.
+        </td>
+      </tr>
+      <tr>
+        <td>offset</td>
+        <td>150</td>
+        <td>Offset between the border of the page and the image.</td>
+      </tr>
+      <tr>
+        <td>mobileOffset</td>
+        <td>80</td>
+        <td>Offset between the border of the page and the image on mobile (width <= 960px).</td>
+      </tr>
+      <tr>
+        <td>caption</td>
+        <td>''</td>
+        <td>The caption is the HTML content you want to add as a caption.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="Methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="lightbox" is set in your HTML
+  let lightbox = new Axentix.Lightbox('#example-lightbox', {
+    animationDuration: 500
+  });
+
+  // Syntax : lightbox.{method}
+  lightbox.open();
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>open()</td>
+        <td>Open the lightbox.</td>
+      </tr>
+      <tr>
+        <td>close()</td>
+        <td>Close the lightbox.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+    // Listen to all lightbox instances
+  document.addEventListener('ax.lightbox.open', function() {
+    // open event !
+  });
+
+  // Listen to only one lightbox instance
+  let lightboxQuery = document.querySelector('#example-lightbox');
+  lightboxQuery.addEventListener('ax.lightbox.open', function() {
+    // open event only on #example-lightbox
+  });
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.lightbox.setup</td>
+        <td>Event sent when the lightbox has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.open</td>
+        <td>Event sent when the lightbox opening starts.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.opened</td>
+        <td>Event sent when the lightbox opening ends.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.close</td>
+        <td>Event sent when the lightbox closing starts.</td>
+      </tr>
+      <tr>
+        <td>ax.lightbox.closed</td>
+        <td>Event sent when the lightbox closing ends.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+          <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
+
+            
+            <a
+              href="https://www.buymeacoffee.com/axentix"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-small btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+            >
+              <span class="btn-outline-text">Become a sponsor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main><footer class="footer fx-center text-center">Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE</footer>
+ 
+     
+    
+    
+    
+    
+    <script src="/2.2.x/js/try-it.min.4ec3f31a1d52f676b203889928e94428f32532c96dd7916e1d919006af6bd0ff.js"></script>
+    <script src="/2.2.x/axentix/axentix.min.c8232c93828bb60e925cf4f0d1979113a3a40c1db219a96658aeb0a44b001e3f.js"></script>
+    <script src="/2.2.x/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/2.2.x/js/docs.min.fc7d7d18176f69e367b10e37019a174a52a6a73202d8ea9c12b99e502b1d872e.js"></script>
+    <script>
+      const baseURL = 'https:\/\/useaxentix.com\/2.2.x';
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      docsearch({
+        apiKey: '5eae298506cf8352bb7462dc2ff37f9d',
+        appId: 'M9XK4LRAZA',
+        indexName: 'useaxentix',
+        container: '#search-input',
+        debug: false,
+      });
+    </script>
+
+     
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-149763613-1');
+    </script>
+     
+  </body>
+</html>
