@@ -1,0 +1,41 @@
+---
+title: 'Tag'
+description: 'Axentix tag. The tag allow you to create elements representing selected keywords.'
+type: 'docs'
+sidenav: components
+---
+
+<h2 class="subtitle" id="basic-tag">Basic tag</h2>
+
+<p>
+  The Axentix <strong>tag</strong> is a simple component made using only our <strong>utilities classes</strong>.
+  Creating <strong>simple tags</strong> is easy using our utilities classes. Here is an example you can use :
+</p>
+
+<div class="d-inline-block grey light-3 py-2 px-3 rounded-3">Keyword</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="d-inline-block grey light-3 py-2 px-3 rounded-3">Keyword</div>
+</script>
+
+<h2 class="subtitle" id="closable-tag">Closable tag</h2>
+
+<p>
+  You can create closable tags using the <a class="text-primary" href="{{< ref "" >}}">close</a> utility.<br />
+</p>
+
+<div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+  Keyword 
+  <div data-close="closable">
+    <span class='iconify-inline text-grey text-dark-2 font-s3 ml-2' data-icon='mdi:close-circle'></span>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+    Keyword 
+    <div data-close="closable">
+      <span class='iconify-inline text-grey text-dark-2 font-s3 ml-2' data-icon='mdi:close-circle'></span>
+    </div>
+  </div>
+</script>
