@@ -1,0 +1,189 @@
+---
+title: 'Close'
+description: 'Axentix close utility. The close utility helps you to remove any element of your page.'
+type: 'docs'
+sidenav: utilities
+---
+
+<h2 class="subtitle" id="close-any-element">Close any element</h2>
+
+<p>
+  To close anything on your page, <strong>select an element which will be closed and set its ID</strong>. <br />
+  Then, select the item closing it and add <code class="language-markup">data-close="ID"</code>. <br />
+  Clicking on this last element will close the first one.
+</p>
+
+<div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+  Keyword
+  <div data-close="closable">
+    <span class="iconify-inline text-grey text-dark-2 font-s3 ml-2" data-icon="mdi:close-circle"></span>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+    Keyword
+    <div data-close="closable">
+      <span class='iconify-inline text-grey text-dark-2 font-s3 ml-2' data-icon='mdi:close-circle'></span>
+    </div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="close-advanced-example">Close advanced example</h2>
+
+<p>
+  Use the <strong>close utility</strong> to close any element of your page. <br />
+  Here is an exemple of usage :
+</p>
+
+<div class="card white light-shadow-2 p-3 rounded-2">
+  <div class="table-responsive">
+    <table class="table" aria-label="Closable rows example">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="row1">
+          <td>
+            <div class="d-flex vcenter">
+              <img
+                src="https://xsgames.co/randomusers/assets/avatars/male/2.jpg"
+                alt="Grover Fermaint"
+                width="50"
+                height="50"
+                class="rounded-2 mr-2"
+              />
+              <p>
+                <strong>Grover Fermaint</strong><br />
+                <span class="text-grey">grover@example.com</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <strong>CEO</strong><br />
+            <span class="text-grey">Management</span>
+          </td>
+          <td>
+            <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">Active</div>
+          </td>
+          <td>
+            <div data-close="row1" class="d-inline-block">
+              <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            </div>
+          </td>
+        </tr>
+        <tr id="row2">
+          <td>
+            <div class="d-flex vcenter">
+              <img
+                src="https://xsgames.co/randomusers/assets/avatars/female/46.jpg"
+                alt="Rea Budgett"
+                width="50"
+                height="50"
+                class="rounded-2 mr-2"
+              />
+              <p>
+                <strong>Rea Budgett</strong><br />
+                <span class="text-grey">rea@example.com</span>
+              </p>
+            </div>
+          </td>
+          <td>
+            <strong>Technical Lead</strong><br />
+            <span class="text-grey">Development</span>
+          </td>
+          <td>
+            <div class="p-2 rounded-4 font-s1 font-w600 blue light-4 text-blue text-dark-3 d-inline-block">Vacation</div>
+          </td>
+          <td>
+            <div data-close="row2" class="d-inline-block">
+              <span class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup code-max-height">
+  <div class="card white light-shadow-2 p-3 rounded-2">
+    <div class="table-responsive">
+      <table class="table" aria-label="Closable rows example">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="row1">
+            <td>
+              <div class="d-flex vcenter">
+                <img
+                  src="https://xsgames.co/randomusers/assets/avatars/male/2.jpg"
+                  alt="Grover Fermaint"
+                  width="50"
+                  height="50"
+                  class="rounded-2 mr-2"
+                />
+                <p>
+                  <strong>Grover Fermaint</strong><br />
+                  <span class="text-grey">grover@example.com</span>
+                </p>
+              </div>
+            </td>
+            <td>
+              <strong>CEO</strong><br />
+              <span class="text-grey">Management</span>
+            </td>
+            <td>
+              <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">Active</div>
+            </td>
+            <td>
+              <div data-close="row1" class="d-inline-block">
+                <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              </div>
+            </td>
+          </tr>
+          <tr id="row2">
+            <td>
+              <div class="d-flex vcenter">
+                <img
+                  src="https://xsgames.co/randomusers/assets/avatars/female/46.jpg"
+                  alt="Rea Budgett"
+                  width="50"
+                  height="50"
+                  class="rounded-2 mr-2"
+                />
+                <p>
+                  <strong>Rea Budgett</strong><br />
+                  <span class="text-grey">rea@example.com</span>
+                </p>
+              </div>
+            </td>
+            <td>
+              <strong>Technical Lead</strong><br />
+              <span class="text-grey">Development</span>
+            </td>
+            <td>
+              <div class="p-2 rounded-4 font-s1 font-w600 blue light-4 text-blue text-dark-3 d-inline-block">Vacation</div>
+            </td>
+            <td>
+              <div data-close="row2" class="d-inline-block">
+                <span class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</script>
