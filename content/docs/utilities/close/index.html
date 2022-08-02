@@ -38,7 +38,7 @@ sidenav: utilities
 
 <div class="card white light-shadow-2 p-3 rounded-2">
   <div class="table-responsive">
-    <table class="table">
+    <table class="table" aria-label="Closable rows example">
       <thead>
         <tr>
           <th>Name</th>
@@ -72,7 +72,9 @@ sidenav: utilities
             <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">Active</div>
           </td>
           <td>
-            <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            <div data-close="row1" class="d-inline-block">
+              <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            </div>
           </td>
         </tr>
         <tr id="row2">
@@ -99,7 +101,9 @@ sidenav: utilities
             <div class="p-2 rounded-4 font-s1 font-w600 blue light-4 text-blue text-dark-3 d-inline-block">Vacation</div>
           </td>
           <td>
-            <span data-close="row2" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            <div data-close="row2" class="d-inline-block">
+              <span class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -110,7 +114,7 @@ sidenav: utilities
 <script type="text/plain" class="language-markup code-max-height">
   <div class="card white light-shadow-2 p-3 rounded-2">
     <div class="table-responsive">
-      <table class="table">
+      <table class="table" aria-label="Closable rows example">
         <thead>
           <tr>
             <th>Name</th>
@@ -144,7 +148,9 @@ sidenav: utilities
               <div class="p-2 rounded-4 font-s1 font-w600 green light-4 text-green text-dark-4 d-inline-block">Active</div>
             </td>
             <td>
-              <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              <div data-close="row1" class="d-inline-block">
+                <span data-close="row1" class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              </div>
             </td>
           </tr>
           <tr id="row2">
@@ -171,7 +177,9 @@ sidenav: utilities
               <div class="p-2 rounded-4 font-s1 font-w600 blue light-4 text-blue text-dark-3 d-inline-block">Vacation</div>
             </td>
             <td>
-              <span class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              <div data-close="row2" class="d-inline-block">
+                <span class="iconify-inline font-s5 cursor-pointer" data-icon="mdi:trash"></span>
+              </div>
             </td>
           </tr>
         </tbody>
