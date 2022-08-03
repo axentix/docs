@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modal - Axentix</title>
+    <meta name="description" content="Axentix modal. The modals allow you to create dialogs windows on your website." />
+    <meta property="og:description" content="Axentix modal. The modals allow you to create dialogs windows on your website." />
+    <meta property="og:title" content="Modal - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/2.1.x" />
+<meta property="og:image" content="https://useaxentix.com/2.1.x/img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/2.1.x/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/2.1.x/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/2.1.x/favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com/2.1.x/webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com/2.1.x/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+      
+      
+      
+
+      
+      
+    <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="stylesheet" href="/2.1.x/axentix/axentix.min.f7dcdccaa813b38c4c117d2803089510a68cf3a3bf02b9dc30dd4c3cc02c11b4.css" />
+    <link rel="stylesheet" href="/2.1.x/docs.4bf1621efcbd365b5ea69186975d3ce43ea8f35ddf26ef59ace37693ca816193.css" />
+    
+  </head>
+
+  <body class="layout-under-navbar relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/2.1.x" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/2.1.x/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.1.x">Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.1.x/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav sidenav-fixed"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/2.1.x/img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.1.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.1.x/docs/components/modal/' class="text-center dropdown-item py-3 font-w600">
+           2.1.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.0.x/docs/components/modal/' class="text-center dropdown-item py-3 ">
+           2.0.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/1.3.x/docs/components/modal/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/2.1.x" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/2.1.x/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/2.1.x/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link active" href="https://useaxentix.com/2.1.x/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/tabs/">Tabs</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.1.x/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/2.1.x/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
+
+    <main>
+      <div class="main-content container">
+        <div class="docs-head d-flex">
+          <div>
+            <h1 id="title">Modal</h1>
+            <p></p>
+          </div>
+
+          <div
+            data-ea-publisher="useaxentix-com"
+            data-ea-type="image"
+            class="flat horizontal ml-auto z-index-1"
+            id="ads-docs"
+          ></div>
+        </div>
+
+        <div class="d-flex relative-pos">
+          <div class="content">
+  
+<div class="try-it try-it-load-initial">
+  <div class="try-it-example p-3 d-flex">
+    <button class="btn blue mx-auto rounded-1" data-target="modal">Open</button>
+
+    <div class="modal modal-bouncing white rounded-2 shadow-1" id="modal" data-ax="modal" style="max-width: 400px;">
+      <div class="modal-header text-center pb-1 pt-4">
+        Welcome back <strong>dear</strong>
+      </div>
+
+      <div class="modal-content">
+        <form class="form-material form-material-bordered">
+          <div class="form-field">
+            <input type="text" id="pseudo" class="form-control rounded-4" />
+            <label for="pseudo">Pseudo</label>
+          </div>
+          <div class="form-field">
+            <input type="password" id="password" class="form-control rounded-4" />
+            <label for="password">Password</label>
+          </div>
+          <div class="form-field">
+            <label class="form-check">
+              <input type="checkbox" value="check" class="rounded-1" />
+              <span>Remember me</span>
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer d-flex pt-2">
+        <button class="btn btn-small red light-4 text-red rounded-2 ml-auto mr-2" data-target="modal">Cancel</button>
+        <button class="btn btn-small blue rounded-2">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
+
+<h2 class="subtitle" id="basic-modal">Basic modal</h2>
+<p>
+  Modals are usefull to display content over your page. <br>
+  To create a modal, add the <code class="language-css">.modal</code> class <strong>and an ID</strong>.
+  <br />
+  To trigger it, create a button or element with the <code class="language-css">data-target=""</code> <strong>pointing on the modal ID</strong>,
+  and initialize the modal with JS. <br />
+  A basic modal <strong>comes out from its central position</strong>. <br />
+  Note that you can add a new element with <code class="language-css">data-target=""</code> inside a modal to <strong>open a second one</strong> over it. <br>
+  <em>The new overlay will be placed over the last modal too.</em>
+</p>
+
+<button class="btn rounded-1 primary" data-target="modal-example">Open</button>
+
+<div class="modal shadow-1 white rounded-3" id="modal-example">
+  <div class="modal-header">
+    Header
+  </div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="modal-footer">Footer</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white rounded-3" id="modal-example" data-ax="modal">
+    <div class="modal-header">
+      Header
+    </div>
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+    <div class="modal-footer">
+      Footer
+    </div>
+  </div>
+  
+  <button class="btn rounded-1 primary" data-target="modal-example">Open</button>
+</script>
+
+<h2 class="subtitle" id="falling-modal">Falling modal</h2>
+<p>
+  A modal can be opened with a falling effect using the <code class="language-css">.modal-falling</code> class on the modal
+  element.
+</p>
+
+<button class="btn primary rounded-1" data-target="modal-example2">Open</button>
+
+<div class="modal shadow-1 white modal-falling" id="modal-example2">
+  <div class="modal-header">Header</div>
+  <div class="divider"></div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero. <br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="divider"></div>
+  <div class="modal-footer">
+    <button data-target="modal-example2" class="ml-auto btn shadow-1 rounded-1 btn-small primary">
+      Close
+    </button>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white modal-falling" id="modal-example" data-ax="modal">
+    <div class="modal-header">Header</div>
+
+    <div class="divider"></div>
+
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero. <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="modal-footer">
+      <button data-target="modal-example" class="ml-auto btn shadow-1 rounded-1 btn-small primary">Close</button>
+    </div>
+  </div>
+
+  <button class="btn primary rounded-1" data-target="modal-example">Open</button>
+</script>
+
+<h2 class="subtitle" id="bouncing-modal">Bouncing modal</h2>
+<p>
+  A modal can be opened with a bouncing effect using the <code class="language-css">.modal-bouncing</code> class on the modal
+  element.
+</p>
+
+<button class="btn primary rounded-1" data-target="modal-example3">Open</button>
+
+<div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example3">
+  <div class="modal-header">
+    Header
+  </div>
+  <div class="modal-content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio
+    iusto voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor
+    sit amet consectetur adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo
+    illum. Vel, labore iure aut sed nobis officiis itaque molestias rerum natus vero.
+  </div>
+  <div class="modal-footer">Footer</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="modal shadow-1 white rounded-3 modal-bouncing" id="modal-example" data-ax="modal">
+    <div class="modal-header">
+      Header
+    </div>
+    <div class="modal-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores dolorum eum in totam amet soluta! Id distinctio iusto
+      voluptatum ipsam officia, odit neque, fuga, commodi totam repellendus deserunt quod laborum? Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Assumenda nostrum doloribus quisquam minima minus animi voluptatum illo illum. Vel, labore iure aut sed nobis
+      officiis itaque molestias rerum natus vero.
+    </div>
+    <div class="modal-footer">
+      Footer
+    </div>
+  </div>
+  
+  <button class="btn primary rounded-1" data-target="modal-example">Open</button>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">Javascript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>modal</strong> with this simple code. <br />
+  Just pass the id of your <strong>modal</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="modal" is set in your HTML
+  let modal = new Axentix.Modal('#modal-example');
+
+  // With options
+  let modal = new Axentix.Modal('#modal-example', {
+    overlay: false,
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="https://useaxentix.com/2.1.x/docs/general/js-init/">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="options">Options</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>overlay</td>
+        <td>true</td>
+        <td>Toggle overlay when modal is active.</td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>400</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>bodyScrolling</td>
+        <td>false</td>
+        <td>Enable or disable bodyScrolling when the modal is active and over content.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="modal" is set in your HTML
+  let modal = new Axentix.Modal('#modal-example');
+
+  // Syntax : modal.{method}
+  modal.open();
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.open()</td>
+        <td>Open modal</td>
+      </tr>
+      <tr>
+        <td>.close()</td>
+        <td>Close modal</td>
+      </tr>
+      <tr>
+        <td>.overlay(boolean)</td>
+        <td>
+          Enable / disable overlay, works only if overlay option is enabled.<br />Example :
+          <code class="language-js">modal.overlay(true);</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+  // Listen to all modal instances
+  document.addEventListener('ax.modal.open', function() {
+    // open event !
+  });
+
+  // Listen to only one modal instance
+  let modalQuery = document.querySelector('#example-modal');
+  modalQuery.addEventListener('ax.modal.open', function() {
+    // open event only on #example-modal
+  });
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.modal.setup</td>
+        <td>Event sent when the modal has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.open</td>
+        <td>Event sent when the <code class="language-js">open()</code> method is called.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.opened</td>
+        <td>Event sent when the modal has been opened.</td>
+      </tr>
+      <tr>
+        <td>ax.modal.close</td>
+        <td>Event sent when the <code class="language-js">close()</code> method is called.</td>
+      </tr>
+
+      <tr>
+        <td>ax.modal.closed</td>
+        <td>Event sent when the modal has been closed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+        
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-modal-top</code>
+        </td>
+        <td>10%</td>
+        <td>
+          Modal top offset.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">--ax-modal-max-height</code>
+        </td>
+        <td>80%</td>
+        <td>
+          Modal maximum height.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+          <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
+
+            
+            <a
+              href="https://www.buymeacoffee.com/axentix"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-small btn-outline rounded-3 mt-2 coffee-link scrollspy-sponsor"
+            >
+              <span class="btn-outline-text">Become a sponsor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main><footer class="footer fx-center text-center">Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE</footer>
+ 
+     
+    
+    
+    
+    
+    <script src="/2.1.x/js/try-it.min.4ec3f31a1d52f676b203889928e94428f32532c96dd7916e1d919006af6bd0ff.js"></script>
+    <script src="/2.1.x/axentix/axentix.min.71d894a536560abc5ac16572e3426ef09972871c067df661e455a128387eecfa.js"></script>
+    <script src="/2.1.x/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/2.1.x/js/docs.min.fc7d7d18176f69e367b10e37019a174a52a6a73202d8ea9c12b99e502b1d872e.js"></script>
+    <script>
+      const baseURL = 'https:\/\/useaxentix.com\/2.1.x';
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      docsearch({
+        apiKey: '5eae298506cf8352bb7462dc2ff37f9d',
+        appId: 'M9XK4LRAZA',
+        indexName: 'useaxentix',
+        container: '#search-input',
+        debug: false,
+      });
+    </script>
+
+     
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149763613-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-149763613-1');
+    </script>
+      <script> let exampleModal = new Axentix.Modal("#modal-example"); let exampleModal2 = new Axentix.Modal("#modal-example2"); let exampleModal3 = new Axentix.Modal("#modal-example3"); </script>
+  </body>
+</html>
