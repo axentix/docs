@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Waves (ripple) - Axentix</title>
-    <meta name="description" content="Axentix waves. Also knwon as ripple effect, the waves allow you to create an animation when clicking on an element of the page. You can custom the waves color at any time by specifying it." />
-    <meta property="og:description" content="Axentix waves. Also knwon as ripple effect, the waves allow you to create an animation when clicking on an element of the page. You can custom the waves color at any time by specifying it." />
-    <meta property="og:title" content="Waves (ripple) - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Tag - Axentix</title>
+    <meta name="description" content="Axentix tag. The tag allow you to create elements representing selected keywords." />
+    <meta property="og:description" content="Axentix tag. The tag allow you to create elements representing selected keywords." />
+    <meta property="og:title" content="Tag - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -115,7 +115,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/components/waves/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/docs/components/tag/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.2.x
         </a>
       
@@ -125,7 +125,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.1.x/docs/components/waves/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.1.x/docs/components/tag/' class="text-center dropdown-item py-3 ">
            2.1.x
         </a>
       
@@ -135,7 +135,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.0.x/docs/components/waves/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.0.x/docs/components/tag/' class="text-center dropdown-item py-3 ">
            2.0.x
         </a>
       
@@ -145,7 +145,7 @@
           
         
 
-        <a href='https://useaxentix.com/1.3.x/docs/components/waves/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/1.3.x/docs/components/tag/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -431,7 +431,7 @@
       
     
       
-      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tag/">Tag</a>
+      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/tag/">Tag</a>
       
     
       
@@ -453,7 +453,7 @@
       
     
       
-      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
       
     
     </div>
@@ -1000,7 +1000,7 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Waves (ripple)</h1>
+            <h1 id="title">Tag</h1>
             <p></p>
           </div>
 
@@ -1015,78 +1015,40 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle" id="basic-waves">Basic waves</h2>
+<h2 class="subtitle" id="basic-tag">Basic tag</h2>
 
 <p>
-  Also known as <strong>ripple effect</strong>, <strong>waves</strong> are used to add a <strong>smooth animation</strong> to any element
-  when clicking on it. <br />
-  Adding <strong>waves</strong> to an element only require to add the <code class="language-markup">data-waves</code> attribute to it.
-  <br />
-  Click on the next examples to see the <strong>waves</strong> effect :
+  The Axentix <strong>tag</strong> is a simple component made using only our <strong>utilities classes</strong>.
+  Creating <strong>simple tags</strong> is easy using our utilities classes. Here is an example you can use :
 </p>
 
-<button data-waves class="btn primary rounded-1">Click me</button>
+<div class="d-inline-block grey light-3 py-2 px-3 rounded-3">Keyword</div>
 
-<script type="text/plain" class="language-markup mt-5">
-  <button data-waves class="btn primary rounded-1">Click me</button>
+<script type="text/plain" class="language-markup">
+  <div class="d-inline-block grey light-3 py-2 px-3 rounded-3">Keyword</div>
 </script>
 
-<h2 class="subtitle" id="waves-on-images">Waves on images</h2>
+<h2 class="subtitle" id="closable-tag">Closable tag</h2>
 
 <p>
-  <strong>Waves</strong> are working on <code class="language-markup">img</code> and <code class="language-markup">video</code> elements
-  too. <br />
-  The only difference is functional, the <strong>waves element</strong> will be append to the body and not inside of the element.
+  You can create closable tags using the <a class="text-primary" href="https://useaxentix.com/docs/utilities/close/">close</a> utility.<br />
 </p>
 
-<img data-waves src="https://picsum.photos/800/450?random=1" alt="img1" class="responsive-media" />
-
-<script type="text/plain" class="language-markup mt-5">
-  <img data-waves src="https://picsum.photos/800/450?random=1" alt="img1" class="responsive-media" />
-</script>
-
-<h2 class="subtitle" id="waves-colors">Waves colors</h2>
-
-<p>
-  Customize the <strong>waves color</strong> by specifying it to the <code class="language-markup">data-waves</code> attribute. <br />
-  This is useful to match your <strong>website design</strong> or to get <strong>dark waves</strong> for light elements.
-</p>
-
-<button data-waves class="btn blue rounded-1 my-2">Basic waves</button>
-<button data-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1 my-2">Dark waves</button>
-<button data-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1 my-2">Red waves</button>
-
-<script type="text/plain" class="language-markup mt-5">
-  <button data-waves class="btn blue rounded-1">Basic waves</button>
-  <button data-waves="rgba(0, 0, 0, 0.1)" class="btn blue rounded-1">Dark waves</button>
-  <button data-waves="rgba(255, 0, 0, 0.1)" class="btn grey light-2 rounded-1">Red waves</button>
-</script>
-
-<h2 class="subtitle" id="styling">Styling</h2>
-
-<div class="responsive-table">
-  <table class="table table-hover" aria-label="styling table">
-    <thead>
-      <tr>
-        <th scope="col">CSS Variable</th>
-        <th scope="col">Default value</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <code class="language-css">--ax-waves-color</code>
-        </td>
-        <td>rgba(255, 255, 255, 0.1)</td>
-        <td>
-          Global <strong>default waves color</strong>. <br />
-          Accepts all css color values (rgba, hex, rgb).
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+  Keyword 
+  <div data-close="closable">
+    <span class='iconify-inline text-grey text-dark-2 font-s3 ml-2' data-icon='mdi:close-circle'></span>
+  </div>
 </div>
+
+<script type="text/plain" class="language-markup">
+  <div class="d-inline-flex grey light-3 py-2 px-3 rounded-3" id="closable">
+    Keyword 
+    <div data-close="closable">
+      <span class='iconify-inline text-grey text-dark-2 font-s3 ml-2' data-icon='mdi:close-circle'></span>
+    </div>
+  </div>
+</script>
 
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
