@@ -6,17 +6,49 @@ sidenav: components
 scripts:
   - "
   <script>
-    var toast = new Axentix.Toast('This is a toast', {
-      classes: 'secondary rounded-2 shadow-2'
+    const toastContent = `
+      <div class='d-flex fx-col w100'>
+        <div class='d-flex vcenter white p-2'>
+          <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
+          <span>Star !</span>
+          <div class='ml-auto font-s1 text-grey text-dark-2 mr-1'>1min ago</div>
+          <div data-toast-close class='mr-1 cursor-pointer'>
+            <span class='iconify-inline text-grey text-dark-2 font-s3' data-icon='mdi:close-circle'></span>
+          </div>
+        </div>
+        <div class='d-flex fx-col grey light-4 p-3'>
+          Axentix repository won 1 star on github !
+          <a class='btn btn-small d-flex text-blue text-dark-1 font-s1 font-w600 ml-auto my-auto blue light-4 rounded-3 mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>
+            Add a star
+          </a>
+        </div>
+      </div>
+    `;
+
+    let toast = new Axentix.Toast('This is a toast', {
+      classes: 'secondary rounded-2 shadow-2',
+      isClosable: false
     });
   
+    function showCustomToast() {
+      toast.change(toastContent, {
+        classes: 'white p-0 rounded-1',
+        duration: 500000,
+        isClosable: false,
+        offset: {
+          y: '6%',
+        }
+      });
+      toast.show();
+    };
+
     function showToast() {
       toast.change('This is a toast', {
         classes: 'secondary rounded-2 shadow-2',
         isClosable: false
       });
       toast.show();
-    }
+    };
   
     function showClosableToast() {
       toast.change('This is a closable toast', {
@@ -24,7 +56,7 @@ scripts:
         isClosable: true
       });
       toast.show();
-    }
+    };
   
     function showChangedToast() {
       toast.change('This is the new html content <br> This is at the second line.', {
@@ -32,9 +64,68 @@ scripts:
         isClosable: false
       });
       toast.show();
+    };
+
+    function showCustomCloseToast() {
+      toast.change(`
+        <div class='d-flex p-3'>
+          This is a toast
+          <div data-toast-close>
+            <span class='iconify-inline text-grey text-dark-2 font-s3' data-icon='mdi:close-circle'></span>
+          </div>
+        </div>
+      `, {
+        classes: 'white p-0 rounded-1',
+        isClosable: false,
+        offset: {
+          y: '6%',
+        }
+      });
+      toast.show();
     }
   </script>"
 ---
+
+<div class="try-it try-it-load-initial">
+  <div class="try-it-example p-3">
+    <button onclick="showCustomToast()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
+
+    <script type="text/plain">
+      const toastContent = `
+        <div class='d-flex fx-col w100'>
+          <div class='d-flex vcenter white p-2'>
+            <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
+            <span>Star !</span>
+            <div class='ml-auto font-s1 text-grey text-dark-2 mr-1'>1min ago</div>
+            <div data-toast-close class='mr-1 cursor-pointer'>
+              <span class='iconify-inline text-grey text-dark-2 font-s3' data-icon='mdi:close-circle'></span>
+            </div>
+          </div>
+          <div class='d-flex fx-col grey light-4 p-3'>
+            Axentix repository won 1 star on github !
+            <a class='btn btn-small d-flex text-blue text-dark-1 font-s1 font-w600 ml-auto my-auto blue light-4 rounded-3 mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>
+              Add a star
+            </a>
+          </div>
+        </div>
+      `;
+
+      const customToast = new Axentix.Toast(toastContent, {
+        classes: 'white p-0 rounded-1',
+        offset: {
+          y: '6%',
+        }
+      });
+
+      const showCustomToast = () => customToast.show();
+    </script>
+  </div>
+
+  <div class="code">
+    <div class="code-overlay">&#60;/> Show code</div>
+    <pre class="language-markup code-max-height disable-copy-btn py-4"><code class="language-markup"></code></pre>
+  </div>
+</div>
 
 <p>
   Creating a toast can help you to send messages to your users through simple notifications. <br />
@@ -86,6 +177,35 @@ scripts:
     isClosable: true
   });
 </script>
+
+<h2 class="subtitle" id="custom-closing-element">Custom closing element</h2>
+
+<p>
+  Using <code class="language-markup">data-toast-close</code> on an element of the toast content, 
+  you can create your own close elements closing the toast.
+</p>
+
+<button onclick="showCustomCloseToast()" class="btn shadow-1 rounded-1 primary">Show Toast</button>
+
+<script type="text/plain" class="language-javascript">
+  const toastContent = `
+    <div class='d-flex'>
+      This is a toast
+      <div data-toast-close>
+        <span class='iconify-inline text-grey text-dark-2 font-s3' data-icon='mdi:close-circle'></span>
+      </div>
+    </div>
+    `;
+
+  const toast = new Axentix.Toast(toastContent, {
+    classes: 'white rounded-1',
+    isClosable: false,
+    offset: {
+      y: '6%',
+    }
+  });
+</script>
+
 
 <h2 class="subtitle" id="options">Options</h2>
 
