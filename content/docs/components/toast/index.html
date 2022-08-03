@@ -7,7 +7,7 @@ scripts:
   - "
   <script>
     const toastContent = `
-      <div class='d-flex fx-col'>
+      <div class='d-flex fx-col w100'>
         <div class='d-flex vcenter white p-2'>
           <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
           <span>Star !</span>
@@ -18,7 +18,9 @@ scripts:
         </div>
         <div class='d-flex fx-col grey light-4 p-3'>
           Axentix repository won 1 star on github !
-          <a class='d-flex text-blue font-s1 ml-auto mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>-> Add a star</a>
+          <a class='btn btn-small d-flex text-blue text-dark-1 font-s1 font-w600 ml-auto my-auto blue light-4 rounded-3 mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>
+            Add a star
+          </a>
         </div>
       </div>
     `;
@@ -31,6 +33,7 @@ scripts:
     function showCustomToast() {
       toast.change(toastContent, {
         classes: 'white p-0 rounded-1',
+        duration: 500000,
         isClosable: false,
         offset: {
           y: '6%',
@@ -89,7 +92,7 @@ scripts:
 
     <script type="text/plain">
       const toastContent = `
-        <div class='d-flex fx-col'>
+        <div class='d-flex fx-col w100'>
           <div class='d-flex vcenter white p-2'>
             <span class='iconify-inline text-yellow text-dark-1 font-s3 mr-1' data-icon='mdi:star'></span>
             <span>Star !</span>
@@ -100,7 +103,9 @@ scripts:
           </div>
           <div class='d-flex fx-col grey light-4 p-3'>
             Axentix repository won 1 star on github !
-            <a class='d-flex text-blue font-s1 ml-auto mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>-> Add a star</a>
+            <a class='btn btn-small d-flex text-blue text-dark-1 font-s1 font-w600 ml-auto my-auto blue light-4 rounded-3 mt-2' target='_blank' rel='noopener' href='https://github.com/axentix/axentix'>
+              Add a star
+            </a>
           </div>
         </div>
       `;
