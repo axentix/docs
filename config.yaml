@@ -8,6 +8,7 @@ defaultContentLanguage: "en"
 params:
   current: 2.2.1
   versions:
+    - 2.3.x
     - 2.2.x
     - 2.1.x
     - 2.0.x
