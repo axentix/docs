@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Pagination - Axentix</title>
-    <meta name="description" content="Axentix pagination. This component is useful to create a pagination between content of the same type, and to not load all the content at once on the same page." />
-    <meta property="og:description" content="Axentix pagination. This component is useful to create a pagination between content of the same type, and to not load all the content at once on the same page." />
-    <meta property="og:title" content="Pagination - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Transform - Axentix</title>
+    <meta name="description" content="Axentix transform. The transform classes allow you to custom your website elements style." />
+    <meta property="og:description" content="Axentix transform. The transform classes allow you to custom your website elements style." />
+    <meta property="og:title" content="Transform - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -115,7 +115,7 @@
           
         
 
-        <a href='https://useaxentix.com/docs/components/pagination/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/docs/utilities/transform/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.3.x
         </a>
       
@@ -125,7 +125,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.2.x/docs/components/pagination/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.2.x/docs/utilities/transform/' class="text-center dropdown-item py-3 ">
            2.2.x
         </a>
       
@@ -135,7 +135,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.1.x/docs/components/pagination/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.1.x/docs/utilities/transform/' class="text-center dropdown-item py-3 ">
            2.1.x
         </a>
       
@@ -145,7 +145,7 @@
           
         
 
-        <a href='https://useaxentix.com/2.0.x/docs/components/pagination/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/2.0.x/docs/utilities/transform/' class="text-center dropdown-item py-3 ">
            2.0.x
         </a>
       
@@ -155,7 +155,7 @@
           
         
 
-        <a href='https://useaxentix.com/1.3.x/docs/components/pagination/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com/1.3.x/docs/utilities/transform/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -405,7 +405,7 @@
       
     
       
-      <a class="sidenav-link active" href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
       
     
       
@@ -870,7 +870,7 @@
         
       
         
-        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
+        <a class="sidenav-link active" href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
         
       
         
@@ -1024,7 +1024,7 @@
       <div class="main-content container">
         <div class="docs-head d-flex">
           <div>
-            <h1 id="title">Pagination</h1>
+            <h1 id="title">Transform</h1>
             <p></p>
           </div>
 
@@ -1039,165 +1039,247 @@
         <div class="d-flex relative-pos">
           <div class="content">
   
-<h2 class="subtitle" id="simple">Simple</h2>
 <p>
-  The <code class="language-css">.pagination</code> class create a pagination style on a
-  <code class="language-css">&lt;ul&gt;</code> <code class="language-css">&lt;li&gt;</code> structure and works with
-  icons. Use the <code class="language-css">.active</code> to show on what page you are and the
-  <code class="language-css">disabled</code> state to show an unusable button. <br />
-  All is working with our
-  <a class="text-primary" href="https://useaxentix.com/docs/general/colors/#color-palette">color palette</a>.
+  The transform classes are made to let you custom any element placement or style in different unique ways.
 </p>
 
-<ul class="pagination">
-  <li class="disabled">
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-  </li>
-  <li><a href="">1</a></li>
-  <li class="active"><a href="">2</a></li>
-  <li><a href="">3</a></li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-  </li>
-</ul>
-<script type="text/plain" class="language-markup">
-  <ul class="pagination">
-    <li class="disabled">
-      <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-    </li>
-    <li>
-      <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-    </li>
-    <li><a href="">1</a></li>
-    <li class="active"><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li>
-      <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-    </li>
-    <li>
-      <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-    </li>
-  </ul>
-</script>
+<h2 class="subtitle" id="flip-elements">Flip elements</h2>
 
-<h2 class="subtitle" id="pagination-sizes">Pagination sizes</h2>
 <p>
-  You can change the pagination size, using the <code class="language-css">.pagination-small</code> and
-  <code class="language-css">.pagination-large</code> classes on the pagination element.
+  The flip classes allow to turn any element around using a transform property.
 </p>
 
-<ul class="pagination pagination-small">
-  <li class="disabled">
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-  </li>
-  <li><a href="">1</a></li>
-  <li class="active"><a href="">2</a></li>
-  <li><a href="">3</a></li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-  </li>
-</ul>
-<ul class="pagination">
-  <li class="disabled">
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-  </li>
-  <li><a href="">1</a></li>
-  <li class="active"><a href="">2</a></li>
-  <li><a href="">3</a></li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-  </li>
-</ul>
-<ul class="pagination pagination-large">
-  <li class="disabled">
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-  </li>
-  <li><a href="">1</a></li>
-  <li class="active"><a href="">2</a></li>
-  <li><a href="">3</a></li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-  </li>
-  <li>
-    <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-  </li>
-</ul>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Normal behavior
+        </td>
+        <td>
+          <div class="airforce dark-1 p-3 text-white">Random reversed element</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.flip-v</code>
+        </td>
+        <td>
+          <div class="airforce dark-1 p-3 text-white flip-v">Random reversed element</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.flip-h</code>
+        </td>
+        <td>
+          <div class="airforce dark-1 p-3 text-white flip-h">Random reversed element</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.flip-vh</code>
+        </td>
+        <td>
+          <div class="airforce dark-1 p-3 text-white flip-vh">Random reversed element</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<script type="text/plain" class="language-markup code-max-height">
-    <ul class="pagination pagination-small">
-      <li class="disabled">
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-      </li>
-      <li><a href="">1</a></li>
-      <li class="active"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-      </li>
-    </ul>
-    <ul class="pagination">
-      <li class="disabled">
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-      </li>
-      <li><a href="">1</a></li>
-      <li class="active"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-      </li>
-    </ul>
-    <ul class="pagination pagination-large">
-      <li class="disabled">
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-left"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
-      </li>
-      <li><a href="">1</a></li>
-      <li class="active"><a href="">2</a></li>
-      <li><a href="">3</a></li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
-      </li>
-      <li>
-        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-double-right"></span></a>
-      </li>
-    </ul>
-</script>
+<h2 class="subtitle" id="scale-elements">Scale elements</h2>
 
+<p>
+  You can either scale up or down any element size. <br>
+  To do so, use the <code class="language-markup">.scale-up{scale-number}</code> and
+  <code class="language-markup">.scale-down{scale-number}</code> classes where scale-number can be :
+</p>
+
+<div class="grix xs1 sm3">
+  <div class="airforce dark-1 p-3 text-white scale-down1">Scaled down element</div>
+  <div class="airforce dark-1 p-3 text-white scale-up1 ">Scaled up element</div>
+</div>
+
+<h3>Scale up</h3>
+
+<div class="table-responsive grix xs1 md2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up1</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.1)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up2</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.2)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up3</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.3)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up4</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.4)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up5</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.5)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up6</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.6)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up7</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.7)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up8</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.8)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-up9</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(1.9)</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 id>Scale down</h3>
+
+<div class="table-responsive grix xs1 md2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down1</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.9)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down2</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.8)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down3</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.7)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down4</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.6)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down5</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.5)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down6</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.4)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down7</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.3)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down8</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.2)</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code class="language-css">.scale-down9</code>
+        </td>
+        <td>
+          <code class="language-css">transform: scale(0.1)</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
