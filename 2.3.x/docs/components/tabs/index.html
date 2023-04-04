@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tabs - Axentix</title>
+    <meta name="description" content="Axentix tabs. The tabs allow you to split your content in different tabs. Axentix tabs design is based on material design." />
+    <meta property="og:description" content="Axentix tabs. The tabs allow you to split your content in different tabs. Axentix tabs design is based on material design." />
+    <meta property="og:title" content="Tabs - Axentix" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/2.3.x" />
+<meta property="og:image" content="https://useaxentix.com/2.3.x/img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/2.3.x/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/2.3.x/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/2.3.x/favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com/2.3.x/webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com/2.3.x/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+      
+      
+      
+
+      
+      
+    <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    <link rel="stylesheet" href="/2.3.x/axentix/axentix.min.bb29a4f46a6db844d080cd04900a88efcb5f3253ef5373375dc3b636bea6265b.css" />
+    <link rel="stylesheet" href="/2.3.x/docs.4bf1621efcbd365b5ea69186975d3ce43ea8f35ddf26ef59ace37693ca816193.css" />
+    
+  </head>
+
+  <body class="layout-under-navbar relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/2.3.x" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com/2.3.x/img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.3.x">Home</a>
+        <a class="navbar-link font-w600" href="https://useaxentix.com/2.3.x/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+
+      <div class="navbar-menu ml-auto font-s5">
+        <div id="search-input" class="my-auto font-s2"></div>
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav sidenav-fixed"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com/2.3.x/img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.3.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/docs/components/tabs/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.3.x/2.2.x/docs/components/tabs/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.3.x/2.1.x/docs/components/tabs/' class="text-center dropdown-item py-3 ">
+           2.1.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.3.x/2.0.x/docs/components/tabs/' class="text-center dropdown-item py-3 ">
+           2.0.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/2.3.x/1.3.x/docs/components/tabs/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/2.3.x" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/2.3.x/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/2.3.x/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link active" href="https://useaxentix.com/2.3.x/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/tag/">Tag</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/close/">Close</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/transform/">Transform</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/2.3.x/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/2.3.x/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+      <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+      <div class="bg-blur bg-blur-bottom-right blue rounded-full"></div>
+    </div>
+
+    <main>
+      <div class="main-content container">
+        <div class="docs-head d-flex">
+          <div>
+            <h1 id="title">Tabs</h1>
+            <p></p>
+          </div>
+
+          <div
+            data-ea-publisher="useaxentix-com"
+            data-ea-type="image"
+            class="flat horizontal ml-auto z-index-1"
+            id="ads-docs"
+          ></div>
+        </div>
+
+        <div class="d-flex relative-pos">
+          <div class="content">
+  
+<p>Tabs are a simple way to split your content in a simple tabbed view.</p>
+
+<p>
+  To create a tab, you have to add the <code class="language-css">.tab</code> class to a div, and start creating your
+  different tabs using an unordered list syntax. <br />
+  Your <code class="language-css">ul</code> have to be a <code class="language-css">.tab-menu</code> which contains all
+  the <code class="language-css">li</code> with the <code class="language-css">.tab-link</code> links. <br />
+  These links <b>refer to the IDs</b> of your tab contents.
+</p>
+
+<div class="tab shadow-1 white" id="example-tab">
+  <ul class="tab-menu">
+    <li class="tab-link">
+      <a href="#example-tab1">Tab 1</a>
+    </li>
+    <li class="tab-link">
+      <a href="#example-tab2">Tab 2</a>
+    </li>
+    <li class="tab-link">
+      <a href="#example-tab3">This is a bigger tab name</a>
+    </li>
+  </ul>
+  <div id="example-tab1" class="p-3">Content 1</div>
+  <div id="example-tab2" class="p-3">Content 2</div>
+  <div id="example-tab3" class="p-3">This is the 3rd content</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="tab shadow-1 white" id="example-tab" data-ax="tab">
+    <ul class="tab-menu">
+      <li class="tab-link">
+        <a href="#tab1">Tab 1</a>
+      </li>
+      <li class="tab-link">
+        <a href="#tab2">Tab 2</a>
+      </li>
+      <li class="tab-link">
+        <a href="#tab3">This is a bigger tab name</a>
+      </li>
+    </ul>
+
+    <!-- Here are your tab contents -->
+    <div id="tab1" class="p-3">Content 1</div>
+    <div id="tab2" class="p-3">Content 2</div>
+    <div id="tab3" class="p-3">This is the 3rd content</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="active-tab-full-width">Active tab / Full width</h2>
+
+<p>
+  You can add the <code class="language-css">.active</code> class to your tab link to make it the opened tab when the
+  page is loaded.
+  <br />
+  The <code class="language-css">.tab-full-width</code> class on the tab make all the
+  <code class="language-css">.tab-link</code> take the full width of the tab. <br />
+  Here, the second tab-link is active, and all the tabs take the full width.
+</p>
+
+<div class="tab shadow-1 tab-full-width white" id="example-active-tab">
+  <ul class="tab-menu">
+    <li class="tab-link">
+      <a href="#active-tab1">Tab 1</a>
+    </li>
+    <li class="tab-link active">
+      <a href="#active-tab2">I'm the first active tab</a>
+    </li>
+  </ul>
+
+  <div id="active-tab1" class="p-3">Content 1</div>
+  <div id="active-tab2" class="p-3">Content 2</div>
+</div>
+
+<script type="text/plain" class="language-markup">
+  <div class="tab shadow-1 tab-full-width white" id="example-tab" data-ax="tab">
+    <ul class="tab-menu">
+      <li class="tab-link">
+        <a href="#tab1">Tab 1</a>
+      </li>
+      <li class="tab-link active">
+        <a href="#tab2">I'm the first active tab</a>
+      </li>
+    </ul>
+
+    <div id="tab1" class="p-3">Content 1</div>
+    <div id="tab2" class="p-3">Content 2</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="arrow-option">Arrow option</h2>
+
+<p>
+  The arrow option allows you to remove the tab scrollbar and replace it with two arrows. <br />
+  To use it, simply wrap your <code class="language-css">.tab-menu</code> inside a
+  <code class="language-css">.tab-arrow</code> div.
+  <br />
+  Then, you have to add the <code class="language-css">.tab-prev</code> and
+  <code class="language-css">.tab-next</code> arrows inside your <code class="language-css">.tab-arrow</code>.
+</p>
+
+<div style="max-width: 500px">
+  <div class="tab shadow-1 mt-4 no-axentix-init white" id="example-tab-2" data-ax="tab">
+    <div class="tab-arrow">
+      <div class="tab-prev shadow-1 white">
+        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
+      </div>
+      <ul class="tab-menu">
+        <li class="tab-link">
+          <a href="#tab1">Tab 1</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab2">Tab 2</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab3">Tab 3</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab4">Tab 4</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab5">Tab 5</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab6">Tab 6</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab7">Tab 7</a>
+        </li>
+      </ul>
+      <div class="tab-next shadow-1 white">
+        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
+      </div>
+    </div>
+
+    <div id="tab1" class="p-3">Content 1</div>
+    <div id="tab2" class="p-3">Content 2</div>
+    <div id="tab3" class="p-3">Content 3</div>
+    <div id="tab4" class="p-3">Content 4</div>
+    <div id="tab5" class="p-3">Content 5</div>
+    <div id="tab6" class="p-3">Content 6</div>
+    <div id="tab7" class="p-3">Content 7</div>
+  </div>
+</div>
+
+<script type="text/plain" class="language-markup code-max-height">
+  <div class="tab shadow-1 mt-4 white" id="example-tab" data-ax="tab">
+    <!-- Here is the tab-arrow div -->
+    <div class="tab-arrow">
+      <!-- Here is the prev arrow -->
+      <div class="tab-prev shadow-1 white">
+        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-left"></span></a>
+      </div>
+      <ul class="tab-menu">
+        <li class="tab-link">
+          <a href="#tab1">Tab 1</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab2">Tab 2</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab3">Tab 3</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab4">Tab 4</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab5">Tab 5</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab6">Tab 6</a>
+        </li>
+        <li class="tab-link">
+          <a href="#tab7">Tab 7</a>
+        </li>
+      </ul>
+      <!-- Here is the next arrow -->
+      <div class="tab-next shadow-1 white">
+        <a href=""><span class="iconify-inline" data-icon="mdi:chevron-right"></span></a>
+      </div>
+    </div>
+
+    <div id="tab1" class="p-3">Content 1</div>
+    <div id="tab2" class="p-3">Content 2</div>
+    <div id="tab3" class="p-3">Content 3</div>
+    <div id="tab4" class="p-3">Content 4</div>
+    <div id="tab5" class="p-3">Content 5</div>
+    <div id="tab6" class="p-3">Content 6</div>
+    <div id="tab7" class="p-3">Content 7</div>
+  </div>
+</script>
+
+<h2 class="subtitle" id="javascript-initialization">JavaScript initialization</h2>
+
+<p>
+  Once HTML was setup, you can activate the <strong>tab</strong> with this simple code. <br />
+  Just pass the id of your <strong>tab</strong> that you want to activate.
+</p>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="tab" is set in your HTML
+  let tab = new Axentix.Tab('#example-tab');
+
+  // With options
+  let tab = new Axentix.Tab('#example-tab', {
+    animationDuration: 500
+  });
+</script>
+<strong
+  >To know all the ways to initialize a JS component, please read the
+  <a class="text-primary" href="https://useaxentix.com/2.3.x/docs/general/js-init/">JS Init</a> page.</strong
+>
+
+<h2 class="subtitle" id="Options">Options</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover option" aria-label="Options">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default value</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>animationType</td>
+        <td>'none'</td>
+        <td>
+          Animation type. <br />Accepted values are <code class="language-js">'none'</code> or
+          <code class="language-js">'slide'</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>animationDuration</td>
+        <td>300</td>
+        <td>Opening and closing animation duration in ms.</td>
+      </tr>
+      <tr>
+        <td>disableActiveBar</td>
+        <td>false</td>
+        <td>Disable the bar of the active tab.</td>
+      </tr>
+      <tr>
+        <td>caroulix</td>
+        <td>''</td>
+        <td>
+          If you are using the <code class="language-js">'slide'</code> animationType, you can add the
+          <a target="_blank" class="text-primary" href="https://useaxentix.com/2.3.x/docs/components/caroulix/#options"
+            >caroulix options</a
+          >
+          here to modify the animation.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="Methods">Methods</h2>
+
+<script type="text/plain" class="language-js">
+  // NOTE: this is NOT to be used if data-ax="tab" is set in your HTML
+  let tab = new Axentix.Tab('#example-tab', {
+    animationDuration: 500
+  });
+
+  // Syntax : tab.{method}
+  tab.select();
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Methods">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>updateActiveElement()</td>
+        <td>
+          Automatically detects the active tab, and update the active indicator placement. <br />
+          If there is no active tabs, the first tab will be the choosen.
+        </td>
+      </tr>
+      <tr>
+        <td>select(itemId)</td>
+        <td>Select the tab corresponding to the itemId and show the corresponding content.</td>
+      </tr>
+      <tr>
+        <td>next()</td>
+        <td>
+          Goes to the next tab-item. <br />
+          The <code class="language-js">step</code> parameter is optional and allows you to define how much tab-items
+          you want to go through. The default value is 1.
+        </td>
+      </tr>
+      <tr>
+        <td>prev()</td>
+        <td>
+          Goes to the previous tab-item. <br />
+          The <code class="language-js">step</code> parameter is optional and allows you to define how much tab-items
+          you want to go through. The default value is 1.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="subtitle" id="events">Events</h2>
+
+<script type="text/plain" class="language-js">
+    // Listen all tab instances
+  document.addEventListener('ax.tab.select', function() {
+    // select event !
+  });
+
+  // Listen only one tab instance
+  let tabQuery = document.querySelector('#example-tab');
+  tabQuery.addEventListener('ax.tab.select', function() {
+    // select event only on #example-tab
+  });
+</script>
+
+<div class="table-responsive">
+  <table class="table table-hover method-event" aria-label="Events">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ax.tab.setup</td>
+        <td>Event sent when the tab has been setup.</td>
+      </tr>
+      <tr>
+        <td>ax.tab.select</td>
+        <td>
+          Event sent when the <code class="language-js">select()</code> method is called. <br>
+          This event has details data : <code class="language-js">{index}</code> <br />
+          <code class="language-js">index</code> : index of the selected tab-item.
+        </td>
+      </tr>
+      <tr>
+        <td>ax.tab.next</td>
+        <td>
+          Event sent when the <code class="language-js">next()</code> method is called. <br />
+          This event has details data : <code class="language-js">{step}</code> <br />
+          <code class="language-js">step</code> : how much tab-items have been slided.
+        </td>
+      </tr>
+      <tr>
+        <td>ax.tab.prev</td>
+        <td>
+          Event sent when the <code class="language-js">prev()</code> method is called. <br />
+          This event has details data : <code class="language-js">{step}</code> <br />
+          <code class="language-js">step</code> : how much tab-items have been slided.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="subtitle" id="event-details">Event details</h3>
+
+<p>
+  Some events bring details, you can access them with <code class="language-js">e.details</code>.
+</p>
+
+<script type="text/plain" class="language-js">
+  let tabQuery = document.querySelector('#example-tab');
+
+  tabQuery.addEventListener('ax.tab.select', function() {
+    console.log(e.details);
+  });
+</script>
+
+<h2 class="subtitle" id="styling">Styling</h2>
+        
+<div class="responsive-table">
+  <table class="table table-hover" aria-label="styling table">
+    <thead>
+      <tr>
+        <th scope="col">CSS Variable</th>
+        <th scope="col">Default value</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code class="language-css">--ax-tab-bar-border</code>
+        </td>
+        <td>0.1rem solid #2196f3</td>
+        <td>
+          Tab border property.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+          <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
+            <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
+            
+            
+            <a
+              href="https://www.buymeacoffee.com/axentix"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-small btn-outline text-orange rounded-3 mt-2 coffee-link scrollspy-sponsor"
+            >
+              <span class="btn-outline-text">Become a sponsor</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main><footer class="footer fx-center text-center">Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE</footer>
+ 
+     
+    
+    
+    
+    
+    <script src="/2.3.x/js/try-it.min.681a9c28142dd4eaf5109b61331378e29fd8684f26a96fb9ce13c697dea98dfd.js"></script>
+    <script src="/2.3.x/axentix/axentix.min.98b802275f01d8af601141ba5f8b7653ef17f844f50fd7479a9995b8aaf92b7f.js"></script>
+    <script src="/2.3.x/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/2.3.x/js/docs.min.fc7d7d18176f69e367b10e37019a174a52a6a73202d8ea9c12b99e502b1d872e.js"></script>
+    <script>
+      const baseURL = 'https:\/\/useaxentix.com\/2.3.x';
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+      integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      docsearch({
+        apiKey: '5eae298506cf8352bb7462dc2ff37f9d',
+        appId: 'M9XK4LRAZA',
+        indexName: 'useaxentix',
+        container: '#search-input',
+        debug: false,
+      });
+    </script>
+
+     
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-MBCE9VSGDN');
+    </script>
+      <script> let axentixTabs = new Axentix.Axentix("tab"); </script>
+  </body>
+</html>
