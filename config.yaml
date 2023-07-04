@@ -6,12 +6,11 @@ sectionPagesMenu: "main"
 enableRobotsTXT: true
 defaultContentLanguage: "en"
 params:
-  current: 2.3.0
+  current: 2.4.0
   versions:
+    - 2.4.x
     - 2.3.x
     - 2.2.x
-    - 2.1.x
-    - 2.0.x
     - 1.3.x
 
 minify:

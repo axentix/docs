@@ -59,8 +59,7 @@ sidenav: utilities
   The borders classes allow you to modify the border appearance. <br />
   The classes are <code class="language-css">.bd-{borderStyle}</code> where borderStyle can be : <br />
   <code class="language-css">
-    dashed | dotted | double | groove | hidden | none | inset | outset | ridge | solid | revert</code
-  >
+    dashed | dotted | double | groove | hidden | none | inset | outset | ridge | solid | revert</code>
   <br />
   <br />
   Examples : <br />
@@ -108,22 +107,50 @@ sidenav: utilities
       <tr>
         <td>Top border</td>
         <td><code class="language-markup">.bd-t-{value}</code></td>
-        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
       </tr>
       <tr>
         <td>Right border</td>
         <td><code class="language-markup">.bd-r-{value}</code></td>
-        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
       </tr>
       <tr>
         <td>Bottom border</td>
         <td><code class="language-markup">.bd-b-{value}</code></td>
-        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
       </tr>
       <tr>
         <td>Left border</td>
         <td><code class="language-markup">.bd-l-{value}</code></td>
-        <td><code class="language-markup">0 | 1 | ... | 5</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Left and right borders</td>
+        <td><code class="language-markup">.bd-x-{value}</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
+      </tr>
+      <tr>
+        <td>Top and bottom borders</td>
+        <td><code class="language-markup">.bd-y-{value}</code></td>
+        <td>
+          <code class="language-markup">0 | 1 | ... | 5</code> and
+          <code class="language-markup">solid | dotted | ...</code>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -132,7 +159,7 @@ sidenav: utilities
 <p>You can apply the border style classes on specific sides too.</p>
 
 <div class="grix xs1 md3 gutter-xs4">
-  <div class="card shadow-1 rounded-2 bd-blue bd-r-solid bd-l-solid bd-3">
+  <div class="card shadow-1 rounded-2 bd-blue bd-x-solid bd-3">
     <div class="card-header">Card</div>
     <div class="card-content">This is an example card with specific borders</div>
   </div>
@@ -150,7 +177,7 @@ sidenav: utilities
 
 <script type="text/plain" class="language-markup">
   <div class="grix xs1 md3 gutter-xs4">
-    <div class="card shadow-1 rounded-2 bd-blue bd-r-solid bd-l-solid bd-3">
+    <div class="card shadow-1 rounded-2 bd-blue bd-x-solid bd-3">
       <div class="card-header">Card</div>
       <div class="card-content">This is an example card with specific borders</div>
     </div>
