@@ -14,8 +14,8 @@
 
 html,
 body {
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 main {
@@ -139,7 +139,8 @@ main {
     order: 99;
 
     &:not(.coffee-link) {
-      max-width: 130px;
+      min-width: 130px;
+      max-width: 170px;
     }
   }
 
