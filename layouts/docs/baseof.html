@@ -54,19 +54,20 @@
           <div class="scrollspy main-scrollspy d-flex pl-3" id="scrollspy-auto">
             <span class="scrollspy-sponsor ml-2 mt-5 mb-2"> Sponsors </span>
             <!-- <img src="" class="scrollspy-sponsor responsive-media ml-2 my-2"> -->
-
-            <a class="my-2 scrollspy-sponsor" href="https://axenthost.com" target="_blank" rel="noopener noreferrer" aria-label="axenthost sponsor">
-              <img class="responsive-media" src="{{ .Site.BaseURL }}/img/sponsors/axenthost.png" alt="axenthost-logo  "/>
-            </a>
-            <a
-              href="https://www.buymeacoffee.com/axentix"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-small btn-outline text-orange rounded-3 mt-2 coffee-link scrollspy-sponsor"
-            >
+  
+            <div class="d-flex fx-col scrollspy-sponsor mb-2">
+              <img class="responsive-media shadow-1 rounded-1 mx-auto"
+                src="{{ .Site.BaseURL }}/img/sponsors/axenthost.png" alt="axenthost-logo">
+              <a href="https://axenthost.com/games/minecraft" target="_blank" rel="noopener"
+                aria-label="free minecraft server" class="text-underline text-center">
+                Free minecraft server</a>
+            </div>
+  
+            <a href="https://www.buymeacoffee.com/axentix" target="_blank" rel="noopener"
+              class="btn btn-small btn-outline text-orange rounded-3 mt-2 coffee-link scrollspy-sponsor">
               <span class="btn-outline-text">Become a sponsor</span>
             </a>
-           
+  
           </div>
         </div>
       </div>
