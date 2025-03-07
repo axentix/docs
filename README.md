@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://useaxentix.com/">
-    <img src="https://useaxentix.com/img/axentix.svg?" alt="Axentix Logo" width="120" height="120">
+    <img src="https://useaxentix.com/img/axentix.svg?v=2" alt="Axentix Logo" width="120" height="120">
   </a>
 </p>
 
@@ -53,5 +53,5 @@ Support this project on [BuyMeACoffee](https://www.buymeacoffee.com/axentix) to 
 ___
 
 <p align="center">
-Axentix Framework Documentation - Made with ❤️ by Axel SIMONET & Vincent LEVEQUE
+Axentix Framework Documentation - Made with ❤️ by Axel SIMONET & Vincent LEVEQUE at <a href="https://axentsoftware.com">AxentSoftware</a>
 </p>
