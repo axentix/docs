@@ -29,7 +29,7 @@
         </span>
         {{ $categories:= .Params.categories }}
         {{ range $i,$p:= $categories }}
-        <a href="{{ `blog/categories/` | relLangURL }}{{ . | urlize | lower }}/">{{ . | humanize }}{{ if ne
+        <a href="{{ `blog/` | relLangURL }}{{ . | urlize | lower }}/">{{ . | humanize }}{{ if ne
           $i
           (sub (len $categories) 1) }}
           {{ ", " }}
