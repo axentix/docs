@@ -12,12 +12,12 @@
       {{ $docs := resources.Get "sass/docs.scss" | toCSS $options }}
 
       {{ $postCssOptions := dict "use" "autoprefixer" }}
-      {{ $style := slice $base $docs | resources.Concat "docs.css" | resources.PostCSS $postCssOptions | fingerprint }}
+      {{ $style := slice $base $docs | resources.Concat "docs.css" | css.PostCSS $postCssOptions | fingerprint }}
     <link rel="preconnect" href="https://M9XK4LRAZA-dsn.algolia.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <link rel="stylesheet" href="{{ $axentix.RelPermalink }}" />
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | resources.PostCSS | fingerprint
+    {{ if eq .Title "Layouts" }} {{ $layout := resources.Get "sass/layout-examples.scss" | toCSS $options | css.PostCSS | fingerprint
     }}
     <link rel="stylesheet" href="{{ $layout.RelPermalink }}" />
     {{ end }}

@@ -1,0 +1,68 @@
+{{ define "head-metas"}}
+
+{{ $title := printf "%s Articles - Axentix" .Page.Title }}
+{{ $description := printf "Browse all articles about %s on the Axentix blog" .Page.Title }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:image" content="{{ .Site.BaseURL }}img/logoOG.jpg?v=3" />
+<meta property="twitter:title" content="{{ $title }}" />
+<meta property="twitter:description" content="{{ $description }}" />
+{{ end }}
+
+{{ define "main"}}
+
+<div class="container" id="blog-list">
+  <h1 class="exo text-center mb-5 ">{{ .Data.Term }} Articles</h1>
+
+  <div class="grix xs1 md7 gutter-xs7 vstretch">
+    <div class="col-md5">
+      {{ $paginator:= .Paginate .Data.Pages }}
+      {{ range $paginator.Pages }}
+      {{ partial "components/blog-card" . }}
+      <div class="divider grey dark-2 my-5"></div>
+      {{ end }}
+    </div>
+
+    <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+      <div class="categories p-3 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+        <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+        {{ range $name, $items := site.Taxonomies.categories }}
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey{{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
+                  text-primary text-underline{{ end }}" href="{{ .Page.RelPermalink }}">
+          {{ .Page.Title }} ({{ len $items }})
+        </a>
+        {{ end }}
+      </div>
+
+      <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto z-index-1"
+        id="ads-blog"></div>
+    </div>
+  </div>
+
+  <div class="d-flex fx-center">
+    {{ partial "components/pagination.html" . }}
+  </div>
+
+  <div class="categories py-4 hide-md-up">
+    <h2 class="font-s3 font-w400 mt-0">Categories</h2>
+
+    <a class="d-flex text-grey" href='/blog/'>
+      All Posts
+    </a>
+    {{ range $name, $items := site.Taxonomies.categories }}
+    <div class="divider grey dark-2 my-3"></div>
+    <a class="d-flex text-grey{{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
+                text-primary text-underline{{ end }}" href="{{ .Page.RelPermalink }}">
+      {{ .Page.Title }} ({{ len $items }})
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

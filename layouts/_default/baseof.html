@@ -13,7 +13,7 @@
         {{ $app := resources.Get "sass/app.scss" | toCSS $options }}
 
         {{ $postCssOptions := dict "use" "autoprefixer" }}
-        {{ $style := slice $base $app | resources.Concat "home.css" | resources.PostCSS $postCssOptions | minify | fingerprint }}
+        {{ $style := slice $base $app | resources.Concat "home.css" | css.PostCSS $postCssOptions | minify | fingerprint }}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
         <link rel="stylesheet" href="{{ $axentix.RelPermalink }}"/>
         <link rel="stylesheet" href="{{ $style.RelPermalink }}"/>

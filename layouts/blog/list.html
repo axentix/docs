@@ -1,0 +1,74 @@
+{{ define "main" }}
+
+<section>
+  <div class="container" id="blog-list">
+    <h1 class="exo text-center mb-5">Blog</h1>
+
+    <div class="grix xs1 md7 gutter-xs7 vstretch">
+      <!-- blog posts -->
+      <div class="col-md5">
+        <h2>Must Read</h2>
+
+        <div class="featured-article">
+          {{ with .Site.GetPage "/blog/axentix/getting-started-with-axentix-framework" }}
+          {{ partial "components/blog-card" . }}
+          {{ end }}
+        </div>
+
+        <div class="divider grey dark-2 my-5"></div>
+
+        <h2>Recent Posts</h2>
+
+        {{ $paginator:= .Paginate .RegularPages }}
+        {{ range $paginator.Pages }}
+        {{ partial "components/blog-card" . }}
+        <div class="divider grey dark-2 my-5"></div>
+        {{ end }}
+      </div>
+
+      <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+        <div class="categories p-3 rounded-2 bd-3 bd-solid bd-grey bd-dark-3 shadow-1 fit-content-height mb-3">
+          <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+          <div class="d-flex fx-wrap">
+            <a class="d-flex text-primary text-underline" href='/blog/'>
+              All Posts
+            </a>
+
+            {{ range $name, $items := site.Taxonomies.categories }}
+            <div class="divider grey dark-2 my-3"></div>
+            <a class="d-flex text-grey" href="{{ .Page.RelPermalink }}">
+              {{ .Page.Title }} ({{ len $items }})
+            </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto z-index-1"
+          id="ads-blog"></div>
+      </div>
+    </div>
+
+    <div class="d-flex fx-center">
+      {{ partial "components/pagination.html" . }}
+    </div>
+
+    <div class="categories py-4 hide-md-up ">
+      <p class="d-block font-s3 font-w400 mt-0 mb-3">Categories</p>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-primary text-underline" href='/blog/'>
+          All Posts
+        </a>
+
+        {{ range $name, $items := site.Taxonomies.categories }}
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="{{ .Page.RelPermalink }}">
+          {{ .Page.Title }} ({{ len $items }})
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

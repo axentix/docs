@@ -1,11 +1,12 @@
 baseURL: ""
 languageCode: "en-us"
 title: "Docs"
-disableKinds: ["taxonomy", "taxonomyTerm", "section", "RSS"]
+disableKinds: ["taxonomy", "RSS"]
 sectionPagesMenu: "main"
 enableRobotsTXT: true
 defaultContentLanguage: "en"
 params:
+  dateFormat: "02 Jan 2006"
   current: 2.4.1
   versions:
     - 2.4.x
@@ -39,8 +40,14 @@ outputFormats:
     notAlternative: "true"
 
 outputs:
-  home: ["HTML", "WEBMANIFEST", "BROWSERCONFIG"]
+  home: ["html", "webappmanifest", "browserconfig"]
 
 security:
   funcs:
     getenv: ['^HUGO_', '^AX_']
+
+taxonomies:
+  category: "categories"
+
+permalinks:
+  categories: "/blog/:slug/"
