@@ -50,25 +50,38 @@ issues, and practical solutions."
 
   <article class="lh-3 font-s2-5 mb-5">
     <p>
-      CSS <code>position: sticky</code> is a powerful property that allows elements to stick to a specific position when
+      CSS <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> is
+      a powerful property that allows elements to stick to a specific position when
       scrolling. However, many developers encounter frustrating situations where their sticky elements simply refuse to
-      work. This comprehensive guide explores the most common reasons why <code>position: sticky</code> fails and
+      work. This comprehensive guide explores the most common reasons why <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> fails and
       provides practical solutions to get your sticky elements working properly.
     </p>
 
     <h2 class="exo mt-5" itemprop="subtitle">Understanding Position Sticky</h2>
 
     <p>
-      Before diving into troubleshooting, it's essential to understand how <code>position: sticky</code> works. This
-      property creates a hybrid between <code>relative</code> and <code>fixed</code> positioning. The element behaves as
-      <code>relative</code> positioned until it crosses a specified threshold, at which point it becomes
-      <code>fixed</code> positioned.
+      Before diving into troubleshooting, it's essential to understand how <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> works.
+      This
+      property creates a hybrid between <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">relative</code> and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fixed</code> positioning. The
+      element behaves as
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">relative</code> positioned
+      until it crosses a specified threshold, at which point it becomes
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fixed</code> positioned.
     </p>
 
     <p>
-      The key requirement is that you must specify at least one threshold value using <code>top</code>,
-      <code>right</code>, <code>bottom</code>, or <code>left</code> properties. Without these values, the element will
-      behave exactly like <code>position: relative</code>.
+      The key requirement is that you must specify at least one threshold value using <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code>, or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code> properties. Without
+      these values, the element will
+      behave exactly like <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: relative</code>.
     </p>
 
     <h2 class="exo mt-5" itemprop="subtitle">Common Issues and Solutions</h2>
@@ -90,14 +103,21 @@ issues, and practical solutions."
 }</code></pre>
     </div>
 
-    <p><strong>Solution:</strong> Always specify at least one directional property (<code>top</code>,
-      <code>right</code>, <code>bottom</code>, or <code>left</code>) with a value other than <code>auto</code>.
+    <p><strong>Solution:</strong> Always specify at least one directional property (<code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code>, or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code>) with a value other
+      than <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">auto</code>.
     </p>
 
     <h3 class="exo mt-4">2. Parent Elements with Overflow Properties</h3>
 
-    <p><strong>Problem:</strong> If any parent or ancestor element has <code>overflow: hidden</code>,
-      <code>overflow: scroll</code>, or <code>overflow: auto</code>, it can prevent sticky behavior.
+    <p><strong>Problem:</strong> If any parent or ancestor element has <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: hidden</code>,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: scroll</code>, or
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: auto</code>, it can
+      prevent sticky behavior.
     </p>
 
     <div class="code-block">
@@ -129,18 +149,25 @@ while (parent) {
     </div>
 
     <p><strong>Alternative Solutions:</strong></p>
-    <ul>
+    <ul class="lh-rem-4">
       <li>Remove the overflow property if possible</li>
-      <li>Use <code>overflow: clip</code> instead of <code>overflow: hidden</code> (sticky will still work)</li>
+      <li>Use <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: clip</code>
+        instead of <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: hidden</code> (sticky
+        will still work)</li>
       <li>Set a specific height on the overflowing container</li>
     </ul>
 
     <h3 class="exo mt-4">3. Browser Compatibility Issues</h3>
 
-    <p><strong>Problem:</strong> Older browsers don't support <code>position: sticky</code> or require vendor prefixes.
+    <p><strong>Problem:</strong> Older browsers don't support <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> or require
+      vendor prefixes.
     </p>
 
-    <p><strong>Solution:</strong> Always include the <code>-webkit-</code> prefix for Safari support:</p>
+    <p><strong>Solution:</strong> Always include the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-</code> prefix for Safari
+      support:</p>
 
     <div class="code-block">
       <pre><code class="language-css">.sticky-element {
@@ -151,10 +178,11 @@ while (parent) {
     </div>
 
     <p><strong>Browser Support:</strong></p>
-    <ul>
+    <ul class="lh-rem-4">
       <li>Chrome 56+</li>
       <li>Firefox 32+</li>
-      <li>Safari 13+ (with <code>-webkit-</code> prefix)</li>
+      <li>Safari 13+ (with <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-</code> prefix)</li>
       <li>Edge 16+</li>
     </ul>
 
@@ -192,7 +220,9 @@ while (parent) {
 
     <h3 class="exo mt-4">5. Flexbox and Grid Layout Conflicts</h3>
 
-    <p><strong>Problem:</strong> In flexbox layouts, <code>align-self: stretch</code> can interfere with sticky
+    <p><strong>Problem:</strong> In flexbox layouts, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">align-self: stretch</code> can
+      interfere with sticky
       positioning.</p>
 
     <div class="code-block">
@@ -223,7 +253,8 @@ while (parent) {
     <p><strong>Problem:</strong> Other CSS rules might be overriding your sticky positioning.</p>
 
     <p><strong>Solution:</strong> Use browser developer tools to inspect the element and check for conflicting styles.
-      You might need to increase specificity or use <code>!important</code> (sparingly):</p>
+      You might need to increase specificity or use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">!important</code> (sparingly):</p>
 
     <div class="code-block">
       <pre><code class="language-css">.sticky-element {
@@ -234,7 +265,9 @@ while (parent) {
 
     <h3 class="exo mt-4">7. Height and Width Constraints</h3>
 
-    <p><strong>Problem:</strong> Elements with <code>height: 100%</code> or <code>height: -webkit-fill-available</code>
+    <p><strong>Problem:</strong> Elements with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">height: 100%</code> or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">height: -webkit-fill-available</code>
       in parent containers can break sticky behavior.</p>
 
     <p><strong>Solution:</strong> Use specific height values instead of percentage-based heights:</p>
@@ -359,10 +392,16 @@ while (parent) {
     <h2 class="exo mt-5" itemprop="subtitle">Best Practices</h2>
 
     <ol>
-      <li><strong>Always specify threshold values:</strong> Never use <code>position: sticky</code> without
-        <code>top</code>, <code>right</code>, <code>bottom</code>, or <code>left</code>.
+      <li><strong>Always specify threshold values:</strong> Never use <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> without
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code>, or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code>.
       </li>
-      <li><strong>Include vendor prefixes:</strong> Add <code>-webkit-sticky</code> for Safari compatibility.</li>
+      <li><strong>Include vendor prefixes:</strong> Add <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-sticky</code> for Safari
+        compatibility.</li>
       <li><strong>Check parent containers:</strong> Ensure no parent elements have conflicting overflow properties.</li>
       <li><strong>Provide sufficient space:</strong> Make sure containers have enough height for sticky behavior to
         activate.</li>
@@ -372,7 +411,8 @@ while (parent) {
     <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
 
     <p>
-      CSS <code>position: sticky</code> is a powerful tool for creating engaging user interfaces, but it requires
+      CSS <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> is
+      a powerful tool for creating engaging user interfaces, but it requires
       careful attention to detail. The most common issues stem from missing threshold values, parent elements with
       overflow properties, and insufficient container heights. By following the solutions outlined in this guide and
       implementing the best practices, you can successfully create sticky elements that enhance your website's user
@@ -381,7 +421,9 @@ while (parent) {
 
     <p>
       Remember to test your implementations across different browsers and devices to ensure consistent behavior. With
-      proper understanding and implementation, <code>position: sticky</code> can be a valuable addition to your CSS
+      proper understanding and implementation, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> can be a
+      valuable addition to your CSS
       toolkit.
     </p>
   </article>
