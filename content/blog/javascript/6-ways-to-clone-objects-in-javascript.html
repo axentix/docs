@@ -1,0 +1,1178 @@
+---
+title: '6 Ways to Clone Objects in JavaScript: Complete Guide'
+description: "All the methods to clone objects in JavaScript with 6 different approaches. Learn spread operator,
+Object.assign, JSON methods, and more with performance comparisons and best practices."
+date: 2025-10-09
+author: "Axentix Team"
+image: "/img/blog/javascript/6-ways-to-clone-objects-in-javascript/javascript-clone-object.webp"
+categories: ["JavaScript"]
+summary: "After reading this article, you will be able to clone objects in JavaScript with 6 different methods. Learn
+spread operator, Object.assign, JSON methods, and more with performance comparisons and best practices."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    6 Ways to Clone Objects in JavaScript: Complete Guide
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-09" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      09/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    After reading this article, you will be able to clone objects in JavaScript with 6 different methods. Learn spread
+    operator, Object.assign, JSON methods, and more with performance comparisons and best practices.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="6 Ways to Clone Objects in JavaScript: Complete Guide"
+      src='{{< link url="img/blog/javascript/6-ways-to-clone-objects-in-javascript/javascript-clone-object.webp" >}}'
+      alt="6 Ways to Clone Objects in JavaScript: Complete Guide" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">6 Ways to Clone Objects in JavaScript: Complete Guide
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Object cloning is one of the most essential operations in JavaScript development. Whether you're managing state in
+      React applications, working with immutable data patterns, or avoiding unintended side effects, understanding the
+      different ways to clone objects is crucial. This comprehensive guide explores 6 different methods to clone objects
+      in JavaScript, from the traditional <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign()</code> method to
+      modern approaches like the spread operator, along with performance considerations and best practices for each
+      method.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Understanding Object Cloning</h2>
+
+    <p>
+      Object cloning in JavaScript involves creating a copy of an object. The key distinction is between shallow cloning
+      (copying only the first level of properties) versus deep cloning (copying all nested objects and arrays).
+      Understanding this difference is crucial for writing predictable and maintainable code.
+    </p>
+
+    <p>
+      Before diving into the methods, let's establish some common scenarios where object cloning is essential:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Managing state in React or Vue applications without mutating the original state</li>
+      <li>Creating backups of configuration objects before modifications</li>
+      <li>Implementing undo/redo functionality in applications</li>
+      <li>Working with immutable data patterns in functional programming</li>
+      <li>Processing data without affecting the original dataset</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Why Can't You Just Use Assignment?</h2>
+
+    <p>
+      Many developers make the mistake of thinking that simple assignment creates a copy of an object. However, objects
+      in JavaScript are reference types, meaning they store a reference to the memory location rather than the actual
+      data.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { name: 'John', age: 30 };
+const copy = original; // This is NOT cloning!
+
+copy.age = 31;
+console.log(original.age); // 31 - Original object is modified!
+console.log(copy.age);     // 31
+
+// Both variables point to the same object in memory
+console.log(original === copy); // true</code></pre>
+    </div>
+
+    <p>
+      This is why proper cloning methods are essential. Let's explore the different approaches available.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 1: Spread Operator (...) - The Modern Approach</h2>
+
+    <p>
+      The spread operator, introduced in ES6, provides a concise and elegant way to clone objects. It creates a shallow
+      copy of the object, copying all enumerable properties from the source object to a new object.
+    </p>
+
+    <h3 class="exo mt-4">Basic Usage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  hobbies: ['reading', 'coding'] 
+};
+
+const clone = { ...original };
+
+console.log(clone); // { name: 'John', age: 30, hobbies: ['reading', 'coding'] }
+console.log(original === clone); // false - Different objects
+console.log(original.hobbies === clone.hobbies); // true - Same array reference</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Adding Properties During Cloning</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30 };
+
+// Clone and add new properties
+const updatedUser = { 
+  ...user, 
+  email: 'john@example.com',
+  isActive: true 
+};
+
+console.log(updatedUser); 
+// { name: 'John', age: 30, email: 'john@example.com', isActive: true }</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Overriding Properties</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30, city: 'New York' };
+
+// Clone and override specific properties
+const updatedUser = { 
+  ...user, 
+  age: 31,
+  city: 'San Francisco' 
+};
+
+console.log(updatedUser); 
+// { name: 'John', age: 31, city: 'San Francisco' }</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Concise and readable syntax</li>
+      <li>Excellent performance</li>
+      <li>Creates a new object (immutable)</li>
+      <li>Flexible for adding/overriding properties</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Only creates shallow copies</li>
+      <li>Requires ES6+ support</li>
+      <li>Doesn't copy non-enumerable properties</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 2: Object.assign() - The Traditional Approach</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign()</code>
+      method is the most traditional and widely supported way to clone objects. It copies all enumerable own properties
+      from one or more source objects to a target object.
+    </p>
+
+    <h3 class="exo mt-4">Basic Usage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  hobbies: ['reading', 'coding'] 
+};
+
+const clone = Object.assign({}, original);
+
+console.log(clone); // { name: 'John', age: 30, hobbies: ['reading', 'coding'] }
+console.log(original === clone); // false - Different objects
+console.log(original.hobbies === clone.hobbies); // true - Same array reference</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Merging Multiple Objects</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30 };
+const address = { city: 'New York', country: 'USA' };
+const preferences = { theme: 'dark', notifications: true };
+
+// Merge multiple objects into one
+const completeUser = Object.assign({}, user, address, preferences);
+
+console.log(completeUser); 
+// { name: 'John', age: 30, city: 'New York', country: 'USA', theme: 'dark', notifications: true }</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Property Override Behavior</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const base = { name: 'John', age: 30, city: 'New York' };
+const updates = { age: 31, city: 'San Francisco' };
+
+// Later objects override properties from earlier objects
+const updated = Object.assign({}, base, updates);
+
+console.log(updated); 
+// { name: 'John', age: 31, city: 'San Francisco' }</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Excellent browser support (ES5+)</li>
+      <li>Can merge multiple objects</li>
+      <li>Creates a new object (immutable)</li>
+      <li>Clear and predictable behavior</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Only creates shallow copies</li>
+      <li>More verbose than spread operator</li>
+      <li>Doesn't copy non-enumerable properties</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 3: JSON Methods - The Deep Clone Approach</h2>
+
+    <p>
+      Using <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">JSON.stringify()</code>
+      and <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">JSON.parse()</code> is a
+      quick way to create deep clones of objects. This method converts the object to a JSON string and then parses it
+      back into a new object.
+    </p>
+
+    <h3 class="exo mt-4">Basic Usage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  address: { 
+    city: 'New York', 
+    country: 'USA' 
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = JSON.parse(JSON.stringify(original));
+
+console.log(clone); // Deep copy of the original object
+console.log(original === clone); // false - Different objects
+console.log(original.address === clone.address); // false - Different nested objects
+console.log(original.hobbies === clone.hobbies); // false - Different arrays</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Handling Complex Nested Structures</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const complexObject = {
+  user: {
+    name: 'John',
+    profile: {
+      avatar: 'avatar.jpg',
+      settings: {
+        theme: 'dark',
+        notifications: {
+          email: true,
+          push: false
+        }
+      }
+    }
+  },
+  metadata: {
+    created: new Date(),
+    tags: ['admin', 'premium']
+  }
+};
+
+const deepClone = JSON.parse(JSON.stringify(complexObject));
+
+// Modify the clone without affecting the original
+deepClone.user.profile.settings.notifications.email = false;
+
+console.log(original.user.profile.settings.notifications.email); // true - unchanged
+console.log(deepClone.user.profile.settings.notifications.email); // false - modified</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Creates true deep copies</li>
+      <li>Simple and straightforward</li>
+      <li>Works with nested objects and arrays</li>
+      <li>No external dependencies</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Loses functions, undefined values, and symbols</li>
+      <li>Converts dates to strings</li>
+      <li>Cannot handle circular references</li>
+      <li>Performance issues with large objects</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 4: Object.create() - The Prototype Approach</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.create()</code> creates
+      a new object with the specified prototype object and properties. This method is useful when you want to clone an
+      object while preserving its prototype chain.
+    </p>
+
+    <h3 class="exo mt-4">Basic Usage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30,
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+
+const clone = Object.create(Object.getPrototypeOf(original));
+Object.assign(clone, original);
+
+console.log(clone); // { name: 'John', age: 30, greet: [Function: greet] }
+console.log(clone.greet()); // "Hello, I'm John"
+console.log(Object.getPrototypeOf(clone) === Object.getPrototypeOf(original)); // true</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Cloning with Custom Prototype</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Define a prototype
+const PersonPrototype = {
+  introduce() {
+    return `Hi, I'm ${this.name} and I'm ${this.age} years old`;
+  }
+};
+
+const person = Object.create(PersonPrototype);
+person.name = 'John';
+person.age = 30;
+
+// Clone while preserving prototype
+const clone = Object.create(Object.getPrototypeOf(person));
+Object.assign(clone, person);
+
+console.log(clone.introduce()); // "Hi, I'm John and I'm 30 years old"</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Preserves prototype chain</li>
+      <li>Maintains methods and inherited properties</li>
+      <li>Good for object-oriented patterns</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>More complex syntax</li>
+      <li>Only creates shallow copies</li>
+      <li>Requires understanding of prototypes</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 5: Lodash cloneDeep() - The Library Approach</h2>
+
+    <p>
+      Lodash provides robust cloning utilities that handle edge cases and complex scenarios. The <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">cloneDeep()</code> function
+      creates a deep copy of an object, handling functions, dates, and other complex types properly.
+    </p>
+
+    <h3 class="exo mt-4">Installation and Basic Usage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Install lodash: npm install lodash
+import { cloneDeep } from 'lodash';
+
+const original = {
+  name: 'John',
+  age: 30,
+  birthDate: new Date('1990-01-01'),
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  },
+  address: {
+    city: 'New York',
+    coordinates: {
+      lat: 40.7128,
+      lng: -74.0060
+    }
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = cloneDeep(original);
+
+console.log(clone); // Complete deep copy
+console.log(clone.birthDate instanceof Date); // true - Date preserved
+console.log(typeof clone.greet); // 'function' - Function preserved
+console.log(original.address === clone.address); // false - Deep copy</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Handling Circular References</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { cloneDeep } from 'lodash';
+
+const circular = { name: 'John' };
+circular.self = circular; // Circular reference
+
+// JSON methods would fail here, but lodash handles it
+const clone = cloneDeep(circular);
+
+console.log(clone.self === clone); // true - Circular reference preserved
+console.log(clone !== circular); // true - Different objects</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Alternative: Using cloneDeep from lodash-es</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// For tree-shaking support
+import cloneDeep from 'lodash-es/cloneDeep';
+
+const original = { name: 'John', age: 30 };
+const clone = cloneDeep(original);</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Handles all data types correctly</li>
+      <li>Manages circular references</li>
+      <li>Preserves functions and dates</li>
+      <li>Well-tested and reliable</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Requires external dependency</li>
+      <li>Increases bundle size</li>
+      <li>Overkill for simple use cases</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 6: Custom Deep Clone Function - The Flexible Approach</h2>
+
+    <p>
+      Sometimes you need a custom solution that handles specific requirements or edge cases. Creating a custom deep
+      clone function gives you complete control over the cloning process.
+    </p>
+
+    <h3 class="exo mt-4">Basic Deep Clone Implementation</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function deepClone(obj) {
+  // Handle null and undefined
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  // Handle Date objects
+  if (obj instanceof Date) {
+    return new Date(obj.getTime());
+  }
+  
+  // Handle Arrays
+  if (Array.isArray(obj)) {
+    return obj.map(item => deepClone(item));
+  }
+  
+  // Handle Objects
+  if (typeof obj === 'object') {
+    const cloned = {};
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        cloned[key] = deepClone(obj[key]);
+      }
+    }
+    return cloned;
+  }
+  
+  return obj;
+}
+
+// Usage
+const original = {
+  name: 'John',
+  age: 30,
+  birthDate: new Date('1990-01-01'),
+  address: {
+    city: 'New York',
+    coordinates: { lat: 40.7128, lng: -74.0060 }
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = deepClone(original);
+console.log(clone.birthDate instanceof Date); // true
+console.log(original.address === clone.address); // false</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Advanced Implementation with Circular Reference Handling</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function deepCloneWithCircular(obj, visited = new WeakMap()) {
+  // Handle null and undefined
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  // Check for circular references
+  if (visited.has(obj)) {
+    return visited.get(obj);
+  }
+  
+  // Handle Date objects
+  if (obj instanceof Date) {
+    const cloned = new Date(obj.getTime());
+    visited.set(obj, cloned);
+    return cloned;
+  }
+  
+  // Handle Arrays
+  if (Array.isArray(obj)) {
+    const cloned = [];
+    visited.set(obj, cloned);
+    cloned.push(...obj.map(item => deepCloneWithCircular(item, visited)));
+    return cloned;
+  }
+  
+  // Handle Objects
+  if (typeof obj === 'object') {
+    const cloned = {};
+    visited.set(obj, cloned);
+    
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        cloned[key] = deepCloneWithCircular(obj[key], visited);
+      }
+    }
+    return cloned;
+  }
+  
+  return obj;
+}
+
+// Test with circular reference
+const circular = { name: 'John' };
+circular.self = circular;
+
+const clone = deepCloneWithCircular(circular);
+console.log(clone.self === clone); // true - Circular reference handled</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Performance-Optimized Version</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function fastDeepClone(obj) {
+  // Use structuredClone if available (modern browsers)
+  if (typeof structuredClone !== 'undefined') {
+    return structuredClone(obj);
+  }
+  
+  // Fallback to JSON for simple objects
+  try {
+    return JSON.parse(JSON.stringify(obj));
+  } catch (error) {
+    // If JSON fails, use custom implementation
+    return customDeepClone(obj);
+  }
+}
+
+function customDeepClone(obj, visited = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (visited.has(obj)) return visited.get(obj);
+  
+  const cloned = Array.isArray(obj) ? [] : {};
+  visited.set(obj, cloned);
+  
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      cloned[key] = customDeepClone(obj[key], visited);
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Complete control over cloning behavior</li>
+      <li>Can handle specific requirements</li>
+      <li>No external dependencies</li>
+      <li>Can be optimized for your use case</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul class="lh-rem-4">
+      <li>Requires more code and testing</li>
+      <li>Need to handle edge cases manually</li>
+      <li>Can be complex for advanced scenarios</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Shallow vs Deep Cloning</h2>
+
+    <p>
+      Understanding the difference between shallow and deep cloning is crucial for choosing the right method for your
+      use case.
+    </p>
+
+    <h3 class="exo mt-4">Shallow Cloning</h3>
+
+    <p>
+      Shallow cloning creates a new object but only copies the first level of properties. Nested objects and arrays are
+      still referenced, not copied.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA'
+  },
+  hobbies: ['reading', 'coding']
+};
+
+// Shallow clone using spread operator
+const shallowClone = { ...original };
+
+// Modify nested properties
+shallowClone.name = 'Jane'; // ✅ Safe - first level property
+shallowClone.address.city = 'San Francisco'; // ❌ Affects original!
+shallowClone.hobbies.push('gaming'); // ❌ Affects original!
+
+console.log(original.name); // 'John' - unchanged
+console.log(original.address.city); // 'San Francisco' - modified!
+console.log(original.hobbies); // ['reading', 'coding', 'gaming'] - modified!</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Deep Cloning</h3>
+
+    <p>
+      Deep cloning creates a completely independent copy of the object, including all nested objects and arrays.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA'
+  },
+  hobbies: ['reading', 'coding']
+};
+
+// Deep clone using JSON methods
+const deepClone = JSON.parse(JSON.stringify(original));
+
+// Modify any properties safely
+deepClone.name = 'Jane'; // ✅ Safe
+deepClone.address.city = 'San Francisco'; // ✅ Safe - doesn't affect original
+deepClone.hobbies.push('gaming'); // ✅ Safe - doesn't affect original
+
+console.log(original.name); // 'John' - unchanged
+console.log(original.address.city); // 'New York' - unchanged
+console.log(original.hobbies); // ['reading', 'coding'] - unchanged</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Performance Comparison</h2>
+
+    <p>
+      Understanding the performance characteristics of each method is crucial for choosing the right approach,
+      especially when dealing with large objects or frequent cloning operations.
+    </p>
+
+    <h3 class="exo mt-4">Performance Test Results</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Performance test function
+function performanceTest(method, obj, iterations = 1000) {
+  const start = performance.now();
+  
+  for (let i = 0; i < iterations; i++) {
+    method(obj);
+  }
+  
+  const end = performance.now();
+  return end - start;
+}
+
+// Test data
+const testObject = {
+  name: 'John',
+  age: 30,
+  address: {
+    street: '123 Main St',
+    city: 'New York',
+    country: 'USA',
+    coordinates: {
+      lat: 40.7128,
+      lng: -74.0060
+    }
+  },
+  hobbies: ['reading', 'coding', 'gaming'],
+  metadata: {
+    created: new Date(),
+    tags: ['user', 'premium'],
+    settings: {
+      theme: 'dark',
+      notifications: true
+    }
+  }
+};
+
+// Test methods
+const methods = {
+  spread: (obj) => ({ ...obj }),
+  objectAssign: (obj) => Object.assign({}, obj),
+  json: (obj) => JSON.parse(JSON.stringify(obj)),
+  lodash: (obj) => cloneDeep(obj),
+  custom: (obj) => deepClone(obj)
+};
+
+// Run tests
+const results = {};
+for (const [name, method] of Object.entries(methods)) {
+  results[name] = performanceTest(method, testObject);
+}
+
+console.log('Performance Results (ms):', results);</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Performance Rankings (Typical Results)</h3>
+
+    <ol class="lh-rem-4">
+      <li><strong>Spread operator:</strong> Fastest for shallow cloning</li>
+      <li><strong>Object.assign():</strong> Good performance, consistent across browsers</li>
+      <li><strong>Custom deep clone:</strong> Moderate performance for deep cloning</li>
+      <li><strong>Lodash cloneDeep:</strong> Good performance with comprehensive features</li>
+      <li><strong>JSON methods:</strong> Slower but simple for deep cloning</li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Common Issues and Troubleshooting</h2>
+
+    <h3 class="exo mt-4">Issue 1: Functions Lost in JSON Cloning</h3>
+
+    <p><strong>Problem:</strong> JSON methods remove functions from objects.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = {
+  name: 'John',
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+
+const clone = JSON.parse(JSON.stringify(obj));
+console.log(clone.greet); // undefined - function is lost!</code></pre>
+    </div>
+
+    <p><strong>Solution:</strong> Use methods that preserve functions or handle them separately.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+import { cloneDeep } from 'lodash';
+const clone = cloneDeep(obj);
+
+// Solution 2: Custom handling
+function cloneWithFunctions(obj) {
+  const cloned = JSON.parse(JSON.stringify(obj));
+  
+  // Restore functions
+  for (let key in obj) {
+    if (typeof obj[key] === 'function') {
+      cloned[key] = obj[key];
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Issue 2: Dates Converted to Strings</h3>
+
+    <p><strong>Problem:</strong> JSON methods convert Date objects to strings.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = {
+  name: 'John',
+  birthDate: new Date('1990-01-01')
+};
+
+const clone = JSON.parse(JSON.stringify(obj));
+console.log(clone.birthDate instanceof Date); // false
+console.log(typeof clone.birthDate); // 'string'</code></pre>
+    </div>
+
+    <p><strong>Solution:</strong> Use methods that preserve Date objects or convert them back.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+const clone = cloneDeep(obj);
+
+// Solution 2: Custom date handling
+function cloneWithDates(obj) {
+  const cloned = JSON.parse(JSON.stringify(obj));
+  
+  // Restore dates
+  for (let key in obj) {
+    if (obj[key] instanceof Date) {
+      cloned[key] = new Date(obj[key]);
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Issue 3: Circular Reference Errors</h3>
+
+    <p><strong>Problem:</strong> JSON methods fail with circular references.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = { name: 'John' };
+obj.self = obj; // Circular reference
+
+// This will throw an error
+// const clone = JSON.parse(JSON.stringify(obj)); // TypeError: Converting circular structure to JSON</code></pre>
+    </div>
+
+    <p><strong>Solution:</strong> Use methods that handle circular references.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+const clone = cloneDeep(obj);
+
+// Solution 2: Use structuredClone (modern browsers)
+if (typeof structuredClone !== 'undefined') {
+  const clone = structuredClone(obj);
+}
+
+// Solution 3: Custom implementation with WeakMap
+const clone = deepCloneWithCircular(obj);</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real-World Examples</h2>
+
+    <h3 class="exo mt-4">Example 1: React State Management</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// React component with state cloning
+function UserProfile() {
+  const [user, setUser] = useState({
+    name: 'John',
+    age: 30,
+    preferences: {
+      theme: 'light',
+      notifications: true
+    }
+  });
+  
+  const updatePreference = (key, value) => {
+    // Immutable update using spread operator
+    setUser(prevUser => ({
+      ...prevUser,
+      preferences: {
+        ...prevUser.preferences,
+        [key]: value
+      }
+    }));
+  };
+  
+  const resetToDefaults = () => {
+    // Deep clone for complete reset
+    const defaultUser = JSON.parse(JSON.stringify({
+      name: 'John',
+      age: 30,
+      preferences: {
+        theme: 'light',
+        notifications: true
+      }
+    }));
+    setUser(defaultUser);
+  };
+  
+  return (
+    // Component JSX
+  );
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 2: Configuration Management</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Configuration management with cloning
+class ConfigManager {
+  constructor(defaultConfig) {
+    this.defaultConfig = defaultConfig;
+    this.currentConfig = { ...defaultConfig };
+  }
+  
+  updateConfig(updates) {
+    // Shallow clone for simple updates
+    this.currentConfig = { ...this.currentConfig, ...updates };
+  }
+  
+  resetToDefaults() {
+    // Deep clone to ensure complete reset
+    this.currentConfig = JSON.parse(JSON.stringify(this.defaultConfig));
+  }
+  
+  createSnapshot() {
+    // Create a snapshot for backup
+    return JSON.parse(JSON.stringify(this.currentConfig));
+  }
+  
+  restoreFromSnapshot(snapshot) {
+    // Restore from backup
+    this.currentConfig = JSON.parse(JSON.stringify(snapshot));
+  }
+}
+
+// Usage
+const configManager = new ConfigManager({
+  api: {
+    baseUrl: 'https://api.example.com',
+    timeout: 5000
+  },
+  ui: {
+    theme: 'light',
+    language: 'en'
+  }
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 3: Data Processing Pipeline</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Data processing with object cloning
+function processUserData(rawData) {
+  // Create a deep clone to avoid modifying original data
+  const data = JSON.parse(JSON.stringify(rawData));
+  
+  // Process the cloned data
+  data.users.forEach(user => {
+    // Add computed properties
+    user.fullName = `${user.firstName} ${user.lastName}`;
+    user.isActive = user.lastLogin > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    
+    // Normalize address
+    if (user.address) {
+      user.address.country = user.address.country.toUpperCase();
+    }
+  });
+  
+  // Filter and sort
+  const activeUsers = data.users
+    .filter(user => user.isActive)
+    .sort((a, b) => a.lastName.localeCompare(b.lastName));
+  
+  return {
+    ...data,
+    users: activeUsers,
+    processedAt: new Date()
+  };
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Best Practices and Recommendations</h2>
+
+    <h3 class="exo mt-4">When to Use Each Method</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Use spread operator:</strong> For modern codebases with ES6+ support and simple shallow cloning</li>
+      <li><strong>Use Object.assign():</strong> When you need maximum browser compatibility or merging multiple objects
+      </li>
+      <li><strong>Use JSON methods:</strong> For simple deep cloning when you don't have functions or dates</li>
+      <li><strong>Use lodash cloneDeep:</strong> For complex objects with functions, dates, or circular references</li>
+      <li><strong>Use custom functions:</strong> When you need specific behavior or performance optimizations</li>
+    </ul>
+
+    <h3 class="exo mt-4">Performance Guidelines</h3>
+
+    <ol class="lh-rem-4">
+      <li><strong>For small objects (&lt; 100 properties):</strong> Use spread operator for readability</li>
+      <li><strong>For large objects (&gt; 1000 properties):</strong> Consider performance implications</li>
+      <li><strong>For frequent cloning:</strong> Use shallow cloning when possible</li>
+      <li><strong>For complex objects:</strong> Use lodash or custom implementations</li>
+    </ol>
+
+    <h3 class="exo mt-4">Code Quality Tips</h3>
+
+    <ul class="lh-rem-4">
+      <li>Always consider whether you need shallow or deep cloning</li>
+      <li>Use consistent methods across your codebase</li>
+      <li>Add comments for complex cloning logic</li>
+      <li>Test with edge cases (circular references, functions, dates)</li>
+      <li>Consider using TypeScript for better type safety</li>
+      <li>Be aware of memory implications with large objects</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Browser Compatibility</h2>
+
+    <p>
+      Understanding browser support is crucial for choosing the right method for your project:
+    </p>
+
+    <h3 class="exo mt-4">Support Matrix</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Object.assign():</strong> All modern browsers (IE not supported)</li>
+      <li><strong>Spread operator:</strong> Modern browsers (Chrome 46+, Firefox 16+, Safari 8+)</li>
+      <li><strong>JSON methods:</strong> All browsers (IE8+)</li>
+      <li><strong>Object.create():</strong> All modern browsers (IE9+)</li>
+      <li><strong>structuredClone():</strong> Very new browsers (Chrome 98+, Firefox 94+)</li>
+    </ul>
+
+    <h3 class="exo mt-4">Polyfills and Fallbacks</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Polyfill for Object.assign if needed
+if (typeof Object.assign !== 'function') {
+  Object.assign = function(target) {
+    if (target == null) {
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+    
+    var to = Object(target);
+    
+    for (var index = 1; index < arguments.length; index++) {
+      var nextSource = arguments[index];
+      
+      if (nextSource != null) {
+        for (var nextKey in nextSource) {
+          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+            to[nextKey] = nextSource[nextKey];
+          }
+        }
+      }
+    }
+    return to;
+  };
+}
+
+// Safe spread operator usage with fallback
+function safeClone(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+  
+  // Try spread operator first
+  try {
+    return { ...obj };
+  } catch (error) {
+    // Fallback to Object.assign
+    return Object.assign({}, obj);
+  }
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Modern Alternatives</h2>
+
+    <h3 class="exo mt-4">structuredClone() - The Future of Cloning</h3>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">structuredClone()</code>
+      function is a new web standard that provides native deep cloning capabilities with better performance and support
+      for more data types.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Modern deep cloning with structuredClone
+if (typeof structuredClone !== 'undefined') {
+  const original = {
+    name: 'John',
+    birthDate: new Date('1990-01-01'),
+    greet() {
+      return `Hello, I'm ${this.name}`;
+    },
+    address: {
+      city: 'New York',
+      coordinates: { lat: 40.7128, lng: -74.0060 }
+    }
+  };
+  
+  const clone = structuredClone(original);
+  
+  console.log(clone.birthDate instanceof Date); // true
+  console.log(typeof clone.greet); // 'function'
+  console.log(original.address === clone.address); // false
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Immer - Immutable State Management</h3>
+
+    <p>
+      For complex state management scenarios, libraries like Immer provide a more elegant approach to immutable updates.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { produce } from 'immer';
+
+const originalState = {
+  user: {
+    name: 'John',
+    preferences: {
+      theme: 'light',
+      notifications: true
+    }
+  },
+  todos: [
+    { id: 1, text: 'Learn cloning', completed: false }
+  ]
+};
+
+// Immutable update with Immer
+const newState = produce(originalState, draft => {
+  draft.user.name = 'Jane';
+  draft.user.preferences.theme = 'dark';
+  draft.todos.push({ id: 2, text: 'Master Immer', completed: false });
+});
+
+console.log(originalState === newState); // false
+console.log(originalState.user === newState.user); // false
+console.log(originalState.todos === newState.todos); // false</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Object cloning in JavaScript is a fundamental operation that every developer should master. Each of the 6 methods
+      we've explored has its own strengths and use cases. The spread operator remains the most popular choice for
+      shallow cloning due to its clean syntax and excellent performance, while JSON methods provide a simple solution
+      for deep cloning when dealing with simple data structures.
+    </p>
+
+    <p>
+      The key to choosing the right method lies in understanding your specific requirements: Do you need shallow or deep
+      cloning? Are you working with complex objects containing functions or dates? Do you need to handle circular
+      references? By considering these factors and following the best practices outlined in this guide, you can write
+      efficient, maintainable code that handles object cloning effectively.
+    </p>
+
+    <p>
+      Remember that performance considerations become more important as your objects grow in complexity, and always test
+      your chosen method with realistic data structures. Whether you're building a simple web application or a complex
+      data processing system, the right object cloning technique will help you write cleaner, more efficient JavaScript
+      code.
+    </p>
+
+    <p>
+      As JavaScript continues to evolve, new methods like <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">structuredClone()</code> will
+      provide even better solutions, but the fundamental principles of object manipulation remain constant. By mastering
+      these 6 methods, you'll be well-equipped to handle any object cloning challenge that comes your way.
+    </p>
+  </article>
+</div>
