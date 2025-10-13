@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Axentix - Modern framework to build websites faster</title>
-        
-        <meta name="description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
-        <meta property="og:description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
-        <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Master JavaScript forEach() index parameter. Learn how to access array index in forEach loops with practical examples, performance tips, and real-world use cases." />
+    <meta property="og:description" content="Master JavaScript forEach() index parameter. Learn how to access array index in forEach loops with practical examples, performance tips, and real-world use cases." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -24,18 +25,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
 <meta name="linkavista" content="link-2195-5022"> 
-        
-        
-        
+    
+    
+    
+    
 
-        
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
-        <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css"/>
-        <link rel="stylesheet" href="/home.min.af24551642300191f489a2f1a2eeed6d7d2128fdef66a78da474e761317db4d6.css"/>
-    </head>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
 
-    <body class="layout relative-pos"><header>
+<body class="layout relative-pos"><header>
   <div class="navbar-fixed">
     <nav class="navbar lh-normal" id="main-navbar">
       <button
@@ -119,7 +121,7 @@
           
         
 
-        <a href='https://useaxentix.com/blog/css/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/blog/javascript/get-current-array-index-in-javascript-foreach/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.4.x
         </a>
       
@@ -129,7 +131,7 @@
           
         
 
-        <a href='https://useaxentix.com//2.3.xblog/css/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//2.3.xblog/javascript/get-current-array-index-in-javascript-foreach/' class="text-center dropdown-item py-3 ">
            2.3.x
         </a>
       
@@ -139,7 +141,7 @@
           
         
 
-        <a href='https://useaxentix.com//2.2.xblog/css/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//2.2.xblog/javascript/get-current-array-index-in-javascript-foreach/' class="text-center dropdown-item py-3 ">
            2.2.x
         </a>
       
@@ -149,7 +151,7 @@
           
         
 
-        <a href='https://useaxentix.com//1.3.xblog/css/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//1.3.xblog/javascript/get-current-array-index-in-javascript-foreach/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -1202,42 +1204,438 @@
 </a>
 </div>
 
-        <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
         <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
             <stop stop-color="#ff7600"></stop>
             <stop offset="1" stop-color="#ffd526"></stop>
         </linearGradient>
-        </svg>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-xs7 fit-content-height">
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Get The Current Array Index in JavaScript forEach(): Complete Guide
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-13" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      13/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Master JavaScript forEach() index parameter to access array positions. Learn how to get the current array index in
+    forEach loops with practical examples, performance tips, and real-world use cases.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Get The Current Array Index in JavaScript forEach(): Complete Guide"
+      src='https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp'
+      alt="Get The Current Array Index in JavaScript forEach(): Complete Guide" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Get The Current Array Index in JavaScript forEach(): Complete
+      Guide
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      JavaScript's <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach()</code>
+      method is one of the most commonly used array iteration methods, but many developers don't realize that it
+      provides
+      access to the current array index as the second parameter. Understanding how to <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">get the current array index in forEach()</code>
+      is essential for writing more powerful and flexible JavaScript code.
+    </p>
+
+    <p>
+      This comprehensive guide covers everything you need to know about accessing array indices in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach()</code> loops, from basic
+      usage to advanced techniques. You'll learn when and how to use the index parameter, performance considerations,
+      common pitfalls, and real-world examples that will help you write more efficient and maintainable JavaScript code.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">forEach() Syntax</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach()</code> method
+      accepts a callback function that receives three parameters. The second parameter is the index of the current
+      element being processed, which is what we'll focus on in this guide.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">array.forEach(function(element, index, array) {
+  // element: The current element being processed
+  // index: The index of the current element (0-based)
+  // array: The original array being iterated over
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Basic Example</h2>
+
+    <p>
+      Here's a simple example that demonstrates how to access the current array index in a forEach() loop. Notice how
+      the index parameter provides the zero-based position of each element.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const fruits = ['apple', 'banana', 'cherry'];
+
+fruits.forEach(function(fruit, index) {
+  console.log(`${index}: ${fruit}`);
+});
+
+// Output:
+// 0: apple
+// 1: banana
+// 2: cherry</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Arrow Function Syntax</h2>
+
+    <p>
+      You can also use arrow function syntax for a more concise approach. This is the preferred method in modern
+      JavaScript development.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const fruits = ['apple', 'banana', 'cherry'];
+
+fruits.forEach((fruit, index) => {
+  console.log(`${index}: ${fruit}`);
+});
+
+// Output:
+// 0: apple
+// 1: banana
+// 2: cherry</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Practical Examples</h2>
+
+    <p>
+      Now let's look at some practical examples where accessing the array index in forEach() is particularly useful.
+      These examples show real-world scenarios where the index parameter adds significant value.
+    </p>
+
+    <h3 class="exo mt-4">Numbered List</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const tasks = ['Complete project', 'Review code', 'Write tests'];
+
+tasks.forEach((task, index) => {
+  console.log(`${index + 1}. ${task}`);
+});
+
+// Output:
+// 1. Complete project
+// 2. Review code
+// 3. Write tests</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Conditional Logic</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const numbers = [10, 20, 30, 40, 50];
+
+numbers.forEach((number, index) => {
+  if (index === 0) {
+    console.log(`First: ${number}`);
+  } else if (index === numbers.length - 1) {
+    console.log(`Last: ${number}`);
+  } else {
+    console.log(`Middle: ${number}`);
+  }
+});
+
+// Output:
+// First: 10
+// Middle: 20
+// Middle: 30
+// Middle: 40
+// Last: 50</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Accessing Adjacent Elements</h2>
+
+    <p>
+      One powerful use case for the index parameter is accessing adjacent elements in the array. This allows you to
+      compare the current element with previous or next elements, which is useful for data analysis and processing.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const temperatures = [22, 25, 23, 28, 26];
+
+temperatures.forEach((temp, index) => {
+  if (index > 0) {
+    const previousTemp = temperatures[index - 1];
+    const difference = temp - previousTemp;
+    const trend = difference > 0 ? 'increased' : 'decreased';
     
-        <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
-            <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
-            <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
-            <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
-            <div class="bg-blur bg-blur-colors orange rounded-full"></div>
-            <div class="bg-blur bg-blur-review blue rounded-full"></div>
-        </div>
+    console.log(`Temperature ${trend} from ${previousTemp}°C to ${temp}°C`);
+  } else {
+    console.log(`Starting temperature: ${temp}°C`);
+  }
+});
 
-        <main>
+// Output:
+// Starting temperature: 22°C
+// Temperature increased from 22°C to 25°C
+// Temperature decreased from 25°C to 23°C
+// Temperature increased from 23°C to 28°C
+// Temperature decreased from 28°C to 26°C</code></pre>
+    </div>
 
-<div class="container" id="blog-list">
-  <h1 class="exo text-center mb-5 ">CSS Articles</h1>
+    <h2 class="exo mt-5" itemprop="subtitle">Common Use Cases</h2>
 
-  <div class="grix xs1 md7 gutter-xs7 vstretch">
-    <div class="col-md5">
-      
-      
-      <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+    <p>
+      Here are some common scenarios where you'll want to use the index parameter in forEach() loops. These patterns are
+      frequently used in web development and data processing.
+    </p>
+
+    <h3 class="exo mt-4">Creating Numbered Lists</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const items = ['First item', 'Second item', 'Third item'];
+
+items.forEach((item, index) => {
+  console.log(`${index + 1}. ${item}`);
+});
+
+// Output:
+// 1. First item
+// 2. Second item
+// 3. Third item</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Styling Based on Position</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const products = ['Laptop', 'Phone', 'Tablet', 'Watch'];
+
+products.forEach((product, index) => {
+  const isEven = index % 2 === 0;
+  const prefix = isEven ? '✓' : '•';
+  
+  console.log(`${prefix} ${product}`);
+});
+
+// Output:
+// ✓ Laptop
+// • Phone
+// ✓ Tablet
+// • Watch</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Key Points</h2>
+
+    <ul class="lh-rem-4">
+      <li>The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach()</code>
+        method does not return a value; it is used for executing a function on each array element</li>
+      <li>The callback function can accept up to three arguments: the current element, its index, and the array being
+        traversed</li>
+      <li>Using the second parameter of the callback function allows you to access the current index during iteration
+      </li>
+      <li>JavaScript arrays use zero-based indexing (0, 1, 2, ...)</li>
+      <li>You can access adjacent elements by using the index to reference other array positions</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Common Pitfalls</h2>
+
+    <p>
+      When working with array indices in forEach(), there are several common mistakes that developers make.
+      Understanding these pitfalls will help you write more robust code.
+    </p>
+
+    <h3 class="exo mt-4">Zero-Based vs One-Based Indexing</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const items = ['First', 'Second', 'Third'];
+
+// Confusing: Shows 0, 1, 2 to users
+items.forEach((item, index) => {
+  console.log(`${index}: ${item}`); // 0: First, 1: Second, 2: Third
+});
+
+// Better: Convert to one-based for display
+items.forEach((item, index) => {
+  console.log(`${index + 1}: ${item}`); // 1: First, 2: Second, 3: Third
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Modifying Array During Iteration</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const numbers = [1, 2, 3, 4, 5];
+
+// Problematic: Modifying array during iteration
+numbers.forEach((number, index) => {
+  if (number % 2 === 0) {
+    numbers.splice(index, 1); // This can cause issues
+  }
+});
+
+// Solution: Collect indices to modify first
+const numbers2 = [1, 2, 3, 4, 5];
+const indicesToRemove = [];
+
+numbers2.forEach((number, index) => {
+  if (number % 2 === 0) {
+    indicesToRemove.push(index);
+  }
+});
+
+// Remove in reverse order to maintain index validity
+indicesToRemove.reverse().forEach(index => {
+  numbers2.splice(index, 1);
+});
+
+console.log(numbers2); // [1, 3, 5]</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      By leveraging the index parameter in the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach()</code> method, you can
+      perform operations that require knowledge of an element's position within the array. This is particularly useful
+      for creating numbered lists, implementing conditional logic based on position, and accessing adjacent elements.
+    </p>
+
+    <p>
+      The ability to access the current array index in JavaScript forEach() loops opens up many possibilities for more
+      sophisticated array processing. Whether you're building user interfaces, processing data, or implementing business
+      logic, understanding how to use the index parameter effectively will make you a more proficient JavaScript
+      developer.
+    </p>
+  </article>
+</div>
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/javascript/">
+          JavaScript (8)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/miscellaneous/">
+          Miscellaneous (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/shacdn/">
+          Shacdn (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/tamagui/">
+          Tamagui (1)
+        </a>
+        
+      </div>
+    </div>
+
+    <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto z-index-1"
+      id="ads-blog"></div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Start Building with Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Ready to create amazing websites? Get started with Axentix framework today.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Get Started
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Related Posts</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/css/css-position-sticky-not-working/" aria-label="CSS Position Sticky Not Working: Common Issues and Solutions article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/css/css-position-sticky-not-working/css-position-sticky-not-working.webp" loading="lazy"
-      alt="CSS Position Sticky Not Working: Common Issues and Solutions recommended article" />
+  <a href="/blog/axentix/getting-started-with-axentix-framework/" aria-label="Getting Started with Axentix Framework article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/logoOG.jpg" loading="lazy"
+      alt="Getting Started with Axentix Framework recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/css/css-position-sticky-not-working/">
-        CSS Position Sticky Not Working: Common Issues and Solutions
+      <a href="/blog/axentix/getting-started-with-axentix-framework/">
+        Getting Started with Axentix Framework
       </a>
     </h3>
 
@@ -1247,7 +1645,7 @@
           <path fill="currentColor"
             d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
         </svg>
-        02 Oct 2025
+        11 Aug 2025
         <br>
         <span class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
@@ -1257,68 +1655,21 @@
         </span>
         
         
-        <a href="/blog/css/">Css
+        <a href="/blog/axentix/">Axentix
         </a>
         
       </li>
     </ul>
 
-    <p class="mt-0">Learn why CSS position sticky fails and how to fix it. Complete guide covering browser compatibility, overflow issues, and practical solutions.</p>
+    <p class="mt-0">Learn how to quickly set up and start using the Axentix framework for building modern websites with customizable components and utility-first classes.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/css/css-position-sticky-not-working/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axentix/getting-started-with-axentix-framework/">
       Read article
     </a>
   </div>
 </div>
-      <div class="divider grey dark-2 my-5"></div>
-      
-      <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
-  
-
-  <a href="/blog/css/css-reset-complete-guide/" aria-label="CSS Reset: The best tool to normalize your CSS for Modern Development article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/css/css-reset-complete-guide/css-resets.webp" loading="lazy"
-      alt="CSS Reset: The best tool to normalize your CSS for Modern Development recommended article" />
-  </a>
-
-  <div class="p-3 d-flex fx-col fx-grow">
-    <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/css/css-reset-complete-guide/">
-        CSS Reset: The best tool to normalize your CSS for Modern Development
-      </a>
-    </h3>
-
-    <ul class="p-0">
-      <li class="d-inline-block">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
-          <path fill="currentColor"
-            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
-        </svg>
-        01 Oct 2025
-        <br>
-        <span class="mt-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
-            <path fill="currentColor"
-              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
-          </svg>
-        </span>
-        
-        
-        <a href="/blog/css/">Css
-        </a>
-        
-      </li>
-    </ul>
-
-    <p class="mt-0">Master CSS reset techniques with this comprehensive guide covering classic approaches, modern implementations, and best practices for consistent cross-browser styling.</p>
-
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/css/css-reset-complete-guide/">
-      Read article
-    </a>
-  </div>
-</div>
-      <div class="divider grey dark-2 my-5"></div>
-      
-      <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
   <a href="/blog/css/complete-css-grid-tutorial/" aria-label="The Most Complete CSS Grid Tutorial article image">
@@ -1362,112 +1713,57 @@
     </a>
   </div>
 </div>
-      <div class="divider grey dark-2 my-5"></div>
-      
-    </div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
 
-    <div class="col-md2 d-flex fx-col h100 hide-sm-down">
-      <div class="categories p-3 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
-        <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+  <a href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/" aria-label="What is Tamagui and How to Use It: The Universal React Styling Solution article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png" loading="lazy"
+      alt="What is Tamagui and How to Use It: The Universal React Styling Solution recommended article" />
+  </a>
 
-        <a class="d-flex text-grey" href='/blog/'>
-          All Posts
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/">
+        What is Tamagui and How to Use It: The Universal React Styling Solution
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        29 Sep 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/tamagui/">Tamagui
         </a>
         
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey" href="/blog/axentix/">
-          Axentix (2)
-        </a>
-        
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey
-                  text-primary text-underline" href="/blog/css/">
-          CSS (3)
-        </a>
-        
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey" href="/blog/javascript/">
-          JavaScript (8)
-        </a>
-        
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey" href="/blog/miscellaneous/">
-          Miscellaneous (1)
-        </a>
-        
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey" href="/blog/shacdn/">
-          Shacdn (1)
-        </a>
-        
-        <div class="divider grey dark-2 my-3"></div>
-        <a class="d-flex text-grey" href="/blog/tamagui/">
-          Tamagui (1)
-        </a>
-        
-      </div>
+      </li>
+    </ul>
 
-      <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto z-index-1"
-        id="ads-blog"></div>
-    </div>
-  </div>
+    <p class="mt-0">Discover Tamagui, the powerful style library and UI kit that enables seamless cross-platform development for React and React Native with optimizing compiler technology.</p>
 
-  <div class="d-flex fx-center">
-    
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-  <div class="categories py-4 hide-md-up">
-    <h2 class="font-s3 font-w400 mt-0">Categories</h2>
-
-    <a class="d-flex text-grey" href='/blog/'>
-      All Posts
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/">
+      Read article
     </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey" href="/blog/axentix/">
-      Axentix (2)
-    </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey
-                text-primary text-underline" href="/blog/css/">
-      CSS (3)
-    </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey" href="/blog/javascript/">
-      JavaScript (8)
-    </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey" href="/blog/miscellaneous/">
-      Miscellaneous (1)
-    </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey" href="/blog/shacdn/">
-      Shacdn (1)
-    </a>
-    
-    <div class="divider grey dark-2 my-3"></div>
-    <a class="d-flex text-grey" href="/blog/tamagui/">
-      Tamagui (1)
-    </a>
-    
   </div>
 </div>
+    
+  </div>
+  
+</section>
 
-        </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
   <div class="d-flex mb-5">
     <a
       class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
@@ -1517,28 +1813,30 @@
   </p>
 </footer>
 
-        
-        
-        
-        
-        <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js" integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
-        <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
-        <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
 
-        
-        
-        <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-MBCE9VSGDN');
-        </script>
-        
-    </body>
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
 </html>
