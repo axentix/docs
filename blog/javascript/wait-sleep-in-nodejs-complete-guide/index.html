@@ -4,8 +4,8 @@
 <head>
     <title>Axentix - Modern framework to build websites faster</title>
     
-    <meta name="description" content="Discover Tamagui, the powerful style library and UI kit that enables seamless cross-platform development for React and React Native with optimizing compiler technology." />
-    <meta property="og:description" content="Discover Tamagui, the powerful style library and UI kit that enables seamless cross-platform development for React and React Native with optimizing compiler technology." />
+    <meta name="description" content="Learn how to implement wait and sleep functionality in NodeJS. Complete guide covering setTimeout, Promise-based sleep, sleep-promise package, and execSync with practical examples." />
+    <meta property="og:description" content="Learn how to implement wait and sleep functionality in NodeJS. Complete guide covering setTimeout, Promise-based sleep, sleep-promise package, and execSync with practical examples." />
     <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
@@ -121,7 +121,7 @@
           
         
 
-        <a href='https://useaxentix.com/blog/tamagui/what-is-tamagui-and-how-to-use-it/' class="text-center dropdown-item py-3 font-w600">
+        <a href='https://useaxentix.com/blog/javascript/wait-sleep-in-nodejs-complete-guide/' class="text-center dropdown-item py-3 font-w600">
            Latest  2.4.x
         </a>
       
@@ -131,7 +131,7 @@
           
         
 
-        <a href='https://useaxentix.com//2.3.xblog/tamagui/what-is-tamagui-and-how-to-use-it/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//2.3.xblog/javascript/wait-sleep-in-nodejs-complete-guide/' class="text-center dropdown-item py-3 ">
            2.3.x
         </a>
       
@@ -141,7 +141,7 @@
           
         
 
-        <a href='https://useaxentix.com//2.2.xblog/tamagui/what-is-tamagui-and-how-to-use-it/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//2.2.xblog/javascript/wait-sleep-in-nodejs-complete-guide/' class="text-center dropdown-item py-3 ">
            2.2.x
         </a>
       
@@ -151,7 +151,7 @@
           
         
 
-        <a href='https://useaxentix.com//1.3.xblog/tamagui/what-is-tamagui-and-how-to-use-it/' class="text-center dropdown-item py-3 ">
+        <a href='https://useaxentix.com//1.3.xblog/javascript/wait-sleep-in-nodejs-complete-guide/' class="text-center dropdown-item py-3 ">
            1.3.x
         </a>
       
@@ -1244,7 +1244,7 @@
     <main>
 <div class="container blog-article mt-5">
   <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
-    href='/blog/tamagui/'>
+    href='/blog/javascript/'>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
       <g fill="none">
         <path
@@ -1253,7 +1253,7 @@
           d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
       </g>
     </svg>&nbsp;
-    Tamagui Articles
+    JavaScript Articles
   </a>
 </div>
 
@@ -1261,489 +1261,330 @@
   
 <div class="col-md5">
   <h1 class="exo mt-5 mb-4" itemprop="title">
-    What is Tamagui and How to Use It: The Universal React Styling Solution
+    Wait & Sleep in NodeJS: Complete Guide with 4 Methods
   </h1>
 
   <div class="text-grey text-light-1">
-    <a href="/blog/tamagui/">
+    <a href="/blog/javascript/">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
         <path fill="currentColor"
           d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
       </svg>
-      Tamagui
+      JavaScript
     </a>
 
-    <time itemprop="datePublished" datetime="2025-01-27" class="ml-1">
+    <time itemprop="datePublished" datetime="2025-10-16" class="ml-1">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
         <path fill="currentColor"
           d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
       </svg>
-      29/09/2025
+      16/10/2025
     </time>
   </div>
 
-  <figure class="mt-5 d-flex fx-col fit-content mx-0">
-    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
-      title="Tamagui Homepage" src='https://useaxentix.com//img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png'
-      alt="Tamagui Homepage" />
-
-    <figcaption class="text-center text-grey mb-5 mt-2">Tamagui Homepage</figcaption>
-  </figure>
-
   <p class="mb-5 font-s3">
-    Discover Tamagui, the powerful style library and UI kit that enables seamless cross-platform development for React
-    and React Native with optimizing compiler technology.
+    Master NodeJS sleep and wait functionality with 4 different methods. From setTimeout to Promise-based solutions with
+    practical examples and best practices.
   </p>
 
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Wait & Sleep in NodeJS: Complete Guide with 4 Methods"
+      src='https://useaxentix.com//img/blog/javascript/wait-sleep-in-nodejs-complete-guide/sleep-node-js.webp'
+      alt="Wait & Sleep in NodeJS: Complete Guide with 4 Methods" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Wait & Sleep in NodeJS: Complete Guide with 4 Methods
+    </figcaption>
+  </figure>
+
   <article class="lh-3 font-s2-5 mb-5">
-    <h2 class="exo mt-0" itemprop="subtitle">What is Tamagui?</h2>
-
     <p>
-      In the world of modern web and mobile development, creating consistent, performant user interfaces across
-      different platforms has always been a challenge. Enter Tamagui, a revolutionary style library and UI kit that's
-      changing how developers approach cross-platform React development. Tamagui isn't just another styling solution,
-      it's a comprehensive ecosystem that brings together the best of both worlds: the flexibility of React Native and
-      the power of web development.
+      Unlike traditional programming languages, NodeJS doesn't have a built-in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep()</code> function due to its
+      asynchronous nature. However, there are several effective ways to implement wait and sleep functionality in
+      NodeJS.
+      This guide explores 4 different methods to pause execution, from simple <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> to modern
+      Promise-based solutions. Whether you need to implement rate limiting, simulate delays, or create time-based loops,
+      understanding these NodeJS sleep patterns will help you write more efficient and maintainable code.
     </p>
 
-    <p>
-      At its core, Tamagui is built around three main pillars: Core, Static, and Tamagui itself. The Core library
-      provides a universal style system for React and React Native with a large typed superset of the React Native style
-      API, weighing in at just about 24KB with no external dependencies. The Static compiler is what makes Tamagui truly
-      special, an optimizer that transforms your styled components into platform-ideal code through partial analysis,
-      CSS extraction, tree flattening, and dead code elimination.
-    </p>
+    <h2 class="exo mt-5" itemprop="subtitle">Why Do You Need Sleep in NodeJS?</h2>
 
     <p>
-      What sets Tamagui apart from other styling solutions is its optimizing compiler. This isn't just a build tool,
-      it's a sophisticated system that analyzes your code at compile time and outputs perfectly optimized DOM elements
-      on the web or View/Text components on native platforms. The compiler can flatten complex styled components into
-      simple divs with atomic CSS, dramatically improving performance while maintaining the developer experience you
-      love.
+      NodeJS sleep functionality is essential for various scenarios where you need to pause execution for a specific
+      duration. Common use cases include:
     </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Rate Limiting:</strong> Pause between API calls to avoid hitting rate limits</li>
+      <li><strong>Testing:</strong> Simulate real-world delays during development and testing</li>
+      <li><strong>Retry Logic:</strong> Wait before retrying failed operations</li>
+      <li><strong>Polling:</strong> Create intervals between status checks</li>
+      <li><strong>User Experience:</strong> Add delays for better UX in CLI applications</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 1: Using setTimeout()</h2>
 
     <p>
-      The beauty of Tamagui lies in its universal approach. You write your styles once using a familiar API, and Tamagui
-      handles the complexity of making them work perfectly on both web and native platforms. Whether you're building a
-      React web application, a React Native mobile app, or a universal app that runs everywhere, Tamagui provides the
-      tools and components you need to create beautiful, performant user interfaces.
+      The most straightforward way to implement NodeJS sleep is using <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code>. This method
+      schedules a callback to run after a specified number of milliseconds but doesn't block subsequent code execution.
     </p>
 
-    <h2 class="exo mt-5" itemprop="subtitle">Getting Started with Tamagui</h2>
-
-    <p>
-      Getting started with Tamagui is surprisingly straightforward, thanks to their excellent starter templates and
-      clear documentation. The team has created multiple starter projects that range from simple learning examples to
-      production-ready monorepos, making it easy to find the right starting point for your project.
-    </p>
-
-    <h3 class="exo mt-4">Quick Start with the Starter Template</h3>
-    <p>
-      The fastest way to get up and running with Tamagui is to use their starter template. This command will create a
-      new project with all the necessary configuration and dependencies already set up:
-    </p>
-
-    <pre><code class="language-bash">
-# Create a new Tamagui project
-npm create tamagui@latest
-    </code></pre>
-
-    <p>
-      The starter template will guide you through a series of questions to configure your project, including whether you
-      want a simple example or a more complex setup. It handles all the heavy lifting of setting up the configuration
-      files, installing dependencies, and creating a basic project structure.
-    </p>
-
-    <h3 class="exo mt-4">Manual Installation and Setup</h3>
-    <p>
-      If you prefer to set up Tamagui manually or add it to an existing project, you can install the core packages and
-      configure everything yourself. Here's how to get started:
-    </p>
-
-    <pre><code class="language-bash">
-# Install the core Tamagui packages
-npm install @tamagui/core @tamagui/config @tamagui/animations-react-native
-    </code></pre>
-
-    <p>
-      Once installed, you'll need to create a configuration file. Create a <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tamagui.config.ts</code> file in
-      your project root:
-    </p>
-
-    <pre><code class="language-js">
-import { createTamagui } from '@tamagui/core'
-import { config } from '@tamagui/config/v3'
-
-const tamaguiConfig = createTamagui(config)
-
-export default tamaguiConfig
-    </code></pre>
-
-    <p>
-      Next, you'll need to wrap your application with the TamaguiProvider to make the configuration available throughout
-      your app:
-    </p>
-
-    <pre><code class="language-js">
-import { TamaguiProvider } from '@tamagui/core'
-import config from './tamagui.config'
-
-export default function App() {
-  return (
-    &lt;TamaguiProvider config={config}&gt;
-      &lt;YourAppContent /&gt;
-    &lt;/TamaguiProvider&gt;
-  )
+    <div class="code-block">
+      <pre><code class="language-javascript">// Basic setTimeout sleep function
+function sleep(ms, callback) {
+  setTimeout(callback, ms);
 }
-    </code></pre>
 
-    <h3 class="exo mt-4">Your First Tamagui Component</h3>
+console.log('Start');
+sleep(2000, () => {
+  console.log('End after 2 seconds');
+});
+console.log('This runs immediately');</code></pre>
+    </div>
+
+    <p><strong>Pros:</strong> Simple and widely supported</p>
+    <p><strong>Cons:</strong> Can lead to callback hell with complex async operations</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 2: Promise-Based Sleep</h2>
+
     <p>
-      Now you're ready to start using Tamagui components. Here's a simple example that demonstrates the power of
-      Tamagui's styling system:
+      The most popular and modern way to implement NodeJS sleep is using Promises with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code>. This allows
+      you to use async/await syntax for cleaner, more readable code.
     </p>
 
-    <pre><code class="language-js">
-import { View, Text, Button } from '@tamagui/core'
-
-export default function WelcomeScreen() {
-  return (
-    &lt;View 
-      flex={1} 
-      justifyContent="center" 
-      alignItems="center" 
-      backgroundColor="$background"
-      padding="$4"
-    &gt;
-      &lt;Text 
-        fontSize="$6" 
-        fontWeight="bold" 
-        color="$color"
-        marginBottom="$4"
-      &gt;
-        Welcome to Tamagui
-      &lt;/Text&gt;
-      &lt;Button 
-        backgroundColor="$blue10"
-        color="white"
-        padding="$3"
-        borderRadius="$4"
-        onPress={() => console.log('Button pressed!')}
-      &gt;
-        Get Started
-      &lt;/Button&gt;
-    &lt;/View&gt;
-  )
+    <div class="code-block">
+      <pre><code class="language-javascript">// Promise-based sleep function
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-    </code></pre>
 
-    <p>
-      This example showcases several key features of Tamagui: the use of design tokens (like <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">$background</code>, <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">$4</code>, <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">$blue10</code>), the familiar
-      React Native style API, and the ability to write styles that work seamlessly across platforms.
-    </p>
-
-    <h2 class="exo mt-5" itemprop="subtitle">NativeWind vs Tamagui</h2>
-
-    <p>
-      When it comes to styling React Native applications, two popular approaches often come up in discussions:
-      NativeWind and Tamagui. While both aim to solve similar problems, they take fundamentally different approaches to
-      styling and have distinct advantages depending on your project's needs.
-    </p>
-
-    <h3 class="exo mt-4">Styling Philosophy and Approach</h3>
-    <p>
-      NativeWind brings the familiar Tailwind CSS utility classes to React Native, allowing developers who are already
-      comfortable with Tailwind to apply the same mental model to mobile development. You write styles using utility
-      classes like <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bg-blue-500</code>, <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">p-4</code>, and <code
-        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">text-center</code>, which are then
-      transformed into React Native style objects.
-    </p>
-
-    <p>
-      Tamagui, on the other hand, takes a more integrated approach with its CSS-in-JS style system. Instead of utility
-      classes, you write styles using props and design tokens that are part of a comprehensive design system. This
-      approach provides better type safety, more powerful theming capabilities, and deeper integration with React's
-      component architecture.
-    </p>
-
-    <h3 class="exo mt-4">Performance and Optimization</h3>
-    <p>
-      This is where Tamagui truly shines. While NativeWind focuses on providing a familiar syntax for writing styles,
-      Tamagui includes a sophisticated optimizing compiler that can dramatically improve your application's performance.
-      The compiler performs partial analysis, CSS extraction, tree flattening, and dead code elimination, transforming
-      complex styled components into optimized platform-specific code.
-    </p>
-
-    <p>
-      On the web, Tamagui's compiler can flatten styled components into simple divs with atomic CSS, similar to what
-      you'd get with a utility-first framework but with the flexibility of component-based styling. On React Native, it
-      optimizes style objects and reduces the overhead of style calculations at runtime.
-    </p>
-
-    <h3 class="exo mt-4">Cross-Platform Development</h3>
-    <p>
-      Both NativeWind and Tamagui support cross-platform development, but Tamagui's approach is more comprehensive.
-      NativeWind primarily focuses on React Native with some web support, while Tamagui is designed from the ground up
-      to be truly universal. The same components and styles work seamlessly across web, iOS, and Android platforms.
-    </p>
-
-    <p>
-      Tamagui's universal approach means you can share more code between your web and mobile applications, reducing
-      development time and ensuring consistency across platforms. The design system approach also makes it easier to
-      maintain brand consistency and implement design changes across your entire application suite.
-    </p>
-
-    <h3 class="exo mt-4">When to Choose Each</h3>
-    <p>
-      Choose NativeWind if you're already familiar with Tailwind CSS and want to apply that same mental model to React
-      Native development. It's particularly good for teams that are primarily focused on mobile development and want a
-      lightweight, familiar styling solution.
-    </p>
-
-    <p>
-      Choose Tamagui if you're building cross-platform applications, need advanced theming capabilities, want the
-      performance benefits of the optimizing compiler, or are looking for a more comprehensive design system approach.
-      Tamagui is also a better choice if you need advanced features like animations, complex responsive behavior, or
-      deep integration with React's component system.
-    </p>
-
-    <h2 class="exo mt-5" itemprop="subtitle">Tamagui Bento: Ready-to-Use Components</h2>
-
-    <p>
-      One of the most exciting aspects of the Tamagui ecosystem is Tamagui Bento, a collection of copy-paste UI
-      components that are designed to work seamlessly across React Native and React web applications. Bento takes the
-      same philosophy that made libraries like shadcn/ui popular and applies it to the cross-platform world.
-    </p>
-
-    <p>
-      Tamagui Bento offers both free and paid components, with the free components providing lifetime rights and the
-      paid ones offering more advanced functionality and premium designs. This model ensures that developers can get
-      started quickly with high-quality components while supporting the continued development of the ecosystem.
-    </p>
-
-    <h3 class="exo mt-4">What Makes Bento Special</h3>
-    <p>
-      The components in Tamagui Bento are designed to be truly universal. They adapt seamlessly to different platforms,
-      screen sizes, and themes without requiring any platform-specific code. This means you can use the same component
-      in your web application and your React Native mobile app, and it will look and behave appropriately on each
-      platform.
-    </p>
-
-    <p>
-      Each component is also highly customizable and designed to be used independently. You're not locked into a
-      specific design system or forced to use components in a particular way. The copy-paste approach means you own the
-      source code and can modify it to fit your exact needs.
-    </p>
-
-    <h3 class="exo mt-4">Example: A Bento Card Component</h3>
-    <p>
-      Here's an example of how you might use a Bento card component in your application:
-    </p>
-
-    <pre><code class="language-js">
-import { Card, H3, Paragraph, Button, XStack, YStack } from '@tamagui/core'
-
-export function ProductCard({ product }) {
-  return (
-    &lt;Card 
-      elevate 
-      size="$4" 
-      bordered 
-      animation="bouncy"
-      pressStyle={{ scale: 0.975 }}
-    &gt;
-      &lt;Card.Header padded&gt;
-        &lt;H3&gt;{product.name}&lt;/H3&gt;
-        &lt;Paragraph theme="alt2"&gt;{product.description}&lt;/Paragraph&gt;
-      &lt;/Card.Header&gt;
-      
-      &lt;Card.Footer padded&gt;
-        &lt;XStack justifyContent="space-between" alignItems="center"&gt;
-          &lt;YStack&gt;
-            &lt;Paragraph size="$2"&gt;Price&lt;/Paragraph&gt;
-            &lt;H3 color="$green10"&gt;${product.price}&lt;/H3&gt;
-          &lt;/YStack&gt;
-          &lt;Button theme="green"&gt;Add to Cart&lt;/Button&gt;
-        &lt;/XStack&gt;
-      &lt;/Card.Footer&gt;
-    &lt;/Card&gt;
-  )
+// Using async/await
+async function demo() {
+  console.log('Taking a nap...');
+  await sleep(2000); // Wait for 2 seconds
+  console.log('Woke up!');
 }
-    </code></pre>
 
-    <p>
-      This example demonstrates several key features of Bento components: the use of compound components (Card.Header,
-      Card.Footer), built-in animations, responsive design tokens, and the ability to create complex layouts with
-      minimal code. The same component would work perfectly on both web and mobile platforms.
-    </p>
+demo();</code></pre>
+    </div>
 
-    <h3 class="exo mt-4">The Bento Ecosystem</h3>
-    <p>
-      The Bento collection includes a wide variety of components, from simple buttons and inputs to complex data tables
-      and navigation systems. Each component is carefully designed to follow modern UI/UX principles and includes
-      comprehensive accessibility features.
-    </p>
+    <h3 class="exo mt-4">Advanced Promise Sleep Examples</h3>
 
-    <p>
-      The components are also designed to work together seamlessly. You can combine different Bento components to create
-      complex interfaces, and they'll maintain consistent styling and behavior. This makes it easy to build cohesive
-      user experiences without having to worry about design inconsistencies.
-    </p>
-
-    <h2 class="exo mt-5" itemprop="subtitle">Advanced Features and Capabilities</h2>
-
-    <p>
-      Tamagui goes far beyond basic styling with a comprehensive set of advanced features that make it suitable for
-      complex, production-ready applications. These features include sophisticated theming, responsive design,
-      animations, and deep integration with React's ecosystem.
-    </p>
-
-    <h3 class="exo mt-4">Smart Theming System</h3>
-    <p>
-      Tamagui's theming system is one of its most powerful features. It provides themes that act like CSS variables,
-      overriding as they descend through your component tree and compiling to CSS to avoid re-renders. This means you
-      can have different themes for different parts of your application, and the system will handle the complexity of
-      applying the right styles at the right time.
-    </p>
-
-    <pre><code class="language-js">
-import { Theme, Button } from '@tamagui/core'
-
-export function ThemedButton() {
-  return (
-    &lt;Theme name="dark"&gt;
-      &lt;Button theme="blue"&gt;Dark Theme Button&lt;/Button&gt;
-    &lt;/Theme&gt;
-  )
+    <div class="code-block">
+      <pre><code class="language-javascript">// Multiple sleep operations in parallel
+async function parallelSleep() {
+  const start = Date.now();
+  await Promise.all([sleep(1000), sleep(1000)]);
+  console.log(`Elapsed: ${Date.now() - start}ms`); // ~1000ms
 }
-    </code></pre>
 
-    <h3 class="exo mt-4">Responsive Design Made Easy</h3>
-    <p>
-      Tamagui makes responsive design incredibly simple with its responsive props and hooks. You can write responsive
-      styles that compile to atomic CSS on the web, ensuring optimal performance while maintaining the flexibility of
-      component-based styling.
-    </p>
-
-    <pre><code class="language-js">
-import { View, Text } from '@tamagui/core'
-
-export function ResponsiveLayout() {
-  return (
-    &lt;View 
-      flexDirection="column"
-      $gtSm={{ flexDirection: "row" }}
-      padding="$4"
-      $gtMd={{ padding: "$6" }}
-    &gt;
-      &lt;Text 
-        fontSize="$4"
-        $gtSm={{ fontSize: "$6" }}
-        $gtMd={{ fontSize: "$8" }}
-      &gt;
-        Responsive Text
-      &lt;/Text&gt;
-    &lt;/View&gt;
-  )
+// Sequential sleep operations
+async function sequentialSleep() {
+  const start = Date.now();
+  await sleep(1000);
+  await sleep(1000);
+  console.log(`Elapsed: ${Date.now() - start}ms`); // ~2000ms
 }
-    </code></pre>
 
-    <h3 class="exo mt-4">Universal Animations</h3>
+// Sleep with retry logic
+async function retryWithSleep(operation, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (i === maxRetries - 1) throw error;
+      console.log(`Retry ${i + 1} after 1 second...`);
+      await sleep(1000);
+    }
+  }
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 3: Using sleep-promise Package</h2>
+
     <p>
-      Tamagui includes a sophisticated animation system that works across all platforms. The animations are designed to
-      be performant and provide better platform targeting with animation drivers that can be changed without changing
-      your code.
+      For those who prefer not to implement their own sleep function, the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep-promise</code> package
+      provides a ready-to-use solution.
     </p>
 
-    <pre><code class="language-js">
-import { Square, Button } from '@tamagui/core'
+    <div class="code-block">
+      <pre><code class="language-javascript">// Install: npm install sleep-promise
+const sleep = require('sleep-promise');
 
-export function AnimatedSquare() {
-  const [position, setPosition] = React.useState(0)
+async function demo() {
+  console.log('Lights out...');
+  await sleep(5000); // Wait for 5 seconds
+  console.log('Good morning, world!');
+}
+
+demo();</code></pre>
+    </div>
+
+    <p><strong>Pros:</strong> No need to implement your own function, well-tested</p>
+    <p><strong>Cons:</strong> Adds external dependency</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Method 4: Using execSync</h2>
+
+    <p>
+      You can use <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code>
+      to execute
+      system sleep commands. This method blocks the entire NodeJS process, so use it with caution.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const { execSync } = require('child_process');
+
+// Unix/Linux/macOS
+function sleep(seconds) {
+  execSync(`sleep ${seconds}`);
+}
+
+// Windows
+function sleepWindows(seconds) {
+  execSync(`timeout /T ${seconds} /NOBREAK`);
+}
+
+console.log('Start');
+sleep(2); // Blocks for 2 seconds
+console.log('End');</code></pre>
+    </div>
+
+    <p><strong>Warning:</strong> This method blocks the entire event loop and should be avoided in production
+      applications.</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real-World Examples</h2>
+
+    <h3 class="exo mt-4">Example 1: API Rate Limiting</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function fetchWithRateLimit(urls, delayMs = 1000) {
+  const results = [];
   
-  return (
-    &lt;&gt;
-      &lt;Square
-        animation="bouncy"
-        size={110}
-        backgroundColor="$pink10"
-        borderRadius="$9"
-        hoverStyle={{ scale: 1.1 }}
-        pressStyle={{ scale: 0.9 }}
-        x={position * 50}
-        y={position * 50}
-      /&gt;
-      &lt;Button onPress={() => setPosition(p => (p + 1) % 3)}&gt;
-        Move Square
-      &lt;/Button&gt;
-    &lt;/&gt;
-  )
+  for (const url of urls) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      results.push(data);
+      
+      // Wait before next request
+      if (urls.indexOf(url) < urls.length - 1) {
+        await sleep(delayMs);
+      }
+    } catch (error) {
+      console.error(`Failed to fetch ${url}:`, error);
+    }
+  }
+  
+  return results;
 }
-    </code></pre>
 
-    <h2 class="exo mt-5" itemprop="subtitle">Why Tamagui Matters for Modern Development</h2>
+// Usage
+const urls = ['https://api.example.com/1', 'https://api.example.com/2'];
+fetchWithRateLimit(urls, 2000); // 2 second delay between requests</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 2: Polling with Sleep</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function pollUntilComplete(taskId, maxAttempts = 10) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const status = await checkTaskStatus(taskId);
+    
+    if (status === 'completed') {
+      return await getTaskResult(taskId);
+    }
+    
+    if (status === 'failed') {
+      throw new Error('Task failed');
+    }
+    
+    console.log(`Attempt ${attempt}: Task still running, waiting...`);
+    await sleep(5000); // Wait 5 seconds before next check
+  }
+  
+  throw new Error('Task did not complete within time limit');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 3: CLI Progress Indicator</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function showProgress(message, duration = 3000) {
+  const dots = ['.', '..', '...'];
+  let dotIndex = 0;
+  
+  const interval = setInterval(() => {
+    process.stdout.write(`\r${message}${dots[dotIndex]}   `);
+    dotIndex = (dotIndex + 1) % dots.length;
+  }, 500);
+  
+  await sleep(duration);
+  clearInterval(interval);
+  console.log(`\r${message} completed!`);
+}
+
+// Usage
+await showProgress('Processing data', 5000);</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Best Practices for NodeJS Sleep</h2>
+
+    <ol>
+      <li><strong>Use Promise-based sleep:</strong> Prefer async/await with Promise-based sleep for better code
+        readability</li>
+      <li><strong>Avoid blocking sleep:</strong> Never use <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code> in production
+        applications</li>
+      <li><strong>Handle errors gracefully:</strong> Always wrap sleep operations in try-catch blocks</li>
+      <li><strong>Use appropriate delays:</strong> Choose reasonable sleep durations based on your use case</li>
+      <li><strong>Consider alternatives:</strong> For complex timing needs, consider using libraries like <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">node-cron</code> or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bull</code></li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Performance Considerations</h2>
 
     <p>
-      In today's development landscape, the ability to build applications that work seamlessly across multiple platforms
-      while maintaining high performance and developer experience is more important than ever. Tamagui addresses these
-      needs by providing a comprehensive solution that doesn't compromise on any front.
+      When implementing NodeJS sleep functionality, consider these performance aspects:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Non-blocking is better:</strong> Promise-based sleep doesn't block the event loop</li>
+      <li><strong>Memory usage:</strong> Long-running sleep operations can accumulate in memory</li>
+      <li><strong>Precision:</strong> JavaScript timers are not precise for very short delays</li>
+      <li><strong>Resource cleanup:</strong> Always clear intervals and timeouts when no longer needed</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Implementing wait and sleep functionality in NodeJS is essential for many applications. While NodeJS doesn't
+      provide a built-in sleep function, the Promise-based approach with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> is the most
+      recommended method for modern applications. It provides clean, readable code with async/await syntax while
+      maintaining NodeJS's non-blocking nature.
     </p>
 
     <p>
-      The optimizing compiler is perhaps Tamagui's most revolutionary feature. By analyzing your code at compile time
-      and outputting platform-optimal code, it eliminates many of the performance concerns that typically come with
-      CSS-in-JS solutions. The compiler can flatten complex styled components into simple DOM elements with atomic CSS,
-      providing the performance benefits of utility-first frameworks while maintaining the flexibility of
-      component-based styling.
+      For simple use cases, the basic <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> approach
+      works well, while the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep-promise</code> package
+      offers a convenient alternative for those who prefer external dependencies. Always avoid blocking methods like
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code> in
+      production environments.
     </p>
 
     <p>
-      The universal approach means you can truly share code between your web and mobile applications. Instead of
-      maintaining separate codebases or dealing with the complexity of React Native Web, you can write your components
-      once and have them work perfectly on all platforms. This not only reduces development time but also ensures
-      consistency across your entire application suite.
-    </p>
-
-    <p>
-      Tamagui's design system approach also makes it easier to maintain brand consistency and implement design changes.
-      With centralized design tokens, themes, and components, you can update your entire application's appearance by
-      changing a few configuration values. This is particularly valuable for teams that need to maintain multiple
-      applications or frequently update their design systems.
-    </p>
-
-    <h2 class="exo mt-5" itemprop="subtitle">Getting Started Today</h2>
-
-    <p>
-      Tamagui represents a significant step forward in cross-platform React development. Whether you're building a
-      simple web application, a complex mobile app, or a universal application that needs to work everywhere, Tamagui
-      provides the tools and components you need to create beautiful, performant user interfaces.
-    </p>
-
-    <p>
-      The best way to understand the power of Tamagui is to try it for yourself. Start with the starter template,
-      explore the Bento components, and experiment with the theming and animation systems. You'll quickly see how
-      Tamagui's approach to styling and component development can transform your development workflow.
-    </p>
-
-    <p>
-      Visit the <a href="https://tamagui.dev/" class="text-primary" target="_blank"
-        rel="nofollow noopener noreferrer">Tamagui website</a> to explore the documentation, try the interactive
-      examples, and see the full range of components and features available. The <a href="https://tamagui.dev/bento"
-        class="text-primary" target="_blank" rel="nofollow noopener noreferrer">Bento collection</a> is also worth
-      exploring for ready-to-use components that can accelerate your development process.
-    </p>
-
-    <p>
-      With its combination of performance optimization, cross-platform compatibility, and developer experience, Tamagui
-      is well-positioned to become the go-to solution for modern React development. Whether you're a solo developer or
-      part of a large team, Tamagui provides the tools you need to build applications that are both beautiful and
-      performant across all platforms.
+      By following the methods and best practices outlined in this guide, you can implement reliable NodeJS sleep
+      functionality that enhances your application's performance and user experience. Whether you're building APIs,
+      CLI tools, or web applications, understanding these sleep patterns will help you create more robust and
+      maintainable NodeJS code.
     </p>
   </article>
 </div>
@@ -1833,15 +1674,15 @@ export function AnimatedSquare() {
     <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/axentix/getting-started-with-axentix-framework/" aria-label="Getting Started with Axentix Framework article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/logoOG.jpg" loading="lazy"
-      alt="Getting Started with Axentix Framework recommended article" />
+  <a href="/blog/shacdn/getting-started-with-shadcn-ui/" aria-label="Getting Started with shadcn/ui: The Modern Component Library Revolution article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/shacdn/getting-started-with-shadcn-ui/banner.png" loading="lazy"
+      alt="Getting Started with shadcn/ui: The Modern Component Library Revolution recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/axentix/getting-started-with-axentix-framework/">
-        Getting Started with Axentix Framework
+      <a href="/blog/shacdn/getting-started-with-shadcn-ui/">
+        Getting Started with shadcn/ui: The Modern Component Library Revolution
       </a>
     </h3>
 
@@ -1851,7 +1692,7 @@ export function AnimatedSquare() {
           <path fill="currentColor"
             d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
         </svg>
-        11 Aug 2025
+        28 Sep 2025
         <br>
         <span class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
@@ -1861,15 +1702,15 @@ export function AnimatedSquare() {
         </span>
         
         
-        <a href="/blog/axentix/">Axentix
+        <a href="/blog/shacdn/">Shacdn
         </a>
         
       </li>
     </ul>
 
-    <p class="mt-0">Learn how to quickly set up and start using the Axentix framework for building modern websites with customizable components and utility-first classes.</p>
+    <p class="mt-0">Discover shadcn/ui, the revolutionary component library that&rsquo;s changing how developers build modern React applications with copy-paste components and beautiful design systems.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axentix/getting-started-with-axentix-framework/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/shacdn/getting-started-with-shadcn-ui/">
       Read article
     </a>
   </div>
@@ -1878,15 +1719,15 @@ export function AnimatedSquare() {
     <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/axios/axios-get-query-params-complete-guide/" aria-label="Axios GET Request Query Params: Easy Guide &amp; Examples article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp" loading="lazy"
-      alt="Axios GET Request Query Params: Easy Guide &amp; Examples recommended article" />
+  <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/" aria-label="Get The Current Array Index in JavaScript forEach(): Complete Guide article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp" loading="lazy"
+      alt="Get The Current Array Index in JavaScript forEach(): Complete Guide recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/axios/axios-get-query-params-complete-guide/">
-        Axios GET Request Query Params: Easy Guide &amp; Examples
+      <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+        Get The Current Array Index in JavaScript forEach(): Complete Guide
       </a>
     </h3>
 
@@ -1896,7 +1737,7 @@ export function AnimatedSquare() {
           <path fill="currentColor"
             d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
         </svg>
-        14 Oct 2025
+        13 Oct 2025
         <br>
         <span class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
@@ -1906,15 +1747,15 @@ export function AnimatedSquare() {
         </span>
         
         
-        <a href="/blog/axios/">Axios
+        <a href="/blog/javascript/">Java script
         </a>
         
       </li>
     </ul>
 
-    <p class="mt-0">Learn how to use query parameters with Axios GET requests. Complete guide covering params object, URL encoding, custom serialization, and real-world examples.</p>
+    <p class="mt-0">Learn how to get the current array index in JavaScript forEach() method. Complete guide with examples, performance comparisons, and best practices for index-based operations.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axios/axios-get-query-params-complete-guide/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
       Read article
     </a>
   </div>
