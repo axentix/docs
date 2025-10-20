@@ -1,0 +1,248 @@
+---
+title: 'JavaScript Publish/Subscribe: Learn about how to Subscribe, Subscriber & Pub/Sub'
+description: "A practical, human-friendly guide to JavaScript's publish/subscribe model. Learn how to subscribe, manage
+subscribers, publish events, and build a clean Pub/Sub utility with examples."
+date: 2025-10-20
+author: "Axentix Team"
+image: "/img/blog/javascript/javascript-publish-subscribe-guide/pubsub-js.webp"
+categories: ["JavaScript"]
+summary: "Understand the JavaScript publish/subscribe pattern with simple examples. Learn subscribe, subscriber
+management, publish, unsubscribe, once, and typed channels with best practices."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    JavaScript Publish/Subscribe: The Clear Guide to Subscribe, Subscriber & Pub/Sub
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-20" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      20/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    A straightforward look at the publish/subscribe pattern in JavaScript. You'll learn how to
+    subscribe to events, what a subscriber actually does, how publish triggers your subscribers, and how to
+    build a tiny yet powerful Pub/Sub utility you can drop into any app.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="JavaScript Publish/Subscribe Guide"
+      src='{{< link url="img/blog/javascript/javascript-publish-subscribe-guide/pubsub-js.webp" >}}'
+      alt="JavaScript publish/subscribe guide" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Publish/Subscribe in JavaScript: subscribe, subscriber, publish,
+      and unsubscribe
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      The publish/subscribe model (often shortened to <strong>pub/sub</strong>) helps you decouple features.
+      A component publishes an event. Every <strong>subscriber</strong> that subscribed to that event runs its
+      callback. The publisher doesn't know who subscribed. The subscriber doesn't need to know who published.
+      The result: simple, testable code.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What does subscribe mean?</h2>
+
+    <p>
+      To <strong>subscribe</strong> is to register a callback for a named event. You can have one subscriber or many
+      subscribers for the same event. When someone publishes that event, each subscriber's callback runs with the
+      provided data.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Minimal shape we aim for
+// bus.subscribe(eventName, callback)
+// bus.publish(eventName, ...args)</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">A tiny, robust Pub/Sub utility</h2>
+
+    <p>
+      Here's a clean implementation that covers the real-world needs: subscribe, publish, <em>unsubscribe</em>, and
+      <em>subscribeOnce</em>. It's small, fast, and framework-agnostic.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">export function createPubSub() {
+  const subscribersByEvent = Object.create(null);
+
+  function subscribe(eventName, callback) {
+    if (typeof callback !== 'function') {
+      throw new TypeError('subscriber callback must be a function');
+    }
+    if (!Array.isArray(subscribersByEvent[eventName])) {
+      subscribersByEvent[eventName] = [];
+    }
+    subscribersByEvent[eventName].push(callback);
+
+    // return unsubscribe handle for convenience
+    return function unsubscribe() {
+      const list = subscribersByEvent[eventName];
+      if (!list) return;
+      const index = list.indexOf(callback);
+      if (index !== -1) list.splice(index, 1);
+      if (list.length === 0) delete subscribersByEvent[eventName];
+    };
+  }
+
+  function subscribeOnce(eventName, callback) {
+    const unsubscribe = subscribe(eventName, function wrappedOnce(...args) {
+      unsubscribe();
+      callback(...args);
+    });
+    return unsubscribe;
+  }
+
+  function publish(eventName, ...args) {
+    const list = subscribersByEvent[eventName];
+    if (!list || list.length === 0) return 0;
+
+    // copy to prevent mutation during publish from breaking iteration
+    const currentSubscribers = list.slice();
+    for (const subscriber of currentSubscribers) {
+      try {
+        subscriber(...args);
+      } catch (error) {
+        // In production, you might log this error. We keep the loop going
+        // so one bad subscriber doesn't break others.
+      }
+    }
+    return currentSubscribers.length;
+  }
+
+  function clear(eventName) {
+    if (eventName) {
+      delete subscribersByEvent[eventName];
+    } else {
+      for (const key in subscribersByEvent) delete subscribersByEvent[key];
+    }
+  }
+
+  return { subscribe, subscribeOnce, publish, clear };
+}
+
+// Example usage
+const bus = createPubSub();
+
+const unsubscribeAlert = bus.subscribe('alert', (payload) => {
+  console.log('Alert subscriber:', payload.message);
+});
+
+bus.publish('alert', { message: 'Hello, subscriber!' });
+
+// Stop this subscriber later
+unsubscribeAlert();
+
+// Subscribe once
+bus.subscribeOnce('ready', () => console.log('Ready fired once'));
+bus.publish('ready');
+bus.publish('ready'); // second call does nothing</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Subscribers in the UI: simple wiring</h2>
+
+    <p>
+      A common pattern is keeping UI components lean. The form publishes events like <code>form:success</code> or
+      <code>form:error</code>. A toast system subscribes to those events and shows messages. The form doesn't import the
+      toast. The toast doesn't import the form.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// form.js
+import { bus } from './shared-bus.js';
+
+async function submitForm(data) {
+  try {
+    await api.save(data);
+    bus.publish('form:success', { message: 'Saved!' });
+  } catch (error) {
+    bus.publish('form:error', { message: 'Please try again.' });
+  }
+}
+
+// toast.js
+import { bus } from './shared-bus.js';
+
+bus.subscribe('form:success', ({ message }) => showToast(message, 'success'));
+bus.subscribe('form:error', ({ message }) => showToast(message, 'error'));</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Unsubscribe and memory safety</h2>
+
+    <p>
+      Always keep an <em>unsubscribe</em> handle. Remove the subscriber when a component unmounts or a page changes.
+      This prevents dangling subscribers and memory leaks.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const stop = bus.subscribe('tick', () => updateTime());
+
+// later
+stop(); // unsubscribe this subscriber</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pattern tips and best practices</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Name events consistently:</strong> Use namespaces like <code>cart:add</code>, <code>user:login</code>.
+      </li>
+      <li><strong>Return unsubscribe:</strong> Every subscribe should return a clean unsubscribe function.</li>
+      <li><strong>Keep payloads simple:</strong> Prefer plain objects. Document required fields.</li>
+      <li><strong>Don't overuse pub/sub:</strong> Direct function calls are fine when coupling is intentional.</li>
+      <li><strong>Handle errors per subscriber:</strong> One broken subscriber should not halt others.</li>
+      <li><strong>Provide subscribeOnce:</strong> Handy for one-off lifecycle moments like <code>ready</code>.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typed channels (optional)</h2>
+
+    <p>
+      In TypeScript, you can type event names and payloads for safer subscribe and publish calls.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Events = {
+  'alert': { message: string };
+  'ready': void;
+};
+
+function createTypedPubSub<E extends Record<string, any>>() {
+  const bus = createPubSub();
+  return bus as {
+    subscribe<K extends keyof E>(event: K, cb: (payload: E[K]) => void): () => void;
+    subscribeOnce<K extends keyof E>(event: K, cb: (payload: E[K]) => void): () => void;
+    publish<K extends keyof E>(event: K, payload: E[K]): number;
+    clear(event?: keyof E): void;
+  };
+}
+
+const typedBus = createTypedPubSub<Events>();
+typedBus.subscribe('alert', (p) => console.log(p.message));
+typedBus.publish('alert', { message: 'Typed and safe' });</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      The publish/subscribe model gives you a clean way to connect parts of your app without tight coupling. With a
+      lightweight utility, a simple subscribe API, and careful subscriber management, your code stays flexible and
+      maintainable.
+    </p>
+  </article>
+</div>
