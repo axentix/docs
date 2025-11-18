@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Master JavaScript&#39;s for...of loop with this comprehensive guide. Learn how to iterate over arrays, strings, Maps, Sets, and more. Discover destructuring, lazy evaluation, and why for...of should be your go-to loop." />
+    <meta property="og:description" content="Master JavaScript&#39;s for...of loop with this comprehensive guide. Learn how to iterate over arrays, strings, Maps, Sets, and more. Discover destructuring, lazy evaluation, and why for...of should be your go-to loop." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
+
+        <a class="navbar-link font-w600" href="https://useaxentix.com/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="https://useaxentix.com/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a>
+
+        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/blog/javascript/javascript-for-of-loop-tutorial/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xblog/javascript/javascript-for-of-loop-tutorial/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xblog/javascript/javascript-for-of-loop-tutorial/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xblog/javascript/javascript-for-of-loop-tutorial/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="https://useaxentix.com/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tag/">Tag</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="https://useaxentix.com/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/close/">Close</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-xs7 fit-content-height">
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    JavaScript for...of Loop Tutorial
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-11-17" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      17/11/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Discover why the for...of loop should be your default choice for iteration in JavaScript. Learn how it works with
+    arrays, strings, Maps, Sets, and custom iterables. Master destructuring, explore complementary iterators, and unlock
+    the power of lazy evaluation with generators.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="JavaScript for...of Loop Complete Guide"
+      src='https://useaxentix.com//img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp'
+      alt="JavaScript for...of loop complete guide" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">JavaScript for...of Loop: Iterate over arrays, strings, Maps,
+      Sets, and more
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      JavaScript has always offered multiple ways to loop through data. From the classic numeric <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> loop inherited from C,
+      to the <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code> method,
+      developers have had plenty of options. However, <a
+        href="https://developers.google.com/web/shows/ttt/series-2/es2015?hl=fr" class="text-primary"
+        target="_blank">ES2015</a> introduced a
+      game-changer: the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop.
+    </p>
+
+    <p>
+      This loop is still underutilized by many developers, yet it elegantly replaces most traditional iteration
+      patterns. It works seamlessly with arrays, strings, Maps, Sets, NodeLists, and any object that implements the
+      iterable protocol. More importantly, it gives you full control over how much of an iterable you consume, making it
+      perfect for lazy evaluation and infinite sequences.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">A Brief History of JavaScript Loops</h2>
+
+    <p>
+      Before diving into <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>, let's quickly
+      review the loops JavaScript has offered over the years:
+    </p>
+
+    <h3 class="exo mt-4">The Numeric for Loop</h3>
+
+    <p>
+      The traditional <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code>
+      loop, borrowed from C and similar languages, uses an index-based approach:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">for (var index = 0, len = items.length; index < len; ++index) {
+  // Work with items[index]
+}</code></pre>
+    </div>
+
+    <p>
+      While powerful, this syntax can be verbose and error-prone. You need to manage the index manually, cache the
+      length for performance, and remember to increment the counter.
+    </p>
+
+    <h3 class="exo mt-4">The for...in Loop</h3>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> loop is
+      specifically designed to iterate over enumerable properties of an object:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">var person = { first: 'John', last: 'Smith' };
+for (var prop in person) {
+  console.log(prop, '=', person[prop]);
+  // Outputs: 'first' = 'John', 'last' = 'Smith'
+}</code></pre>
+    </div>
+
+    <p>
+      Note that <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> is
+      not for iterating over array values—it's for object properties. Using it on arrays can lead to unexpected results.
+    </p>
+
+    <h3 class="exo mt-4">While and do...while Loops</h3>
+
+    <p>
+      These conditional loops are present in many programming languages. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> evaluates the
+      condition before each iteration, while <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">do...while</code> evaluates it
+      after, guaranteeing at least one execution.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What is for...of?</h2>
+
+    <p>
+      ES2015 formalized a crucial concept: <strong>iterables</strong>. An iterable is an object that implements the
+      iterable protocol, defined through the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Symbol.iterator</code> method.
+      Many built-in JavaScript objects are iterable: arrays, strings, Maps, Sets, NodeLists, and more.
+    </p>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      the primary mechanism for consuming iterables where you have full control. You can consume exactly what you need,
+      and the amount can be determined dynamically or algorithmically.
+    </p>
+
+    <p>
+      When working with arrays, you typically care about the <strong>values</strong>, not the indices. The <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop makes this
+      natural:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Old way: verbose and index-focused
+for (var index = 0, len = items.length; index < len; ++index) {
+  var item = items[index];
+  // Work with item
+}
+
+// Modern way: clean and value-focused
+for (const item of items) {
+  // Work with item directly
+}</code></pre>
+    </div>
+
+    <p>
+      Like all loops, you can use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code>, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">return</code> within <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. But it's more
+      versatile than numeric loops: it works even without indices (like with Sets), and you don't need to worry about
+      caching the length.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Using const with for...of</h2>
+
+    <p>
+      Notice how we used <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> in the loop variable?
+      That's because we're not reassigning anything—we're working directly with each value as it comes from the
+      iterator. There's no index to manually increment, so <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> is the natural choice
+      and helps prevent accidental reassignments.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ✅ Good: const prevents reassignment
+for (const item of items) {
+  // item is read-only in this scope
+}
+
+// ❌ Avoid: let is unnecessary unless you need to reassign
+for (let item of items) {
+  item = transform(item); // Only affects local variable, not the array
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Destructuring on the Fly</h2>
+
+    <p>
+      When your iterator yields multiple values (like entries from a Map), you can destructure them directly in the loop
+      declaration. This makes the code much cleaner:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+// Without destructuring: verbose
+for (const pair of map) {
+  console.log(pair[0], '=', pair[1]);
+}
+
+// With destructuring: clean and readable
+for (const [key, value] of map) {
+  console.log(key, '=', value);
+}</code></pre>
+    </div>
+
+    <p>
+      This pattern works with any iterable that yields arrays or tuples. You can destructure as deeply as needed:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const entries = [
+  ['user', { id: 1, name: 'Alice' }],
+  ['admin', { id: 2, name: 'Bob' }],
+];
+
+for (const [role, { id, name }] of entries) {
+  console.log(`${role}: ${name} (${id})`);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Complementary Iterators</h2>
+
+    <p>
+      Many iterables provide additional iterators beyond their default iteration. Most offer at least three: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">keys()</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">values()</code>, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code>. For objects
+      without keys (like Sets), the keys are simply the values themselves.
+    </p>
+
+    <p>
+      For example, if you want to iterate over an array while also getting the index, you can use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const fruits = ['apple', 'banana', 'cherry'];
+
+// Get both index and value
+for (const [index, fruit] of fruits.entries()) {
+  console.log(`${index}: ${fruit}`);
+}
+// Output:
+// 0: apple
+// 1: banana
+// 2: cherry
+
+// Or iterate over just the keys (indices)
+for (const index of fruits.keys()) {
+  console.log(index);
+}
+// Output: 0, 1, 2
+
+// Or just the values (same as default)
+for (const fruit of fruits.values()) {
+  console.log(fruit);
+}
+// Output: apple, banana, cherry</code></pre>
+    </div>
+
+    <p>
+      Maps and Sets also provide these methods, making it easy to work with their specific data structures:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const userMap = new Map([
+  ['alice', { role: 'admin' }],
+  ['bob', { role: 'user' }],
+]);
+
+// Iterate over entries (default)
+for (const [username, user] of userMap) {
+  console.log(`${username}: ${user.role}`);
+}
+
+// Iterate over just keys
+for (const username of userMap.keys()) {
+  console.log(username);
+}
+
+// Iterate over just values
+for (const user of userMap.values()) {
+  console.log(user.role);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Lazy Evaluation: The Real Power</h2>
+
+    <p>
+      The true strength of <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> lies in its
+      ability to work with <strong>lazy evaluation</strong>. Because it consumes iterables incrementally rather than all
+      at once, it's the primary way to work with lazy computations, including <strong>infinite sequences</strong>.
+    </p>
+
+    <p>
+      Consider a generator that produces the Fibonacci sequence:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* fibonacci() {
+  let [current, next] = [1, 1];
+  while (true) {
+    yield current;
+    [current, next] = [next, current + next];
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      This sequence never ends. If you try to convert it to an array with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Array.from()</code> or the spread
+      operator, your program will hang. However, you can safely consume it with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Get first few terms via destructuring
+const [a, b, c, d, e] = fibonacci();
+// a === 1, b === 1, c === 2, d === 3, e === 5
+
+// Consume until a condition is met
+for (const term of fibonacci()) {
+  if (term > 100) break;
+  console.log(term);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89</code></pre>
+    </div>
+
+    <p>
+      This pattern enables all sorts of lazy evaluation primitives. For example, here's a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">take</code> function that limits
+      how many items to consume:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* take(count, iter) {
+  if (count === 0) return;
+  for (const term of iter) {
+    yield term;
+    if (--count <= 0) break;
+  }
+}
+
+// Get first 10 Fibonacci numbers
+for (const num of take(10, fibonacci())) {
+  console.log(num);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55</code></pre>
+    </div>
+
+    <p>
+      This lazy evaluation approach is fundamental to functional programming concepts and is similar to how libraries
+      like RxJS work with observables.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Performance Considerations</h2>
+
+    <p>
+      You'll find all sorts of conflicting performance benchmarks online comparing different loop types. Most of them
+      aren't representative of real-world scenarios. Keep these two points in mind:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>For most arrays</strong> (up to millions of elements), the performance difference is
+        <strong>negligible</strong>.
+      </li>
+      <li><strong>When not transpiled</strong> (using native browser support), <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> performs
+        similarly to other loops.</li>
+    </ul>
+
+    <p>
+      It's extremely rare that you'll need to fall back to a numeric <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> loop or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> for performance
+      reasons. The readability and flexibility benefits of <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> far outweigh any
+      micro-optimizations in the vast majority of cases.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Replacing Old Patterns</h2>
+
+    <p>
+      You can now replace the vast majority of your traditional iterations with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. This includes:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Numeric for loops</strong> when iterating over arrays</li>
+      <li><strong>forEach()</strong> when you need <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code></li>
+      <li><strong>jQuery/Lodash each()</strong> methods</li>
+      <li><strong>for...in</strong> when used incorrectly on arrays</li>
+    </ul>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Old: forEach (can't break early)
+items.forEach(item => {
+  if (item.shouldStop) return; // Only exits callback, not the loop
+  process(item);
+});
+
+// ✅ New: for...of (can break early)
+for (const item of items) {
+  if (item.shouldStop) break; // Exits the entire loop
+  process(item);
+}
+
+// ❌ Old: jQuery each
+$.each(items, function(index, item) {
+  // ...
+});
+
+// ✅ New: for...of
+for (const item of items) {
+  // ...
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Browser Support and Transpilation</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      natively supported in:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Firefox 13+</li>
+      <li>Chrome 38+</li>
+      <li>Opera 25+</li>
+      <li>Edge 12+</li>
+      <li>Safari 7+</li>
+      <li>Node.js 0.12+</li>
+    </ul>
+
+    <p>
+      For older environments, Babel and TypeScript can transpile <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> to compatible
+      code. On very large arrays (1M+ elements), transpiled code may have some performance overhead, but this depends
+      heavily on the JavaScript engine, your algorithm, and the context.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real-World Examples</h2>
+
+    <h3 class="exo mt-4">Example 1: Processing API Responses</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function processUsers() {
+  const response = await fetch('/api/users');
+  const users = await response.json();
+  
+  for (const user of users) {
+    if (user.status === 'inactive') continue;
+    await updateUserProfile(user);
+  }
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 2: Working with DOM Collections</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// NodeList is iterable
+const buttons = document.querySelectorAll('.action-button');
+
+for (const button of buttons) {
+  button.addEventListener('click', handleClick);
+}
+
+// Works with HTMLCollection too (after conversion)
+const divs = Array.from(document.getElementsByTagName('div'));
+for (const div of divs) {
+  div.classList.add('processed');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 3: Custom Iterables</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class NumberRange {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  *[Symbol.iterator]() {
+    for (let i = this.start; i <= this.end; i++) {
+      yield i;
+    }
+  }
+}
+
+const range = new NumberRange(1, 5);
+for (const num of range) {
+  console.log(num);
+}
+// Output: 1, 2, 3, 4, 5</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Best Practices</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Use const by default:</strong> Since you're not reassigning the loop variable, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> is the natural
+        choice.</li>
+      <li><strong>Destructure when appropriate:</strong> If your iterable yields arrays or objects, destructure them
+        directly in the loop declaration.</li>
+      <li><strong>Use entries() for indices:</strong> When you need both index and value from an array, use <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">array.entries()</code>.</li>
+      <li><strong>Prefer for...of over forEach:</strong> When you need <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> is your friend.
+      </li>
+      <li><strong>Leverage lazy evaluation:</strong> Use generators and <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> for infinite
+        sequences and on-demand computations.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      one of JavaScript's most elegant and powerful features. It simplifies iteration, works with a wide variety of data
+      structures, and unlocks the power of lazy evaluation through generators.
+    </p>
+
+    <p>
+      While it may not be as widely adopted as it should be, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> should be your
+      default choice for iteration in modern JavaScript. It replaces most numeric loops, eliminates the need for <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code> in many cases, and
+      provides a clean, readable syntax that works across all iterable types.
+    </p>
+
+    <p>
+      Start using <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> in
+      your code today. Your future self (and your teammates) will thank you for the cleaner, more maintainable code.
+    </p>
+  </article>
+</div>
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/javascript/">
+          JavaScript (12)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/miscellaneous/">
+          Miscellaneous (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/shacdn/">
+          Shacdn (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/tamagui/">
+          Tamagui (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+
+    <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal ml-auto z-index-1"
+      id="ads-blog"></div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Start Building with Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Ready to create amazing websites? Get started with Axentix framework today.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Get Started
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Related Posts</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/axentix/getting-started-with-axentix-framework/" aria-label="Getting Started with Axentix Framework article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/logoOG.jpg" loading="lazy"
+      alt="Getting Started with Axentix Framework recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/axentix/getting-started-with-axentix-framework/">
+        Getting Started with Axentix Framework
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        11 Aug 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/axentix/">Axentix
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn how to quickly set up and start using the Axentix framework for building modern websites with customizable components and utility-first classes.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axentix/getting-started-with-axentix-framework/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/" aria-label="Get The Current Array Index in JavaScript forEach(): Complete Guide article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp" loading="lazy"
+      alt="Get The Current Array Index in JavaScript forEach(): Complete Guide recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+        Get The Current Array Index in JavaScript forEach(): Complete Guide
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        13 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn how to get the current array index in JavaScript forEach() method. Complete guide with examples, performance comparisons, and best practices for index-based operations.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/axios/axios-get-query-params-complete-guide/" aria-label="Axios GET Request Query Params: Easy Guide &amp; Examples article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp" loading="lazy"
+      alt="Axios GET Request Query Params: Easy Guide &amp; Examples recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/axios/axios-get-query-params-complete-guide/">
+        Axios GET Request Query Params: Easy Guide &amp; Examples
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        14 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/axios/">Axios
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn how to use query parameters with Axios GET requests. Complete guide covering params object, URL encoding, custom serialization, and real-world examples.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axios/axios-get-query-params-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
+    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
