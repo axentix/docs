@@ -1,0 +1,556 @@
+---
+title: 'JavaScript for...of Loop: The One Loop to Rule Them All'
+description: "Master JavaScript's for...of loop with this comprehensive guide. Learn how to iterate over arrays,
+strings, Maps, Sets, and more. Discover destructuring, lazy evaluation, and why for...of should be your go-to loop."
+date: 2025-11-17
+author: "Axentix Team"
+image: "/img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp"
+categories: ["JavaScript"]
+summary: "Learn everything about JavaScript's for...of loop. Understand iterables, destructuring, complementary
+iterators, lazy evaluation with generators, and why for...of replaces most traditional loops."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    JavaScript for...of Loop Tutorial
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-11-17" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      17/11/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Discover why the for...of loop should be your default choice for iteration in JavaScript. Learn how it works with
+    arrays, strings, Maps, Sets, and custom iterables. Master destructuring, explore complementary iterators, and unlock
+    the power of lazy evaluation with generators.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="JavaScript for...of Loop Complete Guide"
+      src='{{< link url="img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp" >}}'
+      alt="JavaScript for...of loop complete guide" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">JavaScript for...of Loop: Iterate over arrays, strings, Maps,
+      Sets, and more
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      JavaScript has always offered multiple ways to loop through data. From the classic numeric <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> loop inherited from C,
+      to the <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code> method,
+      developers have had plenty of options. However, <a
+        href="https://developers.google.com/web/shows/ttt/series-2/es2015?hl=fr" class="text-primary"
+        target="_blank">ES2015</a> introduced a
+      game-changer: the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop.
+    </p>
+
+    <p>
+      This loop is still underutilized by many developers, yet it elegantly replaces most traditional iteration
+      patterns. It works seamlessly with arrays, strings, Maps, Sets, NodeLists, and any object that implements the
+      iterable protocol. More importantly, it gives you full control over how much of an iterable you consume, making it
+      perfect for lazy evaluation and infinite sequences.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">A Brief History of JavaScript Loops</h2>
+
+    <p>
+      Before diving into <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>, let's quickly
+      review the loops JavaScript has offered over the years:
+    </p>
+
+    <h3 class="exo mt-4">The Numeric for Loop</h3>
+
+    <p>
+      The traditional <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code>
+      loop, borrowed from C and similar languages, uses an index-based approach:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">for (var index = 0, len = items.length; index < len; ++index) {
+  // Work with items[index]
+}</code></pre>
+    </div>
+
+    <p>
+      While powerful, this syntax can be verbose and error-prone. You need to manage the index manually, cache the
+      length for performance, and remember to increment the counter.
+    </p>
+
+    <h3 class="exo mt-4">The for...in Loop</h3>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> loop is
+      specifically designed to iterate over enumerable properties of an object:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">var person = { first: 'John', last: 'Smith' };
+for (var prop in person) {
+  console.log(prop, '=', person[prop]);
+  // Outputs: 'first' = 'John', 'last' = 'Smith'
+}</code></pre>
+    </div>
+
+    <p>
+      Note that <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> is
+      not for iterating over array values—it's for object properties. Using it on arrays can lead to unexpected results.
+    </p>
+
+    <h3 class="exo mt-4">While and do...while Loops</h3>
+
+    <p>
+      These conditional loops are present in many programming languages. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> evaluates the
+      condition before each iteration, while <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">do...while</code> evaluates it
+      after, guaranteeing at least one execution.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What is for...of?</h2>
+
+    <p>
+      ES2015 formalized a crucial concept: <strong>iterables</strong>. An iterable is an object that implements the
+      iterable protocol, defined through the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Symbol.iterator</code> method.
+      Many built-in JavaScript objects are iterable: arrays, strings, Maps, Sets, NodeLists, and more.
+    </p>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      the primary mechanism for consuming iterables where you have full control. You can consume exactly what you need,
+      and the amount can be determined dynamically or algorithmically.
+    </p>
+
+    <p>
+      When working with arrays, you typically care about the <strong>values</strong>, not the indices. The <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop makes this
+      natural:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Old way: verbose and index-focused
+for (var index = 0, len = items.length; index < len; ++index) {
+  var item = items[index];
+  // Work with item
+}
+
+// Modern way: clean and value-focused
+for (const item of items) {
+  // Work with item directly
+}</code></pre>
+    </div>
+
+    <p>
+      Like all loops, you can use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code>, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">return</code> within <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. But it's more
+      versatile than numeric loops: it works even without indices (like with Sets), and you don't need to worry about
+      caching the length.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Using const with for...of</h2>
+
+    <p>
+      Notice how we used <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> in the loop variable?
+      That's because we're not reassigning anything—we're working directly with each value as it comes from the
+      iterator. There's no index to manually increment, so <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> is the natural choice
+      and helps prevent accidental reassignments.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ✅ Good: const prevents reassignment
+for (const item of items) {
+  // item is read-only in this scope
+}
+
+// ❌ Avoid: let is unnecessary unless you need to reassign
+for (let item of items) {
+  item = transform(item); // Only affects local variable, not the array
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Destructuring on the Fly</h2>
+
+    <p>
+      When your iterator yields multiple values (like entries from a Map), you can destructure them directly in the loop
+      declaration. This makes the code much cleaner:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+// Without destructuring: verbose
+for (const pair of map) {
+  console.log(pair[0], '=', pair[1]);
+}
+
+// With destructuring: clean and readable
+for (const [key, value] of map) {
+  console.log(key, '=', value);
+}</code></pre>
+    </div>
+
+    <p>
+      This pattern works with any iterable that yields arrays or tuples. You can destructure as deeply as needed:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const entries = [
+  ['user', { id: 1, name: 'Alice' }],
+  ['admin', { id: 2, name: 'Bob' }],
+];
+
+for (const [role, { id, name }] of entries) {
+  console.log(`${role}: ${name} (${id})`);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Complementary Iterators</h2>
+
+    <p>
+      Many iterables provide additional iterators beyond their default iteration. Most offer at least three: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">keys()</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">values()</code>, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code>. For objects
+      without keys (like Sets), the keys are simply the values themselves.
+    </p>
+
+    <p>
+      For example, if you want to iterate over an array while also getting the index, you can use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const fruits = ['apple', 'banana', 'cherry'];
+
+// Get both index and value
+for (const [index, fruit] of fruits.entries()) {
+  console.log(`${index}: ${fruit}`);
+}
+// Output:
+// 0: apple
+// 1: banana
+// 2: cherry
+
+// Or iterate over just the keys (indices)
+for (const index of fruits.keys()) {
+  console.log(index);
+}
+// Output: 0, 1, 2
+
+// Or just the values (same as default)
+for (const fruit of fruits.values()) {
+  console.log(fruit);
+}
+// Output: apple, banana, cherry</code></pre>
+    </div>
+
+    <p>
+      Maps and Sets also provide these methods, making it easy to work with their specific data structures:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const userMap = new Map([
+  ['alice', { role: 'admin' }],
+  ['bob', { role: 'user' }],
+]);
+
+// Iterate over entries (default)
+for (const [username, user] of userMap) {
+  console.log(`${username}: ${user.role}`);
+}
+
+// Iterate over just keys
+for (const username of userMap.keys()) {
+  console.log(username);
+}
+
+// Iterate over just values
+for (const user of userMap.values()) {
+  console.log(user.role);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Lazy Evaluation: The Real Power</h2>
+
+    <p>
+      The true strength of <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> lies in its
+      ability to work with <strong>lazy evaluation</strong>. Because it consumes iterables incrementally rather than all
+      at once, it's the primary way to work with lazy computations, including <strong>infinite sequences</strong>.
+    </p>
+
+    <p>
+      Consider a generator that produces the Fibonacci sequence:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* fibonacci() {
+  let [current, next] = [1, 1];
+  while (true) {
+    yield current;
+    [current, next] = [next, current + next];
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      This sequence never ends. If you try to convert it to an array with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Array.from()</code> or the spread
+      operator, your program will hang. However, you can safely consume it with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Get first few terms via destructuring
+const [a, b, c, d, e] = fibonacci();
+// a === 1, b === 1, c === 2, d === 3, e === 5
+
+// Consume until a condition is met
+for (const term of fibonacci()) {
+  if (term > 100) break;
+  console.log(term);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89</code></pre>
+    </div>
+
+    <p>
+      This pattern enables all sorts of lazy evaluation primitives. For example, here's a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">take</code> function that limits
+      how many items to consume:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* take(count, iter) {
+  if (count === 0) return;
+  for (const term of iter) {
+    yield term;
+    if (--count <= 0) break;
+  }
+}
+
+// Get first 10 Fibonacci numbers
+for (const num of take(10, fibonacci())) {
+  console.log(num);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55</code></pre>
+    </div>
+
+    <p>
+      This lazy evaluation approach is fundamental to functional programming concepts and is similar to how libraries
+      like RxJS work with observables.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Performance Considerations</h2>
+
+    <p>
+      You'll find all sorts of conflicting performance benchmarks online comparing different loop types. Most of them
+      aren't representative of real-world scenarios. Keep these two points in mind:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>For most arrays</strong> (up to millions of elements), the performance difference is
+        <strong>negligible</strong>.
+      </li>
+      <li><strong>When not transpiled</strong> (using native browser support), <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> performs
+        similarly to other loops.</li>
+    </ul>
+
+    <p>
+      It's extremely rare that you'll need to fall back to a numeric <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> loop or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> for performance
+      reasons. The readability and flexibility benefits of <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> far outweigh any
+      micro-optimizations in the vast majority of cases.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Replacing Old Patterns</h2>
+
+    <p>
+      You can now replace the vast majority of your traditional iterations with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. This includes:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Numeric for loops</strong> when iterating over arrays</li>
+      <li><strong>forEach()</strong> when you need <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code></li>
+      <li><strong>jQuery/Lodash each()</strong> methods</li>
+      <li><strong>for...in</strong> when used incorrectly on arrays</li>
+    </ul>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Old: forEach (can't break early)
+items.forEach(item => {
+  if (item.shouldStop) return; // Only exits callback, not the loop
+  process(item);
+});
+
+// ✅ New: for...of (can break early)
+for (const item of items) {
+  if (item.shouldStop) break; // Exits the entire loop
+  process(item);
+}
+
+// ❌ Old: jQuery each
+$.each(items, function(index, item) {
+  // ...
+});
+
+// ✅ New: for...of
+for (const item of items) {
+  // ...
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Browser Support and Transpilation</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      natively supported in:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Firefox 13+</li>
+      <li>Chrome 38+</li>
+      <li>Opera 25+</li>
+      <li>Edge 12+</li>
+      <li>Safari 7+</li>
+      <li>Node.js 0.12+</li>
+    </ul>
+
+    <p>
+      For older environments, Babel and TypeScript can transpile <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> to compatible
+      code. On very large arrays (1M+ elements), transpiled code may have some performance overhead, but this depends
+      heavily on the JavaScript engine, your algorithm, and the context.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real-World Examples</h2>
+
+    <h3 class="exo mt-4">Example 1: Processing API Responses</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function processUsers() {
+  const response = await fetch('/api/users');
+  const users = await response.json();
+  
+  for (const user of users) {
+    if (user.status === 'inactive') continue;
+    await updateUserProfile(user);
+  }
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 2: Working with DOM Collections</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// NodeList is iterable
+const buttons = document.querySelectorAll('.action-button');
+
+for (const button of buttons) {
+  button.addEventListener('click', handleClick);
+}
+
+// Works with HTMLCollection too (after conversion)
+const divs = Array.from(document.getElementsByTagName('div'));
+for (const div of divs) {
+  div.classList.add('processed');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 3: Custom Iterables</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class NumberRange {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  *[Symbol.iterator]() {
+    for (let i = this.start; i <= this.end; i++) {
+      yield i;
+    }
+  }
+}
+
+const range = new NumberRange(1, 5);
+for (const num of range) {
+  console.log(num);
+}
+// Output: 1, 2, 3, 4, 5</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Best Practices</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Use const by default:</strong> Since you're not reassigning the loop variable, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> is the natural
+        choice.</li>
+      <li><strong>Destructure when appropriate:</strong> If your iterable yields arrays or objects, destructure them
+        directly in the loop declaration.</li>
+      <li><strong>Use entries() for indices:</strong> When you need both index and value from an array, use <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">array.entries()</code>.</li>
+      <li><strong>Prefer for...of over forEach:</strong> When you need <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> or <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> is your friend.
+      </li>
+      <li><strong>Leverage lazy evaluation:</strong> Use generators and <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> for infinite
+        sequences and on-demand computations.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> loop is
+      one of JavaScript's most elegant and powerful features. It simplifies iteration, works with a wide variety of data
+      structures, and unlocks the power of lazy evaluation through generators.
+    </p>
+
+    <p>
+      While it may not be as widely adopted as it should be, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> should be your
+      default choice for iteration in modern JavaScript. It replaces most numeric loops, eliminates the need for <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code> in many cases, and
+      provides a clean, readable syntax that works across all iterable types.
+    </p>
+
+    <p>
+      Start using <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> in
+      your code today. Your future self (and your teammates) will thank you for the cleaner, more maintainable code.
+    </p>
+  </article>
+</div>
