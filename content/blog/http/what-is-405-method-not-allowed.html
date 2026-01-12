@@ -1,0 +1,448 @@
+---
+title: 'What is 405 Method Not Allowed: How to Fix HTTP 405 Errors'
+description: "Learn what causes the HTTP 405 Method Not Allowed error and how to fix it. Understand method restrictions,
+server configurations, and API troubleshooting with practical solutions."
+date: 2026-01-12
+author: "Axentix Team"
+image: "/img/blog/http/what-is-405-method-not-allowed/error-405.webp"
+categories: ["http"]
+summary: "Learn what causes the HTTP 405 Method Not Allowed error and how to fix it. Understand method restrictions,
+server configurations, and API troubleshooting with practical solutions."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    What is 405 Method Not Allowed: Complete Guide to Fixing HTTP 405 Errors
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/http/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      HTTP
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-01-12" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      12/01/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Learn what causes the HTTP 405 Method Not Allowed error and how to fix it. Understand method restrictions, server
+    configurations, and API troubleshooting with practical solutions.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="What is 405 Method Not Allowed: Complete Guide to Fixing HTTP 405 Errors"
+      src='{{< link url="img/blog/http/what-is-405-method-not-allowed/error-405.webp" >}}'
+      alt="HTTP 405 Method Not Allowed Error" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">HTTP 405 Method Not Allowed Error
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      The HTTP 405 Method Not Allowed error occurs when a web server understands your request but refuses to allow that
+      specific HTTP method for the resource you're trying to access. Unlike a 404 error where the server doesn't
+      recognize the resource, a 405 error means the server knows what you want but won't let you use that particular
+      method to access it.
+    </p>
+
+    <p>
+      This error is common when working with REST APIs, web applications, and server configurations. The server
+      typically includes an <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Allow</code> header in the
+      response that lists which HTTP methods are actually permitted for that resource, helping you understand what went
+      wrong and how to fix it.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What is the 405 Method Not Allowed Error?</h2>
+
+    <p>
+      The 405 Method Not Allowed is an HTTP status code that indicates the server recognizes the HTTP method you're
+      using, but the specific resource doesn't support it. HTTP methods define the action you want to perform: GET
+      retrieves data, POST creates new resources, PUT updates existing resources, and DELETE removes resources.
+    </p>
+
+    <p>
+      When you send a request with a method that isn't allowed for that endpoint, the server responds with a 405 status
+      code. For example, if you try to send a DELETE request to an endpoint that only accepts GET and POST, you'll
+      receive a 405 error with an Allow header showing the permitted methods.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">POST /api/data HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{"key": "value"}
+
+// Server response:
+HTTP/1.1 405 Method Not Allowed
+Allow: GET, HEAD
+Content-Type: text/html</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Common Causes of 405 Errors</h2>
+
+    <h3 class="exo mt-4">Wrong HTTP Method</h3>
+
+    <p>
+      The most common cause is using the wrong HTTP method for an endpoint. REST APIs are strict about which methods
+      each endpoint accepts. For instance, a read-only endpoint might only accept GET requests, while a creation
+      endpoint might only accept POST.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Wrong: Trying to DELETE a read-only endpoint
+fetch('/api/users', {
+  method: 'DELETE'
+});
+// Returns: 405 Method Not Allowed
+// Allow: GET, POST
+
+// Correct: Using the right method
+fetch('/api/users', {
+  method: 'GET'
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Server Configuration Restrictions</h3>
+
+    <p>
+      Web servers like Apache and Nginx can be configured to restrict certain HTTP methods for security reasons. These
+      restrictions might block methods like DELETE or PUT even if your application code supports them.
+    </p>
+
+    <p>
+      In Apache, you might see method restrictions in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.htaccess</code> or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpd.conf</code> files. Nginx
+      uses <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">limit_except</code>
+      directives in its configuration files.
+    </p>
+
+    <h3 class="exo mt-4">API Endpoint Rules</h3>
+
+    <p>
+      APIs enforce strict rules about which methods each endpoint accepts. If you're working with a third-party API or
+      building your own, the endpoint might be designed to only accept specific methods. Sending a GET request to an
+      endpoint that only accepts POST will result in a 405 error.
+    </p>
+
+    <h3 class="exo mt-4">Framework Routing Issues</h3>
+
+    <p>
+      Web frameworks like Express.js, Flask, or Django require you to define routes for each HTTP method. If you only
+      define a GET handler for a route but try to send a POST request, the framework will return a 405 error because no
+      POST handler exists.
+    </p>
+
+    <h3 class="exo mt-4">Security Filters and WAFs</h3>
+
+    <p>
+      Web Application Firewalls and security filters might block certain HTTP methods to prevent attacks. Methods like
+      TRACE or OPTIONS are sometimes blocked by default, which can cause 405 errors even when your application would
+      normally accept them.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">How to Fix 405 Method Not Allowed Errors</h2>
+
+    <h3 class="exo mt-4">Validate the HTTP Method</h3>
+
+    <p>
+      Start by checking if you're using the correct HTTP method for the endpoint. Review the API documentation or use an
+      OPTIONS request to discover which methods are allowed.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Check allowed methods with OPTIONS request
+curl -X OPTIONS https://api.example.com/users -i
+
+# Response will include Allow header:
+# Allow: GET, POST, PUT</code></pre>
+    </div>
+
+    <p>
+      If you receive a 405 error with an Allow header, adjust your request to use one of the permitted methods listed in
+      that header.
+    </p>
+
+    <h3 class="exo mt-4">Check Server Configuration</h3>
+
+    <p>
+      For Apache servers, check your <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.htaccess</code> or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpd.conf</code> files for method
+      restrictions.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Apache: Allow specific methods
+<Limit GET POST PUT>
+    Order Allow,Deny
+    Allow from all
+</Limit>
+
+# If you need DELETE, add it:
+<Limit GET POST PUT DELETE>
+    Order Allow,Deny
+    Allow from all
+</Limit></code></pre>
+    </div>
+
+    <p>
+      For Nginx, check your <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nginx.conf</code> file for <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">limit_except</code> directives.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Nginx: Allow specific methods
+location /api {
+    limit_except GET POST {
+        deny all;
+    }
+}
+
+# To allow DELETE, update it:
+location /api {
+    limit_except GET POST DELETE {
+        deny all;
+    }
+}</code></pre>
+    </div>
+
+    <p>
+      After making changes to server configuration files, restart your web server for the changes to take effect.
+    </p>
+
+    <h3 class="exo mt-4">Fix Framework Routing</h3>
+
+    <p>
+      In web frameworks, ensure you've defined route handlers for all the HTTP methods you want to support. Here's an
+      example for Express.js:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Express.js: Define all needed methods
+app.get('/posts', (req, res) => {
+  res.json(posts);
+});
+
+app.post('/posts', (req, res) => {
+  const newPost = createPost(req.body);
+  res.status(201).json(newPost);
+});
+
+// If you try DELETE without a handler, you'll get 405
+app.delete('/posts/:id', (req, res) => {
+  deletePost(req.params.id);
+  res.status(204).send();
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Check API Endpoint Documentation</h3>
+
+    <p>
+      Review the API documentation to confirm which methods each endpoint accepts. Many APIs provide clear documentation
+      about supported methods, or you can use OPTIONS requests to query the server directly.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Use OPTIONS to discover allowed methods
+fetch('/api/users', {
+  method: 'OPTIONS'
+})
+.then(response => {
+  const allowedMethods = response.headers.get('Allow');
+  console.log('Allowed methods:', allowedMethods);
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Review Security Filters</h3>
+
+    <p>
+      If you're using a Web Application Firewall or security filters, check their configuration to ensure they're not
+      blocking legitimate HTTP methods. Some WAFs block methods like TRACE or OPTIONS by default, but you might need to
+      allow DELETE or PUT for your application to work correctly.
+    </p>
+
+    <h3 class="exo mt-4">Check Authentication and Permissions</h3>
+
+    <p>
+      Sometimes what appears to be a 405 error might actually be a permissions issue. Some APIs restrict certain methods
+      to authenticated users or specific roles. Make sure you're including proper authentication headers in your
+      requests.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Include authentication headers
+fetch('/api/posts/1', {
+  method: 'DELETE',
+  headers: {
+    'Authorization': 'Bearer ' + token,
+    'Content-Type': 'application/json'
+  }
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Examine Server Logs</h3>
+
+    <p>
+      Server logs can provide valuable information about why a 405 error is occurring. Check your web server's error
+      logs for messages about method restrictions.
+    </p>
+
+    <p>
+      Apache logs typically show messages like "Method PUT not allowed for /api/data" in the error log. Nginx logs might
+      show "method not allowed" errors. These logs help you identify whether the issue is with server configuration,
+      application code, or API endpoint rules.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real-World Examples</h2>
+
+    <h3 class="exo mt-4">Example 1: REST API Endpoint</h3>
+
+    <p>
+      Imagine you have a REST API with a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">/posts</code> endpoint that only
+      supports GET and POST methods. If you try to send a DELETE request to this endpoint, you'll receive a 405 error.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// This will return 405 Method Not Allowed
+fetch('/posts', {
+  method: 'DELETE'
+});
+
+// Correct: Use GET to retrieve posts
+fetch('/posts', {
+  method: 'GET'
+});
+
+// Or POST to create a new post
+fetch('/posts', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ title: 'New Post', content: 'Post content' })
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 2: Express.js Route Handler</h3>
+
+    <p>
+      In Express.js, if you only define a GET handler for a route but try to send a POST request, you'll get a 405 error
+      because no POST handler exists.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Only GET is defined
+app.get('/items', (req, res) => {
+  res.json(items);
+});
+
+// This POST request will return 405
+// POST /items -> 405 Method Not Allowed
+
+// Fix: Add a POST handler
+app.post('/items', (req, res) => {
+  const newItem = createItem(req.body);
+  res.status(201).json(newItem);
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Example 3: Server Configuration Issue</h3>
+
+    <p>
+      If your Apache server is configured to only allow GET and POST methods, any PUT or DELETE requests will return 405
+      errors even if your application code supports them.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Current configuration (restrictive)
+<Limit GET POST>
+    Order Allow,Deny
+    Allow from all
+</Limit>
+
+# PUT and DELETE requests will return 405
+
+# Updated configuration (allows PUT and DELETE)
+<Limit GET POST PUT DELETE>
+    Order Allow,Deny
+    Allow from all
+</Limit></code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Testing and Debugging</h2>
+
+    <p>
+      When debugging 405 errors, use tools like curl or Postman to test different HTTP methods and see which ones are
+      actually allowed. The server's Allow header in the 405 response tells you exactly what methods you can use.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Test different methods
+curl -X GET https://api.example.com/data -i
+curl -X POST https://api.example.com/data -i
+curl -X PUT https://api.example.com/data -i
+curl -X DELETE https://api.example.com/data -i
+
+# Check allowed methods
+curl -X OPTIONS https://api.example.com/data -i</code></pre>
+    </div>
+
+    <p>
+      The OPTIONS method is particularly useful because it returns the Allow header without actually performing the
+      action, making it safe to use for discovery.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Prevention Best Practices</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Review API documentation:</strong> Always check which HTTP methods each endpoint supports before
+        making requests</li>
+      <li><strong>Use OPTIONS requests:</strong> Query endpoints with OPTIONS to discover allowed methods
+        programmatically</li>
+      <li><strong>Define all route handlers:</strong> In your framework, ensure you've created handlers for all methods
+        you want to support</li>
+      <li><strong>Test server configuration:</strong> Verify that your web server configuration allows the methods your
+        application needs</li>
+      <li><strong>Check security filters:</strong> Ensure WAFs and security filters aren't blocking legitimate methods
+      </li>
+      <li><strong>Include proper headers:</strong> Some APIs require authentication or specific headers for certain
+        methods</li>
+      <li><strong>Monitor server logs:</strong> Regularly check logs to catch method restriction issues early</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Summary</h2>
+
+    <p>
+      The HTTP 405 Method Not Allowed error occurs when you use an HTTP method that the server recognizes but doesn't
+      permit for the specific resource. Common causes include using the wrong method for an endpoint, server
+      configuration restrictions, missing route handlers in frameworks, and security filters blocking methods.
+    </p>
+
+    <p>
+      To fix 405 errors, validate that you're using the correct HTTP method, check server configurations for method
+      restrictions, ensure your framework routes support the methods you need, review API documentation, and examine
+      server logs for detailed error information. The Allow header in the 405 response provides valuable clues about
+      which methods are actually permitted.
+    </p>
+
+    <p>
+      By understanding how HTTP methods work and following best practices for API design and server configuration, you
+      can prevent most 405 errors and resolve them quickly when they occur. Always test your endpoints with different
+      methods and use OPTIONS requests to discover what's actually allowed before implementing your application logic.
+    </p>
+  </article>
+</div>
