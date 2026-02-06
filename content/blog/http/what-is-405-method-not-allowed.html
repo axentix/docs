@@ -91,6 +91,30 @@ Allow: GET, HEAD
 Content-Type: text/html</code></pre>
     </div>
 
+    <h2 class="exo mt-5" itemprop="subtitle">RFC 9110: 405 Method Not Allowed and the Allow Header Requirement</h2>
+
+    <p>
+      The behavior of the 405 status code and the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Allow</code> header is defined in
+      <a href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener">RFC 9110 (HTTP
+        Semantics)</a>. According to the specification, the 405 (Method Not Allowed) status code indicates that the
+      method received in the request-line is <strong>known by the origin server</strong> but <strong>not supported by
+        the target resource</strong>. Crucially, the origin server <strong>MUST</strong> generate an <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Allow</code> header field in a 405
+      response containing a list of the target resource's currently supported methods.
+    </p>
+
+    <p>
+      So when you get a 405, the server is not only telling you that your method is wrong—it is required by the
+      standard to tell you which methods <em>are</em> valid. That list is what you should use to correct your request.
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Allow</code> header is
+      strictly for informing the recipient of valid request methods; proxies must not modify it. An empty
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Allow</code> value is allowed
+      and indicates that the resource currently allows no methods (for example, if it has been temporarily disabled by
+      configuration). RFC 9110 also states that 405 responses are heuristically cacheable unless other cache controls
+      apply.
+    </p>
+
     <h2 class="exo mt-5" itemprop="subtitle">Common Causes of 405 Errors</h2>
 
     <h3 class="exo mt-4">Wrong HTTP Method</h3>
