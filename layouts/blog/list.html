@@ -35,7 +35,7 @@
               {{ T "categories.all-posts" }}
             </a>
 
-            {{ range $name, $items := site.Taxonomies.categories }}
+            {{ range $name, $items := .Site.Taxonomies.categories }}
             <div class="divider grey dark-2 my-3"></div>
             <a class="d-flex text-grey" href="{{ .Page.RelPermalink }}">
               {{ .Page.Title }} ({{ len $items }})
@@ -61,7 +61,7 @@
           {{ T "categories.all-posts" }}
         </a>
 
-        {{ range $name, $items := site.Taxonomies.categories }}
+        {{ range $name, $items := .Site.Taxonomies.categories }}
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="{{ .Page.RelPermalink }}">
           {{ .Page.Title }} ({{ len $items }})

@@ -44,7 +44,7 @@
           <span class="iconify-inline" data-icon="mdi:discord"></span>
         </a>
 
-        {{- if or (eq .Section "blog") (eq .Page.RelPermalink "/") (eq .Page.RelPermalink "/fr/") -}}
+        {{- if or (eq .Section "blog") (eq .Page.Type "categories") (eq .Page.Kind "term") (hasPrefix .Page.RelPermalink "/blog/") (hasPrefix .Page.RelPermalink "/fr/blog/") (eq .Page.RelPermalink "/") (eq .Page.RelPermalink "/fr/") -}}
         {{- partial "lang-switcher.html" . -}}
         {{- end -}}
 

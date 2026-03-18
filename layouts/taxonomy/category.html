@@ -29,10 +29,10 @@
       <div class="categories p-3 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
         <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
 
-        <a class="d-flex text-grey" href='/blog/'>
-          All Posts
+        <a class="d-flex text-grey" href='{{ .Site.LanguagePrefix }}/blog/'>
+          {{ T "categories.all-posts" }}
         </a>
-        {{ range $name, $items := site.Taxonomies.categories }}
+        {{ range $name, $items := .Site.Taxonomies.categories }}
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey{{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
                   text-primary text-underline{{ end }}" href="{{ .Page.RelPermalink }}">
@@ -53,10 +53,10 @@
   <div class="categories py-4 hide-md-up">
     <h2 class="font-s3 font-w400 mt-0">Categories</h2>
 
-    <a class="d-flex text-grey" href='/blog/'>
-      All Posts
+    <a class="d-flex text-grey" href='{{ .Site.LanguagePrefix }}/blog/'>
+      {{ T "categories.all-posts" }}
     </a>
-    {{ range $name, $items := site.Taxonomies.categories }}
+    {{ range $name, $items := .Site.Taxonomies.categories }}
     <div class="divider grey dark-2 my-3"></div>
     <a class="d-flex text-grey{{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `categories`) (eq $.Page.Title .Page.Title)) }}
                 text-primary text-underline{{ end }}" href="{{ .Page.RelPermalink }}">

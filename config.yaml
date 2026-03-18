@@ -26,6 +26,7 @@ languages:
   en:
     languageName: "English"
     weight: 1
+    contentDir: "content/en"
     params:
       icon: "uk"
   fr:
