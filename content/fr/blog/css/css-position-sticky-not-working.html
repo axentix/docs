@@ -1,0 +1,429 @@
+---
+title: "CSS position: sticky ne fonctionne pas : problèmes courants et solutions"
+description: "Découvrez pourquoi CSS position sticky échoue et comment le corriger. Guide complet couvrant la compatibilité navigateur,
+les problèmes d’overflow et des solutions pratiques."
+date: 2025-10-02
+author: "Axentix Team"
+image: "/img/blog/css/css-position-sticky-not-working/css-position-sticky-not-working.webp"
+categories: ["CSS"]
+summary: "Découvrez pourquoi CSS position sticky échoue et comment le corriger. Guide complet couvrant la compatibilité navigateur,
+les problèmes d’overflow et des solutions pratiques."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    CSS position: sticky ne fonctionne pas : problèmes courants et solutions
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/css/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      CSS
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-02" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      02/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Découvrez pourquoi <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code>
+    échoue et comment le corriger. Guide complet couvrant la compatibilité navigateur, les problèmes d’overflow et des
+    solutions pratiques.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="CSS position: sticky ne fonctionne pas : problèmes courants et solutions"
+      src='{{< link url="img/blog/css/css-position-sticky-not-working/css-position-sticky-not-working.webp" >}}'
+      alt="CSS position: sticky ne fonctionne pas : problèmes courants et solutions" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">CSS position: sticky ne fonctionne pas : problèmes courants et
+      solutions
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      La propriété CSS <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code>
+      est une propriété puissante qui permet aux éléments de rester collés à une position précise lors du défilement.
+      Cependant, beaucoup de développeurs se retrouvent face à des situations frustrantes où leurs éléments sticky
+      refusent tout simplement de fonctionner. Ce guide complet explore les raisons les plus courantes pour lesquelles
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code>
+      échoue et propose des solutions pratiques pour faire fonctionner correctement vos éléments sticky.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comprendre position: sticky</h2>
+
+    <p>
+      Avant de plonger dans le dépannage, il est essentiel de comprendre comment fonctionne <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code>. Cette
+      propriété crée un hybride entre les positionnements <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">relative</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fixed</code>. L’élément se
+      comporte comme un élément positionné en <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">relative</code> jusqu’à ce qu’il
+      franchisse un seuil donné, puis il devient positionné en <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fixed</code>.
+    </p>
+
+    <p>
+      L’exigence clé est que vous devez spécifier au moins une valeur de seuil avec les propriétés <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code>. Sans ces valeurs,
+      l’élément se comportera exactement comme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: relative</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Problèmes courants et solutions</h2>
+
+    <h3 class="exo mt-4">1. Valeurs de seuil manquantes</h3>
+
+    <p><strong>Problème :</strong> L’erreur la plus fréquente consiste à oublier d’indiquer où l’élément doit se coller.</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">/* Cela ne fonctionnera pas */
+.sticky-element {
+  position: sticky;
+}
+
+/* Cela fonctionnera */
+.sticky-element {
+  position: sticky;
+  top: 0;
+}</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> Spécifiez toujours au moins une propriété directionnelle (<code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code>) avec une valeur
+      différente de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">auto</code>.
+    </p>
+
+    <h3 class="exo mt-4">2. Éléments parents avec des propriétés overflow</h3>
+
+    <p><strong>Problème :</strong> Si un élément parent ou ancêtre possède <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: hidden</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: scroll</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: auto</code>, cela peut
+      empêcher le comportement sticky.</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">/* Ce parent cassera le positionnement sticky */
+.parent-container {
+  overflow: hidden;
+  height: 400px;
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+}</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> Vérifiez tous les éléments parents à la recherche de propriétés overflow. Vous pouvez
+      utiliser ce snippet JavaScript pour identifier les parents problématiques :</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">let parent = document.querySelector('.sticky-element').parentElement;
+
+while (parent) {
+    const hasOverflow = getComputedStyle(parent).overflow;
+    if (hasOverflow !== 'visible') {
+        console.log('Found overflow property:', hasOverflow, parent);
+    }
+    parent = parent.parentElement;
+}</code></pre>
+    </div>
+
+    <p><strong>Solutions alternatives :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Supprimez la propriété overflow si possible</li>
+      <li>Utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: clip</code>
+        à la place de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">overflow: hidden</code>
+        (sticky fonctionnera toujours)</li>
+      <li>Définissez une hauteur précise sur le conteneur qui déborde</li>
+    </ul>
+
+    <h3 class="exo mt-4">3. Problèmes de compatibilité navigateur</h3>
+
+    <p><strong>Problème :</strong> Les anciens navigateurs ne prennent pas en charge <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> ou
+      nécessitent des préfixes vendeur.</p>
+
+    <p><strong>Solution :</strong> Incluez toujours le préfixe <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-</code> pour la prise en
+      charge de Safari :</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">.sticky-element {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}</code></pre>
+    </div>
+
+    <p><strong>Compatibilité navigateur :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Chrome 56+</li>
+      <li>Firefox 32+</li>
+      <li>Safari 13+ (avec le préfixe <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-</code>)</li>
+      <li>Edge 16+</li>
+    </ul>
+
+    <h3 class="exo mt-4">4. Hauteur de conteneur insuffisante</h3>
+
+    <p><strong>Problème :</strong> L’élément sticky a besoin d’assez d’espace pour se déplacer dans son conteneur. Si
+      le conteneur est trop court, il n’y a pas assez de place pour que le comportement sticky s’active.</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">/* Conteneur trop court - sticky ne fonctionnera pas */
+.container {
+  height: 100px;
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+  height: 100px; /* Même hauteur que le conteneur */
+}</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> Assurez-vous que le conteneur a suffisamment de hauteur pour permettre le défilement
+      de l’élément sticky :</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">.container {
+  height: 1000px; /* Hauteur suffisante */
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+  height: 100px;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">5. Conflits avec Flexbox et Grid</h3>
+
+    <p><strong>Problème :</strong> Dans les mises en page flexbox, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">align-self: stretch</code> peut
+      interférer avec le positionnement sticky.</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-element {
+  position: sticky;
+  top: 0;
+  align-self: stretch; /* Cela peut poser problème */
+}</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> Remplacez l’alignement flex :</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">.sticky-element {
+  position: sticky;
+  top: 0;
+  align-self: flex-start; /* ou flex-end */
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">6. Problèmes de spécificité CSS et de surcharge</h3>
+
+    <p><strong>Problème :</strong> D’autres règles CSS peuvent écraser votre positionnement sticky.</p>
+
+    <p><strong>Solution :</strong> Utilisez les outils de développement du navigateur pour inspecter l’élément et
+      rechercher des styles en conflit. Vous devrez peut-être augmenter la spécificité ou utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">!important</code> (avec
+      parcimonie) :</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">.sticky-element {
+  position: sticky !important;
+  top: 0 !important;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">7. Contraintes de hauteur et de largeur</h3>
+
+    <p><strong>Problème :</strong> Les éléments avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">height: 100%</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">height: -webkit-fill-available</code>
+      dans les conteneurs parents peuvent casser le comportement sticky.</p>
+
+    <p><strong>Solution :</strong> Utilisez des valeurs de hauteur précises au lieu de hauteurs en pourcentage :</p>
+
+    <div class="code-block">
+      <pre><code class="language-css">/* Au lieu de */
+.sticky-element {
+  height: 100%;
+}
+
+/* Utilisez */
+.sticky-element {
+  height: 60px;
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples pratiques</h2>
+
+    <h3 class="exo mt-4">Navigation sticky fonctionnelle</h3>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;div class="container"&gt;
+  &lt;nav class="sticky-nav"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;main class="content"&gt;
+    &lt;!-- Long content here --&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-css">.container {
+  height: 200vh; /* Assurez une hauteur suffisante pour le défilement */
+}
+
+.sticky-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  z-index: 100;
+}
+
+.sticky-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sticky-nav li {
+  margin-right: 20px;
+}
+
+.sticky-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Barre latérale sticky</h3>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;div class="layout"&gt;
+  &lt;main class="content"&gt;
+    &lt;!-- Main content --&gt;
+  &lt;/main&gt;
+  &lt;aside class="sidebar"&gt;
+    &lt;div class="sticky-widget"&gt;
+      &lt;!-- Sticky content --&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-css">.layout {
+  display: flex;
+  gap: 20px;
+}
+
+.content {
+  flex: 1;
+  min-height: 200vh;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.sticky-widget {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Astuces de débogage</h2>
+
+    <ol>
+      <li><strong>Utilisez les outils de développement du navigateur :</strong> inspectez l’élément pour voir si le
+        positionnement sticky est appliqué correctement.</li>
+      <li><strong>Vérifiez les éléments parents :</strong> recherchez les éléments parents ayant des propriétés overflow
+        qui pourraient interférer.</li>
+      <li><strong>Contrôlez la hauteur du conteneur :</strong> assurez-vous que le conteneur a assez de hauteur pour que
+        l’élément sticky puisse se déplacer.</li>
+      <li><strong>Testez dans différents navigateurs :</strong> vérifiez si le problème est spécifique à un navigateur.
+      </li>
+      <li><strong>Simplifiez la mise en page :</strong> retirez temporairement les mises en page complexes (flexbox,
+        grid) pour isoler le problème.</li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques</h2>
+
+    <ol>
+      <li><strong>Spécifiez toujours des valeurs de seuil :</strong> n’utilisez jamais <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> sans
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">top</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">right</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bottom</code> ou <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">left</code>.
+      </li>
+      <li><strong>Ajoutez les préfixes vendeur :</strong> ajoutez <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-webkit-sticky</code> pour la
+        compatibilité Safari.</li>
+      <li><strong>Vérifiez les conteneurs parents :</strong> assurez-vous qu’aucun parent n’a de propriétés overflow
+        conflictuelles.</li>
+      <li><strong>Prévoyez assez d’espace :</strong> assurez-vous que les conteneurs ont assez de hauteur pour que le
+        comportement sticky s’active.</li>
+      <li><strong>Testez soigneusement :</strong> vérifiez le comportement sticky sur différents navigateurs et
+        appareils.</li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      La propriété CSS <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code>
+      est un outil puissant pour créer des interfaces engageantes, mais elle demande une attention particulière aux
+      détails. Les problèmes les plus courants viennent de valeurs de seuil manquantes, d’éléments parents avec des
+      propriétés overflow et de hauteurs de conteneur insuffisantes. En suivant les solutions présentées dans ce guide
+      et les bonnes pratiques, vous pouvez créer avec succès des éléments sticky qui améliorent l’expérience utilisateur
+      de votre site web.
+    </p>
+
+    <p>
+      N’oubliez pas de tester vos implémentations sur différents navigateurs et appareils pour garantir un comportement
+      cohérent. Avec une bonne compréhension et une bonne mise en œuvre, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">position: sticky</code> peut
+      devenir un ajout précieux à votre boîte à outils CSS.
+    </p>
+  </article>
+</div>

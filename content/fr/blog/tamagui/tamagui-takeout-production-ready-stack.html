@@ -1,0 +1,118 @@
+---
+title: "Tamagui Takeout : la pile prête pour la production des applications React multiplateformes"
+description: "Découvrez Tamagui Takeout, la base complète prête pour la production avec Supabase, tRPC, des formulaires universels et tout ce qu'il faut pour créer des applications avec des systèmes utilisateur sur le web et les plateformes natives."
+date: 2025-12-14
+author: "Axentix Team"
+image: "/img/blog/tamagui/tamagui-takeout-production-ready-stack/tamagui-takeout.webp"
+categories: ["Tamagui"]
+summary: "Découvrez Tamagui Takeout, la base complète prête pour la production avec Supabase, tRPC, des formulaires universels et tout ce qu'il faut pour créer des applications avec des systèmes utilisateur sur le web et les plateformes natives."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Tamagui Takeout : la pile prête pour la production des applications React multiplateformes
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/tamagui/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Tamagui
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-12-14" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      14/12/2025
+    </time>
+  </div>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Tamagui Takeout"
+      src='{{< link url="img/blog/tamagui/tamagui-takeout-production-ready-stack/tamagui-takeout.webp" >}}'
+      alt="Pile prête pour la production Tamagui Takeout" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Tamagui Takeout - pile prête pour la production</figcaption>
+  </figure>
+
+  <p class="mb-5 font-s3">
+    Découvrez Tamagui Takeout, la base complète prête pour la production avec Supabase, tRPC, des formulaires universels et tout ce qu'il faut pour créer des applications avec des systèmes utilisateur sur le web et les plateformes natives.
+  </p>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">Qu'est-ce que Tamagui Takeout ?</h2>
+
+    <p>
+      Vous est-il déjà arrivé de passer des semaines à mettre en place l'authentification, les schémas de base de données et la configuration du déploiement avant même de pouvoir commencer à construire votre vraie application ? Tamagui Takeout résout ce problème. C'est une pile prête pour la production, construite sur le starter open source Tamagui, qui inclut tout ce qu'il faut pour créer des applications avec des systèmes utilisateur : Supabase pour l'authentification et les données, tRPC pour des API typées, des formulaires universels, l'envoi d'images et une série d'écrans déjà prêts.
+    </p>
+
+    <p>
+      Ce qui est intéressant avec Takeout, c'est qu'il finance le développement open source de Tamagui lui-même. Donc quand vous l'achetez, vous n'obtenez pas seulement un point de départ solide - vous soutenez aussi le projet. En plus, la pile partage presque tout le code entre les plateformes web et natives, ce qui vous permet de construire une fois et de déployer partout sans maintenir des bases de code séparées.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Ce qui est inclus</h2>
+
+    <p>
+      Le monorepo inclut Next.js pour le web et Expo pour le natif, le tout configuré et prêt à l'emploi. Vous obtenez des écrans préconstruits pour l'onboarding, l'authentification, les profils, les réglages et des mises en page de feed qui s'adaptent automatiquement au rendu natif de chaque plateforme. Fini de construire trois fois le même écran de connexion.
+    </p>
+
+    <p>
+      Supabase est préconfiguré avec les migrations de base de données, l'authentification par e-mail, OAuth pour Google et Apple, et les politiques Row Level Security. La configuration tRPC vous donne une sécurité de type de bout en bout avec la validation Zod, et elle fonctionne sans friction sur le web comme sur le natif. Voici un exemple rapide :
+    </p>
+
+    <pre><code class="language-js">
+import { z } from 'zod'
+import { router, publicProcedure } from './trpc'
+
+export const appRouter = router({
+  getUser: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input }) => {
+      return await getUserById(input.id)
+    }),
+})
+    </code></pre>
+
+    <p>
+      Les formulaires sont gérés avec react-hook-form et Zod, et ils utilisent automatiquement des champs natifs sur mobile et des champs web sur le web. Le système d'envoi d'images s'adapte au sélecteur natif sur mobile et aux champs de fichiers sur le web, avec l'intégration Supabase Storage déjà configurée.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Système de design et ressources</h2>
+
+    <p>
+      Takeout inclut l'outil ThemeBuilder pour une personnalisation facile, ainsi que deux packs de thèmes exclusifs : Pastel (atténué et apaisant) et Neon (vif et lumineux). Vous avez accès à plus de 150 packs d'icônes, soit environ 180 000 icônes provenant de iconify.design, toutes tree-shakeable et intégrées à votre thème. Vous avez aussi accès à toutes les Google Fonts - plus de 1 500 packages. Il suffit d'exécuter <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">yarn add:font</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">yarn add:icon</code> pour les ajouter.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Déploiement et outils</h2>
+
+    <p>
+      Tout est configuré pour le déploiement. Vercel est prêt avec des déploiements de prévisualisation pour les pull requests, et Expo EAS est prêt pour les builds iOS et Android. Un script d'installation vous accompagne dans la configuration de Supabase, des variables d'environnement et des cibles de déploiement.
+    </p>
+
+    <p>
+      La pile inclut aussi React Query pour la récupération de données, React Native Reanimated pour les animations, Solito pour la navigation, ainsi que des composants natifs comme Sheet et Toast déjà configurés. Il y a même TakeoutBot, qui fournit des mises à jour continues pour garder votre pile à jour avec les dernières fonctionnalités et corrections.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi cela vaut le coup</h2>
+
+    <p>
+      Au lieu de passer des semaines ou des mois à mettre en place l'infrastructure, vous pouvez commencer à développer des fonctionnalités dès le premier jour. La pile est prête pour la production, avec toutes les bonnes pratiques, considérations de sécurité et optimisations déjà intégrées. Comme la majeure partie du code est partagée entre les plateformes, vous construisez une fois et cela fonctionne partout.
+    </p>
+
+    <p>
+      Lorsque vous achetez Takeout, vous obtenez l'accès à un dépôt GitHub privé avec tout le code source et à un Discord privé où vous pouvez discuter avec l'équipe Tamagui et d'autres développeurs utilisant la même pile. C'est une communauté solide pour obtenir de l'aide et partager ce que vous avez appris.
+    </p>
+
+    <p>
+      Consultez le <a href="https://tamagui.dev/takeout" class="text-primary" target="_blank"
+        rel="nofollow noopener noreferrer">site web Tamagui Takeout</a> pour voir tout ce qui est inclus et obtenir l'accès. Que vous construisiez un MVP, un projet personnel ou une application client, cela vous fera gagner énormément de temps et vous donnera une base solide sur laquelle bâtir.
+    </p>
+  </article>
+</div>

@@ -36,12 +36,12 @@
 <div class="sidenav-content">
   <div class="hide-md-up">
     <a href="{{ .Site.BaseURL }}" class="sidenav-link">Home</a>
-    <a href="{{ ref . "getting-started" }}" class="sidenav-link">Documentation</a>
-    <a href="{{ ref . "blog" }}" class="sidenav-link">Blog</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="{{ .Site.LanguagePrefix }}/blog/" class="sidenav-link">Blog</a>
     <div class="divider"></div>
   </div>
   
-  <a href="{{ ref . "getting-started" }}" class="sidenav-link {{ if  eq "Getting started" $.Page.Title . }}active{{ end }}">
+  <a href="/docs/getting-started/" class="sidenav-link {{ if  eq "Getting started" $.Page.Title . }}active{{ end }}">
     Getting started
   </a>
   
@@ -69,7 +69,7 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
-      <a class="sidenav-link {{ if  eq "Material forms" $.Page.Title . }}active{{ end }}" href="{{ ref . "Material" }}">Material forms</a>
+      <a class="sidenav-link {{ if  eq "Material forms" $.Page.Title . }}active{{ end }}" href="/docs/forms/material/">Material forms</a>
       {{ range .Site.RegularPages }}
         {{ if eq .Page.Params.sidenav "forms" }}
         <a class="sidenav-link {{ if  eq .Title $.Page.Title . }}active{{ end }}" href="{{.Permalink}}">{{ .Title }}</a>
@@ -107,7 +107,7 @@
     {{ end }}
   {{ end }}
   
-  <a href="{{ ref . "migration" }}" class="sidenav-link {{ if  eq "Migration guide" $.Page.Title . }}active{{ end }}">
+  <a href="/docs/migration/" class="sidenav-link {{ if  eq "Migration guide" $.Page.Title . }}active{{ end }}">
     Migrate from v1
   </a>
 </div>

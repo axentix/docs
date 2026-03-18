@@ -1,0 +1,576 @@
+---
+title: "CSS Reset : le meilleur outil pour normaliser votre CSS pour le développement moderne"
+description: "Découvrez tout sur les techniques de CSS reset, des approches classiques aux implémentations modernes. Apprenez les bonnes pratiques et créez votre propre reset optimisé."
+date: 2025-10-01
+author: "Axentix Team"
+image: "/img/blog/css/css-reset-complete-guide/css-resets.webp"
+categories: ["CSS"]
+summary: "Maîtrisez les techniques de CSS reset avec ce guide complet couvrant les approches classiques, les implémentations modernes et les bonnes pratiques pour un style cohérent entre les navigateurs."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    CSS Reset : le meilleur outil pour normaliser votre CSS pour le développement moderne
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/css/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      CSS
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-01" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      01/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Maîtrisez les techniques de CSS reset avec ce guide complet qui couvre les approches classiques, les implémentations
+    modernes et les bonnes pratiques pour garantir un style cohérent entre navigateurs.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="CSS Reset : le guide complet du développement web moderne"
+      src='{{< link url="img/blog/css/css-reset-complete-guide/css-resets.webp" >}}'
+      alt="CSS Reset : le guide complet du développement web moderne" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">CSS Reset : le guide complet du développement web moderne
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">Qu'est-ce qu'un CSS Reset ?</h2>
+
+    <p>
+      Le CSS reset est une technique qui consiste à réinitialiser certains éléments HTML à des valeurs nulles afin
+      d'éviter une partie des différences d'affichage entre les navigateurs. L'objectif est de réduire les
+      incohérences entre navigateurs concernant, par exemple, les hauteurs de ligne par défaut, les marges et la taille
+      des polices des titres, pour créer un point de départ uniforme pour la mise en forme.
+    </p>
+
+    <p>
+      Avant d'aller plus loin, il est important de noter que l'utilisation de cette technique est controversée. Si vous
+      choisissez de l'utiliser, il est recommandé d'adopter un CSS reset évolué, comme celui proposé par Eric Meyer, et
+      d'éviter d'utiliser le sélecteur universel (`*`).
+    </p>
+
+    <h2 class="exo mt-4">L'évolution du CSS Reset</h2>
+
+    <h3 class="exo mt-3">Le reset CSS classique (à éviter)</h3>
+
+    <p>
+      Les navigateurs n'utilisent pas toujours les mêmes marges et paddings par défaut pour les différents éléments
+      HTML. Cela peut poser problème lorsque vous souhaitez supprimer l'indentation gauche d'une liste avec
+      `margin-left: 0;` et que certains navigateurs conservent cette indentation car ils utilisent du padding plutôt que
+      de la marge.
+    </p>
+
+    <p>
+      L'approche classique consistait à supprimer toutes les marges et les espacements internes des éléments :
+    </p>
+
+    <pre><code class="language-css">* {
+    margin: 0;
+    padding: 0;
+}</code></pre>
+
+    <p>
+      Pour aller plus loin et éliminer d'autres différences en remettant tout "à zéro", les développeurs utilisaient :
+    </p>
+
+    <pre><code class="language-css">/* Exemple de pratique non recommandée,
+   A NE PAS UTILISER dans vos projets */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none; 
+}</code></pre>
+
+    <h3 class="exo mt-3">Problèmes de l'approche classique</h3>
+
+    <p>
+      Le problème de cette technique est qu'elle annule certains styles par défaut des navigateurs qui sont en réalité
+      utiles. Le cas le plus évident est celui des éléments de formulaire.
+    </p>
+
+    <p>
+      Par défaut, et dans la plupart des navigateurs, ces éléments reprennent l'apparence des contrôles du système
+      d'exploitation (champs de texte, listes déroulantes, boutons, etc.). Comme ces styles sont connus et facilement
+      identifiables par les utilisateurs, et qu'il est très difficile voire impossible de styliser certains éléments de
+      formulaire comme on le souhaite, il est recommandé de conserver cette apparence par défaut.
+    </p>
+
+    <p>
+      Cependant, le sélecteur universel `*` a l'avantage, mais aussi l'inconvénient, de sélectionner tous les éléments
+      HTML sans distinction. Et si vous utilisez `border: 0;`, vous perdez la plupart des styles "système" des éléments
+      de formulaire.
+    </p>
+
+    <p>
+      De plus, utiliser le sélecteur universel consomme des ressources du navigateur car celui-ci doit parcourir tous
+      les éléments du document pour appliquer ce style.
+    </p>
+
+    <h2 class="exo mt-4">Le Reset CSS d'Eric Meyer</h2>
+
+    <p>
+      Le Reset CSS d'Eric Meyer est l'un des plus célèbres et des plus largement adoptés. Il est volontairement très
+      générique et sert de point de départ plutôt que de solution clé en main. Les styles fournis visent à réduire les
+      incohérences entre navigateurs concernant les hauteurs de ligne par défaut, les marges et la taille des polices
+      des titres.
+    </p>
+
+    <p>
+      Voici le Reset CSS complet d'Eric Meyer (v2.0 | 20110126) :</p>
+
+    <pre><code class="language-css">/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}</code></pre>
+
+    <h2 class="exo mt-4">Approches modernes du CSS Reset</h2>
+
+    <h3 class="exo mt-3">Le CSS Reset moderne de Josh W. Comeau</h3>
+
+    <p>
+      Josh W. Comeau a développé un CSS reset moderne qui répond aux besoins contemporains et inclut de nombreux petits
+      raffinements pour améliorer à la fois l'expérience utilisateur et l'expérience d'écriture du CSS. Ce reset est
+      neutre en matière de design et de cosmétique, ce qui le rend adapté à tout type de projet.
+    </p>
+
+    <p>
+      Voici les éléments clés de son reset moderne :
+    </p>
+
+    <pre><code class="language-css">/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+/* 10. Root stacking context */
+#root, #__next {
+  isolation: isolate;
+}</code></pre>
+
+    <h3 class="exo mt-3">Le CSS Reset moderne d'Andy Bell</h3>
+
+    <p>
+      L'approche d'Andy Bell vise à créer un reset plus équilibré et plus accessible qui préserve les valeurs par
+      défaut utiles tout en corrigeant les incohérences. Son reset intègre plusieurs considérations modernes :
+    </p>
+
+    <pre><code class="language-css">/* Box sizing rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove list styles on ul, ol elements with a list role */
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+::target {
+  scroll-margin-block: 5ex;
+}</code></pre>
+
+    <h2 class="exo mt-4">Éléments clés d'un CSS Reset moderne</h2>
+
+    <h3 class="exo mt-3">1. Modèle de box-sizing</h3>
+    <p>
+      Définir tous les éléments avec `box-sizing: border-box` garantit que le padding et les bordures sont inclus dans la
+      largeur et la hauteur totales de l'élément, ce qui simplifie les calculs de mise en page.
+    </p>
+
+    <h3 class="exo mt-3">2. Réinitialisation des marges et paddings</h3>
+    <p>
+      Supprimer les marges et paddings par défaut des éléments fournit une base propre pour vos espacements
+      personnalisés sans incohérences entre navigateurs.
+    </p>
+
+    <h3 class="exo mt-3">3. Lissage des polices et hauteur de ligne</h3>
+    <p>
+      Définir une hauteur de ligne cohérente et activer le lissage des polices améliore la lisibilité du texte sur tous
+      les appareils et navigateurs.
+    </p>
+
+    <h3 class="exo mt-3">4. Valeurs par défaut pour les médias</h3>
+    <p>
+      S'assurer que les images, vidéos et autres médias sont responsives et ne dépassent pas la largeur de leur
+      conteneur.
+    </p>
+
+    <h3 class="exo mt-3">5. Héritage pour les éléments de formulaire</h3>
+    <p>
+      Faire hériter aux contrôles de formulaire les polices et styles permet de les intégrer harmonieusement au reste du
+      design.
+    </p>
+
+    <h3 class="exo mt-3">6. Améliorations d'accessibilité</h3>
+    <p>
+      Inclure des styles qui améliorent l'accessibilité, par exemple en veillant à ce que les focus soient visibles et
+      que le texte se replie correctement pour rester lisible.
+    </p>
+
+    <h2 class="exo mt-4">L'ultime CSS Reset moderne</h2>
+
+    <p>
+      En nous appuyant sur les resets modernes évoqués plus haut, voici un CSS reset complet qui combine les bonnes
+      pratiques d'Eric Meyer, Josh W. Comeau, Andy Bell et d'autres approches modernes :
+    </p>
+
+    <pre><code class="language-css">/* ===============================================
+   Ultimate Modern CSS Reset
+   Based on best practices from Eric Meyer, 
+   Josh W. Comeau, Andy Bell, and modern standards
+   =============================================== */
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Remove list styles on ul, ol elements with a list role */
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+/* 5. Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, button, input, label {
+  line-height: 1.1;
+}
+
+/* 6. Balance text wrapping on headings */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* 7. Improve text rendering and wrapping */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* 8. A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* 9. Make images and media easier to work with */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 10. Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 11. Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* 12. Anything that has been anchored to should have extra scroll margin */
+::target {
+  scroll-margin-block: 5ex;
+}
+
+/* 13. Root stacking context */
+#root, #__next {
+  isolation: isolate;
+}
+
+/* 14. Enable keyword animations for modern browsers */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* 15. HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* 16. Remove quotes from blockquotes and q elements */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* 17. Table border collapse */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 18. Focus management for accessibility */
+::focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* 19. Remove focus outline for mouse users */
+::focus:not(:focus-visible) {
+  outline: none;
+}</code></pre>
+
+    <h2 class="exo mt-4">Limitations et points à considérer</h2>
+
+    <p>
+      Même si les CSS resets sont des outils puissants, ils s'accompagnent de certaines limites et considérations :
+    </p>
+
+    <h3 class="exo mt-3">Problèmes potentiels</h3>
+    <ul>
+      <li><strong>Perte de sens sémantique :</strong> réinitialiser tous les styles peut rendre le contenu moins lisible
+        sans styles personnalisés</li>
+      <li><strong>Styles des éléments de formulaire :</strong> certains resets peuvent interférer avec l'apparence
+        native des éléments de formulaire</li>
+      <li><strong>Impact sur les performances :</strong> les sélecteurs universels peuvent impacter les performances sur
+        de gros documents</li>
+      <li><strong>Charge de maintenance :</strong> vous devez redéfinir les styles pour chaque élément que vous utilisez
+      </li>
+    </ul>
+
+    <h3 class="exo mt-3">Bonnes pratiques</h3>
+    <ul>
+      <li>Utilisez des resets modernes et maintenus plutôt que de créer le vôtre à partir de zéro</li>
+      <li>Testez minutieusement sur différents navigateurs et appareils</li>
+      <li>Envisagez d'utiliser Normalize.css comme alternative aux resets traditionnels</li>
+      <li>Faites attention à l'accessibilité lorsque vous appliquez des resets</li>
+      <li>Documentez vos choix de reset pour assurer la cohérence dans l'équipe</li>
+    </ul>
+
+    <h2 class="exo mt-4">Axentix et le CSS normalisé</h2>
+
+    <p>
+      Axentix est un framework front-end moderne qui fournit d'emblée une base CSS normalisée. Au lieu de demander aux
+      développeurs d'implémenter leur propre CSS reset, Axentix inclut un système de normalisation soigneusement conçu
+      qui :
+    </p>
+
+    <ul>
+      <li><strong>Élimine les incohérences entre navigateurs :</strong> fournit une base cohérente sur tous les
+        navigateurs modernes</li>
+      <li><strong>Préserve les valeurs par défaut utiles :</strong> maintient le sens sémantique tout en corrigeant les
+        incohérences</li>
+      <li><strong>Optimise les performances :</strong> utilise des sélecteurs efficaces et des techniques CSS modernes
+      </li>
+      <li><strong>Assure l'accessibilité :</strong> inclut des valeurs par défaut pensées pour l'accessibilité</li>
+      <li><strong>Prend en charge les fonctionnalités modernes :</strong> intègre des propriétés CSS contemporaines et
+        des bonnes pratiques</li>
+    </ul>
+
+    <p>
+      En utilisant Axentix, les développeurs peuvent se concentrer sur la construction de leurs applications sans se
+      soucier des problèmes de compatibilité entre navigateurs ou de l'implémentation de leur propre reset. Le framework
+      gère tout le travail de normalisation, offrant une base solide qui fonctionne de manière cohérente sur différents
+      navigateurs et appareils.
+    </p>
+
+    <p>
+      Cette approche est particulièrement utile pour les équipes qui souhaitent maintenir la cohérence entre plusieurs
+      projets tout en réduisant la charge de gestion des CSS resets personnalisés. Le CSS normalisé d'Axentix garantit
+      que vos composants auront le même rendu et le même comportement, quel que soit le navigateur ou l'appareil de vos
+      utilisateurs.
+    </p>
+
+    <h2 class="exo mt-4">Conclusion</h2>
+
+    <p>
+      Les techniques de CSS reset ont beaucoup évolué, passant des approches basées sur le sélecteur universel aux
+      implémentations modernes et réfléchies qui équilibrent cohérence et utilisabilité. Si les resets classiques ont eu
+      leur place dans l'histoire du développement web, les resets modernes comme ceux de Josh W. Comeau et Andy Bell
+      offrent de meilleures solutions en prenant en compte l'accessibilité, les performances et l'expérience utilisateur.
+    </p>
+
+    <p>
+      Le reset moderne que nous avons présenté combine les meilleures pratiques de différentes sources et fournit une
+      base solide pour n'importe quel projet web. Cependant, pour de nombreux développeurs, utiliser un framework comme
+      Axentix, qui inclut déjà un CSS normalisé, peut être une solution plus pratique, éliminant le besoin de gérer les
+      styles de reset tout en garantissant un comportement cohérent entre navigateurs.
+    </p>
+
+    <p>
+      Que vous choisissiez d'implémenter votre propre reset ou d'utiliser un framework comme Axentix, l'essentiel est de
+      comprendre les principes de la normalisation CSS et de prendre des décisions éclairées en fonction des besoins et
+      des contraintes spécifiques de votre projet.
+    </p>
+  </article>
+</div>
+

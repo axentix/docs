@@ -1,0 +1,233 @@
+---
+title: "Qu'est-ce que NativeWind et comment l'utiliser : Tailwind CSS pour React Native"
+description: "Découvrez NativeWind, la bibliothèque qui apporte Tailwind CSS à React Native. Style utilitaire, mode sombre, variables CSS et design cohérent sur iOS et Android."
+date: 2026-03-02
+author: "Axentix Team"
+categories: ["NativeWind"]
+image: "/img/blog/nativewind/what-is-nativewind-and-how-to-use-it/nativewing-banner.webp"
+summary: "Découvrez NativeWind, la bibliothèque qui apporte le flux de travail utilitaire de Tailwind CSS à React Native pour un style cohérent et intuitif sur le web et le mobile."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Qu'est-ce que NativeWind et comment l'utiliser : Tailwind CSS pour React Native
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/nativewind/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      NativeWind
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-03-02" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      02/03/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    NativeWind apporte le flux de travail utilitaire de Tailwind CSS à React Native. Stylisez vos applications iOS et Android avec les mêmes classes intuitives que vous utilisez sur le web, avec un style cohérent, le mode sombre, les variables CSS et une expérience de développement familière. Voici ce que c'est, comment l'utiliser et quand c'est un bon choix.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Qu'est-ce que NativeWind"
+      src='{{< link url="img/blog/nativewind/what-is-nativewind-and-how-to-use-it/nativewing-banner.webp" >}}'
+      alt="Qu'est-ce que NativeWind" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Qu'est-ce que NativeWind</figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">Qu'est-ce que NativeWind ?</h2>
+
+    <p>
+      NativeWind est une bibliothèque qui vous permet d'utiliser <strong>Tailwind CSS</strong> dans les applications React Native. Au lieu d'écrire des objets React Native StyleSheet ou des styles spécifiques à la plateforme, vous appliquez des classes utilitaires de type Tailwind via la prop <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">className</code>. Le même modèle mental que vous utilisez pour le web - <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flex-1</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">px-4</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">text-center</code> - fonctionne sur mobile, vous obtenez donc un style cohérent sur toutes les plateformes et un vocabulaire unique pour la mise en page et le design.
+    </p>
+
+    <p>
+      Sous le capot, NativeWind transforme ces noms de classes en objets de style React Native. Il s'intègre au thème Tailwind, prend en charge les modes sombre et clair, et, dans la v5, s'appuie sur une configuration basée sur CSS, y compris les variables CSS et le Tailwind moderne. Cela en fait une option solide si votre équipe connaît déjà Tailwind et veut réutiliser cette connaissance dans des applications mobiles.
+    </p>
+
+    <p>
+      Le projet est activement maintenu, avec une <strong>v5</strong> en préversion qui aligne le projet sur Tailwind CSS v4 et ajoute des fonctionnalités comme les couleurs P3, les variables CSS et les animations CSS. De nombreuses applications de production utilisent NativeWind (le <a href="https://www.nativewind.dev/" target="_blank" rel="noopener">site NativeWind</a> présente une vitrine de plus en plus riche), et l'écosystème inclut des kits UI comme NativewindUI, React Native Reusables et gluestack, construits en tenant compte de Tailwind (NativeWind).
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Démarrer avec NativeWind</h2>
+
+    <p>
+      Le moyen le plus rapide d'essayer NativeWind est de passer par la configuration automatisée. Pour un nouveau projet React Native avec NativeWind préconfiguré, vous pouvez utiliser :
+    </p>
+
+    <h3 class="exo mt-4">Démarrage rapide avec un nouveau projet</h3>
+
+    <pre><code class="language-bash"># New project with NativeWind (v5)
+npx rn-new@next --nativewind</code></pre>
+
+    <p>
+      Pour un projet <strong>Expo</strong> existant, l'approche recommandée consiste à installer les paquets v5 (préversion) et à brancher Tailwind et Metro.
+    </p>
+
+    <h3 class="exo mt-4">Installation avec Expo (v5)</h3>
+    <p>
+      Installez NativeWind et ses dépendances peer, puis Tailwind et PostCSS :
+    </p>
+
+    <pre><code class="language-bash"># Core dependencies
+npx expo install nativewind@preview react-native-css react-native-reanimated react-native-safe-area-context
+
+# Tailwind and tooling (dev)
+npx expo install --dev tailwindcss @tailwindcss/postcss postcss</code></pre>
+
+    <p>
+      Créez un fichier <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">postcss.config.mjs</code>
+      à la racine de votre projet :
+    </p>
+
+    <pre><code class="language-js">export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};</code></pre>
+
+    <p>
+      Ajoutez un fichier <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">global.css</code> (ou similaire) avec les couches NativeWind et Tailwind, puis importez-le en haut de votre composant racine (par exemple <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">App.js</code>). Configurez Metro avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withNativewind</code> depuis <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nativewind/metro</code> afin que le CSS soit traité correctement. Les instructions complètes pas à pas se trouvent dans le <a href="https://www.nativewind.dev/v5/getting-started/installation" target="_blank" rel="noopener">guide officiel d'installation v5</a>.
+    </p>
+
+    <h3 class="exo mt-4">Votre premier composant NativeWind</h3>
+    <p>
+      Une fois la configuration terminée, utilisez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">className</code>
+      sur les composants natifs React Native :
+    </p>
+
+    <pre><code class="language-js">import { View, Text } from 'react-native'
+
+export default function WelcomeScreen() {
+  return (
+    &lt;View className="flex-1 justify-center items-center bg-white dark:bg-gray-900 px-8 py-4"&gt;
+      &lt;Text className="text-2xl font-bold text-gray-900 dark:text-white"&gt;
+        Welcome to your App
+      &lt;/Text&gt;
+      &lt;Text className="text-base text-gray-600 dark:text-gray-300 mt-2"&gt;
+        Styled with NativeWind
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  )
+}</code></pre>
+
+    <p>
+      Vous obtenez le même flux de travail utilitaire que sur le web : la mise en page (<code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flex-1</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">justify-center</code>), l'espacement (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">px-8</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">mt-2</code>), la typographie et le mode sombre avec les variantes <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">dark:</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">NativeWind vs Tamagui</h2>
+
+    <p>
+      NativeWind et <a href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/">Tamagui</a> améliorent tous deux le style dans React Native, mais ils partent de points différents. NativeWind est <strong>d'abord Tailwind</strong> : vous utilisez les classes et la configuration Tailwind (y compris le thème v4, les variables CSS et les utilitaires). Tamagui est un <strong>système de design et une bibliothèque de composants</strong> avec ses propres jetons, composants et compilateur d'optimisation qui produit du code idéal pour la plateforme.
+    </p>
+
+    <h3 class="exo mt-4">Approche du style</h3>
+    <p>
+      Avec NativeWind, vous gardez le modèle mental Tailwind : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">className="flex-row gap-4 p-4"</code>. Avec Tamagui, vous utilisez des props de composant et des jetons de design : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flexDirection="row" gap="$4"
+        padding="$4"</code>. Si votre équipe utilise déjà Tailwind sur le web, NativeWind réduit les changements de contexte ; si vous voulez un système de design complet et une optimisation maximale à la compilation, Tamagui est le meilleur choix.
+    </p>
+
+    <h3 class="exo mt-4">Performance et optimisation</h3>
+    <p>
+      Le compilateur de Tamagui effectue le flattening de l'arbre, l'élimination du code mort et une sortie spécifique à la plateforme. NativeWind transforme les noms de classes en objets de style et s'appuie sur le purging de Tailwind ainsi que sur votre configuration Metro/bundler. Pour beaucoup d'applications, les deux sont assez rapides ; Tamagui possède davantage de mécanismes d'optimisation intégrés.
+    </p>
+
+    <h3 class="exo mt-4">Quand choisir quoi</h3>
+    <p>
+      Choisissez <strong>NativeWind</strong> si vous voulez Tailwind dans React Native, si vous utilisez déjà Tailwind sur le web, ou si vous préférez une couche légère qui ne remplace pas le modèle de composants. Choisissez <strong>Tamagui</strong> si vous voulez un kit UI complet, des jetons de design et un compilateur d'optimisation, ou si vous construisez une base de code unique pour le web et le natif avec un système de composants partagé.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">NativeWind v5 : mode sombre, variables CSS et animations</h2>
+
+    <p>
+      NativeWind v5 (préversion) aligne le projet sur Tailwind CSS v4 et ajoute des fonctionnalités importantes pour les applications modernes. Les <strong>modes sombre et clair</strong> fonctionnent avec la variante <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">dark:</code> afin que vous puissiez thématiser les écrans et les composants sans bibliothèque supplémentaire. Les <strong>variables CSS</strong> (et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@theme</code>) vous permettent de définir les couleurs, les polices et l'espacement en un seul endroit et de les réutiliser dans toute l'application. Les <strong>animations CSS</strong> et les transitions offrent un mouvement cohérent. La prise en charge des <strong>couleurs P3</strong> améliore la fidélité des couleurs sur les appareils compatibles.
+    </p>
+
+    <p>
+      Comme v5 est encore en préversion, la documentation recommande de consulter la <a href="https://www.nativewind.dev/v5"
+        target="_blank" rel="noopener">documentation v5</a> pour connaître la configuration la plus récente et les éventuels changements cassants. En production aujourd'hui, certaines équipes restent sur une configuration v4 stable tout en évaluant v5 en parallèle.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">NativeWind : oui ou non ? Ce que la communauté évalue</h2>
+
+    <p>
+      Dans les discussions communautaires (y compris des fils comme <a
+        href="https://www.reddit.com/r/reactnative/comments/1inm75v/nativewind_go_or_no_go/" target="_blank"
+        rel="noopener">NativeWind go or no go sur r/reactnative</a>), les développeurs examinent souvent quelques points récurrents lorsqu'ils décident d'adopter ou non NativeWind.
+    </p>
+
+    <h3 class="exo mt-4">Prêt pour la production et versioning</h3>
+    <p>
+      NativeWind v4 est utilisé en production par de nombreuses applications. v5 est explicitement en préversion et n'est pas encore recommandé pour la production ; l'API et les outils (PostCSS, Metro, Tailwind v4) évoluent encore. Une approche pratique consiste à utiliser v4 pour un travail de production stable et à essayer v5 dans des projets neufs ou non critiques jusqu'à ce qu'il soit déclaré stable.
+    </p>
+
+    <h3 class="exo mt-4">Courbe d'apprentissage et cohérence</h3>
+    <p>
+      Si vous utilisez déjà Tailwind sur le web, NativeWind paraît familier et réduit le coût du passage entre le web et le mobile. Si votre équipe ne connaît que React Native StyleSheet ou d'autres solutions CSS-in-JS, il y a un coût d'apprentissage initial pour les classes utilitaires et les conventions de Tailwind - mais cet investissement est rentable si vous standardisez Tailwind partout.
+    </p>
+
+    <h3 class="exo mt-4">Maintenance et écosystème</h3>
+    <p>
+      NativeWind est activement maintenu, et l'écosystème autour s'agrandit : NativewindUI, React Native Reusables et gluestack proposent des bibliothèques de composants à copier-coller ou complètes conçues pour Tailwind (NativeWind). Cela facilite la livraison rapide d'interfaces tout en restant dans l'approche utilitaire.
+    </p>
+
+    <h3 class="exo mt-4">Quand c'est un bon choix</h3>
+    <p>
+      NativeWind est un bon « oui » si vous voulez Tailwind dans React Native, si vous valorisez un seul langage de style pour le web et le mobile, et si vous acceptez de suivre la configuration recommandée (Metro, PostCSS et, éventuellement, l'ancrage de dépendances comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lightningcss</code> pour la stabilité). C'est un « non » ou un « attendre » si vous avez besoin immédiatement d'une v5 totalement stable, si vous préférez une bibliothèque pensée d'abord comme système de design, comme Tamagui, ou si vous voulez éviter tout outil supplémentaire de build et de CSS.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Kits de composants UI et ressources</h2>
+
+    <p>
+      L'écosystème NativeWind comprend plusieurs kits UI qui fonctionnent bien avec les classes de style Tailwind. <strong>NativewindUI</strong> propose des dizaines de composants et de parcours pensés pour un rendu natif. <strong>React Native Reusables</strong> vous permet de copier, coller et adapter des composants pour votre propre bibliothèque. <strong>gluestack</strong> fournit un ensemble complet de composants React et React Native construits avec Tailwind (NativeWind). Tous peuvent accélérer le développement tout en vous gardant dans le flux de travail utilitaire.
+    </p>
+
+    <p>
+      Le <a href="https://www.nativewind.dev/" target="_blank" rel="noopener">site NativeWind</a> propose aussi une vitrine d'applications construites avec NativeWind - de la productivité à la santé, en passant par le social et la finance - ce qui peut vous aider à évaluer l'usage en production et les modèles de conception.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi NativeWind compte pour React Native</h2>
+
+    <p>
+      React Native a toujours nécessité un modèle de style différent de celui du web. NativeWind réduit cet écart en apportant l'approche utilitaire de Tailwind et son écosystème au natif. Vous obtenez un espacement, une typographie et des couleurs cohérents entre le web et le mobile, le mode sombre et le thème avec un minimum de code, et un vocabulaire de design unique. Pour les équipes déjà investies dans Tailwind, cela peut signifier un travail de fonctionnalité plus rapide et une meilleure intégration des nouveaux arrivants.
+    </p>
+
+    <p>
+      À mesure que v5 mûrit, une meilleure compatibilité avec Tailwind v4 (y compris une configuration et des variables CSS-first) facilitera encore le partage des jetons de design et des pipelines de build entre le web et React Native. Surveiller la documentation officielle et les notes de version reste la meilleure façon de décider quand adopter v5 en production.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Commencer dès aujourd'hui</h2>
+
+    <p>
+      Pour essayer NativeWind, utilisez le <a href="https://www.nativewind.dev/v5/getting-started/installation" target="_blank"
+        rel="noopener">guide d'installation v5</a> (Expo ou sans framework) ou le démarrage rapide <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">npx rn-new@next --nativewind</code>
+      pour un nouveau projet. Explorez la documentation pour le mode sombre, les variables CSS et les animations, et consultez NativewindUI ou React Native Reusables pour des composants prêts à l'emploi.
+    </p>
+
+    <p>
+      Visitez <a href="https://www.nativewind.dev/" class="text-primary" target="_blank" rel="noopener">nativewind.dev</a>
+      pour la documentation complète, la vitrine et les ressources. Que vous évaluiez NativeWind pour une nouvelle application ou que vous envisagiez de l'utiliser sur un projet existant, la décision « oui ou non » dépend généralement de la familiarité de votre équipe avec Tailwind, de votre besoin des fonctionnalités de v5 et du niveau d'importance que vous accordez à un système de style unique sur le web et React Native.
+    </p>
+  </article>
+</div>

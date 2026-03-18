@@ -7,6 +7,13 @@
     <meta name="description" content="{{ .Page.Params.description | default $description }}" />
     <meta property="og:description" content="{{ .Page.Params.description | default $description }}" />
     <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    {{ if ne .Page.Params.noTranslate true }}
+    <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="x-default">
+    <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="en">
+    <link rel="alternate" href='{{ .Site.BaseURL }}fr/{{ .Page.RelPermalink }}' hreflang="fr">
+    {{ end }}
+    
     {{- partial "head.html" . -}}
     {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
     {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}

@@ -26,6 +26,14 @@ languages:
   en:
     languageName: "English"
     weight: 1
+    params:
+      icon: "uk"
+  fr:
+    languageName: "French"
+    weight: 2
+    contentDir: "content/fr"
+    params:
+      icon: "fr"
 
 outputFormats:
   manifest:

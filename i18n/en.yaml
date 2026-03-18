@@ -1,0 +1,19 @@
+nav.home: "Home"
+nav.docs: "Documentation"
+nav.blog: "Blog"
+nav.neumorphism: "Neumorphism"
+lang.switcher: "Language"
+
+blog.title: "Blog"
+blog.must-read: "Must Read"
+blog.recent-posts: "Recent Posts"
+
+categories.title: "Categories"
+categories.all-posts: "All Posts"
+
+article.back-label: "Articles"
+article.related-posts: "Related Posts"
+
+cta.title: "Start Building with Axentix"
+cta.subtitle: "Ready to create amazing websites? Get started with Axentix framework today."
+cta.button: "Get Started"

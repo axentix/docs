@@ -1,0 +1,457 @@
+---
+title: "Pourquoi les objets WebSocket ne sont pas detruits quand ils sortent du scope en JavaScript ?"
+description: "Comprenez pourquoi les objets WebSocket persistent en memoire meme apres etre sortis du scope. Apprenez a propos des event
+listeners, du garbage collection et comment le runtime JavaScript garde les instances WebSocket en vie."
+date: 2025-11-18
+author: "Axentix Team"
+image: "/img/blog/websockets/why-websocket-objects-arent-destroyed-when-out-of-scope/websocket-out-of-scope.webp"
+categories: ["WebSockets"]
+summary: "Decouvrez pourquoi les objets WebSocket restent en memoire apres etre sortis du scope. Apprenez comment les event listeners empechent
+le garbage collection et comment nettoyer correctement les connexions WebSocket."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Pourquoi les objets WebSocket ne sont pas detruits quand ils sortent du scope en JavaScript ?
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/websockets/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      WebSockets
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-11-18" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      18/11/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Nous avons recemment eu une erreur en utilisant des WebSockets. Les objets WebSocket restaient bloques en memoire
+    meme apres etre sortis du scope. La reponse a ce probleme se trouve dans la maniere dont JavaScript gere les event
+    listeners et son garbage collection. Nous allons voir pourquoi cela arrive et comment nettoyer correctement vos
+    connexions WebSocket.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Pourquoi les objets WebSocket ne sont pas detruits quand ils sortent du scope"
+      src='{{< link url="img/blog/websockets/why-websocket-objects-arent-destroyed-when-out-of-scope/websocket-out-of-scope.webp" >}}'
+      alt="Pourquoi les objets WebSocket ne sont pas detruits quand ils sortent du scope" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Comprendre la gestion memoire des WebSocket et le garbage collection
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Si vous avez deja travaille avec des WebSockets en JavaScript, vous avez peut-etre remarque quelque chose
+      d'etonnant : meme apres qu'un objet WebSocket sorte du scope, il n'est pas collecte par le garbage collector. Vous
+      pouvez creer un WebSocket dans une fonction, laisser cette fonction se terminer, et pourtant la connexion WebSocket
+      reste active en memoire.
+    </p>
+
+    <p>
+      Ce comportement peut etre deroutant au debut, mais il est volontaire. La raison est liee aux <strong>event
+        listeners</strong> et a la facon dont le runtime JavaScript gere les operations asynchrones.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Le probleme : des WebSockets qui ne meurent pas</h2>
+
+    <p>
+      Regardons un scenario courant qui peut vous laisser perplexe :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function connectToServer() {
+  const ws = new WebSocket('wss://example.com/ws');
+  
+  ws.onopen = () => {
+    console.log('Connected!');
+  };
+  
+  ws.onmessage = (event) => {
+    console.log('Message:', event.data);
+  };
+  
+  ws.onerror = (error) => {
+    console.error('Error:', error);
+  };
+  
+  // Function ends, ws goes out of scope...
+  // But the WebSocket is still alive!
+}
+
+connectToServer();
+// Even though the function finished, the WebSocket connection persists</code></pre>
+    </div>
+
+    <p>
+      Vous pourriez penser qu'une fois que <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">connectToServer()</code> a fini
+      de s'executer, la variable <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ws</code> serait eligible au garbage
+      collection. Mais ce n'est pas ce qui se passe. Le WebSocket reste en vie, continue d'ecouter les messages et garde
+      la connexion ouverte.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi cela arrive : les event listeners gardent les objets en vie</h2>
+
+    <p>
+      La cle pour comprendre ce comportement est de reconnaitre que <strong>les event listeners empechent le garbage
+        collection</strong>. Voici pourquoi :
+    </p>
+
+    <p>
+      Quand vous attachez des event listeners a un WebSocket (comme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">onopen</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">onmessage</code>, etc.), le runtime
+      JavaScript doit garder une trace de ces listeners. Tant que la connexion WebSocket est ouverte, le moteur du
+      navigateur doit pouvoir appeler ces handlers quand des evenements arrivent.
+    </p>
+
+    <p>
+      Pour cela, le runtime maintient une reference vers l'instance WebSocket. Cette reference agit comme une "root" pour
+      le garbage collector : cela signifie que l'objet WebSocket ne peut pas etre collecte tant que le runtime doit encore
+      appeler ces event listeners.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function connectToServer() {
+  const ws = new WebSocket('wss://example.com/ws');
+  
+  // These event listeners create a reference that the runtime must maintain
+  ws.onmessage = (event) => {
+    // The runtime needs to keep 'ws' alive to call this function
+    console.log('Message:', event.data);
+  };
+  
+  // Even though 'ws' goes out of scope here,
+  // the runtime still holds a reference to it
+  // because it needs to call onmessage when data arrives
+}</code></pre>
+    </div>
+
+    <p>
+      Pensez a cela ainsi : le runtime JavaScript maintient une liste d'objets "actifs" qui servent de racines (roots)
+      pour le garbage collection. Ce sont des objets dont le runtime sait qu'il aura besoin dans le futur. Tant que votre
+      WebSocket a une connexion ouverte et des event listeners actifs, il reste dans cette liste.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Quand les WebSockets peuvent-ils etre garbage collectes ?</h2>
+
+    <p>
+      Un WebSocket devient eligible au garbage collection seulement quand :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Tous les event listeners sont retires</strong> - plus aucun callback n'a besoin d'etre appele</li>
+      <li><strong>La connexion est fermee</strong> - plus aucun evenement ne peut arriver</li>
+      <li><strong>Aucune autre reference n'existe</strong> - rien d'autre dans votre code ne retient le WebSocket</li>
+    </ul>
+
+    <p>
+      Une fois ces conditions reunies, le runtime peut retirer le WebSocket de sa liste active et laisser le garbage
+      collector le nettoyer.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function connectToServer() {
+  const ws = new WebSocket('wss://example.com/ws');
+  
+  ws.onmessage = (event) => {
+    console.log('Message:', event.data);
+  };
+  
+  // Close the connection and remove listeners
+  setTimeout(() => {
+    ws.close(); // Close the connection
+    ws.onmessage = null; // Remove the listener
+    ws.onopen = null;
+    ws.onerror = null;
+    ws.onclose = null;
+    // Now the WebSocket can be garbage collected
+  }, 5000);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Cela s'applique a toutes les Web APIs asynchrones</h2>
+
+    <p>
+      Ce comportement n'est pas unique aux WebSockets. Le meme principe s'applique a toutes les Web APIs asynchrones en
+      JavaScript :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Network APIs :</strong> WebSocket, XMLHttpRequest, fetch, RTCPeerConnection</li>
+      <li><strong>Timers :</strong> setTimeout, setInterval, requestAnimationFrame</li>
+      <li><strong>File System :</strong> FileReader</li>
+      <li><strong>DOM :</strong> l'objet document entier et tous ses event listeners</li>
+    </ul>
+
+    <p>
+      Tout cela cree des objets que le runtime doit garder en vie tant qu'ils ont des listeners actifs ou des operations
+      en attente. C'est ce qui maintient votre application en fonctionnement apres que le code d'initialisation a fini de
+      s'executer.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// setTimeout example
+function startTimer() {
+  const timerId = setTimeout(() => {
+    console.log('Timer fired!');
+  }, 1000);
+  // timerId goes out of scope, but the timer keeps running
+  // The runtime holds a reference to keep the callback alive
+}
+
+// XMLHttpRequest example
+function fetchData() {
+  const xhr = new XMLHttpRequest();
+  xhr.onload = () => {
+    console.log('Data loaded');
+  };
+  xhr.open('GET', '/api/data');
+  xhr.send();
+  // xhr goes out of scope, but the request continues
+  // The runtime keeps it alive to call onload when ready
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques : nettoyer correctement les WebSockets</h2>
+
+    <p>
+      Pour eviter les fuites memoire et assurer un nettoyage correct, fermez toujours explicitement les connexions
+      WebSocket quand vous n'en avez plus besoin :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class WebSocketManager {
+  constructor() {
+    this.ws = null;
+  }
+  
+  connect(url) {
+    // Close existing connection if any
+    this.disconnect();
+    
+    this.ws = new WebSocket(url);
+    
+    this.ws.onopen = () => {
+      console.log('Connected');
+    };
+    
+    this.ws.onmessage = (event) => {
+      this.handleMessage(event.data);
+    };
+    
+    this.ws.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+    
+    this.ws.onclose = () => {
+      console.log('Connection closed');
+      // Clean up references
+      this.ws = null;
+    };
+  }
+  
+  disconnect() {
+    if (this.ws) {
+      // Remove all event listeners
+      this.ws.onopen = null;
+      this.ws.onmessage = null;
+      this.ws.onerror = null;
+      this.ws.onclose = null;
+      
+      // Close the connection
+      if (this.ws.readyState === WebSocket.OPEN) {
+        this.ws.close();
+      }
+      
+      this.ws = null;
+    }
+  }
+  
+  handleMessage(data) {
+    // Process the message
+    console.log('Received:', data);
+  }
+}
+
+// Usage
+const manager = new WebSocketManager();
+manager.connect('wss://example.com/ws');
+
+// Later, when done
+manager.disconnect(); // Properly cleans up</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Utiliser addEventListener au lieu d'une assignation directe</h3>
+
+    <p>
+      Si vous utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">addEventListener</code>,
+      assurez-vous de retirer les listeners avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">removeEventListener</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function connectWithListeners() {
+  const ws = new WebSocket('wss://example.com/ws');
+  
+  const messageHandler = (event) => {
+    console.log('Message:', event.data);
+  };
+  
+  ws.addEventListener('message', messageHandler);
+  
+  // To properly clean up:
+  ws.removeEventListener('message', messageHandler);
+  ws.close();
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comprendre les racines (roots) du garbage collection</h2>
+
+    <p>
+      Le garbage collector de JavaScript utilise un concept appele "roots" pour determiner quels objets sont encore
+      necessaires. Ces roots sont des objets que le runtime sait qu'il doit garder en vie. Des roots courantes incluent :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Variables globales</strong> - variables dans le scope global</li>
+      <li><strong>Scopes de fonctions actifs</strong> - variables dans des fonctions en cours d'execution</li>
+      <li><strong>Event listeners</strong> - objets avec des handlers enregistres</li>
+      <li><strong>Timers actifs</strong> - objets references par setTimeout/setInterval</li>
+      <li><strong>Connexions ouvertes</strong> - connexions reseau encore actives</li>
+    </ul>
+
+    <p>
+      Tant qu'un objet est atteignable depuis une root, il ne peut pas etre garbage collecte. Votre WebSocket devient une
+      root lui-meme quand il a des event listeners actifs, ce qui explique pourquoi il persiste meme apres etre sorti du
+      scope.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pieges courants et comment les eviter</h2>
+
+    <h3 class="exo mt-4">Piege 1 : oublier de fermer les connexions</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Bad: Connection never closes
+function badExample() {
+  const ws = new WebSocket('wss://example.com/ws');
+  ws.onmessage = () => console.log('Got message');
+  // Connection stays open forever
+}
+
+// ✅ Good: Explicit cleanup
+function goodExample() {
+  const ws = new WebSocket('wss://example.com/ws');
+  ws.onmessage = () => console.log('Got message');
+  
+  // Clean up after 30 seconds
+  setTimeout(() => {
+    ws.close();
+    ws.onmessage = null;
+  }, 30000);
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Piege 2 : creer plusieurs connexions</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Bad: Creates new connection on every call
+function connect() {
+  const ws = new WebSocket('wss://example.com/ws');
+  ws.onmessage = handleMessage;
+}
+
+// User clicks button multiple times = multiple connections!
+
+// ✅ Good: Reuse or close existing connection
+let ws = null;
+
+function connect() {
+  if (ws && ws.readyState === WebSocket.OPEN) {
+    return; // Already connected
+  }
+  
+  if (ws) {
+    ws.close(); // Close old connection
+  }
+  
+  ws = new WebSocket('wss://example.com/ws');
+  ws.onmessage = handleMessage;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Piege 3 : ne pas nettoyer dans le lifecycle des composants</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// React example
+function ChatComponent() {
+  const [messages, setMessages] = useState([]);
+  
+  useEffect(() => {
+    const ws = new WebSocket('wss://example.com/chat');
+    
+    ws.onmessage = (event) => {
+      setMessages(prev => [...prev, event.data]);
+    };
+    
+    // ✅ Cleanup function
+    return () => {
+      ws.close();
+      ws.onmessage = null;
+    };
+  }, []);
+  
+  return <div>{/* render messages */}</div>;
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Resume : points cles</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Les event listeners gardent les objets en vie :</strong> tant qu'un WebSocket a des event listeners
+        actifs, le runtime le garde en memoire pour appeler ces listeners quand des evenements arrivent.</li>
+      <li><strong>C'est par design :</strong> le runtime doit maintenir des references vers les objets avec des operations
+        asynchrones en attente.</li>
+      <li><strong>Fermer explicitement les connexions :</strong> appelez toujours <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">close()</code> et retirez les
+        event listeners quand vous avez fini avec un WebSocket.</li>
+      <li><strong>Cela s'applique largement :</strong> le meme comportement s'applique a toutes les Web APIs asynchrones,
+        pas seulement aux WebSockets.</li>
+      <li><strong>Racines du garbage collection :</strong> les objets avec des listeners actifs deviennent des roots qui
+        empechent le garbage collection.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Les objets WebSocket ne sont pas detruits quand ils sortent du scope parce que le runtime JavaScript doit les garder
+      en vie pour appeler leurs event listeners. C'est le meme mecanisme qui maintient votre application en execution
+      apres que le code initial a fini de s'executer.
+    </p>
+
+    <p>
+      Comprendre ce comportement vous aide a ecrire un meilleur code et a eviter les fuites memoire. Retenez de fermer
+      explicitement les connexions WebSocket et de retirer les event listeners quand vous avez fini. Cela assure un
+      nettoyage correct et evite une utilisation memoire inutile.
+    </p>
+
+    <p>
+      La conclusion cle est simple : <strong>si quelque chose peut arriver de facon asynchrone, le runtime doit garder
+        l'objet en vie pour le gerer</strong>. C'est vrai pour les WebSockets, les timers, les requetes reseau et toutes
+      les autres operations asynchrones en JavaScript.
+    </p>
+  </article>
+</div>
+

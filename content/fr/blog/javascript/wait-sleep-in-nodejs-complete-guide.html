@@ -1,0 +1,342 @@
+---
+title: 'Attendre et dormir dans Node.js : guide complet avec 4 méthodes'
+description: "Apprenez à implémenter des fonctions d’attente et de pause dans Node.js. Guide complet couvrant setTimeout, la pause basée sur Promises, le package sleep-promise et execSync avec des exemples pratiques."
+date: 2025-10-16
+author: "Axentix Team"
+image: "/img/blog/javascript/wait-sleep-in-nodejs-complete-guide/sleep-node-js.webp"
+categories: ["JavaScript"]
+summary: "Maîtrisez les fonctions de pause et d’attente dans Node.js avec 4 méthodes différentes. De setTimeout aux solutions basées sur Promises, avec exemples pratiques et bonnes pratiques."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Attendre et dormir dans Node.js : guide complet avec 4 méthodes
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-16" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      16/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Maîtrisez les fonctions de pause et d’attente dans Node.js avec 4 méthodes différentes. De setTimeout aux solutions
+    basées sur Promises, avec des exemples pratiques et les bonnes pratiques.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Attendre et dormir dans Node.js : guide complet avec 4 méthodes"
+      src='{{< link url="img/blog/javascript/wait-sleep-in-nodejs-complete-guide/sleep-node-js.webp" >}}'
+      alt="Attendre et dormir dans Node.js : guide complet avec 4 méthodes" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Attendre et dormir dans Node.js : guide complet avec 4
+      méthodes
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Contrairement aux langages de programmation traditionnels, Node.js ne propose pas de fonction <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep()</code> intégrée en raison
+      de sa nature asynchrone. Cependant, il existe plusieurs façons efficaces d’implémenter des fonctions d’attente et
+      de pause dans Node.js. Ce guide explore 4 méthodes différentes pour suspendre l’exécution, de la simple <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> aux solutions
+      modernes basées sur Promises. Que vous ayez besoin d’appliquer une limitation de débit, de simuler des délais ou
+      de créer des boucles basées sur le temps, comprendre ces patterns de pause dans Node.js vous aidera à écrire un
+      code plus efficace et plus maintenable.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi avoir besoin de dormir dans Node.js ?</h2>
+
+    <p>
+      La fonctionnalité de pause dans Node.js est essentielle dans divers scénarios où vous devez suspendre l’exécution
+      pendant une durée précise. Les cas d’usage courants incluent :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Limitation du débit :</strong> faire une pause entre les appels API pour éviter d’atteindre les limites</li>
+      <li><strong>Tests :</strong> simuler des délais réels pendant le développement et les tests</li>
+      <li><strong>Logique de retry :</strong> attendre avant de réessayer des opérations échouées</li>
+      <li><strong>Polling :</strong> créer des intervalles entre les vérifications d’état</li>
+      <li><strong>Expérience utilisateur :</strong> ajouter des délais pour une meilleure UX dans les applications CLI</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Méthode 1 : utiliser setTimeout()</h2>
+
+    <p>
+      La façon la plus simple d’implémenter une pause dans Node.js consiste à utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code>. Cette
+      méthode planifie l’exécution d’un callback après un nombre de millisecondes donné, mais ne bloque pas l’exécution
+      du code suivant.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Basic setTimeout sleep function
+function sleep(ms, callback) {
+  setTimeout(callback, ms);
+}
+
+console.log('Start');
+sleep(2000, () => {
+  console.log('End after 2 seconds');
+});
+console.log('This runs immediately');</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong> simple et largement pris en charge</p>
+    <p><strong>Inconvénients :</strong> peut mener au callback hell avec des opérations asynchrones complexes</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Méthode 2 : pause basée sur Promise</h2>
+
+    <p>
+      La manière la plus populaire et la plus moderne d’implémenter une pause dans Node.js consiste à utiliser des
+      Promises avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code>.
+      Cela vous permet d’utiliser la syntaxe async/await pour un code plus propre et plus lisible.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Promise-based sleep function
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Using async/await
+async function demo() {
+  console.log('Taking a nap...');
+  await sleep(2000); // Wait for 2 seconds
+  console.log('Woke up!');
+}
+
+demo();</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemples avancés de pause avec Promise</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Multiple sleep operations in parallel
+async function parallelSleep() {
+  const start = Date.now();
+  await Promise.all([sleep(1000), sleep(1000)]);
+  console.log(`Elapsed: ${Date.now() - start}ms`); // ~1000ms
+}
+
+// Sequential sleep operations
+async function sequentialSleep() {
+  const start = Date.now();
+  await sleep(1000);
+  await sleep(1000);
+  console.log(`Elapsed: ${Date.now() - start}ms`); // ~2000ms
+}
+
+// Sleep with retry logic
+async function retryWithSleep(operation, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (i === maxRetries - 1) throw error;
+      console.log(`Retry ${i + 1} after 1 second...`);
+      await sleep(1000);
+    }
+  }
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Méthode 3 : utiliser le package sleep-promise</h2>
+
+    <p>
+      Pour ceux qui préfèrent ne pas implémenter leur propre fonction de pause, le package <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep-promise</code> fournit une
+      solution prête à l’emploi.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Install: npm install sleep-promise
+const sleep = require('sleep-promise');
+
+async function demo() {
+  console.log('Lights out...');
+  await sleep(5000); // Wait for 5 seconds
+  console.log('Good morning, world!');
+}
+
+demo();</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong> pas besoin d’implémenter votre propre fonction, bien testé</p>
+    <p><strong>Inconvénients :</strong> ajoute une dépendance externe</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Méthode 4 : utiliser execSync</h2>
+
+    <p>
+      Vous pouvez utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code>
+      pour exécuter des commandes système de pause. Cette méthode bloque l’ensemble du processus Node.js, donc à
+      utiliser avec prudence.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const { execSync } = require('child_process');
+
+// Unix/Linux/macOS
+function sleep(seconds) {
+  execSync(`sleep ${seconds}`);
+}
+
+// Windows
+function sleepWindows(seconds) {
+  execSync(`timeout /T ${seconds} /NOBREAK`);
+}
+
+console.log('Start');
+sleep(2); // Blocks for 2 seconds
+console.log('End');</code></pre>
+    </div>
+
+    <p><strong>Avertissement :</strong> cette méthode bloque toute la boucle d’événements et doit être évitée dans les
+      applications de production.</p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples concrets</h2>
+
+    <h3 class="exo mt-4">Exemple 1 : limitation du débit des API</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function fetchWithRateLimit(urls, delayMs = 1000) {
+  const results = [];
+  
+  for (const url of urls) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      results.push(data);
+      
+      // Wait before next request
+      if (urls.indexOf(url) < urls.length - 1) {
+        await sleep(delayMs);
+      }
+    } catch (error) {
+      console.error(`Failed to fetch ${url}:`, error);
+    }
+  }
+  
+  return results;
+}
+
+// Usage
+const urls = ['https://api.example.com/1', 'https://api.example.com/2'];
+fetchWithRateLimit(urls, 2000); // 2 second delay between requests</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 2 : polling avec pause</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function pollUntilComplete(taskId, maxAttempts = 10) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const status = await checkTaskStatus(taskId);
+    
+    if (status === 'completed') {
+      return await getTaskResult(taskId);
+    }
+    
+    if (status === 'failed') {
+      throw new Error('Task failed');
+    }
+    
+    console.log(`Attempt ${attempt}: Task still running, waiting...`);
+    await sleep(5000); // Wait 5 seconds before next check
+  }
+  
+  throw new Error('Task did not complete within time limit');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 3 : indicateur de progression CLI</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function showProgress(message, duration = 3000) {
+  const dots = ['.', '..', '...'];
+  let dotIndex = 0;
+  
+  const interval = setInterval(() => {
+    process.stdout.write(`\r${message}${dots[dotIndex]}   `);
+    dotIndex = (dotIndex + 1) % dots.length;
+  }, 500);
+  
+  await sleep(duration);
+  clearInterval(interval);
+  console.log(`\r${message} completed!`);
+}
+
+// Usage
+await showProgress('Processing data', 5000);</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques pour la pause dans Node.js</h2>
+
+    <ol>
+      <li><strong>Utilisez la pause basée sur Promise :</strong> privilégiez async/await avec une pause basée sur Promise
+        pour une meilleure lisibilité</li>
+      <li><strong>Évitez les pauses bloquantes :</strong> n’utilisez jamais <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code> dans les
+        applications de production</li>
+      <li><strong>Gérez les erreurs avec soin :</strong> entourez toujours les opérations de pause d’un bloc try-catch</li>
+      <li><strong>Utilisez des délais adaptés :</strong> choisissez des durées de pause raisonnables selon votre cas
+        d’usage</li>
+      <li><strong>Envisagez des alternatives :</strong> pour des besoins temporels complexes, pensez à des bibliothèques
+        comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">node-cron</code> ou
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">bull</code></li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Considérations de performance</h2>
+
+    <p>
+      Lors de l’implémentation d’une fonctionnalité de pause dans Node.js, tenez compte de ces aspects de performance :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Le non-bloquant est préférable :</strong> la pause basée sur Promise ne bloque pas la boucle d’événements</li>
+      <li><strong>Utilisation mémoire :</strong> les opérations de pause longues peuvent s’accumuler en mémoire</li>
+      <li><strong>Précision :</strong> les minuteries JavaScript ne sont pas précises pour des délais très courts</li>
+      <li><strong>Nettoyage des ressources :</strong> effacez toujours les intervalles et les timeouts lorsqu’ils ne sont plus nécessaires</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Implémenter des fonctions d’attente et de pause dans Node.js est essentiel pour de nombreuses applications. Même
+      si Node.js ne fournit pas de fonction sleep intégrée, l’approche basée sur Promise avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> est la méthode
+      la plus recommandée pour les applications modernes. Elle fournit un code clair et lisible avec la syntaxe
+      async/await tout en conservant la nature non bloquante de Node.js.
+    </p>
+
+    <p>
+      Pour les cas simples, l’approche de base avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> fonctionne
+      bien, tandis que le package <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sleep-promise</code> offre une
+      alternative pratique pour ceux qui préfèrent des dépendances externes. Évitez toujours les méthodes bloquantes
+      comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">execSync()</code> dans
+      les environnements de production.
+    </p>
+
+    <p>
+      En suivant les méthodes et les bonnes pratiques présentées dans ce guide, vous pouvez implémenter une
+      fonctionnalité de pause fiable dans Node.js qui améliore les performances et l’expérience utilisateur de votre
+      application. Que vous développiez des API, des outils CLI ou des applications web, comprendre ces patterns de
+      pause vous aidera à créer un code Node.js plus robuste et plus maintenable.
+    </p>
+  </article>
+</div>

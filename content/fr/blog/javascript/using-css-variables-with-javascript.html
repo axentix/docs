@@ -1,0 +1,601 @@
+---
+title: 'Utiliser les variables CSS avec JavaScript : lire et modifier les variables CSS'
+description: "Apprenez à lire et à modifier les variables CSS avec JavaScript. Maîtrisez getComputedStyle(), setProperty() et créez un style dynamique et interactif avec les propriétés personnalisées CSS."
+date: 2025-12-11
+author: "Axentix Team"
+image: "/img/blog/javascript/using-css-variables-with-javascript/css-variables-javascript.webp"
+categories: ["JavaScript"]
+summary: "Maîtrisez les variables CSS avec JavaScript. Apprenez à lire les variables CSS avec getComputedStyle() et à les modifier avec setProperty() pour créer un style dynamique et interactif."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Utiliser les variables CSS avec JavaScript : lire et modifier les variables CSS
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-12-11" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      11/12/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Apprenez à lire et à modifier les variables CSS avec JavaScript. Maîtrisez getComputedStyle() et setProperty() pour
+    créer un style dynamique et interactif avec les propriétés personnalisées CSS.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Utiliser les variables CSS avec JavaScript : lire et modifier les variables CSS"
+      src='{{< link url="img/blog/javascript/using-css-variables-with-javascript/css-variables-javascript.webp" >}}'
+      alt="Utiliser les variables CSS avec JavaScript : lire et modifier les variables CSS" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Utiliser les variables CSS avec JavaScript : lire et modifier
+      les variables CSS
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Les variables CSS (aussi appelées propriétés personnalisées) sont des outils puissants pour créer des styles
+      maintenables et dynamiques. Associées à JavaScript, elles permettent des mises à jour de style en temps réel sans
+      manipuler directement chaque propriété CSS. Ce guide vous montre comment <strong>lire les variables CSS</strong>
+      et <strong>modifier les variables CSS</strong> avec JavaScript.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Que sont les variables CSS ?</h2>
+
+    <p>
+      Les variables CSS sont des propriétés personnalisées définies avec un préfixe double tiret (<code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--variable-name</code>) qui
+      peuvent être réutilisées tout au long de votre feuille de style. Elles sont généralement définies dans le sélecteur
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">:root</code> pour un accès
+      global.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-css">:root {
+  --primary-color: #3498db;
+  --font-size: 16px;
+  --spacing: 20px;
+}
+
+.element {
+  color: var(--primary-color);
+  font-size: var(--font-size);
+  margin: var(--spacing);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Lire les variables CSS avec JavaScript</h2>
+
+    <p>
+      Pour lire la valeur d’une variable CSS en JavaScript, utilisez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getComputedStyle()</code> combiné
+      avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getPropertyValue()</code>.
+      Cela lit la valeur calculée de la variable CSS.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Get CSS variable from :root (document.documentElement)
+const rootStyles = getComputedStyle(document.documentElement);
+const primaryColor = rootStyles.getPropertyValue('--primary-color');
+
+console.log(primaryColor); // "#3498db" (includes spaces, use trim() to remove)
+
+// Get CSS variable from a specific element
+const element = document.querySelector('.my-element');
+const elementStyles = getComputedStyle(element);
+const fontSize = elementStyles.getPropertyValue('--font-size').trim();
+
+console.log(fontSize); // "16px"</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Fonction utilitaire</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Helper function to get CSS variable
+function getCSSVariable(variableName, element = document.documentElement) {
+  return getComputedStyle(element)
+    .getPropertyValue(variableName)
+    .trim();
+}
+
+// Usage
+const primaryColor = getCSSVariable('--primary-color');
+const fontSize = getCSSVariable('--font-size');
+const spacing = getCSSVariable('--spacing', document.querySelector('.container'));
+
+console.log(primaryColor); // "#3498db"
+console.log(fontSize);     // "16px"
+console.log(spacing);      // "20px"</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Lire plusieurs variables</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Get multiple CSS variables at once
+function getCSSVariables(variableNames, element = document.documentElement) {
+  const styles = getComputedStyle(element);
+  const variables = {};
+  
+  variableNames.forEach(name => {
+    variables[name] = styles.getPropertyValue(name).trim();
+  });
+  
+  return variables;
+}
+
+// Usage
+const theme = getCSSVariables([
+  '--primary-color',
+  '--secondary-color',
+  '--font-size',
+  '--spacing'
+]);
+
+console.log(theme);
+// {
+//   '--primary-color': '#3498db',
+//   '--secondary-color': '#2ecc71',
+//   '--font-size': '16px',
+//   '--spacing': '20px'
+// }</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Modifier les variables CSS avec JavaScript</h2>
+
+    <p>
+      Pour modifier une variable CSS, utilisez la méthode <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setProperty()</code> sur l’objet
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">style</code> d’un élément.
+      Cela met à jour la valeur de la variable, et tous les éléments qui l’utilisent refléteront ce changement.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Change CSS variable on :root
+document.documentElement.style.setProperty('--primary-color', '#e74c3c');
+
+// Change CSS variable on a specific element
+const element = document.querySelector('.my-element');
+element.style.setProperty('--font-size', '20px');
+
+// Change CSS variable with priority (important)
+document.documentElement.style.setProperty('--spacing', '30px', 'important');</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Fonction utilitaire</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Helper function to set CSS variable
+function setCSSVariable(variableName, value, element = document.documentElement) {
+  element.style.setProperty(variableName, value);
+}
+
+// Usage
+setCSSVariable('--primary-color', '#e74c3c');
+setCSSVariable('--font-size', '20px');
+setCSSVariable('--spacing', '30px', document.querySelector('.container'));</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Supprimer des variables CSS</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Remove a CSS variable (resets to initial value)
+document.documentElement.style.removeProperty('--primary-color');
+
+// Or set to empty string
+document.documentElement.style.setProperty('--primary-color', '');</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples pratiques</h2>
+
+    <h3 class="exo mt-4">Exemple 1 : sélecteur de thème dynamique</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Theme switcher using CSS variables
+const themes = {
+  light: {
+    '--bg-color': '#ffffff',
+    '--text-color': '#333333',
+    '--primary-color': '#3498db'
+  },
+  dark: {
+    '--bg-color': '#1a1a1a',
+    '--text-color': '#ffffff',
+    '--primary-color': '#9b59b6'
+  }
+};
+
+function setTheme(themeName) {
+  const theme = themes[themeName];
+  if (!theme) return;
+  
+  Object.entries(theme).forEach(([variable, value]) => {
+    document.documentElement.style.setProperty(variable, value);
+  });
+}
+
+// Usage
+setTheme('dark');
+setTheme('light');</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 2 : sélecteur de couleur interactif</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Update CSS variable from color input
+const colorPicker = document.querySelector('#color-picker');
+
+colorPicker.addEventListener('input', (e) => {
+  const color = e.target.value;
+  document.documentElement.style.setProperty('--primary-color', color);
+});
+
+// HTML: &lt;input type="color" id="color-picker" value="#3498db"&gt;</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 3 : contrôle du spacing réactif</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Adjust spacing with range input
+const spacingSlider = document.querySelector('#spacing-slider');
+
+spacingSlider.addEventListener('input', (e) => {
+  const spacing = `${e.target.value}px`;
+  document.documentElement.style.setProperty('--spacing', spacing);
+  
+  // Display current value
+  const currentSpacing = getComputedStyle(document.documentElement)
+    .getPropertyValue('--spacing')
+    .trim();
+  console.log(`Current spacing: ${currentSpacing}`);
+});
+
+// HTML: &lt;input type="range" id="spacing-slider" min="10" max="50" value="20"&gt;</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 4 : ajustement de la taille de police en temps réel</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Font size control
+function adjustFontSize(delta) {
+  const currentSize = parseInt(
+    getComputedStyle(document.documentElement)
+      .getPropertyValue('--font-size')
+      .trim()
+  );
+  
+  const newSize = currentSize + delta;
+  document.documentElement.style.setProperty('--font-size', `${newSize}px`);
+}
+
+// Usage with buttons
+document.querySelector('#increase-font').addEventListener('click', () => {
+  adjustFontSize(2);
+});
+
+document.querySelector('#decrease-font').addEventListener('click', () => {
+  adjustFontSize(-2);
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 5 : animation avec variables CSS</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Animate CSS variable value
+function animateVariable(variableName, from, to, duration = 1000) {
+  const startTime = performance.now();
+  const element = document.documentElement;
+  
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Linear interpolation
+    const current = from + (to - from) * progress;
+    element.style.setProperty(variableName, current);
+    
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+  
+  requestAnimationFrame(animate);
+}
+
+// Usage: animate --primary-color from #3498db to #e74c3c
+animateVariable('--primary-color', '#3498db', '#e74c3c', 2000);</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemple interactif complet</h2>
+
+    <p>
+      Voici un exemple complet qui combine la lecture et la modification des variables CSS :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;!-- HTML --&gt;
+&lt;div class="controls"&gt;
+  &lt;label&gt;Primary Color:&lt;/label&gt;
+  &lt;input type="color" id="primary-color" value="#3498db"&gt;
+  
+  &lt;label&gt;Font Size:&lt;/label&gt;
+  &lt;input type="range" id="font-size" min="12" max="24" value="16"&gt;
+  &lt;span id="font-size-display"&gt;16px&lt;/span&gt;
+  
+  &lt;button id="reset"&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="content"&gt;
+  &lt;p&gt;This text uses CSS variables!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-css">/* CSS */
+:root {
+  --primary-color: #3498db;
+  --font-size: 16px;
+}
+
+.content {
+  color: var(--primary-color);
+  font-size: var(--font-size);
+}</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// JavaScript
+// Get initial values
+const initialColor = getComputedStyle(document.documentElement)
+  .getPropertyValue('--primary-color')
+  .trim();
+const initialSize = getComputedStyle(document.documentElement)
+  .getPropertyValue('--font-size')
+  .trim();
+
+// Color picker
+document.querySelector('#primary-color').addEventListener('input', (e) => {
+  document.documentElement.style.setProperty('--primary-color', e.target.value);
+});
+
+// Font size slider
+const fontSizeSlider = document.querySelector('#font-size');
+const fontSizeDisplay = document.querySelector('#font-size-display');
+
+fontSizeSlider.addEventListener('input', (e) => {
+  const size = `${e.target.value}px`;
+  document.documentElement.style.setProperty('--font-size', size);
+  fontSizeDisplay.textContent = size;
+});
+
+// Reset button
+document.querySelector('#reset').addEventListener('click', () => {
+  document.documentElement.style.setProperty('--primary-color', initialColor);
+  document.documentElement.style.setProperty('--font-size', initialSize);
+  document.querySelector('#primary-color').value = initialColor;
+  fontSizeSlider.value = parseInt(initialSize);
+  fontSizeDisplay.textContent = initialSize;
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques</h2>
+
+    <h3 class="exo mt-4">1. Utilisez :root pour les variables globales</h3>
+
+    <p>
+      Définissez les variables CSS globales dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">:root</code> pour un accès et une
+      modification faciles :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-css">:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --spacing: 20px;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">2. Équipez toujours les valeurs avec trim()</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getPropertyValue()</code>
+      renvoie des valeurs avec des espaces de début et de fin. Utilisez toujours <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.trim()</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Good
+const value = getComputedStyle(element)
+  .getPropertyValue('--variable')
+  .trim();
+
+// Bad - may include unwanted spaces
+const value = getComputedStyle(element).getPropertyValue('--variable');</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">3. Mettez en cache les résultats de getComputedStyle()</h3>
+
+    <p>
+      Pour les performances, mettez en cache les résultats de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getComputedStyle()</code> lorsque
+      vous lisez plusieurs variables :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Good - cache the result
+const styles = getComputedStyle(document.documentElement);
+const color = styles.getPropertyValue('--primary-color').trim();
+const size = styles.getPropertyValue('--font-size').trim();
+
+// Bad - calls getComputedStyle() multiple times
+const color = getComputedStyle(document.documentElement)
+  .getPropertyValue('--primary-color')
+  .trim();
+const size = getComputedStyle(document.documentElement)
+  .getPropertyValue('--font-size')
+  .trim();</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">4. Utilisez setProperty() pour les mises à jour dynamiques</h3>
+
+    <p>
+      Utilisez toujours <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setProperty()</code> au lieu de
+      définir directement les propriétés de style :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Good
+element.style.setProperty('--primary-color', '#e74c3c');
+
+// Bad - doesn't work for CSS variables
+element.style['--primary-color'] = '#e74c3c';</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">5. Gérez les variables manquantes</h3>
+
+    <p>
+      Vérifiez toujours si une variable CSS existe avant de l’utiliser :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function getCSSVariable(variableName, element = document.documentElement) {
+  const value = getComputedStyle(element)
+    .getPropertyValue(variableName)
+    .trim();
+  
+  if (!value) {
+    console.warn(`CSS variable ${variableName} not found`);
+    return null;
+  }
+  
+  return value;
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Problèmes courants et solutions</h2>
+
+    <h3 class="exo mt-4">Problème 1 : la variable renvoie une chaîne vide</h3>
+
+    <p>
+      <strong>Problème :</strong> <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getPropertyValue()</code> renvoie
+      une chaîne vide si la variable n’existe pas.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution: Check for empty string
+const value = getComputedStyle(document.documentElement)
+  .getPropertyValue('--non-existent')
+  .trim();
+
+if (value) {
+  console.log(value);
+} else {
+  console.log('Variable not found');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Problème 2 : la variable ne se met pas à jour</h3>
+
+    <p>
+      <strong>Problème :</strong> les changements de variables CSS peuvent ne pas apparaître si l’élément n’utilise pas
+      la variable.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Make sure the element actually uses the CSS variable
+// CSS
+.element {
+  color: var(--primary-color); /* Must use var() */
+}
+
+// JavaScript
+document.documentElement.style.setProperty('--primary-color', '#e74c3c');
+// Now .element will update</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Problème 3 : performances avec des mises à jour fréquentes</h3>
+
+    <p>
+      <strong>Problème :</strong> appeler <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setProperty()</code> en
+      succession rapide peut provoquer des problèmes de performance.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution: Debounce or throttle updates
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+const updateVariable = debounce((variable, value) => {
+  document.documentElement.style.setProperty(variable, value);
+}, 100);
+
+// Usage
+slider.addEventListener('input', (e) => {
+  updateVariable('--spacing', `${e.target.value}px`);
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilité navigateur</h2>
+
+    <p>
+      Les variables CSS et les méthodes JavaScript bénéficient d’une excellente prise en charge par les navigateurs :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Variables CSS :</strong> tous les navigateurs modernes (Chrome 49+, Firefox 31+, Safari 9.1+, Edge 15+)</li>
+      <li><strong>getComputedStyle() :</strong> tous les navigateurs (IE9+)</li>
+      <li><strong>setProperty() :</strong> tous les navigateurs (IE9+)</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Les variables CSS associées à JavaScript offrent une manière puissante de créer un style dynamique et interactif.
+      En utilisant <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getComputedStyle().getPropertyValue()</code>
+      pour lire les variables et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setProperty()</code> pour les
+      mettre à jour, vous pouvez créer des sélecteurs de thème, des sélecteurs de couleur, des contrôles réactifs et
+      des ajustements de style en temps réel sans manipuler directement les propriétés CSS individuelles.
+    </p>
+
+    <p>
+      N’oubliez pas de toujours retirer les espaces avec trim() lorsque vous lisez les variables CSS, de mettre en
+      cache les résultats de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getComputedStyle()</code> pour
+      les performances, et de gérer les cas limites comme les variables manquantes. Avec ces techniques, vous pourrez
+      créer des applications web plus maintenables et plus interactives.
+    </p>
+  </article>
+</div>

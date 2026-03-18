@@ -1,0 +1,563 @@
+---
+title: 'Boucle for...of en JavaScript : la boucle à tout faire'
+description: "Maîtrisez la boucle for...of de JavaScript avec ce guide complet. Apprenez à parcourir les tableaux, les chaînes, les Maps, les Sets et plus encore. Découvrez le destructuring, l’évaluation paresseuse et pourquoi for...of devrait être votre boucle par défaut."
+date: 2025-11-17
+author: "Axentix Team"
+image: "/img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp"
+categories: ["JavaScript"]
+summary: "Apprenez tout sur la boucle for...of de JavaScript. Comprenez les itérables, le destructuring, les itérateurs complémentaires, l’évaluation paresseuse avec les générateurs et pourquoi for...of remplace la plupart des boucles traditionnelles."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Tutoriel sur la boucle for...of en JavaScript
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-11-17" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      17/11/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Découvrez pourquoi la boucle for...of devrait être votre choix par défaut pour l’itération en JavaScript. Apprenez
+    à l’utiliser avec les tableaux, les chaînes, les Maps, les Sets et les itérables personnalisés. Maîtrisez le
+    destructuring, explorez les itérateurs complémentaires et libérez la puissance de l’évaluation paresseuse avec les
+    générateurs.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Guide complet de la boucle for...of en JavaScript"
+      src='{{< link url="img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp" >}}'
+      alt="Guide complet de la boucle for...of en JavaScript" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Boucle for...of en JavaScript : parcourez les tableaux, les
+      chaînes, les Maps, les Sets et plus encore
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      JavaScript a toujours offert plusieurs façons d’itérer sur des données. De la boucle numérique classique <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> héritée de C à la
+      méthode <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code>, les
+      développeurs ont eu de nombreuses options. Cependant, <a
+        href="https://developers.google.com/web/shows/ttt/series-2/es2015?hl=fr" class="text-primary"
+        target="_blank">ES2015</a> a introduit un véritable changement de jeu : la boucle <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>.
+    </p>
+
+    <p>
+      Cette boucle reste encore sous-utilisée par de nombreux développeurs, alors qu’elle remplace élégamment la plupart
+      des patterns d’itération traditionnels. Elle fonctionne de manière fluide avec les tableaux, les chaînes, les
+      Maps, les Sets, les NodeLists et tout objet qui implémente le protocole itérable. Plus important encore, elle vous
+      donne un contrôle total sur la quantité de l’itérable consommée, ce qui la rend idéale pour l’évaluation
+      paresseuse et les séquences infinies.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bref historique des boucles JavaScript</h2>
+
+    <p>
+      Avant de plonger dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>, passons rapidement
+      en revue les boucles que JavaScript a proposées au fil des années :
+    </p>
+
+    <h3 class="exo mt-4">La boucle for numérique</h3>
+
+    <p>
+      La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code>
+      traditionnelle, empruntée à C et aux langages similaires, repose sur une approche basée sur un index :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">for (var index = 0, len = items.length; index < len; ++index) {
+  // Work with items[index]
+}</code></pre>
+    </div>
+
+    <p>
+      Bien que puissante, cette syntaxe peut être verbeuse et source d’erreurs. Vous devez gérer l’index manuellement,
+      mettre en cache la longueur pour les performances et penser à incrémenter le compteur.
+    </p>
+
+    <h3 class="exo mt-4">La boucle for...in</h3>
+
+    <p>
+      La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> est
+      spécifiquement conçue pour parcourir les propriétés énumérables d’un objet :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">var person = { first: 'John', last: 'Smith' };
+for (var prop in person) {
+  console.log(prop, '=', person[prop]);
+  // Outputs: 'first' = 'John', 'last' = 'Smith'
+}</code></pre>
+    </div>
+
+    <p>
+      Notez que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...in</code> ne
+      sert pas à parcourir les valeurs d’un tableau, mais les propriétés d’un objet. L’utiliser sur des tableaux peut
+      entraîner des résultats inattendus.
+    </p>
+
+    <h3 class="exo mt-4">Les boucles while et do...while</h3>
+
+    <p>
+      Ces boucles conditionnelles existent dans de nombreux langages de programmation. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> évalue la condition
+      avant chaque itération, tandis que <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">do...while</code> l’évalue après,
+      garantissant au moins une exécution.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Qu’est-ce que for...of ?</h2>
+
+    <p>
+      ES2015 a formalisé un concept crucial : les <strong>itérables</strong>. Un itérable est un objet qui implémente le
+      protocole itérable, défini via la méthode <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Symbol.iterator</code>. De nombreux
+      objets natifs JavaScript sont itérables : tableaux, chaînes, Maps, Sets, NodeLists, et plus encore.
+    </p>
+
+    <p>
+      La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> est
+      le mécanisme principal pour consommer des itérables avec un contrôle complet. Vous pouvez consommer exactement ce
+      dont vous avez besoin, et la quantité peut être déterminée dynamiquement ou algorithmiquement.
+    </p>
+
+    <p>
+      Lorsque vous travaillez avec des tableaux, vous vous intéressez généralement aux <strong>valeurs</strong>, et non
+      aux indices. La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>
+      rend cela naturel :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Old way: verbose and index-focused
+for (var index = 0, len = items.length; index < len; ++index) {
+  var item = items[index];
+  // Work with item
+}
+
+// Modern way: clean and value-focused
+for (const item of items) {
+  // Work with item directly
+}</code></pre>
+    </div>
+
+    <p>
+      Comme pour toutes les boucles, vous pouvez utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">return</code> dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. Mais elle est
+      plus polyvalente que les boucles numériques : elle fonctionne même sans indices (comme avec les Sets), et vous
+      n’avez pas besoin de vous soucier de mettre en cache la longueur.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Utiliser const avec for...of</h2>
+
+    <p>
+      Remarquez que nous avons utilisé <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> pour la variable de
+      boucle ? C’est parce que nous ne réassignons rien : nous travaillons directement avec chaque valeur à mesure
+      qu’elle provient de l’itérateur. Il n’y a pas d’index à incrémenter manuellement, donc <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> est le choix naturel
+      et aide à éviter les réaffectations accidentelles.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ✅ Good: const prevents reassignment
+for (const item of items) {
+  // item is read-only in this scope
+}
+
+// ❌ Avoid: let is unnecessary unless you need to reassign
+for (let item of items) {
+  item = transform(item); // Only affects local variable, not the array
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Le destructuring à la volée</h2>
+
+    <p>
+      Lorsque votre itérateur renvoie plusieurs valeurs (comme les entrées d’une Map), vous pouvez les déstructurer
+      directement dans la déclaration de la boucle. Cela rend le code beaucoup plus clair :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+// Without destructuring: verbose
+for (const pair of map) {
+  console.log(pair[0], '=', pair[1]);
+}
+
+// With destructuring: clean and readable
+for (const [key, value] of map) {
+  console.log(key, '=', value);
+}</code></pre>
+    </div>
+
+    <p>
+      Ce pattern fonctionne avec tout itérable qui renvoie des tableaux ou des tuples. Vous pouvez déstructurer de
+      manière aussi profonde que nécessaire :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const entries = [
+  ['user', { id: 1, name: 'Alice' }],
+  ['admin', { id: 2, name: 'Bob' }],
+];
+
+for (const [role, { id, name }] of entries) {
+  console.log(`${role}: ${name} (${id})`);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Itérateurs complémentaires</h2>
+
+    <p>
+      De nombreux itérables fournissent des itérateurs supplémentaires au-delà de leur itération par défaut. La plupart
+      en proposent au moins trois : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">keys()</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">values()</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code>. Pour les objets
+      sans clés (comme les Sets), les clés sont simplement les valeurs elles-mêmes.
+    </p>
+
+    <p>
+      Par exemple, si vous souhaitez parcourir un tableau tout en récupérant l’indice, vous pouvez utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">entries()</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const fruits = ['apple', 'banana', 'cherry'];
+
+// Get both index and value
+for (const [index, fruit] of fruits.entries()) {
+  console.log(`${index}: ${fruit}`);
+}
+// Output:
+// 0: apple
+// 1: banana
+// 2: cherry
+
+// Or iterate over just the keys (indices)
+for (const index of fruits.keys()) {
+  console.log(index);
+}
+// Output: 0, 1, 2
+
+// Or just the values (same as default)
+for (const fruit of fruits.values()) {
+  console.log(fruit);
+}
+// Output: apple, banana, cherry</code></pre>
+    </div>
+
+    <p>
+      Les Maps et les Sets fournissent aussi ces méthodes, ce qui facilite le travail avec leurs structures de données
+      spécifiques :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const userMap = new Map([
+  ['alice', { role: 'admin' }],
+  ['bob', { role: 'user' }],
+]);
+
+// Iterate over entries (default)
+for (const [username, user] of userMap) {
+  console.log(`${username}: ${user.role}`);
+}
+
+// Iterate over just keys
+for (const username of userMap.keys()) {
+  console.log(username);
+}
+
+// Iterate over just values
+for (const user of userMap.values()) {
+  console.log(user.role);
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">L’évaluation paresseuse : la vraie puissance</h2>
+
+    <p>
+      La véritable force de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> réside dans sa
+      capacité à fonctionner avec l’<strong>évaluation paresseuse</strong>. Comme elle consomme les itérables de manière
+      incrémentale plutôt que d’un seul coup, elle constitue la principale façon de travailler avec des calculs
+      paresseux, y compris les <strong>séquences infinies</strong>.
+    </p>
+
+    <p>
+      Prenons un générateur qui produit la suite de Fibonacci :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* fibonacci() {
+  let [current, next] = [1, 1];
+  while (true) {
+    yield current;
+    [current, next] = [next, current + next];
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      Cette suite ne se termine jamais. Si vous essayez de la convertir en tableau avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Array.from()</code> ou avec
+      l’opérateur spread, votre programme se bloquera. En revanche, vous pouvez la consommer sans risque avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Get first few terms via destructuring
+const [a, b, c, d, e] = fibonacci();
+// a === 1, b === 1, c === 2, d === 3, e === 5
+
+// Consume until a condition is met
+for (const term of fibonacci()) {
+  if (term > 100) break;
+  console.log(term);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89</code></pre>
+    </div>
+
+    <p>
+      Ce pattern permet de créer toutes sortes de primitives d’évaluation paresseuse. Par exemple, voici une fonction
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">take</code> qui limite le
+      nombre d’éléments consommés :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* take(count, iter) {
+  if (count === 0) return;
+  for (const term of iter) {
+    yield term;
+    if (--count <= 0) break;
+  }
+}
+
+// Get first 10 Fibonacci numbers
+for (const num of take(10, fibonacci())) {
+  console.log(num);
+}
+// Output: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55</code></pre>
+    </div>
+
+    <p>
+      Cette approche de l’évaluation paresseuse est fondamentale pour les concepts de programmation fonctionnelle et
+      ressemble à la façon dont des bibliothèques comme RxJS travaillent avec les observables.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Considérations de performance</h2>
+
+    <p>
+      Vous trouverez de nombreux benchmarks contradictoires en ligne comparant différents types de boucles. La plupart ne
+      sont pas représentatifs des cas réels. Gardez ces deux points à l’esprit :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Pour la plupart des tableaux</strong> (jusqu’à des millions d’éléments), la différence de performance
+        est <strong>négligeable</strong>.</li>
+      <li><strong>Lorsqu’elle n’est pas transpillée</strong> (avec la prise en charge native du navigateur), <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> a des
+        performances similaires aux autres boucles.</li>
+    </ul>
+
+    <p>
+      Il est extrêmement rare que vous deviez revenir à une boucle numérique <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for</code> ou à <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">while</code> pour des raisons de
+      performance. Les gains en lisibilité et en flexibilité de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> dépassent de loin
+      les micro-optimisations dans la grande majorité des cas.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Remplacer les anciens patterns</h2>
+
+    <p>
+      Vous pouvez désormais remplacer la grande majorité de vos itérations traditionnelles par <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>. Cela inclut :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Les boucles for numériques</strong> lorsqu’il s’agit de parcourir des tableaux</li>
+      <li><strong>forEach()</strong> lorsque vous avez besoin de <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> ou <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code></li>
+      <li><strong>les méthodes each() de jQuery/Lodash</strong></li>
+      <li><strong>for...in</strong> lorsqu’il est mal utilisé sur des tableaux</li>
+    </ul>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Old: forEach (can't break early)
+items.forEach(item => {
+  if (item.shouldStop) return; // Only exits callback, not the loop
+  process(item);
+});
+
+// ✅ New: for...of (can break early)
+for (const item of items) {
+  if (item.shouldStop) break; // Exits the entire loop
+  process(item);
+}
+
+// ❌ Old: jQuery each
+$.each(items, function(index, item) {
+  // ...
+});
+
+// ✅ New: for...of
+for (const item of items) {
+  // ...
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Prise en charge navigateur et transpilation</h2>
+
+    <p>
+      La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> est
+      prise en charge nativement dans :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Firefox 13+</li>
+      <li>Chrome 38+</li>
+      <li>Opera 25+</li>
+      <li>Edge 12+</li>
+      <li>Safari 7+</li>
+      <li>Node.js 0.12+</li>
+    </ul>
+
+    <p>
+      Pour les environnements plus anciens, Babel et TypeScript peuvent transpiler <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> en code compatible.
+      Sur de très grands tableaux (1M+ d’éléments), le code transpillé peut avoir un certain surcoût de performance,
+      mais cela dépend fortement du moteur JavaScript, de votre algorithme et du contexte.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples concrets</h2>
+
+    <h3 class="exo mt-4">Exemple 1 : traitement de réponses API</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function processUsers() {
+  const response = await fetch('/api/users');
+  const users = await response.json();
+  
+  for (const user of users) {
+    if (user.status === 'inactive') continue;
+    await updateUserProfile(user);
+  }
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 2 : travailler avec des collections DOM</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// NodeList is iterable
+const buttons = document.querySelectorAll('.action-button');
+
+for (const button of buttons) {
+  button.addEventListener('click', handleClick);
+}
+
+// Works with HTMLCollection too (after conversion)
+const divs = Array.from(document.getElementsByTagName('div'));
+for (const div of divs) {
+  div.classList.add('processed');
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 3 : itérables personnalisés</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class NumberRange {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  *[Symbol.iterator]() {
+    for (let i = this.start; i <= this.end; i++) {
+      yield i;
+    }
+  }
+}
+
+const range = new NumberRange(1, 5);
+for (const num of range) {
+  console.log(num);
+}
+// Output: 1, 2, 3, 4, 5</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Utilisez const par défaut :</strong> puisque vous ne réassignez pas la variable de boucle, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> est le choix
+        naturel.</li>
+      <li><strong>Déstructurez quand c’est pertinent :</strong> si votre itérable renvoie des tableaux ou des objets,
+        déstructurez-les directement dans la déclaration de boucle.</li>
+      <li><strong>Utilisez entries() pour les indices :</strong> quand vous avez besoin à la fois de l’indice et de la
+        valeur d’un tableau, utilisez <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">array.entries()</code>.</li>
+      <li><strong>Préférez for...of à forEach :</strong> quand vous avez besoin de <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">break</code> ou <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">continue</code>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> est votre allié.
+      </li>
+      <li><strong>Exploitez l’évaluation paresseuse :</strong> utilisez des générateurs et <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> pour les
+        séquences infinies et les calculs à la demande.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      La boucle <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> est
+      l’une des fonctionnalités les plus élégantes et les plus puissantes de JavaScript. Elle simplifie l’itération,
+      fonctionne avec une grande variété de structures de données et libère la puissance de l’évaluation paresseuse
+      grâce aux générateurs.
+    </p>
+
+    <p>
+      Bien qu’elle ne soit pas encore aussi largement adoptée qu’elle le devrait, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code> devrait être votre
+      choix par défaut pour l’itération en JavaScript moderne. Elle remplace la plupart des boucles numériques, élimine
+      souvent le besoin de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">forEach</code> et fournit une
+      syntaxe claire et lisible qui fonctionne avec tous les types d’itérables.
+    </p>
+
+    <p>
+      Commencez à utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">for...of</code>
+      dans votre code dès aujourd’hui. Votre futur vous-même, et vos coéquipiers, vous remercieront pour ce code plus
+      clair et plus maintenable.
+    </p>
+  </article>
+</div>

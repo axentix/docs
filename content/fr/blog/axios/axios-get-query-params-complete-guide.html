@@ -1,0 +1,387 @@
+---
+title: 'Parametres de requete Axios GET : guide simple et exemples'
+description: "Maitrisez les parametres de requete des requetes GET avec Axios. Apprenez a envoyer des params avec axios.get(), a gerer l'encodage d'URL,
+la serialisation personnalisee et des techniques avancees avec des exemples pratiques."
+date: 2025-10-14
+author: "Axentix Team"
+image: "/img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp"
+categories: ["Axios"]
+summary: "Apprenez a utiliser les parametres de requete avec les requetes GET Axios. Guide complet couvrant l'objet params, l'encodage d'URL,
+la serialisation personnalisee et des exemples du monde reel."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Parametres de requete Axios GET : guide simple et exemples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-14" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      14/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Maitrisez les parametres de requete des requetes GET avec Axios grace a ce guide complet. Apprenez a envoyer
+    <strong>axios get query params</strong> et <strong>axios get params</strong> efficacement avec des exemples
+    pratiques, l'encodage d'URL et des techniques avancees.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Parametres de requete Axios GET : guide simple et exemples"
+      src='{{< link url="img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp" >}}'
+      alt="Parametres de requete Axios GET : guide simple et exemples" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Axios GET Request Query Params
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Axios est l'une des bibliotheques JavaScript les plus populaires pour faire des requetes HTTP, et comprendre
+      comment utiliser correctement <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">axios get query params</code> est
+      essentiel pour construire des applications web modernes. Les parametres de requete vous permettent de transmettre
+      des donnees au serveur via l'URL, ce qui active le filtrage, la pagination, la recherche et bien plus.
+    </p>
+
+    <p>
+      Ce guide complet couvre tout ce que vous devez savoir pour utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">axios get params</code>
+      efficacement. Vous apprendrez les differentes methodes pour envoyer des parametres de requete, gerer l'encodage
+      d'URL, mettre en place une serialisation personnalisee et explorer des techniques avancees qui vous aideront a
+      construire des integrations API robustes.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Que sont les parametres de requete avec Axios ?</h2>
+
+    <p>
+      Les parametres de requete sont des paires cle-valeur ajoutees a la fin d'une URL apres un point d'interrogation
+      (?). Ils vous permettent d'envoyer des donnees supplementaires au serveur sans modifier le corps de la requete.
+      Dans Axios, vous pouvez envoyer des parametres de requete via l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">params</code> dans la
+      configuration de votre requete GET.
+    </p>
+
+    <p>
+      Les cas d'usage courants des parametres de requete incluent :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Filtrage d'API et fonctionnalites de recherche</li>
+      <li>Pagination (page, limit, offset)</li>
+      <li>Tri et ordre des donnees</li>
+      <li>Versioning d'API et feature flags</li>
+      <li>Tokens d'authentification et cles d'API</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Requete Axios GET de base avec query params</h2>
+
+    <p>
+      La facon la plus simple d'envoyer des <strong>axios get query params</strong> est d'utiliser l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">params</code> dans la
+      configuration de la requete. Axios serialise automatiquement l'objet params et l'ajoute a l'URL.
+    </p>
+
+    <h3 class="exo mt-4">Objet params simple</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import axios from 'axios';
+
+// Basic GET request with query parameters
+const response = await axios.get('https://api.example.com/users', {
+  params: {
+    page: 1,
+    limit: 10,
+    search: 'john'
+  }
+});
+
+// The actual URL will be: https://api.example.com/users?page=1&limit=10&search=john
+console.log(response.data);</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Utiliser async/await et gerer les erreurs</h3>
+
+    <p>
+      Pour les applications JavaScript modernes, la syntaxe async/await offre un code plus propre et plus lisible. Elle
+      rend aussi la gestion des erreurs plus simple que les chaines de promesses. Quand vous travaillez avec des
+      parametres de requete, il est important de gerer correctement les erreurs potentielles, en particulier les
+      problemes reseau ou des valeurs de parametres invalides.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Modern async/await syntax with proper error handling
+const fetchUsers = async (filters) => {
+  try {
+    const response = await axios.get('/api/users', {
+      params: {
+        name: filters.name,
+        age: filters.age,
+        city: filters.city
+      }
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
+  }
+};
+
+// Usage
+const users = await fetchUsers({
+  name: 'John',
+  age: 25,
+  city: 'New York'
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Techniques avancees de query params</h2>
+
+    <p>
+      Au-dela du passage de parametres de base, Axios offre plusieurs techniques avancees pour gerer des scenarios
+      complexes autour de <strong>axios get params</strong>. Ces methodes vous donnent plus de controle sur la facon
+      dont les parametres sont serialises et envoyes au serveur.
+    </p>
+
+    <h3 class="exo mt-4">Parametres de tableaux et d'objets imbriques</h3>
+
+    <p>
+      Les applications du monde reel ont souvent besoin d'envoyer des structures de donnees complexes via des parametres
+      de requete. Axios gere les tableaux en repetant le nom du parametre pour chaque valeur, ce qui correspond au
+      format standard attendu par la plupart des API. Pour les objets imbriques, Axios les aplatit automatiquement en
+      utilisant la notation entre crochets, ce qui facilite l'envoi de filtres structures ou d'options de configuration.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Sending array parameters and nested objects
+const response = await axios.get('/api/search', {
+  params: {
+    // Array parameters
+    categories: ['electronics', 'books', 'clothing'],
+    tags: ['sale', 'new', 'featured'],
+    
+    // Nested object parameters
+    filters: {
+      price: { min: 10, max: 100 },
+      location: { city: 'New York', country: 'USA' }
+    },
+    sort: { field: 'price', order: 'asc' }
+  }
+});
+
+// Results in: /api/search?categories=electronics&categories=books&categories=clothing&tags=sale&tags=new&tags=featured&filters[price][min]=10&filters[price][max]=100&filters[location][city]=New%20York&filters[location][country]=USA&sort[field]=price&sort[order]=asc</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Construire les parametres conditionnellement</h3>
+
+    <p>
+      Dans de nombreux cas, vous devrez construire les parametres de requete de facon conditionnelle en fonction de
+      l'entree utilisateur ou de l'etat de l'application. Cette approche evite d'envoyer des valeurs vides ou undefined
+      a l'API, ce qui peut provoquer des problemes ou un comportement inattendu. L'idee est d'inclure uniquement les
+      parametres qui ont une valeur utile.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Building params conditionally to avoid empty values
+const buildSearchParams = (searchTerm, filters = {}) => {
+  const params = { q: searchTerm };
+  
+  // Only add parameters if they have values
+  if (filters.category) params.category = filters.category;
+  if (filters.minPrice) params.minPrice = filters.minPrice;
+  if (filters.maxPrice) params.maxPrice = filters.maxPrice;
+  if (filters.tags?.length > 0) params.tags = filters.tags;
+  
+  return params;
+};
+
+// Usage
+const searchParams = buildSearchParams('laptop', {
+  category: 'electronics',
+  minPrice: 500,
+  tags: ['gaming', 'portable']
+});
+
+const response = await axios.get('/api/search', { params: searchParams });</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Serialisation personnalisee des parametres</h2>
+
+    <p>
+      Parfois, vous avez besoin de plus de controle sur la facon dont les <strong>axios get query params</strong> sont
+      serialises. Axios fournit l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">paramsSerializer</code> pour
+      personnaliser le processus de serialisation.
+    </p>
+
+    <h3 class="exo mt-4">Serialisation personnalisee et URLSearchParams</h3>
+
+    <p>
+      Quand vous avez besoin d'un controle precis sur la serialisation des parametres, Axios vous permet de fournir une
+      fonction de serialisation personnalisee. C'est particulierement utile pour les API qui attendent des formats
+      specifiques, par exemple des tableaux avec une notation entre crochets ou des schemas d'encodage personnalises.
+      L'API URLSearchParams fournit un moyen natif de gerer l'encodage des parametres et c'est souvent la methode
+      privilegiee pour une serialisation personnalisee.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Custom parameter serialization with URLSearchParams
+const response = await axios.get('/api/data', {
+  params: {
+    filters: ['active', 'verified'],
+    sort: 'name',
+    order: 'asc'
+  },
+  paramsSerializer: function(params) {
+    const searchParams = new URLSearchParams();
+    
+    Object.entries(params).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        // Handle arrays with bracket notation
+        value.forEach(item => {
+          searchParams.append(`${key}[]`, item);
+        });
+      } else {
+        searchParams.append(key, value);
+      }
+    });
+    
+    return searchParams.toString();
+  }
+});
+
+// Results in: /api/data?filters[]=active&filters[]=verified&sort=name&order=asc</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Encodage d'URL et caracteres speciaux</h2>
+
+    <p>
+      Comprendre l'encodage d'URL est essentiel quand vous travaillez avec des parametres de requete, surtout avec des
+      caracteres speciaux, des espaces ou des caracteres non ASCII.
+    </p>
+
+    <h3 class="exo mt-4">Encodage d'URL et caracteres speciaux</h3>
+
+    <p>
+      L'encodage d'URL est indispensable lorsqu'on manipule des parametres de requete qui contiennent des caracteres
+      speciaux, des espaces ou des caracteres non ASCII. Axios gere automatiquement l'encodage a votre place, en
+      convertissant les espaces en %20, les esperluettes en %26 et d'autres caracteres speciaux vers leur equivalent
+      encode. Cet encodage automatique garantit que vos parametres sont correctement transmis et interpretes par le
+      serveur, ce qui evite les problemes d'URL mal formatees ou les erreurs de parsing des parametres.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Axios automatically handles URL encoding
+const response = await axios.get('/api/search', {
+  params: {
+    query: 'JavaScript & TypeScript',
+    description: 'Learn about modern web development',
+    location: 'São Paulo, Brasil',
+    special: 'Hello World! @#$%'
+  }
+});
+
+// Axios automatically encodes to:
+// /api/search?query=JavaScript%20%26%20TypeScript&description=Learn%20about%20modern%20web%20development&location=S%C3%A3o%20Paulo%2C%20Brasil&special=Hello%20World!%20%40%23%24%25</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilite navigateurs et polyfills</h2>
+
+    <p>
+      Comprendre le support navigateur pour Axios et les fonctionnalites associees est important pour garantir que votre
+      application fonctionne dans differents environnements.
+    </p>
+
+    <h3 class="exo mt-4">Support navigateur</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Axios:</strong> Tous les navigateurs modernes (Chrome 60+, Firefox 55+, Safari 12+, Edge 79+)</li>
+      <li><strong>URLSearchParams:</strong> Tous les navigateurs modernes (Chrome 49+, Firefox 44+, Safari 10.1+)</li>
+      <li><strong>Fetch API:</strong> Tous les navigateurs modernes (Chrome 42+, Firefox 39+, Safari 10.1+)</li>
+      <li><strong>Promise:</strong> Tous les navigateurs modernes (Chrome 32+, Firefox 29+, Safari 8+)</li>
+    </ul>
+
+    <h3 class="exo mt-4">Compatibilite navigateurs et polyfills</h3>
+
+    <p>
+      Meme si Axios et les fonctionnalites JavaScript modernes ont un excellent support, certains projets doivent
+      parfois supporter des navigateurs plus anciens. Dans ce cas, des polyfills peuvent fournir les fonctionnalites
+      necessaires. Les polyfills les plus courants concernent URLSearchParams et Promise, meme si la plupart des
+      applications modernes peuvent s'appuyer sur le support natif.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Polyfill for URLSearchParams (simplified version)
+if (!window.URLSearchParams) {
+  window.URLSearchParams = function(search) {
+    this.params = {};
+    if (search) {
+      search.replace(/[?&]+([^=&]+)=([^&]*)/gi, (str, key, value) => {
+        this.params[decodeURIComponent(key)] = decodeURIComponent(value);
+      });
+    }
+  };
+  
+  URLSearchParams.prototype.append = function(key, value) {
+    this.params[key] = value;
+  };
+  
+  URLSearchParams.prototype.toString = function() {
+    return Object.keys(this.params)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(this.params[key])}`)
+      .join('&');
+  };
+}
+
+// For production, use proper polyfills like:
+// - es6-promise for Promise support
+// - core-js for comprehensive polyfills
+// - babel-polyfill for complete ES6+ support</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Maitriser <strong>axios get query params</strong> est essentiel pour construire des applications web modernes qui
+      interagissent avec des API. Dans ce guide, nous avons couvert les concepts fondamentaux, des techniques avancees
+      et des bonnes pratiques qui vous aideront a utiliser <strong>axios get params</strong> efficacement.
+    </p>
+
+    <p>
+      Du passage de parametres de base a la serialisation personnalisee, en passant par l'encodage d'URL et
+      l'optimisation des performances, vous avez maintenant les connaissances pour gerer des interactions API complexes
+      avec confiance. Les exemples concrets et les patterns de gestion d'erreurs vous aideront a construire des
+      applications robustes qui gerent proprement differents scenarios.
+    </p>
+
+    <p>
+      Pensez toujours a valider vos parametres, a implementer une gestion d'erreurs correcte et a considerer les
+      implications de performance quand vous travaillez avec de gros jeux de donnees. En suivant les bonnes pratiques
+      presentes ici, vous pourrez creer des integrations API efficaces, maintenables et fiables avec les parametres de
+      requete Axios.
+    </p>
+
+    <p>
+      Que vous construisiez une simple fonctionnalite de recherche ou un tableau de bord de donnees complexe, comprendre
+      comment utiliser correctement les parametres de requete Axios ameliorera significativement votre workflow et la
+      qualite de vos applications. Les techniques de ce guide serviront de base solide pour vos futurs projets de
+      developpement d'API.
+    </p>
+  </article>
+</div>
+

@@ -1,0 +1,350 @@
+---
+title: "Le tutoriel CSS Grid le plus complet"
+description: "Maitrisez la mise en page CSS Grid avec ce guide complet qui couvre tout, des concepts de base aux techniques avancees,
+la compatibilite navigateur et des exemples pratiques."
+date: 2025-08-24
+author: "Axentix Team"
+image: "/img/blog/css/complete-css-grid-tutorial/css-grid-banner.jpg"
+categories: ["CSS"]
+summary: "Maitrisez la mise en page CSS Grid avec ce guide complet qui couvre tout, des concepts de base aux techniques avancees,
+la compatibilite navigateur et des exemples pratiques."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Le tutoriel CSS Grid le plus complet
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/css/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      CSS
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-08-24" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      24/08/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Maitrisez la mise en page CSS Grid avec ce guide complet qui couvre tout, des concepts de base aux techniques
+    avancees, la compatibilite navigateur et des exemples pratiques.
+  </p>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">Qu'est-ce que CSS Grid ?</h2>
+
+    <p>
+      CSS Grid est un puissant systeme de mise en page bidimensionnel qui vous permet de creer des layouts web
+      complexes facilement. La ou Flexbox se concentre sur des mises en page unidimensionnelles (lignes ou colonnes),
+      CSS Grid vous donne un controle total sur les lignes et les colonnes en meme temps. Imaginez un tableur pour votre
+      layout web, ou vous pouvez definir exactement ou chaque element doit aller et combien d'espace il doit occuper.
+    </p>
+
+    <p>
+      Pensez a CSS Grid comme a un systeme de tableau moderne repense pour le web contemporain. Vous creez un conteneur
+      de grille et placez des elements dans des zones precises, controlez leur dimensionnement et structurez la mise en
+      page globale. C'est ideal pour les layouts de page complexes, les grilles de cartes, les dashboards et toute
+      interface qui a besoin d'un controle precis du positionnement.
+    </p>
+
+    <p>
+      Ce qui rend CSS Grid si attractif, c'est son approche declarative. Au lieu de lutter avec des floats, du
+      positionnement et des calculs complexes, vous dites simplement au navigateur "mets cet element ici" et "fais cette
+      colonne de cette largeur". Le navigateur gere pour vous toute la geometrie, ce qui donne un code plus propre et
+      plus maintenable.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Quand CSS Grid est-il sorti ?</h2>
+
+    <p>
+      CSS Grid est en preparation depuis un moment, avec des premieres idees au debut des annees 2010. Microsoft a
+      propose pour la premiere fois le CSS Grid Layout Module en 2011, et la specification a beaucoup evolue depuis. Le
+      W3C a publie un premier working draft en 2012, et la spec a connu plusieurs phases d'amelioration avant d'atteindre
+      sa forme actuelle.
+    </p>
+
+    <p>
+      Le support navigateur a commence a apparaitre en 2016, Firefox menant la danse avec la version 52 (mars 2017).
+      Chrome a suivi rapidement avec la version 57 (mars 2017) et Safari a rejoint en version 10.1 (mars 2017). Des 2018,
+      CSS Grid avait un support solide sur les navigateurs majeurs, ce qui le rendait fiable pour un usage en production.
+    </p>
+
+    <p>
+      La specification a atteint le statut Candidate Recommendation en decembre 2016, et la premiere version stable du
+      module CSS Grid Layout (Level 1) est devenue la reference pour l'implementation. Aujourd'hui, CSS Grid est un
+      standard du web moderne.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilite navigateur</h2>
+
+    <p>
+      CSS Grid est supporte par tous les navigateurs modernes. Pour la plupart des projets, vous pouvez l'utiliser sans
+      hesitation. Pour reference :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Chrome :</strong> 57+</li>
+      <li><strong>Firefox :</strong> 52+</li>
+      <li><strong>Safari :</strong> 10.1+</li>
+      <li><strong>Edge :</strong> 16+ (EdgeHTML) et 79+ (Chromium)</li>
+    </ul>
+
+    <p>
+      Pour les environnements tres anciens, il existait une implementation historique sous forme de "grid" prefixe
+      Microsoft (IE10/IE11), mais elle differait du standard et n'est plus recommandee. Dans la plupart des cas, si vous
+      devez supporter IE, il est preferable d'utiliser une strategie de fallback (Flexbox ou layout simplifie) plutot que
+      d'essayer de maintenir deux syntaxes Grid.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Les concepts fondamentaux</h2>
+
+    <h3 class="exo mt-4">Conteneur grid vs items grid</h3>
+
+    <p>
+      CSS Grid fonctionne avec deux roles : le <strong>conteneur de grille</strong> (grid container) et les
+      <strong>elements de grille</strong> (grid items). Vous activez Grid sur un conteneur en utilisant <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">display: grid</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">display: inline-grid</code>. Les
+      enfants directs de ce conteneur deviennent automatiquement des grid items.
+    </p>
+
+    <pre><code class="language-css">.container {
+  display: grid;
+}</code></pre>
+
+    <p>
+      Une fois le conteneur defini, vous configurez la structure avec des lignes et des colonnes, puis vous placez les
+      items dans la grille.
+    </p>
+
+    <h3 class="exo mt-4">Lignes, colonnes, pistes et cellules</h3>
+
+    <p>
+      Une grille est composee de pistes (tracks) : des pistes de colonnes et des pistes de lignes. L'intersection d'une
+      ligne et d'une colonne forme une cellule. Plusieurs cellules peuvent former une zone (area).
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Creer une grille simple</h2>
+
+    <p>
+      La maniere la plus simple de demarrer consiste a definir des colonnes et des lignes avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grid-template-columns</code> et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grid-template-rows</code>.
+    </p>
+
+    <pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px;
+  gap: 10px;
+}</code></pre>
+
+    <p>
+      Ici, vous obtenez une grille de 3 colonnes et 2 lignes. La propriete <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">gap</code> cree un espace entre les
+      pistes.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Dimensionner les colonnes et les lignes</h2>
+
+    <p>
+      CSS Grid propose plusieurs unites et fonctions utiles pour dimensionner les pistes :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>px, %, em, rem</strong> : unites classiques</li>
+      <li><strong>fr</strong> : unite fractionnaire propre a Grid (part du reste de l'espace disponible)</li>
+      <li><strong>minmax()</strong> : definir une taille min et max</li>
+      <li><strong>repeat()</strong> : repeter un motif</li>
+      <li><strong>auto</strong> : taille automatique selon le contenu</li>
+    </ul>
+
+    <h3 class="exo mt-4">L'unite fr</h3>
+
+    <p>
+      L'unite <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fr</code> represente une
+      fraction de l'espace disponible. Par exemple :
+    </p>
+
+    <pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}</code></pre>
+
+    <p>
+      Ici, la deuxieme colonne prend deux fois plus d'espace que les colonnes 1 et 3.
+    </p>
+
+    <h3 class="exo mt-4">repeat()</h3>
+
+    <p>
+      La fonction <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">repeat()</code>
+      permet de repeter des pistes sans ecrire la meme chose plusieurs fois :
+    </p>
+
+    <pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}</code></pre>
+
+    <h3 class="exo mt-4">minmax()</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">minmax()</code> est essentiel
+      pour creer des grilles responsives et robustes :
+    </p>
+
+    <pre><code class="language-css">.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+}</code></pre>
+
+    <p>
+      Chaque colonne fera au minimum 200px et pourra s'etendre jusqu'a 1fr.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Positionner les elements</h2>
+
+    <p>
+      Par defaut, les items se placent automatiquement dans la grille. Mais vous pouvez les positionner explicitement
+      avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grid-column</code> et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grid-row</code>.
+    </p>
+
+    <pre><code class="language-css">.item1 {
+  grid-column: 1 / 3; /* de la ligne de colonne 1 a 3 */
+  grid-row: 1 / 2;
+}</code></pre>
+
+    <p>
+      Vous pouvez aussi utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">span</code> :
+    </p>
+
+    <pre><code class="language-css">.item2 {
+  grid-column: span 2;
+}</code></pre>
+
+    <h2 class="exo mt-5" itemprop="subtitle">grid-template-areas</h2>
+
+    <p>
+      Une des fonctionnalites les plus lisibles de CSS Grid est <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grid-template-areas</code>. Elle
+      permet de definir des zones nommees et d'y assigner des elements.
+    </p>
+
+    <pre><code class="language-css">.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 1rem;
+}
+
+header { grid-area: header; }
+aside  { grid-area: sidebar; }
+main   { grid-area: main; }
+footer { grid-area: footer; }</code></pre>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Alignement et justification</h2>
+
+    <p>
+      CSS Grid offre des proprietes puissantes pour aligner les items et les pistes :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>justify-items</strong> et <strong>align-items</strong> : alignent les items dans leurs cellules</li>
+      <li><strong>justify-content</strong> et <strong>align-content</strong> : alignent la grille dans le conteneur</li>
+      <li><strong>place-items</strong> et <strong>place-content</strong> : raccourcis</li>
+    </ul>
+
+    <pre><code class="language-css">.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}</code></pre>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Grilles responsives</h2>
+
+    <p>
+      Une technique courante consiste a combiner <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">repeat()</code> avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">minmax()</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">auto-fit</code> / <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">auto-fill</code> :
+    </p>
+
+    <pre><code class="language-css">.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}</code></pre>
+
+    <p>
+      Cela cree une grille de cartes qui s'adapte automatiquement a la largeur disponible.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples pratiques</h2>
+
+    <h3 class="exo mt-4">Exemple : grille de cartes</h3>
+
+    <pre><code class="language-html">&lt;div class="cards"&gt;
+  &lt;article class="card"&gt;...&lt;/article&gt;
+  &lt;article class="card"&gt;...&lt;/article&gt;
+  &lt;article class="card"&gt;...&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+
+    <pre><code class="language-css">.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}</code></pre>
+
+    <h3 class="exo mt-4">Exemple : layout de page</h3>
+
+    <pre><code class="language-html">&lt;div class="layout"&gt;
+  &lt;header&gt;Header&lt;/header&gt;
+  &lt;aside&gt;Sidebar&lt;/aside&gt;
+  &lt;main&gt;Main&lt;/main&gt;
+  &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+
+    <pre><code class="language-css">.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 1rem;
+}</code></pre>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      CSS Grid est l'un des outils de mise en page les plus puissants du web moderne. Il vous permet de creer des
+      layouts complexes et responsives avec un code plus simple, plus lisible et plus maintenable. En comprenant les
+      concepts fondamentaux (pistes, zones, fr, minmax, repeat) et en pratiquant avec des exemples reels, vous pourrez
+      utiliser CSS Grid efficacement dans la plupart de vos interfaces.
+    </p>
+
+    <p>
+      Que vous construisiez une page marketing, une application web ou un dashboard, CSS Grid vous donne un controle
+      precis de la mise en page sans hacks. Commencez petit, puis exploitez progressivement les zones, l'alignement et
+      les grilles responsives pour aller plus loin.
+    </p>
+  </article>
+</div>

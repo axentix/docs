@@ -1,0 +1,19 @@
+nav.home: "Accueil"
+nav.docs: "Documentation"
+nav.blog: "Blog"
+nav.neumorphism: "Neumorphisme"
+lang.switcher: "Langue"
+
+blog.title: "Blog"
+blog.must-read: "À lire absolument"
+blog.recent-posts: "Articles récents"
+
+categories.title: "Catégories"
+categories.all-posts: "Tous les articles"
+
+article.back-label: "Articles"
+article.related-posts: "Articles similaires"
+
+cta.title: "Commencez à créer avec Axentix"
+cta.subtitle: "Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd'hui."
+cta.button: "Commencer"

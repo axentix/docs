@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container blog-article mt-5">
   <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
-    href='/blog/{{ strings.ToLower (index .Page.Params.categories 0) }}/'>
+    href='{{ .Site.LanguagePrefix }}/blog/{{ strings.ToLower (index .Page.Params.categories 0) }}/'>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
       <g fill="none">
         <path
@@ -10,7 +10,7 @@
           d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
       </g>
     </svg>&nbsp;
-    {{ index .Page.Params.categories 0 }} Articles
+    {{ index .Page.Params.categories 0 }} {{ T "article.back-label" }}
   </a>
 </div>
 
@@ -24,11 +24,11 @@
       id="ads-blog"></div> -->
 
     <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
-      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+      <h2 class="exo font-s3 font-w400 mt-0">{{ T "categories.title" }}</h2>
 
       <div class="d-flex fx-wrap">
-        <a class="d-flex text-grey" href='/blog/'>
-          All Posts
+        <a class="d-flex text-grey" href='{{ .Site.LanguagePrefix }}/blog/'>
+          {{ T "categories.all-posts" }}
         </a>
 
         {{ range $name, $items := site.Taxonomies.categories }}
@@ -44,11 +44,11 @@
 
 <section class="background-light my-5 py-5">
   <h2 class="text-center font-s7 mx-2">
-    Start Building with Axentix
+    {{ T "cta.title" }}
   </h2>
 
   <p class="text-center font-s3 mx-2">
-    Ready to create amazing websites? Get started with Axentix framework today.
+    {{ T "cta.subtitle" }}
   </p>
 
   <a href="/docs/getting-started/"
@@ -57,7 +57,7 @@
       <path fill="currentColor"
         d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
     </svg>
-    Get Started
+    {{ T "cta.button" }}
   </a>
 </section>
 
@@ -68,7 +68,7 @@
   }}
   {{ $related = $related | shuffle | first 3 }}
   {{ with $related }}
-  <h2 class="h3">Related Posts</h2>
+  <h2 class="h3">{{ T "article.related-posts" }}</h2>
 
   <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
     {{ range . }}
@@ -80,4 +80,3 @@
 
 <div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
 {{ end }}
-
