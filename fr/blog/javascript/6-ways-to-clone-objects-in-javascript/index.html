@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Toutes les methodes pour cloner des objets en JavaScript avec 6 approches differentes. Apprenez l&#39;operateur spread, Object.assign, les methodes JSON et plus encore, avec des comparaisons de performance et des bonnes pratiques." />
+    <meta property="og:description" content="Toutes les methodes pour cloner des objets en JavaScript avec 6 approches differentes. Apprenez l&#39;operateur spread, Object.assign, les methodes JSON et plus encore, avec des comparaisons de performance et des bonnes pratiques." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/javascript/6-ways-to-clone-objects-in-javascript/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/javascript/6-ways-to-clone-objects-in-javascript/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//fr/blog/javascript/6-ways-to-clone-objects-in-javascript/' hreflang="fr">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/javascript/6-ways-to-clone-objects-in-javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/javascript/6-ways-to-clone-objects-in-javascript/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/javascript/6-ways-to-clone-objects-in-javascript/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/javascript/6-ways-to-clone-objects-in-javascript/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/javascript/6-ways-to-clone-objects-in-javascript/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    6 facons de cloner des objets en JavaScript : guide complet
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-09" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      09/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Apres avoir lu cet article, vous saurez cloner des objets en JavaScript avec 6 methodes differentes. Apprenez
+    l'operateur spread, Object.assign, les methodes JSON et plus encore, avec des comparaisons de performance et des
+    bonnes pratiques.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="6 facons de cloner des objets en JavaScript : guide complet"
+      src='https://useaxentix.com//img/blog/javascript/6-ways-to-clone-objects-in-javascript/javascript-clone-object.webp'
+      alt="6 facons de cloner des objets en JavaScript : guide complet" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">6 facons de cloner des objets en JavaScript : guide complet
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Le clonage d'objets est l'une des operations les plus essentielles en developpement JavaScript. Que vous geriez un
+      state dans des applications React, que vous travailliez avec des patterns de donnees immuables, ou que vous
+      evitiez des effets de bord involontaires, comprendre les differentes facons de cloner des objets est crucial. Ce
+      guide complet explore 6 methodes differentes pour cloner des objets en JavaScript, de la methode traditionnelle
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign()</code> aux
+      approches modernes comme l'operateur spread, avec des considerations de performance et des bonnes pratiques pour
+      chaque methode.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comprendre le clonage d'objets</h2>
+
+    <p>
+      Le clonage d'objets en JavaScript consiste a creer une copie d'un objet. La distinction cle est entre le clonage
+      superficiel (shallow, qui copie seulement le premier niveau de proprietes) et le clonage profond (deep, qui copie
+      tous les objets et tableaux imbriques). Comprendre cette difference est essentiel pour ecrire du code previsible
+      et maintenable.
+    </p>
+
+    <p>
+      Avant de voir les methodes, etablissons quelques scenarios courants ou le clonage d'objets est indispensable :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Gerer un state dans des applications React ou Vue sans muter le state d'origine</li>
+      <li>Creer des sauvegardes d'objets de configuration avant des modifications</li>
+      <li>Implementer une fonctionnalite d'annulation/refaire dans des applications</li>
+      <li>Travailler avec des patterns de donnees immuables en programmation fonctionnelle</li>
+      <li>Traiter des donnees sans affecter le dataset d'origine</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi ne pas simplement utiliser l'assignation ?</h2>
+
+    <p>
+      Beaucoup de developpeurs font l'erreur de penser qu'une simple assignation cree une copie d'un objet. Or, les
+      objets en JavaScript sont des types par reference, ce qui signifie qu'ils stockent une reference vers un emplacement
+      memoire plutot que les donnees elles-memes.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { name: 'John', age: 30 };
+const copy = original; // This is NOT cloning!
+
+copy.age = 31;
+console.log(original.age); // 31 - Original object is modified!
+console.log(copy.age);     // 31
+
+// Both variables point to the same object in memory
+console.log(original === copy); // true</code></pre>
+    </div>
+
+    <p>
+      C'est pour cela que des methodes de clonage correctes sont essentielles. Voyons les differentes approches
+      disponibles.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 1 : operateur spread (...) - l'approche moderne</h2>
+
+    <p>
+      L'operateur spread, introduit avec ES6, offre une facon concise et elegante de cloner des objets. Il cree une
+      copie superficielle de l'objet, en copiant toutes les proprietes enumerables de l'objet source vers un nouvel
+      objet.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  hobbies: ['reading', 'coding'] 
+};
+
+const clone = { ...original };
+
+console.log(clone); // { name: 'John', age: 30, hobbies: ['reading', 'coding'] }
+console.log(original === clone); // false - Different objects
+console.log(original.hobbies === clone.hobbies); // true - Same array reference</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Ajouter des proprietes pendant le clonage</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30 };
+
+// Clone and add new properties
+const updatedUser = { 
+  ...user, 
+  email: 'john@example.com',
+  isActive: true 
+};
+
+console.log(updatedUser); 
+// { name: 'John', age: 30, email: 'john@example.com', isActive: true }</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Ecraser des proprietes</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30, city: 'New York' };
+
+// Clone and override specific properties
+const updatedUser = { 
+  ...user, 
+  age: 31,
+  city: 'San Francisco' 
+};
+
+console.log(updatedUser); 
+// { name: 'John', age: 31, city: 'San Francisco' }</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Syntaxe concise et lisible</li>
+      <li>Excellentes performances</li>
+      <li>Cree un nouvel objet (immuable)</li>
+      <li>Flexible pour ajouter/ecraser des proprietes</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Ne cree que des copies superficielles</li>
+      <li>Necessite le support ES6+</li>
+      <li>Ne copie pas les proprietes non enumerables</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 2 : Object.assign() - l'approche traditionnelle</h2>
+
+    <p>
+      La methode <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign()</code>
+      est l'approche la plus traditionnelle et la plus largement supportee pour cloner des objets. Elle copie toutes les
+      proprietes enumerables propres (own) d'un ou plusieurs objets source vers un objet cible.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  hobbies: ['reading', 'coding'] 
+};
+
+const clone = Object.assign({}, original);
+
+console.log(clone); // { name: 'John', age: 30, hobbies: ['reading', 'coding'] }
+console.log(original === clone); // false - Different objects
+console.log(original.hobbies === clone.hobbies); // true - Same array reference</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Fusionner plusieurs objets</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: 'John', age: 30 };
+const address = { city: 'New York', country: 'USA' };
+const preferences = { theme: 'dark', notifications: true };
+
+// Merge multiple objects into one
+const completeUser = Object.assign({}, user, address, preferences);
+
+console.log(completeUser); 
+// { name: 'John', age: 30, city: 'New York', country: 'USA', theme: 'dark', notifications: true }</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Comportement d'ecrasement des proprietes</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const base = { name: 'John', age: 30, city: 'New York' };
+const updates = { age: 31, city: 'San Francisco' };
+
+// Later objects override properties from earlier objects
+const updated = Object.assign({}, base, updates);
+
+console.log(updated); 
+// { name: 'John', age: 31, city: 'San Francisco' }</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Excellent support navigateur (ES5+)</li>
+      <li>Permet de fusionner plusieurs objets</li>
+      <li>Cree un nouvel objet (immuable)</li>
+      <li>Comportement clair et previsible</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Ne cree que des copies superficielles</li>
+      <li>Plus verbeux que l'operateur spread</li>
+      <li>Ne copie pas les proprietes non enumerables</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 3 : methodes JSON - l'approche de clonage profond</h2>
+
+    <p>
+      Utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">JSON.stringify()</code>
+      et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">JSON.parse()</code> est une
+      facon rapide de creer des clones profonds d'objets. Cette methode convertit l'objet en chaine JSON puis la parse
+      pour reconstruire un nouvel objet.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30, 
+  address: { 
+    city: 'New York', 
+    country: 'USA' 
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = JSON.parse(JSON.stringify(original));
+
+console.log(clone); // Deep copy of the original object
+console.log(original === clone); // false - Different objects
+console.log(original.address === clone.address); // false - Different nested objects
+console.log(original.hobbies === clone.hobbies); // false - Different arrays</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Gerer des structures imbriquees complexes</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const complexObject = {
+  user: {
+    name: 'John',
+    profile: {
+      avatar: 'avatar.jpg',
+      settings: {
+        theme: 'dark',
+        notifications: {
+          email: true,
+          push: false
+        }
+      }
+    }
+  },
+  metadata: {
+    created: new Date(),
+    tags: ['admin', 'premium']
+  }
+};
+
+const deepClone = JSON.parse(JSON.stringify(complexObject));
+
+// Modify the clone without affecting the original
+deepClone.user.profile.settings.notifications.email = false;
+
+console.log(original.user.profile.settings.notifications.email); // true - unchanged
+console.log(deepClone.user.profile.settings.notifications.email); // false - modified</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Cree de vraies copies profondes</li>
+      <li>Simple et direct</li>
+      <li>Fonctionne avec des objets et tableaux imbriques</li>
+      <li>Aucune dependance externe</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Perd les fonctions, les valeurs undefined et les symboles</li>
+      <li>Convertit les dates en chaines</li>
+      <li>Ne peut pas gerer les references circulaires</li>
+      <li>Problemes de performance avec de gros objets</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 4 : Object.create() - l'approche prototype</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.create()</code> cree un
+      nouvel objet avec le prototype specifie et des proprietes. Cette methode est utile quand vous voulez cloner un
+      objet tout en preservant sa chaine de prototypes.
+    </p>
+
+    <h3 class="exo mt-4">Utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = { 
+  name: 'John', 
+  age: 30,
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+
+const clone = Object.create(Object.getPrototypeOf(original));
+Object.assign(clone, original);
+
+console.log(clone); // { name: 'John', age: 30, greet: [Function: greet] }
+console.log(clone.greet()); // "Hello, I'm John"
+console.log(Object.getPrototypeOf(clone) === Object.getPrototypeOf(original)); // true</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Cloner avec un prototype personnalise</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Define a prototype
+const PersonPrototype = {
+  introduce() {
+    return `Hi, I'm ${this.name} and I'm ${this.age} years old`;
+  }
+};
+
+const person = Object.create(PersonPrototype);
+person.name = 'John';
+person.age = 30;
+
+// Clone while preserving prototype
+const clone = Object.create(Object.getPrototypeOf(person));
+Object.assign(clone, person);
+
+console.log(clone.introduce()); // "Hi, I'm John and I'm 30 years old"</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Preserve la chaine de prototypes</li>
+      <li>Conserve les methodes et proprietes heritees</li>
+      <li>Utile pour des patterns orientes objet</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Syntaxe plus complexe</li>
+      <li>Ne cree que des copies superficielles</li>
+      <li>Necessite de comprendre les prototypes</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 5 : Lodash cloneDeep() - l'approche bibliotheque</h2>
+
+    <p>
+      Lodash fournit des utilitaires de clonage robustes qui gerent les cas limites et les scenarios complexes. La
+      fonction <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">cloneDeep()</code>
+      cree une copie profonde d'un objet, en gerant correctement les fonctions, les dates et d'autres types complexes.
+    </p>
+
+    <h3 class="exo mt-4">Installation et utilisation de base</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Install lodash: npm install lodash
+import { cloneDeep } from 'lodash';
+
+const original = {
+  name: 'John',
+  age: 30,
+  birthDate: new Date('1990-01-01'),
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  },
+  address: {
+    city: 'New York',
+    coordinates: {
+      lat: 40.7128,
+      lng: -74.0060
+    }
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = cloneDeep(original);
+
+console.log(clone); // Complete deep copy
+console.log(clone.birthDate instanceof Date); // true - Date preserved
+console.log(typeof clone.greet); // 'function' - Function preserved
+console.log(original.address === clone.address); // false - Deep copy</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Gerer les references circulaires</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { cloneDeep } from 'lodash';
+
+const circular = { name: 'John' };
+circular.self = circular; // Circular reference
+
+// JSON methods would fail here, but lodash handles it
+const clone = cloneDeep(circular);
+
+console.log(clone.self === clone); // true - Circular reference preserved
+console.log(clone !== circular); // true - Different objects</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Alternative : utiliser cloneDeep depuis lodash-es</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// For tree-shaking support
+import cloneDeep from 'lodash-es/cloneDeep';
+
+const original = { name: 'John', age: 30 };
+const clone = cloneDeep(original);</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Gere correctement tous les types de donnees</li>
+      <li>Gere les references circulaires</li>
+      <li>Preserve les fonctions et les dates</li>
+      <li>Fiable et bien teste</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Necessite une dependance externe</li>
+      <li>Augmente la taille du bundle</li>
+      <li>Overkill pour des cas d'usage simples</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Methode 6 : fonction de clonage profond sur mesure - l'approche flexible</h2>
+
+    <p>
+      Parfois, vous avez besoin d'une solution sur mesure qui gere des exigences specifiques ou des cas limites. Creer
+      une fonction de clonage profond personnalisée vous donne un controle total sur le processus de clonage.
+    </p>
+
+    <h3 class="exo mt-4">Implementation de base d'un clonage profond</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function deepClone(obj) {
+  // Handle null and undefined
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  // Handle Date objects
+  if (obj instanceof Date) {
+    return new Date(obj.getTime());
+  }
+  
+  // Handle Arrays
+  if (Array.isArray(obj)) {
+    return obj.map(item => deepClone(item));
+  }
+  
+  // Handle Objects
+  if (typeof obj === 'object') {
+    const cloned = {};
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        cloned[key] = deepClone(obj[key]);
+      }
+    }
+    return cloned;
+  }
+  
+  return obj;
+}
+
+// Usage
+const original = {
+  name: 'John',
+  age: 30,
+  birthDate: new Date('1990-01-01'),
+  address: {
+    city: 'New York',
+    coordinates: { lat: 40.7128, lng: -74.0060 }
+  },
+  hobbies: ['reading', 'coding']
+};
+
+const clone = deepClone(original);
+console.log(clone.birthDate instanceof Date); // true
+console.log(original.address === clone.address); // false</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Implementation avancee avec gestion des references circulaires</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function deepCloneWithCircular(obj, visited = new WeakMap()) {
+  // Handle null and undefined
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  // Check for circular references
+  if (visited.has(obj)) {
+    return visited.get(obj);
+  }
+  
+  // Handle Date objects
+  if (obj instanceof Date) {
+    const cloned = new Date(obj.getTime());
+    visited.set(obj, cloned);
+    return cloned;
+  }
+  
+  // Handle Arrays
+  if (Array.isArray(obj)) {
+    const cloned = [];
+    visited.set(obj, cloned);
+    cloned.push(...obj.map(item => deepCloneWithCircular(item, visited)));
+    return cloned;
+  }
+  
+  // Handle Objects
+  if (typeof obj === 'object') {
+    const cloned = {};
+    visited.set(obj, cloned);
+    
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        cloned[key] = deepCloneWithCircular(obj[key], visited);
+      }
+    }
+    return cloned;
+  }
+  
+  return obj;
+}
+
+// Test with circular reference
+const circular = { name: 'John' };
+circular.self = circular;
+
+const clone = deepCloneWithCircular(circular);
+console.log(clone.self === clone); // true - Circular reference handled</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Version optimisee pour la performance</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function fastDeepClone(obj) {
+  // Use structuredClone if available (modern browsers)
+  if (typeof structuredClone !== 'undefined') {
+    return structuredClone(obj);
+  }
+  
+  // Fallback to JSON for simple objects
+  try {
+    return JSON.parse(JSON.stringify(obj));
+  } catch (error) {
+    // If JSON fails, use custom implementation
+    return customDeepClone(obj);
+  }
+}
+
+function customDeepClone(obj, visited = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (visited.has(obj)) return visited.get(obj);
+  
+  const cloned = Array.isArray(obj) ? [] : {};
+  visited.set(obj, cloned);
+  
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      cloned[key] = customDeepClone(obj[key], visited);
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <p><strong>Avantages :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Controle total sur le comportement de clonage</li>
+      <li>Peut gerer des exigences specifiques</li>
+      <li>Aucune dependance externe</li>
+      <li>Peut etre optimise pour votre cas d'usage</li>
+    </ul>
+
+    <p><strong>Inconvenients :</strong></p>
+    <ul class="lh-rem-4">
+      <li>Necessite plus de code et de tests</li>
+      <li>Il faut gerer manuellement les cas limites</li>
+      <li>Peut devenir complexe pour des scenarios avances</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Clonage superficiel vs clonage profond</h2>
+
+    <p>
+      Comprendre la difference entre clonage superficiel et clonage profond est essentiel pour choisir la bonne methode
+      selon votre cas d'usage.
+    </p>
+
+    <h3 class="exo mt-4">Clonage superficiel</h3>
+
+    <p>
+      Le clonage superficiel cree un nouvel objet mais ne copie que le premier niveau de proprietes. Les objets et
+      tableaux imbriques restent references, ils ne sont pas copies.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA'
+  },
+  hobbies: ['reading', 'coding']
+};
+
+// Shallow clone using spread operator
+const shallowClone = { ...original };
+
+// Modify nested properties
+shallowClone.name = 'Jane'; // ✅ Safe - first level property
+shallowClone.address.city = 'San Francisco'; // ❌ Affects original!
+shallowClone.hobbies.push('gaming'); // ❌ Affects original!
+
+console.log(original.name); // 'John' - unchanged
+console.log(original.address.city); // 'San Francisco' - modified!
+console.log(original.hobbies); // ['reading', 'coding', 'gaming'] - modified!</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Clonage profond</h3>
+
+    <p>
+      Le clonage profond cree une copie completement independante de l'objet, y compris tous les objets et tableaux
+      imbriques.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const original = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA'
+  },
+  hobbies: ['reading', 'coding']
+};
+
+// Deep clone using JSON methods
+const deepClone = JSON.parse(JSON.stringify(original));
+
+// Modify any properties safely
+deepClone.name = 'Jane'; // ✅ Safe
+deepClone.address.city = 'San Francisco'; // ✅ Safe - doesn't affect original
+deepClone.hobbies.push('gaming'); // ✅ Safe - doesn't affect original
+
+console.log(original.name); // 'John' - unchanged
+console.log(original.address.city); // 'New York' - unchanged
+console.log(original.hobbies); // ['reading', 'coding'] - unchanged</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comparaison de performances</h2>
+
+    <p>
+      Comprendre les caracteristiques de performance de chaque methode est essentiel pour choisir la bonne approche,
+      surtout avec de gros objets ou des operations de clonage frequentes.
+    </p>
+
+    <h3 class="exo mt-4">Resultats de tests de performance</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Performance test function
+function performanceTest(method, obj, iterations = 1000) {
+  const start = performance.now();
+  
+  for (let i = 0; i < iterations; i++) {
+    method(obj);
+  }
+  
+  const end = performance.now();
+  return end - start;
+}
+
+// Test data
+const testObject = {
+  name: 'John',
+  age: 30,
+  address: {
+    street: '123 Main St',
+    city: 'New York',
+    country: 'USA',
+    coordinates: {
+      lat: 40.7128,
+      lng: -74.0060
+    }
+  },
+  hobbies: ['reading', 'coding', 'gaming'],
+  metadata: {
+    created: new Date(),
+    tags: ['user', 'premium'],
+    settings: {
+      theme: 'dark',
+      notifications: true
+    }
+  }
+};
+
+// Test methods
+const methods = {
+  spread: (obj) => ({ ...obj }),
+  objectAssign: (obj) => Object.assign({}, obj),
+  json: (obj) => JSON.parse(JSON.stringify(obj)),
+  lodash: (obj) => cloneDeep(obj),
+  custom: (obj) => deepClone(obj)
+};
+
+// Run tests
+const results = {};
+for (const [name, method] of Object.entries(methods)) {
+  results[name] = performanceTest(method, testObject);
+}
+
+console.log('Performance Results (ms):', results);</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Classement des performances (resultats typiques)</h3>
+
+    <ol class="lh-rem-4">
+      <li><strong>Operateur spread :</strong> le plus rapide pour le clonage superficiel</li>
+      <li><strong>Object.assign() :</strong> bonnes performances, coherentes selon les navigateurs</li>
+      <li><strong>Clonage profond sur mesure :</strong> performances moderees pour le deep clone</li>
+      <li><strong>Lodash cloneDeep :</strong> bonnes performances avec des fonctionnalites completes</li>
+      <li><strong>Methodes JSON :</strong> plus lent mais simple pour le deep clone</li>
+    </ol>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Problemes courants et depannage</h2>
+
+    <h3 class="exo mt-4">Probleme 1 : fonctions perdues avec le clonage JSON</h3>
+
+    <p><strong>Probleme :</strong> les methodes JSON suppriment les fonctions des objets.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = {
+  name: 'John',
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+
+const clone = JSON.parse(JSON.stringify(obj));
+console.log(clone.greet); // undefined - function is lost!</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> utilisez des methodes qui preservent les fonctions ou gerez-les separement.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+import { cloneDeep } from 'lodash';
+const clone = cloneDeep(obj);
+
+// Solution 2: Custom handling
+function cloneWithFunctions(obj) {
+  const cloned = JSON.parse(JSON.stringify(obj));
+  
+  // Restore functions
+  for (let key in obj) {
+    if (typeof obj[key] === 'function') {
+      cloned[key] = obj[key];
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Probleme 2 : dates converties en chaines</h3>
+
+    <p><strong>Probleme :</strong> les methodes JSON convertissent les objets Date en chaines.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = {
+  name: 'John',
+  birthDate: new Date('1990-01-01')
+};
+
+const clone = JSON.parse(JSON.stringify(obj));
+console.log(clone.birthDate instanceof Date); // false
+console.log(typeof clone.birthDate); // 'string'</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> utilisez des methodes qui preservent les Date ou reconvertissez-les.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+const clone = cloneDeep(obj);
+
+// Solution 2: Custom date handling
+function cloneWithDates(obj) {
+  const cloned = JSON.parse(JSON.stringify(obj));
+  
+  // Restore dates
+  for (let key in obj) {
+    if (obj[key] instanceof Date) {
+      cloned[key] = new Date(obj[key]);
+    }
+  }
+  
+  return cloned;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Probleme 3 : erreurs de reference circulaire</h3>
+
+    <p><strong>Probleme :</strong> les methodes JSON echouent avec des references circulaires.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const obj = { name: 'John' };
+obj.self = obj; // Circular reference
+
+// This will throw an error
+// const clone = JSON.parse(JSON.stringify(obj)); // TypeError: Converting circular structure to JSON</code></pre>
+    </div>
+
+    <p><strong>Solution :</strong> utilisez des methodes qui gerent les references circulaires.</p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Solution 1: Use lodash
+const clone = cloneDeep(obj);
+
+// Solution 2: Use structuredClone (modern browsers)
+if (typeof structuredClone !== 'undefined') {
+  const clone = structuredClone(obj);
+}
+
+// Solution 3: Custom implementation with WeakMap
+const clone = deepCloneWithCircular(obj);</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples du monde reel</h2>
+
+    <h3 class="exo mt-4">Exemple 1 : gestion de state React</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// React component with state cloning
+function UserProfile() {
+  const [user, setUser] = useState({
+    name: 'John',
+    age: 30,
+    preferences: {
+      theme: 'light',
+      notifications: true
+    }
+  });
+  
+  const updatePreference = (key, value) => {
+    // Immutable update using spread operator
+    setUser(prevUser => ({
+      ...prevUser,
+      preferences: {
+        ...prevUser.preferences,
+        [key]: value
+      }
+    }));
+  };
+  
+  const resetToDefaults = () => {
+    // Deep clone for complete reset
+    const defaultUser = JSON.parse(JSON.stringify({
+      name: 'John',
+      age: 30,
+      preferences: {
+        theme: 'light',
+        notifications: true
+      }
+    }));
+    setUser(defaultUser);
+  };
+  
+  return (
+    // Component JSX
+  );
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 2 : gestion de configuration</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Configuration management with cloning
+class ConfigManager {
+  constructor(defaultConfig) {
+    this.defaultConfig = defaultConfig;
+    this.currentConfig = { ...defaultConfig };
+  }
+  
+  updateConfig(updates) {
+    // Shallow clone for simple updates
+    this.currentConfig = { ...this.currentConfig, ...updates };
+  }
+  
+  resetToDefaults() {
+    // Deep clone to ensure complete reset
+    this.currentConfig = JSON.parse(JSON.stringify(this.defaultConfig));
+  }
+  
+  createSnapshot() {
+    // Create a snapshot for backup
+    return JSON.parse(JSON.stringify(this.currentConfig));
+  }
+  
+  restoreFromSnapshot(snapshot) {
+    // Restore from backup
+    this.currentConfig = JSON.parse(JSON.stringify(snapshot));
+  }
+}
+
+// Usage
+const configManager = new ConfigManager({
+  api: {
+    baseUrl: 'https://api.example.com',
+    timeout: 5000
+  },
+  ui: {
+    theme: 'light',
+    language: 'en'
+  }
+});</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 3 : pipeline de traitement de donnees</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Data processing with object cloning
+function processUserData(rawData) {
+  // Create a deep clone to avoid modifying original data
+  const data = JSON.parse(JSON.stringify(rawData));
+  
+  // Process the cloned data
+  data.users.forEach(user => {
+    // Add computed properties
+    user.fullName = `${user.firstName} ${user.lastName}`;
+    user.isActive = user.lastLogin > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    
+    // Normalize address
+    if (user.address) {
+      user.address.country = user.address.country.toUpperCase();
+    }
+  });
+  
+  // Filter and sort
+  const activeUsers = data.users
+    .filter(user => user.isActive)
+    .sort((a, b) => a.lastName.localeCompare(b.lastName));
+  
+  return {
+    ...data,
+    users: activeUsers,
+    processedAt: new Date()
+  };
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques et recommandations</h2>
+
+    <h3 class="exo mt-4">Quand utiliser chaque methode</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Utilisez l'operateur spread :</strong> pour des codebases modernes (ES6+) et du clonage superficiel</li>
+      <li><strong>Utilisez Object.assign() :</strong> quand vous voulez un maximum de compatibilite ou fusionner plusieurs
+        objets</li>
+      <li><strong>Utilisez les methodes JSON :</strong> pour du deep clone simple sans fonctions ni dates</li>
+      <li><strong>Utilisez lodash cloneDeep :</strong> pour des objets complexes avec fonctions, dates ou references
+        circulaires</li>
+      <li><strong>Utilisez des fonctions custom :</strong> quand vous avez besoin d'un comportement specifique ou
+        d'optimisations de performance</li>
+    </ul>
+
+    <h3 class="exo mt-4">Regles de performance</h3>
+
+    <ol class="lh-rem-4">
+      <li><strong>Pour de petits objets (&lt; 100 proprietes) :</strong> utilisez l'operateur spread pour la lisibilite</li>
+      <li><strong>Pour de gros objets (&gt; 1000 proprietes) :</strong> tenez compte des implications de performance</li>
+      <li><strong>Pour du clonage frequent :</strong> privilegiez le clonage superficiel quand c'est possible</li>
+      <li><strong>Pour des objets complexes :</strong> utilisez lodash ou des implementations custom</li>
+    </ol>
+
+    <h3 class="exo mt-4">Conseils de qualite de code</h3>
+
+    <ul class="lh-rem-4">
+      <li>Pensez toujours a si vous avez besoin d'un clonage superficiel ou profond</li>
+      <li>Utilisez des methodes coherentes dans toute votre codebase</li>
+      <li>Ajoutez des commentaires pour la logique de clonage complexe</li>
+      <li>Testez avec des cas limites (references circulaires, fonctions, dates)</li>
+      <li>Pensez a utiliser TypeScript pour une meilleure surete de types</li>
+      <li>Attention aux implications memoire avec de gros objets</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilite navigateur</h2>
+
+    <p>
+      Comprendre le support navigateur est essentiel pour choisir la bonne methode pour votre projet :
+    </p>
+
+    <h3 class="exo mt-4">Matrice de support</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Object.assign() :</strong> tous les navigateurs modernes (IE non supporte)</li>
+      <li><strong>Operateur spread :</strong> navigateurs modernes (Chrome 46+, Firefox 16+, Safari 8+)</li>
+      <li><strong>Methodes JSON :</strong> tous les navigateurs (IE8+)</li>
+      <li><strong>Object.create() :</strong> tous les navigateurs modernes (IE9+)</li>
+      <li><strong>structuredClone() :</strong> navigateurs tres recents (Chrome 98+, Firefox 94+)</li>
+    </ul>
+
+    <h3 class="exo mt-4">Polyfills et fallbacks</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Polyfill for Object.assign if needed
+if (typeof Object.assign !== 'function') {
+  Object.assign = function(target) {
+    if (target == null) {
+      throw new TypeError('Cannot convert undefined or null to object');
+    }
+    
+    var to = Object(target);
+    
+    for (var index = 1; index < arguments.length; index++) {
+      var nextSource = arguments[index];
+      
+      if (nextSource != null) {
+        for (var nextKey in nextSource) {
+          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+            to[nextKey] = nextSource[nextKey];
+          }
+        }
+      }
+    }
+    return to;
+  };
+}
+
+// Safe spread operator usage with fallback
+function safeClone(obj) {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj;
+  }
+  
+  // Try spread operator first
+  try {
+    return { ...obj };
+  } catch (error) {
+    // Fallback to Object.assign
+    return Object.assign({}, obj);
+  }
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Alternatives modernes</h2>
+
+    <h3 class="exo mt-4">structuredClone() - le futur du clonage</h3>
+
+    <p>
+      La fonction <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">structuredClone()</code>
+      est un nouveau standard web qui fournit des capacites natives de clonage profond avec de meilleures performances et
+      le support de plus de types de donnees.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Modern deep cloning with structuredClone
+if (typeof structuredClone !== 'undefined') {
+  const original = {
+    name: 'John',
+    birthDate: new Date('1990-01-01'),
+    greet() {
+      return `Hello, I'm ${this.name}`;
+    },
+    address: {
+      city: 'New York',
+      coordinates: { lat: 40.7128, lng: -74.0060 }
+    }
+  };
+  
+  const clone = structuredClone(original);
+  
+  console.log(clone.birthDate instanceof Date); // true
+  console.log(typeof clone.greet); // 'function'
+  console.log(original.address === clone.address); // false
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Immer - gestion de state immuable</h3>
+
+    <p>
+      Pour des scenarios de gestion de state plus complexes, des bibliotheques comme Immer offrent une approche plus
+      elegante des mises a jour immuables.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { produce } from 'immer';
+
+const originalState = {
+  user: {
+    name: 'John',
+    preferences: {
+      theme: 'light',
+      notifications: true
+    }
+  },
+  todos: [
+    { id: 1, text: 'Learn cloning', completed: false }
+  ]
+};
+
+// Immutable update with Immer
+const newState = produce(originalState, draft => {
+  draft.user.name = 'Jane';
+  draft.user.preferences.theme = 'dark';
+  draft.todos.push({ id: 2, text: 'Master Immer', completed: false });
+});
+
+console.log(originalState === newState); // false
+console.log(originalState.user === newState.user); // false
+console.log(originalState.todos === newState.todos); // false</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Le clonage d'objets en JavaScript est une operation fondamentale que chaque developpeur devrait maitriser. Chacune
+      des 6 methodes que nous avons vues a ses points forts et ses cas d'usage. L'operateur spread reste le choix le plus
+      populaire pour le clonage superficiel grace a sa syntaxe propre et ses excellentes performances, tandis que les
+      methodes JSON fournissent une solution simple pour le clonage profond quand on travaille avec des structures de
+      donnees simples.
+    </p>
+
+    <p>
+      La cle pour choisir la bonne methode est de comprendre vos besoins : avez-vous besoin d'un clonage superficiel ou
+      profond ? Travaillez-vous avec des objets complexes contenant des fonctions ou des dates ? Devez-vous gerer des
+      references circulaires ? En tenant compte de ces facteurs et en suivant les bonnes pratiques de ce guide, vous
+      pourrez ecrire du code efficace et maintenable qui gere le clonage d'objets correctement.
+    </p>
+
+    <p>
+      Gardez en tete que les considerations de performance deviennent plus importantes a mesure que vos objets gagnent
+      en complexite, et testez toujours votre methode avec des structures de donnees realistes. Que vous construisiez une
+      application web simple ou un systeme complexe de traitement de donnees, la bonne technique de clonage d'objets vous
+      aidera a ecrire un code JavaScript plus propre et plus efficace.
+    </p>
+
+    <p>
+      A mesure que JavaScript evolue, de nouvelles methodes comme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">structuredClone()</code> fourniront
+      des solutions encore meilleures, mais les principes fondamentaux de manipulation d'objets restent constants. En
+      maitrisant ces 6 methodes, vous serez pret a relever n'importe quel defi de clonage d'objets.
+    </p>
+  </article>
+</div>
+
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (13)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/" aria-label="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/tamagui-latest-version-february-2026/tamagui-february-update.webp" loading="lazy"
+      alt="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+        Dernière version de Tamagui février 2026 : actualités de la version v2.0.0
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        06 Feb 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Tamagui v2.0.0 est en phase de release candidate. Calendrier complet de rc.0 à rc.5, nouvelles fonctionnalités, état de v1, passage à v2 et actualités de l&rsquo;écosystème à partir des versions officielles GitHub.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/css/complete-css-grid-tutorial/" aria-label="Le tutoriel CSS Grid le plus complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/css/complete-css-grid-tutorial/css-grid-banner.jpg" loading="lazy"
+      alt="Le tutoriel CSS Grid le plus complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/css/complete-css-grid-tutorial/">
+        Le tutoriel CSS Grid le plus complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        24 Aug 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/css/">Css
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Maitrisez la mise en page CSS Grid avec ce guide complet qui couvre tout, des concepts de base aux techniques avancees, la compatibilite navigateur et des exemples pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/css/complete-css-grid-tutorial/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/what-is-tamagui-and-how-to-use-it/" aria-label="Qu&#39;est-ce que Tamagui et comment l&#39;utiliser : la solution universelle de style pour React article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png" loading="lazy"
+      alt="Qu&#39;est-ce que Tamagui et comment l&#39;utiliser : la solution universelle de style pour React recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/what-is-tamagui-and-how-to-use-it/">
+        Qu&#39;est-ce que Tamagui et comment l&#39;utiliser : la solution universelle de style pour React
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        29 Sep 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Découvrez Tamagui, la puissante bibliothèque de style et le kit UI qui permet un développement multiplateforme fluide pour React et React Native grâce à une technologie de compilateur d&rsquo;optimisation.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/what-is-tamagui-and-how-to-use-it/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
+    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>

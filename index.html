@@ -6,7 +6,13 @@
         
         <meta name="description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
         <meta property="og:description" content="Framework mixing fully customizable components &amp; utility-first classes, leaving the design choice to the developer." />
-        <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+        
+        <link rel="alternate" href='https://useaxentix.com//' hreflang="x-default">
+        <link rel="alternate" href='https://useaxentix.com//' hreflang="en">
+        <link rel="alternate" href='https://useaxentix.com/fr//' hreflang="fr">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -55,9 +61,9 @@
       <div class="navbar-menu hide-sm-down navbar-centered">
         <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
 
-        <a class="navbar-link font-w600" href="https://useaxentix.com/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
 
-        <a class="navbar-link font-w600" href="https://useaxentix.com/blog/">Blog</a>
+        <a class="navbar-link font-w600" href="/blog/">Blog</a>
 
         <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
           Neumorphism
@@ -80,10 +86,33 @@
 
         <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
           <span class="iconify-inline" data-icon="mdi:discord"></span>
-        </a>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Language"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;EN
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
 
-        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
-          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/fr/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" />
+        <path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" />
+        <path fill="#eee" d="M12 5h12v26H12z" />
+      </svg>
+      Français
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
             <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
             <span class="iconify-inline" data-icon="fa-regular:moon"></span>
           </span>
@@ -97,7 +126,8 @@
       </div>
     </nav>
   </div>
-</header><div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
   <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
 
@@ -161,18 +191,78 @@
 <div class="sidenav-content">
   <div class="hide-md-up">
     <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
-    <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link">Documentation</a>
-    <a href="https://useaxentix.com/blog/" class="sidenav-link">Blog</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/blog/" class="sidenav-link">Blog</a>
     <div class="divider"></div>
   </div>
   
-  <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link ">
+  <a href="/docs/getting-started/" class="sidenav-link ">
     Getting started
   </a>
   
   <span class="sidenav-link" data-target="general-menu">General</span>
   <div>
     <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -427,6 +517,66 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
       <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
       
     
@@ -596,7 +746,67 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
-      <a class="sidenav-link " href="https://useaxentix.com/docs/forms/material/">Material forms</a>
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -877,6 +1087,66 @@
         
       
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
         <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
         
       
@@ -982,6 +1252,66 @@
   <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
   <div>
     <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1326,6 +1656,66 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
     
   
@@ -1372,7 +1762,7 @@
     
   
   
-  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link ">
+  <a href="/docs/migration/" class="sidenav-link ">
     Migrate from v1
   </a>
 </div>

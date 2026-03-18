@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Découvrez shadcn/ui, la bibliothèque de composants révolutionnaire qui change la façon dont les développeurs construisent des applications React modernes avec des composants à copier-coller et de beaux systèmes de design." />
+    <meta property="og:description" content="Découvrez shadcn/ui, la bibliothèque de composants révolutionnaire qui change la façon dont les développeurs construisent des applications React modernes avec des composants à copier-coller et de beaux systèmes de design." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/shacdn/getting-started-with-shadcn-ui/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/shacdn/getting-started-with-shadcn-ui/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//fr/blog/shacdn/getting-started-with-shadcn-ui/' hreflang="fr">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/shacdn/getting-started-with-shadcn-ui/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/shacdn/getting-started-with-shadcn-ui/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/shacdn/getting-started-with-shadcn-ui/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/shacdn/getting-started-with-shadcn-ui/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/shacdn/getting-started-with-shadcn-ui/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/shacdn/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    Shacdn Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Premiers pas avec shadcn/ui : la révolution moderne des bibliothèques de composants
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/shacdn/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Shacdn
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-09-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/09/2025
+    </time>
+  </div>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Page d'accueil de Shacdn UI - la révolution moderne des bibliothèques de composants"
+      src='https://useaxentix.com//img/blog/shacdn/getting-started-with-shadcn-ui/banner.png'
+      alt="Page d'accueil de Shacdn UI - la révolution moderne des bibliothèques de composants" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Page d'accueil de Shacdn UI - la révolution moderne des bibliothèques de composants</figcaption>
+  </figure>
+
+  <p class="mb-5 font-s3">
+    Découvrez shadcn/ui, la bibliothèque de composants révolutionnaire qui change la façon dont les développeurs construisent des applications React modernes avec des composants à copier-coller et de beaux systèmes de design.
+  </p>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">Qu'est-ce que shadcn/ui ?</h2>
+
+    <p>
+      Imaginez une bibliothèque de composants qui ne vous enferme pas dans un système de design rigide et ne vous oblige pas à installer de grosses dépendances. C'est exactement ce que propose shadcn/ui. Ce n'est pas une bibliothèque de composants classique, c'est une approche nouvelle pour créer des applications React modernes qui vous donne un contrôle total sur votre base de code tout en fournissant des composants magnifiquement conçus et prêts pour la production.
+    </p>
+
+    <p>
+      Créé par les équipes de Vercel et inspiré par Radix UI et Tailwind CSS, shadcn/ui adopte une approche totalement différente des bibliothèques de composants. Au lieu d'installer des composants comme dépendances, vous copiez simplement le code source dans votre projet. Cela signifie que vous possédez chaque ligne de code, que vous pouvez tout ajuster comme vous le souhaitez, et que vous n'avez jamais à vous inquiéter des conflits de versions ou des changements cassants provenant de dépendances externes.
+    </p>
+
+    <p>
+      La bibliothèque propose plus de 50 composants soigneusement conçus, couvrant tout, des boutons et champs de saisie simples jusqu'aux tableaux de données complexes et aux menus de navigation. Chaque composant est pensé avec l'accessibilité en tête, suit les modèles React modernes et inclut une prise en charge complète de TypeScript. C'est comme si une équipe de designers et de développeurs experts construisait votre bibliothèque de composants pour vous, tout en vous laissant garder tout le code source pour en faire quelque chose de totalement personnel.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi shadcn/ui change la donne</h2>
+
+    <p>
+      Dans un monde où les bibliothèques de composants s'accompagnent souvent de conditions, de verrouillage fournisseur, de contraintes de design et de dépendances difficiles à gérer, shadcn/ui apporte un vrai souffle d'air frais. L'approche traditionnelle consistant à installer des bibliothèques de composants comme paquets npm a bien fonctionné jusqu'ici, mais elle impose de vraies limites que shadcn/ui résout de manière élégante.
+    </p>
+
+    <p>
+      L'approche copier-coller peut sembler un peu inhabituelle au premier abord, mais elle est en réalité très brillante. Quand vous copiez un composant dans votre projet, vous ne récupérez pas seulement une boîte noire, vous obtenez le véritable code source. Cela signifie que vous pouvez le lire, le comprendre, le modifier et même renvoyer des améliorations à la communauté. C'est l'open source dans son sens le plus pur : pas seulement libre d'utilisation, mais libre à posséder et à modifier.
+    </p>
+
+    <p>
+      Cette approche élimine aussi le redouté « dependency hell » qui touche de nombreux projets React. Plus besoin de s'inquiéter des conflits de versions entre différentes bibliothèques de composants, plus besoin d'attendre des mises à jour pour corriger des bugs critiques, et plus besoin de rester bloqué avec des composants obsolètes parce qu'une mise à niveau casserait toute votre application. Avec shadcn/ui, vous avez le contrôle total.
+    </p>
+
+    <p>
+      Mais ce qui rend vraiment shadcn/ui spécial, c'est son engagement envers les standards web modernes et l'accessibilité. Chaque composant est construit sur les primitives Radix UI, ce qui signifie que vous obtenez d'emblée des fonctionnalités d'accessibilité éprouvées. La navigation clavier, la prise en charge des lecteurs d'écran, la gestion du focus et les attributs ARIA sont tous gérés automatiquement, afin que vous puissiez vous concentrer sur la création d'expériences utilisateur de qualité au lieu de lutter avec les exigences d'accessibilité.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Commencer est étonnamment simple</h2>
+
+    <p>
+      Malgré son approche innovante, commencer avec shadcn/ui est étonnamment simple. L'équipe a créé un excellent outil CLI qui gère tout le gros du travail, de la mise en place de la configuration du projet à l'installation des composants avec une seule commande. Que vous démarriez un nouveau projet ou que vous ajoutiez shadcn/ui à un projet existant, le processus est conçu pour être aussi fluide que possible.
+    </p>
+
+    <h3 class="exo mt-4">Configuration initiale avec le CLI</h3>
+    <p>
+      Le CLI shadcn/ui est votre point d'entrée dans tout l'écosystème. Il s'occupe de tout, de l'initialisation du projet à l'installation des composants, ce qui rend le processus entièrement fluide. Pour commencer, vous devrez d'abord initialiser shadcn/ui dans votre projet :
+    </p>
+
+    <pre><code class="language-bash">
+# Install the CLI globally
+npm install -g shadcn-ui@latest
+
+# Initialize shadcn/ui in your project
+npx shadcn-ui@latest init
+    </code></pre>
+
+    <p>
+      La commande init vous guidera à travers une série de questions pour configurer votre projet. Elle vous demandera votre solution de style préférée (variables CSS ou Tailwind), votre palette de couleurs et l'endroit où vous souhaitez installer les composants. Le CLI est suffisamment intelligent pour détecter votre configuration existante et tout configurer en conséquence.
+    </p>
+
+    <h3 class="exo mt-4">Installer votre premier composant</h3>
+    <p>
+      Une fois l'initialisation terminée, installer des composants est aussi simple que d'exécuter une seule commande. Le CLI copiera le code source du composant dans votre projet et gérera toutes les importations et dépendances nécessaires :
+    </p>
+
+    <pre><code class="language-bash">
+# Install a button component
+npx shadcn-ui@latest add button
+
+# Install multiple components at once
+npx shadcn-ui@latest add button card input
+    </code></pre>
+
+    <h3 class="exo mt-4">Installation manuelle pour un contrôle total</h3>
+    <p>
+      Si vous préférez avoir un contrôle complet sur le processus d'installation, vous pouvez aussi installer les composants manuellement. Le code source de chaque composant est disponible sur le site shadcn/ui, et vous pouvez le copier directement dans votre projet. Cette approche vous permet d'examiner le code avant de l'ajouter et d'effectuer dès le départ les modifications dont vous avez besoin.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">La Sidebar shadcn : un exemple parfait</h2>
+
+    <p>
+      L'un des composants les plus impressionnants de la bibliothèque shadcn/ui est le composant <strong>Sidebar</strong>, qui montre parfaitement la puissance et la flexibilité de tout le système. Les sidebars sont notoirement complexes à construire de zéro : elles doivent gérer les états repliables, le comportement responsive, la navigation clavier et les exigences d'accessibilité. Le composant <strong>shadcn Sidebar</strong> gère toute cette complexité tout en restant extrêmement personnalisable.
+    </p>
+
+    <p>
+      Le composant Sidebar repose sur une architecture composable qui le rend à la fois puissant et flexible. Plutôt que d'être un composant monolithique avec peu d'options de personnalisation, il est composé de plusieurs petits composants ciblés qui fonctionnent ensemble de manière fluide. Cela inclut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarProvider</code> pour la gestion de l'état, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarContent</code> pour la zone de contenu principale, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarHeader</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarFooter</code> pour les sections fixes, et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarMenu</code> pour les éléments de navigation.
+    </p>
+
+    <p>
+      Ce qui rend la Sidebar shadcn particulièrement impressionnante, c'est sa prise en charge native des différents modes repliables. Vous pouvez avoir une sidebar qui se réduit en icônes, une qui glisse à l'intérieur et à l'extérieur, ou une qui conserve toute sa largeur. Le composant gère automatiquement toute la logique d'état complexe et les animations, tout en vous laissant un contrôle total sur le style et le comportement.
+    </p>
+
+    <p>
+      Les fonctionnalités d'accessibilité sont tout aussi impressionnantes. Le composant Sidebar inclut des attributs ARIA appropriés, la prise en charge de la navigation clavier et une gestion du focus qui fonctionne sans accroc avec les lecteurs d'écran. Il inclut aussi un composant <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">SidebarTrigger</code> qui gère automatiquement la fonction de bascule et maintient des relations d'accessibilité correctes.
+    </p>
+
+    <p>
+      Voici un exemple simple de la manière dont vous pourriez utiliser la Sidebar shadcn dans votre application :
+    </p>
+
+    <pre><code class="language-javascript">
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    &lt;SidebarProvider&gt;
+      &lt;AppSidebar /&gt;
+      &lt;main&gt;
+        &lt;SidebarTrigger /&gt;
+        {children}
+      &lt;/main&gt;
+    &lt;/SidebarProvider&gt;
+  )
+}
+    </code></pre>
+
+    <p>
+      L'interet de cette approche est que vous voyez exactement comment la Sidebar fonctionne, que vous pouvez la modifier pour repondre a vos besoins specifiques et meme l'etendre avec des fonctionnalites supplementaires. Si vous avez besoin d'une sidebar qui se comporte differemment de l'implementation par defaut, vous pouvez facilement modifier le code source pour l'adapter a vos exigences.
+    </p>
+
+    <p>
+      Pour une solution de sidebar encore plus simple, vous pouvez utiliser le <a href="/docs/components/sidenav/" class="text-primary"
+        target="_blank">sidenav</a> d'Axentix.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">La base technique qui alimente tout</h2>
+
+    <p>
+      Sous le capot, shadcn/ui repose sur une base technique solide qui le rend à la fois puissant et fiable. Les composants sont construits avec des modèles React modernes, notamment les hooks pour la gestion d'état et le context pour partager l'état entre les composants. Cela garantit que les composants sont non seulement performants, mais suivent aussi les meilleures pratiques React.
+    </p>
+
+    <h3 class="exo mt-4">Primitives Radix UI</h3>
+    <p>
+      Chaque composant shadcn/ui est construit au-dessus des primitives Radix UI, qui fournissent les fonctionnalités sous-jacentes et les fonctions d'accessibilité. Radix UI est une bibliothèque de primitives UI de bas niveau qui gère toutes les exigences complexes d'accessibilité, de navigation clavier et de gestion du focus qui rendent les composants réellement utilisables. En s'appuyant sur ces primitives, les composants shadcn/ui héritent de tous ces avantages tout en proposant une API plus conviviale pour les développeurs.
+    </p>
+
+    <h3 class="exo mt-4">Intégration de Tailwind CSS</h3>
+    <p>
+      Le système de style repose sur Tailwind CSS, qui fournit une approche utilitaire du style à la fois puissante et maintenable. Chaque composant est livré avec des classes Tailwind soigneusement conçues qui produisent des interfaces belles et cohérentes. L'utilisation de variables CSS pour le theming signifie que vous pouvez facilement personnaliser les couleurs, l'espacement et d'autres jetons de design pour correspondre à votre marque.
+    </p>
+
+    <h3 class="exo mt-4">Prise en charge de TypeScript</h3>
+    <p>
+      Chaque composant est livré avec une prise en charge complète de TypeScript, notamment des définitions de types correctes pour toutes les props et les valeurs de retour. Cela signifie que vous bénéficiez d'un excellent support IDE, d'une vérification des erreurs à la compilation et d'une meilleure documentation directement dans votre éditeur de code. L'intégration TypeScript est si poussée que vous aurez rarement besoin de consulter une documentation externe pendant le développement.
+    </p>
+
+    <h3 class="exo mt-4">Modèles React modernes</h3>
+    <p>
+      Les composants utilisent des modèles React modernes comme les hooks, le context et les composants composés. Cela les rend à la fois puissants et faciles à comprendre. L'utilisation de composants composés (comme l'exemple de Sidebar ci-dessus) permet une composition flexible tout en gardant une API claire. Les hooks servent à la gestion de l'état et des effets de bord, ce qui rend les composants à la fois performants et faciles à tester.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi shadcn/ui compte pour le développement moderne</h2>
+
+    <p>
+      Dans l'environnement de développement rapide d'aujourd'hui, la capacité à avancer vite tout en maintenant une grande qualité est plus importante que jamais. shadcn/ui répond à ce besoin en offrant un équilibre parfait entre vitesse et flexibilité. Vous pouvez démarrer rapidement avec de beaux composants prêts pour la production, tout en n'étant jamais enfermé dans un design ou une implémentation spécifique.
+    </p>
+
+    <h3 class="exo mt-4">La révolution copier-coller</h3>
+    <p>
+      L'approche copier-coller peut sembler être un pas en arrière à l'ère des gestionnaires de paquets sophistiqués et des outils de gestion des dépendances, mais c'est en réalité un pas en avant. En copiant le code source dans votre projet, vous éliminez la complexité liée à la gestion des dépendances externes tout en gagnant un contrôle total sur votre base de code. Cette approche est particulièrement précieuse dans les environnements d'entreprise où les exigences de sécurité et de conformité rendent les dépendances externes problématiques.
+    </p>
+
+    <h3 class="exo mt-4">Flexibilité du système de design</h3>
+    <p>
+      Contrairement aux bibliothèques de composants traditionnelles qui vous imposent un système de design précis, shadcn/ui vous donne la liberté de créer le vôtre. Les composants sont conçus pour être personnalisables, avec des variables CSS pour le theming et des classes Tailwind pour le style. Cela signifie que vous pouvez adapter les composants à votre marque tout en profitant des fonctionnalités et de l'accessibilité sous-jacentes.
+    </p>
+
+    <h3 class="exo mt-4">Performance et taille du bundle</h3>
+    <p>
+      Comme vous ne copiez que les composants que vous utilisez réellement, la taille de votre bundle reste légère. Il n'est pas nécessaire d'inclure une bibliothèque de composants complète lorsque vous n'avez besoin que de quelques composants. Cette approche élimine aussi le risque d'inclure du code inutilisé dans votre bundle, ce qui peut avoir un impact significatif sur les performances, surtout sur les appareils mobiles.
+    </p>
+
+    <h3 class="exo mt-4">Développement pérenne</h3>
+    <p>
+      L'approche copier-coller rend aussi votre base de code plus pérenne. Vous ne dépendez pas de mainteneurs externes pour corriger des bugs ou ajouter des fonctionnalités. Si vous avez besoin qu'un composant se comporte différemment, vous pouvez le modifier directement. Si vous devez ajouter une nouvelle fonctionnalité, vous pouvez étendre les composants existants. Ce niveau de contrôle est inestimable pour la maintenance à long terme d'un projet.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">L'écosystème et la communauté</h2>
+
+    <p>
+      L'un des aspects les plus impressionnants de shadcn/ui est l'écosystème dynamique qui s'est développé autour de lui. La communauté a créé des centaines de composants, d'exemples et d'intégrations supplémentaires qui étendent la bibliothèque principale. Des tableaux de données complexes aux constructeurs de formulaires sophistiqués, il existe probablement un composant proposé par la communauté qui répond à vos besoins.
+    </p>
+
+    <p>
+      Le site shadcn/ui lui-même est une mine d'exemples et d'inspiration. La section Blocks présente des applications réelles construites avec les composants, des simples pages d'accueil aux tableaux de bord complexes. Ces exemples montrent non seulement ce qui est possible, mais fournissent aussi du code pratique que vous pouvez adapter à vos propres projets.
+    </p>
+
+    <p>
+      La communauté est aussi extrêmement active et serviable. Le serveur Discord est un excellent endroit pour obtenir de l'aide, partager vos créations et apprendre des autres développeurs. Le dépôt GitHub est bien maintenu avec des mises à jour régulières, des corrections de bugs et de nouveaux composants. Les mainteneurs répondent aux problèmes et aux demandes de fonctionnalités, ce qui montre clairement qu'il s'agit d'un projet fait pour durer.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Prêt à transformer votre flux de travail de développement ?</h2>
+
+    <p>
+      shadcn/ui représente un changement fondamental dans la manière dont nous concevons les bibliothèques de composants. Ce n'est pas seulement un autre framework UI, c'est une nouvelle façon de construire des applications qui met les développeurs aux commandes tout en donnant accès à des composants et des systèmes de design de premier plan.
+    </p>
+
+    <p>
+      Que vous construisiez une simple landing page ou une application d'entreprise complexe, shadcn/ui fournit les outils dont vous avez besoin pour créer des interfaces utilisateur belles, accessibles et maintenables. La combinaison de modèles React modernes, d'une prise en charge complète de l'accessibilité et d'une liberté totale de personnalisation en fait un excellent choix pour des projets de toute taille et de toute complexité.
+    </p>
+
+    <p>
+      La meilleure façon de comprendre la puissance de shadcn/ui est de l'essayer vous-même. Commencez avec un composant simple comme un bouton ou une card, et vous verrez rapidement comment l'approche copier-coller vous donne un contrôle total tout en fournissant des résultats de qualité professionnelle. En explorant des composants plus complexes comme la Sidebar ou le Data Table, vous apprécierez l'architecture réfléchie et l'attention portée aux détails qui rendent shadcn/ui si spécial.
+    </p>
+
+    <p>
+      Alors, qu'attendez-vous ? Visitez dès aujourd'hui le <a href="https://ui.shadcn.com/" class="text-primary" target="_blank"
+        rel="nofollow noopener noreferrer">site web shadcn/ui</a> et commencez à construire avec des composants qui sont vraiment à vous. Vos utilisateurs aimeront les interfaces soignées, votre équipe appréciera le code maintenable, et vous vous demanderez comment vous avez pu créer des applications React sans cela.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (13)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/" aria-label="Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/angular/what-is-primeng-and-how-to-use-it/primeng.webp" loading="lazy"
+      alt="Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/">
+        Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        30 Dec 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/angular/">Angular
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez ce qu&rsquo;est PrimeNG et comment l&rsquo;utiliser dans vos applications Angular. Maîtrisez les icônes PrimeNG et les composants de table PrimeNG avec des exemples complets et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/" aria-label="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/tamagui-latest-version-february-2026/tamagui-february-update.webp" loading="lazy"
+      alt="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+        Dernière version de Tamagui février 2026 : actualités de la version v2.0.0
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        06 Feb 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Tamagui v2.0.0 est en phase de release candidate. Calendrier complet de rc.0 à rc.5, nouvelles fonctionnalités, état de v1, passage à v2 et actualités de l&rsquo;écosystème à partir des versions officielles GitHub.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/cursor/how-to-use-claude-with-cursor/" aria-label="Comment utiliser Claude avec Cursor facilement article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/cursor/how-to-use-claude-with-cursor/claude-in-cursor.webp" loading="lazy"
+      alt="Comment utiliser Claude avec Cursor facilement recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/cursor/how-to-use-claude-with-cursor/">
+        Comment utiliser Claude avec Cursor facilement
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        24 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/cursor/">Cursor
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Guide complet pour integrer Claude AI avec l&rsquo;editeur Cursor. Apprenez l&rsquo;installation, la configuration et les bonnes pratiques pour utiliser Claude Code dans Cursor afin d&rsquo;ameliorer votre workflow de developpement.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/cursor/how-to-use-claude-with-cursor/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
+    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>

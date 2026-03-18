@@ -6,7 +6,13 @@
     
     <meta name="description" content="Learn how to get and change CSS variables with JavaScript. Master getComputedStyle(), setProperty(), and create dynamic, interactive styling with CSS custom properties." />
     <meta property="og:description" content="Learn how to get and change CSS variables with JavaScript. Master getComputedStyle(), setProperty(), and create dynamic, interactive styling with CSS custom properties." />
-    <meta property="og:title" content="Axentix - Modern framework to build websites faster" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//blog/javascript/using-css-variables-with-javascript/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//blog/javascript/using-css-variables-with-javascript/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//blog/javascript/using-css-variables-with-javascript/' hreflang="fr">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
@@ -56,9 +62,9 @@
       <div class="navbar-menu hide-sm-down navbar-centered">
         <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
 
-        <a class="navbar-link font-w600" href="https://useaxentix.com/docs/getting-started/">Documentation</a>
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
 
-        <a class="navbar-link font-w600" href="https://useaxentix.com/blog/">Blog</a>
+        <a class="navbar-link font-w600" href="/blog/">Blog</a>
 
         <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
           Neumorphism
@@ -81,10 +87,33 @@
 
         <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
           <span class="iconify-inline" data-icon="mdi:discord"></span>
-        </a>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Language"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;EN
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
 
-        <div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
-          <span class="navbar-link font-w600 px-1 ml-3" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/fr/blog/javascript/using-css-variables-with-javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" />
+        <path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" />
+        <path fill="#eee" d="M12 5h12v26H12z" />
+      </svg>
+      Français
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
             <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
             <span class="iconify-inline" data-icon="fa-regular:moon"></span>
           </span>
@@ -98,7 +127,8 @@
       </div>
     </nav>
   </div>
-</header><div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
   <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
   <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
 
@@ -162,18 +192,78 @@
 <div class="sidenav-content">
   <div class="hide-md-up">
     <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
-    <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link">Documentation</a>
-    <a href="https://useaxentix.com/blog/" class="sidenav-link">Blog</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/blog/" class="sidenav-link">Blog</a>
     <div class="divider"></div>
   </div>
   
-  <a href="https://useaxentix.com/docs/getting-started/" class="sidenav-link ">
+  <a href="/docs/getting-started/" class="sidenav-link ">
     Getting started
   </a>
   
   <span class="sidenav-link" data-target="general-menu">General</span>
   <div>
     <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -428,6 +518,66 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
       <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
       
     
@@ -597,7 +747,67 @@
   <span class="sidenav-link" data-target="forms-menu">Forms</span>
   <div>
     <div class="collapsible" id="forms-menu">
-      <a class="sidenav-link " href="https://useaxentix.com/docs/forms/material/">Material forms</a>
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -878,6 +1088,66 @@
         
       
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
         <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
         
       
@@ -983,6 +1253,66 @@
   <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
   <div>
     <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -1327,6 +1657,66 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
     
   
@@ -1373,7 +1763,7 @@
     
   
   
-  <a href="https://useaxentix.com/docs/migration/" class="sidenav-link ">
+  <a href="/docs/migration/" class="sidenav-link ">
     Migrate from v1
   </a>
 </div>
@@ -2022,42 +2412,42 @@ slider.addEventListener('input', (e) => {
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/android/">
-          Android (1)
+          Android (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/angular/">
-          Angular (1)
+          Angular (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/axentix/">
-          Axentix (2)
+          Axentix (4)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/axios/">
-          Axios (1)
+          Axios (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/css/">
-          CSS (3)
+          CSS (6)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/cursor/">
-          Cursor (1)
+          Cursor (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/http/">
-          Http (1)
+          Http (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/javascript/">
-          JavaScript (13)
+          JavaScript (26)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
@@ -2067,22 +2457,22 @@ slider.addEventListener('input', (e) => {
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/nativewind/">
-          NativeWind (1)
+          NativeWind (2)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/shacdn/">
-          Shacdn (2)
+          Shacdn (4)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/tamagui/">
-          Tamagui (3)
+          Tamagui (6)
         </a>
         
         <div class="divider grey dark-2 my-3"></div>
         <a class="d-flex text-grey" href="/blog/websockets/">
-          WebSockets (1)
+          WebSockets (2)
         </a>
         
       </div>
@@ -2122,15 +2512,15 @@ slider.addEventListener('input', (e) => {
     <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/javascript/javascript-hoisting-complete-guide/" aria-label="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-hoisting-complete-guide/javascript-hoisting.webp" loading="lazy"
-      alt="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting recommended article" />
+  <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/" aria-label="Get The Current Array Index in JavaScript forEach(): Complete Guide article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp" loading="lazy"
+      alt="Get The Current Array Index in JavaScript forEach(): Complete Guide recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/javascript/javascript-hoisting-complete-guide/">
-        JavaScript Hoisting: Complete Guide to Variable and Function Hoisting
+      <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+        Get The Current Array Index in JavaScript forEach(): Complete Guide
       </a>
     </h3>
 
@@ -2140,7 +2530,7 @@ slider.addEventListener('input', (e) => {
           <path fill="currentColor"
             d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
         </svg>
-        05 Nov 2025
+        13 Oct 2025
         <br>
         <span class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
@@ -2156,9 +2546,9 @@ slider.addEventListener('input', (e) => {
       </li>
     </ul>
 
-    <p class="mt-0">Learn everything about JavaScript hoisting. Understand how var, let, const, and function declarations behave, explore the Temporal Dead Zone, and discover best practices to write better JavaScript code.</p>
+    <p class="mt-0">Learn how to get the current array index in JavaScript forEach() method. Complete guide with examples, performance comparisons, and best practices for index-based operations.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/javascript-hoisting-complete-guide/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
       Read article
     </a>
   </div>
@@ -2167,15 +2557,15 @@ slider.addEventListener('input', (e) => {
     <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/axentix/tailwind-css-framework-alternative-with-utility-classes-based-components/" aria-label="Axentix: A Serious Tailwind CSS Alternative with Utility Classes and Customizable Components article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tailwind-css-framework-alternative-with-utility-classes-based-components/axentix-tailwind-alternative-banner.jpg" loading="lazy"
-      alt="Axentix: A Serious Tailwind CSS Alternative with Utility Classes and Customizable Components recommended article" />
+  <a href="/blog/css/complete-css-grid-tutorial/" aria-label="The Most Complete CSS Grid Tutorial article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/css/complete-css-grid-tutorial/css-grid-banner.jpg" loading="lazy"
+      alt="The Most Complete CSS Grid Tutorial recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/axentix/tailwind-css-framework-alternative-with-utility-classes-based-components/">
-        Axentix: A Serious Tailwind CSS Alternative with Utility Classes and Customizable Components
+      <a href="/blog/css/complete-css-grid-tutorial/">
+        The Most Complete CSS Grid Tutorial
       </a>
     </h3>
 
@@ -2195,15 +2585,15 @@ slider.addEventListener('input', (e) => {
         </span>
         
         
-        <a href="/blog/axentix/">Axentix
+        <a href="/blog/css/">Css
         </a>
         
       </li>
     </ul>
 
-    <p class="mt-0">Discover why Axentix is a compelling alternative to Tailwind CSS, offering utility-first classes with built-in components that you can customize to your needs.</p>
+    <p class="mt-0">Master CSS Grid layout with this comprehensive guide covering everything from basic concepts to advanced techniques, browser support, and practical examples.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axentix/tailwind-css-framework-alternative-with-utility-classes-based-components/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/css/complete-css-grid-tutorial/">
       Read article
     </a>
   </div>
@@ -2212,15 +2602,15 @@ slider.addEventListener('input', (e) => {
     <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
   
 
-  <a href="/blog/javascript/javascript-bind-method-complete-guide/" aria-label="JavaScript &#34;this&#34; Bind Method: Complete Guide to this Binding article image">
-    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-bind-method-complete-guide/js-this-bind-method.webp" loading="lazy"
-      alt="JavaScript &#34;this&#34; Bind Method: Complete Guide to this Binding recommended article" />
+  <a href="/blog/android/what-is-an-apk-file/" aria-label="APK file: What is it and how does it work? article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/android/what-is-an-apk-file/apk-file.webp" loading="lazy"
+      alt="APK file: What is it and how does it work? recommended article" />
   </a>
 
   <div class="p-3 d-flex fx-col fx-grow">
     <h3 class="exo mt-0 mb-2 font-s3">
-      <a href="/blog/javascript/javascript-bind-method-complete-guide/">
-        JavaScript &#34;this&#34; Bind Method: Complete Guide to this Binding
+      <a href="/blog/android/what-is-an-apk-file/">
+        APK file: What is it and how does it work?
       </a>
     </h3>
 
@@ -2230,7 +2620,7 @@ slider.addEventListener('input', (e) => {
           <path fill="currentColor"
             d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
         </svg>
-        09 Oct 2025
+        12 Jan 2026
         <br>
         <span class="mt-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
@@ -2240,15 +2630,15 @@ slider.addEventListener('input', (e) => {
         </span>
         
         
-        <a href="/blog/javascript/">Java script
+        <a href="/blog/android/">Android
         </a>
         
       </li>
     </ul>
 
-    <p class="mt-0">Learn everything about JavaScript&rsquo;s bind method and this keyword. From basic concepts to advanced techniques, this guide covers callbacks, partial application, event handlers, and real-world examples.</p>
+    <p class="mt-0">Discover everything about APK files: what they are, how they work, their components, installation process, security considerations, and how they differ from AAB files.</p>
 
-    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/javascript-bind-method-complete-guide/">
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/android/what-is-an-apk-file/">
       Read article
     </a>
   </div>

@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Maitrisez le hoisting JavaScript avec ce guide complet. Apprenez comment var, let, const et les declarations de fonctions sont hoistees, comprenez la Temporal Dead Zone et evitez les pieges courants avec des exemples pratiques." />
+    <meta property="og:description" content="Maitrisez le hoisting JavaScript avec ce guide complet. Apprenez comment var, let, const et les declarations de fonctions sont hoistees, comprenez la Temporal Dead Zone et evitez les pieges courants avec des exemples pratiques." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/javascript/javascript-hoisting-complete-guide/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/javascript/javascript-hoisting-complete-guide/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//fr/blog/javascript/javascript-hoisting-complete-guide/' hreflang="fr">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/javascript/javascript-hoisting-complete-guide/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/javascript/javascript-hoisting-complete-guide/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/javascript/javascript-hoisting-complete-guide/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/javascript/javascript-hoisting-complete-guide/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/javascript/javascript-hoisting-complete-guide/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Hoisting JavaScript : guide complet du hoisting des variables et des fonctions
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-11-05" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      05/11/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Apprenez tout ce que vous devez savoir sur le hoisting JavaScript avec ce guide. Vous saurez comment var, let, const
+    et les declarations de fonctions sont hoistees. Vous comprendrez aussi la Temporal Dead Zone et vous eviterez les
+    pieges les plus courants grace a nos exemples.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Hoisting JavaScript : guide complet du hoisting des variables et des fonctions"
+      src='https://useaxentix.com//img/blog/javascript/javascript-hoisting-complete-guide/javascript-hoisting.webp'
+      alt="Hoisting JavaScript : guide complet du hoisting des variables et des fonctions" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Hoisting JavaScript : guide complet du hoisting des variables et des fonctions
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Le hoisting JavaScript est l'un des concepts les plus importants a comprendre, surtout si vous travaillez avec ce
+      langage.
+      Il y a une difference avec d'autres langages de programmation. En JavaScript, les declarations de variables et de
+      fonctions sont "hoistees" en haut de leur scope contenant avant l'execution du code.
+      Ce comportement peut mener a des resultats etranges/inattendus s'il est mal compris.
+    </p>
+
+    <p>
+      Dans ce guide, nous allons couvrir tout ce que vous devez savoir sur le hoisting JavaScript. Nous allons commencer
+      par expliquer comment les declarations <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">function</code> sont hoistees.
+      Ensuite, nous verrons comment <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> se comportent.
+      Enfin, nous verrons comment ecrire un meilleur code JavaScript et eviter les problemes courants.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Qu'est-ce que le hoisting en JavaScript ?</h2>
+
+    <p>
+      Le <strong>hoisting</strong> est une specificite JavaScript ou les declarations de variables et de fonctions sont
+      deplacees en haut de leur scope contenant avant l'execution du code. Cela signifie que vous pouvez utiliser des
+      variables et des fonctions avant qu'elles ne soient declarees dans votre code.
+    </p>
+
+    <p>
+      Cependant, il est important de comprendre que <strong>seules les declarations sont hoistees</strong>, pas les
+      initialisations. Pour les variables declarees avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code>, elles sont hoistees et
+      initialisees a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>. Pour les
+      fonctions, toute la declaration de fonction est hoistee, ce qui la rend disponible dans tout le scope.
+    </p>
+
+    <h3 class="exo mt-4">Exemple basique de hoisting</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// This code works because of hoisting
+console.log(x); // undefined (not an error!)
+var x = 5;
+
+// This is how JavaScript interprets the code above:
+var x;          // Declaration is hoisted
+console.log(x); // undefined
+x = 5;          // Initialization stays in place</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment fonctionne le hoisting des fonctions</h2>
+
+    <p>
+      Les declarations de fonctions sont entierement hoistees en JavaScript. Cela signifie que la declaration et le
+      corps de la fonction sont deplaces en haut du scope. Cela signifie que vous pouvez appeler des fonctions avant
+      qu'elles ne soient definies dans votre code.
+    </p>
+
+    <h3 class="exo mt-4">Hoisting des declarations de fonctions</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// This works because function declarations are hoisted
+greet(); // "Hello, World!"
+
+function greet() {
+  console.log("Hello, World!");
+}
+
+// This is how JavaScript interprets it:
+function greet() {
+  console.log("Hello, World!");
+}
+greet(); // "Hello, World!"</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Function expression vs function declaration</h3>
+
+    <p>
+      Il est crucial de comprendre que <strong>les function expressions ne sont PAS hoistees</strong>. Seules les
+      function declarations sont hoistees. C'est une distinction importante :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Function declaration - HOISTED
+sayHello(); // "Hello!"
+
+function sayHello() {
+  console.log("Hello!");
+}
+
+// Function expression - NOT HOISTED
+sayGoodbye(); // TypeError: sayGoodbye is not a function
+
+var sayGoodbye = function() {
+  console.log("Goodbye!");
+};
+
+// How JavaScript interprets the function expression:
+var sayGoodbye;        // Declaration hoisted, initialized with undefined
+sayGoodbye();          // TypeError: sayGoodbye is undefined
+sayGoodbye = function() {
+  console.log("Goodbye!");
+};</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Pourquoi le hoisting des fonctions est utile</h3>
+
+    <p>
+      Le hoisting des fonctions vous permet d'organiser votre code en placant l'algorithme principal en haut et les
+      fonctions helper en dessous, ce qui peut ameliorer la lisibilite :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function processItems(items) {
+  // Main algorithm at the top
+  return items
+    .filter(itemMatches)
+    .map(transformItem);
+
+  // Helper functions below
+  function itemMatches(item) {
+    return item.status === 'active';
+  }
+
+  function transformItem(item) {
+    return {
+      id: item.id,
+      name: item.name.toUpperCase()
+    };
+  }
+}
+
+// This works because both functions are hoisted
+const result = processItems([
+  { id: 1, name: 'Alice', status: 'active' },
+  { id: 2, name: 'Bob', status: 'inactive' }
+]);
+console.log(result); // [{ id: 1, name: 'ALICE' }]</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Hoisting des variables avec var</h2>
+
+    <p>
+      Les variables declarees avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code> sont hoistees en haut de
+      leur scope de fonction (ou du scope global si elles sont declarees hors d'une fonction). Cependant, seule la
+      declaration est hoistee, pas l'initialisation. La variable est initialisee a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> tant que la ligne
+      d'assignation n'est pas executee.
+    </p>
+
+    <h3 class="exo mt-4">Hoisting var basique</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function example() {
+  console.log(x); // undefined (not an error!)
+  var x = 10;
+  console.log(x); // 10
+}
+
+// How JavaScript interprets this:
+function example() {
+  var x;           // Declaration hoisted
+  console.log(x);  // undefined
+  x = 10;          // Initialization stays in place
+  console.log(x);  // 10
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Le probleme avec le hoisting de var</h3>
+
+    <p>
+      Le comportement de hoisting de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code> peut mener a des bugs
+      inattendus, surtout dans des boucles avec des operations asynchrones :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const people = ['Alice', 'Bob', 'Claire', 'David'];
+
+for (var i = 0; i < people.length; i++) {
+  setTimeout(function() {
+    console.log(people[i]); // Outputs: undefined (4 times)
+  }, 100);
+}
+
+// Why this happens:
+// The variable 'i' is hoisted to the function scope
+// By the time the setTimeout callbacks execute, the loop has finished
+// and 'i' equals people.length (4), which is out of bounds
+
+// How JavaScript interprets this:
+var i;  // Hoisted to function scope
+for (i = 0; i < people.length; i++) {
+  setTimeout(function() {
+    console.log(people[i]); // All callbacks see the same 'i' value
+  }, 100);
+}
+// After loop completes, i = 4, so all callbacks log undefined</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">La solution historique : IIFE</h3>
+
+    <p>
+      Avant ES2015, les developpeurs utilisaient des Immediately Invoked Function Expressions (IIFE) pour creer un
+      nouveau scope pour chaque iteration :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const people = ['Alice', 'Bob', 'Claire', 'David'];
+
+for (var i = 0; i < people.length; i++) {
+  (function(index) {
+    setTimeout(function() {
+      console.log(people[index]); // Works correctly
+    }, 100);
+  })(i);
+}
+
+// Output: Alice, Bob, Claire, David (in order)</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Scope de bloc et variables ES2015+</h2>
+
+    <p>
+      ES2015 a introduit <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code>
+      et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code>, qui ont un
+      comportement de hoisting fondamentalement different par rapport a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code>. Ces nouveaux mots-cles
+      fournissent un scope au niveau du bloc et ne sont pas hoistes de la meme maniere.
+    </p>
+
+    <h3 class="exo mt-4">Scope de bloc avec let et const</h3>
+
+    <p>
+      Les variables declarees avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> sont scopees au bloc
+      dans lequel elles sont declarees, pas a toute la fonction :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function demonstrateScope() {
+  if (true) {
+    var functionScoped = 'I am function scoped';
+    let blockScoped = 'I am block scoped';
+    const alsoBlockScoped = 'I am also block scoped';
+  }
+
+  console.log(functionScoped); // "I am function scoped" (works!)
+  console.log(blockScoped);    // ReferenceError: blockScoped is not defined
+  console.log(alsoBlockScoped); // ReferenceError: alsoBlockScoped is not defined
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Resoudre le probleme de boucle avec let</h3>
+
+    <p>
+      Le probleme de boucle avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code> se resout facilement en
+      utilisant <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code>, qui cree
+      un nouveau binding a chaque iteration :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const people = ['Alice', 'Bob', 'Claire', 'David'];
+
+for (let i = 0; i < people.length; i++) {
+  setTimeout(function() {
+    console.log(people[i]); // Works correctly!
+  }, 100);
+}
+
+// Output: Alice, Bob, Claire, David (in order)
+
+// Why this works:
+// Each iteration creates a new 'i' binding in its own block scope
+// Each setTimeout callback captures its own 'i' value</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">La Temporal Dead Zone (TDZ)</h2>
+
+    <p>
+      La <strong>Temporal Dead Zone (TDZ)</strong> est la periode entre l'entree dans un scope et la declaration effective
+      d'une variable. Pendant ce temps, la variable ne peut pas etre accessible. Cela s'applique aux declarations <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">class</code>.
+    </p>
+
+    <h3 class="exo mt-4">Comprendre la Temporal Dead Zone</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Temporal Dead Zone starts here
+console.log(myVar); // ReferenceError: Cannot access 'myVar' before initialization
+
+let myVar = 10;
+// Temporal Dead Zone ends here
+
+// This is different from var:
+console.log(myVar2); // undefined (not an error)
+var myVar2 = 10;</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Pourquoi la Temporal Dead Zone existe</h3>
+
+    <p>
+      La TDZ aide a detecter tot les erreurs de programmation en empechant l'acces aux variables avant leur
+      initialisation. Cela rend le code plus previsible et plus facile a debugger :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function example() {
+  // TDZ starts
+  console.log(typeof myLet); // ReferenceError (not "undefined")
+  
+  let myLet = 'initialized';
+  // TDZ ends
+}
+
+// Compare with var:
+function example2() {
+  console.log(typeof myVar); // "undefined" (no error)
+  var myVar = 'initialized';
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Ordre et priorite du hoisting</h2>
+
+    <p>
+      Quand plusieurs declarations existent dans le meme scope, JavaScript les hoiste dans un ordre specifique :
+    </p>
+
+    <ol class="lh-rem-4">
+      <li><strong>Les declarations de fonctions</strong> sont hoistees en premier</li>
+      <li><strong>Les declarations de variables</strong> (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code>) sont hoistees en
+        second</li>
+      <li><strong>Les function expressions</strong> ne sont pas entierement hoistees (seule la declaration de variable)
+      </li>
+    </ol>
+
+    <h3 class="exo mt-4">Exemple d'ordre de hoisting</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// What you write:
+console.log(typeof myFunc); // "function"
+console.log(typeof myVar);  // "undefined"
+
+function myFunc() {
+  return 'I am a function';
+}
+
+var myVar = 'I am a variable';
+
+// How JavaScript interprets it:
+function myFunc() {  // Function hoisted first
+  return 'I am a function';
+}
+var myVar;            // Variable declaration hoisted second
+
+console.log(typeof myFunc); // "function"
+console.log(typeof myVar);  // "undefined"
+myVar = 'I am a variable';</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Conflits de nom entre fonction et variable</h3>
+
+    <p>
+      Quand une fonction et une variable partagent le meme nom, la declaration de fonction est prioritaire :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">console.log(typeof myName); // "function" (not "undefined")
+
+function myName() {
+  return 'I am a function';
+}
+
+var myName = 'I am a variable';
+
+console.log(typeof myName); // "string" (after assignment)
+
+// How JavaScript interprets this:
+function myName() {  // Function hoisted first
+  return 'I am a function';
+}
+var myName;          // Variable declaration (ignored, name already exists)
+
+console.log(typeof myName); // "function"
+myName = 'I am a variable'; // Assignment overwrites the function
+console.log(typeof myName); // "string"</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Bonnes pratiques et JavaScript moderne</h2>
+
+    <p>
+      Comprendre le hoisting est essentiel, mais les bonnes pratiques de JavaScript moderne recommandent d'eviter les
+      pieges lies au hoisting :
+    </p>
+
+    <h3 class="exo mt-4">1. Eviter var - utiliser let et const a la place</h3>
+
+    <p>
+      Depuis ES2015, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code>
+      devrait etre evite au profit de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Avoid var
+function badExample() {
+  if (true) {
+    var x = 10;
+  }
+  console.log(x); // 10 (unexpected function scope)
+}
+
+// ✅ Use let or const
+function goodExample() {
+  if (true) {
+    let x = 10;
+  }
+  console.log(x); // ReferenceError (expected block scope)
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">2. Utiliser const par defaut</h3>
+
+    <p>
+      L'approche moderne JavaScript est d'utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> par defaut et
+      n'utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> que si
+      vous devez reassigner la variable :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ✅ Use const by default
+const userName = 'Alice';
+const userAge = 25;
+const userRoles = ['admin', 'user'];
+
+// Only use let when reassignment is needed
+let counter = 0;
+counter = 1; // Valid reassignment
+
+// const prevents accidental reassignment
+const maxItems = 100;
+maxItems = 200; // TypeError: Assignment to constant variable</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">3. Declarer les variables en haut de leur scope</h3>
+
+    <p>
+      Meme si le hoisting rend possible l'utilisation de variables avant leur declaration, il est preferable de les
+      declarer en haut de leur scope pour plus de clarte :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Confusing due to hoisting
+function confusing() {
+  console.log(value);
+  var value = 10;
+}
+
+// ✅ Clear and explicit
+function clear() {
+  const value = 10;
+  console.log(value);
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">4. Utiliser les function declarations pour beneficier du hoisting</h3>
+
+    <p>
+      Les function declarations peuvent etre utiles quand vous voulez organiser le code avec l'algorithme principal en
+      haut :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ✅ Good use of function hoisting
+function processData(data) {
+  // Main algorithm at top
+  const filtered = data.filter(isValid);
+  const transformed = filtered.map(transform);
+  return transformed;
+
+  // Helper functions below
+  function isValid(item) {
+    return item.status === 'active';
+  }
+
+  function transform(item) {
+    return { id: item.id, name: item.name.toUpperCase() };
+  }
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pieges courants du hoisting et solutions</h2>
+
+    <h3 class="exo mt-4">Piege 1 : acceder aux variables avant leur declaration</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Problem with var
+function problem() {
+  console.log(x); // undefined (confusing!)
+  var x = 5;
+}
+
+// ✅ Solution: Use let/const
+function solution() {
+  // console.log(x); // ReferenceError (clear error message)
+  const x = 5;
+  console.log(x); // 5
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Piege 2 : variables de boucle dans des callbacks async</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Problem with var
+const items = ['a', 'b', 'c'];
+for (var i = 0; i < items.length; i++) {
+  setTimeout(() => console.log(items[i]), 100);
+}
+// Output: undefined, undefined, undefined
+
+// ✅ Solution: Use let
+const items = ['a', 'b', 'c'];
+for (let i = 0; i < items.length; i++) {
+  setTimeout(() => console.log(items[i]), 100);
+}
+// Output: a, b, c</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Piege 3 : function expression vs declaration</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Function expression not hoisted
+myFunction(); // TypeError: myFunction is not a function
+
+var myFunction = function() {
+  console.log('Hello');
+};
+
+// ✅ Function declaration is hoisted
+myFunction(); // "Hello"
+
+function myFunction() {
+  console.log('Hello');
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Hoisting des classes</h2>
+
+    <p>
+      ES2015 a introduit les declarations <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">class</code>, qui se comportent
+      comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// ❌ Class is in TDZ before declaration
+const instance = new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
+
+class MyClass {
+  constructor() {
+    this.value = 10;
+  }
+}
+
+// ✅ Use class after declaration
+class MyClass {
+  constructor() {
+    this.value = 10;
+  }
+}
+
+const instance = new MyClass(); // Works correctly</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples concrets</h2>
+
+    <h3 class="exo mt-4">Exemple 1 : organiser le code avec le hoisting des fonctions</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Main algorithm at the top, helpers below
+function validateUserData(userData) {
+  // Main validation logic
+  if (!isValidEmail(userData.email)) {
+    return { valid: false, error: 'Invalid email' };
+  }
+
+  if (!isValidAge(userData.age)) {
+    return { valid: false, error: 'Invalid age' };
+  }
+
+  if (!isValidName(userData.name)) {
+    return { valid: false, error: 'Invalid name' };
+  }
+
+  return { valid: true };
+
+  // Helper functions (hoisted, so they work above)
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function isValidAge(age) {
+    return typeof age === 'number' && age >= 0 && age <= 120;
+  }
+
+  function isValidName(name) {
+    return typeof name === 'string' && name.trim().length >= 2;
+  }
+}
+
+// Usage
+const result = validateUserData({
+  email: 'user@example.com',
+  age: 25,
+  name: 'Alice'
+});
+console.log(result); // { valid: true }</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Exemple 2 : eviter les pieges courants des boucles</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Modern approach with let
+function attachEventListeners(buttons) {
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+      console.log(`Button ${i} clicked`); // Each button logs its correct index
+    });
+  }
+}
+
+// Even better: Use forEach
+function attachEventListenersModern(buttons) {
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      console.log(`Button ${index} clicked`);
+    });
+  });
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Resume : points cles</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Les function declarations</strong> sont entierement hoistees et peuvent etre appelees avant d'apparaitre
+        dans le code</li>
+      <li><strong>Les declarations var</strong> sont hoistees mais initialisees a <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code></li>
+      <li><strong>let et const</strong> sont dans la Temporal Dead Zone jusqu'a leur ligne de declaration</li>
+      <li><strong>Les function expressions</strong> ne sont pas hoistees (seule la declaration de variable l'est)</li>
+      <li><strong>Utilisez const par defaut</strong>, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> quand une reassignment
+        est necessaire, et <strong>evitez var</strong></li>
+      <li><strong>Le hoisting des fonctions</strong> peut etre utile pour organiser le code avec la logique principale en
+        haut</li>
+      <li><strong>Le scope de bloc</strong> avec <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> evite de nombreux
+        bugs courants</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Le hoisting JavaScript est un concept fondamental que chaque developpeur JavaScript devrait comprendre. Meme s'il
+      peut mener a des comportements inattendus avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code>, les bonnes pratiques
+      JavaScript modernes avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> aident a eviter ces
+      problemes.
+    </p>
+
+    <p>
+      Le hoisting des fonctions peut etre utile pour organiser le code, en vous permettant de placer l'algorithme
+      principal en haut d'une fonction et les fonctions helpers en dessous. Cependant, il est important de comprendre
+      les differences entre function declarations et function expressions.
+    </p>
+
+    <p>
+      En comprenant le comportement du hoisting, la Temporal Dead Zone et en suivant les bonnes pratiques JavaScript
+      modernes, vous pouvez ecrire du code plus previsible et plus maintenable. Pensez a utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> par defaut, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">let</code> quand c'est necessaire,
+      et evitez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">var</code> dans du
+      code JavaScript moderne.
+    </p>
+  </article>
+</div>
+
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (13)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/concatenate-strings-in-javascript/" aria-label="Concatener des chaines en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/concatenate-strings-in-javascript/string-concat-js.webp" loading="lazy"
+      alt="Concatener des chaines en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/concatenate-strings-in-javascript/">
+        Concatener des chaines en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        13 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez toutes les methodes pour concatener des chaines en JavaScript, y compris l&rsquo;operateur +, les template literals, concat(), et join(). Guide complet avec exemples, comparaisons de performance et bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/concatenate-strings-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/" aria-label="6 facons de fusionner des tableaux en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/js-concat-array-javascript.webp" loading="lazy"
+      alt="6 facons de fusionner des tableaux en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+        6 facons de fusionner des tableaux en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        04 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apres avoir lu cet article, vous saurez fusionner des tableaux en JavaScript avec 6 methodes differentes. Apprenez concat, l&rsquo;operateur spread, push, et plus encore avec des comparaisons de performance et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/get-current-array-index-in-javascript-foreach/" aria-label="Obtenir l&#39;indice actuel du tableau dans JavaScript forEach() : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp" loading="lazy"
+      alt="Obtenir l&#39;indice actuel du tableau dans JavaScript forEach() : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/get-current-array-index-in-javascript-foreach/">
+        Obtenir l&#39;indice actuel du tableau dans JavaScript forEach() : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        13 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez à obtenir l&rsquo;indice actuel du tableau dans la méthode JavaScript forEach(). Guide complet avec exemples, comparaisons de performance et bonnes pratiques pour les opérations basées sur l&rsquo;index.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/get-current-array-index-in-javascript-foreach/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
+    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>

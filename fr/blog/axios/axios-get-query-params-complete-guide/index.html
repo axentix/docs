@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Maitrisez les parametres de requete des requetes GET avec Axios. Apprenez a envoyer des params avec axios.get(), a gerer l&#39;encodage d&#39;URL, la serialisation personnalisee et des techniques avancees avec des exemples pratiques." />
+    <meta property="og:description" content="Maitrisez les parametres de requete des requetes GET avec Axios. Apprenez a envoyer des params avec axios.get(), a gerer l&#39;encodage d&#39;URL, la serialisation personnalisee et des techniques avancees avec des exemples pratiques." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/axios/axios-get-query-params-complete-guide/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/axios/axios-get-query-params-complete-guide/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//fr/blog/axios/axios-get-query-params-complete-guide/' hreflang="fr">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/axios/axios-get-query-params-complete-guide/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/axios/axios-get-query-params-complete-guide/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/axios/axios-get-query-params-complete-guide/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/axios/axios-get-query-params-complete-guide/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/axios/axios-get-query-params-complete-guide/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/axios/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    Axios Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Parametres de requete Axios GET : guide simple et exemples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2025-10-14" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      14/10/2025
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Maitrisez les parametres de requete des requetes GET avec Axios grace a ce guide complet. Apprenez a envoyer
+    <strong>axios get query params</strong> et <strong>axios get params</strong> efficacement avec des exemples
+    pratiques, l'encodage d'URL et des techniques avancees.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Parametres de requete Axios GET : guide simple et exemples"
+      src='https://useaxentix.com//img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp'
+      alt="Parametres de requete Axios GET : guide simple et exemples" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Axios GET Request Query Params
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Axios est l'une des bibliotheques JavaScript les plus populaires pour faire des requetes HTTP, et comprendre
+      comment utiliser correctement <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">axios get query params</code> est
+      essentiel pour construire des applications web modernes. Les parametres de requete vous permettent de transmettre
+      des donnees au serveur via l'URL, ce qui active le filtrage, la pagination, la recherche et bien plus.
+    </p>
+
+    <p>
+      Ce guide complet couvre tout ce que vous devez savoir pour utiliser <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">axios get params</code>
+      efficacement. Vous apprendrez les differentes methodes pour envoyer des parametres de requete, gerer l'encodage
+      d'URL, mettre en place une serialisation personnalisee et explorer des techniques avancees qui vous aideront a
+      construire des integrations API robustes.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Que sont les parametres de requete avec Axios ?</h2>
+
+    <p>
+      Les parametres de requete sont des paires cle-valeur ajoutees a la fin d'une URL apres un point d'interrogation
+      (?). Ils vous permettent d'envoyer des donnees supplementaires au serveur sans modifier le corps de la requete.
+      Dans Axios, vous pouvez envoyer des parametres de requete via l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">params</code> dans la
+      configuration de votre requete GET.
+    </p>
+
+    <p>
+      Les cas d'usage courants des parametres de requete incluent :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Filtrage d'API et fonctionnalites de recherche</li>
+      <li>Pagination (page, limit, offset)</li>
+      <li>Tri et ordre des donnees</li>
+      <li>Versioning d'API et feature flags</li>
+      <li>Tokens d'authentification et cles d'API</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Requete Axios GET de base avec query params</h2>
+
+    <p>
+      La facon la plus simple d'envoyer des <strong>axios get query params</strong> est d'utiliser l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">params</code> dans la
+      configuration de la requete. Axios serialise automatiquement l'objet params et l'ajoute a l'URL.
+    </p>
+
+    <h3 class="exo mt-4">Objet params simple</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import axios from 'axios';
+
+// Basic GET request with query parameters
+const response = await axios.get('https://api.example.com/users', {
+  params: {
+    page: 1,
+    limit: 10,
+    search: 'john'
+  }
+});
+
+// The actual URL will be: https://api.example.com/users?page=1&limit=10&search=john
+console.log(response.data);</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Utiliser async/await et gerer les erreurs</h3>
+
+    <p>
+      Pour les applications JavaScript modernes, la syntaxe async/await offre un code plus propre et plus lisible. Elle
+      rend aussi la gestion des erreurs plus simple que les chaines de promesses. Quand vous travaillez avec des
+      parametres de requete, il est important de gerer correctement les erreurs potentielles, en particulier les
+      problemes reseau ou des valeurs de parametres invalides.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Modern async/await syntax with proper error handling
+const fetchUsers = async (filters) => {
+  try {
+    const response = await axios.get('/api/users', {
+      params: {
+        name: filters.name,
+        age: filters.age,
+        city: filters.city
+      }
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    throw error;
+  }
+};
+
+// Usage
+const users = await fetchUsers({
+  name: 'John',
+  age: 25,
+  city: 'New York'
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Techniques avancees de query params</h2>
+
+    <p>
+      Au-dela du passage de parametres de base, Axios offre plusieurs techniques avancees pour gerer des scenarios
+      complexes autour de <strong>axios get params</strong>. Ces methodes vous donnent plus de controle sur la facon
+      dont les parametres sont serialises et envoyes au serveur.
+    </p>
+
+    <h3 class="exo mt-4">Parametres de tableaux et d'objets imbriques</h3>
+
+    <p>
+      Les applications du monde reel ont souvent besoin d'envoyer des structures de donnees complexes via des parametres
+      de requete. Axios gere les tableaux en repetant le nom du parametre pour chaque valeur, ce qui correspond au
+      format standard attendu par la plupart des API. Pour les objets imbriques, Axios les aplatit automatiquement en
+      utilisant la notation entre crochets, ce qui facilite l'envoi de filtres structures ou d'options de configuration.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Sending array parameters and nested objects
+const response = await axios.get('/api/search', {
+  params: {
+    // Array parameters
+    categories: ['electronics', 'books', 'clothing'],
+    tags: ['sale', 'new', 'featured'],
+    
+    // Nested object parameters
+    filters: {
+      price: { min: 10, max: 100 },
+      location: { city: 'New York', country: 'USA' }
+    },
+    sort: { field: 'price', order: 'asc' }
+  }
+});
+
+// Results in: /api/search?categories=electronics&categories=books&categories=clothing&tags=sale&tags=new&tags=featured&filters[price][min]=10&filters[price][max]=100&filters[location][city]=New%20York&filters[location][country]=USA&sort[field]=price&sort[order]=asc</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Construire les parametres conditionnellement</h3>
+
+    <p>
+      Dans de nombreux cas, vous devrez construire les parametres de requete de facon conditionnelle en fonction de
+      l'entree utilisateur ou de l'etat de l'application. Cette approche evite d'envoyer des valeurs vides ou undefined
+      a l'API, ce qui peut provoquer des problemes ou un comportement inattendu. L'idee est d'inclure uniquement les
+      parametres qui ont une valeur utile.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Building params conditionally to avoid empty values
+const buildSearchParams = (searchTerm, filters = {}) => {
+  const params = { q: searchTerm };
+  
+  // Only add parameters if they have values
+  if (filters.category) params.category = filters.category;
+  if (filters.minPrice) params.minPrice = filters.minPrice;
+  if (filters.maxPrice) params.maxPrice = filters.maxPrice;
+  if (filters.tags?.length > 0) params.tags = filters.tags;
+  
+  return params;
+};
+
+// Usage
+const searchParams = buildSearchParams('laptop', {
+  category: 'electronics',
+  minPrice: 500,
+  tags: ['gaming', 'portable']
+});
+
+const response = await axios.get('/api/search', { params: searchParams });</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Serialisation personnalisee des parametres</h2>
+
+    <p>
+      Parfois, vous avez besoin de plus de controle sur la facon dont les <strong>axios get query params</strong> sont
+      serialises. Axios fournit l'option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">paramsSerializer</code> pour
+      personnaliser le processus de serialisation.
+    </p>
+
+    <h3 class="exo mt-4">Serialisation personnalisee et URLSearchParams</h3>
+
+    <p>
+      Quand vous avez besoin d'un controle precis sur la serialisation des parametres, Axios vous permet de fournir une
+      fonction de serialisation personnalisee. C'est particulierement utile pour les API qui attendent des formats
+      specifiques, par exemple des tableaux avec une notation entre crochets ou des schemas d'encodage personnalises.
+      L'API URLSearchParams fournit un moyen natif de gerer l'encodage des parametres et c'est souvent la methode
+      privilegiee pour une serialisation personnalisee.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Custom parameter serialization with URLSearchParams
+const response = await axios.get('/api/data', {
+  params: {
+    filters: ['active', 'verified'],
+    sort: 'name',
+    order: 'asc'
+  },
+  paramsSerializer: function(params) {
+    const searchParams = new URLSearchParams();
+    
+    Object.entries(params).forEach(([key, value]) => {
+      if (Array.isArray(value)) {
+        // Handle arrays with bracket notation
+        value.forEach(item => {
+          searchParams.append(`${key}[]`, item);
+        });
+      } else {
+        searchParams.append(key, value);
+      }
+    });
+    
+    return searchParams.toString();
+  }
+});
+
+// Results in: /api/data?filters[]=active&filters[]=verified&sort=name&order=asc</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Encodage d'URL et caracteres speciaux</h2>
+
+    <p>
+      Comprendre l'encodage d'URL est essentiel quand vous travaillez avec des parametres de requete, surtout avec des
+      caracteres speciaux, des espaces ou des caracteres non ASCII.
+    </p>
+
+    <h3 class="exo mt-4">Encodage d'URL et caracteres speciaux</h3>
+
+    <p>
+      L'encodage d'URL est indispensable lorsqu'on manipule des parametres de requete qui contiennent des caracteres
+      speciaux, des espaces ou des caracteres non ASCII. Axios gere automatiquement l'encodage a votre place, en
+      convertissant les espaces en %20, les esperluettes en %26 et d'autres caracteres speciaux vers leur equivalent
+      encode. Cet encodage automatique garantit que vos parametres sont correctement transmis et interpretes par le
+      serveur, ce qui evite les problemes d'URL mal formatees ou les erreurs de parsing des parametres.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Axios automatically handles URL encoding
+const response = await axios.get('/api/search', {
+  params: {
+    query: 'JavaScript & TypeScript',
+    description: 'Learn about modern web development',
+    location: 'São Paulo, Brasil',
+    special: 'Hello World! @#$%'
+  }
+});
+
+// Axios automatically encodes to:
+// /api/search?query=JavaScript%20%26%20TypeScript&description=Learn%20about%20modern%20web%20development&location=S%C3%A3o%20Paulo%2C%20Brasil&special=Hello%20World!%20%40%23%24%25</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilite navigateurs et polyfills</h2>
+
+    <p>
+      Comprendre le support navigateur pour Axios et les fonctionnalites associees est important pour garantir que votre
+      application fonctionne dans differents environnements.
+    </p>
+
+    <h3 class="exo mt-4">Support navigateur</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Axios:</strong> Tous les navigateurs modernes (Chrome 60+, Firefox 55+, Safari 12+, Edge 79+)</li>
+      <li><strong>URLSearchParams:</strong> Tous les navigateurs modernes (Chrome 49+, Firefox 44+, Safari 10.1+)</li>
+      <li><strong>Fetch API:</strong> Tous les navigateurs modernes (Chrome 42+, Firefox 39+, Safari 10.1+)</li>
+      <li><strong>Promise:</strong> Tous les navigateurs modernes (Chrome 32+, Firefox 29+, Safari 8+)</li>
+    </ul>
+
+    <h3 class="exo mt-4">Compatibilite navigateurs et polyfills</h3>
+
+    <p>
+      Meme si Axios et les fonctionnalites JavaScript modernes ont un excellent support, certains projets doivent
+      parfois supporter des navigateurs plus anciens. Dans ce cas, des polyfills peuvent fournir les fonctionnalites
+      necessaires. Les polyfills les plus courants concernent URLSearchParams et Promise, meme si la plupart des
+      applications modernes peuvent s'appuyer sur le support natif.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Polyfill for URLSearchParams (simplified version)
+if (!window.URLSearchParams) {
+  window.URLSearchParams = function(search) {
+    this.params = {};
+    if (search) {
+      search.replace(/[?&]+([^=&]+)=([^&]*)/gi, (str, key, value) => {
+        this.params[decodeURIComponent(key)] = decodeURIComponent(value);
+      });
+    }
+  };
+  
+  URLSearchParams.prototype.append = function(key, value) {
+    this.params[key] = value;
+  };
+  
+  URLSearchParams.prototype.toString = function() {
+    return Object.keys(this.params)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(this.params[key])}`)
+      .join('&');
+  };
+}
+
+// For production, use proper polyfills like:
+// - es6-promise for Promise support
+// - core-js for comprehensive polyfills
+// - babel-polyfill for complete ES6+ support</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Maitriser <strong>axios get query params</strong> est essentiel pour construire des applications web modernes qui
+      interagissent avec des API. Dans ce guide, nous avons couvert les concepts fondamentaux, des techniques avancees
+      et des bonnes pratiques qui vous aideront a utiliser <strong>axios get params</strong> efficacement.
+    </p>
+
+    <p>
+      Du passage de parametres de base a la serialisation personnalisee, en passant par l'encodage d'URL et
+      l'optimisation des performances, vous avez maintenant les connaissances pour gerer des interactions API complexes
+      avec confiance. Les exemples concrets et les patterns de gestion d'erreurs vous aideront a construire des
+      applications robustes qui gerent proprement differents scenarios.
+    </p>
+
+    <p>
+      Pensez toujours a valider vos parametres, a implementer une gestion d'erreurs correcte et a considerer les
+      implications de performance quand vous travaillez avec de gros jeux de donnees. En suivant les bonnes pratiques
+      presentes ici, vous pourrez creer des integrations API efficaces, maintenables et fiables avec les parametres de
+      requete Axios.
+    </p>
+
+    <p>
+      Que vous construisiez une simple fonctionnalite de recherche ou un tableau de bord de donnees complexe, comprendre
+      comment utiliser correctement les parametres de requete Axios ameliorera significativement votre workflow et la
+      qualite de vos applications. Les techniques de ce guide serviront de base solide pour vos futurs projets de
+      developpement d'API.
+    </p>
+  </article>
+</div>
+
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (13)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/how-to-use-foreach-for-object-in-javascript/" aria-label="Comment utiliser forEach pour un objet en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/how-to-use-foreach-for-object-in-javascript/javascript-foreach-object.webp" loading="lazy"
+      alt="Comment utiliser forEach pour un objet en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/how-to-use-foreach-for-object-in-javascript/">
+        Comment utiliser forEach pour un objet en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        10 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez a iterer sur des objets JavaScript en utilisant forEach avec Object.keys(), Object.values() et Object.entries(). Guide complet avec exemples, conseils de performance et cas d&rsquo;usage concrets.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/how-to-use-foreach-for-object-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/" aria-label="6 facons de fusionner des tableaux en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/js-concat-array-javascript.webp" loading="lazy"
+      alt="6 facons de fusionner des tableaux en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+        6 facons de fusionner des tableaux en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        04 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apres avoir lu cet article, vous saurez fusionner des tableaux en JavaScript avec 6 methodes differentes. Apprenez concat, l&rsquo;operateur spread, push, et plus encore avec des comparaisons de performance et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/" aria-label="Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/angular/what-is-primeng-and-how-to-use-it/primeng.webp" loading="lazy"
+      alt="Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/">
+        Qu&#39;est-ce que PrimeNG et comment l&#39;utiliser : guide complet avec icônes et exemples de tables
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        30 Dec 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/angular/">Angular
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez ce qu&rsquo;est PrimeNG et comment l&rsquo;utiliser dans vos applications Angular. Maîtrisez les icônes PrimeNG et les composants de table PrimeNG avec des exemples complets et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/angular/what-is-primeng-and-how-to-use-it/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-5">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
+    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
