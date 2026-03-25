@@ -1,0 +1,289 @@
+---
+title: 'Actualites JavaScript ES2026 : decorateurs, API Temporal et plus'
+description: "Un tour pratique des fonctionnalites JavaScript a venir : decorateurs, Temporal, gestion explicite des
+ressources, RegExp.escape, Promise.withResolvers, groupement, methodes Set et aides pour iterateurs. De courts exemples
+faciles a suivre."
+date: 2026-03-25
+author: "Axentix Team"
+image: "/img/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/es2026-decorators-and-temporal-api.webp"
+categories: ["JavaScript"]
+summary: "Qu'est-ce qui avance dans TC39 et dans les moteurs autour de la periode ES2026 ? Decorateurs, Temporal,
+using/await using, RegExp.escape, Promise.withResolvers, Object.groupBy, methodes Set et aides pour iterateurs, avec un
+minimum de code."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Actualites JavaScript ES2026 : decorateurs, API Temporal et plus
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/fr/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-03-25" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      25/03/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    On dit souvent &quot;ES2026&quot; pour parler du prochain lot de JavaScript standardise. La vraie source de verite,
+    ce sont les
+    <a href="https://github.com/tc39/proposals" class="text-primary" target="_blank" rel="noopener">propositions
+      TC39</a>
+    et leurs stades. Cet article resume plusieurs points a fort impact en langage simple, avec de petits exemples.
+    Tout le code ici est ecrit de zero pour plus de clarte.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Fonctionnalites de style JavaScript ES2026"
+      src='{{< link url="img/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/es2026-decorators-and-temporal-api.webp" >}}'
+      alt="Fonctionnalites du langage JavaScript" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">JavaScript a venir : decorateurs, dates, ressources et aides
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Une note rapide avant les extraits : le <strong>stade</strong> compte. Le stade 4 signifie &quot;termine&quot;
+      pour le processus de spec ; le stade 3 signifie que les implementeurs sont confiants et que vous le verrez
+      d'abord dans les outils et les runtimes. Verifiez toujours les
+      <a href="https://compat-table.github.io/compat-table/es2016plus/" class="text-primary" target="_blank"
+        rel="noopener">tableaux de compatibilite</a> pour votre navigateur cible ou votre version de Node.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">1. Gestion explicite des ressources : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">using</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await using</code></h2>
+
+    <p>
+      Les objets peuvent exposer un nettoyage via <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Symbol.dispose</code>
+      (synchrone) ou
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Symbol.asyncDispose</code>
+      (asynchrone). La declaration <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">using</code>
+      execute
+      ce nettoyage a la fin du bloc, meme si une erreur est levee.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class Ticket {
+  #used = false;
+  use() {
+    if (this.#used) throw new Error('already used');
+    this.#used = true;
+    return 'admit one';
+  }
+  [Symbol.dispose]() {
+    console.log('ticket disposed');
+  }
+}
+
+{
+  using t = new Ticket();
+  console.log(t.use());
+} // logs: admit one, then ticket disposed</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">2. Decorateurs (syntaxe standard)</h2>
+
+    <p>
+      Les decorateurs enveloppent les classes, les methodes ou les champs pour ajouter un comportement transversal
+      (journalisation, validation, mise en cache)
+      sans modifier chaque corps de methode. La forme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@</code> est analysee comme une
+      vraie
+      syntaxe ; il vous faut encore une chaine d'outils (par exemple Babel ou TypeScript) tant que votre runtime ne la
+      prend pas en charge nativement.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// When a method runs, log its name (decorator receives the original function + context)
+function announce(target, context) {
+  if (context.kind !== 'method') return target;
+  const name = context.name;
+  return function (...args) {
+    console.log(`${String(name)}()`);
+    return target.call(this, ...args);
+  };
+}
+
+class Cat {
+  @announce
+  meow() {
+    return 'meow!';
+  }
+}
+
+const c = new Cat();
+console.log(c.meow()); // logs: meow() then meow!</code></pre>
+    </div>
+
+    <p>
+      Meme idee qu'en enveloppant <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cat.prototype.meow</code>
+      a la main, mais l'intention reste a cote de la declaration.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">3. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">RegExp.escape</code></h2>
+
+    <p>
+      La saisie utilisateur contient souvent des metacaracteres d'expressions regulieres (<code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">?</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">$</code>, etc.). <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">RegExp.escape</code> transforme
+      une
+      chaine en fragment litteral pour <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new RegExp(...)</code>.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const raw = '3.14';
+const re = new RegExp(RegExp.escape(raw));
+console.log(re.test('pi is 3.14')); // true</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">4. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Promise.withResolvers</code></h2>
+
+    <p>
+      Parfois il vous faut une promesse et la possibilite de la resoudre depuis l'exterieur de l'executeur. Cette API
+      renvoie <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">{ promise, resolve, reject
+      }</code> sur une ligne.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const { promise, resolve } = Promise.withResolvers();
+setTimeout(() => resolve('done'), 10);
+console.log(await promise); // 'done'</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">5. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.groupBy</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Map.groupBy</code></h2>
+
+    <p>
+      Regroupez les elements d'un tableau par cle sans passer par une bibliotheque. <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.groupBy</code> utilise des
+      cles chaine ; <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Map.groupBy</code> peut utiliser
+      n'importe quelle
+      valeur comme cle.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const pets = [
+  { name: 'Luna', kind: 'cat' },
+  { name: 'Rex', kind: 'dog' },
+  { name: 'Milo', kind: 'cat' },
+];
+const byKind = Object.groupBy(pets, p => p.kind);
+console.log(byKind.cat.length); // 2</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">6. API Temporal</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Date</code> a des pieges
+      bien connus
+      (fuseaux horaires, analyse, arithmetique). <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Temporal</code> separe les
+      <em>dates de calendrier</em>, les <em>heures murales</em>, les <em>instants</em> et les valeurs <em>avec
+        fuseau</em>
+      pour que les operations
+      restent previsibles.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Plain calendar date (no timezone ambiguity)
+const d = Temporal.PlainDate.from('2026-03-25');
+const next = d.add({ days: 1 });
+console.log(next.toString()); // 2026-03-26
+
+// Difference as a rich object (not "milliseconds since epoch")
+const birth = Temporal.PlainDate.from('2000-05-10');
+const age = birth.until(Temporal.PlainDate.from('2026-03-25'));
+console.log(`${age.years}y`); // e.g. 25y</code></pre>
+    </div>
+
+    <p>
+      Utilisez un polyfill ou une version moderne du runtime qui embarque Temporal tant que la proposition n'est pas
+      terminee.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">7. Nouvelles methodes <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Set</code></h2>
+
+    <p>
+      Les Set gagnent une algebre d'ensembles de premier niveau : union, intersection, difference, difference
+      symetrique,
+      et des tests de sous-ensemble ou sur-ensemble.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const a = new Set([1, 2, 3]);
+const b = new Set([3, 4]);
+console.log([...a.union(b)]);           // [1, 2, 3, 4]
+console.log([...a.intersection(b)]);    // [3]
+console.log([...a.difference(b)]);      // [1, 2]</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">8. Aides pour iterateurs</h2>
+
+    <p>
+      Tout iterable (pas seulement les tableaux) peut etre enchaine avec des aides paresseuses comme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.map</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.filter</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.take</code>, puis materialise
+      avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.toArray()</code> quand
+      vous avez besoin d'un
+      tableau.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function* nums() {
+  yield 1; yield 2; yield 3; yield 4;
+}
+const smallEvens = nums()
+  .filter(n => n % 2 === 0)
+  .take(1)
+  .toArray();
+console.log(smallEvens); // [2]</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment essayer cela sans risque</h2>
+
+    <ul class="lh-rem-4">
+      <li>Preferez la documentation officielle et <a href="https://github.com/tc39/proposals" class="text-primary"
+          target="_blank" rel="noopener">TC39</a> aux titres de blogs : les annees sont des etiquettes ; les stades et
+        l'etat de deploiement sont des faits.</li>
+      <li>Utilisez le <a href="https://babeljs.io/repl" class="text-primary" target="_blank" rel="noopener">REPL
+          Babel</a>
+        ou
+        TypeScript pour la syntaxe qui n'est pas encore native dans votre cible (decorateurs, <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">using</code> dans certaines
+        configurations).
+      </li>
+      <li>Polyfill Temporal si vous prototypez de la logique de dates avant qu'elle soit partout.</li>
+    </ul>
+
+    <p>
+      Si vous voulez une seule vue d'ensemble lisible qui regroupe ces sujets, l'article Medium lie dans l'intro est une
+      bonne lecture d'accompagnement avec les propositions officielles.
+    </p>
+  </article>
+</div>
