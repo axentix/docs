@@ -2,25 +2,22 @@
   <div class="d-flex fx-center container">
     <div>
       <h2 class="mt-3 mb-5">
-        A color palette with more than 130
-        <a href="{{ .Site.BaseURL }}/docs/general/colors" data-colors="text">colors</a>
+        {{ T "home.colors.heading" }}
+        <a href="{{ .Site.BaseURL }}/docs/general/colors" data-colors="text">{{ T "home.colors.heading_link" }}</a>
       </h2>
 
       <p class="mb-5 font-s3 lh-4">
-        Our
+        {{ T "home.colors.p_before_link" }}
         <a href="{{ .Site.BaseURL }}/docs/general/colors#color-palette" class="text-primary">
-          <strong>color palette</strong>
+          <strong>{{ T "home.colors.palette_link" }}</strong>
         </a>
-        provides a large choice of colors, which makes you able <strong>personalize your website as you want</strong>.
-        <br /><br />
-        Using them as <strong>background colors</strong> automatically generates a <strong>text color</strong> to
-        respect the <strong>accessibility</strong> the most possible.
+        {{ T "home.colors.p_after_link_html" | safeHTML }}
       </p>
     </div>
 
     <div class="color-components d-flex fx-center vcenter fx-col">
       <div class="d-flex">
-        <button class="btn rounded-2 mr-3" data-colors="bg">Button</button>
+        <button class="btn rounded-2 mr-3" data-colors="bg">{{ T "home.colors.button_demo" }}</button>
         <form>
           <div class="form-field">
             <label class="form-switch mt-2">
@@ -52,11 +49,11 @@
             />
 
             <div class="d-flex fx-col w100 pb-3 bd-1 bd-b-solid bd-grey bd-light-3 color-head">
-              <div class="color-hello" data-colors="bg,bd">Hello</div>
+              <div class="color-hello" data-colors="bg,bd">{{ T "home.colors.card_hello" }}</div>
 
-              <span class="color-card-title font-w600">I'm John DOE</span>
+              <span class="color-card-title font-w600">{{ T "home.colors.card_name" }}</span>
 
-              <span class="color-card-job">Web Developer</span>
+              <span class="color-card-job">{{ T "home.colors.card_job" }}</span>
             </div>
           </div>
 
@@ -125,6 +122,6 @@
   </div>
 
   <p class="text-grey text-center font-s3">
-    <em>Pick a color</em>
+    <em>{{ T "home.colors.pick" }}</em>
   </p>
 </section>

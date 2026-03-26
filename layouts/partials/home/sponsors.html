@@ -1,22 +1,20 @@
 <section class="my-4" id="sponsors">
-  <!-- Need a grix xs1 sm2 md 3 lg6 for 6 sponsors -->
   <div class="grix xs1 sm2 lg4 gutter-xs4 text-center my-5 mx-3 vcenter">
-    <!-- <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°1</span> -->
     <div class="d-flex fx-col ">
       <img class="shadow-1 rounded-1 mx-auto" src="{{ .Site.BaseURL }}/img/sponsors/axenthost.png" alt="axenthost-logo">
       <a href="https://axenthost.com/games/minecraft" target="_blank" rel="noopener" aria-label="free minecraft server"
         class="text-underline">
-        Free minecraft server</a>
+        {{ T "home.sponsors.minecraft" }}</a>
     </div>
-    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°2</span>
-    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">Sponsor n°3</span>
-    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">...</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">{{ T "home.sponsors.placeholder" }}</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">{{ T "home.sponsors.placeholder3" }}</span>
+    <span class="p-3 rounded-1 bd-solid bd-1 bd-grey bd-light-3">{{ T "home.sponsors.placeholder_more" }}</span>
   </div>
   <div id="coffee-button" class="d-flex fx-center">
     <a href="https://www.buymeacoffee.com/axentix" target="_blank" rel="noopener"
       class="d-flex vcenter rounded-2 light-shadow-1 font-w600 p-2 mb-3">
       <img height="40" src="{{ .Site.BaseURL }}/img/bmc-logo.svg" alt="bmc" />
-      <div class="pl-2">Become a sponsor</div>
+      <div class="pl-2">{{ T "home.sponsors.cta" }}</div>
     </a>
   </div>
 </section>

@@ -1,0 +1,15 @@
+{{ define "head-metas" }}
+{{ $title := .Page.Title }}
+{{ $description := .Page.Params.description }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:image" content="{{ .Site.BaseURL }}img/logoOG.jpg?v=3" />
+<meta property="twitter:title" content="{{ $title }}" />
+<meta property="twitter:description" content="{{ $description }}" />
+{{ end }}
+
+{{ define "main" }}
+{{ .Content }}
+{{ end }}

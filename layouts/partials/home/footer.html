@@ -1,5 +1,5 @@
 <footer class="footer fx-center fx-col text-center mt-5 mb-3">
-  <div class="d-flex mb-5">
+  <div class="d-flex mb-3">
     <a
       class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
       href="https://github.com/axentix/axentix"
@@ -41,9 +41,12 @@
     </a>
   </div>
 
+  <p class="m-0 mb-3">
+    <a href="{{ "/tools/speedtest-internet-health-test/" | relLangURL }}" class="text-underline text-grey">{{ T "footer.speedtest_link" }}</a>
+  </p>
+
   <p class="m-0">
-    Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE<br>
-    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a>
-    at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+    {{ T "footer.credits_line1" }}<br>
+    {{ T "footer.credits_line2_html" | safeHTML }}
   </p>
 </footer>

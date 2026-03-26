@@ -17,3 +17,103 @@ article.related-posts: "Related Posts"
 cta.title: "Start Building with Axentix"
 cta.subtitle: "Ready to create amazing websites? Get started with Axentix framework today."
 cta.button: "Get Started"
+
+# Homepage
+home.meta_title: "Axentix - Modern framework to build websites faster"
+home.meta_description: "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer."
+
+home.hero_title: 'Build <span class="orange-gradient text-gradient">modern</span> websites faster with Axentix.'
+home.hero_subtitle: 'The framework mixing fully <strong class="font-w400">customizable components</strong> & <strong class="font-w400">utility-first classes</strong>, leaving the design choice to the developer.'
+home.latest_version: "Latest version:"
+home.get_started: "Get started"
+home.github_star: "Star"
+
+home.strip.layout: "One class layout control"
+home.strip.components: "Components + utility-classes"
+home.strip.easy: "Easy to use"
+
+home.sponsors.minecraft: "Free minecraft server"
+home.sponsors.placeholder: "Sponsor n°2"
+home.sponsors.placeholder3: "Sponsor n°3"
+home.sponsors.placeholder_more: "..."
+home.sponsors.cta: "Become a sponsor"
+
+home.grix.heading: "Easy grid system : The"
+home.grix.link: "Grix"
+home.grix.body_html: |
+  <strong>CSS Grid</strong> is awesome and allows to create any wanted layout. <br />
+  We made it even <strong>more accessible</strong> for anyone, creating the most <strong>easy to use</strong> grid
+  called <strong>Grix</strong>. <br />
+  <br />
+  Add the <strong>grix</strong> class, you get a <strong>grid</strong>. <br />
+  Add the <strong>breakpoint</strong> and the <strong>amount of column</strong> wanted, like <strong>xs5</strong>,
+  you get 5 columns on <strong>xs and larger devices</strong>.
+
+home.colors.heading: "A color palette with more than 130"
+home.colors.heading_link: "colors"
+home.colors.p_before_link: "Our"
+home.colors.palette_link: "color palette"
+home.colors.p_after_link_html: |
+  provides a large choice of colors, which makes you able <strong>personalize your website as you want</strong>.
+  <br /><br />
+  Using them as <strong>background colors</strong> automatically generates a <strong>text color</strong> to
+  respect the <strong>accessibility</strong> the most possible.
+home.colors.button_demo: "Button"
+home.colors.card_hello: "Hello"
+home.colors.card_name: "I'm John DOE"
+home.colors.card_job: "Web Developer"
+home.colors.pick: "Pick a color"
+
+home.vscode.caption: "VSCode snippet extension"
+home.vscode.title: "VSCode extension"
+home.vscode.body_html: |
+  Code an entire component by typing its name <br />
+  We provide a <strong>VSCode snippets extension</strong> to make you able to <strong>code faster</strong>
+home.vscode.try: "Try it out"
+
+home.neu.title: "Neumorphism"
+home.neu.body_html: |
+  We created <strong>the first framework</strong> based on <strong>neumorphism design</strong>. <br />
+  This is an <strong>extension of Axentix</strong> which allows you to use
+  <strong>neumorphic shadows</strong> anywhere. <br />
+  <br />
+  Two basic themes are provided, <strong>dark</strong> and <strong>light</strong>. <br />
+  You can generate any <strong>theme color</strong> using our
+  <a href="https://neu.useaxentix.com/docs/builder" target="_blank" rel="noopener" class="text-primary">
+    <strong>builder</strong></a>. <br />
+  Here is an example of what type of design you can create using <strong>Neu-Axentix</strong>. <br />
+home.neu.cta: "Get started"
+home.neu.demo_app: "Insane song app"
+home.neu.demo_song: "Song name"
+home.neu.demo_artist: "Ft prestige music"
+
+home.reviews.title: "What they are saying about us"
+home.review.1: "\"Really like this framework. Easy to work with and there is a lot of flexibility.\""
+home.review.1.author: "- Evolve Hosting"
+home.review.2: "\"My quest has ended in finding the optimal CSS framework. So let us spread the word about Axentix.\""
+home.review.2.author: "- Lerche"
+home.review.3: "\"Thanks so much for this css framework! I just finished to port an app from a competitor and I am really impressed! I will be using Axentix for a long time, I hope.\""
+home.review.3.author: "- Proofrock"
+home.review.4: "\"Wow, 5 minutes checking out the docs and I am seriously impressed! Well done team.\""
+home.review.4.author: "- Dave"
+home.review.5: "\"Axentix has significantly improved since I last used it. Well done team.\""
+home.review.5.author: "- Edwadjei"
+home.review.6: "\"The framework is so easy to familiarise with, I am beginning web development but I find myself very easily on the docs. Thank you for the work you have done !\""
+home.review.6.author: "- Hikudo"
+
+home.community.title: "Join the community"
+home.community.discord_title: "Join the conversation on Discord"
+home.community.discord_sub: "Ask questions and share your tips"
+home.community.twitter_title: "Join the conversation on Twitter"
+home.community.twitter_sub: "For announcements and general informations"
+home.community.github_title: "Join the conversation on Github"
+home.community.github_sub: "For issues, feature requests and contribute"
+home.community.join: "Join now"
+
+theme.light: "Light"
+theme.dark: "Dark"
+theme.system: "System"
+
+footer.speedtest_link: "Internet Health Test"
+footer.credits_line1: "Axentix Framework - Made with ♥ by Axel SIMONET & Vincent LEVEQUE"
+footer.credits_line2_html: 'Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a> at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>'

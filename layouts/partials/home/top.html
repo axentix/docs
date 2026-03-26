@@ -1,12 +1,11 @@
 <section class="text-center d-flex fx-col" id="top">
   <div class="container pt-4 d-flex fx-col vcenter">
     <h1 class="font-w600 font-s9 relative-pos z-index-2">
-      Build <span class="orange-gradient text-gradient">modern</span> websites faster with Axentix.
+      {{ T "home.hero_title" | safeHTML }}
     </h1>
 
     <h2 class="font-w400 font-s6 mb-5">
-      The framework mixing fully <strong class="font-w400">customizable components</strong> &
-      <strong class="font-w400">utility-first classes</strong>, leaving the design choice to the developer.
+      {{ T "home.hero_subtitle" | safeHTML }}
     </h2>
 
     <div class="d-flex vcenter">
@@ -19,18 +18,18 @@
         data-show-count="true"
         aria-label="Star axentix/axentix on GitHub"
       >
-        Star
+        {{ T "home.github_star" }}
       </a>
       {{ end }} {{ $latestVersion := (.Site.Params.current | default (getenv "AX_LATEST_VERSION")) }}
-      <em class="ml-3">Latest version: {{ $latestVersion }}</em>
+      <em class="ml-3">{{ T "home.latest_version" }} {{ $latestVersion }}</em>
     </div>
 
     <div class="d-flex vcenter mt-3 top-wrap w100 fx-center">
       <a
-        href="docs/getting-started"
+        href="{{ .Site.BaseURL }}docs/getting-started"
         class="orange-gradient col-xs1 btn btn-large rounded-4 font-w600 text-white relative-pos z-index-2 light-hoverable-1"
       >
-        Get started
+        {{ T "home.get_started" }}
       </a>
       <script type="text/plain" class="disable-copy-btn language-shell relative-pos z-index-2 my-0">
         npm install axentix
@@ -39,40 +38,25 @@
   </div>
 
   <div class="d-flex fx-col mb-5 mx-auto mt-2">
-    <!-- <a
-      class="my-3"
-      href="https://www.producthunt.com/posts/axentix-2-0?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-axentix&#0045;2&#0045;0"
-      target="_blank"
-    >
-      <img
-        class="responsive-media"
-        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=354618&theme=light"
-        alt="Axentix&#0032;2&#0046;0 - Framework&#0032;leaving&#0032;the&#0032;design&#0032;choice&#0032;to&#0032;the&#0032;developer | Product Hunt"
-        style="width: 250px; height: 54px"
-        width="250"
-        height="54"
-      />
-    </a> -->
-
     <div data-ea-publisher="useaxentix-com" data-ea-type="image" class="flat horizontal mx-auto" id="ads-home"></div>
   </div>
 
   <div class="grix xs1 sm3 hide-sm-down top-footer vcenter center mt-auto">
     <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
       <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:developer-board"></span>
-      One class layout control
+      {{ T "home.strip.layout" }}
       <div class="bd-r-1 bd-r-solid bd-orange separator absolute-pos ml-auto"></div>
     </div>
 
     <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
       <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:pound"></span>
-      Components + utility-classes
+      {{ T "home.strip.components" }}
       <div class="bd-r-1 bd-r-solid bd-orange separator absolute-pos ml-auto"></div>
     </div>
 
     <div class="d-flex font-s4 font-w600 vcenter fx-center w100 relative-pos px-2">
       <span class="iconify-inline mr-2 font-s7 icon-gradient" data-icon="mdi:code-braces"></span>
-      Easy to use
+      {{ T "home.strip.easy" }}
     </div>
   </div>
 </section>

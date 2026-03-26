@@ -44,7 +44,7 @@
           <span class="iconify-inline" data-icon="mdi:discord"></span>
         </a>
 
-        {{- if or (eq .Section "blog") (eq .Page.Type "categories") (eq .Page.Kind "term") (hasPrefix .Page.RelPermalink "/blog/") (hasPrefix .Page.RelPermalink "/fr/blog/") (eq .Page.RelPermalink "/") (eq .Page.RelPermalink "/fr/") -}}
+        {{- if or (eq .Section "blog") (eq .Section "tools") (eq .Page.Type "categories") (eq .Page.Kind "term") (hasPrefix .Page.RelPermalink "/blog/") (hasPrefix .Page.RelPermalink "/fr/blog/") (hasPrefix .Page.RelPermalink "/tools/") (hasPrefix .Page.RelPermalink "/fr/tools/") (eq .Page.RelPermalink "/") (eq .Page.RelPermalink "/fr/") -}}
         {{- partial "lang-switcher.html" . -}}
         {{- end -}}
 
@@ -55,9 +55,9 @@
           </span>
 
           <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
-            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
-            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
-            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> {{ T "theme.light" }}</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> {{ T "theme.dark" }}</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> {{ T "theme.system" }}</span>
           </div>
         </div>
       </div>

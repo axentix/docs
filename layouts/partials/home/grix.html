@@ -1,7 +1,7 @@
 <section id="grix" class="py-5">
   <h2 class="text-center mx-2 my-5">
-    Easy grid system : The
-    <a class="text-primary" href="{{ .Site.BaseURL }}/docs/general/grix">Grix</a>
+    {{ T "home.grix.heading" }}
+    <a class="text-primary" href="{{ .Site.BaseURL }}/docs/general/grix">{{ T "home.grix.link" }}</a>
   </h2>
 
   <div class="d-flex container fx-center vcenter pt-3">
@@ -39,13 +39,7 @@
 
     <div class="d-flex fx-col grix-side">
       <p class="mb-4 font-s3 lh-4">
-        <strong>CSS Grid</strong> is awesome and allows to create any wanted layout. <br />
-        We made it even <strong>more accessible</strong> for anyone, creating the most <strong>easy to use</strong> grid
-        called <strong>Grix</strong>. <br />
-        <br />
-        Add the <strong>grix</strong> class, you get a <strong>grid</strong>. <br />
-        Add the <strong>breakpoint</strong> and the <strong>amount of column</strong> wanted, like <strong>xs5</strong>,
-        you get 5 columns on <strong>xs and larger devices</strong>.
+        {{ T "home.grix.body_html" | safeHTML }}
       </p>
 
       <div class="grix-preview p-3 rounded-2">

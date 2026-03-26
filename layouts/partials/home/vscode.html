@@ -5,7 +5,7 @@
         <img
           src="{{ .Site.BaseURL }}/img/snippets.gif"
           data-ax="lightbox"
-          data-lightbox-caption="VSCode snippet extension"
+          data-lightbox-caption="{{ T "home.vscode.caption" }}"
           id="lightbox"
           class="lightbox responsive-media d-flex mx-auto rounded-2 light-shadow-2"
           alt="vscode-icon"
@@ -15,12 +15,11 @@
       <div class="vscode-text">
         <h2 class="text-center mx-2 my-5 d-flex vcenter">
           <span class="iconify-inline mr-2 font-s12 icon-gradient" data-icon="mdi:microsoft-visual-studio-code"></span>
-          <span class="ml-2">VSCode extension</span>
+          <span class="ml-2">{{ T "home.vscode.title" }}</span>
         </h2>
 
         <p class="mb-4 font-s3 lh-4">
-          Code an entire component by typing its name <br />
-          We provide a <strong>VSCode snippets extension</strong> to make you able to <strong>code faster</strong>
+          {{ T "home.vscode.body_html" | safeHTML }}
 
           <a
             class="btn d-flex vcenter orange-gradient font-w600 text-white rounded-4 light-hoverable-1 my-5"
@@ -28,7 +27,7 @@
             target="_blank"
             href="https://marketplace.visualstudio.com/items?itemName=axentix.axentix-snippet"
           >
-            <span class="iconify-inline font-s4 mr-2 hide-md-down" data-icon="mdi:chevron-left-circle"></span> Try it out
+            <span class="iconify-inline font-s4 mr-2 hide-md-down" data-icon="mdi:chevron-left-circle"></span> {{ T "home.vscode.try" }}
           </a>
         </p>
       </div>

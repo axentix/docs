@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
     <head>
-        <title>Axentix - Modern framework to build websites faster</title>
-        {{ $description := "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer." }}
-        <meta name="description" content="{{ .Page.Params.description | default $description }}" />
-        <meta property="og:description" content="{{ .Page.Params.description | default $description }}" />
-        <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+        {{ $homeTitle := T "home.meta_title" }}
+        {{ $homeDesc := T "home.meta_description" }}
+        <title>{{ if .IsHome }}{{ $homeTitle }}{{ else }}{{ .Page.Title | default $homeTitle }}{{ end }}</title>
+        <meta name="description" content="{{ if .IsHome }}{{ $homeDesc }}{{ else }}{{ .Page.Params.description | default $homeDesc }}{{ end }}" />
+        <meta property="og:description" content="{{ if .IsHome }}{{ $homeDesc }}{{ else }}{{ .Page.Params.description | default $homeDesc }}{{ end }}" />
+        <meta property="og:title" content="{{ if .IsHome }}{{ $homeTitle }}{{ else }}{{ .Page.Title | default $homeTitle }}{{ end }}" />
 
         {{ if or (eq .Page.RelPermalink "/") (eq .Page.RelPermalink "/fr/") }}
         <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="x-default">
