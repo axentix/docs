@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test de débit Internet - SpeedTest gratuit et rapport de connexion</title>
+    <meta name="description" content="Lancez un test de débit Internet gratuit dans votre navigateur. Mesurez votre débit descendant, débit montant, ping et qualité de connexion en quelques secondes avec notre outil en ligne." />
+    <meta property="og:description" content="Lancez un test de débit Internet gratuit dans votre navigateur. Mesurez votre débit descendant, débit montant, ping et qualité de connexion en quelques secondes avec notre outil en ligne." />
+    <meta property="og:title" content="Test de débit Internet - SpeedTest gratuit et rapport de connexion" />
+    <meta property="og:image" content="https://useaxentix.com/img/logoOG.jpg?v=3" />
+    <meta property="twitter:title" content="Test de débit Internet - SpeedTest gratuit et rapport de connexion" />
+    <meta property="twitter:description" content="Lancez un test de débit Internet gratuit dans votre navigateur. Mesurez votre débit descendant, débit montant, ping et qualité de connexion en quelques secondes avec notre outil en ligne." />
+
+    
+    
+    <link rel="alternate" hreflang="en" href="https://useaxentix.com/tools/speedtest-internet-health-test/" />
+    
+    <link rel="alternate" hreflang="fr" href="https://useaxentix.com/fr/tools/speedtest-internet-health-test/" />
+    
+    
+    <link rel="alternate" hreflang="x-default" href="https://useaxentix.com/tools/speedtest-internet-health-test/" />
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com//img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com//apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com//favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com//favicon-16x16.png?v=2" />
+<link rel="manifest" href="https://useaxentix.com//webmanifest.json?v=2" />
+<link rel="mask-icon" href="https://useaxentix.com//safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/tools/speedtest-internet-health-test/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Clair</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Sombre</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> Système</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/tools/speedtest-internet-health-test/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/tools/speedtest-internet-health-test/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/tools/speedtest-internet-health-test/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/tools/speedtest-internet-health-test/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+
+<div class="container mt-5" id="internet-health-test">
+
+  <h1 class="exo text-center mb-2">Test de débit Internet - Rapport détaillé</h1>
+  <p class="text-center text-grey mb-5 font-s3">Vérifiez votre débit descendant, débit montant, ping et qualité de
+    connexion - sans installation.
+  </p>
+
+  <div class="d-flex fx-center fx-col" id="speedtest-widget">
+    <div style="text-align:right;">
+      <div style="min-height:360px; max-height:800px">
+        <div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe
+            style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;max-height:800px;border:none;overflow:hidden !important;"
+            src="//www.metercustom.net/plugin/?hl=fr"></iframe></div>
+      </div>Fournisseur du test de débit : <a href="https://www.meter.net" target="_blank"
+        rel="nofollow noopener noreferrer">Meter.net</a>
+    </div>
+  </div>
+
+  <div class="grix xs1 md2 gutter-md5 my-5" id="test-info">
+
+    <div class="lh-3 font-s2-5">
+      <h2 class="exo mt-0">Que mesure ce test de débit Internet ?</h2>
+      <p>
+        Un <strong>test de débit Internet</strong> ne se limite pas au débit brut. Il donne une vue d'ensemble de la
+        qualité de votre connexion en mesurant quatre indicateurs clés en même temps :
+      </p>
+      <ul class="lh-rem-4">
+        <li>
+          <strong>Débit descendant</strong> : vitesse à laquelle les données arrivent d'un serveur vers votre appareil.
+          Mesuré en Mbps (mégabits par seconde). Le streaming 4K demande en général au moins 25 Mbps.
+        </li>
+        <li>
+          <strong>Débit montant</strong> : vitesse à laquelle votre appareil envoie des données vers un serveur.
+          Important pour les visioconférences, les sauvegardes cloud et le jeu en ligne. La plupart des connexions
+          résidentielles montent beaucoup moins vite qu'elles ne descendent.
+        </li>
+        <li>
+          <strong>Ping (latence)</strong> : temps d'aller-retour en millisecondes (ms) entre votre appareil et le
+          serveur
+          de test. Plus c'est bas, mieux c'est. Moins de 20 ms est excellent ; au-delà de 100 ms, les jeux ou les appels
+          deviennent moins fluides.
+        </li>
+        <li>
+          <strong>Gigue (jitter)</strong> : variation du ping dans le temps. Un ping stable à 40 ms vaut mieux qu'un
+          ping
+          qui oscille entre 5 ms et 150 ms. Une gigue élevée provoque de l'audio ou de la vidéo saccadée.
+        </li>
+      </ul>
+
+      <h2 class="exo mt-5">Quel est un bon débit Internet ?</h2>
+      <p>
+        Les besoins dépendent entièrement de ce que vous faites en ligne. Voici des repères courants :
+      </p>
+      <div class="table-responsive mb-4">
+        <table class="table table-hover" aria-label="Repères de débit selon l'activité">
+          <thead>
+            <tr>
+              <th>Activité</th>
+              <th>Débit min. descendant</th>
+              <th>Recommandé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Navigation web / e-mail</td>
+              <td>1 Mbps</td>
+              <td>5 Mbps</td>
+            </tr>
+            <tr>
+              <td>Streaming vidéo HD (1080p)</td>
+              <td>5 Mbps</td>
+              <td>10 Mbps</td>
+            </tr>
+            <tr>
+              <td>Streaming 4K / UHD</td>
+              <td>25 Mbps</td>
+              <td>50 Mbps</td>
+            </tr>
+            <tr>
+              <td>Jeu en ligne</td>
+              <td>3 Mbps</td>
+              <td>25 Mbps + faible ping</td>
+            </tr>
+            <tr>
+              <td>Visioconférence (HD)</td>
+              <td>2,5 Mbps montant et descendant</td>
+              <td>10 Mbps montant et descendant</td>
+            </tr>
+            <tr>
+              <td>Plusieurs utilisateurs / maison connectée</td>
+              <td>50 Mbps</td>
+              <td>200+ Mbps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lh-3 font-s2-5">
+      <h2 class="exo mt-0">Pourquoi mon résultat diffère de mon offre ?</h2>
+      <p>
+        Votre FAI vous vend un maximum théorique, pas un minimum garanti. Plusieurs facteurs réduisent le débit réel :
+      </p>
+      <ul class="lh-rem-4">
+        <li><strong>Signal Wi-Fi</strong> - murs, interférences et distance au routeur dégradent le sans-fil. Branchez
+          en Ethernet sur le routeur pour une mesure de référence.</li>
+        <li><strong>Congestion du réseau</strong> - votre quartier part la bande passante avec le FAI. Aux heures de
+          pointe (soir, week-end), les résultats sont souvent plus bas.</li>
+        <li><strong>Âge du routeur</strong> - un vieux routeur plafonne bien en dessous de la fibre ou du câble moderne.
+          Un routeur limité à 100 Mbps freine une offre à 500 Mbps.</li>
+        <li><strong>VPN ou proxy</strong> - faire transiter le trafic par un serveur distant ajoute de la latence et
+          réduit le débit.</li>
+        <li><strong>Performance de l'appareil</strong> - un PC ou téléphone ancien peut ne pas suivre un lien très
+          rapide.
+        </li>
+      </ul>
+
+      <h2 class="exo mt-5">Comment améliorer votre débit Internet</h2>
+      <ul class="lh-rem-4">
+        <li>Redémarrez box et modem - cela vide la mémoire et renouvelle la session côté FAI.</li>
+        <li>Placez le routeur de façon centrale et surélevée, loin des murs et gros appareils.</li>
+        <li>Passez vos appareils en Wi-Fi 5 GHz pour plus de débit à courte portée, ou restez en 2,4 GHz pour la portée.
+        </li>
+        <li>Privilégiez l'Ethernet sur postes fixes et TV connectées quand c'est possible.</li>
+        <li>Vérifiez les applications en arrière-plan (synchro cloud, mises à jour, streaming).</li>
+        <li>Si le débit reste faible, contactez votre FAI - ligne dégradée ou modem défectueux relèvent de leur support.
+        </li>
+      </ul>
+
+      <h2 class="exo mt-5">À quelle fréquence lancer un test ?</h2>
+      <p>
+        Faites au moins deux mesures : une en heures creuses (tôt le matin) et une aux heures de pointe (soir).
+        Comparez aux débits annoncés sur votre offre. Si le descendant en heures de pointe tombe sous 50 % de l'offre,
+        vous avez un argument pour contacter le FAI. Testez depuis plusieurs appareils et pièces pour savoir si le
+        problème vient de la ligne, du routeur ou d'un appareil précis.
+      </p>
+    </div>
+  </div>
+
+  <div class="d-flex fx-center fx-col">
+    <h2 class="exo">Un bon débit internet fibre c'est combien ?</h2>
+    <p>
+      On vous l'entend souvent : <strong>un bon débit internet fibre c'est combien</strong> ? En pratique, ce n'est
+      pas un seul chiffre magique : sur la <strong>fibre (FTTH)</strong>, une offre &quot;correcte&quot; combine
+      surtout un <strong>débit montant élevé</strong> (souvent proche du descendant), une <strong>latence
+        faible</strong>
+      et une marge confortable pour toute la maison. Les box fibre proposent aujourd'hui souvent
+      <strong>300 Mb/s à 1 Gb/s</strong> en descendant (parfois plus) ; même <strong>100 Mb/s</strong> en fibre peut
+      suffire pour du 4K, la sauvegarde cloud et la visio, si le Wi-Fi et les appareils suivent. Le tableau suivant
+      compare la fibre aux autres technologies d'accès.
+    </p>
+
+    <div class="table-responsive mb-4">
+      <table class="table table-hover" aria-label="Comparaison des technologies d'accès Internet">
+        <thead>
+          <tr>
+            <th>Technologie</th>
+            <th>Débit descendant typique</th>
+            <th>Débit montant typique</th>
+            <th>Latence typique</th>
+            <th>Remarques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fibre (FTTH / FTTP)</strong></td>
+            <td>100 Mb/s - 10 Gb/s</td>
+            <td>Souvent symétrique ou élevé (ex. 100 Mb/s - 1 Gb/s)</td>
+            <td>Très faible (souvent 1-15 ms vers un serveur proche)</td>
+            <td>Idéal pour l'avenir, l'upload et un ping stable.</td>
+          </tr>
+          <tr>
+            <td>Câble (DOCSIS)</td>
+            <td>100 Mb/s - 1 Gb/s+</td>
+            <td>Souvent bien inférieur au descendant (montant partagé)</td>
+            <td>Faible à moyenne</td>
+            <td>Bon descendant ; montant et congestion aux heures de pointe variables.</td>
+          </tr>
+          <tr>
+            <td>VDSL2 / cuivre</td>
+            <td>~30-100 Mb/s</td>
+            <td>~5-40 Mb/s</td>
+            <td>Moyenne</td>
+            <td>Très dépendant de la distance au nœud de rue.</td>
+          </tr>
+          <tr>
+            <td>ADSL</td>
+            <td>~1-20 Mb/s</td>
+            <td>~0,5-2 Mb/s</td>
+            <td>Plus élevée</td>
+            <td>Cuivre ancien ; peu adapté au 4K ou aux foyers nombreux.</td>
+          </tr>
+          <tr>
+            <td>4G / 5G (fixe sans fil)</td>
+            <td>~20-300+ Mb/s</td>
+            <td>~10-50+ Mb/s</td>
+            <td>Variable</td>
+            <td>Dépend de la couverture et de la charge ; utile sans fibre.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grix xs1 md3 gutter-md5 mb-5 lh-3 font-s2-5" id="faq">
+    <h2 class="exo mt-0" style="grid-column:1/-1;">Questions fréquentes</h2>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Ce test est-il gratuit ?</h3>
+      <p class="m-0">Oui. Il s'exécute dans le navigateur via le widget
+        <a href="https://meter.net" target="_blank" rel="nofollow noopener noreferrer"
+          class="text-primary">Meter.net</a>.
+        Pas de compte, pas de téléchargement, pas de suivi au-delà de ce que le navigateur gère déjà.
+      </p>
+    </div>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Le test consomme-t-il beaucoup de données ?</h3>
+      <p class="m-0">
+        Un test typique transfère entre 40 Mo et 200 Mo selon votre débit. Évitez-le sur une enveloppe mobile très
+        limitée.
+      </p>
+    </div>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Pourquoi le ping compte-t-il au jeu ?</h3>
+      <p class="m-0">
+        En jeu temps réel, chaque action part vers le serveur et la réponse revient. Un ping de 20 ms, c'est ce
+        aller-retour en 20 millisecondes ; à 200 ms, votre personnage réagit avec retard. En compétitif, en dessous de
+        60 ms c'est fluide ; au-delà de 150 ms c'est souvent injouable.
+      </p>
+    </div>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Qu'est-ce que la gigue et pourquoi elle gêne les appels ?</h3>
+      <p class="m-0">
+        La gigue, c'est l'irrégularité du ping. Les codecs audio et vidéo tamponnent un peu de données pour absorber les
+        petits retards. Une gigue forte vide ce tampon trop vite : coupures audio (« voix robot ») ou image figée en
+        visio.
+      </p>
+    </div>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Filaire ou Wi-Fi : lequel est le plus fiable ?</h3>
+      <p class="m-0">
+        Les deux sont valides, mais ils ne répondent pas à la même question. Le filaire montre ce que la ligne et la box
+        peuvent livrer. Le Wi-Fi ajoute la couche sans-fil. Faites les deux et comparez pour localiser un goulet.
+      </p>
+    </div>
+
+    <div class="bd-1 bd-solid bd-dark-3 rounded-2 p-4">
+      <h3 class="exo mt-0 font-s3">Pourquoi les sites de test donnent des résultats différents ?</h3>
+      <p class="m-0">
+        Chaque service utilise ses serveurs, à des emplacements différents. Un serveur proche donne un meilleur score
+        qu'un serveur à l'autre bout du monde. Les tests multi-chemins ou avec perte de paquets reflètent mieux la
+        réalité qu'un seul test de débit.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/fr/tools/speedtest-internet-health-test/" class="text-underline text-grey">Test de débit Internet</a>
+  </p>
+
+  <p class="m-0">
+    Framework Axentix - Créé avec ♥ par Axel SIMONET et Vincent LEVEQUE<br>
+    Créateurs d'<a href="https://axenthost.com/" class="text-underline">AxentHost</a> chez <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/js/neu-axentix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/home.min.5a5ed39647a9100afb2e637cdab95ef909d49b12ad368f6d01101f841ba01a9b.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
