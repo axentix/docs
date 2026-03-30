@@ -13,6 +13,8 @@
     <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="en">
     <link rel="alternate" href='{{ .Site.BaseURL }}fr/{{ .Page.RelPermalink }}' hreflang="fr">
     {{ end }}
+
+    {{"<!-- 6d4ba228110b0331103c9c6c8241378d -->" | safeHTML }}
     
     {{- partial "head.html" . -}}
     {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
