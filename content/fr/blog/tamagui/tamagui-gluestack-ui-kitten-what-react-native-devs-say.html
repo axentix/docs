@@ -1,0 +1,146 @@
+---
+title: "Tamagui vs Gluestack UI : lequel choisir ?"
+description: "Comparaison courte de Tamagui et Gluestack UI pour le développement React Native : philosophie, DX,
+performance, theming et quand l'un a plus de sens que l'autre."
+date: 2026-03-30
+author: "Axentix Team"
+image: "/img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png"
+categories: ["Tamagui"]
+summary: "Tamagui et Gluestack UI sont les deux bibliothèques UI React Native les plus discutées en ce moment. Voici
+en quoi elles diffèrent et ce qu'il faut peser avant d'en choisir une."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Tamagui vs Gluestack UI : lequel choisir ?
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/tamagui/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Tamagui
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-03-30" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      30/03/2026
+    </time>
+  </div>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Tamagui vs Gluestack UI"
+      src='{{< link url="img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png" >}}'
+      alt="Page d'accueil Tamagui" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Tamagui vs Gluestack UI pour React Native</figcaption>
+  </figure>
+
+  <p class="mb-5 font-s3">
+    Tamagui et Gluestack UI sont les deux noms qui reviennent le plus quand on choisit une bibliothèque UI pour un
+    projet React Native en 2026. Ils règlent le même problème mais avec des approches différentes. Voici ce qui les
+    distingue.
+  </p>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0">Ce qu'est Tamagui</h2>
+
+    <p>
+      <a class="text-primary text-underline" href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/">Tamagui</a> est un
+      kit UI et un système de style
+      construit autour d'un compilateur. Vous écrivez vos composants une seule fois avec son API de style typée, et le
+      compilateur les aplatit en sortie optimale : CSS atomique sur le web, simples Views sur native. Le système de
+      tokens et le theming sont des fonctionnalités de premier plan, ce qui en fait un bon choix si votre app a un
+      design system à maintenir cohérent entre web et native.
+    </p>
+
+    <p>
+      Le coût, c'est la mise en place. Faire tourner le compilateur avec votre bundler ou votre config Babel prend du
+      temps, les fichiers de configuration ont une courbe d'apprentissage, et suivre la doc pas à pas peut être ardu
+      par endroits. Le projet évolue vite, ce qui peut entraîner une instabilité ponctuelle près des grosses versions.
+      Le mainteneur est connu pour être actif sur GitHub et Discord, ce qui aide quand on tombe sur quelque chose
+      d'inattendu.
+    </p>
+
+    <h2 class="exo mt-5">Ce qu'est Gluestack UI</h2>
+
+    <p>
+      Gluestack UI est une bibliothèque de composants développée par la même équipe que NativeBase. Elle propose un
+      noyau headless avec des composants accessibles prêts à l'emploi qui fonctionnent sur React Native et le web. Le
+      workflow s'appuie sur le copier-coller et un CLI, à la manière de shadcn : vous importez les composants dans
+      votre projet et vous en êtes propriétaire. Il n'y a pas d'étape compilateur, ce qui veut dire moins à configurer
+      avant de commencer à construire des écrans.
+    </p>
+
+    <p>
+      Le démarrage facile est la raison la plus souvent citée pour choisir Gluestack quand le calendrier est serré. La
+      doc ressemble à un catalogue de composants et la DX donne l'impression d'« installer et enchaîner ». L'historique
+      NativeBase vaut la peine d'être connu : beaucoup de développeurs ont eu de mauvaises expériences quand des
+      correctifs étaient promis sur NativeBase pendant que Gluestack se construisait déjà en coulisse. Cette réputation
+      reste dans les discussions de la communauté, même si la bibliothèque est une base de code à part.
+    </p>
+
+    <h2 class="exo mt-5">Comment elles se comparent</h2>
+
+    <p>
+      Sur la <strong>performance</strong>, Tamagui a l'avantage sur le web grâce à l'extraction statique et la
+      CSS atomique. Sur native la différence est plus faible. Gluestack n'a pas de compilateur, donc ce que vous
+      livrez correspond à ce que vous écrivez, plus simple à raisonner mais qui laisse davantage d'optimisation
+      à votre charge.
+    </p>
+
+    <p>
+      Sur le <strong>theming</strong>, Tamagui vous donne un système de tokens avec contrôle dark/light et
+      par plateforme intégré dès le départ. Gluestack a une API de style et du support de thème, mais le modèle
+      mental est différent : on style des composants plutôt que de configurer un design system en amont.
+    </p>
+
+    <p>
+      Sur la <strong>prise en main</strong>, Gluestack gagne. Lancez le CLI, choisissez vos composants, commencez à
+      construire. Avec Tamagui vous passez d'abord du temps sur la config. Ceux qui courent après une livraison Figma
+      et un premier sprint rapide atterrissent souvent sur Gluestack ; ceux qui construisent un produit sur la durée
+      avec un langage de design strict atterrissent souvent sur Tamagui.
+    </p>
+
+    <p>
+      Sur la <strong>communauté et la doc</strong>, les deux ont des marges de progression. La doc de Tamagui peut
+      être difficile à suivre de bout en bout (le theming est souvent cité), et la communauté est plus petite. La
+      doc de Gluestack est plus accessible pour les nouveaux arrivants, mais la bibliothèque est plus jeune en tant
+      que projet autonome.
+    </p>
+
+    <h2 class="exo mt-5">Et UI Kitten ?</h2>
+
+    <p>
+      UI Kitten utilise le design system Eva pour une cohérence visuelle immédiate. Certains développeurs qui ont
+      essayé les trois finissent par le choisir pour la simplicité et la qualité des composants, surtout quand le
+      rendu Eva correspond au projet. Cela dit, l'activité de maintenance a ralenti et des développeurs ont dû migrer.
+      Vérifiez vous-même le dépôt avant de vous engager.
+    </p>
+
+    <h2 class="exo mt-5">Lequel choisir</h2>
+
+    <p>
+      Si vous devez livrer vite, que votre équipe est nouvelle sur les deux, ou que vous voulez posséder le code de
+      vos composants : optez pour Gluestack. Si vous ciblez web et native avec une seule base de code, que vous vous
+      souciez de la taille du bundle et que vous êtes prêt à investir dans la mise en place : Tamagui rentabilise
+      l'effort dans la durée. Les deux sont des projets actifs ; aucun n'est un mauvais choix en 2026, du moment que
+      vous savez dans quoi vous vous engagez.
+    </p>
+
+    <p>
+      Voir <a class="text-primary text-underline" href="/blog/tamagui/what-is-tamagui-and-how-to-use-it/">qu'est-ce que
+        Tamagui</a> pour un regard plus
+      approfondi du côté Tamagui, et <a class="text-primary text-underline" href="https://tamagui.dev" target="_blank"
+        rel="nofollow noopener noreferrer">tamagui.dev</a> et <a class="text-primary text-underline"
+        href="https://gluestack.io" target="_blank" rel="nofollow noopener noreferrer">gluestack.io</a> pour la doc
+      officielle de chacun.
+    </p>
+  </article>
+</div>
