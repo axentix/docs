@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Axentix - Modern framework to build websites faster</title>
+    
+    <meta name="description" content="Tour d&#39;horizon complet des nouveautés d&#39;Angular v22 : OnPush par défaut, les Signal Forms stables, l&#39;API resource, le décorateur @Service, Vitest, l&#39;hydratation incrémentale et le guide de mise à jour." />
+    <meta property="og:description" content="Tour d&#39;horizon complet des nouveautés d&#39;Angular v22 : OnPush par défaut, les Signal Forms stables, l&#39;API resource, le décorateur @Service, Vitest, l&#39;hydratation incrémentale et le guide de mise à jour." />
+    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/angular/whats-new-in-angular-v22-features-breakdown/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com//fr/blog/angular/whats-new-in-angular-v22-features-breakdown/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr//fr/blog/angular/whats-new-in-angular-v22-features-breakdown/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://useaxentix.com/" />
+<meta property="og:image" content="https://useaxentix.com/img/logoOG.jpg?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/angular/whats-new-in-angular-v22-features-breakdown/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Clair</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Sombre</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> Système</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/angular/whats-new-in-angular-v22-features-breakdown/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/angular/whats-new-in-angular-v22-features-breakdown/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/angular/whats-new-in-angular-v22-features-breakdown/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/angular/whats-new-in-angular-v22-features-breakdown/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/angular/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    Angular Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Quoi de neuf dans Angular v22 : le détail des nouvelles fonctionnalités
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/angular/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Angular
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-06-25" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      25/06/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Angular v22 est sorti le 3 juin 2026, et c'est la version où des années de travail autour des signals deviennent
+    enfin la norme par défaut. La détection de changements OnPush, les Signal Forms, l'API resource : tout cela est
+    désormais prêt pour la production. Voici le tour d'horizon complet de ce qui change vraiment, pourquoi ça compte, et
+    comment faire passer votre application dessus.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Quoi de neuf dans Angular v22"
+      src='https://useaxentix.com//img/blog/angular/whats-new-in-angular-v22-features-breakdown/angular-v22-release.webp'
+      alt="Angular v22: la version qui place les signals au centre" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">
+      Angular v22, version de Juin 2026
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Angular v22 est une version majeure, mais elle ne va pas vous gâcher la semaine. Au lieu de vous balancer une pile
+      de nouvelles API, l'équipe a pris une longue liste de fonctionnalités expérimentales pour les marquer stables,
+      puis a changé quelques comportements par défaut pour coller à la façon dont on écrit Angular aujourd'hui. Si vous
+      êtes déjà passé aux signals, aux composants standalone et au nouveau control flow, une bonne partie de la v22
+      ressemble moins à un apprentissage qu'au framework qui rattrape votre code.
+    </p>
+
+    <p>
+      Passons en revue tout ça, section par section, en commençant par le changement qui touche chaque composant que
+      vous écrirez un jour : une nouvelle stratégie de détection de changements par défaut.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Angular v22 en un coup d'œil</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Date de sortie :</strong> 3 juin 2026</li>
+      <li><strong>OnPush devient la stratégie de détection de changements par défaut</strong> pour chaque composant</li>
+      <li><strong>Les Signal Forms, l'API resource et Angular Aria sont stables</strong></li>
+      <li><strong>Vitest remplace Karma et Jasmine</strong> comme exécuteur de tests par défaut</li>
+      <li><strong>L'hydratation incrémentale est activée par défaut</strong> pour les applications rendues côté serveur
+      </li>
+      <li><strong>HttpClient utilise l'API Fetch</strong> à la place de XMLHttpRequest par défaut</li>
+      <li><strong>Nouveau décorateur <code
+            class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code></strong> et
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">injectAsync()</code> pour
+        l'injection de dépendances
+      </li>
+      <li><strong>Les prérequis changent :</strong> TypeScript v6 et Node v22 sont désormais obligatoires</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">OnPush devient la stratégie de détection de changements par défaut</h2>
+
+    <p>
+      C'est celui auquel il faut prêter attention. Pendant des années, chaque composant que vous créiez tournait avec
+      l'ancienne stratégie « tout vérifier, tout le temps », qui réévalue les liaisons d'un composant à presque chaque
+      événement, n'importe où dans l'application. À partir de la v22, un composant qui ne déclare pas de stratégie
+      reçoit
+      <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.OnPush</code>
+      à la place. Angular ne le revérifie que lorsque ses inputs changent, qu'un signal qu'il lit se met à jour, ou
+      qu'un
+      événement se déclenche à l'intérieur. Rien de plus.
+    </p>
+
+    <p>
+      Si votre application s'appuie déjà sur les signals et des inputs immuables, vous gagnez moins de vérifications
+      inutiles et un rendu plus rapide gratuitement, sans toucher une ligne. Le piège, c'est l'ancien code qui mute
+      discrètement des objets sur place : ces vues peuvent cesser de se mettre à jour. La bonne nouvelle, c'est que la
+      migration s'en charge pour vous en insérant la stratégie de repli partout où c'est nécessaire :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+// Nouveau comportement en v22 : OnPush est implicite si vous n'écrivez rien.
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.html'
+})
+export class ProductComponent {}
+
+// Revenez à l'ancien comportement « tout vérifier » quand vous en avez besoin.
+@Component({
+  selector: 'app-legacy',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  templateUrl: './legacy.html'
+})
+export class LegacyComponent {}</code></pre>
+    </div>
+
+    <p>
+      Notez la valeur renommée : l'ancien défaut s'appelle désormais <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.Eager</code>.
+      Quand vous lancez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ng update</code>,
+      le schematic l'applique à chaque composant qui n'avait pas déjà défini de stratégie, donc rien ne change côté
+      comportement le premier jour. Ensuite, vous pouvez le retirer composant par composant, en vérifiant que chaque vue
+      fonctionne toujours sous OnPush au fur et à mesure.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Les Signal Forms sont stables</h2>
+
+    <p>
+      Les Signal Forms abandonnent enfin l'étiquette expérimentale en v22. Toute l'API repose sur les signals, ce qui
+      veut dire que la valeur du formulaire, son état de validation, et même le fait qu'un champ ait été touché, sont
+      des
+      signals réactifs que vous lisez directement depuis un template ou un computed. Pas de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">FormGroup</code>, pas d'arbre de
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">FormControl</code> à
+      surveiller
+      et à garder synchronisé avec votre modèle.
+    </p>
+
+    <p>
+      Vous partez d'un modèle objet tout simple enveloppé dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">signal()</code>, puis vous
+      décrivez
+      sa validation avec la fonction <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">form()</code> et un schéma :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Component, signal } from '@angular/core';
+import { form, required, email, minLength } from '@angular/forms/signals';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.html'
+})
+export class LoginComponent {
+  model = signal({ email: '', password: '' });
+
+  loginForm = form(this.model, (path) => {
+    required(path.email);
+    email(path.email);
+    required(path.password);
+    minLength(path.password, 8);
+  });
+
+  submit() {
+    if (this.loginForm().valid()) {
+      console.log(this.model());
+    }
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      Dans le template, vous liez les champs avec la directive <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Field</code> et vous lisez les
+      erreurs directement depuis le signal du formulaire :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;form (submit)="submit()"&gt;
+  &lt;input type="email" [field]="loginForm.email" /&gt;
+  &lt;input type="password" [field]="loginForm.password" /&gt;
+
+  &lt;p&gt;{{ loginForm.password().getError('minLength') }}&lt;/p&gt;
+
+  &lt;button [disabled]="loginForm().invalid()"&gt;Se connecter&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <p>
+      La version stable ajoute les détails que vous utilisez vraiment au quotidien : les validateurs <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">minDate()</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">maxDate()</code>, une méthode
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getError()</code> qui
+      restreint
+      correctement les types, le debounce sur le blur et sur les validateurs asynchrones, et une sortie <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">touch()</code> qui remplace le
+      maladroit drapeau touched mutable d'avant. Et si vous avez des contrôles personnalisés écrits à l'ancienne avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ControlValueAccessor</code>,
+      ils
+      continuent de fonctionner avec les Signal Forms, donc pas besoin de tout réécrire d'un coup pour adopter tout ça.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">L'API resource est prête pour la production</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">resource()</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">rxResource()</code> et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpResource()</code> sont stables
+      à partir de la v22. Leur intérêt, c'est de garder les données asynchrones à l'intérieur du graphe de signals, pour
+      que vous arrêtiez de recoudre RxJS et les signals à la main à chaque fois que vous récupérez quelque chose. Un
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpResource</code> recharge
+      tout seul dès qu'un signal dont il dépend change, et il vous donne loading, error et value sous forme de signals
+      que vous lisez directement.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Component, signal } from '@angular/core';
+import { httpResource } from '@angular/common/http';
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.html'
+})
+export class UserComponent {
+  userId = signal(1);
+
+  // Recharge automatiquement dès que userId() change.
+  user = httpResource(() =&gt; `/api/users/${this.userId()}`);
+}</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-html">@if (user.isLoading()) {
+  &lt;p&gt;Chargement...&lt;/p&gt;
+} @else if (user.error()) {
+  &lt;p&gt;Une erreur est survenue.&lt;/p&gt;
+} @else {
+  &lt;h2&gt;{{ user.value()?.name }}&lt;/h2&gt;
+}</code></pre>
+    </div>
+
+    <p>
+      Deux choses méritent d'être soulignées dans la version stable. Il y a une nouvelle méthode <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">chain()</code> qui rend
+      l'enchaînement du résultat d'une resource vers la suivante indolore, avec la propagation automatique des états de
+      chargement et d'erreur. Et si vous passez un <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">id</code> dans les options, une
+      resource résolue pendant le rendu côté serveur est mise en cache et s'affiche instantanément côté client, sans
+      second clignotement de chargement le temps qu'elle se recharge.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Le décorateur @Service et injectAsync()</h2>
+
+    <p>
+      Déclarer un service singleton a toujours voulu dire taper <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Injectable({ providedIn: 'root' })</code>.
+      Le nouveau décorateur <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service()</code>
+      dit exactement la même chose avec beaucoup moins de cérémonie. Par défaut, il vous donne un singleton
+      tree-shakeable à l'échelle de l'application, comme l'Injectable fourni à la racine, sauf que cette fois le nom dit
+      ce que c'est :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Service, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Service()
+export class ProductService {
+  private http = inject(HttpClient);
+
+  getProducts() {
+    return this.http.get('/api/products');
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      Une chose à savoir : un <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code>
+      récupère ses dépendances via <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">inject()</code> plutôt que par le
+      constructeur, ce qui l'aligne sur la façon dont le reste d'Angular moderne fonctionne déjà.
+    </p>
+
+    <p>
+      Juste à côté se trouve <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">injectAsync()</code>,
+      qui charge un service en lazy via un import dynamique, pour que son code parte dans son propre chunk et ne se
+      télécharge qu'à la première fois où quelqu'un en a besoin. Si vous préférez ne pas payer ce coût à la demande,
+      vous
+      pouvez le faire précharger discrètement pendant que le navigateur est inactif :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { injectAsync, onIdle } from '@angular/core';
+
+export class CheckoutComponent {
+  private heavyService = injectAsync(
+    () =&gt; import('./pricing.service').then((m) =&gt; m.PricingService),
+    { prefetch: onIdle }
+  );
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Vitest remplace Karma et Jasmine</h2>
+
+    <p>
+      Les nouveaux projets en v22 démarrent avec Vitest comme exécuteur de tests. Karma est sur le départ depuis un
+      moment, et Jasmine n'est plus ce que vous obtenez par défaut. Vitest est rapide, tourne en mode watch sans rien
+      demander, et réutilise la même configuration de build que votre application, donc vous ne maintenez pas une chaîne
+      d'outils séparée rien que pour les tests.
+    </p>
+
+    <p>
+      Les projets existants continuent de tourner tels quels, et la CLI vous donne des schematics pour faire le saut.
+      Pour convertir une configuration Karma et Jasmine, lancez :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">ng generate @schematics/angular:migrate-karma-to-vitest</code></pre>
+    </div>
+
+    <p>
+      Inquiet pour vos tests asynchrones ? Si vous comptez sur <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fakeAsync</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flush</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">waitForAsync</code>, ces
+      utilitaires Zone.js tournent désormais sous Vitest grâce à un patch dédié, donc il n'y a rien à réécrire. Deux
+      nouveaux flags aident aussi : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--isolate</code>
+      lance les tests dans des processus séparés, et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--quiet</code> garde le bruit du
+      build hors de votre sortie.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">L'hydratation incrémentale par défaut</h2>
+
+    <p>
+      Si vous rendez côté serveur, l'hydratation incrémentale est activée par défaut maintenant. Plutôt que de réveiller
+      toute la page d'un coup, Angular hydrate des morceaux à mesure qu'ils entrent dans la vue ou que l'utilisateur
+      interagit avec eux. Résultat : moins de JavaScript exécuté au premier chargement et de meilleurs chiffres
+      d'interaction sur les pages lourdes. L'ancien appel <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withIncrementalHydration()</code>
+      est déprécié, puisque vous obtenez le comportement gratuitement. Tant qu'on y est : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">provideServerRendering()</code> a
+      récupéré une option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">maxResponseBodySize</code> qui
+      vaut
+      1 Mo par défaut.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">HttpClient passe à l'API Fetch</h2>
+
+    <p>
+      Sous le capot, HttpClient parle désormais à l'API Fetch du navigateur au lieu de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">XMLHttpRequest</code>. Le <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withFetch()</code> que vous
+      activiez avant est simplement le défaut, et si quelque chose dans votre stack a encore besoin de l'ancien
+      transport, vous pouvez revenir en arrière avec <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withXhr()</code>. Fetch garde
+      Angular aligné sur la plateforme moderne, se comporte mieux en dehors du navigateur, et s'entend bien avec le
+      rendu
+      côté serveur.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { provideHttpClient, withXhr } from '@angular/common/http';
+
+export const appConfig = {
+  providers: [
+    // Fetch est désormais le défaut ; ne revenez en arrière que si vous y êtes obligé.
+    provideHttpClient(withXhr())
+  ]
+};</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Améliorations des templates et du compilateur</h2>
+
+    <p>
+      Les templates continuent de gagner en capacités et en rigueur en même temps. Le changement que vous remarquerez en
+      premier, c'est de pouvoir glisser un commentaire HTML à l'intérieur d'une balise ouvrante, ce qui est vraiment
+      pratique quand vous voulez annoter ou désactiver temporairement un seul attribut sur un élément à rallonge :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;input
+  type="text"
+  [value]="name()"
+  &lt;!-- [disabled]="locked()" temporairement désactivé --&gt;
+  (input)="onInput($event)"
+/&gt;</code></pre>
+    </div>
+
+    <p>
+      Au-delà de ça, le compilateur est devenu plus malin sur l'optional chaining avec des null guards automatiques, a
+      ajouté des vérifications exhaustives de <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@switch</code>, a donné à <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@defer (on idle(500ms))</code> un
+      timeout pour qu'il ne puisse pas attendre indéfiniment, et repère maintenant les noms d'input ou d'output en
+      double
+      et les boucles <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@for</code>
+      cassées à la compilation plutôt que de les laisser filer jusqu'à l'exécution. Les strict templates sont aussi
+      activés par défaut, et la migration ajoute <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictTemplates: false</code> pour
+      tout projet qui n'est pas encore prêt pour ça.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Intégration de l'IA avec WebMCP</h2>
+
+    <p>
+      La v22 tente aussi un pari expérimental sur l'IA avec WebMCP, un protocole navigateur qui permet aux agents IA
+      d'appeler des fonctionnalités dans votre application en cours d'exécution. La partie qui a attiré mon attention,
+      c'est l'exposition automatique des formulaires : vous branchez les providers, vous taguez un Signal Form, et
+      Angular lit le modèle du formulaire, en construit un schéma JSON, et rend le tout appelable par un agent. L'agent
+      récupère même les erreurs de validation et peut corriger lui-même son entrée.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { provideExperimentalWebMcpForms } from '@angular/forms/signals';
+
+export const appConfig = {
+  providers: [
+    provideExperimentalWebMcpForms()
+  ]
+};</code></pre>
+    </div>
+
+    <p>
+      L'équipe a aussi publié des skills Angular officiels que vous pouvez greffer sur vos outils de codage IA avec
+      <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">npx skills add https://github.com/angular/skills</code>,
+      et vos graphes de signals et d'injection de dépendances apparaissent maintenant comme des extensions des Chrome
+      DevTools. Tout ça est expérimental, alors ne soyez pas surpris quand l'API bougera avant de se stabiliser.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Angular Aria est stable</h2>
+
+    <p>
+      Le paquet <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@angular/aria</code>
+      est passé de l'aperçu développeur à la production. Il vous donne des briques accessibles, des choses comme la
+      navigation au clavier et le câblage ARIA que personne n'aime écrire à la main, que vous composez dans vos propres
+      composants, et il se branche directement sur les Signal Forms. Si vous maintenez un design system en interne,
+      c'est
+      la base d'accessibilité sans avoir à tirer toute une bibliothèque de composants pour l'obtenir.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Renforcement de la sécurité</h2>
+
+    <p>
+      Il y a une vraie histoire de sécurité ici aussi. La v22 a ajouté des protections contre le server-side request
+      forgery (SSRF) autour de la façon dont <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">platform-server</code> initialise
+      location et document, a resserré la sanitization des attributs <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">href</code> dynamiques sur les
+      ancres SVG, et a durci les données de locale contre la pollution de prototype. Le transfer cache ignore désormais
+      par défaut toute requête qui transporte des cookies ou utilise <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withCredentials</code>, pour que
+      les réponses sensibles ne soient pas figées dans la page. Rien de tout ça ne vous demande quoi que ce soit, mais
+      c'est agréable de savoir que votre application ressort de la mise à jour un peu plus sûre.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Les ruptures à surveiller</h2>
+
+    <p>
+      Les migrations couvrent l'essentiel de la v22, mais une poignée de changements valent la peine d'y jeter un œil
+      vous-même avant de livrer :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>TypeScript v6 et Node v22 sont requis.</strong> TypeScript 5.9 et Node 20 ne sont plus pris en charge.
+      </li>
+      <li><strong>OnPush est le défaut.</strong> Les vues qui reposaient sur la mutation d'objets sur place peuvent
+        cesser de se mettre à jour tant que vous ne les basculez pas sur <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Eager</code> ou ne passez pas
+        aux signals.</li>
+      <li><strong>L'héritage des paramètres du routeur change.</strong> <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">paramsInheritanceStrategy</code>
+        vaut maintenant <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'always'</code>
+        par défaut, et celui-ci n'est pas migré automatiquement.</li>
+      <li><strong>L'optional chaining renvoie <code
+            class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code></strong> au
+        lieu de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">null</code> dans les
+        templates ; une migration peut préserver l'ancien comportement si vous en dépendez.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment passer à Angular v22</h2>
+
+    <p>
+      Avant toute chose, mettez-vous sur Node v22 et assurez-vous que le projet est déjà sur Angular v21, car la CLI ne
+      saute qu'une version majeure à la fois. Ensuite, lancez la mise à jour :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Vérifiez votre version actuelle
+ng version
+
+# Mettez à jour le framework principal et la CLI vers la v22
+ng update @angular/core@22 @angular/cli@22</code></pre>
+    </div>
+
+    <p>
+      Les schematics mettent à jour TypeScript, insèrent <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.Eager</code>
+      là où c'est nécessaire, et nettoient les API dépréciées au passage. Une fois que c'est fait, lancez vos tests,
+      gardez un œil sur les vues qui ont cessé de se mettre à jour sous OnPush, et revérifiez que tout code qui tirait
+      des
+      paramètres du routeur depuis une route parente fait toujours ce que vous attendez. Quand tout est au vert,
+      commencez à retirer ces marqueurs <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Eager</code> pour profiter
+      réellement du nouveau défaut.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      La v22 n'est pas vraiment une histoire de nouveaux gadgets. C'est une histoire de rendre la façon moderne et
+      centrée sur les signals de construire Angular la voie de moindre résistance. OnPush par défaut vous récompense
+      d'écrire du code réactif. Les Signal Forms stables et l'API resource enlèvent les dernières raisons de revenir aux
+      anciens patterns. Vitest, l'hydratation incrémentale et le HttpClient basé sur Fetch modernisent discrètement
+      l'outillage sous vos pieds. Et <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code> rogne un peu de
+      boilerplate sur chaque service que vous écrivez.
+    </p>
+
+    <p>
+      La mise à jour est en grande partie automatisée, les ruptures sont gérables, et ce que vous en retirez, c'est une
+      application plus rapide avec un code plus propre. Si vous écrivez déjà des signals et des composants standalone,
+      la
+      v22 va vous sembler familière. Quand vous serez prêt à creuser les détails, la <a
+        href="https://angular.dev/events/v22" class="text-primary" target="_blank"
+        rel="nofollow noopener noreferrer">page de sortie officielle d'Angular v22</a> et le <a
+        href="https://angular.dev/update-guide" class="text-primary" target="_blank"
+        rel="nofollow noopener noreferrer">guide de mise à jour Angular</a> sont les deux liens à garder ouverts.
+    </p>
+  </article>
+</div>
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (14)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/llm/">
+          LLM (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (4)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/concatenate-strings-in-javascript/" aria-label="Concatener des chaines en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/concatenate-strings-in-javascript/string-concat-js.webp" loading="lazy"
+      alt="Concatener des chaines en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/concatenate-strings-in-javascript/">
+        Concatener des chaines en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        13 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez toutes les methodes pour concatener des chaines en JavaScript, y compris l&rsquo;operateur +, les template literals, concat(), et join(). Guide complet avec exemples, comparaisons de performance et bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/concatenate-strings-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/6-ways-to-clone-objects-in-javascript/" aria-label="6 facons de cloner des objets en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/6-ways-to-clone-objects-in-javascript/javascript-clone-object.webp" loading="lazy"
+      alt="6 facons de cloner des objets en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/6-ways-to-clone-objects-in-javascript/">
+        6 facons de cloner des objets en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        09 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apres avoir lu cet article, vous saurez cloner des objets en JavaScript avec 6 methodes differentes. Apprenez l&rsquo;operateur spread, Object.assign, les methodes JSON et plus encore, avec des comparaisons de performance et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/6-ways-to-clone-objects-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/javascript-for-of-loop-tutorial/" aria-label="Boucle for...of en JavaScript : la boucle à tout faire article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp" loading="lazy"
+      alt="Boucle for...of en JavaScript : la boucle à tout faire recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/javascript-for-of-loop-tutorial/">
+        Boucle for...of en JavaScript : la boucle à tout faire
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        17 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez tout sur la boucle for&hellip;of de JavaScript. Comprenez les itérables, le destructuring, les itérateurs complémentaires, l’évaluation paresseuse avec les générateurs et pourquoi for&hellip;of remplace la plupart des boucles traditionnelles.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/javascript-for-of-loop-tutorial/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/fr/tools/speedtest-internet-health-test/" class="text-underline text-grey">Test de débit Internet</a>
+  </p>
+
+  <p class="m-0">
+    Framework Axentix - Créé avec ♥ par Axel SIMONET et Vincent LEVEQUE<br>
+    Créateurs d'<a href="https://axenthost.com/" class="text-underline">AxentHost</a> chez <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
