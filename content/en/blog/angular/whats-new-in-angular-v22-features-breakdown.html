@@ -1,0 +1,518 @@
+---
+title: "What's New in Angular v22: Features Breakdown"
+description: "A complete breakdown of Angular v22 new features: OnPush by default, stable Signal Forms, the resource
+API, the @Service decorator, Vitest, incremental hydration, and the upgrade path."
+date: 2026-06-25
+author: "Axentix Team"
+image: "/img/blog/angular/whats-new-in-angular-v22-features-breakdown/angular-v22-release.webp"
+categories: ["Angular"]
+summary: "Angular v22 released on June 3, 2026. Here is a clear breakdown of every important new feature, change, and
+breaking change, with code examples and a step-by-step upgrade guide."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    What's New in Angular v22: Features Breakdown
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/angular/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Angular
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-06-25" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      25/06/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Angular v22 landed on June 3, 2026, and it's the release where years of signal-based groundwork finally become the
+    default. OnPush change detection, Signal Forms, the resource API: they're all production-ready now. Here's the full
+    breakdown of what actually changed, why it matters, and how to get your app onto it.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="What's New in Angular v22"
+      src='{{< link url="img/blog/angular/whats-new-in-angular-v22-features-breakdown/angular-v22-release.webp" >}}'
+      alt="Angular v22: the signal-first release" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Angular v22, June 2026 release
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Angular v22 is a major release, but it won't ruin your week. Instead of dropping a pile of new APIs on you, the
+      team took a long list of experimental features and marked them stable, then flipped a few defaults to match how
+      people actually write Angular these days. If you've already moved to signals, standalone components, and the new
+      control flow, a lot of v22 feels less like learning something new and more like the framework catching up to your
+      code.
+    </p>
+
+    <p>
+      Let's go through it section by section, starting with the change that touches every component you'll ever write:
+      a new default change detection strategy.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Angular v22 at a Glance</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Release date:</strong> June 3, 2026</li>
+      <li><strong>OnPush is now the default</strong> change detection strategy for every component</li>
+      <li><strong>Signal Forms, the resource API, and Angular Aria are stable</strong></li>
+      <li><strong>Vitest replaces Karma and Jasmine</strong> as the default test runner</li>
+      <li><strong>Incremental hydration is on by default</strong> for server-side rendered apps</li>
+      <li><strong>HttpClient uses the Fetch API</strong> instead of XMLHttpRequest by default</li>
+      <li><strong>New <code
+            class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code>
+          decorator</strong> and <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">injectAsync()</code> for
+        dependency injection</li>
+      <li><strong>Requirements changed:</strong> TypeScript v6 and Node v22 are now mandatory</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">OnPush Is the New Default Change Detection Strategy</h2>
+
+    <p>
+      This is the one to pay attention to. For years, every component you created ran with the old
+      "check everything, all the time" strategy, which re-runs a component's bindings on almost any event anywhere in
+      the app. From v22 on, a component that doesn't declare a strategy gets <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.OnPush</code>
+      instead. Angular re-checks it only when its inputs change, a signal it reads updates, or an event fires inside it.
+      Nothing more.
+    </p>
+
+    <p>
+      If your app already leans on signals and immutable inputs, you get fewer wasted checks and faster rendering for
+      free, without touching a line. The catch is older code that quietly mutates objects in place: those views can stop
+      updating. The good news is the migration handles it for you, dropping in the opt-out strategy wherever it's
+      needed:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+// New behavior in v22: OnPush is implied if you write nothing.
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.html'
+})
+export class ProductComponent {}
+
+// Opt back into the old "check always" behavior when you need it.
+@Component({
+  selector: 'app-legacy',
+  changeDetection: ChangeDetectionStrategy.Eager,
+  templateUrl: './legacy.html'
+})
+export class LegacyComponent {}</code></pre>
+    </div>
+
+    <p>
+      Notice the renamed value: the old default goes by <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.Eager</code>
+      now. When you run <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ng update</code>,
+      the schematic stamps it onto every component that didn't already set a strategy, so nothing changes behavior-wise
+      on day one. From there you can peel it off one component at a time, checking each view still works under OnPush as
+      you go.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Signal Forms Are Stable</h2>
+
+    <p>
+      Signal Forms finally shed the experimental label in v22. The whole API is built on signals, which means the
+      form's value, its validation state, even whether a field has been touched, are all reactive signals you can read
+      straight from a template or a computed. No <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">FormGroup</code>, no <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">FormControl</code> tree to babysit
+      and keep in sync with your model.
+    </p>
+
+    <p>
+      You start with a plain object model wrapped in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">signal()</code>, then describe how
+      it should validate with the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">form()</code>
+      function and a schema:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Component, signal } from '@angular/core';
+import { form, required, email, minLength } from '@angular/forms/signals';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.html'
+})
+export class LoginComponent {
+  model = signal({ email: '', password: '' });
+
+  loginForm = form(this.model, (path) => {
+    required(path.email);
+    email(path.email);
+    required(path.password);
+    minLength(path.password, 8);
+  });
+
+  submit() {
+    if (this.loginForm().valid()) {
+      console.log(this.model());
+    }
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      In the template you bind fields with the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Field</code> directive and read
+      errors straight from the form signal:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;form (submit)="submit()"&gt;
+  &lt;input type="email" [field]="loginForm.email" /&gt;
+  &lt;input type="password" [field]="loginForm.password" /&gt;
+
+  &lt;p&gt;{{ loginForm.password().getError('minLength') }}&lt;/p&gt;
+
+  &lt;button [disabled]="loginForm().invalid()"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <p>
+      The stable release sprinkles in the things you actually reach for day to day: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">minDate()</code> and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">maxDate()</code> validators, a
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">getError()</code> method that
+      narrows types properly, debouncing on blur and on async validators, and a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">touch()</code> output that retires
+      the awkward mutable touched flag. And if you've got custom controls written the old way with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ControlValueAccessor</code>, they
+      keep working with Signal Forms, so you don't have to rewrite everything at once to adopt this.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">The resource API Is Production-Ready</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">resource()</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">rxResource()</code>, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpResource()</code> are stable
+      as
+      of v22. Their whole point is to keep async data living inside the signal graph, so you stop hand-stitching RxJS
+      and signals together every time you fetch something. An <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">httpResource</code> refetches on
+      its own whenever a signal it depends on changes, and it hands you loading, error, and value as signals you can
+      read directly.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Component, signal } from '@angular/core';
+import { httpResource } from '@angular/common/http';
+
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.html'
+})
+export class UserComponent {
+  userId = signal(1);
+
+  // Refetches automatically whenever userId() changes.
+  user = httpResource(() =&gt; `/api/users/${this.userId()}`);
+}</code></pre>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-html">@if (user.isLoading()) {
+  &lt;p&gt;Loading...&lt;/p&gt;
+} @else if (user.error()) {
+  &lt;p&gt;Something went wrong.&lt;/p&gt;
+} @else {
+  &lt;h2&gt;{{ user.value()?.name }}&lt;/h2&gt;
+}</code></pre>
+    </div>
+
+    <p>
+      Two things in the stable release are worth calling out. There's a new <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">chain()</code> method that makes
+      feeding one resource's result into the next painless, with loading and error states propagating on their own. And
+      if you pass an <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">id</code> in
+      the
+      options, a resource resolved during server-side rendering gets cached and shows up instantly on the client, no
+      second loading flash while it refetches.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">The @Service Decorator and injectAsync()</h2>
+
+    <p>
+      Spinning up a singleton service has always meant typing out <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Injectable({ providedIn: 'root' })</code>.
+      The new <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service()</code>
+      decorator says the exact same thing with a lot less ceremony. Out of the box it gives you a tree-shakeable,
+      app-wide singleton, same as the root-provided Injectable, except now the name tells you what it is:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { Service, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Service()
+export class ProductService {
+  private http = inject(HttpClient);
+
+  getProducts() {
+    return this.http.get('/api/products');
+  }
+}</code></pre>
+    </div>
+
+    <p>
+      One thing to know: a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code>
+      pulls its dependencies through <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">inject()</code> rather than the
+      constructor, which lines it up with how the rest of modern Angular already works.
+    </p>
+
+    <p>
+      Sitting right next to it is <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">injectAsync()</code>, which
+      lazy-loads a service through a dynamic import so its code ships in its own chunk and only downloads the first time
+      someone needs it. If you'd rather not pay that cost on demand, you can have it prefetch quietly while the browser
+      is idle:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { injectAsync, onIdle } from '@angular/core';
+
+export class CheckoutComponent {
+  private heavyService = injectAsync(
+    () =&gt; import('./pricing.service').then((m) =&gt; m.PricingService),
+    { prefetch: onIdle }
+  );
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Vitest Replaces Karma and Jasmine</h2>
+
+    <p>
+      New projects in v22 ship with Vitest as the test runner. Karma has been on its way out for a while, and Jasmine
+      is no longer what you get by default. Vitest is quick, runs in watch mode without you asking, and reuses the same
+      build config your app already has, so you're not maintaining a separate toolchain just for tests.
+    </p>
+
+    <p>
+      Existing projects keep running as-is, and the CLI gives you schematics to make the jump. To convert a Karma and
+      Jasmine setup, run:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">ng generate @schematics/angular:migrate-karma-to-vitest</code></pre>
+    </div>
+
+    <p>
+      Worried about your async tests? If you lean on <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fakeAsync</code>, <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flush</code>, or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">waitForAsync</code>, those Zone.js
+      helpers run under Vitest now through a dedicated patch, so there's nothing to rewrite. A couple of new flags help
+      too: <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--isolate</code> runs
+      tests in separate processes, and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--quiet</code> keeps build noise
+      out of your output.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Incremental Hydration by Default</h2>
+
+    <p>
+      If you render on the server, incremental hydration is on by default now. Rather than waking up the whole page in
+      one shot, Angular hydrates pieces of it as they scroll into view or as the user interacts with them. That means
+      less JavaScript running on first load and better interaction numbers on heavy pages. The old <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withIncrementalHydration()</code>
+      call is deprecated, since you get the behavior for free. While we're here: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">provideServerRendering()</code>
+      picked up a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">maxResponseBodySize</code> option
+      that defaults to 1 MB.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">HttpClient Switches to the Fetch API</h2>
+
+    <p>
+      Under the hood, HttpClient now talks to the browser Fetch API instead of <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">XMLHttpRequest</code>. The <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withFetch()</code> you used to opt
+      into is simply the default, and if something in your stack still needs the old transport you can switch back with
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withXhr()</code>. Fetch keeps
+      Angular aligned with the modern platform, behaves better outside the browser, and gets along nicely with
+      server-side rendering.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { provideHttpClient, withXhr } from '@angular/common/http';
+
+export const appConfig = {
+  providers: [
+    // Fetch is the default now; opt out only if you must.
+    provideHttpClient(withXhr())
+  ]
+};</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Template and Compiler Improvements</h2>
+
+    <p>
+      Templates keep getting more capable and stricter at the same time. The change you'll notice first is being able
+      to drop an HTML comment inside an opening tag, which is genuinely handy when you want to annotate or temporarily
+      kill a single attribute on a long element:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;input
+  type="text"
+  [value]="name()"
+  &lt;!-- [disabled]="locked()" temporarily off --&gt;
+  (input)="onInput($event)"
+/&gt;</code></pre>
+    </div>
+
+    <p>
+      Beyond that, the compiler got smarter about optional chaining with automatic null guards, added exhaustive <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@switch</code> checks, gave <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@defer (on idle(500ms))</code> a
+      timeout so it can't wait forever, and now catches duplicate input or output names and broken <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@for</code> loops at build time
+      instead of letting them slip through to runtime. Strict templates are on by default too, and the migration adds
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictTemplates: false</code>
+      for any project that isn't ready for that yet.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">AI Integration with WebMCP</h2>
+
+    <p>
+      v22 also takes an experimental swing at AI with WebMCP, a browser protocol that lets AI agents call into your
+      running app. The part that caught my eye is automatic form exposure: wire up the providers, tag a Signal Form, and
+      Angular reads the form's model, builds a JSON schema from it, and makes the whole thing callable by an agent. The
+      agent even gets the validation errors back and can fix its own input.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { provideExperimentalWebMcpForms } from '@angular/forms/signals';
+
+export const appConfig = {
+  providers: [
+    provideExperimentalWebMcpForms()
+  ]
+};</code></pre>
+    </div>
+
+    <p>
+      The team also shipped official Angular skills you can bolt onto AI coding tools with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">npx skills add https://github.com/angular/skills</code>,
+      and your signal and dependency injection graphs now show up as Chrome DevTools extensions. All of this is
+      experimental, so don't be surprised when the API shifts around before it settles.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Angular Aria Is Stable</h2>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@angular/aria</code>
+      package made it from developer preview to production-ready. It hands you accessible building blocks, things like
+      keyboard navigation and the ARIA wiring nobody enjoys writing by hand, that you compose into your own components,
+      and it plugs straight into Signal Forms. If you maintain a design system in-house, this is the accessibility
+      groundwork without dragging in a whole component library to get it.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Security Hardening</h2>
+
+    <p>
+      There's a real security story here too. v22 added server-side request forgery (SSRF) protections around how <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">platform-server</code> sets up
+      location and document, tightened sanitization for dynamic <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">href</code> attributes on SVG
+      anchors, and hardened locale data against prototype pollution. The transfer cache now skips any request carrying
+      cookies or using <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">withCredentials</code>
+      by default, so sensitive responses don't get baked into the page. None of this asks anything of you, but it's nice
+      to know your app comes out the other side of the upgrade a little safer.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Breaking Changes to Watch</h2>
+
+    <p>
+      The migrations cover most of v22, but a handful of changes are worth eyeballing yourself before you ship:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>TypeScript v6 and Node v22 are required.</strong> TypeScript 5.9 and Node 20 are no longer
+        supported.</li>
+      <li><strong>OnPush is the default.</strong> Views that relied on mutating objects in place may stop updating
+        until you switch them to <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Eager</code> or move to signals.
+      </li>
+      <li><strong>Router parameter inheritance changed.</strong> <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">paramsInheritanceStrategy</code>
+        now defaults to <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'always'</code>,
+        and this one is not auto-migrated.</li>
+      <li><strong>Optional chaining returns <code
+            class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code></strong>
+        instead of <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">null</code> in
+        templates; a migration can preserve the old behavior if you depend on it.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">How to Upgrade to Angular v22</h2>
+
+    <p>
+      Before anything else, get yourself onto Node v22 and make sure the project is already on Angular v21, since the
+      CLI only jumps one major version at a time. Then run the update:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Check your current version
+ng version
+
+# Update the core framework and CLI to v22
+ng update @angular/core@22 @angular/cli@22</code></pre>
+    </div>
+
+    <p>
+      The schematics bump TypeScript, drop <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ChangeDetectionStrategy.Eager</code>
+      in where it's needed, and clean up deprecated APIs along the way. Once it's done, run your tests, keep an eye out
+      for views that stopped updating under OnPush, and double-check any code that pulled router parameters from a
+      parent route still does what you expect. When everything's green, start pulling those <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Eager</code> markers back out so
+      you actually get the benefit of the new default.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      v22 isn't really about shiny new toys. It's about making the modern, signal-first way of building Angular the path
+      of least resistance. OnPush by default pays you back for writing reactive code. Stable Signal Forms and the
+      resource API take away the last few reasons to reach for the older patterns. Vitest, incremental hydration, and
+      the Fetch-based HttpClient quietly modernize the tooling underneath you. And <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">@Service</code> trims a little
+      boilerplate off every service you write.
+    </p>
+
+    <p>
+      The upgrade is mostly automated, the breaking changes are manageable, and what you get out of it is a faster app
+      with cleaner code. If you're already writing signals and standalone components, v22 is going to feel like home.
+      When you're ready to dig into the specifics, the official <a href="https://angular.dev/events/v22"
+        class="text-primary" target="_blank" rel="nofollow noopener noreferrer">Angular v22 release page</a> and the <a
+        href="https://angular.dev/update-guide" class="text-primary" target="_blank"
+        rel="nofollow noopener noreferrer">Angular update guide</a> are the two links to keep open.
+    </p>
+  </article>
+</div>
