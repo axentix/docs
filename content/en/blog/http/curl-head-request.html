@@ -1,0 +1,444 @@
+---
+title: "Curl HEAD Request: How to Fetch HTTP Headers with -I and --head"
+description: "Send a curl HEAD request to read HTTP headers without downloading the body. Learn the -I and --head flags, why -X HEAD is a trap, follow redirects, add auth, and check status codes."
+date: 2026-06-30
+author: "Axentix Team"
+image: "/img/blog/http/curl-head-request/curl-head-request.webp"
+categories: ["http"]
+summary: "A complete, no-fluff guide to the curl HEAD request. Use -I or --head to fetch only HTTP headers, check status codes, content type, file size, redirects, and caching, with copy-paste examples."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Curl HEAD Request: How to Fetch HTTP Headers with -I and --head
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/http/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      HTTP
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-06-30" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      30/06/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    A curl HEAD request fetches only the HTTP response headers, never the body. This guide shows the right flag to use,
+    the one that quietly hangs, and the handful of commands you actually need for status checks, redirects, file sizes,
+    and caching.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Curl HEAD Request: How to Fetch HTTP Headers with -I and --head"
+      src='{{< link url="img/blog/http/curl-head-request/curl-head-request.webp" >}}'
+      alt="Curl HEAD request fetching HTTP headers with the -I flag" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Curl HEAD request: fetch HTTP headers without the body</figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">The Short Answer</h2>
+
+    <p>
+      To send a HEAD request with curl, use the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> flag (capital i) or its
+      long form <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>. The
+      server returns the status line and headers, and curl prints them straight to your terminal.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Short form
+curl -I https://example.com
+
+# Long form (identical result)
+curl --head https://example.com</code></pre>
+    </div>
+
+    <p>
+      That single command gives you the HTTP status code, content type, content length, last-modified date, and every
+      caching and security header the server sends, without downloading a single byte of the page body. The rest of this
+      guide explains when to reach for it, how to combine it with redirects and authentication, and the one mistake that
+      makes HEAD requests appear to freeze.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Curl HEAD Request Cheat Sheet</h2>
+
+    <p>
+      Bookmark this table. Each command is copy-paste ready, replace the URL with your own.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Goal</th>
+            <th>Command</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Basic HEAD request</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Follow redirects to the final page</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -IL https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Print only the status code</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -o /dev/null -s -w "%{http_code}\n" https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Show only one header</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -sI https://example.com | grep -i content-type</code></td>
+          </tr>
+          <tr>
+            <td>Send custom request headers</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -H "Accept: application/json" https://api.example.com</code></td>
+          </tr>
+          <tr>
+            <td>Add basic authentication</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -u user:pass https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Set a timeout</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I --max-time 5 https://example.com</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What Is a HEAD Request?</h2>
+
+    <p>
+      A HEAD request is one of the standard HTTP methods, defined in <a
+        href="https://www.rfc-editor.org/rfc/rfc9110.html#name-head" target="_blank" rel="noopener">RFC 9110</a>. It is
+      identical to a GET request with one critical difference: the server responds with the <strong>same headers it would
+        send for a GET</strong>, but <strong>omits the message body</strong>. You get all the metadata about a resource
+      without transferring the resource itself.
+    </p>
+
+    <p>
+      Because the response carries no body, a HEAD request is fast and cheap. It is the correct tool whenever you care
+      about <em>information about</em> a resource rather than the resource's contents, for example: does this URL exist,
+      how big is the file, what is its content type, when was it last modified, and is it cached or redirected.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Use -I, Not -X HEAD</h2>
+
+    <p>
+      You will see two ways to send a HEAD request online. Only one of them is reliable.
+    </p>
+
+    <p>
+      The correct way is <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> /
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>. This flag tells
+      curl to issue a HEAD request <em>and</em> to expect no body, so it reads the headers and stops cleanly.
+    </p>
+
+    <p>
+      The trap is <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code>.
+      This overrides the method string sent to the server, but curl still <em>expects a response body</em> and keeps the
+      connection open waiting for one. Against some servers the command appears to hang until it times out, and headers
+      are not printed unless you also add <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code>. The curl maintainers
+      explicitly recommend against it.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Correct: clean and reliable
+curl -I https://example.com
+
+# Avoid: may hang waiting for a body, and hides headers without -i
+curl -X HEAD https://example.com
+curl -X HEAD -i https://example.com   # "works" but there is no reason to do this</code></pre>
+    </div>
+
+    <p>
+      <strong>Rule of thumb:</strong> if you want headers only, reach for <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code>. Save <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X</code> for methods curl has no
+      dedicated flag for, such as <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">PATCH</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Reading the Output</h2>
+
+    <p>
+      Here is a typical HEAD response. The first line is the status; everything after it is a header.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">$ curl -I https://example.com
+
+HTTP/2 200
+content-type: text/html; charset=UTF-8
+content-length: 1256
+last-modified: Mon, 29 Jun 2026 10:14:52 GMT
+cache-control: max-age=3600
+etag: "3f80f-1b6-3e1cb03b"
+server: nginx
+date: Tue, 30 Jun 2026 09:00:00 GMT</code></pre>
+    </div>
+
+    <ul class="lh-rem-4">
+      <li><strong>HTTP/2 200:</strong> the protocol version and status code. 200 means the resource exists and is
+        reachable.</li>
+      <li><strong>content-type:</strong> the media type of the resource (here, HTML).</li>
+      <li><strong>content-length:</strong> the body size in bytes you <em>would</em> download with a GET, useful for
+        size checks before fetching.</li>
+      <li><strong>last-modified / etag:</strong> caching validators that let you detect whether the resource changed.</li>
+      <li><strong>cache-control:</strong> how long the response may be cached.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Common Real-World Uses</h2>
+
+    <h3 class="exo mt-4">Check if a URL is alive (status code only)</h3>
+
+    <p>
+      For monitoring or link checking, you usually want just the number. Discard the body, silence the progress meter,
+      and print the status code with the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-w</code> write-out variable.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -I -o /dev/null -s -w "%{http_code}\n" https://example.com
+# Output: 200</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Follow redirects to the final destination</h3>
+
+    <p>
+      By default curl shows the first response, so a redirect prints a <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">301</code> or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">302</code> and stops. Add <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> to follow the <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Location</code> header. With HEAD,
+      this prints the headers for <em>every</em> hop, so you can trace the whole redirect chain.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -IL http://example.com
+
+# HTTP/1.1 301 Moved Permanently
+# location: https://example.com/
+#
+# HTTP/2 200
+# content-type: text/html</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Check a file's size before downloading</h3>
+
+    <p>
+      Read the <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">content-length</code>
+      header to decide whether a download is worth it, no need to start the transfer.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -sI https://example.com/large-file.zip | grep -i content-length
+# content-length: 5242880</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Inspect one specific header</h3>
+
+    <p>
+      Pipe the silent output to <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grep
+        -i</code> (case-insensitive, since header names are not case sensitive) to isolate exactly what you need.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -sI https://api.example.com | grep -i x-ratelimit
+# x-ratelimit-remaining: 4998</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Send headers, auth, or a custom User-Agent</h3>
+
+    <p>
+      HEAD requests accept the same flags as any other curl request. Combine them freely.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Custom request header
+curl -I -H "Accept: application/json" https://api.example.com
+
+# Basic authentication
+curl -I -u username:password https://example.com/private
+
+# Bearer token
+curl -I -H "Authorization: Bearer YOUR_TOKEN" https://api.example.com
+
+# Pretend to be a browser
+curl -I -A "Mozilla/5.0" https://example.com</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Validate a list of URLs in bulk</h3>
+
+    <p>
+      Because HEAD downloads nothing, it is ideal for checking many links quickly in a shell loop.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">while read url; do
+  code=$(curl -I -o /dev/null -s -w "%{http_code}" --max-time 5 "$url")
+  echo "$code  $url"
+done < urls.txt
+
+# 200  https://example.com
+# 404  https://example.com/missing
+# 301  https://example.com/old-page</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">HEAD vs GET in Curl</h2>
+
+    <p>
+      The two methods are deliberately similar. The table below summarizes when to pick each one.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>HEAD (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I</code>)</th>
+            <th>GET (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl</code>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Returns headers</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Returns body</td>
+            <td>No</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Bandwidth used</td>
+            <td>Minimal</td>
+            <td>Full resource</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Status checks, file size, caching, link validation</td>
+            <td>Actually retrieving content</td>
+          </tr>
+          <tr>
+            <td>See headers + body together</td>
+            <td>n/a</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -i</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Note the difference between the two similar-looking flags: capital <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> sends a HEAD request and
+      shows headers only, while lowercase <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code> sends a normal GET and
+      shows the headers <em>plus</em> the body.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">When a HEAD Request Fails</h2>
+
+    <p>
+      HEAD is part of the HTTP standard, but not every server handles it well. Watch for these cases:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>405 Method Not Allowed:</strong> the server or endpoint does not permit HEAD. Fall back to a GET, or
+        check the allowed methods, see our guide on the <a href="/blog/http/what-is-405-method-not-allowed/">405 Method
+          Not Allowed error</a>.</li>
+      <li><strong>HEAD is silently rejected:</strong> some servers and CDNs answer GET but not HEAD. If a HEAD looks
+        wrong, confirm with a real GET (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -i</code>).</li>
+      <li><strong>Wrong content-length:</strong> a few servers report a body length on HEAD that does not match the GET.
+        Treat <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">content-length</code>
+        from HEAD as a strong hint, not a guarantee.</li>
+      <li><strong>The command seems to hang:</strong> you almost certainly used <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code> instead of <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code>. Switch the flag.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Frequently Asked Questions</h2>
+
+    <h3 class="exo mt-4">What is the curl command for a HEAD request?</h3>
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I https://example.com</code>.
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> flag (or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>) requests only the
+      response headers.
+    </p>
+
+    <h3 class="exo mt-4">What is the difference between -I and -i in curl?</h3>
+    <p>
+      Capital <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> sends a HEAD
+      request and prints headers only. Lowercase <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code> sends a normal GET and
+      prints the headers followed by the body.
+    </p>
+
+    <h3 class="exo mt-4">Why does curl -X HEAD hang?</h3>
+    <p>
+      With <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code> curl still
+      expects a response body and waits for data the server never sends. Use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> instead, which knows a
+      HEAD response has no body.
+    </p>
+
+    <h3 class="exo mt-4">How do I follow redirects with a HEAD request?</h3>
+    <p>
+      Add the <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> flag: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -IL https://example.com</code>.
+      Curl prints the headers for each hop in the redirect chain.
+    </p>
+
+    <h3 class="exo mt-4">Can I send authentication with a HEAD request?</h3>
+    <p>
+      Yes. HEAD accepts every curl auth flag, for example <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-u user:pass</code> for basic auth
+      or <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-H "Authorization: Bearer
+        TOKEN"</code> for a token.
+    </p>
+
+    <h3 class="exo mt-4">How do I show only the status code?</h3>
+    <p>
+      Combine HEAD with write-out: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -o /dev/null -s -w
+        "%{http_code}\n" https://example.com</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Summary</h2>
+
+    <p>
+      A curl HEAD request is the fastest way to inspect a resource's HTTP headers, its status, type, size, modification
+      date, and caching, without downloading the body. Use <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I</code> or <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl --head</code>, and avoid <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code>, which can hang.
+    </p>
+
+    <p>
+      From there, layer on the flags you already know: <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> to follow redirects,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-s</code> with <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-w</code> for status-code-only
+      output, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-H</code> and <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-u</code> for headers and auth, and
+      a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grep</code> pipe to isolate a
+      single header. With those few patterns you can check links, monitor uptime, measure file sizes, and trace
+      redirects, all in one line.
+    </p>
+  </article>
+</div>

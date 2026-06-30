@@ -1,0 +1,454 @@
+---
+title: "Requête HEAD avec curl : récupérer les en-têtes HTTP avec -I et --head"
+description: "Envoyez une requête HEAD avec curl pour lire les en-têtes HTTP sans télécharger le corps. Découvrez les options -I et --head, pourquoi -X HEAD est un piège, suivre les redirections, ajouter une authentification et vérifier les codes de statut."
+date: 2026-06-30
+author: "Axentix Team"
+image: "/img/blog/http/curl-head-request/curl-head-request.webp"
+categories: ["http"]
+summary: "Un guide complet et sans superflu sur la requête HEAD avec curl. Utilisez -I ou --head pour récupérer uniquement les en-têtes HTTP, vérifier les codes de statut, le type de contenu, la taille des fichiers, les redirections et le cache, avec des exemples prêts à copier."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Requête HEAD avec curl : récupérer les en-têtes HTTP avec -I et --head
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/http/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      HTTP
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-06-30" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      30/06/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Une requête HEAD avec curl récupère uniquement les en-têtes de la réponse HTTP, jamais le corps. Ce guide montre la
+    bonne option à utiliser, celle qui se bloque silencieusement, et la poignée de commandes dont vous avez réellement
+    besoin pour vérifier les statuts, les redirections, la taille des fichiers et le cache.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Requête HEAD avec curl : récupérer les en-têtes HTTP avec -I et --head"
+      src='{{< link url="img/blog/http/curl-head-request/curl-head-request.webp" >}}'
+      alt="Requête HEAD avec curl récupérant les en-têtes HTTP avec l’option -I" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Requête HEAD avec curl : récupérer les en-têtes HTTP sans le
+      corps</figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-0" itemprop="subtitle">La réponse en bref</h2>
+
+    <p>
+      Pour envoyer une requête HEAD avec curl, utilisez l’option <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> (i majuscule) ou sa
+      forme longue <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>. Le
+      serveur renvoie la ligne de statut et les en-têtes, et curl les affiche directement dans votre terminal.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Forme courte
+curl -I https://example.com
+
+# Forme longue (résultat identique)
+curl --head https://example.com</code></pre>
+    </div>
+
+    <p>
+      Cette seule commande vous donne le code de statut HTTP, le type de contenu, la taille du contenu, la date de
+      dernière modification, ainsi que tous les en-têtes de cache et de sécurité envoyés par le serveur, sans télécharger
+      le moindre octet du corps de la page. Le reste de ce guide explique quand y recourir, comment la combiner avec les
+      redirections et l’authentification, et l’unique erreur qui donne l’impression qu’une requête HEAD est figée.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Aide-mémoire de la requête HEAD avec curl</h2>
+
+    <p>
+      Mettez ce tableau en favori. Chaque commande est prête à copier-coller, remplacez simplement l’URL par la vôtre.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Objectif</th>
+            <th>Commande</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Requête HEAD de base</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Suivre les redirections jusqu’à la page finale</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -IL https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Afficher uniquement le code de statut</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -o /dev/null -s -w "%{http_code}\n" https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Afficher un seul en-tête</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -sI https://example.com | grep -i content-type</code></td>
+          </tr>
+          <tr>
+            <td>Envoyer des en-têtes de requête personnalisés</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -H "Accept: application/json" https://api.example.com</code></td>
+          </tr>
+          <tr>
+            <td>Ajouter une authentification basique</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -u user:pass https://example.com</code></td>
+          </tr>
+          <tr>
+            <td>Définir un délai d’attente</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I --max-time 5 https://example.com</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Qu’est-ce qu’une requête HEAD ?</h2>
+
+    <p>
+      Une requête HEAD est l’une des méthodes HTTP standard, définie dans la <a
+        href="https://www.rfc-editor.org/rfc/rfc9110.html#name-head" target="_blank" rel="noopener">RFC 9110</a>. Elle
+      est identique à une requête GET à une différence essentielle près : le serveur répond avec <strong>les mêmes
+        en-têtes qu’il enverrait pour un GET</strong>, mais <strong>omet le corps du message</strong>. Vous obtenez
+      toutes les métadonnées d’une ressource sans transférer la ressource elle-même.
+    </p>
+
+    <p>
+      Comme la réponse ne contient aucun corps, une requête HEAD est rapide et peu coûteuse. C’est l’outil adapté dès
+      que vous vous intéressez aux <em>informations sur</em> une ressource plutôt qu’à son contenu, par exemple : cette
+      URL existe-t-elle, quelle est la taille du fichier, quel est son type de contenu, quand a-t-elle été modifiée pour
+      la dernière fois, est-elle mise en cache ou redirigée.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Utilisez -I, pas -X HEAD</h2>
+
+    <p>
+      Vous verrez deux façons d’envoyer une requête HEAD en ligne. Une seule est fiable.
+    </p>
+
+    <p>
+      La bonne méthode est <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> /
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>. Cette option
+      indique à curl d’émettre une requête HEAD <em>et</em> de n’attendre aucun corps, de sorte qu’il lit les en-têtes et
+      s’arrête proprement.
+    </p>
+
+    <p>
+      Le piège, c’est <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code>.
+      Cette option remplace le nom de la méthode envoyée au serveur, mais curl <em>attend toujours un corps de
+        réponse</em> et garde la connexion ouverte dans l’attente. Face à certains serveurs, la commande semble se
+      bloquer jusqu’à expiration du délai, et les en-têtes ne sont pas affichés sauf si vous ajoutez aussi <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code>. Les mainteneurs de curl
+      le déconseillent explicitement.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># Correct : propre et fiable
+curl -I https://example.com
+
+# À éviter : peut se bloquer en attente d’un corps, et masque les en-têtes sans -i
+curl -X HEAD https://example.com
+curl -X HEAD -i https://example.com   # « fonctionne » mais il n’y a aucune raison de le faire</code></pre>
+    </div>
+
+    <p>
+      <strong>Règle générale :</strong> si vous voulez uniquement les en-têtes, utilisez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code>. Réservez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X</code> aux méthodes pour
+      lesquelles curl n’a pas d’option dédiée, comme <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">PATCH</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Lire la sortie</h2>
+
+    <p>
+      Voici une réponse HEAD typique. La première ligne est le statut ; tout ce qui suit est un en-tête.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">$ curl -I https://example.com
+
+HTTP/2 200
+content-type: text/html; charset=UTF-8
+content-length: 1256
+last-modified: Mon, 29 Jun 2026 10:14:52 GMT
+cache-control: max-age=3600
+etag: "3f80f-1b6-3e1cb03b"
+server: nginx
+date: Tue, 30 Jun 2026 09:00:00 GMT</code></pre>
+    </div>
+
+    <ul class="lh-rem-4">
+      <li><strong>HTTP/2 200 :</strong> la version du protocole et le code de statut. 200 signifie que la ressource
+        existe et est accessible.</li>
+      <li><strong>content-type :</strong> le type de média de la ressource (ici, du HTML).</li>
+      <li><strong>content-length :</strong> la taille du corps en octets que vous <em>téléchargeriez</em> avec un GET,
+        utile pour vérifier la taille avant de récupérer le contenu.</li>
+      <li><strong>last-modified / etag :</strong> des validateurs de cache qui permettent de détecter si la ressource a
+        changé.</li>
+      <li><strong>cache-control :</strong> la durée pendant laquelle la réponse peut être mise en cache.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Cas d’usage courants</h2>
+
+    <h3 class="exo mt-4">Vérifier qu’une URL répond (code de statut uniquement)</h3>
+
+    <p>
+      Pour la supervision ou la vérification de liens, vous ne voulez généralement que le numéro. Jetez le corps,
+      réduisez au silence l’indicateur de progression et affichez le code de statut avec la variable de sortie <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-w</code>.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -I -o /dev/null -s -w "%{http_code}\n" https://example.com
+# Sortie : 200</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Suivre les redirections jusqu’à la destination finale</h3>
+
+    <p>
+      Par défaut, curl affiche la première réponse, donc une redirection affiche un <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">301</code> ou un <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">302</code> puis s’arrête. Ajoutez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> pour suivre l’en-tête
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Location</code>. Avec HEAD,
+      cela affiche les en-têtes de <em>chaque</em> étape, ce qui permet de retracer toute la chaîne de redirection.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -IL http://example.com
+
+# HTTP/1.1 301 Moved Permanently
+# location: https://example.com/
+#
+# HTTP/2 200
+# content-type: text/html</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Vérifier la taille d’un fichier avant de le télécharger</h3>
+
+    <p>
+      Lisez l’en-tête <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">content-length</code>
+      pour décider si un téléchargement en vaut la peine, sans avoir à lancer le transfert.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -sI https://example.com/large-file.zip | grep -i content-length
+# content-length: 5242880</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Inspecter un en-tête précis</h3>
+
+    <p>
+      Redirigez la sortie silencieuse vers <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grep -i</code> (insensible à la
+      casse, car les noms d’en-têtes ne sont pas sensibles à la casse) pour isoler exactement ce dont vous avez besoin.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">curl -sI https://api.example.com | grep -i x-ratelimit
+# x-ratelimit-remaining: 4998</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Envoyer des en-têtes, une authentification ou un User-Agent personnalisé</h3>
+
+    <p>
+      Les requêtes HEAD acceptent les mêmes options que n’importe quelle autre requête curl. Combinez-les librement.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># En-tête de requête personnalisé
+curl -I -H "Accept: application/json" https://api.example.com
+
+# Authentification basique
+curl -I -u username:password https://example.com/private
+
+# Jeton Bearer
+curl -I -H "Authorization: Bearer YOUR_TOKEN" https://api.example.com
+
+# Se faire passer pour un navigateur
+curl -I -A "Mozilla/5.0" https://example.com</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Valider une liste d’URL en masse</h3>
+
+    <p>
+      Comme HEAD ne télécharge rien, c’est idéal pour vérifier rapidement de nombreux liens dans une boucle shell.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">while read url; do
+  code=$(curl -I -o /dev/null -s -w "%{http_code}" --max-time 5 "$url")
+  echo "$code  $url"
+done < urls.txt
+
+# 200  https://example.com
+# 404  https://example.com/missing
+# 301  https://example.com/old-page</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">HEAD vs GET avec curl</h2>
+
+    <p>
+      Les deux méthodes sont volontairement similaires. Le tableau ci-dessous résume quand choisir l’une ou l’autre.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>HEAD (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I</code>)</th>
+            <th>GET (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl</code>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Renvoie les en-têtes</td>
+            <td>Oui</td>
+            <td>Oui</td>
+          </tr>
+          <tr>
+            <td>Renvoie le corps</td>
+            <td>Non</td>
+            <td>Oui</td>
+          </tr>
+          <tr>
+            <td>Bande passante utilisée</td>
+            <td>Minimale</td>
+            <td>Ressource complète</td>
+          </tr>
+          <tr>
+            <td>Idéal pour</td>
+            <td>Vérification de statut, taille de fichier, cache, validation de liens</td>
+            <td>Récupérer réellement le contenu</td>
+          </tr>
+          <tr>
+            <td>Voir en-têtes + corps ensemble</td>
+            <td>s.o.</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -i</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Notez la différence entre les deux options qui se ressemblent : le <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> majuscule envoie une
+      requête HEAD et n’affiche que les en-têtes, tandis que le <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code> minuscule envoie un GET
+      normal et affiche les en-têtes <em>plus</em> le corps.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Quand une requête HEAD échoue</h2>
+
+    <p>
+      HEAD fait partie du standard HTTP, mais tous les serveurs ne la gèrent pas correctement. Surveillez ces cas :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>405 Method Not Allowed :</strong> le serveur ou le point de terminaison n’autorise pas HEAD. Repliez-vous
+        sur un GET, ou vérifiez les méthodes autorisées, consultez notre guide sur l’<a
+          href="/blog/http/what-is-405-method-not-allowed/">erreur 405 Method Not Allowed</a>.</li>
+      <li><strong>HEAD est rejeté silencieusement :</strong> certains serveurs et CDN répondent à GET mais pas à HEAD. Si
+        une requête HEAD semble incorrecte, confirmez avec un vrai GET (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -i</code>).</li>
+      <li><strong>content-length erroné :</strong> quelques serveurs annoncent sur HEAD une taille de corps qui ne
+        correspond pas à celle du GET. Considérez le <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">content-length</code> d’un HEAD
+        comme une forte indication, pas comme une garantie.</li>
+      <li><strong>La commande semble se bloquer :</strong> vous avez presque certainement utilisé <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code> au lieu de <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code>. Changez d’option.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Foire aux questions</h2>
+
+    <h3 class="exo mt-4">Quelle est la commande curl pour une requête HEAD ?</h3>
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I https://example.com</code>.
+      L’option <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> (ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">--head</code>) demande uniquement
+      les en-têtes de la réponse.
+    </p>
+
+    <h3 class="exo mt-4">Quelle est la différence entre -I et -i avec curl ?</h3>
+    <p>
+      Le <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code> majuscule envoie
+      une requête HEAD et n’affiche que les en-têtes. Le <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-i</code> minuscule envoie un GET
+      normal et affiche les en-têtes suivis du corps.
+    </p>
+
+    <h3 class="exo mt-4">Pourquoi curl -X HEAD se bloque-t-il ?</h3>
+    <p>
+      Avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code>, curl
+      attend toujours un corps de réponse et patiente pour des données que le serveur n’envoie jamais. Utilisez plutôt
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-I</code>, qui sait qu’une
+      réponse HEAD n’a pas de corps.
+    </p>
+
+    <h3 class="exo mt-4">Comment suivre les redirections avec une requête HEAD ?</h3>
+    <p>
+      Ajoutez l’option <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> :
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -IL https://example.com</code>.
+      Curl affiche les en-têtes de chaque étape de la chaîne de redirection.
+    </p>
+
+    <h3 class="exo mt-4">Puis-je envoyer une authentification avec une requête HEAD ?</h3>
+    <p>
+      Oui. HEAD accepte toutes les options d’authentification de curl, par exemple <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-u user:pass</code> pour
+      l’authentification basique ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-H "Authorization: Bearer
+        TOKEN"</code> pour un jeton.
+    </p>
+
+    <h3 class="exo mt-4">Comment afficher uniquement le code de statut ?</h3>
+    <p>
+      Combinez HEAD avec la variable de sortie : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I -o /dev/null -s -w
+        "%{http_code}\n" https://example.com</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Résumé</h2>
+
+    <p>
+      Une requête HEAD avec curl est le moyen le plus rapide d’inspecter les en-têtes HTTP d’une ressource : son statut,
+      son type, sa taille, sa date de modification et son cache, sans télécharger le corps. Utilisez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl -I</code> ou <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">curl --head</code>, et évitez <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-X HEAD</code>, qui peut se
+      bloquer.
+    </p>
+
+    <p>
+      À partir de là, ajoutez les options que vous connaissez déjà : <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-L</code> pour suivre les
+      redirections, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-s</code> avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-w</code> pour n’afficher que
+      le code de statut, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-H</code> et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-u</code> pour les en-têtes et
+      l’authentification, et un tube vers <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">grep</code> pour isoler un seul
+      en-tête. Avec ces quelques motifs, vous pouvez vérifier des liens, superviser la disponibilité, mesurer la taille
+      des fichiers et retracer les redirections, le tout en une seule ligne.
+    </p>
+  </article>
+</div>
