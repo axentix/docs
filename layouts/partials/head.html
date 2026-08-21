@@ -2,9 +2,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <meta name="author" content="Axentix Team" />
 <meta name="copyright" content="axentix team" />
+{{ if and (eq .Section "blog") .IsPage }}
+<meta property="og:type" content="article" />
+{{ else }}
 <meta property="og:type" content="website" />
-<meta property="og:url" content="{{ .Site.BaseURL }}" />
-<meta property="og:image" content="{{ .Site.BaseURL }}img/logoOG.jpg?v=2" />
+{{ end }}
+<meta property="og:url" content="{{ .Permalink }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ $ogImage := printf "%simg/logoOG.jpg?v=2" .Site.BaseURL }}
+{{ with .Params.image }}
+{{ $ogImage = . | absURL }}
+{{ end }}
+<meta property="og:image" content="{{ $ogImage }}" />
 <link rel="apple-touch-icon" sizes="180x180" href="{{.Site.BaseURL}}apple-touch-icon.png?v=2" />
 <link rel="icon" type="image/png" sizes="32x32" href="{{.Site.BaseURL}}favicon-32x32.png?v=2" />
 <link rel="icon" type="image/png" sizes="16x16" href="{{.Site.BaseURL}}favicon-16x16.png?v=2" />

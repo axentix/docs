@@ -20,7 +20,7 @@ cta.button: "Get Started"
 
 # Homepage
 home.meta_title: "Axentix - Modern framework to build websites faster"
-home.meta_description: "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer."
+home.meta_description: "Framework mixing fully customizable components and utility-first classes, leaving the design choice to the developer."
 
 home.hero_title: 'Build <span class="orange-gradient text-gradient">modern</span> websites faster with Axentix.'
 home.hero_subtitle: 'The framework mixing fully <strong class="font-w400">customizable components</strong> & <strong class="font-w400">utility-first classes</strong>, leaving the design choice to the developer.'

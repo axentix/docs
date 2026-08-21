@@ -2,20 +2,24 @@
 <html lang="{{ .Site.Language.Lang }}">
 
 <head>
-    <title>Axentix - Modern framework to build websites faster</title>
-    {{ $description := "Framework mixing fully customizable components & utility-first classes, leaving the design choice to the developer." }}
-    <meta name="description" content="{{ .Page.Params.description | default $description }}" />
-    <meta property="og:description" content="{{ .Page.Params.description | default $description }}" />
-    <meta property="og:title" content="Axentix - Modern framework to build websites faster" />
+    {{- block "head-metas" . }}
+    {{ $homeDesc := T "home.meta_description" }}
+    {{ $title := .Title | default "Blog" }}
+    {{ $description := .Params.description | default $homeDesc }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}" />
+    <meta property="og:description" content="{{ $description }}" />
+    <meta property="og:title" content="{{ $title }}" />
+    {{- end }}
 
     {{ if ne .Page.Params.noTranslate true }}
-    <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="x-default">
-    <link rel="alternate" href='{{ .Site.BaseURL }}{{ .Page.RelPermalink }}' hreflang="en">
-    <link rel="alternate" href='{{ .Site.BaseURL }}fr/{{ .Page.RelPermalink }}' hreflang="fr">
+    <link rel="alternate" href='{{ .Permalink }}' hreflang="x-default">
+    <link rel="alternate" href='{{ .Permalink }}' hreflang="en">
+    <link rel="alternate" href='{{ .Site.BaseURL }}fr{{ .RelPermalink }}' hreflang="fr">
     {{ end }}
 
     {{"<!-- f7909df766e4c1194f88a6264e4d2f47 -->" | safeHTML }}
-    
+
     {{- partial "head.html" . -}}
     {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
     {{ $axentix := resources.Get "axentix/axentix.min.css" | fingerprint }}
