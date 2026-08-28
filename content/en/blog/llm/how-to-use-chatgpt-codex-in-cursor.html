@@ -1,0 +1,399 @@
+---
+title: "How to Use ChatGPT Codex in Cursor"
+description: "Install OpenAI's official Codex extension in Cursor, run a reviewable first edit, and tell Codex apart from
+Cursor's own agent. Covers the sidebar, CLI, GPT-5-Codex, and the Cursor 3.15 layout issue."
+date: 2026-08-28
+author: "Axentix Team"
+image: "/img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp"
+categories: ["LLM"]
+summary: "ChatGPT Codex is OpenAI's coding agent, not Cursor's built-in chat. This guide installs the official
+extension, walks through a small reversible edit, and covers CLI, GPT-5-Codex, and common setup failures."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    How to Use ChatGPT Codex in Cursor
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/llm/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      LLM
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-08-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/08/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Cursor already has its own agent. <strong>ChatGPT Codex is a separate OpenAI product</strong> that runs beside it
+    as the official extension <code
+      class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Picking a
+    GPT-5 model in Cursor's chat dropdown is not the same thing. This guide installs the real Codex loop, proves it
+    with one small reversible edit, and covers the CLI and the "GPT-5-Codex as a Cursor model" path people mix up with
+    it.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="How to Use ChatGPT Codex in Cursor"
+      src='{{< link url="img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp" >}}'
+      alt="Code editor with a Codex-style assistant sidebar and a reviewable code diff" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Codex in Cursor is a sidebar agent with a reviewable diff, not
+      a model name in the chat picker
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-5" itemprop="subtitle">What ChatGPT Codex Actually Is</h2>
+
+    <p>
+      Three different things get sold under similar names. Mixing them up is why most setup guides feel finished after
+      install, then fail on the first real task.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>What you opened</th>
+            <th>What it is</th>
+            <th>How you know it worked</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ChatGPT Codex</strong></td>
+            <td>OpenAI's coding agent. IDE extension + CLI, same login cache.</td>
+            <td>Command Palette shows <strong>Codex: Open Codex Sidebar</strong> (or <strong>Codex: New Codex
+                Agent</strong>).</td>
+          </tr>
+          <tr>
+            <td><strong>Cursor Agent / Composer</strong></td>
+            <td>Cursor's own agent. Uses Cursor's model list (Claude, GPT-5, Gemini, …).</td>
+            <td>The right-hand Cursor agent panel, not the Codex extension view.</td>
+          </tr>
+          <tr>
+            <td><strong>GPT-5-Codex as a model</strong></td>
+            <td>A coding-tuned GPT-5 family model you can call from Cursor chat or a custom provider.</td>
+            <td>It appears in Cursor's <em>model</em> selector. No Codex sidebar, no Codex CLI.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Official docs list Cursor as a supported editor and point to the Marketplace listing
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. A
+      Codex-named model in Cursor's selector does not mean that extension is installed. The visible checkpoint is the
+      Codex command or sidebar, documented on
+      <a href="https://learn.chatgpt.com/docs/codex/ide" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">OpenAI's Codex IDE page</a>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Which Setup Should You Use?</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Official Codex extension:</strong> default path. Open files and selections become context, edits show
+        as a diff you can keep or reject, and you can hand a longer task to Codex cloud from the same chat.</li>
+      <li><strong>Codex CLI next to Cursor:</strong> same agent from the terminal. Useful for reviews, scripts, and
+        CI. Shares <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex</code>
+        auth with the extension.</li>
+      <li><strong>GPT-5-Codex in Cursor's model list:</strong> only if you want that model inside Cursor's own chat, not
+        the Codex agent. This is a provider/model setting, not an install of Codex.</li>
+    </ul>
+
+    <p>
+      If your goal is "use ChatGPT Codex in Cursor", start with the extension. Skip custom API gateways unless you
+      already centralize billing through one and know the exact model ID it exposes.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Install the Official Codex Extension</h2>
+
+    <p>
+      Install from OpenAI's listing, not a similarly named third-party extension.
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Open Cursor and go to Extensions (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+X</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+X</code>).</li>
+      <li>Search for the official Codex / ChatGPT extension and confirm the ID is <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Direct
+        install:
+        <a href="cursor:extension/openai.chatgpt" class="text-blue text-underline">cursor:extension/openai.chatgpt</a>
+        or the
+        <a href="https://marketplace.visualstudio.com/items?itemName=openai.chatgpt"
+          class="text-blue text-underline" rel="noopener noreferrer" target="_blank">VS Code Marketplace page</a>.
+      </li>
+      <li>Reload Cursor if prompted, then open a real project folder. An empty window only proves the UI can open.</li>
+      <li>Open Codex: click the Codex icon, or run <strong>Codex: Open Codex Sidebar</strong> from the Command Palette
+        (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+P</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+P</code>).</li>
+      <li>Sign in with ChatGPT, or choose <strong>Use API Key</strong> if you bill through the OpenAI API. Cloud
+        tasks need ChatGPT sign-in. A successful install does not tell you which plan, quota, or region you have; the
+        prompt in the sidebar does.</li>
+    </ol>
+
+    <p>
+      The CLI and the extension reuse the same cached login
+      (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/auth.json</code> or
+      the OS keyring). Logging out of one signs you out of the other. Details:
+      <a href="https://learn.chatgpt.com/docs/auth" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">Codex authentication</a>.
+    </p>
+
+    <h3 class="exo mt-4">Cursor 3.15+: the sidebar may not open on the right</h3>
+
+    <p>
+      From Cursor 3.15, the <em>secondary</em> sidebar (right panel) is reserved for Cursor's own agent. Codex used to
+      dock there; that was accidental. <strong>Codex: Open Codex Sidebar</strong> can look like a no-op because the
+      view container it registers no longer exists. This is documented in
+      <a href="https://forum.cursor.com/t/codex-openais-extension-not-working-in-cursor-ide-3-15/168910"
+        class="text-blue text-underline" rel="noopener noreferrer" target="_blank">Cursor's forum thread on 3.15</a>.
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Look for Codex under Explorer on the left. Drag its section header onto the Activity Bar to give it a
+        top-level icon.</li>
+      <li>If it will not move: <strong>View: Reset View Locations</strong>, then <strong>Developer: Reload Window</strong>.
+      </li>
+      <li>For a side-by-side layout, run <strong>Codex: New Codex Agent</strong> (not Open Sidebar), then
+        <strong>View: Split Editor Right</strong> or drag the tab to the editor edge.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Create a Recovery Point Before the First Edit</h2>
+
+    <p>
+      OpenAI's IDE docs recommend Git checkpoints before and after a first task. A rollback is only safe if you know
+      what was already dirty.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">git status --short</code></pre>
+    </div>
+
+    <p>
+      Commit or stash work you care about, or use a throwaway clone. For the first run, pick a low-risk file with a
+      test you can execute in seconds. Skip migrations, auth, billing, deploy config, and repo-wide refactors. You
+      are validating the loop, not proving the agent can own a large change.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Give Codex Context It Can Verify</h2>
+
+    <p>
+      Open the file, select the smallest function that matters, then add that selection to the thread (Command Palette:
+      <strong>Add to Codex Thread</strong>). The extension also attaches open files. Name the behavior, state what must
+      not change, and ask for an observable result.
+    </p>
+
+    <p>
+      Start with an explanation-only request. It is cheap and shows whether the selected code actually reached Codex:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">Explain what the selected function returns for an empty array.
+Point to the branch that decides the result. Do not edit any files.</code></pre>
+    </div>
+
+    <p>
+      The answer should name the file and symbol on screen. A fluent explanation of the wrong function is a context
+      failure, not a successful setup. If it matches, send a bounded edit:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">In the open file, make the selected function return [] for empty input.
+Keep the public signature unchanged. Smallest relevant edit.
+Show the diff and name the existing test that covers this.
+Then run: npm test -- path/to/relevant.test.ts
+Report the command and the actual output. If it cannot run, stop and say why.</code></pre>
+    </div>
+
+    <p>
+      Replace the test command with whatever this repo already uses. A proposed test is not a run. A passing narrow
+      test does not prove unrelated behavior is intact. "Improve this file" has no stopping point; "change this
+      behavior, keep this interface" does.
+    </p>
+
+    <p>
+      Put durable project rules in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code> at the repo root
+      (stack, test command, files Codex must not touch). That file is what Codex reads across the IDE and CLI. Cursor
+      rules (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code>)
+      steer Cursor's own agent, not Codex. See also
+      <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">how we configure Claude
+        inside Cursor</a> if you keep both agents around.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Review the Diff as Evidence</h2>
+
+    <p>
+      The Codex IDE flow presents a proposed change in the editor. A confident final message is not a substitute for
+      reading the files. Five passes:
+    </p>
+
+    <ol class="lh-rem-4">
+      <li><strong>Scope:</strong> only the files the task needed?</li>
+      <li><strong>Behavior:</strong> does the code do the asked outcome, including the empty/error case?</li>
+      <li><strong>Constraints:</strong> signature, deps, config, unrelated behavior still the same?</li>
+      <li><strong>Verification:</strong> which command actually ran, and did stdout show pass, fail, or "could not
+        execute"?</li>
+      <li><strong>Assumptions:</strong> types, callers, framework conventions it invented that you still need to
+        decide?</li>
+    </ol>
+
+    <p>
+      Reject a broad diff even if some lines are useful. A narrower second request is cheaper than manually splitting a
+      mixed patch. Then run <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">git status --short</code> again so
+      you have a before/after inventory. If lint, typecheck, or a targeted test exists for the touched code, run it
+      yourself if Codex did not.
+    </p>
+
+    <p>
+      The first workflow is done when all of these are true: the sidebar (or editor tab) opens in this project, the
+      explanation matched the selection, the edit stayed inside the boundary, you can name the check that ran, and you
+      can keep or reverse the change without losing unrelated work.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Codex CLI Next to Cursor</h2>
+
+    <p>
+      Same agent, terminal surface. Official install options from
+      <a href="https://learn.chatgpt.com/docs/codex/cli" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">the Codex CLI docs</a>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># npm (Node.js 18+)
+npm install -g @openai/codex
+
+# Homebrew
+brew install --cask codex
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+
+codex --version
+codex login</code></pre>
+    </div>
+
+    <p>
+      Run <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex</code> from the
+      project root. Headless or SSH sessions that cannot complete the localhost OAuth callback should use
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex login --device-auth</code>.
+      API key mode:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">printenv OPENAI_API_KEY | codex login --with-api-key</code></pre>
+    </div>
+
+    <p>
+      User defaults live in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/config.toml</code>
+      (model, approval policy, sandbox). Project overrides go in
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.codex/config.toml</code> and
+      load only when the repo is trusted. Do not let the agent run generated shell commands without a confirmation step.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Using GPT-5-Codex as a Cursor Model</h2>
+
+    <p>
+      Some teams only want the coding-tuned model inside Cursor Chat / Agent, without the Codex extension. That is a
+      different product surface:
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Cursor Settings → Models. If GPT-5-Codex (or the current Codex-labeled GPT-5 variant) is in the list and
+        your Cursor plan includes it, select it there.</li>
+      <li>Otherwise add an OpenAI-compatible provider: base URL of the form
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">https://api.example.com/v1</code>,
+        a dedicated API key, then the model ID the provider actually lists (often
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">gpt-5-codex</code> plus a
+        reasoning tier such as low / medium / high). Verify the ID in that provider's dashboard; names drift.</li>
+      <li>Send a one-line request in Cursor chat. If the request never leaves your machine, you configured the wrong
+        provider, not "Codex".</li>
+    </ol>
+
+    <p>
+      Use a dedicated key, keep it out of git, and treat third-party gateways as a billing proxy: they do not give you
+      Codex's sidebar, cloud handoff, or CLI review commands.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Troubleshooting</h2>
+
+    <p>
+      Fix the earliest broken checkpoint. Reinstalling or writing a bigger prompt usually hides the real failure.
+    </p>
+
+    <h3 class="exo mt-4">The Codex command is missing</h3>
+    <p>
+      Confirm <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>
+      is installed and enabled in the active Cursor profile, then reload. If only a Codex-named model appears in the
+      chat picker, you installed a model, not the extension.
+    </p>
+
+    <h3 class="exo mt-4">The sidebar opens but sign-in never finishes</h3>
+    <p>
+      Follow the prompt currently shown. Capture the exact error before changing settings. Do not paste a random API
+      key or a third-party "bridge" unless that is the setup you chose. Corporate proxies that intercept TLS often break
+      the browser callback; try another network only if your org allows it, or use device-code login on the CLI.
+    </p>
+
+    <h3 class="exo mt-4">Codex talks about the wrong code</h3>
+    <p>
+      Close extra files, select one block, and ask it to name file + symbol before it edits. If it still misses, restart
+      the sidebar and repeat the explanation-only check. A working sidebar can still receive the wrong context.
+    </p>
+
+    <h3 class="exo mt-4">The proposed change is too large</h3>
+    <p>
+      Reject it. Split the request: one file, one behavior, interfaces that must not change. For risky code, use two
+      turns: plan with no edits, then authorize the specific patch.
+    </p>
+
+    <h3 class="exo mt-4">It suggests a test but does not run it</h3>
+    <p>
+      Ask whether the command exists in this project and to execute it. If permissions block it, that verification
+      step is unfinished. You can run the command in Cursor's terminal; record the real output instead of treating a
+      recommendation as a pass.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">When to Use Codex vs Cursor's Agent</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Codex:</strong> you want OpenAI's agent, ChatGPT-plan usage, a reviewable local diff, CLI/CI, or a
+        cloud task you can resume later.</li>
+      <li><strong>Cursor Agent:</strong> you want Cursor's multi-model routing,
+        <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">Claude</a>, repo rules,
+        and the native Composer/Agent UI. That is still the faster path for many day-to-day edits.</li>
+    </ul>
+
+    <p>
+      Running both is normal. Keep their instruction files separate so you do not expect
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code> to
+      constrain Codex, or <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code>
+      to constrain Cursor.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Summary</h2>
+
+    <p>
+      Install <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>,
+      open Codex in the project, checkpoint git, prove context with an explanation-only prompt, then ask for one
+      bounded edit and inspect the diff. If the right-hand sidebar is empty on Cursor 3.15+, pin Codex on the left or
+      open it as an editor tab. The CLI is the same agent in a terminal. Selecting GPT-5-Codex as a Cursor model is
+      useful, but it is not Codex.
+    </p>
+  </article>
+</div>
