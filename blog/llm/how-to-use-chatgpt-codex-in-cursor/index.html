@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <title>How to Use ChatGPT Codex in Cursor</title>
+    <meta name="description" content="Install OpenAI&#39;s official Codex extension in Cursor, run a reviewable first edit, and tell Codex apart from Cursor&#39;s own agent. Covers the sidebar, CLI, GPT-5-Codex, and the Cursor 3.15 layout issue." />
+    <meta property="og:description" content="Install OpenAI&#39;s official Codex extension in Cursor, run a reviewable first edit, and tell Codex apart from Cursor&#39;s own agent. Covers the sidebar, CLI, GPT-5-Codex, and the Cursor 3.15 layout issue." />
+    <meta property="og:title" content="How to Use ChatGPT Codex in Cursor" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/" />
+<link rel="canonical" href="https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Language"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;EN
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" />
+        <path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" />
+        <path fill="#eee" d="M12 5h12v26H12z" />
+      </svg>
+      Français
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xblog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xblog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xblog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tag/">Tag</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/close/">Close</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/blog/llm/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    LLM Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    How to Use ChatGPT Codex in Cursor
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/llm/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      LLM
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-08-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/08/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Cursor already has its own agent. <strong>ChatGPT Codex is a separate OpenAI product</strong> that runs beside it
+    as the official extension <code
+      class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Picking a
+    GPT-5 model in Cursor's chat dropdown is not the same thing. This guide installs the real Codex loop, proves it
+    with one small reversible edit, and covers the CLI and the "GPT-5-Codex as a Cursor model" path people mix up with
+    it.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="How to Use ChatGPT Codex in Cursor"
+      src='https://useaxentix.com//img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp'
+      alt="Code editor with a Codex-style assistant sidebar and a reviewable code diff" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Codex in Cursor is a sidebar agent with a reviewable diff, not
+      a model name in the chat picker
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-5" itemprop="subtitle">What ChatGPT Codex Actually Is</h2>
+
+    <p>
+      Three different things get sold under similar names. Mixing them up is why most setup guides feel finished after
+      install, then fail on the first real task.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>What you opened</th>
+            <th>What it is</th>
+            <th>How you know it worked</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ChatGPT Codex</strong></td>
+            <td>OpenAI's coding agent. IDE extension + CLI, same login cache.</td>
+            <td>Command Palette shows <strong>Codex: Open Codex Sidebar</strong> (or <strong>Codex: New Codex
+                Agent</strong>).</td>
+          </tr>
+          <tr>
+            <td><strong>Cursor Agent / Composer</strong></td>
+            <td>Cursor's own agent. Uses Cursor's model list (Claude, GPT-5, Gemini, …).</td>
+            <td>The right-hand Cursor agent panel, not the Codex extension view.</td>
+          </tr>
+          <tr>
+            <td><strong>GPT-5-Codex as a model</strong></td>
+            <td>A coding-tuned GPT-5 family model you can call from Cursor chat or a custom provider.</td>
+            <td>It appears in Cursor's <em>model</em> selector. No Codex sidebar, no Codex CLI.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Official docs list Cursor as a supported editor and point to the Marketplace listing
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. A
+      Codex-named model in Cursor's selector does not mean that extension is installed. The visible checkpoint is the
+      Codex command or sidebar, documented on
+      <a href="https://learn.chatgpt.com/docs/codex/ide" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">OpenAI's Codex IDE page</a>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Which Setup Should You Use?</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Official Codex extension:</strong> default path. Open files and selections become context, edits show
+        as a diff you can keep or reject, and you can hand a longer task to Codex cloud from the same chat.</li>
+      <li><strong>Codex CLI next to Cursor:</strong> same agent from the terminal. Useful for reviews, scripts, and
+        CI. Shares <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex</code>
+        auth with the extension.</li>
+      <li><strong>GPT-5-Codex in Cursor's model list:</strong> only if you want that model inside Cursor's own chat, not
+        the Codex agent. This is a provider/model setting, not an install of Codex.</li>
+    </ul>
+
+    <p>
+      If your goal is "use ChatGPT Codex in Cursor", start with the extension. Skip custom API gateways unless you
+      already centralize billing through one and know the exact model ID it exposes.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Install the Official Codex Extension</h2>
+
+    <p>
+      Install from OpenAI's listing, not a similarly named third-party extension.
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Open Cursor and go to Extensions (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+X</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+X</code>).</li>
+      <li>Search for the official Codex / ChatGPT extension and confirm the ID is <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Direct
+        install:
+        <a href="cursor:extension/openai.chatgpt" class="text-blue text-underline">cursor:extension/openai.chatgpt</a>
+        or the
+        <a href="https://marketplace.visualstudio.com/items?itemName=openai.chatgpt"
+          class="text-blue text-underline" rel="noopener noreferrer" target="_blank">VS Code Marketplace page</a>.
+      </li>
+      <li>Reload Cursor if prompted, then open a real project folder. An empty window only proves the UI can open.</li>
+      <li>Open Codex: click the Codex icon, or run <strong>Codex: Open Codex Sidebar</strong> from the Command Palette
+        (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+P</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+P</code>).</li>
+      <li>Sign in with ChatGPT, or choose <strong>Use API Key</strong> if you bill through the OpenAI API. Cloud
+        tasks need ChatGPT sign-in. A successful install does not tell you which plan, quota, or region you have; the
+        prompt in the sidebar does.</li>
+    </ol>
+
+    <p>
+      The CLI and the extension reuse the same cached login
+      (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/auth.json</code> or
+      the OS keyring). Logging out of one signs you out of the other. Details:
+      <a href="https://learn.chatgpt.com/docs/auth" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">Codex authentication</a>.
+    </p>
+
+    <h3 class="exo mt-4">Cursor 3.15+: the sidebar may not open on the right</h3>
+
+    <p>
+      From Cursor 3.15, the <em>secondary</em> sidebar (right panel) is reserved for Cursor's own agent. Codex used to
+      dock there; that was accidental. <strong>Codex: Open Codex Sidebar</strong> can look like a no-op because the
+      view container it registers no longer exists. This is documented in
+      <a href="https://forum.cursor.com/t/codex-openais-extension-not-working-in-cursor-ide-3-15/168910"
+        class="text-blue text-underline" rel="noopener noreferrer" target="_blank">Cursor's forum thread on 3.15</a>.
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Look for Codex under Explorer on the left. Drag its section header onto the Activity Bar to give it a
+        top-level icon.</li>
+      <li>If it will not move: <strong>View: Reset View Locations</strong>, then <strong>Developer: Reload Window</strong>.
+      </li>
+      <li>For a side-by-side layout, run <strong>Codex: New Codex Agent</strong> (not Open Sidebar), then
+        <strong>View: Split Editor Right</strong> or drag the tab to the editor edge.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Create a Recovery Point Before the First Edit</h2>
+
+    <p>
+      OpenAI's IDE docs recommend Git checkpoints before and after a first task. A rollback is only safe if you know
+      what was already dirty.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">git status --short</code></pre>
+    </div>
+
+    <p>
+      Commit or stash work you care about, or use a throwaway clone. For the first run, pick a low-risk file with a
+      test you can execute in seconds. Skip migrations, auth, billing, deploy config, and repo-wide refactors. You
+      are validating the loop, not proving the agent can own a large change.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Give Codex Context It Can Verify</h2>
+
+    <p>
+      Open the file, select the smallest function that matters, then add that selection to the thread (Command Palette:
+      <strong>Add to Codex Thread</strong>). The extension also attaches open files. Name the behavior, state what must
+      not change, and ask for an observable result.
+    </p>
+
+    <p>
+      Start with an explanation-only request. It is cheap and shows whether the selected code actually reached Codex:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">Explain what the selected function returns for an empty array.
+Point to the branch that decides the result. Do not edit any files.</code></pre>
+    </div>
+
+    <p>
+      The answer should name the file and symbol on screen. A fluent explanation of the wrong function is a context
+      failure, not a successful setup. If it matches, send a bounded edit:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">In the open file, make the selected function return [] for empty input.
+Keep the public signature unchanged. Smallest relevant edit.
+Show the diff and name the existing test that covers this.
+Then run: npm test -- path/to/relevant.test.ts
+Report the command and the actual output. If it cannot run, stop and say why.</code></pre>
+    </div>
+
+    <p>
+      Replace the test command with whatever this repo already uses. A proposed test is not a run. A passing narrow
+      test does not prove unrelated behavior is intact. "Improve this file" has no stopping point; "change this
+      behavior, keep this interface" does.
+    </p>
+
+    <p>
+      Put durable project rules in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code> at the repo root
+      (stack, test command, files Codex must not touch). That file is what Codex reads across the IDE and CLI. Cursor
+      rules (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code>)
+      steer Cursor's own agent, not Codex. See also
+      <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">how we configure Claude
+        inside Cursor</a> if you keep both agents around.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Review the Diff as Evidence</h2>
+
+    <p>
+      The Codex IDE flow presents a proposed change in the editor. A confident final message is not a substitute for
+      reading the files. Five passes:
+    </p>
+
+    <ol class="lh-rem-4">
+      <li><strong>Scope:</strong> only the files the task needed?</li>
+      <li><strong>Behavior:</strong> does the code do the asked outcome, including the empty/error case?</li>
+      <li><strong>Constraints:</strong> signature, deps, config, unrelated behavior still the same?</li>
+      <li><strong>Verification:</strong> which command actually ran, and did stdout show pass, fail, or "could not
+        execute"?</li>
+      <li><strong>Assumptions:</strong> types, callers, framework conventions it invented that you still need to
+        decide?</li>
+    </ol>
+
+    <p>
+      Reject a broad diff even if some lines are useful. A narrower second request is cheaper than manually splitting a
+      mixed patch. Then run <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">git status --short</code> again so
+      you have a before/after inventory. If lint, typecheck, or a targeted test exists for the touched code, run it
+      yourself if Codex did not.
+    </p>
+
+    <p>
+      The first workflow is done when all of these are true: the sidebar (or editor tab) opens in this project, the
+      explanation matched the selection, the edit stayed inside the boundary, you can name the check that ran, and you
+      can keep or reverse the change without losing unrelated work.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Codex CLI Next to Cursor</h2>
+
+    <p>
+      Same agent, terminal surface. Official install options from
+      <a href="https://learn.chatgpt.com/docs/codex/cli" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">the Codex CLI docs</a>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># npm (Node.js 18+)
+npm install -g @openai/codex
+
+# Homebrew
+brew install --cask codex
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+
+codex --version
+codex login</code></pre>
+    </div>
+
+    <p>
+      Run <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex</code> from the
+      project root. Headless or SSH sessions that cannot complete the localhost OAuth callback should use
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex login --device-auth</code>.
+      API key mode:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">printenv OPENAI_API_KEY | codex login --with-api-key</code></pre>
+    </div>
+
+    <p>
+      User defaults live in <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/config.toml</code>
+      (model, approval policy, sandbox). Project overrides go in
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.codex/config.toml</code> and
+      load only when the repo is trusted. Do not let the agent run generated shell commands without a confirmation step.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Using GPT-5-Codex as a Cursor Model</h2>
+
+    <p>
+      Some teams only want the coding-tuned model inside Cursor Chat / Agent, without the Codex extension. That is a
+      different product surface:
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Cursor Settings → Models. If GPT-5-Codex (or the current Codex-labeled GPT-5 variant) is in the list and
+        your Cursor plan includes it, select it there.</li>
+      <li>Otherwise add an OpenAI-compatible provider: base URL of the form
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">https://api.example.com/v1</code>,
+        a dedicated API key, then the model ID the provider actually lists (often
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">gpt-5-codex</code> plus a
+        reasoning tier such as low / medium / high). Verify the ID in that provider's dashboard; names drift.</li>
+      <li>Send a one-line request in Cursor chat. If the request never leaves your machine, you configured the wrong
+        provider, not "Codex".</li>
+    </ol>
+
+    <p>
+      Use a dedicated key, keep it out of git, and treat third-party gateways as a billing proxy: they do not give you
+      Codex's sidebar, cloud handoff, or CLI review commands.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Troubleshooting</h2>
+
+    <p>
+      Fix the earliest broken checkpoint. Reinstalling or writing a bigger prompt usually hides the real failure.
+    </p>
+
+    <h3 class="exo mt-4">The Codex command is missing</h3>
+    <p>
+      Confirm <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>
+      is installed and enabled in the active Cursor profile, then reload. If only a Codex-named model appears in the
+      chat picker, you installed a model, not the extension.
+    </p>
+
+    <h3 class="exo mt-4">The sidebar opens but sign-in never finishes</h3>
+    <p>
+      Follow the prompt currently shown. Capture the exact error before changing settings. Do not paste a random API
+      key or a third-party "bridge" unless that is the setup you chose. Corporate proxies that intercept TLS often break
+      the browser callback; try another network only if your org allows it, or use device-code login on the CLI.
+    </p>
+
+    <h3 class="exo mt-4">Codex talks about the wrong code</h3>
+    <p>
+      Close extra files, select one block, and ask it to name file + symbol before it edits. If it still misses, restart
+      the sidebar and repeat the explanation-only check. A working sidebar can still receive the wrong context.
+    </p>
+
+    <h3 class="exo mt-4">The proposed change is too large</h3>
+    <p>
+      Reject it. Split the request: one file, one behavior, interfaces that must not change. For risky code, use two
+      turns: plan with no edits, then authorize the specific patch.
+    </p>
+
+    <h3 class="exo mt-4">It suggests a test but does not run it</h3>
+    <p>
+      Ask whether the command exists in this project and to execute it. If permissions block it, that verification
+      step is unfinished. You can run the command in Cursor's terminal; record the real output instead of treating a
+      recommendation as a pass.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">When to Use Codex vs Cursor's Agent</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Codex:</strong> you want OpenAI's agent, ChatGPT-plan usage, a reviewable local diff, CLI/CI, or a
+        cloud task you can resume later.</li>
+      <li><strong>Cursor Agent:</strong> you want Cursor's multi-model routing,
+        <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">Claude</a>, repo rules,
+        and the native Composer/Agent UI. That is still the faster path for many day-to-day edits.</li>
+    </ul>
+
+    <p>
+      Running both is normal. Keep their instruction files separate so you do not expect
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code> to
+      constrain Codex, or <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code>
+      to constrain Cursor.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Summary</h2>
+
+    <p>
+      Install <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>,
+      open Codex in the project, checkpoint git, prove context with an explanation-only prompt, then ask for one
+      bounded edit and inspect the diff. If the right-hand sidebar is empty on Cursor 3.15+, pin Codex on the left or
+      open it as an editor tab. The CLI is the same agent in a terminal. Selecting GPT-5-Codex as a Cursor model is
+      useful, but it is not Codex.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/javascript/">
+          JavaScript (14)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/llm/">
+          LLM (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/miscellaneous/">
+          Miscellaneous (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/tamagui/">
+          Tamagui (4)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Start Building with Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Ready to create amazing websites? Get started with Axentix framework today.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Get Started
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Related Posts</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/javascript/javascript-hoisting-complete-guide/" aria-label="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-hoisting-complete-guide/javascript-hoisting.webp" loading="lazy"
+      alt="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/javascript/javascript-hoisting-complete-guide/">
+        JavaScript Hoisting: Complete Guide to Variable and Function Hoisting
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        05 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn everything about JavaScript hoisting. Understand how var, let, const, and function declarations behave, explore the Temporal Dead Zone, and discover best practices to write better JavaScript code.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/javascript-hoisting-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/cursor/how-to-use-claude-with-cursor/" aria-label="How to Use Claude with Cursor easily article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/cursor/how-to-use-claude-with-cursor/claude-in-cursor.webp" loading="lazy"
+      alt="How to Use Claude with Cursor easily recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/cursor/how-to-use-claude-with-cursor/">
+        How to Use Claude with Cursor easily
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        24 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/cursor/">Cursor
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Complete guide on integrating Claude AI with Cursor editor. Learn setup, configuration, and best practices for using Claude Code inside Cursor to enhance your development workflow.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/cursor/how-to-use-claude-with-cursor/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/http/curl-head-request/" aria-label="Curl HEAD Request: How to Fetch HTTP Headers with -I and --head article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/http/curl-head-request/curl-head-request.webp" loading="lazy"
+      alt="Curl HEAD Request: How to Fetch HTTP Headers with -I and --head recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/http/curl-head-request/">
+        Curl HEAD Request: How to Fetch HTTP Headers with -I and --head
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        30 Jun 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/http/">HTTP
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">A complete, no-fluff guide to the curl HEAD request. Use -I or &ndash;head to fetch only HTTP headers, check status codes, content type, file size, redirects, and caching, with copy-paste examples.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/http/curl-head-request/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/tools/speedtest-internet-health-test/" class="text-underline text-grey">Internet Health Test</a>
+  </p>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET &amp; Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a> at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>

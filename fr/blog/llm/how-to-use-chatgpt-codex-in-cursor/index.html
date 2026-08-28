@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    
+    
+    
+    <title>Comment utiliser ChatGPT Codex dans Cursor</title>
+    <meta name="description" content="Installer l&#39;extension Codex officielle d&#39;OpenAI dans Cursor, faire une première modification vérifiable, et distinguer Codex de l&#39;agent intégré de Cursor. Sidebar, CLI, GPT-5-Codex et le problème de layout Cursor 3.15." />
+    <meta property="og:description" content="Installer l&#39;extension Codex officielle d&#39;OpenAI dans Cursor, faire une première modification vérifiable, et distinguer Codex de l&#39;agent intégré de Cursor. Sidebar, CLI, GPT-5-Codex et le problème de layout Cursor 3.15." />
+    <meta property="og:title" content="Comment utiliser ChatGPT Codex dans Cursor" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/" />
+<link rel="canonical" href="https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/llm/how-to-use-chatgpt-codex-in-cursor/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Clair</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Sombre</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> Système</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/llm/how-to-use-chatgpt-codex-in-cursor/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/llm/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    LLM Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Comment utiliser ChatGPT Codex dans Cursor
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/llm/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      LLM
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-08-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/08/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Cursor a déjà son propre agent. <strong>ChatGPT Codex est un produit OpenAI à part</strong>, qui s'exécute à côté
+    via l'extension officielle <code
+      class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Choisir un
+    modèle GPT-5 dans le sélecteur de chat de Cursor n'est pas la même chose. Ce guide installe la vraie boucle Codex,
+    la prouve avec une petite modification réversible, et couvre le CLI ainsi que le chemin « GPT-5-Codex comme modèle
+    Cursor » que beaucoup confondent avec Codex.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Comment utiliser ChatGPT Codex dans Cursor"
+      src='https://useaxentix.com//img/blog/llm/how-to-use-chatgpt-codex-in-cursor/chatgpt-codex-cursor.webp'
+      alt="Éditeur de code avec une barre latérale d'assistant type Codex et un diff de code à relire" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Codex dans Cursor est un agent en barre latérale avec un diff à
+      relire, pas un nom de modèle dans le sélecteur de chat
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-5" itemprop="subtitle">Ce qu'est vraiment ChatGPT Codex</h2>
+
+    <p>
+      Trois objets différents se vendent sous des noms proches. Les confondre, c'est pourquoi la plupart des guides
+      s'arrêtent à l'installation, puis échouent dès la première vraie tâche.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Ce que vous avez ouvert</th>
+            <th>Ce que c'est</th>
+            <th>Comment savoir que ça marche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ChatGPT Codex</strong></td>
+            <td>L'agent de code d'OpenAI. Extension IDE + CLI, même cache de connexion.</td>
+            <td>La palette de commandes affiche <strong>Codex: Open Codex Sidebar</strong> (ou <strong>Codex: New Codex
+                Agent</strong>).</td>
+          </tr>
+          <tr>
+            <td><strong>Agent / Composer Cursor</strong></td>
+            <td>L'agent de Cursor. Utilise la liste de modèles de Cursor (Claude, GPT-5, Gemini, …).</td>
+            <td>Le panneau agent à droite de Cursor, pas la vue de l'extension Codex.</td>
+          </tr>
+          <tr>
+            <td><strong>GPT-5-Codex comme modèle</strong></td>
+            <td>Un modèle de la famille GPT-5 calibré pour le code, appelable depuis le chat Cursor ou un fournisseur
+              custom.</td>
+            <td>Il apparaît dans le sélecteur de <em>modèles</em> de Cursor. Pas de sidebar Codex, pas de CLI Codex.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      La doc officielle liste Cursor comme éditeur compatible et pointe vers l'extension Marketplace
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>. Un
+      modèle nommé Codex dans le sélecteur de Cursor ne prouve pas que cette extension est installée. Le critère
+      visible, c'est la commande ou la sidebar Codex, documentée sur
+      <a href="https://learn.chatgpt.com/docs/codex/ide" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">la page Codex IDE d'OpenAI</a>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Quelle installation choisir ?</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Extension Codex officielle :</strong> le chemin par défaut. Fichiers ouverts et sélections deviennent
+        du contexte, les modifications s'affichent en diff à garder ou refuser, et une tâche plus longue peut partir
+        vers Codex cloud depuis le même chat.</li>
+      <li><strong>CLI Codex à côté de Cursor :</strong> le même agent dans le terminal. Utile pour les revues, les
+        scripts et la CI. Partage l'auth <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex</code> avec
+        l'extension.</li>
+      <li><strong>GPT-5-Codex dans la liste de modèles de Cursor :</strong> seulement si vous voulez ce modèle dans le
+        chat de Cursor, pas l'agent Codex. C'est un réglage fournisseur/modèle, pas une installation de Codex.</li>
+    </ul>
+
+    <p>
+      Si l'objectif est « utiliser ChatGPT Codex dans Cursor », commencez par l'extension. Laissez de côté les passerelles
+      API custom sauf si vous centralisez déjà la facturation par là et que vous connaissez l'ID de modèle exact exposé.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Installer l'extension Codex officielle</h2>
+
+    <p>
+      Installez depuis la fiche OpenAI, pas une extension tierce au nom voisin.
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Ouvrez Cursor, puis Extensions (<code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+X</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+X</code>).</li>
+      <li>Cherchez l'extension officielle Codex / ChatGPT et vérifiez que l'ID est <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>.
+        Installation directe :
+        <a href="cursor:extension/openai.chatgpt" class="text-blue text-underline">cursor:extension/openai.chatgpt</a>
+        ou la
+        <a href="https://marketplace.visualstudio.com/items?itemName=openai.chatgpt"
+          class="text-blue text-underline" rel="noopener noreferrer" target="_blank">page Marketplace VS Code</a>.
+      </li>
+      <li>Rechargez Cursor si demandé, puis ouvrez un vrai dossier de projet. Une fenêtre vide ne prouve que
+        l'interface s'ouvre.</li>
+      <li>Ouvrez Codex : icône Codex, ou <strong>Codex: Open Codex Sidebar</strong> dans la palette de commandes
+        (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Ctrl+Shift+P</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Cmd+Shift+P</code>).</li>
+      <li>Connectez-vous avec ChatGPT, ou <strong>Use API Key</strong> si vous facturez via l'API OpenAI. Les tâches
+        cloud exigent une connexion ChatGPT. Une installation réussie ne dit pas quel forfait, quota ou région vous
+        avez : c'est le message dans la sidebar qui le dit.</li>
+    </ol>
+
+    <p>
+      Le CLI et l'extension réutilisent le même cache de connexion
+      (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/auth.json</code> ou
+      le trousseau OS). Se déconnecter de l'un déconnecte l'autre. Détails :
+      <a href="https://learn.chatgpt.com/docs/auth" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">authentification Codex</a>.
+    </p>
+
+    <h3 class="exo mt-4">Cursor 3.15+ : la sidebar peut ne plus s'ouvrir à droite</h3>
+
+    <p>
+      Depuis Cursor 3.15, la barre latérale <em>secondaire</em> (panneau de droite) est réservée à l'agent de Cursor.
+      Codex s'y ancrer était accidentel. <strong>Codex: Open Codex Sidebar</strong> peut sembler ne rien faire, parce
+      que le conteneur de vue qu'elle enregistre n'existe plus. C'est expliqué dans
+      <a href="https://forum.cursor.com/t/codex-openais-extension-not-working-in-cursor-ide-3-15/168910"
+        class="text-blue text-underline" rel="noopener noreferrer" target="_blank">le fil forum Cursor sur la
+        3.15</a>.
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Cherchez Codex sous Explorer à gauche. Glissez l'en-tête de section sur la barre d'activité pour lui donner
+        une icône de premier niveau.</li>
+      <li>S'il ne bouge pas : <strong>View: Reset View Locations</strong>, puis <strong>Developer: Reload
+          Window</strong>.</li>
+      <li>Pour un affichage côte à côte, lancez <strong>Codex: New Codex Agent</strong> (pas Open Sidebar), puis
+        <strong>View: Split Editor Right</strong> ou glissez l'onglet au bord de l'éditeur.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Créer un point de reprise avant la première modification</h2>
+
+    <p>
+      La doc IDE d'OpenAI recommande des checkpoints Git avant et après une première tâche. Un rollback n'est sûr que
+      si vous savez ce qui était déjà modifié.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">git status --short</code></pre>
+    </div>
+
+    <p>
+      Commitez ou stashiez le travail que vous voulez garder, ou utilisez un clone jetable. Pour le premier essai,
+      choisissez un fichier à faible risque avec un test exécutable en quelques secondes. Évitez migrations, auth,
+      facturation, config de déploiement et refactors globaux. Vous validez la boucle, vous ne prouvez pas que
+      l'agent peut porter un gros changement.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Donner à Codex un contexte qu'il peut vérifier</h2>
+
+    <p>
+      Ouvrez le fichier, sélectionnez la plus petite fonction concernée, puis ajoutez cette sélection au fil (palette :
+      <strong>Add to Codex Thread</strong>). L'extension attache aussi les fichiers ouverts. Nommez le comportement,
+      dites ce qui ne doit pas changer, et demandez un résultat observable.
+    </p>
+
+    <p>
+      Commencez par une demande d'explication sans édition. C'est peu risqué et ça montre si le code sélectionné a
+      vraiment atteint Codex :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">Explique ce que la fonction sélectionnée renvoie pour un tableau vide.
+Indique la branche qui décide du résultat. N'édite aucun fichier.</code></pre>
+    </div>
+
+    <p>
+      La réponse doit citer le fichier et le symbole à l'écran. Une explication fluide de la mauvaise fonction est un
+      échec de contexte, pas une installation réussie. Si ça correspond, envoyez une modification bornée :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-text">Dans le fichier ouvert, fais en sorte que la fonction sélectionnée
+renvoie [] pour une entrée vide. Garde la signature publique.
+Plus petite modification pertinente. Montre le diff et nomme le test existant.
+Puis lance : npm test -- path/to/relevant.test.ts
+Rapporte la commande et la sortie réelle. Si ça ne peut pas tourner, arrête-toi et explique.</code></pre>
+    </div>
+
+    <p>
+      Remplacez la commande de test par celle du dépôt. Un test proposé n'est pas un test exécuté. Un test étroit qui
+      passe ne prouve pas que le reste du comportement est intact. « Améliore ce fichier » n'a pas de point d'arrêt ;
+      « change ce comportement, garde cette interface » en a un.
+    </p>
+
+    <p>
+      Placez les règles durables du projet dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code> à la racine
+      (stack, commande de test, fichiers à ne pas toucher). C'est ce que Codex lit, IDE et CLI. Les règles Cursor
+      (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code>)
+      orientent l'agent de Cursor, pas Codex. Voir aussi
+      <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">comment on configure Claude
+        dans Cursor</a> si vous gardez les deux agents.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Relire le diff comme une preuve</h2>
+
+    <p>
+      Le flux IDE Codex présente une proposition dans l'éditeur. Un message final confiant ne remplace pas la lecture
+      des fichiers. Cinq passes :
+    </p>
+
+    <ol class="lh-rem-4">
+      <li><strong>Périmètre :</strong> uniquement les fichiers nécessaires à la demande ?</li>
+      <li><strong>Comportement :</strong> le code fait-il le résultat demandé, y compris le cas vide / erreur ?</li>
+      <li><strong>Contraintes :</strong> signature, dépendances, config, comportement non lié encore identiques ?</li>
+      <li><strong>Vérification :</strong> quelle commande a réellement tourné, et la sortie montre-t-elle un succès, un
+        échec, ou « impossible à exécuter » ?</li>
+      <li><strong>Hypothèses :</strong> types, appelants, conventions de framework inventées qu'il vous reste à
+        trancher ?</li>
+    </ol>
+
+    <p>
+      Refusez un diff trop large même si certaines lignes sont utiles. Une seconde demande plus étroite coûte moins cher
+      que de découper à la main un patch mélangé. Relancez ensuite <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">git status --short</code> pour un
+      inventaire avant/après. S'il existe un lint, un typecheck ou un test ciblé pour le code modifié, lancez-le vous-même
+      si Codex ne l'a pas fait.
+    </p>
+
+    <p>
+      La première boucle est réussie quand tout ceci est vrai : la sidebar (ou l'onglet éditeur) s'ouvre dans ce projet,
+      l'explication collait à la sélection, la modification est restée dans les bornes, vous savez nommer le check
+      exécuté, et vous pouvez garder ou inverser le changement sans perdre le reste.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Le CLI Codex à côté de Cursor</h2>
+
+    <p>
+      Même agent, surface terminal. Options d'install officielles d'après
+      <a href="https://learn.chatgpt.com/docs/codex/cli" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">la doc CLI Codex</a> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash"># npm (Node.js 18+)
+npm install -g @openai/codex
+
+# Homebrew
+brew install --cask codex
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+
+codex --version
+codex login</code></pre>
+    </div>
+
+    <p>
+      Lancez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex</code> à la racine
+      du projet. Sessions headless ou SSH qui ne peuvent pas terminer le callback OAuth localhost : utilisez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">codex login --device-auth</code>.
+      Mode clé API :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-bash">printenv OPENAI_API_KEY | codex login --with-api-key</code></pre>
+    </div>
+
+    <p>
+      Les défauts utilisateur sont dans <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">~/.codex/config.toml</code>
+      (modèle, politique d'approbation, sandbox). Les overrides projet vont dans
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.codex/config.toml</code> et ne
+      se chargent que si le dépôt est de confiance. Ne laissez pas l'agent exécuter des commandes shell générées sans
+      étape de confirmation.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Utiliser GPT-5-Codex comme modèle Cursor</h2>
+
+    <p>
+      Certaines équipes veulent seulement le modèle calibré pour le code dans le Chat / Agent de Cursor, sans
+      l'extension Codex. C'est une autre surface produit :
+    </p>
+
+    <ol class="lh-rem-4">
+      <li>Paramètres Cursor → Models. Si GPT-5-Codex (ou le variant GPT-5 étiqueté Codex du moment) est dans la liste
+        et que votre forfait Cursor l'inclut, sélectionnez-le là.</li>
+      <li>Sinon, ajoutez un fournisseur compatible OpenAI : URL de base du type
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">https://api.example.com/v1</code>,
+        une clé API dédiée, puis l'ID de modèle réellement listé par le fournisseur (souvent
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">gpt-5-codex</code> plus un
+        palier de raisonnement low / medium / high). Vérifiez l'ID dans le dashboard du fournisseur ; les noms
+        bougent.</li>
+      <li>Envoyez une requête d'une ligne dans le chat Cursor. Si la requête ne quitte jamais la machine, c'est le
+        fournisseur qui est mal configuré, pas « Codex ».</li>
+    </ol>
+
+    <p>
+      Utilisez une clé dédiée, hors git. Traitez les passerelles tierces comme un proxy de facturation : elles ne vous
+      donnent ni la sidebar Codex, ni le handoff cloud, ni les commandes de revue du CLI.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Dépannage</h2>
+
+    <p>
+      Corrigez le premier checkpoint cassé. Réinstaller ou écrire un prompt plus long masque souvent la vraie cause.
+    </p>
+
+    <h3 class="exo mt-4">La commande Codex est absente</h3>
+    <p>
+      Vérifiez que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>
+      est installée et activée dans le profil Cursor actif, puis rechargez. Si seul un modèle nommé Codex apparaît dans
+      le sélecteur de chat, vous avez installé un modèle, pas l'extension.
+    </p>
+
+    <h3 class="exo mt-4">La sidebar s'ouvre mais la connexion ne se termine pas</h3>
+    <p>
+      Suivez le message actuellement affiché. Notez l'erreur exacte avant de changer des réglages. N'ajoutez pas une
+      clé API au hasard ni un « pont » tierce partie, sauf si c'est le setup que vous avez choisi. Les proxies
+      d'entreprise qui interceptent le TLS cassent souvent le callback navigateur ; changez de réseau seulement si
+      votre organisation l'autorise, ou utilisez le login device-code du CLI.
+    </p>
+
+    <h3 class="exo mt-4">Codex parle du mauvais code</h3>
+    <p>
+      Fermez les fichiers superflus, sélectionnez un bloc, et demandez-lui de nommer fichier + symbole avant d'éditer.
+      S'il rate encore, redémarrez la sidebar et refaites le test d'explication. Une sidebar qui s'ouvre peut quand même
+      recevoir le mauvais contexte.
+    </p>
+
+    <h3 class="exo mt-4">La modification proposée est trop large</h3>
+    <p>
+      Refusez-la. Découpez : un fichier, un comportement, les interfaces à ne pas changer. Pour du code à risque, deux
+      tours : un plan sans édition, puis l'autorisation du patch précis.
+    </p>
+
+    <h3 class="exo mt-4">Il propose un test mais ne l'exécute pas</h3>
+    <p>
+      Demandez si la commande existe dans ce projet et de l'exécuter. Si les permissions l'empêchent, l'étape de
+      vérification n'est pas finie. Vous pouvez lancer la commande dans le terminal de Cursor ; notez la sortie réelle
+      au lieu de transformer une recommandation en succès.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Quand utiliser Codex vs l'agent de Cursor</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Codex :</strong> vous voulez l'agent OpenAI, l'usage via forfait ChatGPT, un diff local à relire, le
+        CLI/CI, ou une tâche cloud que vous reprendrez plus tard.</li>
+      <li><strong>Agent Cursor :</strong> vous voulez le routage multi-modèles de Cursor,
+        <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">Claude</a>, les règles du
+        dépôt, et l'UI native Composer/Agent. C'est encore le chemin le plus rapide pour beaucoup d'édits du quotidien.
+      </li>
+    </ul>
+
+    <p>
+      Faire tourner les deux est normal. Gardez leurs fichiers d'instructions séparés : n'attendez pas que
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.cursor/rules</code> contraigne
+      Codex, ni que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AGENTS.md</code>
+      contraigne Cursor.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">En résumé</h2>
+
+    <p>
+      Installez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">openai.chatgpt</code>,
+      ouvrez Codex dans le projet, faites un checkpoint git, prouvez le contexte avec une invite d'explication, puis
+      demandez une modification bornée et relisez le diff. Si la sidebar de droite est vide sur Cursor 3.15+, épinglez
+      Codex à gauche ou ouvrez-le en onglet éditeur. Le CLI est le même agent dans un terminal. Sélectionner GPT-5-Codex
+      comme modèle Cursor est utile, mais ce n'est pas Codex.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (14)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/llm/">
+          LLM (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (4)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/android/what-is-an-apk-file/" aria-label="Fichier APK : qu&#39;est-ce que c&#39;est et comment ça fonctionne ? article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/android/what-is-an-apk-file/apk-file.webp" loading="lazy"
+      alt="Fichier APK : qu&#39;est-ce que c&#39;est et comment ça fonctionne ? recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/android/what-is-an-apk-file/">
+        Fichier APK : qu&#39;est-ce que c&#39;est et comment ça fonctionne ?
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        12 Jan 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/android/">Android
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Découvrez tout sur les fichiers APK : ce qu&rsquo;ils sont, comment ils fonctionnent, leurs composants, le processus d&rsquo;installation, les considérations de sécurité et en quoi ils diffèrent des fichiers AAB.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/android/what-is-an-apk-file/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/axios/axios-get-query-params-complete-guide/" aria-label="Parametres de requete Axios GET : guide simple et exemples article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp" loading="lazy"
+      alt="Parametres de requete Axios GET : guide simple et exemples recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/axios/axios-get-query-params-complete-guide/">
+        Parametres de requete Axios GET : guide simple et exemples
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        14 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/axios/">Axios
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apprenez a utiliser les parametres de requete avec les requetes GET Axios. Guide complet couvrant l&rsquo;objet params, l&rsquo;encodage d&rsquo;URL, la serialisation personnalisee et des exemples du monde reel.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/axios/axios-get-query-params-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/" aria-label="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/tamagui-latest-version-february-2026/tamagui-february-update.webp" loading="lazy"
+      alt="Dernière version de Tamagui février 2026 : actualités de la version v2.0.0 recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+        Dernière version de Tamagui février 2026 : actualités de la version v2.0.0
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        06 Feb 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Tamagui v2.0.0 est en phase de release candidate. Calendrier complet de rc.0 à rc.5, nouvelles fonctionnalités, état de v1, passage à v2 et actualités de l&rsquo;écosystème à partir des versions officielles GitHub.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/tamagui-latest-version-february-2026/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/fr/tools/speedtest-internet-health-test/" class="text-underline text-grey">Test de débit Internet</a>
+  </p>
+
+  <p class="m-0">
+    Framework Axentix - Créé avec ♥ par Axel SIMONET et Vincent LEVEQUE<br>
+    Créateurs d'<a href="https://axenthost.com/" class="text-underline">AxentHost</a> chez <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
