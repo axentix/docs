@@ -1,0 +1,239 @@
+---
+title: "Testing Your UI on Real Screens Before You Ship"
+description: "Your viewport is not your monitor's resolution. How to read what the browser actually reports, set
+breakpoints from real numbers, and check a panel before you trust it to judge colour or dark mode."
+date: 2026-09-29
+author: "Axentix Team"
+image: "/img/blog/responsive/testing-your-ui-on-real-screens/viewport-vs-resolution.png"
+categories: ["Responsive"]
+summary: "Your viewport is not your monitor's resolution. How to read what the browser actually reports, set
+breakpoints from real numbers, and check a panel before you trust it to judge colour or dark mode."
+noTranslate: true
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Testing Your UI on Real Screens Before You Ship
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/responsive/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Responsive
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-09-29" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      29/09/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Your viewport is not your monitor's resolution. How to read what the browser actually reports, set breakpoints
+    from real numbers, and check a panel before you trust it to judge colour or dark mode.
+  </p>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      You build a layout, it looks right, you ship it. Then a bug report arrives with a screenshot where the sidebar
+      has collapsed a breakpoint early, or the dark theme that looked deep black on your laptop is washed-out grey on
+      someone's office monitor.
+    </p>
+
+    <p>
+      Neither one is a CSS bug. The screen you develop on isn't the screen anyone else has, and the number printed on
+      your monitor's box isn't the number the browser works with.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Your viewport is not your resolution</h2>
+
+    <p>
+      A monitor sold as 1920×1080 almost never gives you 1920 CSS pixels to lay out in. Windows ships most laptops at
+      125% or 150% scaling, macOS runs Retina displays at a fractional scale, and the browser divides physical pixels
+      by that factor before your media queries ever see them.
+    </p>
+
+    <p>
+      The browser exposes three numbers, and they rarely match:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">console.log(screen.width, screen.height);        // physical screen, in device pixels
+console.log(window.innerWidth, window.innerHeight); // viewport, in CSS pixels
+console.log(window.devicePixelRatio);            // ratio between the two</code></pre>
+    </div>
+
+    <p>
+      Run that on a 1080p monitor at 125% scaling and you get 1920 from <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">screen.width</code>, roughly 1536
+      from <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">window.innerWidth</code>,
+      and
+      1.25 as the ratio. Your media queries respond to the middle number. The one on the box is irrelevant.
+    </p>
+
+    <figure class="mt-5 d-flex fx-col fit-content mx-0">
+      <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy" width="1200"
+        height="640" title="Comparison of screen resolution, CSS viewport width and device pixel ratio"
+        src='{{< link url="img/blog/responsive/testing-your-ui-on-real-screens/viewport-vs-resolution.png" >}}'
+        alt="Comparison of screen resolution, CSS viewport width and device pixel ratio for a scaled 1080p monitor, a Retina laptop and a phone" />
+
+      <figcaption class="text-center text-grey mb-5 mt-2">Same three values across three common setups. Only the middle
+        column reaches your media queries.</figcaption>
+    </figure>
+
+    <p>
+      This is why the "1536px problem" keeps appearing in analytics: a large share of desktop users sit just below a
+      1536 or 1600 breakpoint without owning anything close to a small screen. If your layout switches to a tablet
+      arrangement there, a lot of people on perfectly wide monitors get the wrong one.
+    </p>
+
+    <figure class="mt-5 d-flex fx-col fit-content mx-0">
+      <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy" width="1200"
+        height="520" title="Where common devices land relative to CSS breakpoints"
+        src='{{< link url="img/blog/responsive/testing-your-ui-on-real-screens/viewport-breakpoint-ruler.png" >}}'
+        alt="Ruler showing where a phone, a 14-inch MacBook Pro and a scaled 1080p monitor land relative to common CSS breakpoints" />
+
+      <figcaption class="text-center text-grey mb-5 mt-2">Two very different desktop setups both report under 1600 px.
+      </figcaption>
+    </figure>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Set breakpoints from real numbers</h2>
+
+    <p>
+      So check what your own users report rather than what device spec sheets say. Analytics that log viewport width
+      instead of screen resolution show the clusters, and they usually sit at scaled values like 1536, 1280, 1366 and
+      1194, not the round numbers in framework defaults.
+    </p>
+
+    <p>
+      Two things worth doing while you build:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Keep the viewport size visible. Devtools shows it while resizing, and a one-line overlay during development
+        costs nothing:
+        <div class="code-block">
+          <pre><code class="language-html">&lt;div id="vp" style="position:fixed;bottom:0;right:0;z-index:9999;
+     padding:4px 8px;background:#111;color:#fff;font:12px monospace"&gt;&lt;/div&gt;
+&lt;script&gt;
+  const vp = document.getElementById('vp');
+  const show = () =&gt; vp.textContent =
+    `${window.innerWidth}×${window.innerHeight} @${window.devicePixelRatio}`;
+  show(); addEventListener('resize', show);
+&lt;/script&gt;</code></pre>
+        </div>
+      </li>
+      <li>Test at browser zoom levels other than 100%. Zooming changes the CSS viewport, so a user at 110% zoom on a
+        wide monitor hits the same breakpoints as someone on a narrower screen. Layouts built on <code
+          class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">rem</code> and relative units
+        survive this; ones pinned to pixel widths don't.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Check the panel before you trust it</h2>
+
+    <p>
+      The display itself is the other half of the problem. Before deciding anything about contrast, a gradient or how
+      your dark theme reads, find out whether the monitor you're looking at is accurate.
+    </p>
+
+    <p>
+      Two faults matter here, and a full-screen block of one colour reveals both.
+    </p>
+
+    <p>
+      <strong>Dead and stuck pixels.</strong> A dead pixel stays black on every colour; a stuck one shows the same
+      colour regardless of what's sent to it. Cycle through solid white, black, red, green and blue at full screen and
+      they become obvious. Against a busy UI you'll never spot them, and you can lose an afternoon debugging a
+      rendering artefact that turns out to be hardware.
+    </p>
+
+    <p>
+      <strong>Backlight bleed and uniformity.</strong> On a solid black screen in a dark room, most IPS panels glow at
+      the corners. That glow is why a dark theme can look fine to you and muddy to a colleague: you aren't seeing the
+      same black. Solid mid-grey shows the opposite problem: uneven brightness across the panel, which makes subtle
+      background steps in a design look intentional on one screen and broken on another.
+    </p>
+
+    <p>
+      Browser-based tools are the quickest route, since the test needs to fill the screen with nothing around it. The
+      <a href="https://blankscreen.io/" target="_blank" rel="noopener noreferrer"
+        class="text-primary text-underline">full-screen white and black screens</a> on BlankScreen run in a tab and go
+      fullscreen with one key, and the same site has the colour cycles and a dead pixel test. Nothing to install, and
+      it works on whatever machine you're at, including a colleague's when you're reproducing their report.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Dark mode depends on the panel more than the CSS</h2>
+
+    <p>
+      Pure black is not the same colour on OLED and IPS, and that affects what you should ship.
+    </p>
+
+    <p>
+      On OLED, a pixel set to <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">#000</code> is switched off.
+      Black is absolutely black, and pure-white text on it produces enough contrast to cause visible halation around
+      the glyphs; the text seems to bloom. Designers who work on OLED often pull white text back to something like
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">#e8e8e8</code> because of it.
+    </p>
+
+    <p>
+      On IPS, that same <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">#000</code>
+      is a backlight
+      shining through a closed shutter. It reads as dark grey, the corners glow, and a theme built around near-black
+      surfaces loses the separation between layers, so your elevated card and your background end up the same colour.
+    </p>
+
+    <p>
+      So a dark theme designed only on a MacBook looks flat on the office IPS monitor, and one designed only on IPS
+      blooms on a phone. Test on both, and prefer distinguishable surface steps (say <code
+        class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">#121212</code> for background and
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">#1e1e1e</code> for raised
+      surfaces) over pure black, which collapses on one technology and blooms on the other.
+    </p>
+
+    <p>
+      Also check that the theme follows the system preference instead of guessing:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-css">@media (prefers-color-scheme: dark) {
+  :root { --surface: #121212; --surface-raised: #1e1e1e; --text: #e8e8e8; }
+}</code></pre>
+    </div>
+
+    <p>
+      And confirm the switch happens when the OS setting changes while the page is open. A theme applied once at load
+      and never again is a common miss.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">A short pre-ship checklist</h2>
+
+    <ul class="lh-rem-4">
+      <li>Log <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">innerWidth</code> and
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">devicePixelRatio</code> on
+        every
+        machine you test on, and note where they fall relative to your breakpoints.
+      </li>
+      <li>Resize slowly through every breakpoint rather than jumping between preset sizes; the broken states hide in
+        between.</li>
+      <li>Test at 110% and 125% browser zoom, not only 100%.</li>
+      <li>Check the panel for dead pixels and bleed before judging any colour decision.</li>
+      <li>Look at the dark theme on at least one OLED and one IPS screen.</li>
+      <li>Verify the theme responds to a live change of the system colour scheme.</li>
+    </ul>
+
+    <p>
+      These checks take a few minutes and catch the bugs you can't debug from a screenshot, where the CSS is correct
+      and the screen is the variable. For how the browser arrives at those numbers, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio"
+        rel="nofollow noopener noreferrer" class="text-primary text-underline" target="_blank">MDN's reference on
+        devicePixelRatio</a> explains the maths.
+    </p>
+  </article>
+</div>
