@@ -1,0 +1,903 @@
+---
+title: 'TypeScript function type : guide complet avec exemples'
+description: "Tout sur le TypeScript function type avec des exemples clairs : declare function, method type, callbacks,
+génériques, surcharges et comment typer n'importe quelle fonction."
+date: 2026-10-09
+author: "Axentix Team"
+image: "/img/blog/javascript/typescript-function-type/typescript-function-type.webp"
+categories: ["JavaScript"]
+summary: "Tout sur le TypeScript function type : syntaxe, declare function, method type, call signatures, callbacks,
+génériques, surcharges, this et les règles d'assignabilité qui piègent tout le monde."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    TypeScript function type : guide complet avec exemples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-10-09" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      09/10/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Tout sur le TypeScript function type avec des exemples clairs : declare function, method type, callbacks,
+    génériques, surcharges et comment typer n'importe quelle fonction.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="TypeScript function type : guide complet avec exemples"
+      src='{{< link url="img/blog/javascript/typescript-function-type/typescript-function-type.webp" >}}'
+      alt="Syntaxe du TypeScript function type : paramètres, flèche et type de retour" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">TypeScript function type : guide complet avec exemples
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      Un <strong>TypeScript function type</strong> (type de fonction) décrit les paramètres qu'une fonction accepte et
+      la valeur qu'elle retourne. Il s'écrit avec une liste de paramètres, une flèche, puis le type de retour :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const sum: Sum = (a, b) => a + b</code></pre>
+    </div>
+
+    <p>
+      Cette ligne couvre la plupart des besoins du quotidien, mais c'est aussi sur les fonctions que TypeScript cache le
+      plus de surprises : les méthodes ne sont pas vérifiées comme les propriétés de type fonction, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> ne veut
+      pas dire ce que vous croyez, et le type natif <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> est un piège. Ce guide passe en revue toutes les
+      façons de typer une fonction en TypeScript, dans l'ordre où vous en aurez besoin. Chaque extrait et chaque
+      message d'erreur ci-dessous a été vérifié avec le compilateur TypeScript en mode <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Qu'est-ce qu'un function type en TypeScript ?</h2>
+
+    <p>
+      En JavaScript, les fonctions sont des valeurs. Vous pouvez les stocker dans des variables, les passer en argument
+      et les retourner depuis d'autres fonctions. Puisque ce sont des valeurs, il leur faut un type, et ce type est la
+      <strong>signature</strong> de la fonction : le type de chaque paramètre plus le type de retour.
+    </p>
+
+    <p>
+      Prenons cette fonction JavaScript :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function sum(a, b) {
+  return a + b
+}</code></pre>
+    </div>
+
+    <p>
+      Elle prend deux nombres et retourne un nombre. L'expression de type de fonction correspondante est :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">(a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      Cela ressemble à une fonction fléchée, mais c'est un type : la partie à droite de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">=></code> est le
+      <em>type</em> de retour, pas le corps de la fonction. Donnez-lui un nom avec un alias de type et vous pouvez le
+      réutiliser partout où un type est attendu :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+// Comme type de variable
+const add: Sum = (a, b) => a + b
+
+// Comme type de paramètre (un callback)
+function calculate(operation: Sum): number {
+  return operation(4, 3)
+}
+
+// Comme type de retour
+function createSum(): Sum {
+  return (a, b) => a + b
+}
+
+calculate(add) // 7
+createSum()(1, 2) // 3</code></pre>
+    </div>
+
+    <p>
+      Remarquez que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">a</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">b</code> n'ont aucune annotation dans les implémentations. Dès qu'une fonction est
+      assignée à quelque chose qui a un type de fonction, TypeScript déduit le type des paramètres à partir de ce type.
+      C'est le typage contextuel, et c'est ce qui rend les callbacks typés si agréables à écrire.
+    </p>
+
+    <h3 class="exo mt-4">Le nom des paramètres est obligatoire dans le type</h3>
+
+    <p>
+      L'erreur la plus fréquente quand on écrit un type de fonction pour la première fois est d'oublier le nom du
+      paramètre :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Log = (string) => void
+// error TS7051: Parameter has a name but no type. Did you mean 'arg0: string'?</code></pre>
+    </div>
+
+    <p>
+      TypeScript lit <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(string) => void</code> comme "un paramètre <em>nommé</em> <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">string</code> sans type". Sans le mode
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code>, cela compile sans rien dire et le paramètre devient <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, ce qui est pire. Écrivez toujours
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code>. Le nom lui-même ne sert que de documentation : l'implémentation est libre
+      d'appeler le paramètre autrement.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment déclarer une fonction en TypeScript</h2>
+
+    <p>
+      Il existe trois façons d'écrire une fonction, et toutes produisent le même type de fonction. Seul l'emplacement
+      des annotations change.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// 1. Déclaration de fonction : paramètres et type de retour annotés sur place
+function sum(a: number, b: number): number {
+  return a + b
+}
+
+// 2. Expression de fonction
+const sum2 = function (a: number, b: number): number {
+  return a + b
+}
+
+// 3. Fonction fléchée
+const sum3 = (a: number, b: number): number => a + b
+
+// Les trois ont le type (a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      L'annotation du type de retour est facultative, car TypeScript le déduit des instructions <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">return</code>. L'écrire
+      quand même est une bonne habitude pour les fonctions exportées : l'erreur apparaît dans la fonction qui retourne
+      la mauvaise valeur, et non dans chaque fichier qui l'appelle.
+    </p>
+
+    <p>
+      Une <em>déclaration</em> de fonction ne peut pas être annotée directement avec un alias de type, puisqu'il n'y a
+      pas de variable à laquelle rattacher le type. Pour vérifier une fonction par rapport à un type existant, utilisez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">satisfies</code> sur une expression ou assignez-la simplement :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const sum = ((a, b) => a + b) satisfies Sum
+
+function plainSum(a: number, b: number) {
+  return a + b
+}
+const checked: Sum = plainSum // OK, les signatures correspondent</code></pre>
+    </div>
+
+    <p>
+      Les déclarations de fonctions sont aussi hoistées, contrairement aux fonctions fléchées stockées dans un
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code>. Si cette différence est floue, notre <a href="/fr/blog/javascript/javascript-hoisting-complete-guide/"
+        class="text-primary text-underline">guide du hoisting JavaScript</a> l'explique en détail.
+    </p>
+
+    <h3 class="exo mt-4">Le mot-clé declare function</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> est autre chose. Il indique au compilateur qu'une fonction existe à l'exécution, sans en
+      fournir le corps. Rien n'est émis dans le JavaScript généré. On l'utilise pour les fonctions qui viennent d'un
+      endroit que TypeScript ne voit pas : une balise script, une globale injectée par votre bundler ou une librairie
+      non typée.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// globals.d.ts
+declare function gtag(command: 'config', id: string): void
+declare function gtag(
+  command: 'event',
+  name: string,
+  params?: Record&lt;string, unknown>
+): void
+
+// n'importe où dans votre application
+gtag('event', 'signup') // OK, entièrement typé</code></pre>
+    </div>
+
+    <p>
+      Deux règles à retenir : un <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> n'a jamais de corps, et plusieurs déclarations du même nom
+      forment des surcharges. Dans un fichier <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.d.ts</code>, les fonctions et variables de premier niveau doivent
+      commencer par <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare</code> ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">export</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typer les paramètres d'une fonction</h2>
+
+    <h3 class="exo mt-4">Paramètres optionnels et valeurs par défaut</h3>
+
+    <p>
+      Ajoutez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">?</code> après le nom pour rendre un paramètre optionnel. Son type devient <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">number | undefined</code> dans
+      la fonction, il faut donc gérer le cas où il est absent.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b?: number) => number
+
+const sum: Sum = (a, b = 0) => a + b
+
+sum(2) // 2
+sum(2, 3) // 5</code></pre>
+    </div>
+
+    <p>
+      Les valeurs par défaut appartiennent uniquement à l'implémentation. Un type de fonction ne peut pas contenir
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">b = 0</code> : marquez le paramètre comme optionnel dans le type et définissez la valeur par défaut dans la
+      fonction, comme ci-dessus. Les paramètres optionnels doivent venir après tous les paramètres obligatoires.
+    </p>
+
+    <h3 class="exo mt-4">Paramètres rest</h3>
+
+    <p>
+      Un paramètre rest se type avec un type tableau. Utilisez un tuple quand le nombre et la position des arguments
+      sont fixes.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type SumAll = (...numbers: number[]) => number
+
+const sumAll: SumAll = (...numbers) => numbers.reduce((total, n) => total + n, 0)
+sumAll(1, 2, 3) // 6
+
+// Mixte : un paramètre obligatoire, puis autant de chaînes que voulu
+type Log = (level: 'info' | 'error', ...messages: string[]) => void
+
+// Tuple : exactement 2 ou 3 arguments, avec des libellés
+type ToPoint = (...coords: [x: number, y: number, z?: number]) => string</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Paramètres déstructurés</h3>
+
+    <p>
+      L'annotation se place après le motif de déstructuration complet, jamais à l'intérieur. Écrire
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">{ url: string }</code> dans le motif renommerait <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">url</code> en une variable appelée <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">string</code>.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type RequestOptions = { url: string; retries?: number }
+
+function request({ url, retries = 3 }: RequestOptions): Promise&lt;Response> {
+  return fetch(url)
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typer la valeur de retour</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Type de retour</th>
+            <th>À utiliser quand</th>
+            <th>Exemple</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code></td>
+            <td>La fonction ne retourne rien d'utile</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Promise&lt;T></code></td>
+            <td>La fonction est <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">async</code> ou retourne une promesse</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(id: string) => Promise&lt;User></code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">never</code></td>
+            <td>La fonction lève toujours une erreur ou ne se termine jamais</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => never</code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">value is T</code></td>
+            <td>La fonction est un type guard</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(value: unknown) => value is string</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Les fonctions async retournent toujours une Promise
+type SumAsync = (a: number, b: number) => Promise&lt;number>
+
+const sumAsync: SumAsync = async (a, b) => a + b // OK
+const wrong: SumAsync = (a, b) => a + b
+// error TS2322: Type 'number' is not assignable to type 'Promise&lt;number>'.
+
+// never : le code après un appel à fail() est inatteignable
+function fail(message: string): never {
+  throw new Error(message)
+}
+
+// Type guard : affine le type de l'argument chez l'appelant
+const isString = (value: unknown): value is string => typeof value === 'string'</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">TypeScript method type : typer une méthode</h2>
+
+    <p>
+      Une méthode est une fonction qui vit sur un objet. Son type s'écrit dans un type objet ou une interface, et il
+      existe deux syntaxes :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Calculator {
+  // Syntaxe méthode : deux-points avant le type de retour
+  sum(a: number, b: number): number
+
+  // Syntaxe propriété : une propriété qui contient un type de fonction
+  product: (a: number, b: number) => number
+
+  // Méthode optionnelle
+  reset?(): void
+}
+
+const calculator: Calculator = {
+  sum(a, b) {
+    return a + b
+  },
+  product: (a, b) => a * b
+}</code></pre>
+    </div>
+
+    <p>
+      Les deux décrivent quelque chose que l'on appelle avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">calculator.sum(1, 2)</code>, et la même syntaxe fonctionne
+      dans un alias <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code>. Dans une classe, les méthodes s'annotent exactement comme des déclarations de
+      fonctions :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class Counter {
+  count = 0
+
+  increment(): void {
+    this.count++
+  }
+
+  // Propriété fonction fléchée : `this` est toujours l'instance
+  decrement = (): void => {
+    this.count--
+  }
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Syntaxe méthode ou syntaxe propriété : la vérification n'est pas la même</h3>
+
+    <p>
+      La plupart des tutoriels présentent les deux syntaxes comme interchangeables. Elles ne le sont pas. Avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictFunctionTypes</code> (inclus dans <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code>), les paramètres des <em>propriétés</em> de type fonction
+      sont vérifiés strictement, alors que ceux des <em>méthodes</em> sont vérifiés de façon permissive (bivariance)
+      pour des raisons de rétrocompatibilité. Cette vérification permissive laisse passer du code dangereux :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Animal { name: string }
+interface Dog extends Animal { bark(): void }
+
+interface WithMethod {
+  handle(animal: Animal): void
+}
+
+interface WithProperty {
+  handle: (animal: Animal) => void
+}
+
+const dogHandler = (dog: Dog) => dog.bark()
+
+const a: WithMethod = { handle: dogHandler } // OK ?! Plantera avec un chat
+const b: WithProperty = { handle: dogHandler }
+// error TS2322: Type '(dog: Dog) => void' is not assignable to type '(animal: Animal) => void'.
+//   Types of parameters 'dog' and 'animal' are incompatible.
+//     Property 'bark' is missing in type 'Animal' but required in type 'Dog'.</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">WithMethod</code> accepte un handler qui ne fonctionne que pour les chiens alors qu'il promet de gérer n'importe
+      quel animal. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">WithProperty</code> détecte le bug. Pour les callbacks et les gestionnaires d'événements stockés sur
+      des objets, préférez la syntaxe propriété. Gardez la syntaxe méthode pour les vraies méthodes qui s'appuient sur
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Call signatures : les interfaces de fonction</h2>
+
+    <p>
+      Une expression de type de fonction possède une forme longue appelée call signature. C'est un type objet avec une
+      liste de paramètres et pas de nom :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Sum {
+  (a: number, b: number): number
+}
+
+// Strictement équivalent à
+type Sum2 = (a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      Pour une fonction simple, la forme fléchée est plus courte et plus lisible. La call signature devient nécessaire
+      dans deux cas : quand la fonction porte aussi des propriétés, et quand elle a plusieurs surcharges (voir plus
+      bas).
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface SumWithDescription {
+  (a: number, b: number): number
+  description: string
+}
+
+// Les propriétés doivent exister au moment de l'assignation
+const sum: SumWithDescription = Object.assign(
+  (a: number, b: number) => a + b,
+  { description: 'Adds two numbers' }
+)
+
+sum(1, 2) // 3
+sum.description // 'Adds two numbers'</code></pre>
+    </div>
+
+    <p>
+      Une erreur fréquente consiste à assigner d'abord la fonction seule, puis à ajouter la propriété sur la ligne
+      suivante. Cela échoue avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Property 'description' is missing in type '(a: number, b: number) => number'</code>, car la valeur est incomplète
+      au moment où elle est assignée. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign</code> construit la valeur complète en une seule expression.
+    </p>
+
+    <h3 class="exo mt-4">Construct signatures</h3>
+
+    <p>
+      Placez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code> devant une signature pour décrire quelque chose qui doit être appelé avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code>, le plus
+      souvent une classe passée en argument :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Constructor&lt;T> = new (...args: any[]) => T
+
+function create&lt;T>(Ctor: Constructor&lt;T>): T {
+  return new Ctor()
+}
+
+class Logger {}
+const logger = create(Logger) // Logger</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment typer un callback qui accepte n'importe quelle fonction</h2>
+
+    <p>
+      Tôt ou tard, vous écrivez un utilitaire qui prend "une fonction quelconque" sans se soucier de sa signature
+      exacte : un debounce, un memoize, un bus d'événements. Le but est d'accepter n'importe quelle fonction mais de
+      refuser tout le reste, sans retomber sur <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>. Trois candidats s'offrent à vous.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Accepte</th>
+            <th>L'appeler retourne</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code></td>
+            <td>Toute fonction, et les classes</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, arguments non vérifiés</td>
+            <td>À éviter</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code></td>
+            <td>Toute fonction, classes refusées</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, arguments non vérifiés</td>
+            <td>Très bien comme contrainte générique</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: never[]) => unknown</code></td>
+            <td>Toute fonction, classes refusées</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">unknown</code>, et impossible de l'appeler à la légère</td>
+            <td>Le plus sûr si vous ne faites que la stocker ou la transmettre</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type AnyFunction = (...args: any[]) => any
+
+function runLoose(callback: Function) {
+  return callback(1, 2, 3) // aucune vérification, retourne any
+}
+
+function run(callback: AnyFunction) {
+  return callback()
+}
+
+class Logger {}
+
+runLoose(Logger) // Compile, puis lève : Class constructor Logger cannot be invoked without 'new'
+run(Logger)
+// error TS2345: Argument of type 'typeof Logger' is not assignable to parameter of type 'AnyFunction'.</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> est le type de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function.prototype</code> : il correspond à tout ce qui est appelable, y compris
+      les classes, qui lèvent une erreur quand on les appelle sans <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code>. La règle typescript-eslint
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">no-unsafe-function-type</code> le signale pour cette raison.
+    </p>
+
+    <p>
+      En pratique, on veut rarement "n'importe quelle fonction" comme type final. On veut <em>conserver</em> la
+      signature fournie par l'appelant. C'est le rôle d'un générique contraint par <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AnyFunction</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function debounce&lt;T extends (...args: any[]) => void>(
+  fn: T,
+  delay: number
+): (...args: Parameters&lt;T>) => void {
+  let timer: ReturnType&lt;typeof setTimeout>
+
+  return (...args) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn(...args), delay)
+  }
+}
+
+const log = debounce((message: string) => console.log(message), 200)
+
+log('saved') // OK
+log(42)
+// error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.</code></pre>
+    </div>
+
+    <p>
+      Le <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code> ne fuit jamais : il n'apparaît que dans la contrainte, et la fonction retournée a exactement les
+      paramètres de l'originale.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Types de fonction génériques</h2>
+
+    <p>
+      Les génériques relient les types des paramètres entre eux ou au type de retour. Avec les types de fonction, la
+      position du paramètre de type compte, et elle détermine <em>qui</em> choisit le type.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Fonction générique : l'appelant choisit T à chaque appel
+type Identity = &lt;T>(value: T) => T
+
+const identity: Identity = (value) => value
+identity('a') // string
+identity(1) // number
+
+// Alias de type générique : T et U sont fixés quand le type est utilisé
+type Mapper&lt;T, U> = (value: T) => U
+
+const toLength: Mapper&lt;string, number> = (value) => value.length
+toLength('hello') // 5</code></pre>
+    </div>
+
+    <p>
+      Utilisez la première forme pour les fonctions qui marchent avec n'importe quel type (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">identity</code>,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">map</code>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">first</code>). Utilisez la seconde pour décrire une famille de types de fonction apparentés, comme
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Mapper&lt;User, string></code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Mapper&lt;Order, number></code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Surcharges de fonction (overloads)</h2>
+
+    <p>
+      Quand une fonction peut être appelée de plusieurs façons distinctes, listez d'abord les signatures, puis écrivez
+      une seule implémentation qui les gère toutes. La signature d'implémentation n'est pas appelable de l'extérieur.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function makeDate(timestamp: number): Date
+function makeDate(month: number, day: number, year: number): Date
+function makeDate(monthOrTimestamp: number, day?: number, year?: number): Date {
+  return day !== undefined && year !== undefined
+    ? new Date(year, monthOrTimestamp, day)
+    : new Date(monthOrTimestamp)
+}
+
+makeDate(1700000000000) // OK
+makeDate(5, 12, 2026) // OK
+makeDate(5, 12)
+// error TS2575: No overload expects 2 arguments, but overloads do exist that expect either 1 or 3 arguments.</code></pre>
+    </div>
+
+    <p>
+      Pour exprimer des surcharges sous forme de <em>type</em> de fonction, écrivez plusieurs call signatures dans un
+      même type objet :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Convert = {
+  (input: string): number
+  (input: number): string
+}</code></pre>
+    </div>
+
+    <p>
+      Ne dégainez pas les surcharges trop vite. Si les signatures ne diffèrent que par le type d'un argument et
+      retournent la même chose, une union comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(input: string | number) => string</code> est plus simple et
+      fonctionne avec davantage d'appelants.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typer this dans une fonction</h2>
+
+    <p>
+      TypeScript permet de déclarer le type de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> sous la forme d'un faux premier paramètre. Il est effacé du
+      JavaScript généré et ne compte pas comme un argument.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface User {
+  name: string
+  admin: boolean
+}
+
+type UserFilter = (this: User) => boolean
+
+const isAdmin: UserFilter = function () {
+  return this.admin
+}
+
+isAdmin.call({ name: 'Ada', admin: true }) // OK
+isAdmin()
+// error TS2684: The 'this' context of type 'void' is not assignable to method's 'this' of type 'User'.</code></pre>
+    </div>
+
+    <p>
+      Cela ne fonctionne qu'avec les expressions <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">function</code>. Les fonctions fléchées prennent le <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> de la
+      portée englobante, elles ne peuvent donc pas avoir de paramètre <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code>. Pour le comportement à l'exécution,
+      consultez notre guide sur la <a href="/fr/blog/javascript/javascript-bind-method-complete-guide/"
+        class="text-primary text-underline">méthode bind et le binding de this en JavaScript</a>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Les règles d'assignabilité qui surprennent</h2>
+
+    <h3 class="exo mt-4">Moins de paramètres, c'est permis ; plus, non</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const first: Sum = (a) => a // OK
+const zero: Sum = () => 0 // OK
+const three: Sum = (a: number, b: number, c: number) => a + b + c
+// error TS2322: Type '(a: number, b: number, c: number) => number' is not assignable to type 'Sum'.
+//   Target signature provides too few arguments. Expected 3 or more, but got 2.</code></pre>
+    </div>
+
+    <p>
+      Ignorer un argument est toujours sans danger en JavaScript, et c'est ce que vous faites chaque fois que vous
+      écrivez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">items.map((item) => ...)</code> sans utiliser l'index. Exiger un argument que l'appelant ne passera
+      jamais n'est pas sûr, donc c'est refusé.
+    </p>
+
+    <h3 class="exo mt-4">Un callback void peut retourner une valeur</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Callback = () => void
+
+const callback: Callback = () => 42 // OK
+const result = callback() // result est void, pas number
+
+function strict(): void {
+  return 42
+}
+// error TS2322: Type 'number' is not assignable to type 'void'.</code></pre>
+    </div>
+
+    <p>
+      Dans un <em>type</em> de fonction, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> signifie "la valeur de retour sera ignorée", et non "ne doit rien
+      retourner". C'est ce qui rend <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">items.forEach((item) => list.push(item))</code> valide alors que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">push</code>
+      retourne un nombre. Sur une déclaration de fonction, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> est strict et retourner une valeur est une
+      erreur.
+    </p>
+
+    <h3 class="exo mt-4">Ne rendez pas optionnels les paramètres d'un callback</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function each(items: string[], callback: (item: string, index?: number) => void) {
+  items.forEach((item, index) => callback(item, index))
+}
+
+each(['a', 'b'], (item, index) => console.log(index.toFixed()))
+// error TS18048: 'index' is possibly 'undefined'.</code></pre>
+    </div>
+
+    <p>
+      Marquer <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">index</code> comme optionnel revient à dire "je vous appellerai peut-être sans lui", ce qui oblige chaque
+      appelant à gérer <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>. Comme les callbacks peuvent déjà ignorer les arguments en trop, déclarez le
+      paramètre comme obligatoire : <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(item: string, index: number) => void</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Extraire les types d'une fonction existante</h2>
+
+    <p>
+      Vous n'avez pas toujours besoin d'écrire un type de fonction à la main. TypeScript fournit des types utilitaires
+      qui le lisent depuis une fonction existante, ce qui garde les deux synchronisés.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function createUser(name: string, age: number) {
+  return { id: crypto.randomUUID(), name, age }
+}
+
+type CreateUser = typeof createUser
+// (name: string, age: number) => { id: string; name: string; age: number }
+
+type CreateUserParams = Parameters&lt;typeof createUser>
+// [name: string, age: number]
+
+type User = ReturnType&lt;typeof createUser>
+// { id: string; name: string; age: number }
+
+async function fetchUser(id: string) {
+  return { id, name: 'Ada' }
+}
+
+type FetchedUser = Awaited&lt;ReturnType&lt;typeof fetchUser>>
+// { id: string; name: string }</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Aide-mémoire du TypeScript function type</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Besoin</th>
+            <th>Syntaxe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Type de fonction</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b: number) => number</code></td>
+          </tr>
+          <tr>
+            <td>Paramètre optionnel</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b?: number) => number</code></td>
+          </tr>
+          <tr>
+            <td>Paramètres rest</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...values: number[]) => number</code></td>
+          </tr>
+          <tr>
+            <td>Pas de valeur de retour</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code></td>
+          </tr>
+          <tr>
+            <td>Fonction async</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(id: string) => Promise&lt;User></code></td>
+          </tr>
+          <tr>
+            <td>Méthode dans une interface</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sum(a: number, b: number): number</code></td>
+          </tr>
+          <tr>
+            <td>Fonction avec propriétés</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">{ (a: number): number; description: string }</code></td>
+          </tr>
+          <tr>
+            <td>Constructeur</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new (...args: any[]) => T</code></td>
+          </tr>
+          <tr>
+            <td>N'importe quelle fonction</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code></td>
+          </tr>
+          <tr>
+            <td>Fonction générique</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">&lt;T>(value: T) => T</code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> typé</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(this: User) => boolean</code></td>
+          </tr>
+          <tr>
+            <td>Type guard</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(value: unknown) => value is string</code></td>
+          </tr>
+          <tr>
+            <td>Déclaration ambiante</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function name(arg: string): void</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Foire aux questions</h2>
+
+    <h3 class="exo mt-4">Faut-il utiliser type ou interface pour un type de fonction ?</h3>
+
+    <p>
+      Utilisez un alias <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code> avec la syntaxe fléchée. C'est plus court et c'est ce qu'utilisent la plupart des
+      projets ainsi que le handbook TypeScript. Une <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">interface</code> avec une call signature produit le même type et ne
+      vaut le coup que si la fonction a aussi des propriétés ou si vous avez besoin de la fusion de déclarations.
+    </p>
+
+    <h3 class="exo mt-4">Quelle est la différence entre un function type et un method type ?</h3>
+
+    <p>
+      Un function type existe seul et utilise <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">=></code> avant le type de retour. Un method type se déclare dans un type
+      objet et utilise <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">:</code> avant le type de retour. Au-delà de la syntaxe, les paramètres des méthodes sont
+      vérifiés moins strictement que ceux des propriétés de type fonction avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictFunctionTypes</code>.
+    </p>
+
+    <h3 class="exo mt-4">Peut-on utiliser le type Function en TypeScript ?</h3>
+
+    <p>
+      Vous pouvez, mais vous ne devriez pas. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> accepte les classes, ne vérifie pas les arguments et
+      retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>. Écrivez la vraie signature, ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code> quand la fonction peut
+      réellement être n'importe quoi.
+    </p>
+
+    <h3 class="exo mt-4">Quelle est la différence entre void et undefined comme type de retour ?</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">() => undefined</code> oblige la fonction à retourner <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> et laisse l'appelant utiliser cette
+      valeur. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">() => void</code> accepte une fonction qui retourne n'importe quoi et indique à l'appelant de ne pas
+      utiliser le résultat. Pour les callbacks, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> est presque toujours le bon choix.
+    </p>
+
+    <h3 class="exo mt-4">Est-ce que declare function génère du JavaScript ?</h3>
+
+    <p>
+      Non. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> est effacé à la compilation. Il décrit seulement une fonction qui existe déjà à
+      l'exécution. Si rien ne fournit cette fonction, le code compile puis échoue avec une <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ReferenceError</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Le TypeScript function type, c'est une liste de paramètres, une flèche et un type de retour :
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b: number) => number</code>. Nommez-le avec un alias <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code> et laissez le typage contextuel
+      remplir les paramètres de vos implémentations.
+    </p>
+
+    <p>
+      À partir de là, chaque variante répond à un besoin précis : un method type dans un objet, une call signature
+      quand la fonction a des propriétés ou des surcharges, un générique quand les types de l'appelant doivent être
+      conservés, et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> quand l'implémentation vit en dehors de TypeScript. Gardez trois règles en
+      tête et la plupart des erreurs de type de fonction s'expliquent d'elles-mêmes : une implémentation peut prendre
+      moins de paramètres mais jamais plus, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> dans un type de fonction signifie "ignoré", et les propriétés
+      de type fonction sont vérifiées plus strictement que les méthodes.
+    </p>
+
+    <p>
+      Pour la référence complète, le <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html"
+        target="_blank" rel="noopener noreferrer" class="text-primary text-underline">chapitre sur les fonctions du
+        handbook TypeScript</a> est l'étape suivante. Et si vous modélisez des ensembles de valeurs fixes à côté de vos
+      fonctions, jetez un oeil à notre <a href="/fr/blog/javascript/javascript-enums-complete-guide/"
+        class="text-primary text-underline">guide des enums en JavaScript</a>.
+    </p>
+  </article>
+</div>
