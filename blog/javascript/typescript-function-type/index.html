@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <title>TypeScript Function Type: Complete Guide with Examples</title>
+    <meta name="description" content="Learn the TypeScript function type syntax with clear examples: declare function, method types, callbacks, generics, overloads and how to type any function safely." />
+    <meta property="og:description" content="Learn the TypeScript function type syntax with clear examples: declare function, method types, callbacks, generics, overloads and how to type any function safely." />
+    <meta property="og:title" content="TypeScript Function Type: Complete Guide with Examples" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/blog/javascript/typescript-function-type/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/blog/javascript/typescript-function-type/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/javascript/typescript-function-type/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/blog/javascript/typescript-function-type/" />
+<link rel="canonical" href="https://useaxentix.com/blog/javascript/typescript-function-type/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/javascript/typescript-function-type/typescript-function-type-banner.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Language"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;EN
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/fr/blog/javascript/typescript-function-type/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" />
+        <path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" />
+        <path fill="#eee" d="M12 5h12v26H12z" />
+      </svg>
+      Français
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/blog/javascript/typescript-function-type/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xblog/javascript/typescript-function-type/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xblog/javascript/typescript-function-type/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xblog/javascript/typescript-function-type/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tag/">Tag</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/close/">Close</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    TypeScript Function Type: Complete Guide with Examples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-10-09" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      09/10/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Learn the TypeScript function type syntax with clear examples: declare function, method types, callbacks, generics,
+    overloads and how to type any function safely.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="TypeScript Function Type: Complete Guide with Examples"
+      src='https://useaxentix.com//img/blog/javascript/typescript-function-type/typescript-function-type-banner.webp'
+      alt="TypeScript function type syntax: parameters, arrow and return type" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">TypeScript Function Type: Complete Guide with Examples
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      A <strong>TypeScript function type</strong> describes the parameters a function accepts and the value it returns.
+      You write it as a parameter list, a fat arrow, then the return type:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const sum: Sum = (a, b) => a + b</code></pre>
+    </div>
+
+    <p>
+      That one line covers most day-to-day needs, but functions are also where TypeScript hides most of its surprises:
+      methods are checked differently from function properties, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> does not mean what you think, and the
+      built-in <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> type is a trap. This guide goes through every way to type a function in TypeScript, in
+      the order you will need them. Every snippet and every error message below was checked against the TypeScript
+      compiler in <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code> mode.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">What Is a Function Type in TypeScript?</h2>
+
+    <p>
+      In JavaScript, functions are values. You can store them in variables, pass them as arguments and return them from
+      other functions. Because they are values, they need a type, and that type is the function's
+      <strong>signature</strong>: the type of each parameter plus the return type.
+    </p>
+
+    <p>
+      Take this plain JavaScript function:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function sum(a, b) {
+  return a + b
+}</code></pre>
+    </div>
+
+    <p>
+      It takes two numbers and returns a number. The matching function type expression is:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">(a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      It looks like an arrow function, but it is a type: the right side of <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">=></code> is the return <em>type</em>, not a
+      function body. Give it a name with a type alias and you can reuse it anywhere a type is expected:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+// As a variable type
+const add: Sum = (a, b) => a + b
+
+// As a parameter type (a callback)
+function calculate(operation: Sum): number {
+  return operation(4, 3)
+}
+
+// As a return type
+function createSum(): Sum {
+  return (a, b) => a + b
+}
+
+calculate(add) // 7
+createSum()(1, 2) // 3</code></pre>
+    </div>
+
+    <p>
+      Notice that <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">a</code> and <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">b</code> have no annotations in the implementations. Once a function is assigned to
+      something with a function type, TypeScript infers the parameter types from that type. This is called contextual
+      typing, and it is the reason typed callbacks are so pleasant to write.
+    </p>
+
+    <h3 class="exo mt-4">Parameter Names Are Required in the Type</h3>
+
+    <p>
+      The most common mistake when writing a function type for the first time is leaving out the parameter name:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Log = (string) => void
+// error TS7051: Parameter has a name but no type. Did you mean 'arg0: string'?</code></pre>
+    </div>
+
+    <p>
+      TypeScript reads <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(string) => void</code> as "a parameter <em>named</em> <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">string</code> with no type". Without
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code> mode this compiles silently and the parameter becomes <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, which is worse. Always write
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code>. The name itself is documentation only: the implementation is free to call the
+      parameter something else.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">How to Declare a Function in TypeScript</h2>
+
+    <p>
+      There are three ways to write a function, and they all produce the same function type. What changes is where the
+      annotations go.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// 1. Function declaration: annotate parameters and return type inline
+function sum(a: number, b: number): number {
+  return a + b
+}
+
+// 2. Function expression
+const sum2 = function (a: number, b: number): number {
+  return a + b
+}
+
+// 3. Arrow function
+const sum3 = (a: number, b: number): number => a + b
+
+// All three have the type (a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      The return type annotation is optional because TypeScript infers it from the <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">return</code> statements. Writing it
+      anyway is a good habit for exported functions: the error shows up inside the function that returns the wrong
+      thing instead of in every file that calls it.
+    </p>
+
+    <p>
+      A function <em>declaration</em> cannot be annotated with a type alias directly, since there is no variable to
+      attach the type to. If you want a declaration checked against an existing function type, use
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">satisfies</code> on an expression or simply assign it:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const sum = ((a, b) => a + b) satisfies Sum
+
+function plainSum(a: number, b: number) {
+  return a + b
+}
+const checked: Sum = plainSum // OK, the signatures match</code></pre>
+    </div>
+
+    <p>
+      Function declarations are also hoisted, which arrow functions stored in <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">const</code> are not. If that distinction
+      is fuzzy, our <a href="/blog/javascript/javascript-hoisting-complete-guide/"
+        class="text-primary text-underline">JavaScript hoisting guide</a> covers it in detail.
+    </p>
+
+    <h3 class="exo mt-4">The declare function Keyword</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> is a different thing. It tells the compiler that a function exists at runtime without
+      providing a body. Nothing is emitted in the JavaScript output. You use it for functions that come from somewhere
+      TypeScript cannot see: a script tag, a global injected by your bundler, or an untyped library.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// globals.d.ts
+declare function gtag(command: 'config', id: string): void
+declare function gtag(
+  command: 'event',
+  name: string,
+  params?: Record&lt;string, unknown>
+): void
+
+// anywhere in your app
+gtag('event', 'signup') // OK, fully typed</code></pre>
+    </div>
+
+    <p>
+      Two rules to remember: a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> never has a body, and several declarations with the same name
+      form overloads. Inside a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">.d.ts</code> file, top-level functions and variables must start with <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare</code> or
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">export</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typing Function Parameters</h2>
+
+    <h3 class="exo mt-4">Optional and Default Parameters</h3>
+
+    <p>
+      Add <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">?</code> after the name to make a parameter optional. Its type becomes <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">number | undefined</code> inside the
+      function, so you have to handle the missing case.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b?: number) => number
+
+const sum: Sum = (a, b = 0) => a + b
+
+sum(2) // 2
+sum(2, 3) // 5</code></pre>
+    </div>
+
+    <p>
+      Default values belong to the implementation only. A function type cannot contain <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">b = 0</code>, so mark the
+      parameter optional in the type and set the default in the function, as above. Optional parameters must come after
+      all required ones.
+    </p>
+
+    <h3 class="exo mt-4">Rest Parameters</h3>
+
+    <p>
+      A rest parameter is typed with an array type. Use a tuple type when the number and position of the arguments are
+      fixed.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type SumAll = (...numbers: number[]) => number
+
+const sumAll: SumAll = (...numbers) => numbers.reduce((total, n) => total + n, 0)
+sumAll(1, 2, 3) // 6
+
+// Mixed: one required parameter, then any number of strings
+type Log = (level: 'info' | 'error', ...messages: string[]) => void
+
+// Tuple: exactly 2 or 3 arguments, with labels
+type ToPoint = (...coords: [x: number, y: number, z?: number]) => string</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Destructured Parameters</h3>
+
+    <p>
+      The annotation goes after the whole destructuring pattern, never inside it. Writing
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">{ url: string }</code> inside the pattern would rename <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">url</code> to a variable called <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">string</code>.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type RequestOptions = { url: string; retries?: number }
+
+function request({ url, retries = 3 }: RequestOptions): Promise&lt;Response> {
+  return fetch(url)
+}</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typing the Return Value</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Return type</th>
+            <th>Use it when</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code></td>
+            <td>The function returns nothing useful</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Promise&lt;T></code></td>
+            <td>The function is <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">async</code> or returns a promise</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(id: string) => Promise&lt;User></code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">never</code></td>
+            <td>The function always throws or never finishes</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => never</code></td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">value is T</code></td>
+            <td>The function is a type guard</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(value: unknown) => value is string</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Async functions always return a Promise
+type SumAsync = (a: number, b: number) => Promise&lt;number>
+
+const sumAsync: SumAsync = async (a, b) => a + b // OK
+const wrong: SumAsync = (a, b) => a + b
+// error TS2322: Type 'number' is not assignable to type 'Promise&lt;number>'.
+
+// never: the code after a call to fail() is unreachable
+function fail(message: string): never {
+  throw new Error(message)
+}
+
+// Type guard: narrows the argument in the caller
+const isString = (value: unknown): value is string => typeof value === 'string'</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">TypeScript Method Type</h2>
+
+    <p>
+      A method is a function that lives on an object. Its type is written inside an object type or an interface, and
+      there are two syntaxes for it:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Calculator {
+  // Method syntax: colon before the return type
+  sum(a: number, b: number): number
+
+  // Property syntax: a property holding a function type
+  product: (a: number, b: number) => number
+
+  // Optional method
+  reset?(): void
+}
+
+const calculator: Calculator = {
+  sum(a, b) {
+    return a + b
+  },
+  product: (a, b) => a * b
+}</code></pre>
+    </div>
+
+    <p>
+      Both describe something you can call as <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">calculator.sum(1, 2)</code>, and the same syntax works in a
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code> alias. In a class, you annotate methods exactly like function declarations:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">class Counter {
+  count = 0
+
+  increment(): void {
+    this.count++
+  }
+
+  // Arrow function property: `this` is always the instance
+  decrement = (): void => {
+    this.count--
+  }
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Method Syntax vs Property Syntax: Not the Same Check</h3>
+
+    <p>
+      Most tutorials present the two syntaxes as interchangeable. They are not. With <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictFunctionTypes</code>
+      (included in <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strict</code>), parameters of function type <em>properties</em> are checked strictly, while
+      parameters of <em>methods</em> are checked loosely (bivariantly) for backward compatibility. The loose check lets
+      unsafe code through:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Animal { name: string }
+interface Dog extends Animal { bark(): void }
+
+interface WithMethod {
+  handle(animal: Animal): void
+}
+
+interface WithProperty {
+  handle: (animal: Animal) => void
+}
+
+const dogHandler = (dog: Dog) => dog.bark()
+
+const a: WithMethod = { handle: dogHandler } // OK?! Will crash on a cat
+const b: WithProperty = { handle: dogHandler }
+// error TS2322: Type '(dog: Dog) => void' is not assignable to type '(animal: Animal) => void'.
+//   Types of parameters 'dog' and 'animal' are incompatible.
+//     Property 'bark' is missing in type 'Animal' but required in type 'Dog'.</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">WithMethod</code> accepts a handler that only works for dogs even though it promises to handle any animal.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">WithProperty</code> catches the bug. For callbacks and event handlers stored on objects, prefer the property
+      syntax. Keep the method syntax for real methods that rely on <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Call Signatures: Function Interfaces</h2>
+
+    <p>
+      A function type expression has a longer form called a call signature. It is an object type with a parameter list
+      and no name:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface Sum {
+  (a: number, b: number): number
+}
+
+// Strictly equivalent to
+type Sum2 = (a: number, b: number) => number</code></pre>
+    </div>
+
+    <p>
+      For a plain function, the arrow form is shorter and reads better. The call signature becomes necessary in two
+      cases: when the function also carries properties, and when it has several overloads (covered below).
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface SumWithDescription {
+  (a: number, b: number): number
+  description: string
+}
+
+// The properties must exist at assignment time
+const sum: SumWithDescription = Object.assign(
+  (a: number, b: number) => a + b,
+  { description: 'Adds two numbers' }
+)
+
+sum(1, 2) // 3
+sum.description // 'Adds two numbers'</code></pre>
+    </div>
+
+    <p>
+      A frequent error here is to assign the bare function first and add the property on the next line. That fails with
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Property 'description' is missing in type '(a: number, b: number) => number'</code>, because the value is
+      incomplete at the moment it is assigned. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Object.assign</code> builds the complete value in one expression.
+    </p>
+
+    <h3 class="exo mt-4">Construct Signatures</h3>
+
+    <p>
+      Put <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code> in front of a signature to describe something that must be called with <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code>, typically a
+      class passed as an argument:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Constructor&lt;T> = new (...args: any[]) => T
+
+function create&lt;T>(Ctor: Constructor&lt;T>): T {
+  return new Ctor()
+}
+
+class Logger {}
+const logger = create(Logger) // Logger</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">How to Type a Callback That Accepts Any Function</h2>
+
+    <p>
+      Sooner or later you write a helper that takes "some function" without caring about its exact signature: a
+      debounce, a memoizer, an event bus. The goal is to accept any function but reject everything else, without
+      falling back to <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>. You have three candidates.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Accepts</th>
+            <th>Calling it returns</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code></td>
+            <td>Any function, and classes</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, with unchecked arguments</td>
+            <td>Avoid</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code></td>
+            <td>Any function, classes rejected</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>, with unchecked arguments</td>
+            <td>Fine as a generic constraint</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: never[]) => unknown</code></td>
+            <td>Any function, classes rejected</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">unknown</code>, and you cannot call it carelessly</td>
+            <td>Safest when you only store or forward it</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type AnyFunction = (...args: any[]) => any
+
+function runLoose(callback: Function) {
+  return callback(1, 2, 3) // no checks at all, returns any
+}
+
+function run(callback: AnyFunction) {
+  return callback()
+}
+
+class Logger {}
+
+runLoose(Logger) // Compiles, then throws: Class constructor Logger cannot be invoked without 'new'
+run(Logger)
+// error TS2345: Argument of type 'typeof Logger' is not assignable to parameter of type 'AnyFunction'.</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> is the type of <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function.prototype</code>: it matches anything callable, including classes that
+      throw when called without <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new</code>. The typescript-eslint rule <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">no-unsafe-function-type</code> flags it for that
+      reason.
+    </p>
+
+    <p>
+      In practice you rarely want "any function" as a final type. You want to <em>keep</em> the signature the caller
+      gave you. That is a job for a generic constrained to <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">AnyFunction</code>:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function debounce&lt;T extends (...args: any[]) => void>(
+  fn: T,
+  delay: number
+): (...args: Parameters&lt;T>) => void {
+  let timer: ReturnType&lt;typeof setTimeout>
+
+  return (...args) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn(...args), delay)
+  }
+}
+
+const log = debounce((message: string) => console.log(message), 200)
+
+log('saved') // OK
+log(42)
+// error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'.</code></pre>
+    </div>
+
+    <p>
+      The <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code> never leaks: it only appears in the constraint, and the returned function has the exact parameters
+      of the original.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Generic Function Types</h2>
+
+    <p>
+      Generics link the types of parameters to each other or to the return type. With function types, the position of
+      the type parameter matters, and it decides <em>who</em> picks the type.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Generic function: the caller picks T on every call
+type Identity = &lt;T>(value: T) => T
+
+const identity: Identity = (value) => value
+identity('a') // string
+identity(1) // number
+
+// Generic type alias: T and U are fixed when the type is used
+type Mapper&lt;T, U> = (value: T) => U
+
+const toLength: Mapper&lt;string, number> = (value) => value.length
+toLength('hello') // 5</code></pre>
+    </div>
+
+    <p>
+      Use the first form for functions that work with any type (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">identity</code>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">map</code>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">first</code>). Use the
+      second to describe a family of related function types, like <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Mapper&lt;User, string></code> and
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Mapper&lt;Order, number></code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Function Overloads</h2>
+
+    <p>
+      When a function can be called in several distinct ways, list the signatures first and then write one
+      implementation that handles all of them. The implementation signature is not callable from outside.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function makeDate(timestamp: number): Date
+function makeDate(month: number, day: number, year: number): Date
+function makeDate(monthOrTimestamp: number, day?: number, year?: number): Date {
+  return day !== undefined && year !== undefined
+    ? new Date(year, monthOrTimestamp, day)
+    : new Date(monthOrTimestamp)
+}
+
+makeDate(1700000000000) // OK
+makeDate(5, 12, 2026) // OK
+makeDate(5, 12)
+// error TS2575: No overload expects 2 arguments, but overloads do exist that expect either 1 or 3 arguments.</code></pre>
+    </div>
+
+    <p>
+      To express overloads as a function <em>type</em>, write several call signatures in one object type:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Convert = {
+  (input: string): number
+  (input: number): string
+}</code></pre>
+    </div>
+
+    <p>
+      Do not reach for overloads too early. If the signatures only differ by the type of one argument and return the
+      same thing, a union such as <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(input: string | number) => string</code> is simpler and works with more callers.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Typing this in a Function</h2>
+
+    <p>
+      TypeScript lets you declare the type of <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> as a fake first parameter. It is erased from the JavaScript
+      output and does not count as an argument.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">interface User {
+  name: string
+  admin: boolean
+}
+
+type UserFilter = (this: User) => boolean
+
+const isAdmin: UserFilter = function () {
+  return this.admin
+}
+
+isAdmin.call({ name: 'Ada', admin: true }) // OK
+isAdmin()
+// error TS2684: The 'this' context of type 'void' is not assignable to method's 'this' of type 'User'.</code></pre>
+    </div>
+
+    <p>
+      This only works with <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">function</code> expressions. Arrow functions take <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> from the enclosing scope, so
+      they cannot have a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> parameter. For the runtime side of the story, see our guide on the <a
+        href="/blog/javascript/javascript-bind-method-complete-guide/" class="text-primary text-underline">JavaScript
+        bind method and this binding</a>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Assignability Rules That Surprise People</h2>
+
+    <h3 class="exo mt-4">Fewer Parameters Are Allowed, More Are Not</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Sum = (a: number, b: number) => number
+
+const first: Sum = (a) => a // OK
+const zero: Sum = () => 0 // OK
+const three: Sum = (a: number, b: number, c: number) => a + b + c
+// error TS2322: Type '(a: number, b: number, c: number) => number' is not assignable to type 'Sum'.
+//   Target signature provides too few arguments. Expected 3 or more, but got 2.</code></pre>
+    </div>
+
+    <p>
+      Ignoring an argument is always safe in JavaScript, and it is what you do every time you write
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">items.map((item) => ...)</code> without using the index. Requiring an argument that the caller will never pass is
+      not safe, so it is rejected.
+    </p>
+
+    <h3 class="exo mt-4">A void Callback Can Return a Value</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">type Callback = () => void
+
+const callback: Callback = () => 42 // OK
+const result = callback() // result is void, not number
+
+function strict(): void {
+  return 42
+}
+// error TS2322: Type 'number' is not assignable to type 'void'.</code></pre>
+    </div>
+
+    <p>
+      In a function <em>type</em>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> means "the return value will be ignored", not "must return nothing".
+      That is what makes <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">items.forEach((item) => list.push(item))</code> legal even though <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">push</code> returns a number.
+      On a function declaration, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> is strict and returning a value is an error.
+    </p>
+
+    <h3 class="exo mt-4">Do Not Make Callback Parameters Optional</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function each(items: string[], callback: (item: string, index?: number) => void) {
+  items.forEach((item, index) => callback(item, index))
+}
+
+each(['a', 'b'], (item, index) => console.log(index.toFixed()))
+// error TS18048: 'index' is possibly 'undefined'.</code></pre>
+    </div>
+
+    <p>
+      Marking <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">index</code> optional says "I might call you without it", which forces every caller to handle
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>. Since callbacks can already ignore extra arguments, declare the parameter as required:
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(item: string, index: number) => void</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Extracting Types from an Existing Function</h2>
+
+    <p>
+      You do not always need to write a function type by hand. TypeScript ships utility types that read it from a
+      function you already have, which keeps the two in sync.
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function createUser(name: string, age: number) {
+  return { id: crypto.randomUUID(), name, age }
+}
+
+type CreateUser = typeof createUser
+// (name: string, age: number) => { id: string; name: string; age: number }
+
+type CreateUserParams = Parameters&lt;typeof createUser>
+// [name: string, age: number]
+
+type User = ReturnType&lt;typeof createUser>
+// { id: string; name: string; age: number }
+
+async function fetchUser(id: string) {
+  return { id, name: 'Ada' }
+}
+
+type FetchedUser = Awaited&lt;ReturnType&lt;typeof fetchUser>>
+// { id: string; name: string }</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">TypeScript Function Type Cheat Sheet</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Need</th>
+            <th>Syntax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Function type</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b: number) => number</code></td>
+          </tr>
+          <tr>
+            <td>Optional parameter</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b?: number) => number</code></td>
+          </tr>
+          <tr>
+            <td>Rest parameters</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...values: number[]) => number</code></td>
+          </tr>
+          <tr>
+            <td>No return value</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(message: string) => void</code></td>
+          </tr>
+          <tr>
+            <td>Async function</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(id: string) => Promise&lt;User></code></td>
+          </tr>
+          <tr>
+            <td>Method in an interface</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">sum(a: number, b: number): number</code></td>
+          </tr>
+          <tr>
+            <td>Function with properties</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">{ (a: number): number; description: string }</code></td>
+          </tr>
+          <tr>
+            <td>Constructor</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">new (...args: any[]) => T</code></td>
+          </tr>
+          <tr>
+            <td>Any function</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code></td>
+          </tr>
+          <tr>
+            <td>Generic function</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">&lt;T>(value: T) => T</code></td>
+          </tr>
+          <tr>
+            <td>Typed <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code></td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(this: User) => boolean</code></td>
+          </tr>
+          <tr>
+            <td>Type guard</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(value: unknown) => value is string</code></td>
+          </tr>
+          <tr>
+            <td>Ambient declaration</td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function name(arg: string): void</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Frequently Asked Questions</h2>
+
+    <h3 class="exo mt-4">Should I use type or interface for a function type?</h3>
+
+    <p>
+      Use a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code> alias with the arrow syntax. It is shorter and it is what most codebases and the TypeScript
+      handbook use. An <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">interface</code> with a call signature produces the same type and is only worth it when the
+      function also has properties or when you need declaration merging.
+    </p>
+
+    <h3 class="exo mt-4">What is the difference between a function type and a method type?</h3>
+
+    <p>
+      A function type stands alone and uses <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">=></code> before the return type. A method type is declared inside an
+      object type and uses <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">:</code> before the return type. Beyond the syntax, method parameters are checked less
+      strictly than function type properties under <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">strictFunctionTypes</code>.
+    </p>
+
+    <h3 class="exo mt-4">Can I use the Function type in TypeScript?</h3>
+
+    <p>
+      You can, but you should not. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Function</code> accepts classes, does not check arguments and returns <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code>.
+      Write the real signature, or <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(...args: any[]) => any</code> when the function can truly be anything.
+    </p>
+
+    <h3 class="exo mt-4">What is the difference between void and undefined as a return type?</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">() => undefined</code> requires the function to return <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> and lets the caller use that value.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">() => void</code> accepts a function returning anything and tells the caller not to use the result. For
+      callbacks, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> is almost always the right choice.
+    </p>
+
+    <h3 class="exo mt-4">Does declare function generate any JavaScript?</h3>
+
+    <p>
+      No. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> is erased at compile time. It only describes a function that already exists at
+      runtime. If nothing provides that function, the code compiles and then fails with a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">ReferenceError</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      The TypeScript function type is a parameter list, a fat arrow and a return type:
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">(a: number, b: number) => number</code>. Name it with a <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">type</code> alias and let contextual typing fill in the
+      parameters of your implementations.
+    </p>
+
+    <p>
+      From there, each variation answers one specific need: a method type inside an object, a call signature when the
+      function has properties or overloads, a generic when the caller's types must be preserved, and
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">declare function</code> when the implementation lives outside TypeScript. Keep three rules in mind and most
+      function type errors explain themselves: implementations may take fewer parameters but never more,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">void</code> in a function type means "ignored", and function type properties are checked more strictly than
+      methods.
+    </p>
+
+    <p>
+      For the complete reference, the <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html"
+        target="_blank" rel="noopener noreferrer" class="text-primary text-underline">functions chapter of the
+        TypeScript handbook</a> is the next stop. And if you model fixed sets of values next to your functions, have a
+      look at our <a href="/blog/javascript/javascript-enums-complete-guide/"
+        class="text-primary text-underline">guide to enums in JavaScript</a>.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/javascript/">
+          JavaScript (15)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/llm/">
+          LLM (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/miscellaneous/">
+          Miscellaneous (5)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/responsive/">
+          Responsive (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/tamagui/">
+          Tamagui (4)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Start Building with Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Ready to create amazing websites? Get started with Axentix framework today.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Get Started
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Related Posts</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/javascript/javascript-for-of-loop-tutorial/" aria-label="JavaScript for...of Loop: The One Loop to Rule Them All article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-for-of-loop-tutorial/for-of.webp" loading="lazy"
+      alt="JavaScript for...of Loop: The One Loop to Rule Them All recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/javascript/javascript-for-of-loop-tutorial/">
+        JavaScript for...of Loop: The One Loop to Rule Them All
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        17 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn everything about JavaScript&rsquo;s for&hellip;of loop. Understand iterables, destructuring, complementary iterators, lazy evaluation with generators, and why for&hellip;of replaces most traditional loops.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/javascript-for-of-loop-tutorial/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/javascript/javascript-hoisting-complete-guide/" aria-label="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-hoisting-complete-guide/javascript-hoisting.webp" loading="lazy"
+      alt="JavaScript Hoisting: Complete Guide to Variable and Function Hoisting recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/javascript/javascript-hoisting-complete-guide/">
+        JavaScript Hoisting: Complete Guide to Variable and Function Hoisting
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        05 Nov 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn everything about JavaScript hoisting. Understand how var, let, const, and function declarations behave, explore the Temporal Dead Zone, and discover best practices to write better JavaScript code.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/javascript-hoisting-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/miscellaneous/why-successful-software-projects-start-with-product-discovery/" aria-label="Why Successful Software Projects Start With Product Discovery article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/miscellaneous/why-successful-software-projects-start-with-product-discovery/banner.jpg" loading="lazy"
+      alt="Why Successful Software Projects Start With Product Discovery recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/miscellaneous/why-successful-software-projects-start-with-product-discovery/">
+        Why Successful Software Projects Start With Product Discovery
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        21 Aug 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/miscellaneous/">Miscellaneous
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Product discovery reduces risk before coding starts: clearer requirements, a tighter MVP, better estimates, and cheaper course-corrections.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/miscellaneous/why-successful-software-projects-start-with-product-discovery/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/tools/speedtest-internet-health-test/" class="text-underline text-grey">Internet Health Test</a>
+  </p>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET &amp; Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a> at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
