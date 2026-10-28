@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    
+    
+    
+    <title>JavaScript substring : la méthode substring() expliquée avec exemples</title>
+    <meta name="description" content="Comprendre la méthode substring() en JavaScript : syntaxe, cas limites, substring vs slice vs substr, et 10 cas d&#39;usage concrets pour tronquer du texte, masquer des données ou parser des chaînes." />
+    <meta property="og:description" content="Comprendre la méthode substring() en JavaScript : syntaxe, cas limites, substring vs slice vs substr, et 10 cas d&#39;usage concrets pour tronquer du texte, masquer des données ou parser des chaînes." />
+    <meta property="og:title" content="JavaScript substring : la méthode substring() expliquée avec exemples" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/javascript/javascript-substring/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/javascript/javascript-substring/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/fr/blog/javascript/javascript-substring/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/fr/blog/javascript/javascript-substring/" />
+<link rel="canonical" href="https://useaxentix.com/fr/blog/javascript/javascript-substring/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/javascript/javascript-substring/javascript-substring-method-banner.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/javascript/javascript-substring/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Clair</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Sombre</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> Système</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/javascript/javascript-substring/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/javascript/javascript-substring/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/javascript/javascript-substring/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/javascript/javascript-substring/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/javascript/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    JavaScript Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    JavaScript substring : la méthode substring() expliquée avec exemples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-10-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/10/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Comprendre la méthode substring() : syntaxe, cas limites, substring vs slice vs substr, et 10 cas d'usage concrets
+    pour tronquer du texte, masquer des données ou parser des chaînes.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="JavaScript substring : la méthode substring() expliquée avec exemples"
+      src='https://useaxentix.com//img/blog/javascript/javascript-substring/javascript-substring-method-banner.webp'
+      alt="La méthode substring() qui extrait une partie d'une chaîne entre deux index" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">JavaScript substring : la méthode substring() expliquée avec
+      exemples
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      La méthode <strong>JavaScript substring</strong>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">String.prototype.substring()</code>, retourne la partie d'une
+      chaîne comprise entre un index de début et un index de fin optionnel. La chaîne d'origine n'est jamais modifiée :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const text = 'Hello, world!';
+
+text.substring(0, 5); // 'Hello'
+text.substring(7);    // 'world!'</code></pre>
+    </div>
+
+    <p>
+      Cela couvre la plupart des usages, mais <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> a quelques particularités qui piègent souvent : elle
+      ignore les index négatifs, elle inverse ses arguments sans prévenir, et on la confond facilement avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> et l'ancienne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Ce guide explique précisément son comportement, quand préférer
+      une autre méthode, et détaille des cas d'usage concrets à reprendre dans votre code. Chaque exemple et chaque
+      résultat ci-dessous a été vérifié dans Node.js.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Syntaxe de substring()</h2>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">str.substring(indexStart)
+str.substring(indexStart, indexEnd)</code></pre>
+    </div>
+
+    <ul class="lh-rem-4">
+      <li><strong>indexStart</strong> : l'index du premier caractère à inclure.</li>
+      <li>
+        <strong>indexEnd</strong> (optionnel) : l'index du premier caractère à <em>exclure</em>. S'il est omis,
+        l'extraction va jusqu'à la fin de la chaîne.
+      </li>
+      <li><strong>Valeur de retour</strong> : une nouvelle chaîne contenant la partie extraite.</li>
+    </ul>
+
+    <p>
+      Les index commencent à 0 et l'index de fin est exclu, donc la longueur du résultat est toujours
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd - indexStart</code>. Pour récupérer les caractères aux positions 1 et 2 de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'</code>, on écrit
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'.substring(1, 3)</code>, qui retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'el'</code>, une chaîne de longueur 2.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment substring() traite ses arguments</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ne lève jamais d'erreur à cause de ses arguments. Elle les normalise selon quelques règles :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Si <strong>indexEnd est omis</strong> ou vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>, il prend la longueur de la chaîne.</li>
+      <li>Si <strong>indexStart est égal à indexEnd</strong>, le résultat est une chaîne vide.</li>
+      <li>Si <strong>indexStart est plus grand qu'indexEnd</strong>, les deux arguments sont inversés.</li>
+      <li>Toute valeur <strong>négative ou NaN</strong> est traitée comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code>.</li>
+      <li>Toute valeur <strong>supérieure à la longueur</strong> est ramenée à la longueur de la chaîne.</li>
+      <li>
+        <strong>Les décimales et les chaînes</strong> sont converties en entiers (les décimales sont tronquées, pas
+        arrondies).
+      </li>
+    </ul>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const word = 'JavaScript';
+
+word.substring(4);        // 'Script'
+word.substring(0, 4);     // 'Java'
+word.substring(4, 4);     // ''
+word.substring(4, 0);     // 'Java'  (arguments inversés en 0, 4)
+word.substring(-3);       // 'JavaScript'  (-3 devient 0)
+word.substring(-3, 4);    // 'Java'  (-3 devient 0)
+word.substring(NaN, 4);   // 'Java'  (NaN devient 0)
+word.substring(4, 100);   // 'Script'  (100 devient 10)
+word.substring(1.9, 4.2); // 'ava'  (tronqués en 1, 4)
+word.substring('4');      // 'Script'  ('4' converti en 4)</code></pre>
+    </div>
+
+    <p>
+      Ce comportement tolérant est pratique, mais il masque aussi des bugs. Un index négatif censé compter depuis la fin
+      de la chaîne retourne silencieusement la chaîne entière. Si vous avez besoin d'index négatifs, utilisez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code>, présentée juste après.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">substring() vs slice() vs substr()</h2>
+
+    <p>
+      JavaScript propose trois méthodes pour extraire une partie de chaîne. Elles se ressemblent, mais traitent leurs
+      arguments différemment :
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Comportement</th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(start, end)</code></th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(start, end)</code></th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr(start, length)</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Second argument</td>
+            <td>Index de fin (exclu)</td>
+            <td>Index de fin (exclu)</td>
+            <td>Nombre de caractères</td>
+          </tr>
+          <tr>
+            <td>Valeurs négatives</td>
+            <td>Traitées comme 0</td>
+            <td>Comptées depuis la fin</td>
+            <td>Début compté depuis la fin, longueur négative donne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code></td>
+          </tr>
+          <tr>
+            <td>Début plus grand que la fin</td>
+            <td>Arguments inversés</td>
+            <td>Retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code></td>
+            <td>Non applicable</td>
+          </tr>
+          <tr>
+            <td>Statut</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Dépréciée (fonctionnalité web héritée)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const word = 'JavaScript';
+
+// Index négatifs
+word.slice(-6);        // 'Script'
+word.substring(-6);    // 'JavaScript'
+
+// Début plus grand que la fin
+word.slice(4, 0);      // ''
+word.substring(4, 0);  // 'Java'
+
+// Second argument : longueur vs index de fin
+word.substr(4, 3);     // 'Scr'
+word.substring(4, 3);  // 'a'  (inversés en 3, 4)
+word.substr(-6, 3);    // 'Scr'</code></pre>
+    </div>
+
+    <p>
+      Choisissez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> quand vous voulez compter depuis la fin de la chaîne : c'est la seule méthode standard
+      qui comprend les index négatifs. C'est aussi la méthode partagée avec les tableaux, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> se lit
+      de la même façon sur les chaînes et les tableaux. Choisissez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> quand vos index viennent de
+      calculs qui peuvent arriver dans le désordre ou passer sous zéro, et que vous préférez qu'ils soient bornés plutôt
+      que d'obtenir une chaîne vide.
+    </p>
+
+    <h3 class="exo mt-4">Pourquoi arrêter d'utiliser substr()</h3>
+
+    <p>
+      Beaucoup de développeurs tapent <strong>js substr</strong> dans un moteur de recherche alors qu'ils cherchent
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code>, et beaucoup de code ancien appelle encore <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Elle fonctionne dans tous les
+      navigateurs et dans Node.js, mais elle ne fait pas partie de la spécification ECMAScript principale. Elle est
+      définie dans l'annexe B, la section réservée aux fonctionnalités héritées conservées pour la compatibilité web, et
+      MDN la marque comme dépréciée. Le nouveau code ne devrait pas l'utiliser.
+    </p>
+
+    <p>
+      La remplacer demande un peu d'attention, car la réécriture évidente est fausse pour un début négatif :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const name = 'Mozilla';
+
+name.substr(-3, 3);                // 'lla'
+name.slice(-3, -3 + 3);            // ''  (slice(-3, 0), faux)
+name.slice(-3).substring(0, 3);    // 'lla'</code></pre>
+    </div>
+
+    <p>
+      Voici des remplacements qui se comportent exactement comme l'ancien appel :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Avant
+str.substr(start, length);
+
+// Après, quand start n'est jamais négatif
+str.substring(start, start + length);
+
+// Après, pour n'importe quelle valeur de start, négatives comprises
+str.slice(start).substring(0, length);</code></pre>
+    </div>
+
+    <p>
+      La dernière forme fonctionne parce que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> gère le début négatif, puis
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(0, length)</code> garde <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">length</code> caractères, et une longueur négative est ramenée à 0,
+      exactement comme avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Nous l'avons comparée à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code> sur des centaines de
+      combinaisons de début et de longueur (négatives, hors limites, décimales, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">NaN</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>) et
+      les deux ont toujours retourné le même résultat.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">10 cas d'usage concrets de substring()</h2>
+
+    <p>
+      Connaître la syntaxe est une chose. Voici comment la méthode JavaScript substring est réellement utilisée dans des
+      projets. La plupart de ces exemples l'associent à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> pour savoir où
+      couper.
+    </p>
+
+    <h3 class="exo mt-4">1. Tronquer un texte avec des points de suspension</h3>
+
+    <p>
+      Les titres de cartes, les aperçus et les notifications ont souvent une longueur maximale. Gardez de la place pour
+      les trois points afin que la chaîne finale ne dépasse jamais la limite :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function truncate(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - 3) + '...';
+  }
+  return text;
+}
+
+truncate('Axentix is a CSS framework', 18); // 'Axentix is a CS...'
+truncate('Short title', 18);                // 'Short title'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">2. Tronquer sans couper les mots</h3>
+
+    <p>
+      Couper au milieu d'un mot fait négligé. Coupez d'abord, puis revenez au dernier espace :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function truncateWords(text, maxLength) {
+  if (text.length > maxLength) {
+    const cut = text.substring(0, maxLength);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > 0 ? cut.substring(0, lastSpace) : cut) + '...';
+  }
+  return text;
+}
+
+truncateWords('Axentix is a CSS framework', 18); // 'Axentix is a CSS...'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">3. Récupérer l'extension d'un fichier</h3>
+
+    <p>
+      Utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> pour gérer les noms qui contiennent plusieurs points, et vérifiez le résultat
+      avant de couper :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function getExtension(filename) {
+  const dot = filename.lastIndexOf('.');
+  return dot > 0 ? filename.substring(dot + 1) : '';
+}
+
+getExtension('report.final.pdf'); // 'pdf'
+getExtension('README');           // ''
+getExtension('.gitignore');       // ''  (fichier caché, pas d'extension)</code></pre>
+    </div>
+
+    <p>
+      La vérification compte. Sans elle, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-1</code> pour <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'README'</code>, et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'README'.substring(-1 + 1)</code> retourne le nom de fichier entier comme s'il s'agissait de l'extension.
+    </p>
+
+    <h3 class="exo mt-4">4. Découper une adresse email</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const email = 'jane.doe@example.com';
+const at = email.indexOf('@');
+
+const username = email.substring(0, at); // 'jane.doe'
+const domain = email.substring(at + 1);  // 'example.com'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">5. Masquer des données sensibles</h3>
+
+    <p>
+      N'afficher que les quatre derniers chiffres d'un numéro de carte ou de compte :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function maskCard(number) {
+  const last4 = number.substring(number.length - 4);
+  return '*'.repeat(number.length - 4) + last4;
+}
+
+maskCard('4242424242424242'); // '************4242'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">6. Extraire le texte entre deux délimiteurs</h3>
+
+    <p>
+      Extraire un identifiant entre crochets, une valeur dans une balise ou un token dans une ligne de log suit toujours
+      le même principe :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function between(text, start, end) {
+  const from = text.indexOf(start);
+  if (from === -1) return '';
+
+  const to = text.indexOf(end, from + start.length);
+  if (to === -1) return '';
+
+  return text.substring(from + start.length, to);
+}
+
+between('Order [A-1042] shipped', '[', ']'); // 'A-1042'
+between('No brackets here', '[', ']');       // ''</code></pre>
+    </div>
+
+    <p>
+      Passer <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">from + start.length</code> en second argument d'<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> fait démarrer la recherche après le
+      délimiteur ouvrant, ce qui est indispensable quand les deux délimiteurs sont identiques, comme des guillemets.
+    </p>
+
+    <h3 class="exo mt-4">7. Mettre la première lettre en majuscule</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1);
+
+capitalize('axentix'); // 'Axentix'
+capitalize('');        // ''</code></pre>
+    </div>
+
+    <p>
+      Utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">charAt(0)</code> plutôt que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str[0]</code> protège les chaînes vides : <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''.charAt(0)</code> retourne
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code>, alors que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''[0]</code> vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> et appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">toUpperCase()</code> dessus lève une
+      erreur.
+    </p>
+
+    <h3 class="exo mt-4">8. Parser des chaînes à format fixe</h3>
+
+    <p>
+      Quand un format a des positions fixes, comme les dates ISO, les codes produit ou les références bancaires,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> lit chaque champ directement :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const date = '2026-10-28';
+
+const year = date.substring(0, 4);  // '2026'
+const month = date.substring(5, 7); // '10'
+const day = date.substring(8);      // '28'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">9. Supprimer un caractère final</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const url = 'https://example.com/docs/';
+
+const clean = url.endsWith('/') ? url.substring(0, url.length - 1) : url;
+// 'https://example.com/docs'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">10. Récupérer les N derniers caractères</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(str.length - n)</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(-n)</code> fonctionnent tous les deux, mais ils divergent quand
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> vaut 0 :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const code = 'AX-2026-0042';
+
+code.substring(code.length - 4); // '0042'
+code.slice(-4);                  // '0042'
+
+// Quand n vaut 0
+code.substring(code.length - 0); // ''
+code.slice(-0);                  // 'AX-2026-0042'  (-0 vaut 0, donc slice part du début)</code></pre>
+    </div>
+
+    <p>
+      Si <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> vient d'une saisie utilisateur ou d'un calcul qui peut atteindre 0, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> donne le
+      résultat attendu.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Erreurs courantes</h2>
+
+    <h3 class="exo mt-4">S'attendre à ce que la chaîne d'origine change</h3>
+
+    <p>
+      Les chaînes sont immuables en JavaScript. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> retourne une nouvelle chaîne et ne touche pas à
+      l'originale, il faut donc stocker le résultat :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">let greeting = 'Hello world';
+
+greeting.substring(0, 5);
+console.log(greeting); // 'Hello world'
+
+greeting = greeting.substring(0, 5);
+console.log(greeting); // 'Hello'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Passer une longueur en second argument</h3>
+
+    <p>
+      C'est l'erreur classique en venant de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Le second argument est un index de fin, pas une longueur.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'JavaScript'.substring(4, 3)</code> ne retourne pas 3 caractères à partir de l'index 4 : elle inverse les
+      arguments et retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'a'</code>. Pour prendre <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> caractères à partir de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">start</code>, écrivez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(start, start + n)</code>.
+    </p>
+
+    <h3 class="exo mt-4">Couper un emoji en deux</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> compte des unités de code UTF-16, pas des caractères visibles. Les emojis et de nombreux
+      autres symboles utilisent deux unités de code, un index peut donc tomber au milieu de l'un d'eux :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const msg = 'Hi 👋!';
+
+msg.length;          // 6, pas 5
+msg.substring(0, 4); // 'Hi \uD83D'  (un demi-emoji, affiché comme �)
+
+Array.from(msg).slice(0, 4).join(''); // 'Hi 👋'</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Array.from()</code> découpe une chaîne par point de code, ce qui règle le cas de la plupart des emojis. Les
+      emojis composés de plusieurs points de code, comme les emojis famille ou drapeau, nécessitent
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Intl.Segmenter</code>, qui découpe une chaîne selon les caractères réellement vus par l'utilisateur :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const family = '👨‍👩‍👧 family';
+
+Array.from(family)[0]; // '👨'  (seulement la première personne)
+
+const graphemes = [...new Intl.Segmenter().segment(family)].map((s) => s.segment);
+graphemes[0];          // '👨‍👩‍👧'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Appeler substring() sur undefined ou null</h3>
+
+    <p>
+      Si une valeur peut être absente, comme un champ optionnel d'API, appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> dessus lève
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">TypeError: Cannot read properties of undefined (reading 'substring')</code>. Le chaînage optionnel retourne
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> à la place :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: undefined };
+
+user.name?.substring(0, 3);              // undefined
+(user.name ?? 'Guest').substring(0, 3); // 'Gue'</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilité navigateurs</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> fait partie de JavaScript depuis la première édition d'ECMAScript et fonctionne dans tous les
+      navigateurs et toutes les versions de Node.js. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> est tout aussi bien supportée. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>
+      fonctionne aussi partout, mais uniquement parce que les navigateurs la conservent pour la rétrocompatibilité.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Intl.Segmenter</code> est plus récent et disponible dans les versions actuelles de tous les grands navigateurs
+      et dans Node.js.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Questions fréquentes</h2>
+
+    <h3 class="exo mt-4">L'index de fin est-il inclus dans substring() ?</h3>
+
+    <p>
+      Non. Le caractère à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexStart</code> est inclus et le caractère à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd</code> est exclu.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'.substring(1, 3)</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'el'</code>.
+    </p>
+
+    <h3 class="exo mt-4">substring() modifie-t-elle la chaîne d'origine ?</h3>
+
+    <p>
+      Non. Les chaînes ne peuvent pas être modifiées sur place en JavaScript. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> retourne toujours une
+      nouvelle chaîne.
+    </p>
+
+    <h3 class="exo mt-4">substring() accepte-t-elle les index négatifs ?</h3>
+
+    <p>
+      Elle les accepte mais les traite comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code>, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'JavaScript'.substring(-6)</code> retourne la chaîne
+      entière. Utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(-6)</code> pour compter depuis la fin.
+    </p>
+
+    <h3 class="exo mt-4">js substr est-elle dépréciée ?</h3>
+
+    <p>
+      Oui. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code> n'est définie que dans l'annexe B de la spécification ECMAScript pour la compatibilité
+      héritée, et MDN la marque comme dépréciée. Elle fonctionne encore, mais utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ou
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> dans le nouveau code. Le remplacement <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str.slice(start).substring(0, length)</code> se comporte
+      exactement comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str.substr(start, length)</code>.
+    </p>
+
+    <h3 class="exo mt-4">Que retourne substring() sans argument ?</h3>
+
+    <p>
+      Une copie de la chaîne entière. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexStart</code> devient <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd</code> prend la longueur de
+      la chaîne, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'abc'.substring()</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'abc'</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      La méthode JavaScript substring extrait les caractères compris entre un index de début et un index de fin exclu.
+      Elle borne les valeurs négatives et hors limites, inverse les arguments donnés dans le désordre et ne modifie
+      jamais la chaîne d'origine. Préférez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> quand vous devez compter depuis la fin, et remplacez chaque
+      appel js substr restant par <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> la prochaine fois que vous touchez ce code.
+    </p>
+
+    <p>
+      Associée à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> couvre l'essentiel du travail
+      quotidien sur les chaînes : tronquer des titres, lire des extensions de fichiers, masquer des données et parser
+      des formats fixes. Pour tous les détails de la spécification, consultez la
+      <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/substring"
+        target="_blank" rel="noopener noreferrer" class="text-primary text-underline">référence MDN de
+        substring()</a>. Pour continuer avec les chaînes, lisez nos guides pour
+      <a href="/fr/blog/javascript/concatenate-strings-in-javascript/" class="text-primary text-underline">concaténer
+        des chaînes en JavaScript</a> et
+      <a href="/fr/blog/javascript/fix-replaceall-is-not-a-function-javascript-error/"
+        class="text-primary text-underline">corriger l'erreur "replaceAll is not a function"</a>.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (16)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/llm/">
+          LLM (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (5)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/network/xgpon-10-gigabit-fiber-standard-explained/" aria-label="XG-PON : la norme fibre 10 gigabits expliquée article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/network/xgpon-10-gigabit-fiber-standard-explained/xgpon-fiber-explained.webp" loading="lazy"
+      alt="XG-PON : la norme fibre 10 gigabits expliquée recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/network/xgpon-10-gigabit-fiber-standard-explained/">
+        XG-PON : la norme fibre 10 gigabits expliquée
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        10 Apr 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/network/">Network
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Le XG-PON (ITU-T G.987.x) porte l&rsquo;accès fibre passif à 10 Gbit/s en descendant. Bases OLT/ONU/ODN, longueurs d&rsquo;onde, coexistence avec le GPON, comparaison avec NG-PON2 et XGS-PON.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/network/xgpon-10-gigabit-fiber-standard-explained/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/" aria-label="Actualites JavaScript ES2026 : decorateurs, API Temporal et plus article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/es2026-decorators-and-temporal-api.webp" loading="lazy"
+      alt="Actualites JavaScript ES2026 : decorateurs, API Temporal et plus recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/">
+        Actualites JavaScript ES2026 : decorateurs, API Temporal et plus
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        25 Mar 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Qu&rsquo;est-ce qui avance dans TC39 et dans les moteurs autour de la periode ES2026 ? Decorateurs, Temporal, using/await using, RegExp.escape, Promise.withResolvers, Object.groupBy, methodes Set et aides pour iterateurs, avec un minimum de code.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/javascript-es2026-news-decorators-temporal-api-more/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/wait-sleep-in-nodejs-complete-guide/" aria-label="Attendre et dormir dans Node.js : guide complet avec 4 méthodes article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/wait-sleep-in-nodejs-complete-guide/sleep-node-js.webp" loading="lazy"
+      alt="Attendre et dormir dans Node.js : guide complet avec 4 méthodes recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/wait-sleep-in-nodejs-complete-guide/">
+        Attendre et dormir dans Node.js : guide complet avec 4 méthodes
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        16 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Maîtrisez les fonctions de pause et d’attente dans Node.js avec 4 méthodes différentes. De setTimeout aux solutions basées sur Promises, avec exemples pratiques et bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/wait-sleep-in-nodejs-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/fr/tools/speedtest-internet-health-test/" class="text-underline text-grey">Test de débit Internet</a>
+  </p>
+
+  <p class="m-0">
+    Framework Axentix - Créé avec ♥ par Axel SIMONET et Vincent LEVEQUE<br>
+    Créateurs d'<a href="https://axenthost.com/" class="text-underline">AxentHost</a> chez <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
