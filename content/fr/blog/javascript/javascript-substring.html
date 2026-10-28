@@ -1,0 +1,578 @@
+---
+title: 'JavaScript substring : la méthode substring() expliquée avec exemples'
+description: "Comprendre la méthode substring() en JavaScript : syntaxe, cas limites, substring vs slice vs substr, et
+10 cas d'usage concrets pour tronquer du texte, masquer des données ou parser des chaînes."
+date: 2026-10-28
+author: "Axentix Team"
+image: "/img/blog/javascript/javascript-substring/javascript-substring-method-banner.webp"
+categories: ["JavaScript"]
+summary: "Tout sur substring() en JavaScript : syntaxe, gestion des index négatifs et inversés, comparaison avec
+slice() et substr() (déprécié), et des cas d'usage pratiques à copier dans vos projets."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    JavaScript substring : la méthode substring() expliquée avec exemples
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/javascript/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      JavaScript
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-10-28" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      28/10/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Comprendre la méthode substring() : syntaxe, cas limites, substring vs slice vs substr, et 10 cas d'usage concrets
+    pour tronquer du texte, masquer des données ou parser des chaînes.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="JavaScript substring : la méthode substring() expliquée avec exemples"
+      src='{{< link url="img/blog/javascript/javascript-substring/javascript-substring-method-banner.webp" >}}'
+      alt="La méthode substring() qui extrait une partie d'une chaîne entre deux index" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">JavaScript substring : la méthode substring() expliquée avec
+      exemples
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      La méthode <strong>JavaScript substring</strong>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">String.prototype.substring()</code>, retourne la partie d'une
+      chaîne comprise entre un index de début et un index de fin optionnel. La chaîne d'origine n'est jamais modifiée :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const text = 'Hello, world!';
+
+text.substring(0, 5); // 'Hello'
+text.substring(7);    // 'world!'</code></pre>
+    </div>
+
+    <p>
+      Cela couvre la plupart des usages, mais <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> a quelques particularités qui piègent souvent : elle
+      ignore les index négatifs, elle inverse ses arguments sans prévenir, et on la confond facilement avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> et l'ancienne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Ce guide explique précisément son comportement, quand préférer
+      une autre méthode, et détaille des cas d'usage concrets à reprendre dans votre code. Chaque exemple et chaque
+      résultat ci-dessous a été vérifié dans Node.js.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Syntaxe de substring()</h2>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">str.substring(indexStart)
+str.substring(indexStart, indexEnd)</code></pre>
+    </div>
+
+    <ul class="lh-rem-4">
+      <li><strong>indexStart</strong> : l'index du premier caractère à inclure.</li>
+      <li>
+        <strong>indexEnd</strong> (optionnel) : l'index du premier caractère à <em>exclure</em>. S'il est omis,
+        l'extraction va jusqu'à la fin de la chaîne.
+      </li>
+      <li><strong>Valeur de retour</strong> : une nouvelle chaîne contenant la partie extraite.</li>
+    </ul>
+
+    <p>
+      Les index commencent à 0 et l'index de fin est exclu, donc la longueur du résultat est toujours
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd - indexStart</code>. Pour récupérer les caractères aux positions 1 et 2 de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'</code>, on écrit
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'.substring(1, 3)</code>, qui retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'el'</code>, une chaîne de longueur 2.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Comment substring() traite ses arguments</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ne lève jamais d'erreur à cause de ses arguments. Elle les normalise selon quelques règles :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>Si <strong>indexEnd est omis</strong> ou vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>, il prend la longueur de la chaîne.</li>
+      <li>Si <strong>indexStart est égal à indexEnd</strong>, le résultat est une chaîne vide.</li>
+      <li>Si <strong>indexStart est plus grand qu'indexEnd</strong>, les deux arguments sont inversés.</li>
+      <li>Toute valeur <strong>négative ou NaN</strong> est traitée comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code>.</li>
+      <li>Toute valeur <strong>supérieure à la longueur</strong> est ramenée à la longueur de la chaîne.</li>
+      <li>
+        <strong>Les décimales et les chaînes</strong> sont converties en entiers (les décimales sont tronquées, pas
+        arrondies).
+      </li>
+    </ul>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const word = 'JavaScript';
+
+word.substring(4);        // 'Script'
+word.substring(0, 4);     // 'Java'
+word.substring(4, 4);     // ''
+word.substring(4, 0);     // 'Java'  (arguments inversés en 0, 4)
+word.substring(-3);       // 'JavaScript'  (-3 devient 0)
+word.substring(-3, 4);    // 'Java'  (-3 devient 0)
+word.substring(NaN, 4);   // 'Java'  (NaN devient 0)
+word.substring(4, 100);   // 'Script'  (100 devient 10)
+word.substring(1.9, 4.2); // 'ava'  (tronqués en 1, 4)
+word.substring('4');      // 'Script'  ('4' converti en 4)</code></pre>
+    </div>
+
+    <p>
+      Ce comportement tolérant est pratique, mais il masque aussi des bugs. Un index négatif censé compter depuis la fin
+      de la chaîne retourne silencieusement la chaîne entière. Si vous avez besoin d'index négatifs, utilisez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code>, présentée juste après.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">substring() vs slice() vs substr()</h2>
+
+    <p>
+      JavaScript propose trois méthodes pour extraire une partie de chaîne. Elles se ressemblent, mais traitent leurs
+      arguments différemment :
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Comportement</th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(start, end)</code></th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(start, end)</code></th>
+            <th><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr(start, length)</code></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Second argument</td>
+            <td>Index de fin (exclu)</td>
+            <td>Index de fin (exclu)</td>
+            <td>Nombre de caractères</td>
+          </tr>
+          <tr>
+            <td>Valeurs négatives</td>
+            <td>Traitées comme 0</td>
+            <td>Comptées depuis la fin</td>
+            <td>Début compté depuis la fin, longueur négative donne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code></td>
+          </tr>
+          <tr>
+            <td>Début plus grand que la fin</td>
+            <td>Arguments inversés</td>
+            <td>Retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code></td>
+            <td>Non applicable</td>
+          </tr>
+          <tr>
+            <td>Statut</td>
+            <td>Standard</td>
+            <td>Standard</td>
+            <td>Dépréciée (fonctionnalité web héritée)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const word = 'JavaScript';
+
+// Index négatifs
+word.slice(-6);        // 'Script'
+word.substring(-6);    // 'JavaScript'
+
+// Début plus grand que la fin
+word.slice(4, 0);      // ''
+word.substring(4, 0);  // 'Java'
+
+// Second argument : longueur vs index de fin
+word.substr(4, 3);     // 'Scr'
+word.substring(4, 3);  // 'a'  (inversés en 3, 4)
+word.substr(-6, 3);    // 'Scr'</code></pre>
+    </div>
+
+    <p>
+      Choisissez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> quand vous voulez compter depuis la fin de la chaîne : c'est la seule méthode standard
+      qui comprend les index négatifs. C'est aussi la méthode partagée avec les tableaux, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> se lit
+      de la même façon sur les chaînes et les tableaux. Choisissez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> quand vos index viennent de
+      calculs qui peuvent arriver dans le désordre ou passer sous zéro, et que vous préférez qu'ils soient bornés plutôt
+      que d'obtenir une chaîne vide.
+    </p>
+
+    <h3 class="exo mt-4">Pourquoi arrêter d'utiliser substr()</h3>
+
+    <p>
+      Beaucoup de développeurs tapent <strong>js substr</strong> dans un moteur de recherche alors qu'ils cherchent
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code>, et beaucoup de code ancien appelle encore <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Elle fonctionne dans tous les
+      navigateurs et dans Node.js, mais elle ne fait pas partie de la spécification ECMAScript principale. Elle est
+      définie dans l'annexe B, la section réservée aux fonctionnalités héritées conservées pour la compatibilité web, et
+      MDN la marque comme dépréciée. Le nouveau code ne devrait pas l'utiliser.
+    </p>
+
+    <p>
+      La remplacer demande un peu d'attention, car la réécriture évidente est fausse pour un début négatif :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const name = 'Mozilla';
+
+name.substr(-3, 3);                // 'lla'
+name.slice(-3, -3 + 3);            // ''  (slice(-3, 0), faux)
+name.slice(-3).substring(0, 3);    // 'lla'</code></pre>
+    </div>
+
+    <p>
+      Voici des remplacements qui se comportent exactement comme l'ancien appel :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Avant
+str.substr(start, length);
+
+// Après, quand start n'est jamais négatif
+str.substring(start, start + length);
+
+// Après, pour n'importe quelle valeur de start, négatives comprises
+str.slice(start).substring(0, length);</code></pre>
+    </div>
+
+    <p>
+      La dernière forme fonctionne parce que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> gère le début négatif, puis
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(0, length)</code> garde <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">length</code> caractères, et une longueur négative est ramenée à 0,
+      exactement comme avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Nous l'avons comparée à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code> sur des centaines de
+      combinaisons de début et de longueur (négatives, hors limites, décimales, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">NaN</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code>) et
+      les deux ont toujours retourné le même résultat.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">10 cas d'usage concrets de substring()</h2>
+
+    <p>
+      Connaître la syntaxe est une chose. Voici comment la méthode JavaScript substring est réellement utilisée dans des
+      projets. La plupart de ces exemples l'associent à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> pour savoir où
+      couper.
+    </p>
+
+    <h3 class="exo mt-4">1. Tronquer un texte avec des points de suspension</h3>
+
+    <p>
+      Les titres de cartes, les aperçus et les notifications ont souvent une longueur maximale. Gardez de la place pour
+      les trois points afin que la chaîne finale ne dépasse jamais la limite :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function truncate(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - 3) + '...';
+  }
+  return text;
+}
+
+truncate('Axentix is a CSS framework', 18); // 'Axentix is a CS...'
+truncate('Short title', 18);                // 'Short title'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">2. Tronquer sans couper les mots</h3>
+
+    <p>
+      Couper au milieu d'un mot fait négligé. Coupez d'abord, puis revenez au dernier espace :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function truncateWords(text, maxLength) {
+  if (text.length > maxLength) {
+    const cut = text.substring(0, maxLength);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > 0 ? cut.substring(0, lastSpace) : cut) + '...';
+  }
+  return text;
+}
+
+truncateWords('Axentix is a CSS framework', 18); // 'Axentix is a CSS...'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">3. Récupérer l'extension d'un fichier</h3>
+
+    <p>
+      Utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> pour gérer les noms qui contiennent plusieurs points, et vérifiez le résultat
+      avant de couper :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function getExtension(filename) {
+  const dot = filename.lastIndexOf('.');
+  return dot > 0 ? filename.substring(dot + 1) : '';
+}
+
+getExtension('report.final.pdf'); // 'pdf'
+getExtension('README');           // ''
+getExtension('.gitignore');       // ''  (fichier caché, pas d'extension)</code></pre>
+    </div>
+
+    <p>
+      La vérification compte. Sans elle, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">-1</code> pour <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'README'</code>, et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'README'.substring(-1 + 1)</code> retourne le nom de fichier entier comme s'il s'agissait de l'extension.
+    </p>
+
+    <h3 class="exo mt-4">4. Découper une adresse email</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const email = 'jane.doe@example.com';
+const at = email.indexOf('@');
+
+const username = email.substring(0, at); // 'jane.doe'
+const domain = email.substring(at + 1);  // 'example.com'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">5. Masquer des données sensibles</h3>
+
+    <p>
+      N'afficher que les quatre derniers chiffres d'un numéro de carte ou de compte :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function maskCard(number) {
+  const last4 = number.substring(number.length - 4);
+  return '*'.repeat(number.length - 4) + last4;
+}
+
+maskCard('4242424242424242'); // '************4242'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">6. Extraire le texte entre deux délimiteurs</h3>
+
+    <p>
+      Extraire un identifiant entre crochets, une valeur dans une balise ou un token dans une ligne de log suit toujours
+      le même principe :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function between(text, start, end) {
+  const from = text.indexOf(start);
+  if (from === -1) return '';
+
+  const to = text.indexOf(end, from + start.length);
+  if (to === -1) return '';
+
+  return text.substring(from + start.length, to);
+}
+
+between('Order [A-1042] shipped', '[', ']'); // 'A-1042'
+between('No brackets here', '[', ']');       // ''</code></pre>
+    </div>
+
+    <p>
+      Passer <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">from + start.length</code> en second argument d'<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> fait démarrer la recherche après le
+      délimiteur ouvrant, ce qui est indispensable quand les deux délimiteurs sont identiques, comme des guillemets.
+    </p>
+
+    <h3 class="exo mt-4">7. Mettre la première lettre en majuscule</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1);
+
+capitalize('axentix'); // 'Axentix'
+capitalize('');        // ''</code></pre>
+    </div>
+
+    <p>
+      Utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">charAt(0)</code> plutôt que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str[0]</code> protège les chaînes vides : <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''.charAt(0)</code> retourne
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''</code>, alors que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">''[0]</code> vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> et appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">toUpperCase()</code> dessus lève une
+      erreur.
+    </p>
+
+    <h3 class="exo mt-4">8. Parser des chaînes à format fixe</h3>
+
+    <p>
+      Quand un format a des positions fixes, comme les dates ISO, les codes produit ou les références bancaires,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> lit chaque champ directement :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const date = '2026-10-28';
+
+const year = date.substring(0, 4);  // '2026'
+const month = date.substring(5, 7); // '10'
+const day = date.substring(8);      // '28'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">9. Supprimer un caractère final</h3>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const url = 'https://example.com/docs/';
+
+const clean = url.endsWith('/') ? url.substring(0, url.length - 1) : url;
+// 'https://example.com/docs'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">10. Récupérer les N derniers caractères</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(str.length - n)</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(-n)</code> fonctionnent tous les deux, mais ils divergent quand
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> vaut 0 :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const code = 'AX-2026-0042';
+
+code.substring(code.length - 4); // '0042'
+code.slice(-4);                  // '0042'
+
+// Quand n vaut 0
+code.substring(code.length - 0); // ''
+code.slice(-0);                  // 'AX-2026-0042'  (-0 vaut 0, donc slice part du début)</code></pre>
+    </div>
+
+    <p>
+      Si <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> vient d'une saisie utilisateur ou d'un calcul qui peut atteindre 0, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> donne le
+      résultat attendu.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Erreurs courantes</h2>
+
+    <h3 class="exo mt-4">S'attendre à ce que la chaîne d'origine change</h3>
+
+    <p>
+      Les chaînes sont immuables en JavaScript. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> retourne une nouvelle chaîne et ne touche pas à
+      l'originale, il faut donc stocker le résultat :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">let greeting = 'Hello world';
+
+greeting.substring(0, 5);
+console.log(greeting); // 'Hello world'
+
+greeting = greeting.substring(0, 5);
+console.log(greeting); // 'Hello'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Passer une longueur en second argument</h3>
+
+    <p>
+      C'est l'erreur classique en venant de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>. Le second argument est un index de fin, pas une longueur.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'JavaScript'.substring(4, 3)</code> ne retourne pas 3 caractères à partir de l'index 4 : elle inverse les
+      arguments et retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'a'</code>. Pour prendre <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">n</code> caractères à partir de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">start</code>, écrivez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring(start, start + n)</code>.
+    </p>
+
+    <h3 class="exo mt-4">Couper un emoji en deux</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> compte des unités de code UTF-16, pas des caractères visibles. Les emojis et de nombreux
+      autres symboles utilisent deux unités de code, un index peut donc tomber au milieu de l'un d'eux :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const msg = 'Hi 👋!';
+
+msg.length;          // 6, pas 5
+msg.substring(0, 4); // 'Hi \uD83D'  (un demi-emoji, affiché comme �)
+
+Array.from(msg).slice(0, 4).join(''); // 'Hi 👋'</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Array.from()</code> découpe une chaîne par point de code, ce qui règle le cas de la plupart des emojis. Les
+      emojis composés de plusieurs points de code, comme les emojis famille ou drapeau, nécessitent
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Intl.Segmenter</code>, qui découpe une chaîne selon les caractères réellement vus par l'utilisateur :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const family = '👨‍👩‍👧 family';
+
+Array.from(family)[0]; // '👨'  (seulement la première personne)
+
+const graphemes = [...new Intl.Segmenter().segment(family)].map((s) => s.segment);
+graphemes[0];          // '👨‍👩‍👧'</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Appeler substring() sur undefined ou null</h3>
+
+    <p>
+      Si une valeur peut être absente, comme un champ optionnel d'API, appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> dessus lève
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">TypeError: Cannot read properties of undefined (reading 'substring')</code>. Le chaînage optionnel retourne
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">undefined</code> à la place :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const user = { name: undefined };
+
+user.name?.substring(0, 3);              // undefined
+(user.name ?? 'Guest').substring(0, 3); // 'Gue'</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Compatibilité navigateurs</h2>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> fait partie de JavaScript depuis la première édition d'ECMAScript et fonctionne dans tous les
+      navigateurs et toutes les versions de Node.js. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> est tout aussi bien supportée. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code>
+      fonctionne aussi partout, mais uniquement parce que les navigateurs la conservent pour la rétrocompatibilité.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Intl.Segmenter</code> est plus récent et disponible dans les versions actuelles de tous les grands navigateurs
+      et dans Node.js.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Questions fréquentes</h2>
+
+    <h3 class="exo mt-4">L'index de fin est-il inclus dans substring() ?</h3>
+
+    <p>
+      Non. Le caractère à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexStart</code> est inclus et le caractère à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd</code> est exclu.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'Hello'.substring(1, 3)</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'el'</code>.
+    </p>
+
+    <h3 class="exo mt-4">substring() modifie-t-elle la chaîne d'origine ?</h3>
+
+    <p>
+      Non. Les chaînes ne peuvent pas être modifiées sur place en JavaScript. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> retourne toujours une
+      nouvelle chaîne.
+    </p>
+
+    <h3 class="exo mt-4">substring() accepte-t-elle les index négatifs ?</h3>
+
+    <p>
+      Elle les accepte mais les traite comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code>, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'JavaScript'.substring(-6)</code> retourne la chaîne
+      entière. Utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice(-6)</code> pour compter depuis la fin.
+    </p>
+
+    <h3 class="exo mt-4">js substr est-elle dépréciée ?</h3>
+
+    <p>
+      Oui. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substr()</code> n'est définie que dans l'annexe B de la spécification ECMAScript pour la compatibilité
+      héritée, et MDN la marque comme dépréciée. Elle fonctionne encore, mais utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ou
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> dans le nouveau code. Le remplacement <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str.slice(start).substring(0, length)</code> se comporte
+      exactement comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">str.substr(start, length)</code>.
+    </p>
+
+    <h3 class="exo mt-4">Que retourne substring() sans argument ?</h3>
+
+    <p>
+      Une copie de la chaîne entière. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexStart</code> devient <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexEnd</code> prend la longueur de
+      la chaîne, donc <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'abc'.substring()</code> retourne <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'abc'</code>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      La méthode JavaScript substring extrait les caractères compris entre un index de début et un index de fin exclu.
+      Elle borne les valeurs négatives et hors limites, inverse les arguments donnés dans le désordre et ne modifie
+      jamais la chaîne d'origine. Préférez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> quand vous devez compter depuis la fin, et remplacez chaque
+      appel js substr restant par <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> ou <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">slice()</code> la prochaine fois que vous touchez ce code.
+    </p>
+
+    <p>
+      Associée à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">indexOf()</code> et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">lastIndexOf()</code>, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">substring()</code> couvre l'essentiel du travail
+      quotidien sur les chaînes : tronquer des titres, lire des extensions de fichiers, masquer des données et parser
+      des formats fixes. Pour tous les détails de la spécification, consultez la
+      <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/substring"
+        target="_blank" rel="noopener noreferrer" class="text-primary text-underline">référence MDN de
+        substring()</a>. Pour continuer avec les chaînes, lisez nos guides pour
+      <a href="/fr/blog/javascript/concatenate-strings-in-javascript/" class="text-primary text-underline">concaténer
+        des chaînes en JavaScript</a> et
+      <a href="/fr/blog/javascript/fix-replaceall-is-not-a-function-javascript-error/"
+        class="text-primary text-underline">corriger l'erreur "replaceAll is not a function"</a>.
+    </p>
+  </article>
+</div>
