@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    
+    
+    <title>Fable 5.2 vs Opus 5.5: Benchmarks, Cost per Task &amp; Use Cases</title>
+    <meta name="description" content="Claude Fable 5.2 vs Opus 5.5 compared on 24 benchmarks, price, cost per task at each effort level, speed and real use cases. When Fable is worth 2x the price, and when Opus 5.5 still wins." />
+    <meta property="og:description" content="Claude Fable 5.2 vs Opus 5.5 compared on 24 benchmarks, price, cost per task at each effort level, speed and real use cases. When Fable is worth 2x the price, and when Opus 5.5 still wins." />
+    <meta property="og:title" content="Fable 5.2 vs Opus 5.5: Benchmarks, Cost per Task &amp; Use Cases" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/" />
+<link rel="canonical" href="https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/llm/fable-5-2-vs-opus-5-5/fable-5-2-vs-opus-5-5.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Home</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphism
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Language"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;EN
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" />
+        <path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" />
+        <path fill="#eee" d="M12 5h12v26H12z" />
+      </svg>
+      Français
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Light</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Dark</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xblog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xblog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xblog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/colors/">Colors</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/grix/">Grix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/js-init/">JS Init</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/general/layouts/">Layouts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/alerts/">Alerts</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/button-group/">Button group</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/buttons/">Buttons</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/cards/">Cards</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/caroulix/">Caroulix</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/collapsible/">Collapsible</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/dropdown/">Dropdown</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/fab/">FAB</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/footer/">Footer</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/icons/">Icons</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/lightbox/">Lightbox</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/loading/">Loading</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/modal/">Modal</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/navbar/">Navbar</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/pagination/">Pagination</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/scrollspy/">Scrollspy</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/sidenav/">Sidenav</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/skeleton/">Skeleton</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/table/">Table</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tabs/">Tabs</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tag/">Tag</a>
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/theme-switcher/">Theme switcher</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/toast/">Toast</a>
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/tooltip/">Tooltip</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <a class="sidenav-link " href="https://useaxentix.com/docs/components/waves/">Waves (ripple)</a>
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/checkbox_radio/">Checkbox / Radio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/file/">Form File</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/inputs/">Inputs</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/select/">Select</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/switches/">Switches</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/textarea/">Textarea</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/forms/validation/">Validation</a>
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/claymorphism/">Claymorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/trends/glassmorphism/">Glassmorphism</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/alignments/">Alignments</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/borders/">Borders</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/breakpoints/">Breakpoints</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/close/">Close</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/display/">Display</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/flexbox/">Flexbox</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/hover/">Hover</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/javascript/">JavaScript</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/others/">Others</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/rounded/">Rounded</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/shadows/">Shadows</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/spacing/">Spacing</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/transform/">Transform</a>
+        
+      
+        
+        <a class="sidenav-link " href="https://useaxentix.com/docs/utilities/typography/">Typography</a>
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/plugins/">Plugins</a>
+    
+  
+    
+  
+    
+    <a class="sidenav-link " href="https://useaxentix.com/docs/sass/">Sass</a>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/blog/llm/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    LLM Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Fable 5.2 vs Opus 5.5: Benchmarks, Cost per Task and Real Use Cases
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/llm/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      LLM
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-11-10" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      10/11/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Anthropic released <strong>Claude Fable 5.2</strong> on November 9, 2026, seven weeks after <strong>Claude Opus
+    5.5</strong>. Fable 5.2 wins 20 of the 24 benchmarks we collected, and its list price is exactly 2x Opus 5.5. The
+    useful question is not which model is smarter, it's how much you pay per finished task. On the effort-level data
+    from Artificial Analysis, <strong>Fable 5.2 at low effort is cheaper, faster and smarter than Opus 5.5 at high
+    effort</strong>. Opus 5.5 only wins on raw price when you spend less than about $3 per task. Below: the full
+    benchmark table, cost per task at every effort level, use cases where each model wins, and the API changes to
+    check before you switch.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Fable 5.2 vs Opus 5.5: intelligence vs cost per task"
+      src='https://useaxentix.com//img/blog/llm/fable-5-2-vs-opus-5-5/fable-5-2-vs-opus-5-5.webp'
+      alt="Chart of Artificial Analysis Intelligence Index against cost per task for Claude Fable 5.2 and Claude Opus 5.5 at low, medium, high, xhigh and max effort" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Above about $3 per task, Fable 5.2's orange line sits above
+      Opus 5.5's at every price point
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-5" itemprop="subtitle">Short Answer</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Keep Opus 5.5 as your default</strong> for everyday coding, writing, terminal and DevOps agents, and
+        high-volume pipelines. Anthropic itself calls it the "strongest daily driver".</li>
+      <li><strong>Use Fable 5.2</strong> for long agent runs, hard migrations, research over charts and documents, CAD
+        and 3D geometry, robotics and science workloads, and any task Opus 5.5 failed twice.</li>
+      <li><strong>Compare at matched effort, not default effort.</strong> In the API, Fable 5.2 defaults to
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">high</code> and Opus 5.5 to
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">medium</code>. Without
+        changing anything, a Fable task costs 3.7x more, and most of that comes from the effort level, not the
+        model.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Fable 5.2 vs Opus 5.5: Specs and Pricing</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Claude Fable 5.2</th>
+            <th>Claude Opus 5.5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Release date</strong></td>
+            <td>November 9, 2026</td>
+            <td>September 22, 2026</td>
+          </tr>
+          <tr>
+            <td><strong>API model ID</strong></td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">claude-fable-5-2</code></td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">claude-opus-5-5</code></td>
+          </tr>
+          <tr>
+            <td><strong>Input / output price</strong></td>
+            <td>$8 / $40 per 1M tokens</td>
+            <td>$4 / $20 per 1M tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Cache read / cache write</strong></td>
+            <td>$0.20 / $10 per 1M tokens</td>
+            <td>$0.20 / $5 per 1M tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Fast mode (up to 2.5x output speed)</strong></td>
+            <td>$16 / $80 per 1M tokens</td>
+            <td>$8 / $40 per 1M tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Context window / max output</strong></td>
+            <td>1M / 128K tokens</td>
+            <td>1M / 128K tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Thinking</strong></td>
+            <td>Adaptive, always on</td>
+            <td>Adaptive, always on</td>
+          </tr>
+          <tr>
+            <td><strong>Default effort (API)</strong></td>
+            <td>high</td>
+            <td>medium</td>
+          </tr>
+          <tr>
+            <td><strong>Output speed (Artificial Analysis)</strong></td>
+            <td>87 to 103 tokens/s</td>
+            <td>103 to 115 tokens/s</td>
+          </tr>
+          <tr>
+            <td><strong>Data retention</strong></td>
+            <td>30-day retention required, no zero data retention unless Anthropic authorizes it</td>
+            <td>Standard</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Fable 5.2 also replaces Fable 5.1 at a lower price ($8 / $40, down from $10 / $50) and, according to Anthropic,
+      generates output up to 30% faster than Fable 5.1. Opus 5.5 still produces tokens faster, but that matters less
+      than it looks: at matched intelligence, Fable 5.2 often finishes the task sooner because it needs fewer steps.
+      More on that in the cost section.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Fable 5.2 vs Opus 5.5 Benchmarks: Full Table</h2>
+
+    <p>
+      Three sources, merged into one table. Anthropic's launch figures use each model's highest available effort.
+      BenchLM aggregates published results. Artificial Analysis (AA) runs its own evaluations; we show its max-effort
+      rows here. Opus 5.5 rows are in bold where Opus wins.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Benchmark</th>
+            <th>What it tests</th>
+            <th>Fable 5.2</th>
+            <th>Opus 5.5</th>
+            <th>Gap</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FrontierCode 2.0</td><td>Agentic coding</td><td>49.1%</td><td>45.5%</td><td>+3.6 Fable</td><td>Anthropic</td></tr>
+          <tr><td>FrontierSWE v2</td><td>Agentic coding</td><td>69.9%</td><td>62.3%</td><td>+7.6 Fable</td><td>Anthropic</td></tr>
+          <tr><td>SWE-bench Pro</td><td>Real repo fixes</td><td>93.0%</td><td>89.9%</td><td>+3.1 Fable</td><td>BenchLM</td></tr>
+          <tr><td>SWE Multimodal</td><td>Fixes from screenshots / UI</td><td>74.1%</td><td>61.4%</td><td>+12.7 Fable</td><td>BenchLM</td></tr>
+          <tr><td>CursorBench 4.0</td><td>IDE coding tasks</td><td>60.0%</td><td>57.8%</td><td>+2.2 Fable</td><td>BenchLM</td></tr>
+          <tr><td>Terminal-Bench 4.0</td><td>Shell / DevOps agents</td><td>67.6%</td><td>66.4%</td><td>+1.2 Fable</td><td>BenchLM</td></tr>
+          <tr><td>ProgramBench</td><td>Program synthesis</td><td>85.6%</td><td><strong>91.2%</strong></td><td><strong>+5.6 Opus</strong></td><td>BenchLM</td></tr>
+          <tr><td>AutomationBench</td><td>Business workflows</td><td>51.4%</td><td>42.5%</td><td>+8.9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Terminal-Bench-Science 0.1</td><td>Agentic science</td><td>74.6%</td><td>58.7%</td><td>+15.9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>WANDR (relaxed)</td><td>Agentic web search</td><td>82.1%</td><td>72.3%</td><td>+9.8 Fable</td><td>Anthropic</td></tr>
+          <tr><td>OSWorld 2.1 (offline)</td><td>Computer use</td><td>89.3%</td><td>87.2%</td><td>+2.1 Fable</td><td>Anthropic</td></tr>
+          <tr><td>RoboDojo Sim</td><td>Robotics</td><td>64.9%</td><td>39.4%</td><td>+25.5 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Remote Labor Index</td><td>Paid freelance-style projects</td><td>41.3%</td><td>21.3%</td><td>+20.0 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Humanity's Last Exam (tools)</td><td>Expert-level questions</td><td>74.2%</td><td>67.7%</td><td>+6.5 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Chartography (no tools)</td><td>Reading charts</td><td>73.4%</td><td>64.4%</td><td>+9.0 Fable</td><td>Anthropic</td></tr>
+          <tr><td>BenchCAD 2.1 (tools)</td><td>CAD modeling</td><td>83.5%</td><td>65.3%</td><td>+18.2 Fable</td><td>Anthropic</td></tr>
+          <tr><td>BenchCAD 2.1 (no tools)</td><td>CAD modeling</td><td>75.4%</td><td>49.0%</td><td>+26.4 Fable</td><td>BenchLM</td></tr>
+          <tr><td>AA-Briefcase v1.1 (rubric)</td><td>Knowledge-work deliverables</td><td>66.1%</td><td>61.2%</td><td>+4.9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>AA-Briefcase v1.1 (Elo)</td><td>Head-to-head preference</td><td>1785</td><td><strong>1800</strong></td><td><strong>+15 Opus</strong></td><td>Anthropic</td></tr>
+          <tr><td>PhysicianBench</td><td>Clinical reasoning</td><td>64.4%</td><td><strong>68.4%</strong></td><td><strong>+4.0 Opus</strong></td><td>BenchLM</td></tr>
+          <tr><td>GMMLU</td><td>Multilingual knowledge</td><td>96.0%</td><td>94.3%</td><td>+1.7 Fable</td><td>BenchLM</td></tr>
+          <tr><td>Intelligence Index (max)</td><td>AA composite</td><td>65</td><td>59</td><td>+6 Fable</td><td>AA</td></tr>
+          <tr><td>AA-Omniscience v1.1 (max)</td><td>Knowledge without hallucinating</td><td>67</td><td>48</td><td>+19 Fable</td><td>AA</td></tr>
+          <tr><td>GDP.pdf (max)</td><td>Document tasks</td><td>24.2%</td><td><strong>26.2%</strong></td><td><strong>+2.0 Opus</strong></td><td>AA</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Score: <strong>Fable 5.2 wins 20 rows, Opus 5.5 wins 4</strong>. The headline numbers hide three patterns
+      that matter more than the total:
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>The gap is small on coding and huge on everything else.</strong> On text-only coding benchmarks, Fable
+        leads by 1 to 8 points, and Opus wins ProgramBench outright. The big gaps (+16 to +26 points) are in robotics, CAD,
+        science, and long freelance-style projects. If your work is mostly code, Fable 5.2 is a smaller upgrade than
+        its average suggests.</li>
+      <li><strong>Terminal-Bench 4.0 is basically a tie.</strong> 67.6% vs 66.4% on BenchLM, and both at 59.6% at max
+        effort on Artificial Analysis. Shell-heavy agents (CI, infra, deployments) get almost nothing from Fable.</li>
+      <li><strong>Fable 5.2 hallucinates less, even at low effort.</strong> On AA-Omniscience, Fable at <em>low</em>
+        effort scores 63 and Opus at <em>max</em> scores 48. Thinking longer does not fix missing knowledge.
+        Cognition's comment at launch says the same thing: "Claude Fable 5.2 says it doesn't know things instead of
+        hallucinating."</li>
+    </ul>
+
+    <p>
+      One row deserves a second look: <strong>AA-Briefcase</strong>. Fable 5.2 meets more rubric criteria (66.1% vs
+      61.2%), but evaluators comparing the two outputs side by side slightly prefer Opus 5.5 (Elo 1800 vs 1785). We
+      read this as a difference in presentation, not correctness. It also matches what many developers said when
+      Fable 5.1 came out: Opus writes in a style people prefer.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Cost per Task: Why 2x the Price Is Not 2x the Bill</h2>
+
+    <p>
+      Price per token and cost per finished task are different numbers. Artificial Analysis publishes both for every
+      effort level. Here are all ten configurations, sorted by cost per task:
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Model (effort)</th>
+            <th>Cost per task</th>
+            <th>Intelligence Index</th>
+            <th>Time per task</th>
+            <th>Time to first token</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Opus 5.5 (low)</td><td>$0.98</td><td>35</td><td>3.0 min</td><td>5.0 s</td></tr>
+          <tr><td>Opus 5.5 (medium)</td><td>$2.45</td><td>48</td><td>7.1 min</td><td>13.3 s</td></tr>
+          <tr><td>Fable 5.2 (low)</td><td>$3.10</td><td>54</td><td>6.5 min</td><td>6.4 s</td></tr>
+          <tr><td>Opus 5.5 (high)</td><td>$3.46</td><td>52</td><td>9.5 min</td><td>25.4 s</td></tr>
+          <tr><td>Fable 5.2 (medium)</td><td>$3.80</td><td>56</td><td>8.3 min</td><td>12.6 s</td></tr>
+          <tr><td>Opus 5.5 (xhigh)</td><td>$6.05</td><td>57</td><td>16.2 min</td><td>76.4 s</td></tr>
+          <tr><td>Fable 5.2 (high)</td><td>$9.08</td><td>62</td><td>17.4 min</td><td>30.5 s</td></tr>
+          <tr><td>Opus 5.5 (max)</td><td>$10.04</td><td>59</td><td>25.1 min</td><td>372.1 s</td></tr>
+          <tr><td>Fable 5.2 (xhigh)</td><td>$14.83</td><td>62</td><td>26.3 min</td><td>74.6 s</td></tr>
+          <tr><td>Fable 5.2 (max)</td><td>$26.54</td><td>65</td><td>44.6 min</td><td>221.2 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Read it in matched pairs and the picture changes:</p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Fable low vs Opus high:</strong> $3.10 vs $3.46, 54 vs 52, 6.5 vs 9.5 minutes. Fable is cheaper,
+        smarter and 30% faster.</li>
+      <li><strong>Fable medium vs Opus xhigh:</strong> $3.80 vs $6.05 for nearly the same score (56 vs 57), in half the
+        time.</li>
+      <li><strong>Fable high vs Opus max:</strong> $9.08 vs $10.04, 62 vs 59, 17.4 vs 25.1 minutes. Opus 5.5 at max
+        effort is beaten on all three axes, so there's no reason to run it.</li>
+      <li><strong>Where Opus wins:</strong> under $3 per task. Opus at low and medium effort has no Fable equivalent,
+        and that is where most production traffic sits.</li>
+      <li><strong>Where Fable stops paying off:</strong> xhigh costs 63% more than high for the same Intelligence Index
+        (62). Anthropic gives the same advice: start Fable 5.2 at high and use xhigh only where you have measured a
+        gain.</li>
+    </ul>
+
+    <p>
+      Anthropic's launch numbers point the same way. On FrontierCode 2.0, Fable 5.2 at high effort scores 45.3%,
+      level with Opus 5.5's best score (45.5%), for roughly half the cost per task. On Chartography, Fable at
+      <em>medium</em> scores 66.4%, above Opus 5.5 at <em>max</em> (64.4%), for under one-tenth of the cost. On
+      Humanity's Last Exam, Fable at low effort matches Opus's top score for under one-tenth of the cost.
+    </p>
+
+    <p>
+      Treat vendor matched-cost claims as a starting point, not a guarantee. These are Anthropic's chosen tasks, and
+      cost per task on Artificial Analysis is an average over its own evaluation suite.
+      Your tasks will behave differently.
+    </p>
+
+    <h3 class="exo mt-4">Caching does not change the ratio</h3>
+
+    <p>
+      Cache reads cost $0.20 per million tokens on both models, so you might expect long cached contexts to close the
+      gap. They don't, because output tokens drive the bill. Example: an agent session that reads 2M input tokens (90%
+      cache hits) and writes 80K output tokens.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Line item</th>
+            <th>Opus 5.5</th>
+            <th>Fable 5.2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1.8M cache reads</td><td>$0.36</td><td>$0.36</td></tr>
+          <tr><td>0.2M uncached input</td><td>$0.80</td><td>$1.60</td></tr>
+          <tr><td>80K output (incl. thinking)</td><td>$1.60</td><td>$3.20</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$2.76</strong></td><td><strong>$5.16</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Output is 58% of the Opus bill and 62% of the Fable bill. Effort is the setting that controls output and thinking
+      tokens, which is why Fable at a lower effort can cost less than Opus at a higher one. If you only take one thing
+      from this article: <strong>pick the effort level first, then the model</strong>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Real Use Cases: Which Model Wins</h2>
+
+    <p>
+      Benchmarks become useful once you map them to actual jobs. For each common workload, here is the model and
+      effort level we would start with, and the data point behind the choice.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Use case</th>
+            <th>Start with</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bug fixes, small features, PR reviews</td>
+            <td>Opus 5.5, medium</td>
+            <td>Most coding gaps are 1 to 4 points; Opus medium ($2.45/task) is cheaper than any Fable config</td>
+          </tr>
+          <tr>
+            <td>Multi-hour migration or refactor</td>
+            <td>Fable 5.2, high</td>
+            <td>FrontierSWE +7.6, Remote Labor Index roughly 2x; Fable high beats Opus max on cost and time</td>
+          </tr>
+          <tr>
+            <td>CI, infra, shell agents</td>
+            <td>Opus 5.5, medium or high</td>
+            <td>Terminal-Bench 4.0 is a tie; Opus streams about 12% faster on average</td>
+          </tr>
+          <tr>
+            <td>Research over PDFs, charts, reports</td>
+            <td>Fable 5.2, medium</td>
+            <td>Chartography medium beats Opus max at under 1/10 the cost; WANDR +9.8</td>
+          </tr>
+          <tr>
+            <td>3D scenes, CAD, geometry code</td>
+            <td>Fable 5.2, high</td>
+            <td>BenchCAD 2.1 is the largest gap of all (+26.4 without tools)</td>
+          </tr>
+          <tr>
+            <td>UI from screenshots or mockups</td>
+            <td>Fable 5.2, medium</td>
+            <td>SWE Multimodal +12.7</td>
+          </tr>
+          <tr>
+            <td>Business automation (CRM, email, sheets)</td>
+            <td>Fable 5.2, medium</td>
+            <td>AutomationBench +8.9; WANDR at medium matches Opus's best for about 40% of the cost</td>
+          </tr>
+          <tr>
+            <td>Client-facing writing, docs, decks</td>
+            <td>Opus 5.5, medium</td>
+            <td>Preferred head-to-head on AA-Briefcase Elo, at half the price</td>
+          </tr>
+          <tr>
+            <td>Factual Q&amp;A where wrong answers are costly</td>
+            <td>Fable 5.2, low</td>
+            <td>AA-Omniscience 63 at low vs 48 for Opus at max</td>
+          </tr>
+          <tr>
+            <td>Classification, extraction, subagents at volume</td>
+            <td>Neither: Sonnet 5.5 or Haiku 5.5</td>
+            <td>Opus low ($0.98/task) is the floor of this comparison; smaller models go lower</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="exo mt-4">Everyday coding in Claude Code</h3>
+
+    <p>
+      For tickets, small features and code review, Opus 5.5 is still the better deal. The coding benchmarks are close,
+      Opus wins ProgramBench, and on Pro and standard Team seats Fable is capped at 50% of your weekly usage during the
+      launch promotion. A workflow that works well: stay on Opus 5.5, and switch to Fable 5.2 with
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">/model</code> when Opus has
+      failed the same task twice or the task spans many files and hours. If you run Claude inside an editor, our guide
+      on <a href="/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">using Claude with
+      Cursor</a> covers model selection there.
+    </p>
+
+    <h3 class="exo mt-4">Long agent runs and migrations</h3>
+
+    <p>
+      This is the clearest case for Fable 5.2. Remote Labor Index (real freelance-style projects) almost doubles, from
+      21.3% to 41.3%. Partners describe the same behavior at launch: Uber says it "works until the job is actually
+      complete instead of stopping at a plausible checkpoint", and Vercel says "I haven't had to say 'No, I meant...' a
+      single time." On long runs, retries and human corrections cost far more than tokens. A model that needs fewer of
+      them is cheaper even at 2x the token price.
+    </p>
+
+    <h3 class="exo mt-4">3D work: three.js, Blender scripts, CAD</h3>
+
+    <p>
+      The "Fable 5.2 vs Opus 5.5 for 3D work" question comes up a lot, and the data supports it: BenchCAD 2.1 shows
+      the widest gap of any benchmark (75.4% vs 49.0% without tools, 83.5% vs 65.3% with tools). Building geometry from a
+      description takes spatial reasoning, and spatial reasoning is where Fable 5.2 pulls furthest ahead. Our split: use
+      Fable 5.2 to generate the first version of a scene, rig or part, then use Opus 5.5 for the cheap follow-ups
+      (colors, camera moves, small parameter changes). Peter Yang's
+      <a href="https://www.youtube.com/watch?v=SsSKJA0EHD4" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">side-by-side video</a> includes two 3D tests (a Kyoto travel video built in code and a kart
+      racing game) and shows every prompt and result. Watch it before deciding. He also reports one test where Opus
+      still wins.
+    </p>
+
+    <h3 class="exo mt-4">Research, charts and document analysis</h3>
+
+    <p>
+      This is the best value case for Fable 5.2, because it wins at <em>medium</em> effort. Chartography at medium
+      (66.4%) beats Opus at max (64.4%), WANDR agentic search is +9.8, and AA-Omniscience shows fewer made-up facts. For
+      due diligence, market research or reading many reports that contradict each other, Fable medium is both cheaper
+      and more reliable than pushing Opus to max. GDP.pdf is the exception: Opus scores slightly higher on that
+      document benchmark, so test your own PDF-heavy workloads before switching.
+    </p>
+
+    <h3 class="exo mt-4">Writing and pushback</h3>
+
+    <p>
+      For essays, docs and client deliverables, start with Opus 5.5: people slightly prefer its outputs head to head,
+      and it costs half as much. Neither model is free of generic AI phrasing by default. A short style block in
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">CLAUDE.md</code> or your system
+      prompt (active voice, no filler words, no hedging, no flattery) makes more difference than the model choice. Peter
+      Yang's video also tests which model holds its position when the user pushes back, which is worth watching if you
+      use Claude to review decisions.
+    </p>
+
+    <h3 class="exo mt-4">Security and biology work</h3>
+
+    <p>
+      Fable 5.2 runs cyber and biology classifiers. When a query is blocked, Anthropic answers it with Opus 4.8 for
+      cyber and Opus 5 for biology. Anthropic reports about 55% fewer false-positive blocks than Fable 5.1. Verified
+      cyber and life-sciences organizations can request <strong>Claude Mythos 5.2</strong>, the same model offered
+      through Anthropic's verification programs. Opus
+      5.5 also has cyber and bio classifiers, so switching models does not remove refusals. In the API, handle the
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">refusal</code> stop reason
+      on both.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Route Between Them in the API</h2>
+
+    <p>
+      Anthropic's own model guide says to start with Opus 5.5 and move to Fable 5.2 when your evals at xhigh or max still
+      fall short. In code, that becomes a small router that sets the model and the effort level together:
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic();
+
+function route(task: { longRun: boolean; research: boolean; failedOnOpus: boolean }) {
+  if (task.longRun || task.failedOnOpus) return { model: "claude-fable-5-2", effort: "high" } as const;
+  if (task.research) return { model: "claude-fable-5-2", effort: "medium" } as const;
+  return { model: "claude-opus-5-5", effort: "medium" } as const;
+}
+
+const { model, effort } = route({ longRun: false, research: true, failedOnOpus: false });
+
+const response = await client.beta.messages.create({
+  model,
+  max_tokens: 16000,
+  output_config: { effort },
+  betas: ["server-side-fallback-2026-07-01"],
+  fallbacks: "default",
+  messages: [{ role: "user", content: "Compare the revenue charts in the three attached reports." }],
+});
+
+if (response.stop_reason === "refusal") console.warn(response.stop_details);</code></pre>
+    </div>
+
+    <p>
+      Always set <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">effort</code>
+      explicitly, because the defaults differ. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fallbacks: "default"</code>
+      reruns a declined request on a fallback model chosen by refusal category, so a classifier block does not end
+      the task. Before trusting the router, run 20 to 50 of your real tasks through both models and compare dollars
+      per <em>passing</em> task.
+    </p>
+
+    <h3 class="exo mt-4">What breaks when you move from Opus 5.5 to Fable 5.2</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Append-only history.</strong> Fable 5.2 checks history edits on every account. If your harness edits
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">system</code>,
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tools</code> or earlier
+        messages mid-conversation, fix that first.</li>
+      <li><strong>Thinking blocks are model-bound.</strong> Switching models in the middle of a conversation drops the
+        earlier thinking. Route per task, not per turn.</li>
+      <li><strong>Computer use</strong> needs
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">computer_toolset_20260801</code>
+        on both models; the older
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">computer_20251124</code>
+        returns a 400 on the Claude API (Amazon Bedrock still accepts it).</li>
+      <li><strong>Advisor tool:</strong> a Fable 5.2 executor only accepts Fable 5.2 or Mythos 5.2 as its advisor.</li>
+      <li><strong>Unchanged from Opus 5.5:</strong> no
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">budget_tokens</code>, no
+        forced <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tool_choice</code>
+        (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tool</code>), no assistant
+        prefill.</li>
+      <li><strong>Compliance:</strong> Fable 5.2 requires 30-day data retention. Zero-data-retention organizations get
+        a 400 unless Anthropic has explicitly authorized them.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">FAQ</h2>
+
+    <h3 class="exo mt-4">Is Fable 5.2 better than Opus 5.5?</h3>
+    <p>
+      On capability, yes: it wins 20 of 24 benchmarks, and the Artificial Analysis Intelligence Index is 65 vs 59 at
+      max effort. On value, it depends on budget. Above about $3 per task, Fable 5.2 gives more intelligence per dollar.
+      Below that, Opus 5.5 at low or medium effort has no Fable equivalent.
+    </p>
+
+    <h3 class="exo mt-4">Is Fable 5.2 worth 2x the price?</h3>
+    <p>
+      For long agent runs, research and CAD or 3D work, usually yes. At matched effort it often costs less per finished
+      task than Opus 5.5 (Fable low at $3.10 beats Opus high at $3.46). For short coding tasks and writing, usually no.
+    </p>
+
+    <h3 class="exo mt-4">Which is better for coding, Fable 5.2 or Opus 5.5?</h3>
+    <p>
+      Fable 5.2 leads FrontierCode 2.0 (49.1% vs 45.5%), FrontierSWE v2 (69.9% vs 62.3%) and SWE-bench Pro (93.0% vs
+      89.9%). Opus 5.5 wins ProgramBench, and the two tie on Terminal-Bench 4.0. Use Opus for day-to-day work and
+      Fable for large, multi-step changes.
+    </p>
+
+    <h3 class="exo mt-4">Is Fable 5.2 faster than Opus 5.5?</h3>
+    <p>
+      Opus 5.5 generates tokens faster (103 to 115 tokens/s vs 87 to 103 on Artificial Analysis). But at matched
+      intelligence Fable often finishes first: Fable low takes 6.5 minutes per task vs 9.5 for Opus high. Both
+      support fast mode at 2x the standard price.
+    </p>
+
+    <h3 class="exo mt-4">Can I use Fable 5.2 on the Claude Pro plan?</h3>
+    <p>
+      Yes. Fable 5.2 is available on Pro, Max, Ultra, Team and Enterprise. During the launch promotion, Pro plans and
+      standard Team seats can use Fable for up to 50% of weekly usage limits. Medium is the default effort in the Claude
+      apps and Claude Code.
+    </p>
+
+    <h3 class="exo mt-4">What is the difference between Fable 5.2 and Mythos 5.2?</h3>
+    <p>
+      Same model, same price. Mythos 5.2 is only available to organizations approved through Anthropic's Cyber or Life
+      Sciences verification programs, for security and research work that the general-release safeguards would
+      block.
+    </p>
+
+    <h3 class="exo mt-4">Should I stop using Opus 5.5?</h3>
+    <p>
+      No. Anthropic still recommends Opus 5.5 as the starting point for most coding and knowledge work. Fable 5.2 is
+      the model you escalate to.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Summary</h2>
+
+    <p>
+      Fable 5.2 is the stronger model: 20 of 24 benchmarks, with the widest leads on long agent work, CAD, robotics and
+      science, and far fewer hallucinations. Opus 5.5 is still the better default for everyday coding, terminal agents,
+      writing and anything under $3 per task. Don't compare them at their default effort levels. Match the effort
+      first, measure the cost per passing task on your own workload, and escalate to Fable 5.2 when Opus 5.5 hits its
+      limit.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Categories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/blog/'>
+          All Posts
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/javascript/">
+          JavaScript (16)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/llm/">
+          LLM (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/miscellaneous/">
+          Miscellaneous (8)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/responsive/">
+          Responsive (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/tamagui/">
+          Tamagui (5)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/ux/">
+          UX (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Start Building with Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Ready to create amazing websites? Get started with Axentix framework today.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Get Started
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Related Posts</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/axios/axios-get-query-params-complete-guide/" aria-label="Axios GET Request Query Params: Easy Guide &amp; Examples article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/axios/axios-get-query-params-complete-guide/axios-get-params.webp" loading="lazy"
+      alt="Axios GET Request Query Params: Easy Guide &amp; Examples recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/axios/axios-get-query-params-complete-guide/">
+        Axios GET Request Query Params: Easy Guide &amp; Examples
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        14 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/axios/">Axios
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn how to use query parameters with Axios GET requests. Complete guide covering params object, URL encoding, custom serialization, and real-world examples.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/axios/axios-get-query-params-complete-guide/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/nativewind/what-is-nativewind-and-how-to-use-it/" aria-label="What is NativeWind and How to Use It: Tailwind CSS for React Native article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/nativewind/what-is-nativewind-and-how-to-use-it/nativewing-banner.webp" loading="lazy"
+      alt="What is NativeWind and How to Use It: Tailwind CSS for React Native recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/nativewind/what-is-nativewind-and-how-to-use-it/">
+        What is NativeWind and How to Use It: Tailwind CSS for React Native
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        02 Mar 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/nativewind/">Native wind
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Discover NativeWind, the library that brings the Tailwind CSS utility-first workflow to React Native for consistent, intuitive styling across web and mobile.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/nativewind/what-is-nativewind-and-how-to-use-it/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/" aria-label="Get The Current Array Index in JavaScript forEach(): Complete Guide article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/get-current-array-index-in-javascript-foreach/js-foreach-index.webp" loading="lazy"
+      alt="Get The Current Array Index in JavaScript forEach(): Complete Guide recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+        Get The Current Array Index in JavaScript forEach(): Complete Guide
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        13 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Learn how to get the current array index in JavaScript forEach() method. Complete guide with examples, performance comparisons, and best practices for index-based operations.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/blog/javascript/get-current-array-index-in-javascript-foreach/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/tools/speedtest-internet-health-test/" class="text-underline text-grey">Internet Health Test</a>
+  </p>
+
+  <p class="m-0">
+    Axentix Framework - Made with ♥ by Axel SIMONET &amp; Vincent LEVEQUE<br>
+    Creators of <a href="https://axenthost.com/" class="text-underline">AxentHost</a> at <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>

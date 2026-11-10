@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    
+    
+    
+    <title>Fable 5.2 vs Opus 5.5 : benchmarks, coût par tâche et usages</title>
+    <meta name="description" content="Claude Fable 5.2 vs Opus 5.5 comparés sur 24 benchmarks, le prix, le coût par tâche à chaque niveau d&#39;effort, la vitesse et des cas d&#39;usage réels. Quand Fable vaut 2x le prix, et quand Opus 5.5 reste le meilleur choix." />
+    <meta property="og:description" content="Claude Fable 5.2 vs Opus 5.5 comparés sur 24 benchmarks, le prix, le coût par tâche à chaque niveau d&#39;effort, la vitesse et des cas d&#39;usage réels. Quand Fable vaut 2x le prix, et quand Opus 5.5 reste le meilleur choix." />
+    <meta property="og:title" content="Fable 5.2 vs Opus 5.5 : benchmarks, coût par tâche et usages" />
+
+    
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="x-default">
+    <link rel="alternate" href='https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="en">
+    <link rel="alternate" href='https://useaxentix.com/fr/fr/blog/llm/fable-5-2-vs-opus-5-5/' hreflang="fr">
+    
+
+    <!-- f7909df766e4c1194f88a6264e4d2f47 --><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="author" content="Axentix Team" />
+<meta name="copyright" content="axentix team" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:url" content="https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/" />
+<link rel="canonical" href="https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/" />
+
+
+
+
+<meta property="og:image" content="https://useaxentix.com/img/blog/llm/fable-5-2-vs-opus-5-5/fable-5-2-vs-opus-5-5-fr.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://useaxentix.com/apple-touch-icon.png?v=2" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://useaxentix.com/favicon-32x32.png?v=2" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://useaxentix.com/favicon-16x16.png?v=2" />
+
+<link rel="mask-icon" href="https://useaxentix.com/safari-pinned-tab.svg?v=2" color="#2196f3" />
+<meta name="msapplication-TileColor" content="#2d89ef" />
+<meta name="theme-color" content="#1e1f33" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+<meta name="linkavista" content="link-2195-5022"> 
+    
+    
+    
+    
+
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/neu-axentix@1.6.1/dist/css/neu-axentix.min.css">
+    <link rel="stylesheet" href="/axentix/axentix.min.c534d79b468fead82242280f6f395c89e2e3ffd6fc077c006fe9d180079709ef.css" />
+    <link rel="stylesheet" href="/blog.min.f44114842c38830a3701aed67d2108fef0a5a5bc7f76a532dc457a5ef3fc62aa.css" />
+</head>
+
+<body class="layout relative-pos"><header>
+  <div class="navbar-fixed">
+    <nav class="navbar lh-normal" id="main-navbar">
+      <button
+        data-target="main-sidenav"
+        class="btn hide-md-up font-s5"
+        aria-label="Menu button"
+      >
+        <span class="iconify-inline" data-icon="mdi:menu"></span> 
+      </button>
+
+      <a href="https://useaxentix.com/" class="navbar-brand font-w600 z-index-2 d-flex lh-normal mr-2">
+        <img src="https://useaxentix.com//img/axentix.svg" alt="Axentix logo" class="navbar-logo mr-1" />
+        <span class="brand-name">Axentix</span>
+      </a>
+
+      <div class="navbar-menu hide-sm-down navbar-centered">
+        <a class="navbar-link font-w600" href="https://useaxentix.com/">Accueil</a>
+
+        <a class="navbar-link font-w600" href="/docs/getting-started/">Documentation</a>
+
+        <a class="navbar-link font-w600" href="/fr/blog/">Blog</a>
+
+        <a class="navbar-link font-w600" href="https://neu.useaxentix.com/" target="_blank" rel="noopener">
+          Neumorphisme
+        </a>
+      </div>
+      <div class="navbar-menu ml-auto font-s5">
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://github.com/axentix/axentix" target="_blank" rel="noopener" aria-label="Github">
+          <span class="iconify-inline" data-icon="mdi:github"></span>
+        </a>
+
+        <a
+          class="navbar-link px-1 hide-xs"
+          aria-label="Twitter"
+          href="https://twitter.com/UseAxentix"
+          target="_blank"
+          rel="noopener"
+          >
+          <span class="iconify-inline" data-icon="mdi:twitter"></span> 
+        </a>
+
+        <a class="navbar-link font-w600 px-1 hide-xs" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" aria-label="Discord">
+          <span class="iconify-inline" data-icon="mdi:discord"></span>
+        </a><div class="dropdown my-auto" id="language-dropdown" data-ax="dropdown">
+  <button type="button" aria-label="Langue"
+    class="btn d-flex vcenter rounded-1 navbar-link font-w600 px-1" data-target="language-dropdown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="12" r="10" />
+        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+        <path d="M2 12h20" />
+      </g>
+    </svg>
+    &nbsp;FR
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48" class="ml-1">
+      <path fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="4" d="M36 19L24 31L12 19z" />
+    </svg>
+  </button>
+
+  <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4 airforce dark-5"><a class="dropdown-item d-flex vcenter" href="https://useaxentix.com/blog/llm/fable-5-2-vs-opus-5-5/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 36 36" class="icon mr-1">
+        <path fill="#00247d" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z" />
+        <path fill="#cf1b2b" d="m25.14 23l9.712 6.801a3.977 3.977 0 0 0 .99-1.749L28.627 23zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943zm10-10h2.141l9.711-6.8a3.988 3.988 0 0 0-1.937-1.085L23 12.057zm-12.141 0L1.148 6.2a3.994 3.994 0 0 0-.991 1.749L7.372 13z" />
+        <path fill="#eee" d="M36 21H21v10h2v-5.836L31.335 31H32a3.99 3.99 0 0 0 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21zM36 9a3.983 3.983 0 0 0-1.148-2.8L25.141 13H23v-.943l9.915-6.942A4.001 4.001 0 0 0 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059zM13 5v5.837L4.664 5H4a3.985 3.985 0 0 0-2.852 1.2l9.711 6.8H7.372L.157 7.949A3.968 3.968 0 0 0 0 9v.059L5.628 13H0v2h15V5z" />
+        <path fill="#cf1b2b" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z" />
+      </svg>
+      English
+    </a></div>
+</div>
+<div class="dropdown site-dropdown" id="toggle-dropdown" data-ax="dropdown">
+          <span class="navbar-link font-w600 px-1 ml-2" data-target="toggle-dropdown" aria-label="Toggle dark mode">
+            <span class="iconify-inline" data-icon="ic:round-wb-sunny"></span>
+            <span class="iconify-inline" data-icon="fa-regular:moon"></span>
+          </span>
+
+          <div class="dropdown-content dropdown-right font-s2 rounded-2 light-shadow-1 mt-4">
+            <span class="dropdown-item cursor-pointer" id="toggle-light"><span class="iconify-inline mr-1" data-icon="ic:round-wb-sunny"></span> Clair</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-dark"><span class="iconify-inline mr-1" data-icon="fa-regular:moon"></span> Sombre</span>
+            <span class="dropdown-item cursor-pointer" id="toggle-system"><span class="iconify-inline mr-1" data-icon="mdi:cog"></span> Système</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="main-sidenav" class="sidenav light-shadow-2"><div class="sidenav-header">
+  <button data-target="main-sidenav" aria-label="Close sidenav" class="btn btn-circle btn-small hide-md-up sidenav-cross"><span class="iconify-inline font-s4" data-icon="mdi:close"></span></button>
+  <img class="docs-logo sidenav-logo hide-md-up" src="https://useaxentix.com//img/axentix.svg" alt="Axentix Logo" />
+
+  
+  <div class="dropdown site-dropdown" id="selector-dropdown" data-ax="dropdown" >
+    <div data-target="selector-dropdown" class="d-flex py-2 px-5 mt-2 bd-1 bd-b-solid bd-grey bd-light-2 cursor-pointer">
+      2.4.x <span class="iconify-inline font-s3" data-icon="mdi:chevron-down"></span>
+    </div>
+
+    
+    
+    
+
+    
+    <div class="version-selector dropdown-content dropdown-constrain-width light-shadow-2">
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com/fr/blog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 font-w600">
+           Latest  2.4.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.3.xfr/blog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           2.3.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//2.2.xfr/blog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           2.2.x
+        </a>
+      
+        
+
+        
+          
+        
+
+        <a href='https://useaxentix.com//1.3.xfr/blog/llm/fable-5-2-vs-opus-5-5/' class="text-center dropdown-item py-3 ">
+           1.3.x
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="sidenav-content">
+  <div class="hide-md-up">
+    <a href="https://useaxentix.com/" class="sidenav-link">Home</a>
+    <a href="/docs/getting-started/" class="sidenav-link">Documentation</a>
+    <a href="/fr/blog/" class="sidenav-link">Blog</a>
+    <div class="divider"></div>
+  </div>
+  
+  <a href="/docs/getting-started/" class="sidenav-link ">
+    Getting started
+  </a>
+  
+  <span class="sidenav-link" data-target="general-menu">General</span>
+  <div>
+    <div class="collapsible" id="general-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  <span class="sidenav-link" data-target="components-menu">Components</span>
+  <div>
+    <div class="collapsible" id="components-menu">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="forms-menu">Forms</span>
+  <div>
+    <div class="collapsible" id="forms-menu">
+      <a class="sidenav-link " href="/docs/forms/material/">Material forms</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="trends-menu">Trends</span>
+  <div>
+    <div class="collapsible" id="trends-menu">
+      <a class="sidenav-link" target="_blank" rel="noopener" href="https://neu.useaxentix.com/">Neumorphism</a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  <span class="sidenav-link" data-target="utilities-menu">Utilities</span>
+  <div>
+    <div class="collapsible" id="utilities-menu">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  <a href="/docs/migration/" class="sidenav-link ">
+    Migrate from v1
+  </a>
+</div>
+
+<a id="discord-footer" href="https://discord.useaxentix.com/" target="_blank" rel="noopener" class="sidenav-footer text-center grey dark-5">
+  <span class="iconify-inline" data-icon="mdi:discord"></span> &nbsp;
+  Join us
+</a>
+</div>
+
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="svg-gradient" x1=".5" y1="1" x2=".5">
+            <stop stop-color="#ff7600"></stop>
+            <stop offset="1" stop-color="#ffd526"></stop>
+        </linearGradient>
+    </svg>
+
+    <div class="overflow-hidden w100 bg-blur-wrapper absolute-pos">
+        <div class="bg-blur bg-blur-top-right orange rounded-full"></div>
+        <div class="bg-blur bg-blur-top-left blue rounded-full"></div>
+        <div class="bg-blur bg-blur-bottom-left orange rounded-full"></div>
+    </div>
+
+    <main>
+<div class="container blog-article mt-5">
+  <a class="btn d-flex rounded-2 bd-3 bd-solid bd-dark-3 capitalize"
+    href='/fr/blog/llm/'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="my-auto">
+      <g fill="none">
+        <path
+          d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M3.636 11.293a1 1 0 0 0 0 1.414l5.657 5.657a1 1 0 0 0 1.414-1.414L6.757 13H20a1 1 0 1 0 0-2H6.757l3.95-3.95a1 1 0 0 0-1.414-1.414z" />
+      </g>
+    </svg>&nbsp;
+    LLM Articles
+  </a>
+</div>
+
+<section id="article" class="container blog-article grix xs1 md7 gutter-md7 fit-content-height">
+  
+
+  
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Fable 5.2 vs Opus 5.5 : benchmarks, coût par tâche et cas d'usage réels
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/fr/blog/llm/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      LLM
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-11-10" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      10/11/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s2-5">
+    Anthropic a sorti <strong>Claude Fable 5.2</strong> le 9 novembre 2026, sept semaines après <strong>Claude Opus
+    5.5</strong>. Fable 5.2 remporte 20 des 24 benchmarks que nous avons rassemblés, pour un prix catalogue exactement
+    2x plus élevé. La bonne question n'est donc pas "lequel est le plus intelligent", mais "combien coûte une tâche
+    terminée". Selon les mesures d'Artificial Analysis par niveau d'effort, <strong>Fable 5.2 en effort low est moins
+    cher, plus rapide et plus intelligent qu'Opus 5.5 en effort high</strong>. Opus 5.5 ne reprend l'avantage qu'en
+    dessous d'environ 3 $ par tâche. Au programme : le tableau complet des benchmarks, le coût par tâche à chaque
+    niveau d'effort, les cas d'usage où chaque modèle gagne, et les changements d'API à vérifier avant de basculer.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Fable 5.2 vs Opus 5.5 : intelligence et coût par tâche"
+      src='https://useaxentix.com//img/blog/llm/fable-5-2-vs-opus-5-5/fable-5-2-vs-opus-5-5-fr.webp'
+      alt="Graphique de l'Intelligence Index d'Artificial Analysis en fonction du coût par tâche pour Claude Fable 5.2 et Claude Opus 5.5, aux efforts low, medium, high, xhigh et max" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Au-delà d'environ 3 $ par tâche, la courbe orange de Fable 5.2
+      reste au-dessus de celle d'Opus 5.5 à tous les prix
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <h2 class="exo mt-5" itemprop="subtitle">La réponse courte</h2>
+
+    <ul class="lh-rem-4">
+      <li><strong>Gardez Opus 5.5 par défaut</strong> pour le code au quotidien, la rédaction, les agents terminal et
+        DevOps, et les pipelines à gros volume. Anthropic le présente lui-même comme son "strongest daily driver".</li>
+      <li><strong>Passez à Fable 5.2</strong> pour les longues sessions d'agent, les migrations difficiles, la recherche
+        sur graphiques et documents, la CAO et la 3D, la robotique, les sciences, et toute tâche qu'Opus 5.5 a ratée deux
+        fois.</li>
+      <li><strong>Comparez à effort égal, pas à effort par défaut.</strong> Dans l'API, Fable 5.2 est réglé sur
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">high</code> par défaut et
+        Opus 5.5 sur <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">medium</code>.
+        Sans rien régler, une tâche Fable coûte 3,7x plus cher, et l'essentiel de cet écart vient du niveau d'effort,
+        pas du modèle.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Fable 5.2 vs Opus 5.5 : caractéristiques et tarifs</h2>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Claude Fable 5.2</th>
+            <th>Claude Opus 5.5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Date de sortie</strong></td>
+            <td>9 novembre 2026</td>
+            <td>22 septembre 2026</td>
+          </tr>
+          <tr>
+            <td><strong>Identifiant API</strong></td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">claude-fable-5-2</code></td>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">claude-opus-5-5</code></td>
+          </tr>
+          <tr>
+            <td><strong>Prix entrée / sortie</strong></td>
+            <td>8 $ / 40 $ par million de tokens</td>
+            <td>4 $ / 20 $ par million de tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Lecture / écriture du cache</strong></td>
+            <td>0,20 $ / 10 $ par million de tokens</td>
+            <td>0,20 $ / 5 $ par million de tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Fast mode (jusqu'à 2,5x plus rapide en sortie)</strong></td>
+            <td>16 $ / 80 $ par million de tokens</td>
+            <td>8 $ / 40 $ par million de tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Fenêtre de contexte / sortie max</strong></td>
+            <td>1M / 128K tokens</td>
+            <td>1M / 128K tokens</td>
+          </tr>
+          <tr>
+            <td><strong>Raisonnement</strong></td>
+            <td>Adaptatif, toujours actif</td>
+            <td>Adaptatif, toujours actif</td>
+          </tr>
+          <tr>
+            <td><strong>Effort par défaut (API)</strong></td>
+            <td>high</td>
+            <td>medium</td>
+          </tr>
+          <tr>
+            <td><strong>Vitesse de sortie (Artificial Analysis)</strong></td>
+            <td>87 à 103 tokens/s</td>
+            <td>103 à 115 tokens/s</td>
+          </tr>
+          <tr>
+            <td><strong>Conservation des données</strong></td>
+            <td>Rétention de 30 jours obligatoire, pas de zero data retention sauf autorisation d'Anthropic</td>
+            <td>Standard</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Fable 5.2 remplace aussi Fable 5.1 à un prix plus bas (8 $ / 40 $ contre 10 $ / 50 $) et, selon Anthropic,
+      génère sa réponse jusqu'à 30 % plus vite que Fable 5.1. Opus 5.5 produit toujours ses tokens plus vite, mais cela
+      compte moins qu'il n'y paraît : à intelligence égale, Fable 5.2 termine souvent la tâche avant lui parce qu'il a
+      besoin de moins d'étapes. Les détails sont dans la partie sur les coûts.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Benchmarks Fable 5.2 vs Opus 5.5 : le tableau complet</h2>
+
+    <p>
+      Trois sources réunies dans un seul tableau. Les chiffres de lancement d'Anthropic utilisent l'effort le plus élevé
+      disponible pour chaque modèle. BenchLM agrège les résultats publiés. Artificial Analysis (AA) fait tourner ses
+      propres évaluations, et nous reprenons ici ses lignes en effort max. Les victoires d'Opus 5.5 sont en gras.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Benchmark</th>
+            <th>Ce qu'il mesure</th>
+            <th>Fable 5.2</th>
+            <th>Opus 5.5</th>
+            <th>Écart</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FrontierCode 2.0</td><td>Code agentique</td><td>49,1 %</td><td>45,5 %</td><td>+3,6 Fable</td><td>Anthropic</td></tr>
+          <tr><td>FrontierSWE v2</td><td>Code agentique</td><td>69,9 %</td><td>62,3 %</td><td>+7,6 Fable</td><td>Anthropic</td></tr>
+          <tr><td>SWE-bench Pro</td><td>Corrections sur de vrais dépôts</td><td>93,0 %</td><td>89,9 %</td><td>+3,1 Fable</td><td>BenchLM</td></tr>
+          <tr><td>SWE Multimodal</td><td>Corrections à partir de captures / UI</td><td>74,1 %</td><td>61,4 %</td><td>+12,7 Fable</td><td>BenchLM</td></tr>
+          <tr><td>CursorBench 4.0</td><td>Tâches de code dans l'IDE</td><td>60,0 %</td><td>57,8 %</td><td>+2,2 Fable</td><td>BenchLM</td></tr>
+          <tr><td>Terminal-Bench 4.0</td><td>Agents shell / DevOps</td><td>67,6 %</td><td>66,4 %</td><td>+1,2 Fable</td><td>BenchLM</td></tr>
+          <tr><td>ProgramBench</td><td>Synthèse de programmes</td><td>85,6 %</td><td><strong>91,2 %</strong></td><td><strong>+5,6 Opus</strong></td><td>BenchLM</td></tr>
+          <tr><td>AutomationBench</td><td>Workflows métier</td><td>51,4 %</td><td>42,5 %</td><td>+8,9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Terminal-Bench-Science 0.1</td><td>Science agentique</td><td>74,6 %</td><td>58,7 %</td><td>+15,9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>WANDR (relaxed)</td><td>Recherche web agentique</td><td>82,1 %</td><td>72,3 %</td><td>+9,8 Fable</td><td>Anthropic</td></tr>
+          <tr><td>OSWorld 2.1 (offline)</td><td>Pilotage d'ordinateur</td><td>89,3 %</td><td>87,2 %</td><td>+2,1 Fable</td><td>Anthropic</td></tr>
+          <tr><td>RoboDojo Sim</td><td>Robotique</td><td>64,9 %</td><td>39,4 %</td><td>+25,5 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Remote Labor Index</td><td>Missions type freelance rémunérées</td><td>41,3 %</td><td>21,3 %</td><td>+20,0 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Humanity's Last Exam (outils)</td><td>Questions niveau expert</td><td>74,2 %</td><td>67,7 %</td><td>+6,5 Fable</td><td>Anthropic</td></tr>
+          <tr><td>Chartography (sans outils)</td><td>Lecture de graphiques</td><td>73,4 %</td><td>64,4 %</td><td>+9,0 Fable</td><td>Anthropic</td></tr>
+          <tr><td>BenchCAD 2.1 (outils)</td><td>Modélisation CAO</td><td>83,5 %</td><td>65,3 %</td><td>+18,2 Fable</td><td>Anthropic</td></tr>
+          <tr><td>BenchCAD 2.1 (sans outils)</td><td>Modélisation CAO</td><td>75,4 %</td><td>49,0 %</td><td>+26,4 Fable</td><td>BenchLM</td></tr>
+          <tr><td>AA-Briefcase v1.1 (grille)</td><td>Livrables de travail intellectuel</td><td>66,1 %</td><td>61,2 %</td><td>+4,9 Fable</td><td>Anthropic</td></tr>
+          <tr><td>AA-Briefcase v1.1 (Elo)</td><td>Préférence en face-à-face</td><td>1785</td><td><strong>1800</strong></td><td><strong>+15 Opus</strong></td><td>Anthropic</td></tr>
+          <tr><td>PhysicianBench</td><td>Raisonnement clinique</td><td>64,4 %</td><td><strong>68,4 %</strong></td><td><strong>+4,0 Opus</strong></td><td>BenchLM</td></tr>
+          <tr><td>GMMLU</td><td>Connaissances multilingues</td><td>96,0 %</td><td>94,3 %</td><td>+1,7 Fable</td><td>BenchLM</td></tr>
+          <tr><td>Intelligence Index (max)</td><td>Score composite AA</td><td>65</td><td>59</td><td>+6 Fable</td><td>AA</td></tr>
+          <tr><td>AA-Omniscience v1.1 (max)</td><td>Connaissances sans hallucination</td><td>67</td><td>48</td><td>+19 Fable</td><td>AA</td></tr>
+          <tr><td>GDP.pdf (max)</td><td>Tâches sur documents</td><td>24,2 %</td><td><strong>26,2 %</strong></td><td><strong>+2,0 Opus</strong></td><td>AA</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Bilan : <strong>20 lignes pour Fable 5.2, 4 pour Opus 5.5</strong>. Derrière le score global, trois tendances
+      comptent davantage :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li><strong>L'écart est faible sur le code et énorme ailleurs.</strong> Sur les benchmarks de code textuels, Fable
+        mène de 1 à 8 points, et Opus gagne ProgramBench. Les gros écarts (+16 à +26 points) concernent la robotique,
+        la CAO, les sciences et les longues missions de type freelance. Si vous faites surtout du code, Fable 5.2 est
+        un gain plus modeste que ne le laisse penser sa moyenne.</li>
+      <li><strong>Terminal-Bench 4.0, c'est quasiment l'égalité.</strong> 67,6 % contre 66,4 % sur BenchLM, et 59,6 %
+        des deux côtés en effort max chez Artificial Analysis. Les agents qui vivent dans le shell (CI, infra,
+        déploiements) ne gagnent presque rien avec Fable.</li>
+      <li><strong>Fable 5.2 hallucine moins, même en effort low.</strong> Sur AA-Omniscience, Fable en effort
+        <em>low</em> obtient 63, Opus en effort <em>max</em> obtient 48. Réfléchir plus longtemps ne compense pas une
+        connaissance absente. Cognition l'a résumé au lancement : "Claude Fable 5.2 says it doesn't know things instead
+        of hallucinating."</li>
+    </ul>
+
+    <p>
+      Une ligne mérite un second regard : <strong>AA-Briefcase</strong>. Fable 5.2 valide plus de critères de la grille
+      (66,1 % contre 61,2 %), mais en comparaison directe, les évaluateurs préfèrent légèrement les livrables d'Opus 5.5
+      (Elo 1800 contre 1785). Nous y voyons une différence de présentation, pas de justesse. C'est aussi ce que beaucoup
+      de développeurs disaient à la sortie de Fable 5.1 : le style d'écriture d'Opus plaît davantage.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Coût par tâche : pourquoi 2x le prix ne fait pas 2x la facture</h2>
+
+    <p>
+      Le prix au token et le coût d'une tâche terminée sont deux chiffres différents. Artificial Analysis publie les deux
+      pour chaque niveau d'effort. Voici les dix configurations, triées par coût par tâche :
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Modèle (effort)</th>
+            <th>Coût par tâche</th>
+            <th>Intelligence Index</th>
+            <th>Temps par tâche</th>
+            <th>Délai avant le premier token</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Opus 5.5 (low)</td><td>0,98 $</td><td>35</td><td>3,0 min</td><td>5,0 s</td></tr>
+          <tr><td>Opus 5.5 (medium)</td><td>2,45 $</td><td>48</td><td>7,1 min</td><td>13,3 s</td></tr>
+          <tr><td>Fable 5.2 (low)</td><td>3,10 $</td><td>54</td><td>6,5 min</td><td>6,4 s</td></tr>
+          <tr><td>Opus 5.5 (high)</td><td>3,46 $</td><td>52</td><td>9,5 min</td><td>25,4 s</td></tr>
+          <tr><td>Fable 5.2 (medium)</td><td>3,80 $</td><td>56</td><td>8,3 min</td><td>12,6 s</td></tr>
+          <tr><td>Opus 5.5 (xhigh)</td><td>6,05 $</td><td>57</td><td>16,2 min</td><td>76,4 s</td></tr>
+          <tr><td>Fable 5.2 (high)</td><td>9,08 $</td><td>62</td><td>17,4 min</td><td>30,5 s</td></tr>
+          <tr><td>Opus 5.5 (max)</td><td>10,04 $</td><td>59</td><td>25,1 min</td><td>372,1 s</td></tr>
+          <tr><td>Fable 5.2 (xhigh)</td><td>14,83 $</td><td>62</td><td>26,3 min</td><td>74,6 s</td></tr>
+          <tr><td>Fable 5.2 (max)</td><td>26,54 $</td><td>65</td><td>44,6 min</td><td>221,2 s</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Lisez-le par paires de budget comparable, et la conclusion change :</p>
+
+    <ul class="lh-rem-4">
+      <li><strong>Fable low contre Opus high :</strong> 3,10 $ contre 3,46 $, 54 contre 52, 6,5 contre 9,5 minutes.
+        Fable est moins cher, plus intelligent et 30 % plus rapide.</li>
+      <li><strong>Fable medium contre Opus xhigh :</strong> 3,80 $ contre 6,05 $ pour un score quasi identique (56
+        contre 57), en deux fois moins de temps.</li>
+      <li><strong>Fable high contre Opus max :</strong> 9,08 $ contre 10,04 $, 62 contre 59, 17,4 contre 25,1 minutes.
+        Opus 5.5 en effort max perd sur les trois tableaux, il n'y a donc aucune raison de l'utiliser.</li>
+      <li><strong>Là où Opus gagne :</strong> sous 3 $ par tâche. Opus en effort low et medium n'a pas d'équivalent
+        Fable, et c'est là que se trouve l'essentiel du trafic en production.</li>
+      <li><strong>Là où Fable cesse d'être rentable :</strong> xhigh coûte 63 % de plus que high pour le même
+        Intelligence Index (62). Anthropic donne le même conseil : démarrer Fable 5.2 en high et ne passer en xhigh que
+        là où un gain a été mesuré.</li>
+    </ul>
+
+    <p>
+      Les chiffres de lancement d'Anthropic vont dans le même sens. Sur FrontierCode 2.0, Fable 5.2 en effort high
+      obtient 45,3 %, au niveau du meilleur score d'Opus 5.5 (45,5 %), pour environ la moitié du coût par tâche. Sur
+      Chartography, Fable en <em>medium</em> obtient 66,4 %, au-dessus d'Opus 5.5 en <em>max</em> (64,4 %), pour moins
+      d'un dixième du coût. Sur Humanity's Last Exam, Fable en low égale le meilleur score d'Opus pour moins d'un dixième
+      du coût.
+    </p>
+
+    <p>
+      Prenez les comparaisons à coût égal publiées par un éditeur comme un point de départ, pas comme une garantie. Les
+      tâches sont choisies par Anthropic, et le coût par tâche d'Artificial Analysis est une moyenne sur sa propre suite
+      d'évaluations. Vos tâches se comporteront différemment.
+    </p>
+
+    <h3 class="exo mt-4">Le cache ne change pas le ratio</h3>
+
+    <p>
+      La lecture du cache coûte 0,20 $ par million de tokens sur les deux modèles, on pourrait donc croire qu'un long
+      contexte en cache réduit l'écart. Ce n'est pas le cas, parce que ce sont les tokens de sortie qui font la facture.
+      Exemple : une session d'agent qui lit 2M de tokens en entrée (90 % depuis le cache) et écrit 80K tokens.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Poste</th>
+            <th>Opus 5.5</th>
+            <th>Fable 5.2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1,8M de lectures du cache</td><td>0,36 $</td><td>0,36 $</td></tr>
+          <tr><td>0,2M d'entrée hors cache</td><td>0,80 $</td><td>1,60 $</td></tr>
+          <tr><td>80K de sortie (réflexion incluse)</td><td>1,60 $</td><td>3,20 $</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>2,76 $</strong></td><td><strong>5,16 $</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      La sortie représente 58 % de la facture Opus et 62 % de la facture Fable. Or c'est l'effort qui pilote les tokens
+      de sortie et de réflexion. Voilà pourquoi Fable avec un effort plus bas peut coûter moins cher qu'Opus avec un
+      effort plus haut. Si vous ne retenez qu'une chose : <strong>choisissez d'abord le niveau d'effort, ensuite le
+      modèle</strong>.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Cas d'usage réels : quel modèle gagne</h2>
+
+    <p>
+      Les benchmarks ne servent que s'ils correspondent à un vrai travail. Pour chaque usage courant, voici le modèle et
+      l'effort par lesquels nous commencerions, avec le chiffre qui justifie ce choix.
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Usage</th>
+            <th>Commencer avec</th>
+            <th>Pourquoi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Corrections de bugs, petites fonctionnalités, revues de PR</td>
+            <td>Opus 5.5, medium</td>
+            <td>La plupart des écarts en code sont de 1 à 4 points ; Opus medium (2,45 $/tâche) coûte moins que toute
+              configuration Fable</td>
+          </tr>
+          <tr>
+            <td>Migration ou refactoring de plusieurs heures</td>
+            <td>Fable 5.2, high</td>
+            <td>FrontierSWE +7,6, Remote Labor Index presque x2 ; Fable high bat Opus max en coût et en temps</td>
+          </tr>
+          <tr>
+            <td>CI, infra, agents shell</td>
+            <td>Opus 5.5, medium ou high</td>
+            <td>Égalité sur Terminal-Bench 4.0 ; Opus génère environ 12 % plus vite en moyenne</td>
+          </tr>
+          <tr>
+            <td>Recherche sur PDF, graphiques, rapports</td>
+            <td>Fable 5.2, medium</td>
+            <td>Sur Chartography, medium bat Opus max pour moins d'1/10 du coût ; WANDR +9,8</td>
+          </tr>
+          <tr>
+            <td>Scènes 3D, CAO, code géométrique</td>
+            <td>Fable 5.2, high</td>
+            <td>BenchCAD 2.1 est le plus gros écart de tous (+26,4 sans outils)</td>
+          </tr>
+          <tr>
+            <td>Interface à partir de captures ou maquettes</td>
+            <td>Fable 5.2, medium</td>
+            <td>SWE Multimodal +12,7</td>
+          </tr>
+          <tr>
+            <td>Automatisation métier (CRM, e-mails, tableurs)</td>
+            <td>Fable 5.2, medium</td>
+            <td>AutomationBench +8,9 ; WANDR en medium égale le meilleur score d'Opus pour environ 40 % du coût</td>
+          </tr>
+          <tr>
+            <td>Rédaction client, documentation, présentations</td>
+            <td>Opus 5.5, medium</td>
+            <td>Préféré en face-à-face sur AA-Briefcase (Elo), pour moitié prix</td>
+          </tr>
+          <tr>
+            <td>Questions factuelles où une erreur coûte cher</td>
+            <td>Fable 5.2, low</td>
+            <td>AA-Omniscience 63 en low contre 48 pour Opus en max</td>
+          </tr>
+          <tr>
+            <td>Classification, extraction, sous-agents à gros volume</td>
+            <td>Aucun des deux : Sonnet 5.5 ou Haiku 5.5</td>
+            <td>Opus low (0,98 $/tâche) est le plancher de ce comparatif ; les petits modèles descendent plus bas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="exo mt-4">Le code au quotidien dans Claude Code</h3>
+
+    <p>
+      Pour les tickets, les petites fonctionnalités et la revue de code, Opus 5.5 reste le meilleur rapport qualité-prix.
+      Les benchmarks de code sont serrés, Opus gagne ProgramBench, et sur les forfaits Pro et les sièges Team standard,
+      Fable est limité à 50 % de l'usage hebdomadaire pendant la promotion de lancement. Une méthode qui marche bien :
+      rester sur Opus 5.5, et passer à Fable 5.2 avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">/model</code> quand Opus a
+      échoué deux fois sur la même tâche, ou quand la tâche touche beaucoup de fichiers et prend des heures. Si vous
+      utilisez Claude dans un éditeur, notre guide pour
+      <a href="/fr/blog/cursor/how-to-use-claude-with-cursor/" class="text-blue text-underline">utiliser Claude avec
+        Cursor</a> explique comment choisir le modèle.
+    </p>
+
+    <h3 class="exo mt-4">Longues sessions d'agent et migrations</h3>
+
+    <p>
+      C'est le cas le plus clair en faveur de Fable 5.2. Le Remote Labor Index (de vraies missions de type freelance)
+      double presque, de 21,3 % à 41,3 %. Les partenaires décrivent le même comportement au lancement : Uber explique
+      qu'il "works until the job is actually complete instead of stopping at a plausible checkpoint", et Vercel "I
+      haven't had to say 'No, I meant...' a single time." Sur une longue session, les relances et les corrections
+      humaines coûtent bien plus que les tokens. Un modèle qui en demande moins revient moins cher, même avec un prix au
+      token deux fois plus élevé.
+    </p>
+
+    <h3 class="exo mt-4">3D : three.js, scripts Blender, CAO</h3>
+
+    <p>
+      La question "Fable 5.2 ou Opus 5.5 pour la 3D" revient souvent, et les données la tranchent : BenchCAD 2.1 montre
+      le plus gros écart de tous les benchmarks (75,4 % contre 49,0 % sans outils, 83,5 % contre 65,3 % avec outils).
+      Construire une géométrie à partir d'une description demande du raisonnement spatial, et c'est là que Fable 5.2
+      creuse le plus l'écart. Notre répartition : Fable 5.2 pour générer la première version d'une scène, d'un rig ou
+      d'une pièce, puis Opus 5.5 pour les retouches bon marché (couleurs, mouvements de caméra, petits paramètres). La
+      <a href="https://www.youtube.com/watch?v=SsSKJA0EHD4" class="text-blue text-underline" rel="noopener noreferrer"
+        target="_blank">vidéo comparative de Peter Yang</a> contient deux tests 3D (une vidéo de voyage à Kyoto codée
+      de A à Z et un jeu de course de karts) et montre chaque prompt et chaque résultat. Regardez-la avant de décider. Il
+      y signale aussi un test où Opus garde l'avantage.
+    </p>
+
+    <h3 class="exo mt-4">Recherche, graphiques et analyse de documents</h3>
+
+    <p>
+      C'est le cas le plus rentable pour Fable 5.2, parce qu'il gagne dès l'effort <em>medium</em>. Sur Chartography,
+      medium (66,4 %) bat Opus en max (64,4 %), la recherche agentique WANDR est à +9,8, et AA-Omniscience montre moins
+      de faits inventés. Pour une due diligence, une étude de marché ou la lecture de nombreux rapports contradictoires,
+      Fable medium est à la fois moins cher et plus fiable qu'Opus poussé au max. Exception : GDP.pdf, un benchmark sur
+      documents où Opus fait un peu mieux. Testez donc vos propres charges de travail riches en PDF avant de basculer.
+    </p>
+
+    <h3 class="exo mt-4">Rédaction et capacité à tenir sa position</h3>
+
+    <p>
+      Pour les articles, la documentation et les livrables clients, commencez par Opus 5.5 : ses textes sont légèrement
+      préférés en face-à-face, et il coûte deux fois moins cher. Aucun des deux modèles n'évite par défaut les tournures
+      génériques d'IA. Un court bloc de style dans
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">CLAUDE.md</code> ou dans votre
+      prompt système (voix active, pas de mots de remplissage, pas de précautions oratoires, pas de flatterie) change
+      plus le résultat que le choix du modèle. La vidéo de Peter Yang teste aussi quel modèle tient sa position quand
+      l'utilisateur conteste, à regarder si vous utilisez Claude pour challenger vos décisions.
+    </p>
+
+    <h3 class="exo mt-4">Sécurité et biologie</h3>
+
+    <p>
+      Fable 5.2 applique des classifieurs cyber et biologie. Quand une requête est bloquée, Anthropic fait répondre
+      Opus 4.8 pour la cyber et Opus 5 pour la biologie. Anthropic annonce environ 55 % de faux positifs en moins par
+      rapport à Fable 5.1. Les organisations vérifiées dans la cyber et les sciences du vivant peuvent demander
+      <strong>Claude Mythos 5.2</strong>, le même modèle proposé via les programmes de vérification d'Anthropic. Opus
+      5.5 a lui aussi des classifieurs cyber et bio, changer de modèle ne supprime donc pas les refus. Dans l'API, gérez
+      la raison d'arrêt
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">refusal</code> sur les deux.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Router entre les deux dans l'API</h2>
+
+    <p>
+      Le guide officiel d'Anthropic conseille de démarrer avec Opus 5.5 et de passer à Fable 5.2 quand vos évaluations
+      en xhigh ou max restent insuffisantes. En code, cela donne un petit routeur qui fixe le modèle et l'effort en même
+      temps :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic();
+
+function route(task: { longRun: boolean; research: boolean; failedOnOpus: boolean }) {
+  if (task.longRun || task.failedOnOpus) return { model: "claude-fable-5-2", effort: "high" } as const;
+  if (task.research) return { model: "claude-fable-5-2", effort: "medium" } as const;
+  return { model: "claude-opus-5-5", effort: "medium" } as const;
+}
+
+const { model, effort } = route({ longRun: false, research: true, failedOnOpus: false });
+
+const response = await client.beta.messages.create({
+  model,
+  max_tokens: 16000,
+  output_config: { effort },
+  betas: ["server-side-fallback-2026-07-01"],
+  fallbacks: "default",
+  messages: [{ role: "user", content: "Compare les graphiques de chiffre d'affaires des trois rapports joints." }],
+});
+
+if (response.stop_reason === "refusal") console.warn(response.stop_details);</code></pre>
+    </div>
+
+    <p>
+      Fixez toujours <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">effort</code>
+      explicitement, puisque les valeurs par défaut diffèrent.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">fallbacks: "default"</code>
+      relance une requête refusée sur un modèle de secours choisi selon la catégorie du refus, pour qu'un blocage de
+      classifieur ne mette pas fin à la tâche. Avant de faire confiance au routeur, passez 20 à 50 de vos vraies tâches
+      dans les deux modèles et comparez le coût par tâche <em>réussie</em>.
+    </p>
+
+    <h3 class="exo mt-4">Ce qui casse en passant d'Opus 5.5 à Fable 5.2</h3>
+
+    <ul class="lh-rem-4">
+      <li><strong>Historique en ajout seul.</strong> Fable 5.2 contrôle les modifications d'historique sur tous les
+        comptes. Si votre harnais modifie
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">system</code>,
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tools</code> ou des messages
+        précédents en cours de conversation, corrigez cela en premier.</li>
+      <li><strong>Les blocs de réflexion sont liés au modèle.</strong> Changer de modèle au milieu d'une conversation
+        fait perdre la réflexion précédente. Routez par tâche, pas par tour.</li>
+      <li><strong>Le pilotage d'ordinateur</strong> exige
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">computer_toolset_20260801</code>
+        sur les deux modèles ; l'ancien
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">computer_20251124</code>
+        renvoie une erreur 400 sur l'API Claude (Amazon Bedrock l'accepte encore).</li>
+      <li><strong>Outil advisor :</strong> un exécutant Fable 5.2 n'accepte que Fable 5.2 ou Mythos 5.2 comme
+        advisor.</li>
+      <li><strong>Inchangé par rapport à Opus 5.5 :</strong> pas de
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">budget_tokens</code>, pas de
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tool_choice</code> forcé
+        (<code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">any</code> /
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">tool</code>), pas de
+        préremplissage de la réponse.</li>
+      <li><strong>Conformité :</strong> Fable 5.2 exige une rétention des données de 30 jours. Les organisations en zero
+        data retention reçoivent une erreur 400, sauf autorisation explicite d'Anthropic.</li>
+    </ul>
+
+    <h2 class="exo mt-5" itemprop="subtitle">FAQ</h2>
+
+    <h3 class="exo mt-4">Fable 5.2 est-il meilleur qu'Opus 5.5 ?</h3>
+    <p>
+      En capacités, oui : il gagne 20 benchmarks sur 24, et l'Intelligence Index d'Artificial Analysis est de 65 contre
+      59 en effort max. En rapport qualité-prix, tout dépend du budget. Au-delà d'environ 3 $ par tâche, Fable 5.2 donne
+      plus d'intelligence par dollar. En dessous, Opus 5.5 en effort low ou medium n'a pas d'équivalent chez Fable.
+    </p>
+
+    <h3 class="exo mt-4">Fable 5.2 vaut-il 2x le prix ?</h3>
+    <p>
+      Pour les longues sessions d'agent, la recherche, la CAO et la 3D, généralement oui. À effort comparable, il coûte
+      souvent moins cher par tâche terminée qu'Opus 5.5 (Fable low à 3,10 $ bat Opus high à 3,46 $). Pour les petites
+      tâches de code et la rédaction, généralement non.
+    </p>
+
+    <h3 class="exo mt-4">Fable 5.2 ou Opus 5.5 pour coder ?</h3>
+    <p>
+      Fable 5.2 mène sur FrontierCode 2.0 (49,1 % contre 45,5 %), FrontierSWE v2 (69,9 % contre 62,3 %) et SWE-bench
+      Pro (93,0 % contre 89,9 %). Opus 5.5 gagne ProgramBench, et les deux sont à égalité sur Terminal-Bench 4.0. Opus
+      pour le quotidien, Fable pour les gros changements en plusieurs étapes.
+    </p>
+
+    <h3 class="exo mt-4">Fable 5.2 est-il plus rapide qu'Opus 5.5 ?</h3>
+    <p>
+      Opus 5.5 génère ses tokens plus vite (103 à 115 tokens/s contre 87 à 103 chez Artificial Analysis). Mais à
+      intelligence égale, Fable termine souvent avant : Fable low met 6,5 minutes par tâche contre 9,5 pour Opus high.
+      Les deux proposent un fast mode à 2x le prix standard.
+    </p>
+
+    <h3 class="exo mt-4">Peut-on utiliser Fable 5.2 avec l'abonnement Claude Pro ?</h3>
+    <p>
+      Oui. Fable 5.2 est disponible sur Pro, Max, Ultra, Team et Enterprise. Pendant la promotion de lancement, les
+      forfaits Pro et les sièges Team standard peuvent utiliser Fable jusqu'à 50 % de leurs limites d'usage
+      hebdomadaires. L'effort par défaut est medium dans les apps Claude et dans Claude Code.
+    </p>
+
+    <h3 class="exo mt-4">Quelle différence entre Fable 5.2 et Mythos 5.2 ?</h3>
+    <p>
+      Même modèle, même prix. Mythos 5.2 est réservé aux organisations approuvées via les programmes de vérification
+      Cyber ou Life Sciences d'Anthropic, pour des travaux de sécurité et de recherche que les protections de la version
+      grand public bloqueraient.
+    </p>
+
+    <h3 class="exo mt-4">Faut-il arrêter d'utiliser Opus 5.5 ?</h3>
+    <p>
+      Non. Anthropic recommande toujours Opus 5.5 comme point de départ pour la plupart des tâches de code et de travail
+      intellectuel. Fable 5.2 est le modèle vers lequel on monte quand il le faut.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">En résumé</h2>
+
+    <p>
+      Fable 5.2 est le modèle le plus fort : 20 benchmarks sur 24, avec ses plus grosses avances sur les longues
+      sessions d'agent, la CAO, la robotique et les sciences, et beaucoup moins d'hallucinations. Opus 5.5 reste le
+      meilleur choix par défaut pour le code au quotidien, les agents terminal, la rédaction et tout ce qui coûte moins
+      de 3 $ par tâche. Ne les comparez pas à leurs efforts par défaut. Alignez d'abord l'effort, mesurez le coût par
+      tâche réussie sur vos propres usages, et passez à Fable 5.2 quand Opus 5.5 atteint ses limites.
+    </p>
+  </article>
+</div>
+
+
+  <div class="col-md2 d-flex fx-col h100 hide-sm-down">
+    
+
+    <div class="categories p-3 mt-5 rounded-2 bd-3 bd-solid bd-dark-3 shadow-1 fit-content-height mb-3">
+      <h2 class="exo font-s3 font-w400 mt-0">Catégories</h2>
+
+      <div class="d-flex fx-wrap">
+        <a class="d-flex text-grey" href='/fr/blog/'>
+          Tous les articles
+        </a>
+
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/android/">
+          Android (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/angular/">
+          Angular (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axentix/">
+          Axentix (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/axios/">
+          Axios (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/css/">
+          CSS (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/cursor/">
+          Cursor (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/http/">
+          Http (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/javascript/">
+          JavaScript (16)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/llm/">
+          LLM (3)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/nativewind/">
+          NativeWind (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/network/">
+          Network (1)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/shacdn/">
+          Shacdn (2)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/tamagui/">
+          Tamagui (5)
+        </a>
+        
+        <div class="divider grey dark-2 my-3"></div>
+        <a class="d-flex text-grey" href="/fr/blog/websockets/">
+          WebSockets (1)
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="background-light my-5 py-5">
+  <h2 class="text-center font-s7 mx-2">
+    Commencez à créer avec Axentix
+  </h2>
+
+  <p class="text-center font-s3 mx-2">
+    Prêt à créer des sites web exceptionnels ? Commencez avec le framework Axentix dès aujourd&#39;hui.
+  </p>
+
+  <a href="/docs/getting-started/"
+    class="d-block btn btn-large orange-gradient text-white mx-auto rounded-4 d-flex vcenter font-w600">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="mr-2 hide-md" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87l1.18 6.88L12 17.77l-6.18 3.25L7 14.14L2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    Commencer
+  </a>
+</section>
+
+<section class="container">
+  
+  
+  
+  
+  
+  <h2 class="h3">Articles similaires</h2>
+
+  <div class="grix sm2 md3 gutter-xs7 vstretch related-posts">
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/tamagui-takeout-production-ready-stack/" aria-label="Tamagui Takeout : la pile prête pour la production des applications React multiplateformes article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/tamagui-takeout-production-ready-stack/tamagui-takeout.webp" loading="lazy"
+      alt="Tamagui Takeout : la pile prête pour la production des applications React multiplateformes recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/tamagui-takeout-production-ready-stack/">
+        Tamagui Takeout : la pile prête pour la production des applications React multiplateformes
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        14 Dec 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Découvrez Tamagui Takeout, la base complète prête pour la production avec Supabase, tRPC, des formulaires universels et tout ce qu&rsquo;il faut pour créer des applications avec des systèmes utilisateur sur le web et les plateformes natives.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/tamagui-takeout-production-ready-stack/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/tamagui/tamagui-gluestack-ui-kitten-what-react-native-devs-say/" aria-label="Tamagui vs Gluestack UI : lequel choisir ? article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/tamagui/what-is-tamagui-and-how-to-use-it/banner.png" loading="lazy"
+      alt="Tamagui vs Gluestack UI : lequel choisir ? recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/tamagui/tamagui-gluestack-ui-kitten-what-react-native-devs-say/">
+        Tamagui vs Gluestack UI : lequel choisir ?
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        30 Mar 2026
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/tamagui/">Tamagui
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Tamagui et Gluestack UI sont les deux bibliothèques UI React Native les plus discutées en ce moment. Voici en quoi elles diffèrent et ce qu&rsquo;il faut peser avant d&rsquo;en choisir une.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/tamagui/tamagui-gluestack-ui-kitten-what-react-native-devs-say/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+    <div class="blog-card d-flex fx-col bd-3 bd-solid bd-dark-3">
+  
+
+  <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/" aria-label="6 facons de fusionner des tableaux en JavaScript : guide complet article image">
+    <img class="blog-card-image" src="https://useaxentix.com//img/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/js-concat-array-javascript.webp" loading="lazy"
+      alt="6 facons de fusionner des tableaux en JavaScript : guide complet recommended article" />
+  </a>
+
+  <div class="p-3 d-flex fx-col fx-grow">
+    <h3 class="exo mt-0 mb-2 font-s3">
+      <a href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+        6 facons de fusionner des tableaux en JavaScript : guide complet
+      </a>
+    </h3>
+
+    <ul class="p-0">
+      <li class="d-inline-block">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+          <path fill="currentColor"
+            d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+        </svg>
+        04 Oct 2025
+        <br>
+        <span class="mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor"
+              d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+          </svg>
+        </span>
+        
+        
+        <a href="/fr/blog/javascript/">Java script
+        </a>
+        
+      </li>
+    </ul>
+
+    <p class="mt-0">Apres avoir lu cet article, vous saurez fusionner des tableaux en JavaScript avec 6 methodes differentes. Apprenez concat, l&rsquo;operateur spread, push, et plus encore avec des comparaisons de performance et des bonnes pratiques.</p>
+
+    <a class="btn shadow-1 rounded-2 orange-gradient mt-auto" href="/fr/blog/javascript/6-ways-to-merge-arrays-together-in-javascript/">
+      Read article
+    </a>
+  </div>
+</div>
+    
+  </div>
+  
+</section>
+
+<div data-ea-publisher="useaxentix-com" data-ea-type="text" data-ea-style="fixedfooter" id="ads-blog-text"></div>
+
+    </main><footer class="footer fx-center fx-col text-center mt-5 mb-3">
+  <div class="d-flex mb-3">
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://github.com/axentix/axentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Github"
+    >
+      <span class="iconify-inline" data-icon="mdi:github"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://twitter.com/UseAxentix"
+      target="_blank"
+      rel="noopener"
+      aria-label="Twitter"
+    >
+      <span class="iconify-inline" data-icon="mdi:twitter"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1 mr-2"
+      href="https://discord.useaxentix.com/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Discord"
+    >
+      <span class="iconify-inline" data-icon="mdi:discord"></span>
+    </a>
+
+    <a
+      class="btn btn-circle btn-large orange-gradient light-hoverable-1"
+      href="https://www.linkedin.com/company/axentix/"
+      target="_blank"
+      rel="noopener"
+      aria-label="Linkedin"
+    >
+      <span class="iconify-inline" data-icon="mdi:linkedin"></span>
+    </a>
+  </div>
+
+  <p class="m-0 mb-3">
+    <a href="/fr/tools/speedtest-internet-health-test/" class="text-underline text-grey">Test de débit Internet</a>
+  </p>
+
+  <p class="m-0">
+    Framework Axentix - Créé avec ♥ par Axel SIMONET et Vincent LEVEQUE<br>
+    Créateurs d'<a href="https://axenthost.com/" class="text-underline">AxentHost</a> chez <a href="https://axentsoftware.com/" class="text-underline">AxentSoftware</a>
+  </p>
+</footer>
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"
+        integrity="sha256-yjIu0AqCpNVrJGG7vGaQ3Vh31hkcPFqOl+gdQQ8jrdg=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="/axentix/axentix.min.6cd648faa67284e23f7a653026ae00bff76a5b3084ee8fdddee4bd43cd9c5a55.js"></script>
+    <script src="/js/prism.32401309884c0530c9aa9096b445eccdbe489242c7c5061ce5b3c51f9a500460.js"></script>
+    <script src="/js/common.min.fb1e9577493c265bfdb4174aa4cb84cb9afa37d16ab82f37f14321e4b8f3b76c.js"></script>
+
+    
+    
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBCE9VSGDN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MBCE9VSGDN');
+    </script>
+    
+</body>
+
+</html>
