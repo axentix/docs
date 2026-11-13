@@ -1,0 +1,573 @@
+---
+title: "Vue nextTick() : à quoi ça sert et quand l'utiliser (exemples Vue 3)"
+description: "Comprendre nextTick() dans Vue : await nextTick() en Vue 3, this.$nextTick() avec l'Options API, des
+exemples concrets et les erreurs courantes à éviter."
+date: 2026-11-13
+author: "Axentix Team"
+image: "/img/blog/vue/vue-nexttick/vue-nexttick-banner.webp"
+categories: ["Vue"]
+summary: "Comprendre Vue nextTick() en quelques minutes : pourquoi le DOM n'est pas mis à jour juste après un
+changement d'état, comment utiliser await nextTick() et this.$nextTick(), et des exemples concrets comme donner le
+focus à un champ ou faire défiler un chat."
+---
+
+<div class="col-md5">
+  <h1 class="exo mt-5 mb-4" itemprop="title">
+    Vue nextTick() : à quoi ça sert et quand l'utiliser
+  </h1>
+
+  <div class="text-grey text-light-1">
+    <a href="/blog/vue/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="currentColor"
+          d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20z" />
+      </svg>
+      Vue
+    </a>
+
+    <time itemprop="datePublished" datetime="2026-11-13" class="ml-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="icon">
+        <path fill="currentColor"
+          d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z" />
+      </svg>
+      13/11/2026
+    </time>
+  </div>
+
+  <p class="mb-5 font-s3">
+    Découvrez ce que fait Vue nextTick(), pourquoi le DOM n'est pas mis à jour juste après un changement d'état, et
+    comment utiliser await nextTick() et this.$nextTick() avec des exemples concrets en Vue 3.
+  </p>
+
+  <figure class="mt-5 d-flex fx-col fit-content mx-0">
+    <img class="responsive-media rounded-2 shadow-3 bd-grey bd-dark-4 bd-1 bd-solid w100" loading="lazy"
+      title="Vue nextTick() : à quoi ça sert et quand l'utiliser"
+      src='{{< link url="img/blog/vue/vue-nexttick/vue-nexttick-banner.webp" >}}'
+      alt="Vue nextTick() qui attend la mise à jour du DOM après un changement d'état" />
+
+    <figcaption class="text-center text-grey mb-5 mt-2">Vue nextTick() : à quoi ça sert et quand l'utiliser
+    </figcaption>
+  </figure>
+
+  <article class="lh-3 font-s2-5 mb-5">
+    <p>
+      <strong>Vue nextTick</strong> est une fonction qui attend que Vue ait fini de mettre à jour le DOM après un
+      changement d'état réactif. Quand vous écrivez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">count.value++</code>, l'écran n'est pas mis à jour à la
+      ligne suivante. Vue planifie la mise à jour, et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> permet d'exécuter du code une fois
+      qu'elle est terminée :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { ref, nextTick } from 'vue';
+
+const count = ref(0);
+
+async function increment() {
+  count.value++;
+  // Le DOM affiche encore l'ancienne valeur ici
+
+  await nextTick();
+  // Le DOM est maintenant à jour
+}</code></pre>
+    </div>
+
+    <p>
+      Vous n'en avez besoin que lorsque votre code lit ou manipule le DOM juste après un changement : donner le focus à
+      un champ qui vient d'apparaître, faire défiler jusqu'à un nouveau message, mesurer un élément. Ce guide explique
+      pourquoi Vue fonctionne ainsi, comment utiliser <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> avec la Composition API et l'Options API,
+      et les erreurs qui donnent l'impression qu'il ne fonctionne pas. Chaque exemple a été vérifié avec Vue 3.5.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Pourquoi le DOM n'est pas mis à jour immédiatement</h2>
+
+    <p>
+      Vue ne modifie pas le DOM à chaque changement d'une valeur réactive. Il place la mise à jour du composant dans une
+      file d'attente et applique tous les changements en attente d'un seul coup, un peu plus tard dans le même tour de
+      la boucle d'événements. Prenons ce composant :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;script setup&gt;
+import { ref, nextTick } from 'vue';
+
+const count = ref(0);
+const counter = ref(null);
+
+async function increment() {
+  count.value++;
+  console.log(counter.value.textContent); // '0'
+
+  await nextTick();
+  console.log(counter.value.textContent); // '1'
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click="increment"&gt;
+    Compteur : &lt;span ref="counter"&gt;{{ count }}&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/template&gt;</code></pre>
+    </div>
+
+    <p>
+      Juste après <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">count.value++</code>, l'état vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">1</code> mais le
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">&lt;span&gt;</code> contient toujours <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">0</code>. Après <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await nextTick()</code>, il contient
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">1</code>.
+    </p>
+
+    <p>
+      Ce délai est volontaire. Si une fonction modifie trois fois la même valeur, Vue ne rend le composant qu'une seule
+      fois :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function incrementThreeTimes() {
+  count.value++;
+  count.value++;
+  count.value++;
+  // Le composant n'est rendu qu'une fois, avec count = 3
+}</code></pre>
+    </div>
+
+    <p>
+      Regrouper les mises à jour évite du travail inutile et garde les pages complexes rapides. La contrepartie, c'est
+      que le DOM a un temps de retard sur votre état, et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> sert justement à attendre qu'il
+      rattrape ce retard.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Syntaxe de nextTick() en Vue 3</h2>
+
+    <p>
+      En Vue 3, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick</code> s'importe depuis <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'vue'</code>. Il accepte un callback optionnel et
+      retourne toujours une Promise :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">function nextTick(callback?: () => void): Promise&lt;void&gt;</code></pre>
+    </div>
+
+    <p>
+      Vous pouvez l'utiliser de deux façons. Les deux attendent la même mise à jour du DOM :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { nextTick } from 'vue';
+
+// 1. Avec await (recommandé)
+await nextTick();
+// DOM à jour
+
+// 2. Avec un callback
+nextTick(() => {
+  // DOM à jour
+});</code></pre>
+    </div>
+
+    <p>
+      La forme avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await</code> est plus lisible, surtout quand vous enchaînez plusieurs opérations, et
+      c'est celle qu'utilise la
+      <a href="https://vuejs.org/api/general.html#nexttick" target="_blank" rel="noopener noreferrer"
+        class="text-primary text-underline">documentation officielle de Vue sur nextTick()</a> dans ses exemples.
+    </p>
+
+    <h3 class="exo mt-4">this.$nextTick() avec l'Options API</h3>
+
+    <p>
+      Avec l'Options API, chaque instance de composant dispose d'une méthode <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">$nextTick()</code>. Elle fait la même
+      chose que <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code>, mais lie en plus <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> au composant courant dans le callback :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">export default {
+  data() {
+    return { message: 'Bonjour' };
+  },
+  methods: {
+    async updateMessage() {
+      this.message = 'Mis à jour';
+
+      await this.$nextTick();
+      console.log(this.$refs.text.textContent); // 'Mis à jour'
+    }
+  }
+};</code></pre>
+    </div>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this.$nextTick(function () { ... })</code> fonctionne aussi : dans cette fonction classique,
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> est l'instance du composant.
+    </p>
+
+    <h3 class="exo mt-4">Comment nextTick fonctionne en interne</h3>
+
+    <p>
+      Quand une valeur réactive change, Vue ajoute la tâche de mise à jour du composant dans une file d'attente et
+      planifie le traitement de cette file sous forme de microtâche, via une Promise déjà résolue.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> retourne une Promise qui se résout après ce traitement. Deux conséquences :
+    </p>
+
+    <ul class="lh-rem-4">
+      <li>
+        Tout code synchrone placé après un changement d'état voit encore l'ancien DOM, car la file n'a pas encore été
+        traitée.
+      </li>
+      <li>
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> se résout avant n'importe quel callback de <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code>, puisque les
+        microtâches passent avant la tâche suivante de la boucle d'événements.
+      </li>
+    </ul>
+
+    <p>
+      Appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> quand rien n'est en attente ne pose aucun problème : la Promise se résout
+      simplement à la microtâche suivante.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Exemples concrets de nextTick dans Vue</h2>
+
+    <h3 class="exo mt-4">1. Donner le focus à un champ qui vient d'apparaître</h3>
+
+    <p>
+      C'est le cas d'usage le plus courant. Quand un <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">&lt;input&gt;</code> est affiché avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">v-if</code>, il n'existe pas encore à la ligne où vous changez la condition, donc sa ref de template
+      vaut <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">null</code> :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;script setup&gt;
+import { ref, nextTick } from 'vue';
+
+const editing = ref(false);
+const input = ref(null);
+
+async function startEditing() {
+  editing.value = true;
+  // input.value vaut encore null ici
+
+  await nextTick();
+  input.value.focus();
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;input v-if="editing" ref="input" @blur="editing = false" /&gt;
+  &lt;button v-else @click="startEditing"&gt;Modifier&lt;/button&gt;
+&lt;/template&gt;</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">2. Faire défiler un chat jusqu'au dernier message</h3>
+
+    <p>
+      Juste après l'ajout d'un message, la liste n'est pas encore plus haute. Attendez que le nouveau
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">&lt;li&gt;</code> soit rendu, puis faites défiler :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-html">&lt;script setup&gt;
+import { ref, nextTick } from 'vue';
+
+const messages = ref([]);
+const list = ref(null);
+let nextId = 0;
+
+async function addMessage(text) {
+  messages.value.push({ id: nextId++, text });
+
+  await nextTick();
+  list.value.scrollTop = list.value.scrollHeight;
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul ref="list" class="chat"&gt;
+    &lt;li v-for="message in messages" :key="message.id"&gt;{{ message.text }}&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;</code></pre>
+    </div>
+
+    <p>
+      Sans <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code>, le défilement s'arrêterait à chaque fois un message trop tôt.
+    </p>
+
+    <h3 class="exo mt-4">3. Mesurer un élément après un changement de contenu</h3>
+
+    <p>
+      Les tailles et positions ne changent qu'une fois le DOM mis à jour. Lisez-les après <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code>,
+      pas avant :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const text = ref('');
+const box = ref(null);
+const height = ref(0);
+
+async function setText(value) {
+  text.value = value;
+
+  await nextTick();
+  height.value = box.value.offsetHeight;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">4. Initialiser une librairie tierce sur un nouvel élément</h3>
+
+    <p>
+      Les librairies de graphiques, de cartes ou d'éditeurs ont besoin d'un vrai élément du DOM. Si cet élément apparaît
+      avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">v-if</code>, créez l'instance après le prochain tick :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">const showChart = ref(false);
+const canvas = ref(null);
+
+async function openChart() {
+  showChart.value = true;
+
+  await nextTick();
+  new Chart(canvas.value, chartConfig);
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">5. Attendre le DOM dans les tests de composants</h3>
+
+    <p>
+      Les tests rencontrent le même délai. Avec Vue Test Utils, les méthodes comme <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">trigger()</code> et
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setValue()</code> retournent déjà <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code>, il suffit donc de les attendre. Quand vous
+      modifiez l'état directement, attendez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> vous-même :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
+import Counter from './Counter.vue';
+
+test('met à jour le compteur', async () => {
+  const wrapper = mount(Counter);
+
+  // trigger() retourne nextTick(), l'attendre suffit
+  await wrapper.find('button').trigger('click');
+  expect(wrapper.text()).toContain('1');
+
+  // Un changement d'état direct demande un nextTick() explicite
+  wrapper.vm.count = 5;
+  await nextTick();
+  expect(wrapper.text()).toContain('5');
+});</code></pre>
+    </div>
+
+    <h2 class="exo mt-5" itemprop="subtitle">nextTick vs setTimeout, watch et onUpdated</h2>
+
+    <p>
+      Plusieurs outils exécutent du code "après un changement". Ils ne s'exécutent pas au même moment :
+    </p>
+
+    <div class="table-responsive mt-4 mb-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Outil</th>
+            <th>Quand il s'exécute</th>
+            <th>À utiliser pour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code></td>
+            <td>Juste après la mise à jour du DOM en attente</td>
+            <td>Une action ponctuelle sur le DOM après une action de votre code</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout(fn, 0)</code></td>
+            <td>Dans une tâche ultérieure, après Vue et parfois après un rendu du navigateur</td>
+            <td>Rien qui touche au DOM dans Vue : ça marche par hasard et peut provoquer un clignotement</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">watch(source, fn, { flush: 'post' })</code></td>
+            <td>Après la mise à jour du DOM, à chaque changement de la source</td>
+            <td>Réagir à une valeur, quelle que soit l'origine du changement</td>
+          </tr>
+          <tr>
+            <td><code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">onUpdated()</code></td>
+            <td>Après chaque nouveau rendu du composant, quelle qu'en soit la raison</td>
+            <td>Les rares cas qui doivent suivre chaque rendu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      L'option des watchers mérite d'être connue. Par défaut, un watcher s'exécute <em>avant</em> la mise à jour du DOM,
+      il voit donc l'ancien DOM. Avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flush: 'post'</code>, il s'exécute après, et vous n'avez pas besoin de
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> à l'intérieur :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">import { watch } from 'vue';
+
+// S'exécute avant la mise à jour du DOM : voit l'ancien DOM
+watch(count, () => {
+  console.log(counter.value.textContent); // '0'
+});
+
+// S'exécute après la mise à jour du DOM : voit le nouveau DOM
+watch(count, () => {
+  console.log(counter.value.textContent); // '1'
+}, { flush: 'post' });</code></pre>
+    </div>
+
+    <p>
+      Une règle simple : utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> quand le travail sur le DOM est lié à une action précise
+      (un clic, un envoi de formulaire), et un watcher <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flush: 'post'</code> quand il doit avoir lieu à chaque
+      changement d'une valeur.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Erreurs courantes quand nextTick "ne fonctionne pas"</h2>
+
+    <h3 class="exo mt-4">Oublier de l'attendre</h3>
+
+    <p>
+      Appeler <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> seul sur une ligne ne sert à rien. Il faut soit l'attendre avec
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await</code>, soit lui passer un callback :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Incorrect : la ligne suivante n'attend pas
+editing.value = true;
+nextTick();
+input.value.focus(); // TypeError: input.value is null
+
+// Correct
+editing.value = true;
+await nextTick();
+input.value.focus();</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Enregistrer le callback avant de modifier l'état</h3>
+
+    <p>
+      Un callback passé à <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> avant le changement d'état peut s'exécuter avant la mise à jour
+      qu'il était censé attendre :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">// Incorrect : le callback est mis en file avant la mise à jour
+nextTick(() => {
+  console.log(counter.value.textContent); // toujours l'ancienne valeur
+});
+count.value++;
+
+// Correct : modifier l'état d'abord, puis attendre
+count.value++;
+await nextTick();
+console.log(counter.value.textContent); // nouvelle valeur</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">Croire que nextTick attend vos données</h3>
+
+    <p>
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> attend le rendu de Vue, pas un appel API. Si les données sont encore en cours de
+      chargement, il n'y a rien de nouveau à afficher. Attendez d'abord les données, puis le DOM :
+    </p>
+
+    <div class="code-block">
+      <pre><code class="language-javascript">async function loadUsers() {
+  users.value = await fetchUsers(); // 1. attendre les données
+  await nextTick();                 // 2. attendre le DOM
+  list.value.scrollTop = 0;
+}</code></pre>
+    </div>
+
+    <h3 class="exo mt-4">L'utiliser dans onMounted() pour le DOM du composant</h3>
+
+    <p>
+      Quand <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">onMounted()</code> s'exécute, le template du composant est déjà dans le DOM et ses refs de
+      template sont définies. Envelopper ce code dans <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> n'apporte rien. Il n'est utile que si
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">onMounted()</code> modifie lui-même l'état puis lit le résultat dans le DOM.
+    </p>
+
+    <h3 class="exo mt-4">Appeler Vue.nextTick() en Vue 3</h3>
+
+    <p>
+      Vue 3 a supprimé la plupart des API globales pour que les bundlers puissent éliminer ce que vous n'utilisez pas.
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Vue.nextTick()</code> n'existe plus : importez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick</code> depuis
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'vue'</code>, ou utilisez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this.$nextTick()</code> avec l'Options API.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">nextTick en Vue 2 et en Vue 3</h2>
+
+    <ul class="lh-rem-4">
+      <li>
+        <strong>Vue 2 :</strong> disponible via la méthode globale <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">Vue.nextTick()</code> et via
+        <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this.$nextTick()</code>. Il retourne une Promise quand il est appelé sans callback. En interne, il
+        privilégie les Promises et se rabat sur des mécanismes plus anciens dans les environnements qui n'en disposent
+        pas.
+      </li>
+      <li>
+        <strong>Vue 3 :</strong> s'importe avec <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">import { nextTick } from 'vue'</code>, retourne toujours une
+        Promise, et <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this.$nextTick()</code> reste disponible avec l'Options API.
+      </li>
+    </ul>
+
+    <p>
+      Le principe reste le même dans les deux versions : modifier l'état, attendre le prochain tick, puis travailler
+      avec le DOM. Vue 2 est en fin de vie depuis le 31 décembre 2023, le nouveau code doit donc cibler Vue 3.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Questions fréquentes</h2>
+
+    <h3 class="exo mt-4">À quoi sert nextTick dans Vue ?</h3>
+
+    <p>
+      Il attend que Vue ait appliqué au DOM les changements d'état en attente, puis résout sa Promise ou exécute son
+      callback. Utilisez-le quand votre code doit lire ou modifier le DOM mis à jour juste après un changement.
+    </p>
+
+    <h3 class="exo mt-4">nextTick retourne-t-il une Promise ?</h3>
+
+    <p>
+      Oui. En Vue 3, <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> retourne toujours une Promise, vous pouvez donc écrire
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await nextTick()</code>. Le callback est optionnel.
+    </p>
+
+    <h3 class="exo mt-4">Quelle différence entre nextTick() et this.$nextTick() ?</h3>
+
+    <p>
+      Ils attendent la même mise à jour. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> s'importe depuis <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">'vue'</code> et s'utilise
+      avec la Composition API. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this.$nextTick()</code> est la version Options API, qui lie
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> à l'instance du composant dans le callback.
+    </p>
+
+    <h3 class="exo mt-4">nextTick est-il équivalent à setTimeout(fn, 0) ?</h3>
+
+    <p>
+      Non. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">nextTick()</code> est une microtâche liée à la file de mises à jour de Vue et s'exécute juste
+      après la mise à jour du DOM. <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> attend une tâche ultérieure : il s'exécute plus tard
+      et le navigateur peut afficher un état intermédiaire entre les deux.
+    </p>
+
+    <h3 class="exo mt-4">Pourquoi ma ref de template vaut-elle encore null après un changement ?</h3>
+
+    <p>
+      L'élément est créé lors de la prochaine mise à jour du DOM, pas au moment où vous modifiez l'état. Placez
+      <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await nextTick()</code> entre le changement d'état et la ligne qui utilise la ref.
+    </p>
+
+    <h2 class="exo mt-5" itemprop="subtitle">Conclusion</h2>
+
+    <p>
+      Vue regroupe les mises à jour du DOM pour des raisons de performance, ce qui signifie que le DOM a toujours un
+      léger retard sur votre état après un changement. <strong>Vue nextTick</strong> comble cet écart : modifiez l'état,
+      faites <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">await nextTick()</code>, puis travaillez avec le DOM. Utilisez-le pour le focus, le
+      défilement et les mesures juste après une action, préférez un watcher <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">flush: 'post'</code> quand le
+      travail doit suivre chaque changement d'une valeur, et laissez <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">setTimeout()</code> de côté.
+    </p>
+
+    <p>
+      Si le <code class="m-0 p-1 airforce dark-4 bd-airforce bd-dark-3 bd-1 bd-solid rounded-1">this</code> des callbacks de l'Options API vous semble encore flou, notre
+      <a href="/fr/blog/javascript/javascript-bind-method-complete-guide/" class="text-primary text-underline">guide de
+        la méthode bind() en JavaScript</a> explique comment il est défini. Pour aller plus loin sur les Promises et
+      les timers, lisez
+      <a href="/fr/blog/javascript/wait-sleep-in-nodejs-complete-guide/" class="text-primary text-underline">comment
+        faire une pause (wait / sleep) en Node.js</a>.
+    </p>
+  </article>
+</div>
