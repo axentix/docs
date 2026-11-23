@@ -32,7 +32,7 @@ home.strip.layout: "Une classe pour contrôler la mise en page"
 home.strip.components: "Composants + classes utilitaires"
 home.strip.easy: "Facile à utiliser"
 
-home.sponsors.minecraft: "Serveur Minecraft gratuit"
+home.sponsors.creators: "Par les créateurs de"
 home.sponsors.placeholder: "Sponsor n°2"
 home.sponsors.placeholder3: "Sponsor n°3"
 home.sponsors.placeholder_more: "..."
